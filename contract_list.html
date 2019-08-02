@@ -26,37 +26,37 @@
         <!-- 계약품의 조회 -->
         <div id="tab-01" class="tab-content current">
             <div class="search">
-                <select>
-                    <optgroup>
+                <div class="selectbox">
+                    <select>
                         <option value="고객사명">고객사명</option>
                         <option value="품의명">품의명</option>
                         <option value="생산자">생산자</option>
-                    </optgroup>
-                </select>
+                    </select>
+                </div>
                 <input type="search" /> <i class="fas fa-search"></i>
             </div>
             <div class="list-title">
-                <h5>Total <strong class="red">0020</strong>건</h5>
+                <h6>Total <strong class="red">0020</strong>건</h6>
                 <div>
-                    <select>
-                        <optgroup>
-                            <option value="품의유형"></option>
-                            <option value="품의유형2"></option>
-                            <option value="품의유형3"></option>
-                            <option value="품의유형4"></option>
-                        </optgroup>
-                    </select>
-                    <select>
-                        <optgroup>
-                            <option value="품의유형5"></option>
-                            <option value="품의유형6"></option>
-                            <option value="품의유형7"></option>
-                            <option value="품의유형8"></option>
-                        </optgroup>
-                    </select>
+                    <div class="selectbox">
+                        <select>
+                            <option value="품의유형">품의유형</option>
+                            <option value="품의유형2">품의유형</option>
+                            <option value="품의유형3">품의유형</option>
+                            <option value="품의유형4">품의유형</option>
+                        </select>
+                    </div>
+                    <div class="selectbox">
+                        <select>
+                            <option value="품의유형5">품의유형</option>
+                            <option value="품의유형6">품의유형</option>
+                            <option value="품의유형7">품의유형</option>
+                            <option value="품의유형8">품의유형</option>
+                        </select>
+                    </div>
                 </div>
             </div><!-- end List Title -->
-            <div class="list-item">
+            <div class="list-item"  onclick="location.href='contract_details.html'">
                 <h2>[재계약] 노웰요양원</h2>
                 <span class="progress done">완료</span>
                 <ul>
