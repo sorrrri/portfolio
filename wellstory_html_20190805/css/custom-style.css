@@ -1,9 +1,0 @@
-.ui-mobile label {display:inline-block}
-#select-choice-button {box-shadow: none}
-/* List View */
-.ui-listview > li a {padding:1.2rem}
-.ui-listview > li i {margin-right:5px}
-
-.ui-listview > li .ui-btn-icon-right:after{border:1px solid #333; border-width:0 0 2px 2px; width:12px; height:12px; transform:rotate(-135deg); border-radius:unset; background:none; margin-top:-7px; right:1rem}
-
-.ui-bar-a {height:40px}

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>계약품의</title>
+    <title>계약품의관리</title>
     <link rel="stylesheet" href="css/common.css">
 </head>
 
 <body>
+    <div class="mask" role="dialog"></div>
     <!-- start Aside -->
-    <div class="aside hide">
+    <aside>
         <header>
             <div class="home" onclick=""></div>
             <ul>
@@ -21,146 +22,134 @@
                 </li>
             </ul>
         </header>
-        <div class="wrapper">
+        <section>
             <ul class="accordion-menu">
                 <li class="menu-title">메뉴</li>
                 <li>
                     <div class="dropdownlink">
-                        <a href="#">계약품의 조회<i class="fa fa-chevron-down"></i></a>
+                        <a href="#">근태관리<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">계약품의 조회1</a></li>
-                        <li><a href="#">계약품의 조회2</a></li>
-                        <li><a href="#">계약품의 조회3</a></li>
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">휴일특근 사전신청</a></li>
+                        <li><a href="#">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="dropdownlink">
-                        <a href="#">변경품의<i class="fa fa-chevron-down"></i></a>
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">변경품의1</a></li>
-                        <li><a href="#">변경품의2</a></li>
-                        <li><a href="#">변경품의3</a></li>
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
                     </ul>
                 </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
                 <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
                 <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
             </ul>
-        </div>
-    </div>
-    <!-- end Aside -->
+        </section>
+    </aside><!-- end Aside -->
 
     <div class="main-content">
         <header>
-            <div class="back"></div>
-            <h2>계약품의</h2>
-            <div class="menu">
+            <div class="back" style="visibility:hidden;"></div>
+            <h2>계약품의관리</h2>
+            <div class="menu" onclick="modal('aside-active')">
                 <span></span> <span></span> <span></span> <span></span>
             </div>
         </header>
-        <ul class="tab-menu">
-            <li class="tab w50p current" data-tab="tab-01">계약품의 조회</li>
-            <li class="w50p" data-tab="tab-02">변경품의</li>
-        </ul>
-
-        <section class="content">
-            <!-- 계약품의 조회 -->
-            <div id="tab-01" class="tab-content current">
+        <div class="content wrapper">
+            <section title="search-area">
                 <div class="search">
-                    <div class="selectbox">
-                        <select>
-                            <option value="고객사명">고객사명</option>
-                            <option value="품의명">품의명</option>
-                            <option value="생산자">생산자</option>
-                        </select>
-                    </div>
-                    <input type="search" placeholder="검색" /> <i class="fas fa-search" onclick=""></i>
+                    <input type="search" placeholder="고객사명을 입력해주세요." />
+                    <i class="fas fa-search" onclick=""></i>
                 </div>
-                <div class="list-title">
-                    <h6>Total <strong class="red">0020</strong>건</h6>
-                    <div>
-                        <div class="selectbox">
-                            <select>
-                                <option value="품의유형1">품의유형1</option>
-                                <option value="품의유형2">품의유형2</option>
-                                <option value="품의유형3">품의유형3</option>
-                                <option value="품의유형4">품의유형4</option>
-                            </select>
-                        </div>
-                        <div class="selectbox">
-                            <select>
-                                <option value="품의유형5">품의유형5</option>
-                                <option value="품의유형6">품의유형6</option>
-                                <option value="품의유형7">품의유형7</option>
-                                <option value="품의유형8">품의유형8</option>
-                            </select>
-                        </div>
-                    </div>
-                </div><!-- end List Title -->
-                <div class="list-item" onclick="location.href='contract_details.html'">
-                    <h2>[재계약] 노웰요양원</h2>
-                    <span class="progress done">완료</span>
-                    <ul>
-                        <li>품의 유형</li>
-                        <li>고객사명</li>
-                        <li>품의 완결일</li>
-                        <li>상신자</li>
-                    </ul>
-                </div>
-                <div class="list-item" onclick="location.href='contract_details.html'">
-                    <h2>[재계약] 노웰요양원</h2>
-                    <span class="progress done">완료</span>
-                    <ul>
-                        <li>품의 유형</li>
-                        <li>고객사명</li>
-                        <li>품의 완결일</li>
-                        <li>상신자</li>
-                    </ul>
-                </div>
-                <div class="list-item" onclick="location.href='contract_details.html'">
-                    <h2>[재계약] 노웰요양원</h2>
-                    <span class="progress ing">완료</span>
-                    <ul>
-                        <li>품의 유형</li>
-                        <li>고객사명</li>
-                        <li>품의 완결일</li>
-                        <li>상신자</li>
-                    </ul>
-                </div>
-                <div class="list-item" onclick="location.href='contract_details.html'">
-                    <h2>[재계약] 노웰요양원</h2>
-                    <span class="progress ing">완료</span>
-                    <ul>
-                        <li>품의 유형</li>
-                        <li>고객사명</li>
-                        <li>품의 완결일</li>
-                        <li>상신자</li>
-                    </ul>
-                </div>
-                <div class="list-item" onclick="location.href='contract_details.html'">
-                    <h2>[재계약] 노웰요양원</h2>
-                    <span class="progress ing">완료</span>
-                    <ul>
-                        <li>품의 유형</li>
-                        <li>고객사명</li>
-                        <li>품의 완결일</li>
-                        <li>상신자</li>
-                    </ul>
-                </div>
-            </div><!-- end Tab Content - 계약품의 조회 -->
+                <button class="main" disabled="disabled" onclick="modal('modal1')">조회</button>
+            </section>
+        </div><!-- end Content -->
+    </div><!-- end Main Content -->
 
-
-            <!-- 변경품의 -->
-            <div id="tab-02" class="tab-content">
-                변경품의
-            </div><!-- end Tab Content - 변경품의 -->
+    <!-- Modal -->
+    <div class="modal modal-small modal-01">
+        <header>
+            <!-- <div class="close"></div> -->
+            <h4>고객사 조회</h4>
+        </header>
+        <section>
+            <div class="search">
+                <input type="search" value="고메돈까스" />
+                <i class="fas fa-search" onclick=""></i>
+            </div>
         </section>
-    </div>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <section class="content wrapper">
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status ing">운영중</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+        </section>
+        <section class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main" onclick="location.href='contract_list_2.html'">확인</button>
+        </section>
+    </div><!-- end Modal -->
+    <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>
 </body>
 

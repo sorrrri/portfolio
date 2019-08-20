@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계약품의관리</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div class="mask" role="dialog"></div>
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">휴일특근 사전신청</a></li>
+                        <li><a href="#">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside>
+    <div class="main-content">
+        <header>
+            <div class="back hidden"></div>
+            <h2>계약품의관리</h2>
+            <div class="menu" onclick="modal('aside-active')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <div class="content wrapper ">
+            <section title="search-area">
+                <div class="search">
+                    <input type="search" placeholder="고객사명을 입력해주세요." />
+                    <i class="fas fa-search" onclick=""></i>
+                </div>
+                <button class="main" disabled="disabled" onclick="modal('modal1')">조회</button>
+            </section>
+            <ul class="tab-menu count">
+                <li class="tab w50p current" data-tab="tab-01">유효 <span>0</span></li>
+                <li class="w50p" data-tab="tab-02">전체 <span>0</span></li>
+            </ul>
+            <!-- 유효 -->
+            <section id="tab-01" class="no-data tab-content current">
+                검색결과가 없습니다.
+            </section><!-- end Tab Content - 유효 -->
+
+            <!-- 전체 -->
+            <section id="tab-02" class="no-data tab-content">
+                검색결과가 없습니다.
+            </section><!-- end Tab Content - 전체 -->
+        </div><!-- end Content -->
+    </div><!-- end Main Content -->
+
+    <!-- Modal -->
+    <div class="modal modal-input modal-01">
+        <header>
+            <!-- <div class="close"></div> -->
+            <h4>고객사 조회</h4>
+        </header>
+        <section>
+            <div class="search">
+                <input type="search" value="고메돈까스" readonly />
+                <i class="fas fa-search" onclick=""></i>
+            </div>
+        </section>
+        <div class="content">
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status ing">운영중</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <strong>고메돈까스지점2</strong>
+                <span class="status done">운영안함</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main">확인</button>
+        </div>
+    </div><!-- end Modal -->
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

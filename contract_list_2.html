@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계약품의관리 조회결과</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div class="mask" role="dialog"></div>
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">휴일특근 사전신청</a></li>
+                        <li><a href="#">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside>
+    <div class="main-content">
+        <header>
+            <div class="back hidden"></div>
+            <h2>계약품의관리 조회 결과</h2>
+            <div class="menu" onclick="modal('aside-active')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <div class="content wrapper">
+            <section title="search-area">
+                <div class="search">
+                    <input type="search" value="고메돈까스지점2" />
+                    <i class="fas fa-search" onclick=""></i>
+                </div>
+                <button class="main" onclick="modal('modal1')">조회</button>
+            </section>
+            <ul class="tab-menu count">
+                <li class="tab w50p current" data-tab="tab-01">유효 <span>1</span></li>
+                <li class="w50p" data-tab="tab-02">전체 <span>4</span></li>
+            </ul>
+            <!-- 유효 -->
+            <section id="tab-01" class="tab-content current">
+                <div class="list-title">
+                    <h6>Total <strong class="red">0001</strong>건</h6>
+                    <div>
+                        <div class="selectbox">
+                            <select>
+                                <option value="품의완결">품의완결</option>
+                                <option value="품의진행">품의진행</option>
+                                <option value="품의반려">품의반려</option>
+                            </select>
+                        </div>
+                        <div class="selectbox">
+                            <select>
+                                <option value="진행중">미진행</option>
+                                <option value="진행중" selected>진행중</option>
+                                <option value="완료">완료</option>
+                            </select>
+                        </div>
+                    </div>
+                </div><!-- end List Title -->
+                <div class="list-item" onclick="location.href='contract_details.html'">
+                    <h4>[변경] 고메돈까스지점2</h4>
+                    <span class="status ing">진행중</span>
+                    <span class="progress">품의완결</span>
+                    <ul>
+                        <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
+                    </ul>
+                </div>
+            </section><!-- end Tab Content - 유효 -->
+
+
+            <!-- 전체-->
+            <section id="tab-02" class="tab-content">
+                <div class="list-title">
+                    <h6>Total <strong class="red">0004</strong>건</h6>
+                    <div>
+                        <div class="selectbox">
+                            <select>
+                                <option value="품의완결">품의완결</option>
+                                <option value="품의진행">품의진행</option>
+                                <option value="품의반려">품의반려</option>
+                            </select>
+                        </div>
+                        <div class="selectbox">
+                            <select>
+                                <option value="미진행">미진행</option>
+                                <option value="진행중" selected>진행중</option>
+                                <option value="완료">완료</option>
+                            </select>
+                        </div>
+                    </div>
+                </div><!-- end List Title -->
+                <div class="list-item" onclick="location.href='contract_details.html'">
+                    <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="status ing">진행중</span>
+                    <ul>
+                        <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
+                    </ul>
+                </div>
+                <div class="list-item" onclick="location.href='contract_details.html'">
+                    <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="status ing">진행중</span>
+                    <ul>
+                        <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
+                    </ul>
+                </div>
+                <div class="list-item" onclick="location.href='contract_details.html'">
+                    <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="status ing">진행중</span>
+                    <ul>
+                        <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
+                    </ul>
+                </div>
+                <div class="list-item" onclick="location.href='contract_details.html'">
+                    <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="status ing">진행중</span>
+                    <ul>
+                        <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
+                    </ul>
+                </div>
+                <button class="main-border">더보기</button>
+            </section><!-- end Tab Content - 전체 -->
+        </div><!-- end Content -->
+    </div><!-- end Main Content -->
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

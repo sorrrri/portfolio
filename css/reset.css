@@ -29,7 +29,7 @@ body{-webkit-text-size-adjust: antialiased; -moz-osx-font-smoothing: grayscale;-
 input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
 input[type='submit'],input[type='reset'],input[type='file']{border-radius:0;-webkit-appearance:button}
 input[type='number'],input[type='tel'],input[type='date'],textarea,select{border-radius:0}
-input[type='search']::-webkit-search-cancel-button{-webkit-appearance:none}
+
 textarea:focus{outline:none}
 a{color:inherit;text-decoration:none;outline:none}
 a:active,a:hover{text-decoration:none}

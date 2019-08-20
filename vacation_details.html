@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>연간 휴가 조회</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div class="mask" role="dialog"></div>
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu vacation">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        근태관리<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일근무 신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">휴일특근 사전신청</a></li>
+                        <li><a href="#">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        위생안전점검<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside>
+    <div class="main-content bg-gray">
+        <header>
+            <div class="back hidden"></div>
+            <h2>연간 휴가 조회</h2>
+            <div class="menu" onclick="modal('aside-active')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <div class="content">
+            <section>
+                <div class="year">
+                    <h1>
+                        <i class="fas fa-angle-left"></i>
+                        2019
+                        <i class="fas fa-angle-right"></i>
+                    </h1>
+                </div>
+                <div class="bar-chart">
+                    <h4>연간 휴가 현황</h4>
+                    <h5>발생 <strong>20.00</strong>일 <i class="fas fa-question-circle" onclick="modal('modal1')"></i></h5>
+                    <div class="legend">
+                        <label>사용 <strong>5.00</strong>일</label>
+                        <label>잔여 <strong>15.00</strong>일</label>
+                    </div>
+                    <svg width="100%" height="55px">
+                        <g class="bars">
+                            <rect width="100%" height="25" fill="#D6D7D8"></rect>
+                            <rect height="25" fill="#003EB1">
+                                <animate attributeName="width" from="0" to="25%" dur=".5s" fill="freeze" />
+                            </rect>
+                        </g>
+                        <g class="markers">
+                            <rect width="1" height="30" x="0%"></rect>
+                            <rect width="1" height="30" x="25%"></rect>
+                            <rect width="1" height="30" x="50%"></rect>
+                            <rect width="1" height="30" x="75%"></rect>
+                            <rect width="1" height="30" x="100%"></rect>
+                        </g>
+                        <g class="labels" text-anchor="middle">
+                            <text text-anchor="start" x="0%" y="50">0</text>
+                            <text x="25%" y="50">5일</text>
+                            <text x="50%" y="50">10일</text>
+                            <text x="75%" y="50">15일</text>
+                            <text text-anchor="end" x="100%" y="50">20일</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="bar-chart">
+                    <h4>연간 휴가 촉진제도 <i class="fas fa-question-circle" onclick="modal('modal2')"></i></h4>
+                    <h5>
+                        <input type="radio" id="radio-01" name="01" checked="checked" />
+                        <label for="radio-01">대상</label>
+                        <input type="radio" id="radio-02" name="01" disabled="disabled" /> <label
+                            for="radio-02">비대상</label>
+                    </h5>
+                    <div class="legend">
+                        <label>나의 사용률 <strong>27.5</strong>%</label>
+                        <i class="fas fa-question-circle" onclick="modal('modal3')"></i>
+                    </div>
+                    <svg width="100%" height="55px">
+                        <g class="bars">
+                            <rect width="100%" height="25" fill="#D6D7D8"></rect>
+                            <rect height="25" fill="#003EB1">
+                                <animate attributeName="width" from="0" to="27.5%" dur=".5s" begin=".2s" fill="freeze" />
+                            </rect>
+                        </g>
+                        <g class="markers">
+                            <rect width="1" height="30" x="0%"></rect>
+                            <rect width="1" height="30" x="20%"></rect>
+                            <rect width="1" height="30" x="40%"></rect>
+                            <rect width="1" height="30" x="60%"></rect>
+                            <rect width="1" height="30" x="80%"></rect>
+                            <rect width="1" height="30" x="100%"></rect>
+                        </g>
+                        <g class="labels" text-anchor="middle">
+                            <text text-anchor="start" x="0%" y="50" fill="#00A0E9">0%</text>
+                            <text x="20%" y="50">20%</text>
+                            <text x="40%" y="50">40%</text>
+                            <text x="60%" y="50">60%</text>
+                            <text x="80%" y="50">80%</text>
+                            <text text-anchor="end" x="100%" y="50" fill="#00A0E9">100%</text>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <section>
+                <h4>월별 사용 현황</h4>
+                <ul class="accordion-menu vacation">
+                    <li>
+                        <div class="dropdownlink">
+                            1월<i class="fa fa-chevron-down"></i>
+                            <div class="days">
+                                <span>1회</span>
+                                <span>-0.50일</span>
+                            </div>
+                        </div>
+                        <ul class="submenuItems">
+                            <li>
+                                <span>2019.01.23</span>
+                                <span>연차(4시간)</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>2월</li>
+                    <li>3월</li>
+                    <li>
+                        <div class="dropdownlink">
+                            4월<i class="fa fa-chevron-down"></i>
+                            <div class="days">
+                                <span>4회</span>
+                                <span>-4.50일</span>
+                            </div>
+                        </div>
+                        <ul class="submenuItems">
+                            <li>
+                                <span>2019.04.02(화)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.11(목)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.17(수)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.26(금)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.30(화)</span>
+                                <span>연차(4시간)</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>5월</li>
+                    <li>6월</li>
+                    <li>7월</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <!-- Modal1 -->
+    <div class="modal modal-vacation modal-01">
+        <header>
+            <h4>연차휴가 발생현황</h4>
+        </header>
+        <div class="content">
+            <h5>2019.03.01 ~ 2020.02.29</h5>
+            <ul>
+                <li>
+                    <p>발생일수</p>
+                    <strong>20.00</strong>
+                </li>
+                <li>
+                    <p>연차</p>
+                    <strong>15.50</strong>
+                </li>
+                <li>
+                    <p>근속가산연차</p>
+                    <strong>5.00</strong>
+                </li>
+                <li>
+                    <p>전년도추가사용</p>
+                    <strong>0.00</strong>
+                </li>
+                <li>
+                    <p>중도발생연차</p>
+                    <strong>0.00</strong>
+                </li>
+                <li>
+                    <p>전년도미사용중도발생연차</p>
+                    <strong>0.00</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">닫기</button>
+        </div>
+    </div><!-- end Modal1 -->
+
+    <!-- Modal2 -->
+    <div class="modal modal-vacation modal-02">
+        <header>
+            <h4>연차휴가 촉진제도 안내</h4>
+        </header>
+        <div class="content">
+            <p>*적용 대상: 2019.2.1일까지 입사한 임직원</p>
+            <p>*시행 내용: 본인 발행 연차 중 기준 사용률 이상 사용</p>
+            <p>-기준 사용률 미만 미사용 연차 휴가에 대해서는 수당 미지급</p>
+            <table border="1" style="text-align:center">
+                <colgroup>
+                    <col width="20%" />
+                    <col width="25%" />
+                    <col width="*" />
+                </colgroup>
+                <tr>
+                    <th>구분</th>
+                    <th>기준사용률</th>
+                    <th>비고</th>
+                </tr>
+                <tr>
+                    <td>FS 현장</td>
+                    <td>60%</td>
+                    <td>-사업장 근무자<br />
+                        -담당 소속 영양사/조리사/홀매니저
+                    </td>
+                </tr>
+                <tr>
+                    <td>간접부문</td>
+                    <td>80%</td>
+                    <td>- 지역 외 부서 근무자<br />
+                        -지역 소속 지원직무 수행자<br />
+                        (지역장/FA/Co-Di/CM)
+                    </td>
+                </tr>
+            </table>
+            <p>*휴직, 산휴 등 사용후 2019.3.2일~2019.9.1일 사이에 복직한 경우 또는 상기 기간 내 6개월 미만의 장기 교육/파견이 있었던 경우에는 기준사용률의 절반 적용 (FS현장
+                30%, 간접부문 40%)</p>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">닫기</button>
+        </div>
+    </div><!-- end Modal2 -->
+    <!-- Modal3 -->
+    <div class="modal modal-vacation modal-03">
+        <header>
+            <h4>나의 사용률 현황</h4>
+        </header>
+        <div class="content">
+            <h5>나의 사용률: 27.5%</h5>
+            <div class="fraction-container wrapper">
+                <span>사용률 = </span>
+                <span class="fraction">(사용연차+전년도 추가사용)/(연차+근속가산연차+중도발생연차)</span>
+            </div>
+            <ul>
+                <li>
+                    <p>사용연차</p>
+                    <strong>5.00</strong>
+                </li>
+                <li>
+                    <p>전년도 추가사용</p>
+                    <strong>0.00</strong>
+                </li>
+                <li>
+                    <p>연차</p>
+                    <strong>15.50</strong>
+                </li>
+                <li>
+                    <p>근속가산연차</p>
+                    <strong>5.00</strong>
+                </li>
+                <li>
+                    <p>중도발생연차</p>
+                    <strong>0.00</strong>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">닫기</button>
+        </div>
+    </div><!-- end Modal1 -->
+
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

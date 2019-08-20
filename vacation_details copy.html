@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>연간 휴가 조회</title>
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+    <div class="mask" role="dialog"></div>
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <div class="wrapper">
+            <ul class="accordion-menu vacation">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        근태관리<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일근무 신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">휴일특근 사전신청</a></li>
+                        <li><a href="#">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        위생안전점검<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
+    </aside>
+    <div class="main-content bg-gray">
+        <header>
+            <div class="back"></div>
+            <h2>연간 휴가 조회</h2>
+            <div class="menu" onclick="modal('aside-active')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <div class="content">
+            <section>
+                <div class="year">
+                    <h1>
+                        <i class="fas fa-angle-left"></i>
+                        2019
+                        <i class="fas fa-angle-right"></i>
+                    </h1>
+                </div>
+                <!-- Pie Chart -->
+                <div id="activeBorder" class="active-border">
+                    <div id="circle" class="circle">
+                        <span class="prec 270" id="prec">0%</span>
+                    </div>
+                    <h6>연차소진율</h6>
+                </div>
+                <ul class="accordion-menu vacation">
+                    <li>
+                        <div class="dropdownlink">
+                            발생일수
+                            <div class="days">20.00일</div>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                        <ul class="submenuItems">
+                            <li>
+                                <span>연차</span>
+                                <span>15일</span>
+                            </li>
+                            <li>
+                                <span>근속가산연차</span>
+                                <span>15일</span>
+                            </li>
+                            <li>
+                                <span>전년도 추가사용</span>
+                                <span>15일</span>
+                            </li>
+                            <li>
+                                <span>중도발생연차</span>
+                                <span>15일</span>
+                            </li>
+                            <li>
+                                <span>전년도미사용중도발생연차</span>
+                                <span>15일</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>사용일수
+                        <div class="days">5.50일</div>
+                    </li>
+                    <li>남은일수
+                        <div class="days">14.50일</div>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h4>월별 사용 현황</h4>
+                <ul class="accordion-menu vacation">
+                    <li>
+                        <div class="dropdownlink">
+                            1월<i class="fa fa-chevron-down"></i>
+                            <div class="days">
+                                <span>1회</span>
+                                <span>-0.50일</span>
+                            </div>
+                        </div>
+                        <ul class="submenuItems">
+                            <li>
+                                <span>2019.01.23</span>
+                                <span>연차(4시간)</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>2월</li>
+                    <li>3월</li>
+                    <li>
+                        <div class="dropdownlink">
+                            4월<i class="fa fa-chevron-down"></i>
+                            <div class="days">
+                                <span>4회</span>
+                                <span>-4.50일</span>
+                            </div>
+                        </div>
+                        <ul class="submenuItems">
+                            <li>
+                                <span>2019.04.02(화)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.11(목)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.17(수)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.26(금)</span>
+                                <span>연차(8시간)</span>
+                            </li>
+                            <li>
+                                <span>2019.04.30(화)</span>
+                                <span>연차(4시간)</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>5월</li>
+                    <li>6월</li>
+                    <li>7월</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
