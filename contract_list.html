@@ -10,14 +10,13 @@
 </head>
 
 <body>
-    <div class="mask" role="dialog"></div>
     <!-- start Aside -->
     <aside>
         <header>
             <div class="home" onclick=""></div>
             <ul>
                 <li class="settings" onclick=""></li>
-                <li class="menu open">
+                <li class="menu open" onclick="location.href='#'">
                     <span></span> <span></span> <span></span> <span></span>
                 </li>
             </ul>
@@ -40,8 +39,8 @@
                         <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">휴일특근 사전신청</a></li>
-                        <li><a href="#">야간근로 사전신청</a></li>
+                        <li><a href="extra_work_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="extra_work_02.html">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
@@ -67,7 +66,7 @@
         <header>
             <div class="back" style="visibility:hidden;"></div>
             <h2>계약품의관리</h2>
-            <div class="menu" onclick="modal('aside-active')">
+            <div class="menu" onclick="modal('aside')">
                 <span></span> <span></span> <span></span> <span></span>
             </div>
         </header>
@@ -77,24 +76,23 @@
                     <input type="search" placeholder="고객사명을 입력해주세요." />
                     <i class="fas fa-search" onclick=""></i>
                 </div>
-                <button class="main" disabled="disabled" onclick="modal('modal1')">조회</button>
+                <button class="main" disabled="disabled" onclick="location.href='#modal-search'">조회</button>
             </section>
         </div><!-- end Content -->
     </div><!-- end Main Content -->
 
     <!-- Modal -->
-    <div class="modal modal-small modal-01">
+    <div id="modal-search" class="modal modal-full">
         <header>
-            <!-- <div class="close"></div> -->
             <h4>고객사 조회</h4>
         </header>
-        <section>
-            <div class="search">
-                <input type="search" value="고메돈까스" />
-                <i class="fas fa-search" onclick=""></i>
-            </div>
-        </section>
-        <section class="content wrapper">
+        <section class="content">
+            <section>
+                <div class="search">
+                    <input type="search" value="고메돈까스" />
+                    <i class="fas fa-search" onclick=""></i>
+                </div>
+            </section>
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
                 <span class="status ing">운영중</span>
@@ -145,7 +143,7 @@
             </div>
         </section>
         <section class="btn-container">
-            <button class="cancel">취소</button>
+            <button class="cancel" onclick="location.href='#'">취소</button>
             <button class="main" onclick="location.href='contract_list_2.html'">확인</button>
         </section>
     </div><!-- end Modal -->

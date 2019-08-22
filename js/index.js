@@ -1,27 +1,3 @@
-// Modal
-function modal(type) {
-	$(".mask").addClass("active");
-	if (type == "aside-active") {
-		$("aside").toggleClass("active");
-	} else if (type == "modal1") {
-		$(".modal-01").show();
-	} else if (type == "modal2") {
-		$(".modal-02").show();
-	} else if (type == "modal3") {
-		$(".modal-03").show();
-	}
-}
-
-function closeModal() {
-	$(".mask, aside").removeClass("active");
-	$(".modal").hide();
-}
-
-$(".close, .cancel, .mask, .menu.open").on("click", function() {
-	closeModal();
-});
-
-
 // Confirm Alert
 function confirmSave () {
 	if(confirm('저장하시겠습니까?')){
@@ -162,42 +138,20 @@ $(document).ready(function() {
 
 
 
-// Pie Chart
-var i = 0 , prec;
-var degs = $("#prec").attr("class").split(' ')[1];
-var activeBorder = $("#activeBorder");
-
-setTimeout(function(){
-    if($("#circle").is(":hover"))
-       loopit("c");
-    else
-       loopit("nc");
-},1);
-
-function loopit(dir){
-    if (dir == "c")
-        i++
-    else
-        i--;
-    if (i < 0)
-        i = 0;
-    if (i > degs)
-        i = degs;
-    prec = (100*i)/360;   
-    $(".prec").html(Math.round(prec)+"%");
-    
-    if (i<=180){
-        activeBorder.css('background-image','linear-gradient(' + (90+i) + 'deg, transparent 50%, #EEE 50%),linear-gradient(90deg, #EEE 50%, transparent 50%)');
-    }
-    else{
-        activeBorder.css('background-image','linear-gradient(' + (i-90) + 'deg, transparent 50%, #003EB1 50%),linear-gradient(90deg, #EEE 50%, transparent 50%)');
-    }
-    
-    
-    setTimeout(function(){
-  
-            loopit("c");
-
-    },1);
-    
+// Modal
+function modal(type) {
+	$(".mask").addClass("active");
+	if (type == "aside") {
+		$("aside").toggleClass("active");
+	} else if (type == "modal-inside") {
+		$(".modal-inside").toggleClass("active");
+	}
 }
+
+function closeModal() {
+	$("aside, .modal-inside").removeClass("active");
+}
+
+$(".close, .cancel, .menu.open").on("click", function() {
+	closeModal();
+});

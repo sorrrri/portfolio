@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="mask" role="dialog"></div>
+    <!-- start Aside -->
     <aside>
         <header>
             <div class="home" onclick=""></div>
@@ -36,11 +36,11 @@
                 <li><a href="vacation_details.html">연간 휴가 조회</a></li>
                 <li>
                     <div class="dropdownlink">
-                        <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                        <a href="extra_work.html">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">휴일특근 사전신청</a></li>
-                        <li><a href="#">야간근로 사전신청</a></li>
+                        <li><a href="extra_work_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="extra_work_02.html">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
@@ -60,12 +60,13 @@
                 <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
             </ul>
         </section>
-    </aside>
+    </aside><!-- end Aside -->
+
     <div class="main-content">
         <header>
             <div class="back hidden"></div>
             <h2>계약품의관리 조회 결과</h2>
-            <div class="menu" onclick="modal('aside-active')">
+            <div class="menu" onclick="modal('aside')">
                 <span></span> <span></span> <span></span> <span></span>
             </div>
         </header>
@@ -75,7 +76,7 @@
                     <input type="search" value="고메돈까스지점2" />
                     <i class="fas fa-search" onclick=""></i>
                 </div>
-                <button class="main" onclick="modal('modal1')">조회</button>
+                <button class="main">조회</button>
             </section>
             <ul class="tab-menu count">
                 <li class="tab w50p current" data-tab="tab-01">유효 <span>1</span></li>

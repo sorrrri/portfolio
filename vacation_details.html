@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="mask" role="dialog"></div>
+    <!-- start Aside -->
     <aside>
         <header>
             <div class="home" onclick=""></div>
@@ -39,8 +39,8 @@
                         휴일근무 신청<i class="fa fa-chevron-down"></i>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">휴일특근 사전신청</a></li>
-                        <li><a href="#">야간근로 사전신청</a></li>
+                        <li><a href="extra_work_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="extra_work_02.html">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
@@ -60,12 +60,13 @@
                 <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
             </ul>
         </section>
-    </aside>
+    </aside><!-- end Aside -->
+
     <div class="main-content bg-gray">
         <header>
             <div class="back hidden"></div>
             <h2>연간 휴가 조회</h2>
-            <div class="menu" onclick="modal('aside-active')">
+            <div class="menu" onclick="modal('aside')">
                 <span></span> <span></span> <span></span> <span></span>
             </div>
         </header>
@@ -80,7 +81,8 @@
                 </div>
                 <div class="bar-chart">
                     <h4>연간 휴가 현황</h4>
-                    <h5>발생 <strong>20.00</strong>일 <i class="fas fa-question-circle" onclick="modal('modal1')"></i></h5>
+                    <h5>발생 <strong>20.00</strong>일 <i class="fas fa-question-circle"
+                            onclick="location.href='#modal-01'"></i></h5>
                     <div class="legend">
                         <label>사용 <strong>5.00</strong>일</label>
                         <label>잔여 <strong>15.00</strong>일</label>
@@ -109,7 +111,7 @@
                     </svg>
                 </div>
                 <div class="bar-chart">
-                    <h4>연간 휴가 촉진제도 <i class="fas fa-question-circle" onclick="modal('modal2')"></i></h4>
+                    <h4>연간 휴가 촉진제도 <i class="fas fa-question-circle" onclick="location.href='#modal-02'"></i></h4>
                     <h5>
                         <input type="radio" id="radio-01" name="01" checked="checked" />
                         <label for="radio-01">대상</label>
@@ -118,13 +120,14 @@
                     </h5>
                     <div class="legend">
                         <label>나의 사용률 <strong>27.5</strong>%</label>
-                        <i class="fas fa-question-circle" onclick="modal('modal3')"></i>
+                        <i class="fas fa-question-circle" onclick="location.href='#modal-03'"></i>
                     </div>
                     <svg width="100%" height="55px">
                         <g class="bars">
                             <rect width="100%" height="25" fill="#D6D7D8"></rect>
                             <rect height="25" fill="#003EB1">
-                                <animate attributeName="width" from="0" to="27.5%" dur=".5s" begin=".2s" fill="freeze" />
+                                <animate attributeName="width" from="0" to="27.5%" dur=".5s" begin=".2s"
+                                    fill="freeze" />
                             </rect>
                         </g>
                         <g class="markers">
@@ -205,7 +208,7 @@
         </div>
     </div>
     <!-- Modal1 -->
-    <div class="modal modal-vacation modal-01">
+    <div id="modal-01" class="modal modal-vacation">
         <header>
             <h4>연차휴가 발생현황</h4>
         </header>
@@ -239,12 +242,12 @@
             </ul>
         </div>
         <div class="btn-container">
-            <button class="cancel">닫기</button>
+            <button class="cancel2" onclick="location.href='#'">닫기</button>
         </div>
     </div><!-- end Modal1 -->
 
     <!-- Modal2 -->
-    <div class="modal modal-vacation modal-02">
+    <div id="modal-02" class="modal modal-vacation">
         <header>
             <h4>연차휴가 촉진제도 안내</h4>
         </header>
@@ -283,11 +286,11 @@
                 30%, 간접부문 40%)</p>
         </div>
         <div class="btn-container">
-            <button class="cancel">닫기</button>
+            <button class="cancel2" onclick="location.href='#'">닫기</button>
         </div>
     </div><!-- end Modal2 -->
     <!-- Modal3 -->
-    <div class="modal modal-vacation modal-03">
+    <div id="modal-03" class="modal modal-vacation">
         <header>
             <h4>나의 사용률 현황</h4>
         </header>
@@ -321,7 +324,7 @@
             </ul>
         </div>
         <div class="btn-container">
-            <button class="cancel">닫기</button>
+            <button class="cancel2" onclick="location.href='#'">닫기</button>
         </div>
     </div><!-- end Modal1 -->
 

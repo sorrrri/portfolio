@@ -20,6 +20,8 @@ input {outline:none; text-indent:.5rem;}
 input[readonly]:focus, textarea[readonly]:focus {outline:0 none !important}
 input, select  {background:transparent; padding:0 .5rem; border-radius:3px; height:45px; border:1px solid #DDD;}
 textarea:focus {outline:1px solid #AAA !important}
+input::-webkit-search-cancel-button {position:relative; right:2rem}
+input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important}
 
 select {border:1px solid #EEE; }
 h1 {font-size:18px}
@@ -51,9 +53,12 @@ i.fa-angle-left, i.fa-angle-right {margin:0 .5rem}
 .active {visibility:visible; opacity:1}
 
 .status, .progress {font-weight:normal; text-indent:0; line-height:20px; font-size:12px; text-align:center; width:60px; position:absolute; border-radius:5px; color:white}
+
+.status.new {background:#591DA9}
+.status.expected {background:#FFA530}
+.status.ing {background:#71BBEE}
+.status.stop {background:#737679}
 .status.done {background:#B3B6B9}
-.status.ing {background:#00A0E9}
-.status.new {background:rebeccapurple}
 
 
 
@@ -62,15 +67,16 @@ button {width:100%; height:45px; background:#333; color:white; border-radius:3px
 button.main {background:#003EB1; font-size:15px}
 button.main-border {border:1px solid #B2C5E7; color:#003Eb1; background:transparent}
 button[disabled] {background:transparent; border:1px solid #ccc; color:#B3B6B9}
-button.cancel {background:#B3B6B9}
+button.cancel, button.cancel2 {background:#B3B6B9}
+
 
 
 /* Aside Menu */
-aside {right:-80vw; position:absolute; z-index:50; background:#E6E7E8; user-select: none; flex:0 0 auto; overflow-y:auto; border-right: 1px solid #EBEBEB; width:80vw; height:100%; text-align:center; transition:.2s ease-in-out}
+aside {opacity:0; pointer-events:none; visibility:hidden; right:-80vw; position:fixed; z-index:50; background:#E6E7E8; user-select: none; flex:0 0 auto; overflow-y:auto; border-right: 1px solid #EBEBEB; width:80vw; height:100%; text-align:center; transition:.2s ease-in-out}
+aside.active {box-shadow: 0 0 0 9999px rgba(0, 0, 0, .6); opacity:1; pointer-events:auto; visibility:visible; right:0; z-index: 100; }
 aside header {border-bottom:1px solid #DDD}
 aside header li {float:left; margin-left:1rem}
 aside section {padding:1rem}
-aside.active {right:0}
 aside .accordion-menu li {border-bottom:1px solid #DDD;}
 aside .accordion-menu li.open {border:0 none}
 aside .accordion-menu li.menu-title {text-align:left; font-weight:bold; line-height:30px; border-bottom:1px solid #B3B6B9}
@@ -79,20 +85,29 @@ aside .accordion-menu li:last-child {border-bottom:0 none}
 aside .accordion-menu:first-child {margin-bottom:2rem}
 aside .submenuItems {background:#D3D6D9; border-radius:.5rem}
 
+
+
 /* Main Content */
 .main-content {flex:1 1 auto; display:flex; flex-direction:column;  width:100%; position:relative}
 .main-content h1 {text-align:center}
 
 
 /* header */
-header {flex:0 0 auto; position:relative; height:3rem; line-height:3rem; padding:0 1rem; display:flex; justify-content:space-between; border-bottom:1px solid #EEE}
+header {flex:0 0 auto; box-sizing:border-box; position:relative; height:3rem; line-height:3rem; padding:0 1rem; display:flex; justify-content:space-between; border-bottom:1px solid #EEE}
 header .back {float:left; margin-top:1rem; border:1px solid #333; border-width:0 0 2px 2px; width:15px; height:15px; transform: rotate(45deg); transition:.3s ease-in-out;}
 header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 
+/* Sub Menu */
+.sub-menu {flex:0 0 auto; display:flex;}
+.sub-menu li {font-size:15px; flex:1 1 auto; height:3rem; line-height:3rem; text-align:center; border-bottom :3px solid #EEE}
+.sub-menu li.current {font-weight:bold; border-bottom-color:#003EB1}
+
+
+
 /* Content */
-.content {padding:1rem 0; flex:1 1 auto; height:calc(100% - 6rem); overflow-y:auto}
+.content {padding:1rem 0; flex:1 1 auto; overflow-y:auto}
 .content section {margin-bottom:2rem}
 .content article {overflow:hidden; background:#EEE; padding:1rem; border-radius:1rem}
 .content h4 {text-align:center; margin-bottom:1rem}
@@ -104,9 +119,9 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .content > button {margin:1rem auto; display:block; width:calc(100% - 2rem); height:60px; line-height:60px}
 .content + button {flex:0 0 auto; border-radius:0; height:60px}
 .tab-menu + .content {background:white}
+.year {margin-bottom:1rem}
 .year h1 {display:flex; justify-content:center; align-items:center}
-.no-data {flex:1 1 auto; background:#EEE; justify-content:center; align-items:center}
-.no-data.current {display:flex !important}
+.no-data {background:#EEE; text-align:center; padding:2rem 0}
 .count li {display:flex; justify-content:space-between; align-items:center; padding:0 1rem}
 .count span {font-size:11px; background:#EEE; color:#999;  display:flex; justify-content:center; align-items:center; border-radius:50px; height:20px; width:30px;}
 .count .current span {background:#CCD8EF; color:#003EB1}
@@ -115,24 +130,26 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 /* Content List Title */
 .list-title {height:40px; display:flex; justify-content:space-between}
 .list-title select {border:0 none}
+.list-title > div {display:flex}
 .content-title {margin-bottom:1rem; text-align:center}
 .content-title-2 {background:#EEE; color:#777; text-indent:1rem}
 
-.list li {padding:.5rem; border-bottom:1px solid #EEE}
+.list li {display:flex; justify-content:space-between; align-items:center; padding:.5rem; border-bottom:1px solid #EEE}
 .list li:first-child {border-top:1px solid #EEE}
+.list li span {text-align:center; width:25%}
+.list li button {font-size:13px; height:40px}
 
 /* Content Search */
 .search {background:#F6F7F8; margin-bottom:.5rem; display:flex; position:relative; border-radius:3px}
 .search select, .search input {border:0 none;}
 .search .selectbox {margin-right:.5rem}
-.search input[type="search"] {flex:1 1 auto; padding-left:2rem}
+.search input[type="search"] {flex:1 1 auto;}
 .search input[type="search"]::-webkit-search-cancel-button {height:16px; width:16px; display:block;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
    /* setup all the background tweaks for our custom icon */
    background-repeat: no-repeat; background-size: 16px}
-.search i {color:#B3B6B9; position:absolute; left:1rem; top:50%; transform:translateY(-50%)}
+.search i {position:absolute; right:1rem; top:50%; transform:translateY(-50%)}
 .search .selectbox:after {border-color: #F6F7F8 transparent transparent transparent;}
-input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important}
 
 /* Detail Buttons */
 .detail-buttons {display:grid; grid-template-columns: repeat(3, 1fr); grid-gap:.5rem}
@@ -148,20 +165,21 @@ input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important
 .input-container h6, .input-container label {width:40%; line-height:36px}
 .input-container input {width:60%; border:0 none; padding:0; background:transparent}
 .input-container input:focus {outline:0}
-.input-container + textarea {-webkit-appearance: none; width:100%; outline:1px solid #EEE; padding:.5rem; box-shadow:0 0 0 0}
+.input-container textarea {-webkit-appearance: none; width:100%; outline:1px solid #EEE; padding:.5rem; box-shadow:0 0 0 0}
 .input-container select {border:0 none}
 .input-container.active {border-bottom:1px solid #B3B6B9}
 .input-container label {flex:0 0 auto; display:inline-block; text-align:left; min-width:20%; max-width:35%}
 
 .input-container label + * {text-indent:0; flex:1 1 auto}
 .input-container label + .selectbox select {border:0; padding-left:0}
-.input-container input[type="date"] {line-height:45px; text-indent:1.5rem}
+.input-container input[type="date"] {flex:1 1 auto; line-height:45px; text-indent:1.5rem}
 .input-container input[type="date"] + span {margin:0 .5rem}
 .input-container i.fa-calendar-alt {position:absolute; top:1rem; color:#B3B6B9}
-.input-container i.fa-calendar-alt:nth-last-of-type(1) {left:.5rem}
-.input-container i.fa-calendar-alt:nth-last-of-type(2) {left:calc(50% + 1.2rem)}
+.input-container i.fa-calendar-alt:nth-of-type(1) {left:.5rem}
+.input-container i.fa-calendar-alt:nth-of-type(2) {left:calc(50% + 1.2rem)}
 
-
+.required:before {content:'*'; margin-right:.5rem; color:orangered}
+.required i.fa-calendar-alt:nth-of-type(1) {left:1rem}
 
 /* Content List Item */
 .list-item {margin-bottom:1rem; border:1px solid #EEE; border-radius:.5rem; padding:.7rem; position:relative}
@@ -216,7 +234,7 @@ input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important
 .main-content .submenuItems li span:last-child {margin-right:1.5rem}
 .main-content .submenuItems li .status {top:1rem; right:.5rem; transform:unset}
 
-.main-content .submenuItems.information li span:first-child {font-weight:bold; width:120px; display:inline-block}
+.main-content .submenuItems.information li span:first-child {font-weight:bold; width:100px; display:inline-block}
 .main-content .submenuItems.information li span:last-child {flex:1 1 auto}
 
 .main-content .submenuItems.payment-status li span {font-weight:normal; text-align:center}
@@ -232,7 +250,7 @@ input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important
 .main-content .submenuItems.guarantee li span:nth-child(1) {font-weight:bold}
 .main-content .submenuItems.guarantee li .status-circle {background:#E5EBF7; color:#003EB1; right:.5rem; border-radius:50%; width:40px; height:40px; line-height:40px; font-weight:bold}
 .accordion-menu.vacation .submenuItems li {justify-content:space-between}
-
+.accordion-menu.extra-work {margin-bottom:2rem}
 
 /* Tab Menu */
 .tab-menu {flex:0 0 auto; display:flex; border:1px solid #E5EBF7; border-radius:3px; margin-bottom:1rem}
@@ -244,26 +262,37 @@ input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important
 
 
 /* Modal */
-.modal {display:none; box-shadow:0px 2px 20px rgba(0,0,0,.2); position:fixed; top:50%; left:50%; width:calc(100% - 2rem); transform:translate(-50%, -50%); background: white; border-radius:5px; z-index: 100; transition:0.5s ease-out}
+.modal {opacity:0; pointer-events:none; visibility:hidden; position:fixed; top:50%; left:50%; width:calc(100% - 2rem); background:white; transform:translate(-50%, -50%); transition:.25s}
+.modal:target, .modal.active {box-shadow: 0 0 0 9999px rgba(0, 0, 0, .6); opacity:1; pointer-events:auto; visibility:visible; border-radius:5px; z-index: 100; }
 .modal a:first-of-type {margin-right:1rem}
 .modal a:hover, .modal a:focus {transition:.2s; color:#003EB1}
 .modal select {width:100%}
-.modal .close {position:absolute; right:1em; top:50%; transform:translateY(-50%); margin-top:0}
+.modal button {font-size:16px; height:50px}
+.modal input {display:inline-block}
 .modal .btn-container {display:flex; height:3rem}
 .modal .btn-container button {flex:1 1 auto; height:auto}
 .modal .btn-container button:first-child {border-radius:0 0 0 5px}
 .modal .btn-container button:last-child {border-radius:0 0 5px 0}
-.modal button {font-size:16px; height:50px}
-.modal input {display:inline-block}
+.modal .btn-container button.cancel2 {border-radius:0 0 5px 5px}
 .modal .content {max-height:50vh; overflow-y:auto; padding:1rem;}
 .modal .content > * {width:100%; margin-bottom:.5rem}
-.modal .search {margin:0}
 .modal .input-container input {width:100%}
-.modal li {display:flex; justify-content:space-between}
+/* .modal li {display:flex; justify-content:space-between} */
+
+
 
 .modal-small .content {max-height:40vh}
 .modal-vacation.modal-01 li p:before {content:'- '}
 .modal-vacation.modal-01 li:first-child p:before {content:none}
+
+.modal-full {width:100vw; }
+.modal-full:target {display:flex !important; flex-direction:column; height:100vh; border-radius:0}
+.modal-full:target .content {max-height:none; height:auto}
+.modal-full:target .btn-container {flex:0 0 auto}
+.modal-full:target .btn-container button {border-radius:0; }
+
+.modal-full:target .selectbox {width:100%}
+
 
 
 
@@ -315,7 +344,7 @@ input[type="checkbox"]:checked + label:after {content:''; position:absolute; lef
 
 
 /* Horizontal Bar Chart */
-.bar-chart {background:white; border-radius:.5rem; margin:1rem; padding:1rem}
+.bar-chart {background:white; border-radius:.5rem; margin:0 1rem 1rem; padding:1rem}
 .bar-chart .legend {display:inline-block; margin-bottom:.5rem; margin-right:1rem}
 .bar-chart .legend label:nth-of-type(1):before {content:"■"; color:#003EB1; margin-right:3px;}
 .bar-chart .legend label:nth-of-type(2):before {content:"■"; color:#DDD; margin-right:3px; margin-left:1rem}
@@ -362,7 +391,7 @@ input[type=file] {
 
 
 /* Selectbox */
-.selectbox, input[type="date"] {overflow:hidden; position:relative; display:inline-block; z-index:0}
+.selectbox, input[type="date"] {flex:1 1 auto; position:relative; z-index:0}
 .selectbox::after, input[type="date"]::after {
 content: '';
 position: absolute;
