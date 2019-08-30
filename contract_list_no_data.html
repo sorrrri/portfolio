@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계약품의관리</title>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -33,14 +34,14 @@
                         <li><a href="#">근무실적</a></li>
                     </ul>
                 </li>
-                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
                 <li>
                     <div class="dropdownlink">
                         <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="extra_work_01.html">휴일특근 사전신청</a></li>
-                        <li><a href="extra_work_02.html">야간근로 사전신청</a></li>
+                        <li><a href="overtime_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_02.html">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
@@ -53,6 +54,7 @@
                     </ul>
                 </li>
                 <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
@@ -76,7 +78,7 @@
                     <input type="search" placeholder="고객사명을 입력해주세요." />
                     <i class="fas fa-search" onclick=""></i>
                 </div>
-                <button class="main" disabled="disabled" onclick="modal('modal1')">조회</button>
+                <button class="main" disabled="disabled" >조회</button>
             </section>
             <ul class="tab-menu count">
                 <li class="tab w50p current" data-tab="tab-01">유효 <span>0</span></li>
@@ -93,74 +95,7 @@
             </section><!-- end Tab Content - 전체 -->
         </div><!-- end Content -->
     </div><!-- end Main Content -->
-
-    <!-- Modal -->
-    <div class="modal modal-input modal-01">
-        <header>
-            <!-- <div class="close"></div> -->
-            <h4>고객사 조회</h4>
-        </header>
-        <section>
-            <div class="search">
-                <input type="search" value="고메돈까스" readonly />
-                <i class="fas fa-search" onclick=""></i>
-            </div>
-        </section>
-        <div class="content">
-            <div class="list-item" onclick="">
-                <strong>고메돈까스지점2</strong>
-                <span class="status ing">운영중</span>
-                <ul>
-                    <li>코드명 : COMO001L01</li>
-                    <li>대표자 : 홍길동</li>
-                </ul>
-            </div>
-            <div class="list-item" onclick="">
-                <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
-                <ul>
-                    <li>코드명 : COMO001L01</li>
-                    <li>대표자 : 홍길동</li>
-                </ul>
-            </div>
-            <div class="list-item" onclick="">
-                <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
-                <ul>
-                    <li>코드명 : COMO001L01</li>
-                    <li>대표자 : 홍길동</li>
-                </ul>
-            </div>
-            <div class="list-item" onclick="">
-                <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
-                <ul>
-                    <li>코드명 : COMO001L01</li>
-                    <li>대표자 : 홍길동</li>
-                </ul>
-            </div>
-            <div class="list-item" onclick="">
-                <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
-                <ul>
-                    <li>코드명 : COMO001L01</li>
-                    <li>대표자 : 홍길동</li>
-                </ul>
-            </div>
-            <div class="list-item" onclick="">
-                <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
-                <ul>
-                    <li>코드명 : COMO001L01</li>
-                    <li>대표자 : 홍길동</li>
-                </ul>
-            </div>
-        </div>
-        <div class="btn-container">
-            <button class="cancel">취소</button>
-            <button class="main">확인</button>
-        </div>
-    </div><!-- end Modal -->
+    <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>
 </body>

@@ -7,18 +7,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계약품의 상세보기</title>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        근태관리<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일근무 신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_02.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        위생안전점검<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
     <div class="main-content bg-gray">
         <header>
             <div class="back" onclick="location.href='contract_list.html'"></div>
             <h2>계약품의 상세보기</h2>
-            <h3 class="hidden" onclick="location.href='contract_details_2.html'">변경</h3>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
         </header>
         <section class="content">
-            <sub>품의ID : 201806109S0</sub>
             <h4 class="content-title">[변경] 고메돈까스인천시청점_외식그룹1파트</h4>
+            <sub>품의ID : 201806109S0</sub>
+            <div class="right-container">전체 펼치기 <i class="fa fa-chevron-down"></i></div>
             <ul class="accordion-menu contract">
                 <li>
                     <div class="dropdownlink">
@@ -111,7 +168,7 @@
                             <span>19.01.01 15:30</span>
                             <span>미결</span>
                         </li>
-                        <li><button onclick="location.href='#modal-01'">파일보기</button></li>
+                        <li><button onclick="modal('modal-01')">파일보기</button></li>
                     </ul>
                 </li>
                 <li>
@@ -120,21 +177,25 @@
                         <span class="status done">완료</span>
                     </div>
                     <ul class="submenuItems information">
-                        <li>
-                            <span>Payer코드</span>
-                            <span>11111111</span>
-                        </li>
-                        <li>
-                            <span>Payer명</span>
-                            <span>Payer명</span>
-                        </li>
-                        <li>
-                            <span>Sold to 코드</span>
-                            <span>11111111</span>
-                        </li>
-                        <li>
-                            <span>Sold to 명</span>
-                            <span>Sold to 명</span>
+                        <li class="plural">
+                            <ul>
+                                <li>
+                                    <span>Payer코드</span>
+                                    <span>11111111</span>
+                                </li>
+                                <li>
+                                    <span>Payer명</span>
+                                    <span>Payer명</span>
+                                </li>
+                                <li>
+                                    <span>Sold to 코드</span>
+                                    <span>11111111</span>
+                                </li>
+                                <li>
+                                    <span>Sold to 명</span>
+                                    <span>Sold to 명</span>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -143,22 +204,26 @@
                         Ship to<i class="fa fa-chevron-down"></i>
                         <span class="status done">완료</span>
                     </div>
-                    <ul class="submenuItems information">
-                        <li>
-                            <span>Sold to 코드</span>
-                            <span>11111111</span>
-                        </li>
-                        <li>
-                            <span>Sold to 명</span>
-                            <span>Sold to 명</span>
-                        </li>
-                        <li>
-                            <span>Ship to 코드</span>
-                            <span>11111111</span>
-                        </li>
-                        <li>
-                            <span>Ship to 명</span>
-                            <span>Ship to 명</span>
+                    <ul class="submenuItems">
+                        <li class="plural">
+                            <ul>
+                                <li>
+                                    <span>Sold to 코드</span>
+                                    <span>11111111</span>
+                                </li>
+                                <li>
+                                    <span>Sold to 명</span>
+                                    <span>Sold to 명</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 코드</span>
+                                    <span>11111111</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 명</span>
+                                    <span>Ship to 명</span>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -262,14 +327,11 @@
                 <li>법무검토<span class="status stop">미진행</span></li>
                 <li>인장날인<span class="status stop">미진행</span></li>
             </ul>
-            <button class="main" onclick="location.href='contract_details_2.html'">변경품의 요청</button>
         </section><!-- end Content -->
+        <button class="main" onclick="location.href='contract_details_2.html'">변경품의 요청</button>
     </div><!-- end Main Content -->
     <!-- Modal -->
-    <div id="modal-01" class="modal">
-        <header>
-            <h4>파일보기</h4>
-        </header>
+    <div class="modal modal-01">
         <div class="wrapper">
             <div class="input-container">
                 <input type="text" readonly value="Asdfg.jpg" />
@@ -279,9 +341,10 @@
             </div>
         </div>
         <div class="btn-container">
-            <button class="cancel" onclick="location.href='#'">취소</button>
+            <button class="cancel2">취소</button>
         </div>
     </div><!-- end Modal -->
+    <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>
 </body>

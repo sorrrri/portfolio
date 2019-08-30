@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계약품의관리</title>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -33,14 +34,14 @@
                         <li><a href="#">근무실적</a></li>
                     </ul>
                 </li>
-                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
                 <li>
                     <div class="dropdownlink">
                         <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="extra_work_01.html">휴일특근 사전신청</a></li>
-                        <li><a href="extra_work_02.html">야간근로 사전신청</a></li>
+                        <li><a href="overtime_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_02.html">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
@@ -53,6 +54,7 @@
                     </ul>
                 </li>
                 <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
@@ -76,26 +78,31 @@
                     <input type="search" placeholder="고객사명을 입력해주세요." />
                     <i class="fas fa-search" onclick=""></i>
                 </div>
-                <button class="main" disabled="disabled" onclick="location.href='#modal-search'">조회</button>
+                <button class="main" disabled="disabled" onclick="modal('modal-01')">조회</button>
             </section>
         </div><!-- end Content -->
     </div><!-- end Main Content -->
 
     <!-- Modal -->
-    <div id="modal-search" class="modal modal-full">
+    <div class="modal modal-full modal-01">
         <header>
-            <h4>고객사 조회</h4>
-        </header>
-        <section class="content">
-            <section>
-                <div class="search">
-                    <input type="search" value="고메돈까스" />
-                    <i class="fas fa-search" onclick=""></i>
+            <div class="search">
+                <input type="search" value="고메돈까스" />
+                <i class="fas fa-search" onclick=""></i>
+            </div>
+            <div class="list-title">
+                <h6>Total <strong class="red">1</strong>건</h6>
+                <div>
+                    <div class="filter">
+                        <label>전체 </label>
+                    </div>
                 </div>
-            </section>
+            </div><!-- end List Title -->
+        </header>
+        <section class="content" onclick="location.href='contract_list_2.html'">
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
-                <span class="status ing">운영중</span>
+                <span class="status ing">운영</span>
                 <ul>
                     <li>코드명 : COMO001L01</li>
                     <li>대표자 : 홍길동</li>
@@ -103,7 +110,7 @@
             </div>
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
+                <span class="status done">인벤토리</span>
                 <ul>
                     <li>코드명 : COMO001L01</li>
                     <li>대표자 : 홍길동</li>
@@ -111,7 +118,7 @@
             </div>
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
+                <span class="status done">중단</span>
                 <ul>
                     <li>코드명 : COMO001L01</li>
                     <li>대표자 : 홍길동</li>
@@ -119,7 +126,7 @@
             </div>
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
+                <span class="status done">중단</span>
                 <ul>
                     <li>코드명 : COMO001L01</li>
                     <li>대표자 : 홍길동</li>
@@ -127,7 +134,7 @@
             </div>
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
+                <span class="status done">휴/폐업</span>
                 <ul>
                     <li>코드명 : COMO001L01</li>
                     <li>대표자 : 홍길동</li>
@@ -135,7 +142,7 @@
             </div>
             <div class="list-item" onclick="">
                 <strong>고메돈까스지점2</strong>
-                <span class="status done">운영안함</span>
+                <span class="status done">휴/폐업</span>
                 <ul>
                     <li>코드명 : COMO001L01</li>
                     <li>대표자 : 홍길동</li>
@@ -143,10 +150,10 @@
             </div>
         </section>
         <section class="btn-container">
-            <button class="cancel" onclick="location.href='#'">취소</button>
-            <button class="main" onclick="location.href='contract_list_2.html'">확인</button>
+            <button class="cancel">닫기</button>
         </section>
     </div><!-- end Modal -->
+    <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>
 </body>

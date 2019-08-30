@@ -5,7 +5,7 @@
 html, body {user-select: none; -ms-user-select:none; -webkit-user-select:none; overflow-x:hidden; width:100vw; height:100vh}
 body, input, textarea, select {
     font-size:14px;
-    letter-spacing: -.05em;
+    letter-spacing: -.07rem;
     line-height:1.5;
     font-family:"Nanum Gothic", "나눔고딕", "맑은고딕","Malgun Gothic", sans-serif;
     color:#333;
@@ -13,23 +13,27 @@ body, input, textarea, select {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {display:flex; -webkit-tap-highlight-color:rgba(0,0,0,0)}
+body {word-break:break-word; display:flex; -webkit-tap-highlight-color:rgba(0,0,0,0)}
 a {cursor:pointer}
 div[onclick] {cursor:pointer}
 input {outline:none; text-indent:.5rem;}
 input[readonly]:focus, textarea[readonly]:focus {outline:0 none !important}
-input, select  {background:transparent; padding:0 .5rem; border-radius:3px; height:45px; border:1px solid #DDD;}
+input, select  {background:transparent; padding:0 .5rem; border-radius:3px; border:1px solid #DDD;}
+textarea {resize:none; -webkit-appearance:none; width:100%; outline:1px solid #EEE; padding:.5rem; box-shadow:0 0 0 0}
 textarea:focus {outline:1px solid #AAA !important}
 input::-webkit-search-cancel-button {position:relative; right:2rem}
 input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important}
+
+input[type="date"] {padding-right:2rem;
+  background:url(../images/ico/calendar.png) center right .5rem no-repeat !important; background-size:14px 14px !important}
 
 select {border:1px solid #EEE; }
 h1 {font-size:18px}
 h2 {font-size:17px; font-weight:normal}
 h3 {font-size:16px}
 h4 {font-size:15px;}
-h5 {font-size:15px; font-weight:normal;}
-h6 {font-size:14px; font-weight:normal; line-height:40px}
+h5 {font-size:15px; font-weight:normal; padding:.2rem 0}
+h6 {font-size:14px; font-weight:normal}
 sub {text-align:center; display:block}
 
 .red {color:orangered}
@@ -39,20 +43,21 @@ sub {text-align:center; display:block}
 .wrapper {padding:1rem !important}
 .hidden {visibility:hidden}
 
-
+i {font-style:normal !important}
 i.fa-question-circle {color:#b2c5e7; margin-left:5px; font-size:20px; vertical-align:middle}
 i.fa-angle-left, i.fa-angle-right {margin:0 .5rem}
-.home {background:url(../images/home.png) center center no-repeat; width:20px; height:100%; background-size: contain}
-.settings {background:url(../images/cog.png) center center no-repeat; width:20px; height:100%; background-size: contain}
+.home {background:url(../images/ico/home.png) center center no-repeat; width:20px; height:100%; background-size: contain}
+.settings {background:url(../images/ico/cog.png) center center no-repeat; width:20px; height:100%; background-size: contain}
 
 .close {position: relative; display:inline-block; width:25px; height:25px; overflow:hidden; cursor:pointer}
 .close::before, .close::after { content:''; position:absolute; height:2px; width:100%; top:50%; left:0; margin-top:-1px; background:#000}
 .close::before {-webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg); transform:rotate(45deg)}
 .close::after {-webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg); transform:rotate(-45deg)}
 .mask {position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0, 0, 0, 0.6); z-index:30; visibility:hidden; opacity:0; transition:0.25s}
-.active {visibility:visible; opacity:1}
+.active {visibility:visible !important; opacity:1 !important}
 
-.status, .progress {font-weight:normal; text-indent:0; line-height:20px; font-size:12px; text-align:center; width:60px; position:absolute; border-radius:5px; color:white}
+.status, .progress {box-sizing:border-box;  font-weight:normal; text-indent:0; line-height:20px; font-size:12px; text-align:center; width:60px; position:absolute; border-radius:3px; color:white}
+.progress {color:#003EB1; border:1px solid #B2C5E7}
 
 .status.new {background:#591DA9}
 .status.expected {background:#FFA530}
@@ -61,13 +66,15 @@ i.fa-angle-left, i.fa-angle-right {margin:0 .5rem}
 .status.done {background:#B3B6B9}
 
 
+.filter {border-radius:3px; border:1px solid #E3E6E9; background:url(../images/ico/filter.png) center right .5rem no-repeat; background-size:14px 14px; margin-left:.5rem; padding:.5rem; padding-right:2rem}
+
 
 /* Buttons */
-button {width:100%; height:45px; background:#333; color:white; border-radius:3px; font-size:13px}
-button.main {background:#003EB1; font-size:15px}
+button {width:100%; height:45px; font-size:16px; border:1px solid #003EB1; color:#003EB1; background:transparent; border-radius:3px}
+button.main, button.cancel2 {border:0; background:#003EB1; color:white}
 button.main-border {border:1px solid #B2C5E7; color:#003Eb1; background:transparent}
 button[disabled] {background:transparent; border:1px solid #ccc; color:#B3B6B9}
-button.cancel, button.cancel2 {background:#B3B6B9}
+button.cancel, button.cancel-inside {background:#B3B6B9; border:0; color:white}
 
 
 
@@ -93,7 +100,7 @@ aside .submenuItems {background:#D3D6D9; border-radius:.5rem}
 
 
 /* header */
-header {flex:0 0 auto; box-sizing:border-box; position:relative; height:3rem; line-height:3rem; padding:0 1rem; display:flex; justify-content:space-between; border-bottom:1px solid #EEE}
+.main-content > header {flex:0 0 auto; box-sizing:border-box; position:relative; height:3rem; line-height:3rem; padding:0 1rem; display:flex; justify-content:space-between; border-bottom:1px solid #EEE}
 header .back {float:left; margin-top:1rem; border:1px solid #333; border-width:0 0 2px 2px; width:15px; height:15px; transform: rotate(45deg); transition:.3s ease-in-out;}
 header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
@@ -110,7 +117,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .content {padding:1rem 0; flex:1 1 auto; overflow-y:auto}
 .content section {margin-bottom:2rem}
 .content article {overflow:hidden; background:#EEE; padding:1rem; border-radius:1rem}
-.content h4 {text-align:center; margin-bottom:1rem}
+.content h4 {text-align:center; margin-bottom:.5rem}
 .content h4 + h5 {display:block; text-align:center; margin-bottom:1rem}
 .content article ul:first-of-type {font-weight:bold; margin-right:2rem}
 .content article ul:first-of-type li:before {content:'- '}
@@ -118,6 +125,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .content article li {line-height:2.5}
 .content > button {margin:1rem auto; display:block; width:calc(100% - 2rem); height:60px; line-height:60px}
 .content + button {flex:0 0 auto; border-radius:0; height:60px}
+.content.wrapper + button {width:100%}
 .tab-menu + .content {background:white}
 .year {margin-bottom:1rem}
 .year h1 {display:flex; justify-content:center; align-items:center}
@@ -128,28 +136,36 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 /* Content List Title */
-.list-title {height:40px; display:flex; justify-content:space-between}
+.list-title {margin-bottom:.5rem; display:flex; justify-content:space-between; align-items:center}
 .list-title select {border:0 none}
 .list-title > div {display:flex}
 .content-title {margin-bottom:1rem; text-align:center}
 .content-title-2 {background:#EEE; color:#777; text-indent:1rem}
 
-.list li {display:flex; justify-content:space-between; align-items:center; padding:.5rem; border-bottom:1px solid #EEE}
+.list li {position:relative; display:flex; justify-content:space-between; align-items:center; padding:.5rem; border-bottom:1px solid #EEE}
 .list li:first-child {border-top:1px solid #EEE}
 .list li span {text-align:center; width:25%}
 .list li button {font-size:13px; height:40px}
+.list li .num {width:10%}
+.list li .name {text-align:left}
+.list li .progress {right:2.5rem; width:2.5rem; top:.5rem}
+
+.right-container {text-align:right; margin:1rem 1rem .5rem}
+.right-container i {vertical-align:middle; margin-left:.3rem}
 
 /* Content Search */
-.search {background:#F6F7F8; margin-bottom:.5rem; display:flex; position:relative; border-radius:3px}
-.search select, .search input {border:0 none;}
+.search {background:#F6F7F8; margin-bottom:.5rem !important; display:flex; position:relative; border-radius:3px}
+.search select, .search input {height:45px; border:0 none;}
 .search .selectbox {margin-right:.5rem}
 .search input[type="search"] {flex:1 1 auto;}
 .search input[type="search"]::-webkit-search-cancel-button {height:16px; width:16px; display:block;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);
-   /* setup all the background tweaks for our custom icon */
+    /* setup all the background tweaks for our custom icon */
    background-repeat: no-repeat; background-size: 16px}
 .search i {position:absolute; right:1rem; top:50%; transform:translateY(-50%)}
 .search .selectbox:after {border-color: #F6F7F8 transparent transparent transparent;}
+
+
 
 /* Detail Buttons */
 .detail-buttons {display:grid; grid-template-columns: repeat(3, 1fr); grid-gap:.5rem}
@@ -160,32 +176,49 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 
+/* Form */
+.form small {display:block; text-align:right; margin-bottom:.5rem}
+
+
+
+/* Container */
+.container {background:White; padding:1rem; border-top:1px solid #EEE; border-bottom:1px solid #EEE}
+.container > h5 {text-align:center; margin-bottom:1rem}
+
+
+
+/* Flex Container */
+.flex-container {background:white; border-radius:.5rem; padding:1rem}
+.flex-container h5 {text-align:center; margin-bottom:1rem}
+.flex-container li {line-height:30px; display:flex; justify-content:space-between}
+
+
+
 /* Input */
-.input-container {display:flex; align-items:center; margin-bottom:.5rem; border-bottom:1px solid #EEE; position:relative}
+.input-container {display:flex; align-items:center; padding:1rem 0; border-bottom:1px solid #EEE; position:relative}
 .input-container h6, .input-container label {width:40%; line-height:36px}
 .input-container input {width:60%; border:0 none; padding:0; background:transparent}
 .input-container input:focus {outline:0}
-.input-container textarea {-webkit-appearance: none; width:100%; outline:1px solid #EEE; padding:.5rem; box-shadow:0 0 0 0}
 .input-container select {border:0 none}
 .input-container.active {border-bottom:1px solid #B3B6B9}
-.input-container label {flex:0 0 auto; display:inline-block; text-align:left; min-width:20%; max-width:35%}
+.input-container label {color:#878889; flex:0 0 auto; display:inline-block; text-align:left; min-width:20%; max-width:30%}
 
-.input-container label + * {text-indent:0; flex:1 1 auto}
+.input-container label ~ * {text-indent:0; flex:1 1 auto}
 .input-container label + .selectbox select {border:0; padding-left:0}
-.input-container input[type="date"] {flex:1 1 auto; line-height:45px; text-indent:1.5rem}
-.input-container input[type="date"] + span {margin:0 .5rem}
-.input-container i.fa-calendar-alt {position:absolute; top:1rem; color:#B3B6B9}
-.input-container i.fa-calendar-alt:nth-of-type(1) {left:.5rem}
-.input-container i.fa-calendar-alt:nth-of-type(2) {left:calc(50% + 1.2rem)}
+.input-container label + input[type="date"] {text-indent:0 !important}
+.input-container label ~ input[type="time"] {width:auto} 
+.input-container input[type="date"] {flex:1 1 auto}
+.input-container input[type="date"] + span {min-width:2rem}
 
-.required:before {content:'*'; margin-right:.5rem; color:orangered}
+.input-container + textarea  {margin-top:.5rem}
+.required:before {content:'*'; margin-right:3px; position:absolute; left:-.6rem; color:orangered}
 .required i.fa-calendar-alt:nth-of-type(1) {left:1rem}
 
 /* Content List Item */
-.list-item {margin-bottom:1rem; border:1px solid #EEE; border-radius:.5rem; padding:.7rem; position:relative}
+.list-item {margin-bottom:.5rem; border:1px solid #E3E6E9; border-radius:.5rem; padding:.7rem; position:relative}
 .list-item strong {display:block; border-bottom:1px solid #EBEBEB; padding-bottom:.5rem; margin-bottom:.5rem}
-.list-item .status {right:.5rem; top:.5rem}
-.list-item .progress {right:.5rem; top:2.5rem; border-radius:5px; color:#003EB1; border:1px solid #B2C5E7}
+.list-item .status, .list-item .progress {right:.5rem; top:.5rem}
+.list-item .progress + .status {right:.5rem; top:2rem}
 .list-item ul {position:relative}
 .list-item ul li {font-size:13px; line-height:20px}
 .list-item.focus {background:#e5ebf7; border:1px solid #E5EBF7}
@@ -207,26 +240,32 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 /* Accordion Menu */
-.bg-gray .accordion-menu {background-color:white}
-.accordion-menu.bg-gray-2 .submenuItems li {border-bottom:1px solid #E6E7E8}
-.accordion-menu a {display:block}
-.accordion-menu i {text-indent:0; position:absolute; top:50%; transform:translateY(-50%); right:1rem; left:auto}
-.accordion-menu button {height:40px; }
-.accordion-menu button:nth-of-type(2) {margin-left:1rem}
-.accordion-menu li {text-align:left; border-bottom:1px solid #E6E7E8; line-height:3rem; position:relative}
-.accordion-menu .dropdownlink {position:relative}
-.accordion-menu .submenuItems {display:none; padding:0 .5rem}
-.accordion-menu .status {width:50px; right:2.5rem; top:50%; transform:translateY(-50%)}
+.bg-gray .accordion-menu > li {background-color:white}
+.wrapper .accordion-menu {border-radius:.5rem}
+.wrapper .accordion-menu li:first-child {border-top:0 !important}
+.wrapper .accordion-menu li:last-child {border-bottom:0 !important}
+.accordion-menu.bg-gray-2 .submenuItems li {border-bottom:1px solid #EEE}
+.accordion-menu a {display:flex; justify-content:space-between; width:100%; align-items:center}
 
-.main-content .accordion-menu {border-radius:5px}
-.main-content .accordion-menu li {text-indent:1rem; font-weight:bold}
-.main-content .accordion-menu > li:first-child {border-top:1px solid #E6E7E8}
-.main-content .accordion-menu li:last-child{border-bottom:1px solid #CCC}
-.main-content .accordion-menu li .days {float:right; margin-right:2.5rem}
-.main-content .accordion-menu li .days span:last-child {text-align:right; width:70px; display:inline-block}
-.main-content .accordion-menu li.open {border-top:1px solid #E6E7E8; border-bottom:2px solid #333}
-.main-content .accordion-menu li.open .dropdownlink {border-bottom:1px solid #E6E7E8; line-height:4rem; transition:.25s}
-.main-content .accordion-menu li.open .dropdownlink .fa-chevron-down {transition:.2s; -webkit-transform:translateY(-50%) rotate(180deg); transform:translateY(-50%) rotate(180deg)}
+.accordion-menu i {margin-right:1rem; text-indent:0 !important}
+.accordion-menu i.fa {color:#333; vertical-align:middle}
+.accordion-menu button {width:50%; margin:0 auto; height:40px; font-size:13px}
+.accordion-menu button:nth-of-type(2) {margin-left:1rem}
+.accordion-menu li {text-align:left; line-height:3rem; position:relative}
+.accordion-menu .dropdownlink {position:relative; display:flex; justify-content:space-between; align-items:center}
+.accordion-menu .dropdownlink div span {margin-right:.5rem}
+.accordion-menu .submenuItems {display:none; padding:0 .5rem}
+.accordion-menu .status {width:50px; right:2.5rem; top:50%; margin-right:0 !important; transform:translateY(-50%)}
+.accordion-menu .status + span {margin-right:4.5rem !important}
+
+.main-content .accordion-menu {margin-bottom:2rem}
+.main-content .accordion-menu .dropdownlink > * {text-indent:0 !important}
+.main-content .accordion-menu .dropdownlink > *:first-child {text-indent:1rem !important}
+
+.main-content .accordion-menu > li {text-indent:1rem; border-top:1px solid #EEE; border-bottom:1px solid #EEE; margin-bottom:.3rem;}
+.main-content .accordion-menu li.open {border-top:1px solid #EEE;}
+.main-content .accordion-menu li.open .dropdownlink {transition:.25s; background:#FAFBFC; color:#003EB1; font-weight:bold; border-bottom:1px solid #EEE}
+.main-content .accordion-menu li.open .dropdownlink .fa-chevron-down {text-indent:0 !important; transition:.2s; -webkit-transform:rotate(180deg); transform:rotate(180deg)}
 
 .main-content .submenuItems li {line-height:1rem; font-weight:normal; display:flex; border-bottom:1px solid #EEE; padding:1rem .5rem}
 .main-content .submenuItems li:last-child {border-bottom:0 none}
@@ -234,8 +273,8 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .main-content .submenuItems li span:last-child {margin-right:1.5rem}
 .main-content .submenuItems li .status {top:1rem; right:.5rem; transform:unset}
 
-.main-content .submenuItems.information li span:first-child {font-weight:bold; width:100px; display:inline-block}
-.main-content .submenuItems.information li span:last-child {flex:1 1 auto}
+.main-content .submenuItems.information li span:first-of-type {color:#838689; width:100px; display:inline-block}
+.main-content .submenuItems.information li span:last-of-type {flex:1 1 auto}
 
 .main-content .submenuItems.payment-status li span {font-weight:normal; text-align:center}
 .main-content .submenuItems.payment-status li span:nth-child(1) {width:10% !important}
@@ -245,12 +284,15 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .main-content .submenuItems.payment-status li span:nth-child(5) {width:15% !important}
 
 .main-content .submenuItems.guarantee li {flex-direction:column}
-.main-content .submenuItems.guarantee li:nth-child(1) span {font-weight:bold; color:#003EB1}
+/* .main-content .submenuItems.guarantee li:nth-child(1) span {font-weight:bold; color:#003EB1} */
 .main-content .submenuItems.guarantee li:nth-child(2) span {font-weight:bold}
 .main-content .submenuItems.guarantee li span:nth-child(1) {font-weight:bold}
 .main-content .submenuItems.guarantee li .status-circle {background:#E5EBF7; color:#003EB1; right:.5rem; border-radius:50%; width:40px; height:40px; line-height:40px; font-weight:bold}
-.accordion-menu.vacation .submenuItems li {justify-content:space-between}
-.accordion-menu.extra-work {margin-bottom:2rem}
+
+.plural {border-bottom:0 !important; padding:.5rem 0 !important}
+.plural:not(:last-of-type) {padding-bottom:0 !important}
+.plural ul {border:1px solid #E7E8E9; width:100%; border-radius:.5rem}
+.plural:first-child {font-weight:normal}
 
 /* Tab Menu */
 .tab-menu {flex:0 0 auto; display:flex; border:1px solid #E5EBF7; border-radius:3px; margin-bottom:1rem}
@@ -262,12 +304,16 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 /* Modal */
-.modal {opacity:0; pointer-events:none; visibility:hidden; position:fixed; top:50%; left:50%; width:calc(100% - 2rem); background:white; transform:translate(-50%, -50%); transition:.25s}
-.modal:target, .modal.active {box-shadow: 0 0 0 9999px rgba(0, 0, 0, .6); opacity:1; pointer-events:auto; visibility:visible; border-radius:5px; z-index: 100; }
+.modal-backdrop, .modal-backdrop2 {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.6); z-index:25; visibility:hidden; opacity:0; transition:0.25s}
+.modal-backdrop2 {z-index:75}
+.modal {opacity:0; pointer-events:none; visibility:hidden; position:fixed; top:50%; left:50%; width:calc(100% - 2rem); background:white; transform:translate(-50%, -50%); border-radius:.5rem; transition:.25s}
+.modal.active {opacity:1; pointer-events:auto; visibility:visible; z-index:50; }
+.modal-inside.active {z-index:100;}
+.modal header {padding:1rem 1rem 0; border-bottom:1px solid #EEE}
 .modal a:first-of-type {margin-right:1rem}
 .modal a:hover, .modal a:focus {transition:.2s; color:#003EB1}
+.modal h5 {text-align:center; margin-bottom:.5rem}
 .modal select {width:100%}
-.modal button {font-size:16px; height:50px}
 .modal input {display:inline-block}
 .modal .btn-container {display:flex; height:3rem}
 .modal .btn-container button {flex:1 1 auto; height:auto}
@@ -275,23 +321,24 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .modal .btn-container button:last-child {border-radius:0 0 5px 0}
 .modal .btn-container button.cancel2 {border-radius:0 0 5px 5px}
 .modal .content {max-height:50vh; overflow-y:auto; padding:1rem;}
-.modal .content > * {width:100%; margin-bottom:.5rem}
 .modal .input-container input {width:100%}
-/* .modal li {display:flex; justify-content:space-between} */
-
-
-
+.modal li {display:flex; justify-content:space-between}
+.modal li p:before {content:'- '}
+.modal .container {background:#F6F7F8; border:0; border-radius:.5rem}
+.container-border-title {background:#F6F7F8; margin-bottom:.5rem; border:0; border-radius:.5rem}
+.container-border-title strong {display:block; text-indent:1rem; border-bottom:1px solid #EEE            ; margin-bottom:.5rem; padding:.5rem 0; text-align:left}
+.container-border-title ul {width:100%; padding-bottom:.5rem; display:block; overflow:hidden;}
+.container-border-title li {float:left; display:inline-block}
+.container-border-title li:first-child {text-indent:1rem; width:30%; min-width:90px; color:#777879}
 .modal-small .content {max-height:40vh}
-.modal-vacation.modal-01 li p:before {content:'- '}
-.modal-vacation.modal-01 li:first-child p:before {content:none}
 
-.modal-full {width:100vw; }
-.modal-full:target {display:flex !important; flex-direction:column; height:100vh; border-radius:0}
-.modal-full:target .content {max-height:none; height:auto}
-.modal-full:target .btn-container {flex:0 0 auto}
-.modal-full:target .btn-container button {border-radius:0; }
+.modal-full {display:flex !important; flex-direction:column; width:100vw; height:calc(100% - 2rem); margin-top:1rem; border-radius:1rem}
+.modal-full.active { }
+.modal-full.active .content {max-height:none; height:auto}
+.modal-full.active .btn-container {flex:0 0 auto}
+.modal-full.active .btn-container button {border-radius:0; }
 
-.modal-full:target .selectbox {width:100%}
+.modal-full.active .selectbox {width:100%}
 
 
 
@@ -328,12 +375,6 @@ input[type="checkbox"]:checked + label:after {content:''; position:absolute; lef
 .tooltip .title:before {content:''; position:absolute; top:-5px; left:18px; border-radius:3px; width:1rem; height:1rem; background:#333; transform:rotate(45deg); z-index:-1}
 
 
-/* Fraction */
-.fraction-container {display:flex; justify-content:space-between; align-items:center}
-.fraction, .fraction .top, .fraction .bottom {padding:0 5px;}
-.fraction {display: inline-block; text-align: center;}
-.fraction .bottom {border-top:1px solid #000; display:block;}
-
 
 /* Input File */
 .form-input--file {width:100%; line-height:30px; margin:5px; position:relative; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; border:1px solid #EBEBEB}
@@ -342,16 +383,6 @@ input[type="checkbox"]:checked + label:after {content:''; position:absolute; lef
 .form-input--file-button {cursor:pointer; display:inline-block; position:absolute; top:0; right:-1px; bottom:0; padding: 0 1rem; background-color:#d9d9d9;}
 .form-input--file-button:hover {background-color:#ccc}
 
-
-/* Horizontal Bar Chart */
-.bar-chart {background:white; border-radius:.5rem; margin:0 1rem 1rem; padding:1rem}
-.bar-chart .legend {display:inline-block; margin-bottom:.5rem; margin-right:1rem}
-.bar-chart .legend label:nth-of-type(1):before {content:"■"; color:#003EB1; margin-right:3px;}
-.bar-chart .legend label:nth-of-type(2):before {content:"■"; color:#DDD; margin-right:3px; margin-left:1rem}
-.bar-chart .markers rect {fill:#BBB}
-.bar-chart .markers rect:last-of-type {transform: translateX(-1px)}
-.bar-chart .labels text {fill:#667788}
-.bar-chart .radio {display:flex; justify-content:center; margin-bottom:1rem}
 
 /* Pie Chart */
 .prec {top:30px; position:relative; font-size:30px}
@@ -377,22 +408,15 @@ table td {padding:.5rem}
 
 
 /* File */
-input[type=file] {
-  outline: 0;
-  opacity: 0;
-  pointer-events: none;
-  user-select: none;
-  display:none
-}
-
-.input-file {color:#AAA; padding:1rem 0; border:1px dashed #AAA; border-radius:5px; display:flex; justify-content:center; align-items:center; transition:0.25s; text-align:center}
+input[type=file] {outline:0; opacity:0; pointer-events:none; user-select:none; display:none}
+.input-file {color:#AAA; padding:1rem 0; border:1px dashed #AAA; border-radius:.5rem; display:flex; justify-content:center; align-items:center; transition:0.25s; text-align:center}
 .input-file:hover {border:1px solid #003EB1; color:#003EB1}
 .input-file i {margin-right:.5rem}
 
 
 /* Selectbox */
-.selectbox, input[type="date"] {flex:1 1 auto; position:relative; z-index:0}
-.selectbox::after, input[type="date"]::after {
+.selectbox {flex:1 1 auto; position:relative; z-index:0}
+.selectbox::after {
 content: '';
 position: absolute;
 top: 0;
@@ -406,7 +430,7 @@ border-width: 7px 7px 0 7px;
 border-color: #fff transparent transparent transparent;
 z-index: -1;
 }
-.selectbox::before, input[type="date"]::before {
+.selectbox::before {
 content: '';
 position: absolute;
 top: 2px;

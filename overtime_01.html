@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>휴일근무 신청</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일근무 신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_02.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">PM일일점검</a></li>
+                        <li><a href="#">외부점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <div class="main-content bg-gray overtime">
+        <header>
+            <div class="back" style="visibility:hidden;"></div>
+            <h2>휴일근무 신청</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <ul class="sub-menu">
+            <li class="current">휴일특근 사전신청</li>
+            <li><a href="overtime_02.html">야간근로 사전신청</a></li>
+        </ul>
+        <div class="content">
+            <div class="year">
+                <h1>
+                    <i class="fas fa-angle-left"></i>
+                    2019년 8월
+                    <i class="fas fa-angle-right"></i>
+                </h1>
+            </div>
+            <ul class="accordion-menu">
+                <li>
+                    <div class="dropdownlink">
+                        <strong>08.03(토)</strong>
+                        <span>08:00 ~ 17:00</span>
+                        <strong>8.00</strong>
+                        <span class="status done">완결</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>사유구분</span>
+                            <span>긴급사항처리</span>
+                        </li>
+                        <li>
+                            <span>사유</span>
+                            <span>이슈 발생으로 사업장 방문 지원</span>
+                        </li>
+                        <li>
+                            <span>대체휴일</span>
+                            <span>대체휴가, 적치 1일</span>
+                        </li>
+                        <li>
+                            <span>대체휴일일자</span>
+                            <span>2019.08.14(수)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <strong>08.04(일)</strong>
+                        <span>08:00 ~ 14:00</span>
+                        <strong>5.00</strong>
+                        <span class="status done">완결</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>사유구분</span>
+                            <span>긴급사항처리</span>
+                        </li>
+                        <li>
+                            <span>사유</span>
+                            <span>이슈 발생으로 사업장 방문 지원</span>
+                        </li>
+                        <li>
+                            <span>대체휴일</span>
+                            <span>대체휴가, 적치 1일</span>
+                        </li>
+                        <li>
+                            <span>대체휴일일자</span>
+                            <span>2019.08.14(수)</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <strong>08.10(토)</strong>
+                        <span>12:00 ~ 16:00</span>
+                        <strong>4.00</strong>
+                        <span class="status ing">진행중</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>사유구분</span>
+                            <span>긴급사항처리</span>
+                        </li>
+                        <li>
+                            <span>사유</span>
+                            <span>이슈 발생으로 사업장 방문 지원</span>
+                        </li>
+                        <li>
+                            <span>대체휴일</span>
+                            <span>대체휴가, 적치 1일</span>
+                        </li>
+                        <li>
+                            <span>대체휴일일자</span>
+                            <span>2019.08.14(수)</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <section>
+                <h4>주간 초과근무 현황</h4>
+                <div class="container extra-hours">
+                    <h5>2019.08.19(월) ~ 2019.08.25(일)</h5>
+                    <ul>
+                        <li>
+                            <h5>주간 초과</h5>
+                            <div>총 <strong>10.00</strong> 시간</div>
+                        </li>
+                        <li>
+                            <h5>평일</h5>
+                            <div><strong>8.00</strong> 시간</div>
+                        </li>
+                        <li>
+                            <h5>휴일</h5>
+                            <div><strong>2.00</strong> 시간</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="container form">
+                <h4>휴일특근 사전신청</h4>
+                <small class="red">* 필수항목</small>
+                <div class="input-container required">
+                    <label>신청일자</label>
+                    <input type="date">
+                    <span>휴일</span>
+                </div>
+                <div class="input-container required">
+                    <label>신청시간</label>
+                    <input type="time" placeholder="시작일" />
+                    <span>~</span>
+                    <input type="time" placeholder="종료일" />
+                </div>
+                <div class="input-container">
+                    <label>신청시간</label>
+                    <span>8.00시간 <i class="fas fa-question-circle" onclick="modal('modal-01')"></i></span>
+
+                </div>
+                <div class="input-container">
+                    <label for="">대체휴일</label>
+                    <input type="text" readonly="readonly" value="2019. 08. 14" />
+                </div>
+                <div class="input-container">
+                    <label for="">대체휴일일자</label>
+                    <input type="date" />
+                </div>
+                <div class="input-container required">
+                    <label for="">사유선택</label>
+                    <div class="selectbox">
+                        <select>
+                            <option value="">일상잔여업무수행</option>
+                            <option value="">성수기업무수행</option>
+                            <option value="">행사</option>
+                            <option value="">긴급사항처리</option>
+                            <option value="">시설유지보수</option>
+                            <option value="">공무공사</option>
+                            <option value="">현장지원</option>
+                            <option value="">기타</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-container required" style="flex-wrap:wrap">
+                    <label for="">사유작성</label>
+                    <textarea rows="3" placeholder="사유작성"></textarea>
+                </div>
+            </section>
+            <section>
+                <h4>결재 경로 설정 <i class="fas fa-question-circle" onclick="modal('modal-02')"></i></h4>
+                <ul class="list container">
+                    <li>
+                        <span class="num">1</span>
+                        <span class="name">홍길동</span>
+                        <span class="progress">기안</span>
+                        <i class="fas fa-minus-circle fa-lg"></i>
+                    </li>
+                    <li>
+                        <span class="num">2</span>
+                        <span class="name">홍길동</span>
+                        <span class="progress">합의</span>
+                        <i class="fas fa-minus-circle fa-lg"></i>
+                    </li>
+                    <li>
+                        <span class="num">3</span>
+                        <span class="name">홍길동</span>
+                        <span class="progress">합의</span>
+                        <i class="fas fa-minus-circle fa-lg"></i>
+                    </li>
+                    <li><button onclick="modal('modal-03')">결재자 추가</button></li>
+                </ul>
+            </section>
+        </div><!-- end Content -->
+        <button class="main" onclick="">결재</button>
+    </div><!-- end Main Content -->
+
+
+    <!-- Modal1 -->
+    <div class="modal modal-01">
+        <header>
+            <h4>급여인정시간 안내</h4>
+        </header>
+        <div class="content">
+            <h5>근무시간에 따른 급여인정시간이 노출됩니다.</h5>
+            <p>4시간 미만 : 0</p>
+            <p>4~6시간 미만: 4시간</p>
+            <p>6~8시간 미만: 6시간</p>
+            <p>8시간 이상: 8시간</p>
+        </div>
+
+        <section class="btn-container">
+            <button class="cancel2" onclick="location.href='#'">닫기</button>
+        </section>
+    </div><!-- end Modal1 -->
+
+    <!-- Modal2 -->
+    <div class="modal modal-02">
+        <header>
+            <h4>결재자검색 안내</h4>
+        </header>
+        <div class="content">
+            <h5>* 결재 경로를 준수하지 않은 사전신청은 처리되지 않으니, 확인 바랍니다.</h5>
+            <p>- 운영지역 : 1차 결재 - PM, 2차 결재 - 지역장 (단, 전자FS담당 및 경인FS1지역은 수석FA로 지정)</p>
+            <p>- 지원부서 : 1차 결재 - 부서장, 2차 결재 - 팀장</p>
+            <p>- 근태담당자에게 별도 통보 없음</p>
+        </div>
+
+        <section class="btn-container">
+            <button class="cancel2">닫기</button>
+        </section>
+    </div><!-- end Modal2 -->
+
+    <!-- Modal3 -->
+    <div class="modal modal-03">
+        <header>
+            <h4>결재자 검색</h4>
+        </header>
+        <div class="content">
+            <section class="search">
+                <div class="selectbox">
+                    <select>
+                        <option>통보</option>
+                        <option>통보</option>
+                        <option>통보</option>
+                    </select>
+                </div>
+                <input type="search" placeholder="결재자 검색" />
+                <i class="fas fa-search" onclick=""></i>
+            </section>
+            <ul class="list">
+                <li>
+                    <span>성명</span>
+                    <span>사번</span>
+                    <span>부서명</span>
+                    <span>직책</span>
+                </li>
+                <li>
+                    <span>홍길동</span>
+                    <span>B000000</span>
+                    <span>안전그룹</span>
+                    <span>프로</span>
+                </li>
+                <li>
+                    <span>홍길동</span>
+                    <span>B000000</span>
+                    <span>안전그룹</span>
+                    <span>프로/그룹장</span>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main" onclick="confirmSubmit()">확인</button>
+        </div>
+    </div><!-- end Modal3 -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

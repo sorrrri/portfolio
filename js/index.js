@@ -1,3 +1,36 @@
+// Accordion Menu
+$(function() {
+	var Accordion = function(el, multiple) {
+		this.el = el || {};
+		// more then one submenu open?
+		this.multiple = multiple || false;
+
+		var dropdownlink = this.el.find('.dropdownlink');
+		dropdownlink.on('click', {
+			el : this.el,
+			multiple : this.multiple
+		}, this.dropdown);
+	};
+	Accordion.prototype.dropdown = function(e) {
+		var $el = e.data.el, $this = $(this),
+		// this is the ul.submenuItems
+		$next = $this.next();
+
+		$next.slideToggle();
+		$this.parent().toggleClass('open');
+
+		if (!e.data.multiple) {
+			// show only one menu at the same time
+			$el.find('.submenuItems').not($next).slideUp().parent()
+					.removeClass('open');
+		}
+	}
+	var accordion = new Accordion($('.accordion-menu'), false);
+})
+
+
+
+
 // Confirm Alert
 function confirmSave () {
 	if(confirm('저장하시겠습니까?')){
@@ -35,41 +68,6 @@ $('aside.active .menu').click(function() {
 	//$(this).toggleClass('open');
 })
 
-
-
-
-
-// Accordion Menu
-$(function() {
-	var Accordion = function(el, multiple) {
-		this.el = el || {};
-		// more then one submenu open?
-		this.multiple = multiple || false;
-
-		var dropdownlink = this.el.find('.dropdownlink');
-		dropdownlink.on('click', {
-			el : this.el,
-			multiple : this.multiple
-		}, this.dropdown);
-	};
-
-	Accordion.prototype.dropdown = function(e) {
-		var $el = e.data.el, $this = $(this),
-		// this is the ul.submenuItems
-		$next = $this.next();
-
-		$next.slideToggle();
-		$this.parent().toggleClass('open');
-
-		if (!e.data.multiple) {
-			// show only one menu at the same time
-			$el.find('.submenuItems').not($next).slideUp().parent()
-					.removeClass('open');
-		}
-	}
-
-	var accordion = new Accordion($('.accordion-menu'), false);
-})
 
 
 
@@ -140,18 +138,27 @@ $(document).ready(function() {
 
 // Modal
 function modal(type) {
-	$(".mask").addClass("active");
+	$(".modal-backdrop").addClass("active");
 	if (type == "aside") {
 		$("aside").toggleClass("active");
+	} else if (type == "modal-01") {
+		$(".modal-01").toggleClass("active");
+	} else if (type == "modal-02") {
+		$(".modal-02").toggleClass("active");
+	} else if (type == "modal-03") {
+		$(".modal-03").toggleClass("active");
+	} else if (type == "modal-04") {
+		$(".modal-04").toggleClass("active");
 	} else if (type == "modal-inside") {
+		$(".modal-backdrop2").addClass("active");
 		$(".modal-inside").toggleClass("active");
 	}
 }
 
-function closeModal() {
-	$("aside, .modal-inside").removeClass("active");
-}
+$(".modal-backdrop, .close, .cancel, .cancel2, .menu.open").on("click", function() {
+	$(".modal-backdrop, aside, .modal").removeClass("active");
+});
 
-$(".close, .cancel, .menu.open").on("click", function() {
-	closeModal();
+$(".cancel-inside, .modal-backdrop2").on("click", function() {
+	$(".modal-inside, .modal-backdrop2").removeClass("active");
 });

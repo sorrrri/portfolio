@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>계약품의관리 조회결과</title>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -33,14 +34,14 @@
                         <li><a href="#">근무실적</a></li>
                     </ul>
                 </li>
-                <li><a href="vacation_details.html">연간 휴가 조회</a></li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
                 <li>
                     <div class="dropdownlink">
-                        <a href="extra_work.html">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                        <a href="#"></a>휴일근무 신청<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="extra_work_01.html">휴일특근 사전신청</a></li>
-                        <li><a href="extra_work_02.html">야간근로 사전신청</a></li>
+                        <li><a href="overtime_01.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_02.html">야간근로 사전신청</a></li>
                     </ul>
                 </li>
                 <li>
@@ -53,6 +54,7 @@
                     </ul>
                 </li>
                 <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
@@ -85,28 +87,20 @@
             <!-- 유효 -->
             <section id="tab-01" class="tab-content current">
                 <div class="list-title">
-                    <h6>Total <strong class="red">0001</strong>건</h6>
+                    <h6>Total <strong class="red">1</strong>건</h6>
                     <div>
-                        <div class="selectbox">
-                            <select>
-                                <option value="품의완결">품의완결</option>
-                                <option value="품의진행">품의진행</option>
-                                <option value="품의반려">품의반려</option>
-                            </select>
+                        <div class="filter">
+                            <label>품의유형</label>
                         </div>
-                        <div class="selectbox">
-                            <select>
-                                <option value="진행중">미진행</option>
-                                <option value="진행중" selected>진행중</option>
-                                <option value="완료">완료</option>
-                            </select>
+                        <div class="filter">
+                            <label>결재상태</label>
                         </div>
                     </div>
                 </div><!-- end List Title -->
                 <div class="list-item" onclick="location.href='contract_details.html'">
                     <h4>[변경] 고메돈까스지점2</h4>
-                    <span class="status ing">진행중</span>
                     <span class="progress">품의완결</span>
+                    <span class="status ing">진행중</span>
                     <ul>
                         <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
                     </ul>
@@ -117,26 +111,19 @@
             <!-- 전체-->
             <section id="tab-02" class="tab-content">
                 <div class="list-title">
-                    <h6>Total <strong class="red">0004</strong>건</h6>
+                    <h6>Total <strong class="red">4</strong>건</h6>
                     <div>
-                        <div class="selectbox">
-                            <select>
-                                <option value="품의완결">품의완결</option>
-                                <option value="품의진행">품의진행</option>
-                                <option value="품의반려">품의반려</option>
-                            </select>
+                        <div class="filter">
+                            <label>품의유형</label>
                         </div>
-                        <div class="selectbox">
-                            <select>
-                                <option value="미진행">미진행</option>
-                                <option value="진행중" selected>진행중</option>
-                                <option value="완료">완료</option>
-                            </select>
+                        <div class="filter">
+                            <label>결재상태</label>
                         </div>
                     </div>
                 </div><!-- end List Title -->
                 <div class="list-item" onclick="location.href='contract_details.html'">
                     <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="progress">품의완결</span>
                     <span class="status ing">진행중</span>
                     <ul>
                         <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
@@ -144,6 +131,7 @@
                 </div>
                 <div class="list-item" onclick="location.href='contract_details.html'">
                     <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="progress">품의완결</span>
                     <span class="status ing">진행중</span>
                     <ul>
                         <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
@@ -151,6 +139,7 @@
                 </div>
                 <div class="list-item" onclick="location.href='contract_details.html'">
                     <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="progress">품의완결</span>
                     <span class="status ing">진행중</span>
                     <ul>
                         <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
@@ -158,6 +147,7 @@
                 </div>
                 <div class="list-item" onclick="location.href='contract_details.html'">
                     <h4>[품의완결] 고메돈까스지점2</h4>
+                    <span class="progress">품의완결</span>
                     <span class="status ing">진행중</span>
                     <ul>
                         <li>계약기간 : 2019.05.01 ~ 2021.04.30</li>
@@ -167,6 +157,7 @@
             </section><!-- end Tab Content - 전체 -->
         </div><!-- end Content -->
     </div><!-- end Main Content -->
+    <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>
 </body>
