@@ -3,7 +3,7 @@ $(function() {
 	var Accordion = function(el, multiple) {
 		this.el = el || {};
 		// more then one submenu open?
-		this.multiple = multiple || false;
+		this.multiple = multiple || true;
 
 		var dropdownlink = this.el.find('.dropdownlink');
 		dropdownlink.on('click', {
@@ -28,6 +28,19 @@ $(function() {
 	var accordion = new Accordion($('.accordion-menu'), false);
 })
 
+
+
+// Tooltip
+$(document).ready(function() {
+    $(".tooltip").click(function () {
+    var $title = $(this).find(".title");
+    if (!$title.length) { 
+      $(this).append('<span class="title">' + $(this).attr("title") + '</span>');
+    } else {
+      $title.remove();
+    }
+  })
+})
 
 
 
@@ -120,19 +133,6 @@ $("input[type='radio'").click(function () {
 	$(this).addClass('active');
 });
 
-
-
-// Tooltip
-$(document).ready(function() {
-    $(".tooltip").click(function () {
-    var $title = $(this).find(".title");
-    if (!$title.length) {
-      $(this).append('<span class="title">' + $(this).attr("title") + '</span>');
-    } else {
-      $title.remove();
-    }
-  })
-})
 
 
 

@@ -18,8 +18,16 @@
 .fraction-container {width:270px; margin:0 auto 1rem; border-radius:.5rem; border:1px solid #EEE; display:flex; justify-content:space-between; align-items:center}
 .fraction, .fraction .top, .fraction .bottom {padding:0 5px;}
 .fraction {display: inline-block; text-align: center;}
-.fraction .bottom {border-top:1px solid #000; display:block;}
+.fraction .bottom {border-top:1px solid #000; display:block}
 
+
+
+/* Contract Page - 계약품의조회 */
+.main-content .submenuItems.guarantee li {flex-direction:column}
+/* .main-content .submenuItems.guarantee li:nth-child(1) span {font-weight:bold; color:#003EB1} */
+.main-content .submenuItems.guarantee li:nth-child(2) > span {font-weight:bold}
+.main-content .submenuItems.guarantee li > span:nth-child(1) {font-weight:bold}
+.main-content .submenuItems.guarantee li:first-child {flex-direction: row}
 
 
 /* Overtime Page - 휴일근무신청 */
