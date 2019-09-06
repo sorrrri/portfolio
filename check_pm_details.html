@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PM일일점검</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태 관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_2.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="check_pm_list_1.html">PM일일점검</a></li>
+                        <li><a href="check_outside_list.html">사외점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <div class="main-content check-pm bg-gray">
+        <header>
+            <div class="back" onclick="location.href='check_pm_list_1.html'"></div>
+            <h2>PM일일점검</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <header class="header-2">
+            <h4>점검정보</h4>
+            <ul class="accordion-menu arrow-center">
+                <li>
+                    <div class="dropdownlink">
+                        <h6>사업장 : 한국타이어대전기숙사 1</h6>
+                        <h6>점검일시 : 2019.08.05(월)</h6>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li>
+                            <div class="search">
+                                <input type="search" placeholder="점검자">
+                                <i class="fas fa-search" onclick=""></i>
+                            </div>
+                            <div class="recently">
+                                <div>
+                                    <span>김유정</span>
+                                    <span class="close"></span>
+                                </div>
+                                <div>
+                                    <span>이현구</span>
+                                    <span class="close"></span>
+                                </div>
+                        </li>
+                        <li>
+                            <div class="search">
+                                <input type="search" placeholder="수검자">
+                                <i class="fas fa-search" onclick=""></i>
+                            </div>
+                            <div class="recently">
+                                <div>
+                                    <span>김철수</span>
+                                    <span class="close"></span>
+                                </div>
+                                <div>
+                                    <span>이현구</span>
+                                    <span class="close"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <div class="content">
+            <h4>점검항목</h4>
+            <div class="list-title check">
+                <div class="num">
+                    <span>정상<span class="count">9</span></span>
+                    <span>이상<span class="count">1</span></span>
+                </div>
+            </div>
+            <ul class="accordion-menu">
+                <li>
+                    <div class="dropdownlink bg-lightgreen">
+                        출근/조회
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li class="fd-col">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-01" checked="checked" />
+                                <label for="checkbox-01">모두정상</label>
+                            </div>
+                            <ul class="accordion-menu arrow-center">
+                                <li class="fd-col">
+                                    <div class="dropdownlink">
+                                        근무자 출근 시 건강상태 확인
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li class="fd-col">
+                                            <h6>이상 발생 시 위생안전그룹 보고</h6>
+                                            <p>병원진료 결과 식중독, 감염병 의심/확진 근무자</p>
+                                            <p>발열(37.5℃이상), 설사(일 2회이상), 두통(2일이상)</p>
+                                            <p>건강진단결과서 갱신일 초과여부 * 갱신일 1달전</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-menu">
+                                        <li class="tab current" data-tab="tab-01">정상</li>
+                                        <li data-tab="tab-02">이상</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="accordion-menu arrow-center">
+                                <li class="fd-col">
+                                    <div class="dropdownlink">
+                                        아침조회 시 전 근무자 대상 교육 및 사례공유 여부
+                                        <i class="fa fa-chevron-down hidden"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li class="fd-col">
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-menu">
+                                        <li class="tab current" data-tab="tab-03">정상</li>
+                                        <li data-tab="tab-04">이상</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink bg-lightgray">
+                        중분류 2
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li class="fd-col">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-01" />
+                                <label for="checkbox-01">모두정상</label>
+                            </div>
+                            <ul class="accordion-menu arrow-center">
+                                <li class="fd-col">
+                                    <div class="dropdownlink">
+                                        근무자 출근 시 건강상태 확인
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li class="fd-col">
+                                            <h6>이상 발생 시 위생안전그룹 보고</h6>
+                                            <p>병원진료 결과 식중독, 감염병 의심/확진 근무자</p>
+                                            <p>발열(37.5℃이상), 설사(일 2회이상), 두통(2일이상)</p>
+                                            <p>건강진단결과서 갱신일 초과여부 * 갱신일 1달전</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-menu">
+                                        <li class="tab w50p current" data-tab="tab-01">정상</li>
+                                        <li class="w50p" data-tab="tab-02">이상</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="accordion-menu arrow-center">
+                                <li class="fd-col">
+                                    <div class="dropdownlink">
+                                        아침조회 시 전 근무자 대상 교육 및 사례공유 여부
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li class="fd-col">
+                                            <p>주간교육자료 및 위생안전 OPL 등 활용</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-menu">
+                                        <li class="tab" data-tab="tab-03">정상</li>
+                                        <li class="current" data-tab="tab-04">이상</li>
+                                    </ul>
+                                    <div class="flex-container wrapper fd-col">
+                                        <textarea rows="3"></textarea>
+                                        <button class="main">수정</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink bg-lightyellow">
+                        중분류 3
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li class="fd-col">
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkbox-01" />
+                                <label for="checkbox-01">모두정상</label>
+                            </div>
+                            <ul class="accordion-menu arrow-center">
+                                <li class="fd-col">
+                                    <div class="dropdownlink">
+                                        근무자 출근 시 건강상태 확인
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li class="fd-col">
+                                            <h6>이상 발생 시 위생안전그룹 보고</h6>
+                                            <p>병원진료 결과 식중독, 감염병 의심/확진 근무자</p>
+                                            <p>발열(37.5℃이상), 설사(일 2회이상), 두통(2일이상)</p>
+                                            <p>건강진단결과서 갱신일 초과여부 * 갱신일 1달전</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-menu">
+                                        <li class="tab w50p current" data-tab="tab-01">정상</li>
+                                        <li class="w50p" data-tab="tab-02">이상</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="accordion-menu arrow-center">
+                                <li class="fd-col">
+                                    <div class="dropdownlink">
+                                        아침조회 시 전 근무자 대상 교육 및 사례공유 여부
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li class="fd-col">
+                                            <p>주간교육자료 및 위생안전 OPL 등 활용</p>
+                                        </li>
+                                    </ul>
+                                    <ul class="tab-menu">
+                                        <li class="tab w50p" data-tab="tab-03">정상</li>
+                                        <li class="w50p current" data-tab="tab-04">이상</li>
+                                    </ul>
+                                    <div class="flex-container wrapper fd-col">
+                                        <textarea rows="3"></textarea>
+                                        <button class="main">수정</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- end Content -->
+        <button class="main" onclick="confirmSave()">저장</button>
+    </div><!-- end Main Content -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

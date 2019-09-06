@@ -28,7 +28,7 @@
 .main-content .submenuItems.guarantee li:nth-child(2) > span {font-weight:bold}
 .main-content .submenuItems.guarantee li > span:nth-child(1) {font-weight:bold}
 .main-content .submenuItems.guarantee li:first-child {flex-direction: row}
-
+.main-content .submenuItems.guarantee .bg-lightblue {border-bottom:0; margin:.5rem 0 0; border-radius:3px}
 
 /* Overtime Page - 휴일근무신청 */
 .extra-hours ul {display:grid; grid-template-columns:2fr 1fr 1fr; grid-column-gap:.5rem}
@@ -47,3 +47,27 @@
 .mortgage .accordion-menu li:nth-of-type(3) .submenuItems li:first-child {justify-content:space-between}
 .mortgage .accordion-menu li:nth-of-type(3) .submenuItems > li:first-child span:first-child {font-weight:normal; width:auto}
 .mortgage .accordion-menu li:nth-of-type(3) .submenuItems > li:first-child span:last-child {flex:auto; text-align:right}
+
+
+
+/* Checking Page - 위생안전점검 */
+.check-pm .header-2 {border-bottom:0}
+.check-pm .header-2 .accordion-menu {margin-bottom:0; border:0; border-top:1px solid #DDD; border-bottom:1px solid #DDD}
+.check-pm .header-2 .accordion-menu .submenuItems li {flex-direction:column; align-items: flex-start;}
+.check-pm .header-2 .accordion-menu .submenuItems li:first-child {margin-bottom:1rem !important}
+.check-pm .header-2 .accordion-menu .submenuItems li:last-child {border-bottom:0}
+.check-pm .header-2 .search {width:100%; margin-bottom:.5rem !important}
+.check-pm .header-2 .recently span {padding:0}
+.check-pm .list-title.check {margin-left:.5rem}
+.check-pm .list-title.check .num > span:first-child:before {content:''; display:inline-block; width:.5rem; height:.5rem; background-color:#2FBA35; border-radius:50%; margin-right:3px}
+.check-pm .list-title.check .num > span:last-child:before {content:''; display:inline-block; width:.5rem; height:.5rem; background-color:#fff100; border-radius:50%; margin-right:3px}
+.check-pm .tab-menu {margin-bottom:.5rem}
+.check-pm .accordion-menu .submenuItems h6:before {content:'* '}
+.check-pm .accordion-menu .submenuItems p:before {content:'• '}
+
+.check-outside .list li {padding:1rem .5rem}
+.check-outside .list .status {max-width:50px; position:relative}
+.check-outside .list span:first-of-type {text-align:left}
+.check-outside .container section {text-align:center; margin-bottom:1rem}
+.check-outside .list input {margin-right:.5rem; text-indent:0; flex:0 1 auto}
+.check-outside .list input::-webkit-search-cancel-button {position:relative; right:0rem}

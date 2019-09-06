@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PM일일점검 조회결과</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="settings" onclick=""></li>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태 관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="#">근무계획</a></li>
+                        <li><a href="#">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">휴일근무 신청<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_2.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="check_pm_list_1.html">PM일일점검</a></li>
+                        <li><a href="check_outside_list.html">사외점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <div class="main-content check-pm">
+        <header>
+            <div class="back hidden"></div>
+            <h2>PM일일점검 조회결과</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <ul class="sub-menu">
+            <li class="current">PM 일일점검</li>
+            <li><a href="check_outside_list.html">사외점검</a></li>
+        </ul>
+        <div class="content wrapper">
+            <section title="search-area">
+                <div class="search">
+                    <input type="search" value="한국타이어 대전기숙사1" />
+                    <i class="fas fa-search" onclick=""></i>
+                </div>
+                <div class="recently">
+                    <small>최근검색</small>
+                    <div>
+                        <span>한국타이어대전기숙사1</span>
+                        <span class="close"></span>
+                    </div>
+                    <div>
+                        <span>한국타이어</span>
+                        <span class="close"></span>
+                    </div>
+                </div>
+                <ul class="tab-menu">
+                    <li class="tab current">3일</li>
+                    <li>1주일</li>
+                    <li>1개월</li>
+                </ul>
+                <ul class="accordion-menu arrow-center">
+                    <li>
+                        <div class="dropdownlink">
+                            2019. 08.19 ~ 2019. 08.22
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                        <ul class="submenuItems">
+                            <li>
+                                <label>기간</label>
+                                <i class="far fa-calendar-alt"></i>
+                                <input type="time" placeholder="시작일" />
+                                <span>~</span>
+                                <i class="far fa-calendar-alt"></i>
+                                <input type="time" placeholder="종료일" />
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="main">조회</button>
+            </section>
+            <section>
+                <div class="list-item" style="background:transparent">
+                    <h4 onclick="location.href='check_pm_details.html'">사업장 : 한국타이어 대전기숙사1</h4>
+                    <div class="list-title">
+                        <div class="num">
+                            <span>등록<span class="count">1</span></span>
+                            <span>미등록<span class="count">3</span></span>
+                        </div>
+                        <div>
+                            <span>토, 일요일 제외 </span>
+                            <div class="toggle-btn active">
+                                <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                            </div>
+                            <div class="sort">
+                                <label>최신순</label>
+                            </div>
+                        </div>
+                    </div><!-- end List Title -->
+                    <ul class="list list-arrow" onclick="location.href='check_pm_details.html'">
+                        <li>
+                            <span>2019.09.09(월)</span>
+                            <span class="status gray">미등록</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            <span class="red">2019.09.08(일)</span>
+                            <span class="status skyblue">등록</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            <span>2019.09.07(토)</span>
+                            <span class="status gray">미등록</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            <span>2019.09.06(금)</span>
+                            <span class="status gray">미등록</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            <span>2019.09.05(목)</span>
+                            <span class="status gray">미등록</span>
+                            <i class="fa fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            <button class="main-border">더보기</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div><!-- end Content -->
+    </div><!-- end Main Content -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

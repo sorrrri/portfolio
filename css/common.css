@@ -16,17 +16,16 @@ body, input, textarea, select {
 body {word-break:break-word; display:flex; -webkit-tap-highlight-color:rgba(0,0,0,0)}
 a {cursor:pointer}
 div[onclick] {cursor:pointer}
-input {outline:none; text-indent:.5rem;}
+input {-webkit-appearance:none; outline:none; text-indent:.5rem; box-shadow:0 0 0 0}
 input[readonly]:focus, textarea[readonly]:focus {outline:0 none !important}
-input, select  {background:transparent; padding:0 .5rem; border-radius:3px; border:1px solid #DDD;}
+input, select  {background:transparent; padding:.5rem; border-radius:3px; border:1px solid #DDD;}
 textarea {resize:none; -webkit-appearance:none; width:100%; outline:1px solid #EEE; padding:.5rem; box-shadow:0 0 0 0}
 textarea:focus {outline:1px solid #AAA !important}
 input::-webkit-search-cancel-button {position:relative; right:2rem}
 input:read-only:-webkit-search-cancel-button {-webkit-appearance:none !important}
 
-input[type="date"] {padding-right:2rem;
-  background:url(../images/ico/calendar.png) center right .5rem no-repeat !important; background-size:14px 14px !important}
-
+input[type="date"] {padding-right:2rem; background:url(../images/ico/calendar.png) center right .5rem no-repeat !important; background-size:14px 14px !important}
+input[type="search"] {border-radius:3px; border:1px solid #DDD; position:relative}
 select {border:1px solid #EEE; }
 h1 {font-size:18px}
 h2 {font-size:17px; font-weight:normal}
@@ -36,15 +35,36 @@ h5 {font-size:15px; font-weight:normal; padding:.2rem 0}
 h6 {font-size:14px; font-weight:normal}
 sub {text-align:center; display:block; margin-bottom:.5rem;}
 
+.fd-col {flex-direction:column}
+.fd-col button {margin-top:.5rem !important}
+
 .red {color:#FF4500}
-.bg-gray {background-color:#F6F7F8 !important}
+.blue {color:#4682B4}
+.bg-gray {background:#F6F7F8 !important}
 .bg-gray-2 {background-color:#EEE !important}
+.bg-lightgray {background-color:#D3D6D9 !important}
+.bg-lightgreen {background-color:#D5F1D7 !important}
+.bg-lightblue {background-color:#E5EBF7 !important}
+.bg-lightyellow {background-color:#FFFCCC !important}
+.status.new, .status.purple, .bg-purple {background-color:#591DA9 !important}
+.status.open, .status.skyblue, .bg-skyblue {background-color:#71BBEE !important}
+.status.ing, .status.orange, .bg-orange {background-color:#F28D21 !important}
+.status.stop, .status.gray, .bg-gray-3 {background-color:#A3A6A9 !important}
+.status.done, .status.green, .bg-green {background-color:#2FBA35 !important}
+.status.rejected, .status.red, .bg-red {background-color:#FF4500 !important}
+
+.green-border {color:#2FBA35; border:1px solid #2FBA35; border-radius:3px; text-align:center}
+
+.tags {display:flex; flex-wrap:wrap}
+.tags li {background-color:#EEE !important; color:#7F9ED8; padding:.2rem .7rem; margin-right:.5rem; margin-bottom:.5rem; border-radius:3px}
+
 .w50p {width:50%}
-.wrapper {padding:1rem !important}
+.wrapper {padding:.5rem !important}
 .hidden {visibility:hidden}
-.col-3 {width:33.333%}
+.col-3 li {width:33.333%}
 
 i {font-style:normal !important}
+i.fa {text-indent:0 !important}
 i.fa-question-circle {color:#b2c5e7; margin-left:5px; font-size:20px; vertical-align:middle}
 i.fa-angle-left, i.fa-angle-right {margin:0 .5rem}
 .home {background:url(../images/ico/home.png) center center no-repeat; width:20px; height:100%; background-size: contain}
@@ -60,17 +80,10 @@ i.fa-angle-left, i.fa-angle-right {margin:0 .5rem}
 .status, .progress {box-sizing:border-box;  font-weight:normal; text-indent:0; line-height:20px; font-size:12px; text-align:center; min-width:50px; padding:0 .5rem; position:absolute; border-radius:3px; color:white}
 .progress {color:#003EB1; border:1px solid #B2C5E7; max-width:4rem}
 
-.status.new, .status.purple {background:#591DA9}
-.status.open, .status.skyblue {background:#71BBEE}
-.status.ing, .status.orange {background:#F28D21}
-.status.stop, .status.gray {background:#A3A6A9}
-.status.done, .status.green {background:#2FBA35}
-.status.rejected, .status.red {background:#FF4500}
 
-.green-border {color:#2FBA35; border:1px solid #2FBA35; border-radius:3px; text-align:center}
-
-
-.filter {border-radius:3px; border:1px solid #E3E6E9; background:url(../images/ico/filter.png) center right .5rem no-repeat; background-size:14px 14px; margin-left:.5rem; padding:.5rem; padding-right:2rem}
+.filter, .sort {background:white; border-radius:3px; border:1px solid #E3E6E9; background-position:center right .5rem; background-repeat:no-repeat; background-size:14px 14px; margin-left:.5rem; padding:.5rem; padding-right:2rem}
+.filter {background-image:url(../images/ico/filter.png)}
+.sort {background-image:url(../images/ico/sort.png)}
 
 
 /* Buttons */
@@ -94,7 +107,7 @@ aside .accordion-menu li.menu-title {text-align:left; font-weight:bold; line-hei
 aside .accordion-menu li:focus {background:#EEE}
 aside .accordion-menu li:last-child {border-bottom:0 none}
 aside .accordion-menu:first-child {margin-bottom:2rem}
-aside .submenuItems {background:#D3D6D9; border-radius:.5rem}
+aside .submenuItems {background:#D3D6D9; border-radius:3px}
 
 
 
@@ -108,7 +121,13 @@ aside .submenuItems {background:#D3D6D9; border-radius:.5rem}
 header .back {float:left; margin-top:1rem; border:1px solid #333; border-width:0 0 2px 2px; width:15px; height:15px; transform: rotate(45deg); transition:.3s ease-in-out;}
 header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
-
+.header-2 {padding:0 !important; height:auto !important; line-height:unset !important; flex-direction:column}
+.header-2 h4 {line-height:2rem; text-align:center}
+.header-2 .accordion-menu {border-radius:3px}
+.header-2 .accordion-menu .submenuItems li {padding:0 !important; flex-wrap:wrap}
+.header-2 .accordion-menu .input-container {flex:1 1 auto; margin-top:0 !important; border:0}
+.header-2 .accordion-menu .recently {margin-top:0 !important; line-height:1rem}
+.header-2 .accordion-menu .recently div {margin-top:0 !important}
 
 /* Sub Menu */
 .sub-menu {flex:0 0 auto; display:flex;}
@@ -141,26 +160,21 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .recently small {font-weight:bold; margin-right:.5rem; margin-bottom:.5rem}
 .recently small:after {content:' :'}
 .recently div {position:relative; margin:0 .2rem .5rem 0; padding:.2rem .5rem; border:1px solid #EEE; border-radius:.5rem}
-.recently .close {width:15px; height:10px}
+.recently .close {width:15px; height:10px; padding:0}
 .recently .close::before, .recently .close::after {width:10px; left:auto; right:0; background:#AAA}
 
 
 /* Content List Title */
 .list-title {margin-bottom:.5rem; display:flex; justify-content:space-between; align-items:center}
 .list-title select {border:0 none}
-.list-title > div {display:flex}
+.list-title > div {display:flex; align-items:center}
+.list-title .toggle-btn {margin-left:.3rem}
+.list-title .num > span:not(:last-of-type):after {content:'|'; margin:0 .5rem}
+.list-title .num .count:before {content:'('}
+.list-title .num .count:after {content:')'}
 .content-title {margin-bottom:1rem; text-align:center}
 .content-title-2 {background:#EEE; color:#777; text-indent:1rem}
 
-.list li {position:relative; display:flex; align-items:center; padding:.5rem; border-bottom:1px solid #EEE}
-.list li:first-child {border-top:1px solid #EEE}
-.list li span {text-align:center; width:25%; display:inline-block}
-.list li button {font-size:13px; height:40px; width:50%; margin:0 auto}
-.list li .num {width:10%}
-.list li .progress {width:20%; position: relative; margin-right:1rem; color:#333; font-size:14px; border:0}
-.list li .name {text-align:left}
-.list .th {color: #878889;}
-.list i.fa-minus-circle {position:absolute; right:1rem; top:50%; transform:translateY(-50%)}
 
 .right-container {text-align:right; margin:1rem 1rem .5rem}
 .right-container i {vertical-align:middle; margin-left:.3rem}
@@ -195,9 +209,14 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 /* Container */
-.container {background:White; padding:1rem; border-top:1px solid #EEE; border-bottom:1px solid #EEE}
+.container {background:White; padding:1rem .5rem; border-top:1px solid #EEE; border-bottom:1px solid #EEE}
 .container > h5 {text-align:center; margin-bottom:1rem}
 
+
+
+/* Border Container */
+.border-container {margin-bottom:.5rem; border:1px solid #EEE; border-radius:.5rem; padding:1rem}
+.border-container h6 {font-weight:bold; margin-bottom:.5rem}
 
 
 /* Flex Container */
@@ -208,11 +227,12 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 /* Input */
-.input-container {display:flex; align-items:center; padding:1rem 0; border-bottom:1px solid #EEE; position:relative}
+.input-container {display:flex; align-items:center; padding:.5rem 0; border-bottom:1px solid #EEE; position:relative}
 .input-container h6, .input-container label {width:40%}
-.input-container input {width:60%; border:0 none; padding:0; background:transparent}
+.input-container input {width:60%; border:0 none; padding:.5rem 0; background:transparent}
 .input-container input:focus {outline:0}
 .input-container select {border:0 none}
+.input-container button {height:30px; font-size:13px; max-width:6rem}
 .input-container.active {border-bottom:1px solid #B3B6B9}
 .input-container label {color:#878889; flex:0 0 auto; display:inline-block; text-align:left; min-width:20%; max-width:30%}
 
@@ -222,6 +242,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .input-container label ~ input[type="time"] {width:auto} 
 .input-container input[type="date"] {flex:1 1 auto}
 .input-container input[type="date"] + span {min-width:2.5rem}
+.input-container input[type="search"] {padding-right:2rem; background:url(../images/ico/search.png) center right .5rem no-repeat !important; background-size:14px 14px !important}
 .input-container .status, .input-container .progress {position:relative}
 
 .input-container + textarea  {margin-top:.5rem}
@@ -233,14 +254,38 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .list-item strong {display:block; border-bottom:1px solid #EBEBEB; padding-bottom:.5rem; margin-bottom:.5rem}
 .list-item .status, .list-item .progress {right:.5rem; top:.5rem}
 .list-item .status + .status {right:.5rem; top:2rem}
-.list-item ul {overflow:hidden}
-.list-item ul li {float:left; display:inline-block; font-size:13px; line-height:20px}
-.list-item ul li:before {content:'- '}
-.list-item ul li:nth-child(2) {margin-left:3rem}
+.list-item li {flex:1; font-size:13px; line-height:20px}
+.list-item li:before {content:'- '}
 .list-item.focus {background:#e5ebf7; border:1px solid #E5EBF7}
 .list-item.focus strong {border-bottom: 1px solid #ccd8ef}
 .list-item h4 {text-align:left}
-.list-item h5 {color:#003EB1}
+
+.list-item  h5 {color:#003EB1}
+.list-item .list {display:flex; flex-direction:column}
+.list-item .list li {width:100%}
+.list-item .list .status {width:auto}
+
+
+
+/* Content List */
+.list li {position:relative; display:flex; align-items:center; padding:.5rem; border-bottom:1px solid #EEE}
+.list li:first-child {border-top:1px solid #EEE}
+.list li span {text-align:center; flex:1}
+.list li button {font-size:13px; height:40px; width:50%; margin:0 auto}
+.list li .num {max-width:10%}
+.list li .progress {width:20%; position: relative; margin-right:1rem; color:#333; font-size:14px; border:0}
+.list li .name {text-align:left}
+.list .th {color: #878889;}
+.list i.fa-minus-circle {position:absolute; right:1rem; top:50%; transform:translateY(-50%)}
+
+.list input {flex:1 1 auto}
+
+.list-arrow {}
+.list-arrow li {padding:1rem .5rem; display:flex; justify-content: space-between}
+.list-arrow li:before {content:none}
+.list-arrow li span:first-of-type {text-align:left}
+.list-arrow .status {right:1.5rem !important; top:1rem !important}
+
 
 
 /* Hamburger Menu */
@@ -257,7 +302,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 /* Accordion Menu */
 .bg-gray .accordion-menu > li {background-color:white}
-.wrapper .accordion-menu {border-radius:.5rem}
+.wrapper .accordion-menu {border-radius:3px}
 .wrapper .accordion-menu li:first-child {border-top:0 !important}
 .wrapper .accordion-menu li:last-child {border-bottom:0 !important}
 .accordion-menu.bg-gray-2 .submenuItems li {border-bottom:1px solid #EEE}
@@ -265,6 +310,8 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 .accordion-menu i.fa-chevron-down {margin-right:1rem; text-indent:0 !important}
 .accordion-menu i.fa {color:#333; vertical-align:middle}
+.accordion-menu li.open > .dropdownlink > .fa-chevron-down {text-indent:0 !important; transition:.2s; -webkit-transform:rotate(180deg); transform:rotate(180deg)}
+
 .accordion-menu button {width:50%; margin:0 auto; height:40px; font-size:13px}
 .accordion-menu button:nth-of-type(2) {margin-left:1rem}
 .accordion-menu li {text-align:left; line-height:3rem; position:relative}
@@ -274,38 +321,58 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .accordion-menu .status {width:50px; right:2.5rem; top:50%; margin-right:0 !important; transform:translateY(-50%)}
 .accordion-menu .status + span {margin-right:5rem !important}
 .accordion-menu .progress {width:50px; right:.5rem; top:.7rem}
-.main-content .accordion-menu {margin-bottom:2rem}
-.main-content .accordion-menu .dropdownlink > * {text-indent:0 !important}
-.main-content .accordion-menu .dropdownlink > *:first-child {text-indent:1rem !important}
-.main-content .accordion-menu .into {flex-direction:column}
-.main-content .accordion-menu .into .dropdownlink {background:transparent !important; padding:1rem 0; border:1px solid #EEE;}
-.main-content .accordion-menu .into .dropdownlink i {color:#AAA}
-.main-content .accordion-menu .into .submenuItems {border:1px solid #EEE; border-top:0}
+.accordion-menu .checkbox {margin-top:0 !important; margin-bottom:.5rem}
+.accordion-menu .tab-menu {margin:.5rem;}
+.accordion-menu .tab-menu li {justify-content:center; padding:0 !important; border-bottom:0 !important}
+.content .accordion-menu {margin-bottom:2rem}
+.content .accordion-menu .dropdownlink > * {text-indent:0 !important}
+.content .accordion-menu .dropdownlink > *:first-child {text-indent:1rem !important}
+.content .accordion-menu .list {display:block !important;}
+.content .accordion-menu > li {text-indent:1rem; border-top:1px solid #EEE; border-bottom:1px solid #EEE; margin-bottom:.3rem;}
+.content .accordion-menu > li.open {border-top:1px solid #EEE;}
+.content .accordion-menu li.open > .dropdownlink {color:#003EB1; transition:.25s; background:#FAFBFC; font-weight:bold; border-bottom:1px solid #EEE}
 
-.main-content .accordion-menu > li {text-indent:1rem; border-top:1px solid #EEE; border-bottom:1px solid #EEE; margin-bottom:.3rem;}
-.main-content .accordion-menu > li.open {border-top:1px solid #EEE;}
-.main-content .accordion-menu li.open > .dropdownlink {color:#003EB1; transition:.25s; background:#FAFBFC; font-weight:bold; border-bottom:1px solid #EEE}
-.main-content .accordion-menu li.open .dropdownlink .fa-chevron-down {text-indent:0 !important; transition:.2s; -webkit-transform:rotate(180deg); transform:rotate(180deg)}
+.content .accordion-menu .submenuItems li {line-height:1rem; font-weight:normal; display:flex; border-bottom:1px solid #EEE; padding:1rem .5rem}
+.content .accordion-menu .submenuItems li:last-child {border-bottom:0 none}
+.content .accordion-menu .submenuItems li div {display:flex; justify-content:space-between; margin-top:.5rem}
+.content .accordion-menu .submenuItems li span {text-indent:0; display:inline-block; font-size:13px}
+.content .accordion-menu .submenuItems li span:last-child {margin-right:1.5rem}
+.content .accordion-menu .submenuItems li .status {top:1rem; right:.5rem; transform:unset}
 
-.main-content .accordion-menu .submenuItems li {line-height:1rem; font-weight:normal; display:flex; border-bottom:1px solid #EEE; padding:1rem .5rem}
-.main-content .accordion-menu .submenuItems li:last-child {border-bottom:0 none}
-.main-content .accordion-menu .submenuItems li div {display:flex; justify-content:space-between; margin-top:.5rem}
-.main-content .accordion-menu .submenuItems li span {text-indent:0; display:inline-block; font-size:13px}
-.main-content .accordion-menu .submenuItems li span:last-child {margin-right:1.5rem}
-.main-content .accordion-menu .submenuItems li .status {top:1rem; right:.5rem; transform:unset}
+.accordion-menu .into {flex-direction:column; border-bottom:0 !important; padding:.5rem 0 0 !important}
+.accordion-menu .into .dropdownlink {background:transparent; margin-top:0 !important; border:0; border-radius:3px; padding:1rem 0; border:1px solid #EEE;}
+.accordion-menu .into .dropdownlink i {color:#AAA}
+.accordion-menu .into .dropdownlink.bg-lightblue {border:0}
+.accordion-menu .into .submenuItems {border:1px solid #EEE; border-top:0}
 
-.main-content .accordion-menu .list {display:block !important}
-.main-content .accordion-menu .list .title {display:block !important; margin-bottom:.5rem}
-.main-content .accordion-menu .list li {padding:.5rem !important}
-.main-content .accordion-menu .list li:last-child {border-bottom:1px solid #EEE !important}
-.main-content .accordion-menu .information li span:first-of-type {color:#838689; width:100px; display:inline-block}
-.main-content .accordion-menu .information li span:last-of-type {flex:1 1 auto}
-.main-content .accordion-menu .payment-status li span {font-weight:normal; text-align:center}
-.main-content .accordion-menu .payment-status li span:nth-child(1) {width:10% !important}
-.main-content .accordion-menu .payment-status li span:nth-child(2) {width:15% !important}
-.main-content .accordion-menu .payment-status li span:nth-child(3) {width:20% !important}
-.main-content .accordion-menu .payment-status li span:nth-child(4) {width:40% !important}
-.main-content .accordion-menu .payment-status li span:nth-child(5) {width:15% !important}
+.accordion-menu .list {display:block !important}
+.accordion-menu .list .title {display:block !important; margin-bottom:.5rem}
+.accordion-menu .list li {padding:.5rem !important}
+.accordion-menu .list li:last-child {border-bottom:1px solid #EEE !important}
+.accordion-menu .information li span:first-of-type {color:#838689; width:100px; display:inline-block}
+.accordion-menu .information li span:last-of-type {flex:1 1 auto}
+.accordion-menu .payment-status li span {flex:1 1 auto; font-weight:normal; text-align:center}
+.accordion-menu .payment-status li span:nth-child(1) {width:10% !important}
+.accordion-menu .payment-status li span:nth-child(2) {width:15% !important}
+.accordion-menu .payment-status li span:nth-child(3) {width:20% !important}
+.accordion-menu .payment-status li span:nth-child(4) {width:40% !important}
+.accordion-menu .payment-status li span:nth-child(5) {width:15% !important}
+
+.accordion-menu.arrow-center {border:1px solid #DDD; margin-bottom:.5rem}
+.accordion-menu.arrow-center i.fa-chevron-down {margin-right:0; position:absolute; left:calc(50% - 6px); bottom:.2rem}
+.accordion-menu.arrow-center .dropdownlink {justify-content:center; padding-bottom:.5rem}
+.accordion-menu.arrow-center .dropdownlink > *:first-child {text-indent:0 !important; }
+.accordion-menu.arrow-center li {margin-bottom:0; text-indent:0 !important}
+.accordion-menu.arrow-center .open .dropdownlink {border-radius:.5rem .5rem 0 0}
+.accordion-menu.arrow-center .submenuItems li {align-items:center; justify-content: unset }
+.accordion-menu.arrow-center .submenuItems li i.fa-calendar-alt {margin-right:.5rem}
+.accordion-menu.arrow-center label {margin-right:1rem}
+.accordion-menu.arrow-center input {min-height:40px; width:100px}
+.accordion-menu.arrow-center li span {padding:0 .5rem}
+.accordion-menu.arrow-center > li {padding:0 !important; border:0 !important}
+.accordion-menu.arrow-center .search {margin-bottom:0 !important}
+.accordion-menu.arrow-center .dropdownlink {flex:1; margin-top:0 !important; flex-direction:column; line-height: 1.5rem; padding:.5rem 0 1rem !important}
+
 
 .plural {border-bottom:0 !important; padding:.5rem 0 !important}
 .plural:not(:last-of-type) {padding-bottom:0 !important}
@@ -314,7 +381,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 /* Tab Menu */
 .tab-menu {flex:0 0 auto; display:flex; border:1px solid #E5EBF7; border-radius:3px; margin-bottom:1rem}
-.tab-menu li {text-align:center; line-height:40px}
+.tab-menu li {flex:1 1 33%; text-align:center; line-height:40px !important}
 .tab-menu li.current {background:#E5EBF7; font-weight: bold}
 .tab-content {display:none}
 .tab-content.current {display:block}
@@ -333,6 +400,8 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .modal h5 {text-align:center; margin-bottom:.5rem}
 .modal select {width:100%}
 .modal input {display:inline-block}
+.modal .list-title {margin-bottom:0}
+.modal .input-container button {text-align:center}
 .modal .btn-container {display:flex; height:3rem}
 .modal .btn-container button {flex:1 1 auto; height:auto}
 .modal .btn-container button:first-child {border-radius:0 0 0 5px}
@@ -356,7 +425,17 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 .modal-full.active .btn-container {flex:0 0 auto}
 .modal-full.active .btn-container button {border-radius:0; }
 .modal-full.active .selectbox {width:100%}
+.modal-full.active .list-item li {display:inline-block !important}
+.modal-full.active .list-item li:nth-child(2) {margin-left: 3rem}
 
+/* Toggle Button */
+.toggle-btn {width:2rem; height:20px; vertical-align:middle; border-radius:1.5rem; display:inline-block; position:relative;
+  background-color:gray; background-size:12px; cursor:pointer; transition:.25s}
+.toggle-btn.active {background-color:#3CB371; background-size:12px}
+.toggle-btn.active .round-btn {left:calc(1rem - 2px)}
+.toggle-btn .round-btn {width:1rem; height:1rem; background-color:#fff; border-radius:50%; display:inline-block;
+  position:absolute; left:2px; top:50%; transform:translateY(-50%); transition:.25s}
+.toggle-btn .cb-value {position:absolute; left:0; right:0; width:100%; height:100%; opacity:0; z-index:9;}
 
 
 /* Radio Button */
@@ -369,19 +448,6 @@ input[type="radio"]:focus + label:before {outline:none;}
 input[type="radio"]:disabled:checked + label:before {box-shadow:inset 0 0 0 2px #f4f4f4; border-color:#b4b4b4; background:#b4b4b4}
 input[type="radio"]:disabled + label:before {border-color:#DDD; background:#f4f4f4}
 input[type="radio"] + label:empty:before {margin-right: 0}
-  
-
-
-/* Checkbox */
-input[type="checkbox"] {position: absolute; opacity: 0}
-input[type="checkbox"] + label {position:relative; cursor:pointer; padding:0}
-input[type="checkbox"] + label:before {border-radius:2px; transition:.2s; border:1px solid #DDD; content:''; display:inline-block; vertical-align:text-top; width:15px; height:15px; background:white;}
-input[type="checkbox"]:hover + label:before, input[type="checkbox"]:checked + label:before {background:#FFCC33; border-color:#FFCC33}
-input[type="checkbox"]:disabled + label {color:#b8b8b8; cursor:auto;}
-input[type="checkbox"]:disabled + label:before {box-shadow:none; background:#ddd}
-input[type="checkbox"]:checked + label:after {content:''; position:absolute; left:3px; top:50%; background:white; width:2px; height:2px;
-  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
-  -webkit-transform: rotate(45deg); transform: rotate(45deg)}
   
 
 
@@ -399,22 +465,6 @@ input[type="checkbox"]:checked + label:after {content:''; position:absolute; lef
 .form-input--file-button:hover {background-color:#ccc}
 
 
-/* Pie Chart */
-.prec {top:30px; position:relative; font-size:30px}
-.circle {margin-bottom:.5rem; position:relative; top:5px; left:5px; text-align:center; width:100px; height:100px; border-radius:100%; background-color:#F6F7F8}
-.active-border {margin:1rem auto 3rem; position:relative; text-align:center; width:110px; height:110px; border-radius:100%; background-color:#003EB1;
-    background-image:
-        linear-gradient(91deg, transparent 50%, #EEE 50%),
-        linear-gradient(90deg, #EEE 50%, transparent 50%);    
-}
-
-
-
-/* Slick */
-.slick-prev, .slick-next {z-index:3; position:absolute; top:24px; margin:0; padding:0;  background:transparent; text-indent:-9999px; height:12px; width:12px}
-.slick-prev {border-bottom:2px solid #333; border-left:2px solid #333; left:8.5rem; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); transform:rotate(45deg)}
-.slick-next {border-top:2px solid #333; border-right:2px solid #333; right:8.5rem; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); transform:rotate(45deg)}
-
 
 /* Table */
 table {border-color:#AAA}
@@ -423,8 +473,8 @@ table td {padding:.5rem}
 
 .table {padding:0 !important}
 .table {flex-direction:column}
-.table ul {display:flex}
-.table li {text-indent:0; justify-content:center}
+.table ul {display:flex; width:100%}
+.table li {text-indent:0; justify-content:center !important}
 .table li:last-child {border-bottom:1px solid #EEE !important}
 
 .table.col-4 li {width:25%}
@@ -437,8 +487,23 @@ input[type=file] {outline:0; opacity:0; pointer-events:none; user-select:none; d
 .input-file i {margin-right:.5rem}
 
 
+
+/* Checkbox */
+.checkbox {text-indent:0}
+input[type="checkbox"] {position: absolute; opacity: 0}
+input[type="checkbox"] + label {position:relative; cursor:pointer; padding:0}
+input[type="checkbox"] + label:before {border-radius:2px; transition:.2s; border:1px solid #DDD; content:''; display:inline-block; vertical-align:text-top; width:15px; height:15px; background:white;}
+input[type="checkbox"]:hover + label:before, input[type="checkbox"]:checked + label:before {background:#003EB1; border-color:#003EB1}
+input[type="checkbox"]:disabled + label {color:#b8b8b8; cursor:auto;}
+input[type="checkbox"]:disabled + label:before {box-shadow:none; background:#ddd}
+input[type="checkbox"]:checked + label:after {content:''; position:absolute; left:3px; top:45%; background:white; width:2px; height:2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg); transform: rotate(45deg)}
+  
+  
+
 /* Selectbox */
-.selectbox {flex:1 1 auto; position:relative; z-index:0}
+.selectbox {flex:1 1 auto; text-align:left; position:relative; z-index:0}
 .selectbox::after {
 content: '';
 position: absolute;
@@ -481,53 +546,48 @@ z-index: -1;
 
 
 /* Loader */
-.loader {display:block;	position:absolute; top:0; left:0; bottom:0; right:0; margin:auto; height:32px;width:32px;
-	-webkit-animation: loader-1 4.8s linear infinite;
-	        animation: loader-1 4.8s linear infinite;
+.loader {width:40px; height:40px;	position:absolute;	margin:auto; top:0; left:0; right:0; bottom:0}
+.loading-spokes {position:relative; margin:auto; height:30px}
+.loading-spokes .spoke-container {position:absolute; top:100%; left:calc(50% - 4px*1.5); transform-origin:50% -100%}
+.loading-spokes .spoke-container .spoke {background:#003EB1; width:4px; height:10px; animation:spoke 1s infinite; animation-delay:inherit}
+.loading-spokes .spoke-container:nth-of-type(0n+1) {
+transform: translateX(100%) rotate(-90deg);
+animation-delay: -0.875s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+2) {
+transform: translateX(100%) rotate(-45deg);
+animation-delay: -0.75s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+3) {
+transform: translateX(100%);
+animation-delay: -0.625s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+4) {
+transform: translateX(100%) rotate(45deg);
+animation-delay: -0.5s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+5) {
+transform: translateX(100%) rotate(90deg);
+animation-delay: -0.375s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+6) {
+transform: translateX(100%) rotate(135deg);
+animation-delay: -0.25s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+7) {
+transform: translateX(100%) rotate(180deg);
+animation-delay: -0.125s;
+}
+.loading-spokes .spoke-container:nth-of-type(0n+8) {
+transform: translateX(100%) rotate(225deg);
+animation-delay: 0;
 }
 
-@-webkit-keyframes loader-1 {
-	0%   { -webkit-transform: rotate(0deg); }
-	100% { -webkit-transform: rotate(360deg); }
+@keyframes spoke {
+0% {
+	opacity: 1;
 }
-@keyframes loader-1 {
-	0%   { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
+100% {
+	opacity: 0.2;
 }
-.loader span {display:block;	position:absolute; top:0; left:0; bottom:0; right:0; margin:auto; height:32px;width:32px; clip: rect(0, 32px, 32px, 16px);
-	-webkit-animation: loader-2 1.2s linear infinite;
-	        animation: loader-2 1.2s linear infinite;
-}
-@-webkit-keyframes loader-2 {
-	0%   { -webkit-transform: rotate(0deg); }
-	100% { -webkit-transform: rotate(220deg); }
-}
-@keyframes loader-2 {
-	0%   { transform: rotate(0deg); }
-	100% { transform: rotate(220deg); }
-}
-.loader span::after {
-  content: "";
-  box-sizing:border-box;
-	position: absolute;
-	top: 0; left: 0;
-	bottom: 0; right: 0;
-	margin: auto;
-	height: 32px;
-	width: 32px;
-	clip: rect(0, 32px, 32px, 16px);
-	border: 3px solid #003EB1;
-	border-radius: 50%;
-	-webkit-animation: loader-3 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
-	        animation: loader-3 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite;
-}
-@-webkit-keyframes loader-3 {
-	0%   { -webkit-transform: rotate(-140deg); }
-	50%  { -webkit-transform: rotate(-160deg); }
-	100% { -webkit-transform: rotate(140deg); }
-}
-@keyframes loader-3 {
-	0%   { transform: rotate(-140deg); }
-	50%  { transform: rotate(-160deg); }
-	100% { transform: rotate(140deg); }
 }

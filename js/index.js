@@ -30,6 +30,19 @@ $(function() {
 
 
 
+
+// Toggle Button
+$('.cb-value').click(function() {
+	var mainParent = $(this).parent('.toggle-btn');
+	if($(mainParent).find('input.cb-value').is(':checked')) {
+	  $(mainParent).addClass('active');
+	} else {
+	  $(mainParent).removeClass('active');
+	}
+  })
+
+
+  
 // Tooltip
 $(document).ready(function() {
     $(".tooltip").click(function () {
@@ -162,3 +175,6 @@ $(".modal-backdrop, .close, .cancel, .cancel2, .menu.open").on("click", function
 $(".cancel-inside, .modal-backdrop2").on("click", function() {
 	$(".modal-inside, .modal-backdrop2").removeClass("active");
 });
+
+
+  
