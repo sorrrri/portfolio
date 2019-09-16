@@ -30,8 +30,9 @@
                         <a href="#">근태 관리<i class="fa fa-chevron-down"></i></a>
                     </div>
                     <ul class="submenuItems">
-                        <li><a href="#">근무계획</a></li>
-                        <li><a href="#">근무실적</a></li>
+                        <li><a href="attendance_1.html">근무현황</a></li>
+                        <li><a href="attendance_2.html">근무계획</a></li>
+                        <li><a href="attendance_3.html">근무실적</a></li>
                     </ul>
                 </li>
                 <li><a href="vacation.html">연간 휴가 조회</a></li>
@@ -64,97 +65,129 @@
         </section>
     </aside><!-- end Aside -->
 
-    <div class="main-content check-pm">
+    <div class="main-content attendance bg-gray">
         <header>
-            <div class="back" style="visibility:hidden;"></div>
-            <h2>위생안전 점검</h2>
+            <div class="back hidden"></div>
+            <h2>근태 관리</h2>
             <div class="menu" onclick="modal('aside')">
                 <span></span> <span></span> <span></span> <span></span>
             </div>
         </header>
         <ul class="sub-menu">
-            <li class="current">PM 일일점검</li>
-            <li><a href="check_outside_list.html">사외점검</a></li>
+            <li class="current">근무현황</li>
+            <li><a href="attendance_2.html">근무계획</a></li>
+            <li><a href="attendance_3.html">근무실적</a></li>
         </ul>
-        <div class="content wrapper">
-            <section title="search-area">
-                <div class="search">
-                    <input type="search" placeholder="사업장명을 입력해주세요." />
-                    <i class="fas fa-search" onclick=""></i>
+        <div class="content">
+            <section>
+                <div class="year">
+                    <h1>
+                        <i class="fas fa-angle-left"></i>
+                        2019년 9월
+                        <i class="fas fa-angle-right"></i>
+                    </h1>
                 </div>
-                <div class="recently">
-                    <small>최근검색</small>
-                    <div>
-                        <span>한국타이어대전기숙사1</span>
-                        <span class="close"></span>
-                    </div>
-                    <div>
-                        <span>한국타이어</span>
-                        <span class="close"></span>
-                    </div>
+                <div class="calendar">
+                    <ul class="weekdays">
+                        <li>일</li>
+                        <li>월</li>
+                        <li>화</li>
+                        <li>수</li>
+                        <li>목</li>
+                        <li>금</li>
+                        <li>토</li>
+                    </ul>
+                    <ul class="content">
+                        <li class="calendar-dot">1</li>
+                        <li>2</li>
+                        <li class="calendar-dot">3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li class="calendar-dot">13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li class="calendar-circle">16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                        <li>30</li>
+                    </ul>
                 </div>
-                <ul class="tab-menu">
-                    <li class="tab">3일</li>
-                    <li class="current">1주일</li>
-                    <li>1개월</li>
-                </ul>
-                <ul class="accordion-menu arrow-center">
+            </section>
+            <section>
+                <h4>주간 초과근로 현황 <i class="fas fa-question-circle tooltip"
+                        title="* 발생 : 초과 근로시간<br />* 상신 : OT 상신한 초과 근로시간<br />* 잔여 : OT 상신 가능한 초과 근로시간<br />(법정 허용 주당 12시간 이하)"></i>
+                </h4>
+                <div class="container extra-hours">
+                    <h5>2019.08.19(월) ~ 2019.08.25(일)</h5>
+                    <ul>
+                        <li>
+                            <h5>발생</h5>
+                            <div>총 <strong>0.00</strong> 시간</div>
+                        </li>
+                        <li>
+                            <h5>상신</h5>
+                            <div><strong>0.00</strong> 시간</div>
+                        </li>
+                        <li>
+                            <h5>잔여</h5>
+                            <div><strong>0.00</strong> 시간</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <div class="container">
+                <h5>09.10(화)</h5>
+                <ul class="list extra-hours details">
                     <li>
-                        <div class="dropdownlink">
-                            2019. 08.19 ~ 2019. 08.22
-                            <i class="fa fa-chevron-down"></i>
-                        </div>
-                        <ul class="submenuItems">
-                            <li>
-                                <label>기간</label>
-                                <i class="far fa-calendar-alt"></i>
-                                <input type="time" placeholder="시작일" />
-                                <span>~</span>
-                                <i class="far fa-calendar-alt"></i>
-                                <input type="time" placeholder="종료일" />
-                            </li>
-                        </ul>
+                        <span class="status circle">계획</span>
+                        <span class="progress">근무</span>
+                        <span>08:00 ~ 17:00 (8.00)</span>
+                        <span class="status gray">미결</span>
+                    </li>
+                    <li>
+                        <span class="status circle txt-blue">실적</span>
+                        <span class="progress txt-blue">연차 8시간</span>
+                        <span>08:00 ~ 17:00 (8.00)</span>
+                        <span class="status skyblue">결재중</span>
+                    </li>
+                    <li>
+                        <span class="status circle">계획</span>
+                        <span class="progress txt-orange">기타</span>
+                        <span>08:00 ~ 17:00 (8.00)</span>
+                        <span class="status green">승인</span>
+                    </li>
+                    <li>
+                        <span class="status circle txt-blue">실적</span>
+                        <span class="progress">근무</span>
+                        <span>08:00 ~ 17:00 (8.00)</span>
+                        <span class="status red">반려</span>
+                    </li>
+                    <li>
+                        <button>근무계획 등록/수정</button>
+                        <button>근무실적 등록/수정</button>
                     </li>
                 </ul>
-                <button class="main" disabled="disabled" onclick="modal('modal-01')">조회</button>
-            </section>
+            </div>
         </div><!-- end Content -->
     </div><!-- end Main Content -->
-    <!-- Modal -->
-    <div class="modal modal-full modal-01">
-        <header>
-            <div class="search">
-                <input type="search" value="한국타이어" />
-                <i class="fas fa-search" onclick=""></i>
-            </div>
-            <div class="list-title">
-                <h6>Total <strong class="red">13</strong>건</h6>
-                <div>
-                    <div class="filter">
-                        <label>전체 </label>
-                    </div>
-                </div>
-            </div><!-- end List Title -->
-        </header>
-        <section class="content" onclick="location.href='check_pm_list_2.html'">
-            <div class="list-item" onclick="">한국타이어 서울기숙사1</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사2</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사3</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사4</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사5</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사6</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사7</div>
-            <div class="list-item" onclick="">한국타이어 서울기숙사8</div>
-            <div class="list-item" onclick="">한국타이어 대전기숙사1</div>
-            <div class="list-item" onclick="">한국타이어 대전기숙사2</div>
-            <div class="list-item" onclick="">한국타이어 대전기숙사3</div>
-            <div class="list-item" onclick="">한국타이어 대구기숙사</div>
-            <div class="list-item" onclick="">한국타이어 부산기숙사</div>
-        </section>
-        <section class="btn-container">
-            <button class="cancel">닫기</button>
-        </section>
-    </div><!-- end Modal -->
     <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>
