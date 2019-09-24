@@ -16,7 +16,7 @@
         <header>
             <div class="home" onclick=""></div>
             <ul>
-                <li class="settings" onclick=""></li>
+                <li class="settings" onclick="modal('settings')"></li>
                 <li class="menu open">
                     <span></span> <span></span> <span></span> <span></span>
                 </li>
@@ -59,8 +59,7 @@
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
-                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
-                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="license.html">오픈소스 라이선스<i class="fa fa-chevron-right"></i></a></li>
             </ul>
         </section>
     </aside><!-- end Aside -->
@@ -283,6 +282,7 @@
             </ul>
         </section><!-- end Content -->
         <button class="main" onclick="modal('modal-03')">변경품의 상신</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
     </div><!-- end Main Content -->
 
     <!-- Modal1 -->
@@ -451,12 +451,9 @@
         </div>
     </div><!-- end Modal3 -->
     <!-- Modal4 -->
-    <div class="modal modal-inside">
+    <div class="modal modal-inside modal-search">
         <header>
-            <h4>결재자 검색</h4>
-        </header>
-        <div class="content">
-            <section class="search">
+            <div class="search">
                 <div class="selectbox">
                     <select>
                         <option>통보</option>
@@ -466,7 +463,17 @@
                 </div>
                 <input type="search" placeholder="결재자 검색" />
                 <i class="fas fa-search" onclick=""></i>
-            </section>
+            </div>
+            <ul class="list">
+                <li class="th">
+                    <span>성명</span>
+                    <span>사번</span>
+                    <span>부서명</span>
+                    <span>직책</span>
+                </li>
+            </ul>
+        </header>
+        <div class="content">
             <ul class="list">
                 <li class="th">
                     <span>성명</span>
@@ -493,6 +500,36 @@
             <button class="main" onclick="confirmSubmit()">확인</button>
         </div>
     </div><!-- end Modal4 -->
+
+    <!-- start Settings -->
+    <div class="aside-settings">
+        <header>
+            <div class="back" onclick=""></div>
+            <h2>앱 설정</h2>
+            <div class="hidden"></div>
+        </header>
+        <section>
+            <ul>
+                <li>버전관리</li>
+                <li>
+                    <span class="txt-gray">현재버전 v.1.0.2</span>
+                    <span class="border-gray">업데이트</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div><!-- end Settings -->
     <div class="modal-backdrop"></div>
     <div class="modal-backdrop2"></div>
     <script src='js/jquery-3.4.1.min.js'></script>

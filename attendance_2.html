@@ -16,7 +16,7 @@
         <header>
             <div class="home" onclick=""></div>
             <ul>
-                <li class="settings" onclick=""></li>
+                <li class="settings" onclick="modal('settings')"></li>
                 <li class="menu open">
                     <span></span> <span></span> <span></span> <span></span>
                 </li>
@@ -38,7 +38,7 @@
                 <li><a href="vacation.html">연간 휴가 조회</a></li>
                 <li>
                     <div class="dropdownlink">
-                        휴일근무 신청<i class="fa fa-chevron-down"></i>
+                        휴일・야간근무 사전신청<i class="fa fa-chevron-down"></i>
                     </div>
                     <ul class="submenuItems">
                         <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
@@ -59,8 +59,7 @@
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
-                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
-                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="license.html">오픈소스 라이선스<i class="fa fa-chevron-right"></i></a></li>
             </ul>
         </section>
     </aside><!-- end Aside -->
@@ -79,6 +78,7 @@
             <li><a href="attendance_3.html">근무실적</a></li>
         </ul>
         <div class="content">
+                <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
             <section>
                 <div class="year">
                     <h1>
@@ -100,16 +100,16 @@
                             <div><strong>498.00</strong> 시간</div>
                             <i class="fas fa-equals"></i>
                         </li>
-                        <li class="txt-blue">
+                        <li>
                             <h5>잔여 <i class="fas fa-question-circle tooltip"
                                     title="* 최종 잔여시간은 0이 되어야 합니다.<br />(잔여시간 = 발생시간 - 계획시간)"></i></h5>
-                            <div><strong>6.00</strong> 시간</div>
+                            <div><strong class="txt-blue">6.00</strong> 시간</div>
                         </li>
                     </ul>
                 </div>
             </section>
-            <div class="wrapper">
-                <div class="list-title">
+            <section>
+                <div class="list-title wrapper">
                     <h6></h6>
                     <div>
                         <div class="filter">
@@ -148,9 +148,10 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </section>
         </div><!-- end Content -->
         <button class="main">저장</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
     </div><!-- end Main Content -->
     <!-- Modal -->
     <div class="modal modal-full modal-01">
@@ -206,6 +207,36 @@
             <button class="main">확인</button>
         </section>
     </div><!-- end Modal -->
+
+    <!-- start Settings -->
+    <div class="aside-settings">
+        <header>
+            <div class="back" onclick=""></div>
+            <h2>앱 설정</h2>
+            <div class="hidden"></div>
+        </header>
+        <section>
+            <ul>
+                <li>버전관리</li>
+                <li>
+                    <span class="txt-gray">현재버전 v.1.0.2</span>
+                    <span class="border-gray">업데이트</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div><!-- end Settings -->
     <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>

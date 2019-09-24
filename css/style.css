@@ -31,13 +31,13 @@
 .main-content .submenuItems.guarantee .bg-lightblue {border-bottom:0; margin:.5rem 0 0; border-radius:3px}
 
 /* Overtime Page - 휴일근무신청 */
-.extra-hours ul {display:grid; grid-column-gap:.5rem}
-.extra-hours li {text-align:center;padding:.5rem; position:relative}
+.extra-hours ul {display:flex}
+.extra-hours li {text-align:center; padding:.5rem; flex:1 1 25%; position:relative}
 .overtime .extra-hours ul {grid-template-columns:2fr 1fr 1fr}
 .overtime .extra-hours li:first-child {background:#F6F7F8; border-radius:.5rem; }
 .overtime .extra-hours li:first-child strong {color:#003EB1}
 .overtime .extra-hours li:nth-child(2) {border-right:1px solid #EEE}
-
+.overtime .progress {padding:0 .2rem}
 
 
 /* Mortgage Page - 담보만기조회 */
@@ -55,13 +55,16 @@
 .check-pm .header-2 {border-bottom:0}
 .check-pm .header-2 .accordion-menu {margin-bottom:0; border:0; border-top:1px solid #DDD; border-bottom:1px solid #DDD}
 .check-pm .header-2 .accordion-menu .submenuItems li {flex-direction:column; align-items: flex-start;}
-.check-pm .header-2 .accordion-menu .submenuItems li:first-child {margin-bottom:1rem !important}
+.check-pm .header-2 .accordion-menu .submenuItems li:first-child {margin-right:1rem; margin-bottom:1rem !important}
 .check-pm .header-2 .accordion-menu .submenuItems li:last-child {border-bottom:0}
 .check-pm .header-2 .search {width:100%; margin-bottom:.5rem !important}
 .check-pm .header-2 .recently span {padding:0}
 .check-pm .list-title.check {margin-left:.5rem}
 .check-pm .list-title.check .num > span:first-child:before {content:''; display:inline-block; width:.5rem; height:.5rem; background-color:#2FBA35; border-radius:50%; margin-right:3px}
-.check-pm .list-title.check .num > span:last-child:before {content:''; display:inline-block; width:.5rem; height:.5rem; background-color:#fff100; border-radius:50%; margin-right:3px}
+.check-pm .list-title.check .num > span:last-child:before {content:''; display:inline-block; width:.5rem; height:.5rem; background-color:#F94646; border-radius:50%; margin-right:3px}
+
+.check-pm .list-title.check .num.face > span:first-child:before {content:'\1F60A'; color:#2FBA35; margin-right:3px}
+.check-pm .list-title.check .num.face > span:last-child:before {content:'\1F621'; color:#fff100; margin-right:3px}
 .check-pm .tab-menu {margin-bottom:.5rem}
 .check-pm .accordion-menu .submenuItems h6:before {content:'* '}
 .check-pm .accordion-menu .submenuItems p:before {content:'• '}
@@ -77,10 +80,11 @@
 
 /* Attendance Page - 근태관리 */
 .attendance .list h5 {font-weight:bold}
-.attendance .list .progress {width:30%; max-width:none}
-.attendance .extra-hours ul {grid-template-columns:1fr 1fr 1fr}
+.attendance .list .progress {width:5rem; max-width:none}
+.attendance .list .progress.selectbox {max-width:5rem;}
+.attendance .list .progress select {width:4.8rem}
 .attendance .extra-hours li:not(:last-of-type) {border-right:1px solid #EEE}
-.extra-hours.details li:not(:last-of-type) {border-right:0; display:grid; grid-template-columns:1fr 2fr 4fr 1fr}
+.extra-hours.details li {border-right:0; display:grid; grid-template-columns:1fr 2fr 4fr 1fr}
 
 .extra-hours.details span {position:relative}
 .extra-hours.details .progress {width:auto; max-width:none; font-weight:bold; margin-right:0}
@@ -91,5 +95,18 @@
 .attendance .extra-hours h5 .status {position:relative; padding:.2rem .5rem; margin-right:.5rem}
 .attendance .extra-hours .tooltip .title {left:-9rem}
 .attendance .extra-hours .tooltip .title:before {left:calc(9rem + 2px)}
+.attendance .extra-hours + .extra-hours {margin:1rem auto}
+.attendance .extra-hours .border-container {border-radius:3px; padding:.2rem .5rem}
 
-.attendance .border-container .list li > * {text-align:left; text-indent:.5rem}
+.attendance .border-container .list li > * {text-align:left; text-indent:.2rem; white-space:nowrap;}
+.attendance .tooltip .title {max-width:70vw; left:-9rem}
+.attendance .tooltip .title:before {left:calc(9rem + 2px)}
+
+.attendance .accordion-menu.arrow-center {border-left:0; border-right:0}
+
+
+
+/* 오픈소스 라이선스 */
+.license .list li {display:block}
+.license .list a {color:#003EB1}
+.license .accordion-menu li {background:#FAFAFA}

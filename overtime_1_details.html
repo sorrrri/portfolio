@@ -16,7 +16,7 @@
         <header>
             <div class="home" onclick=""></div>
             <ul>
-                <li class="settings" onclick=""></li>
+                <li class="settings" onclick="modal('settings')"></li>
                 <li class="menu open">
                     <span></span> <span></span> <span></span> <span></span>
                 </li>
@@ -38,7 +38,7 @@
                 <li><a href="vacation.html">연간 휴가 조회</a></li>
                 <li>
                     <div class="dropdownlink">
-                        휴일근무 신청<i class="fa fa-chevron-down"></i>
+                        휴일・야간근무 사전신청<i class="fa fa-chevron-down"></i>
                     </div>
                     <ul class="submenuItems">
                         <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
@@ -59,8 +59,7 @@
             </ul>
             <ul class="accordion-menu">
                 <li class="menu-title">이용안내</li>
-                <li><a href="#">이용약관<i class="fa fa-chevron-right"></i></a></li>
-                <li><a href="#">개인정보 처리방침<i class="fa fa-chevron-right"></i></a></li>
+                <li><a href="license.html">오픈소스 라이선스<i class="fa fa-chevron-right"></i></a></li>
             </ul>
         </section>
     </aside><!-- end Aside -->
@@ -68,7 +67,7 @@
     <div class="main-content overtime bg-gray">
         <header>
             <div class="back" onclick="location.href='overtime_1.html'"></div>
-            <h2>휴일근무 신청</h2>
+            <h2>휴일・야간근무 사전신청</h2>
             <div class="menu" onclick="modal('aside')">
                 <span></span> <span></span> <span></span> <span></span>
             </div>
@@ -84,9 +83,9 @@
                     </div>
                     <div class="input-container">
                         <label>신청시간</label>
-                        <input type="time" placeholder="시작일" />
+                        <input type="text" placeholder="시작일" />
                         <span>~</span>
-                        <input type="time" placeholder="종료일" />
+                        <input type="text" placeholder="종료일" />
                         <span class="progress">8.00시간</span>
                     </div>
                     <div class="input-container">
@@ -138,72 +137,69 @@
                 </div>
             </section>
             <section>
-                <h4>결재 경로 설정 <i class="fas fa-question-circle tooltip" title="* 결재경로 : 1차(부서장), 2차(팀장)<br />* 근태담당자에게 별도 통보 없음"></i></h4>
+                <h4>결재 경로 설정 <i class="fas fa-question-circle tooltip"
+                        title="* 결재경로 : 1차(부서장), 2차(팀장)<br />* 근태담당자에게 별도 통보 없음"></i></h4>
                 <ul class="list container">
                     <li>
                         <span class="num">1</span>
-                        <span class="progress">결재</span>
+                        <span class="progress selectbox">
+                            <select>
+                                <option>결재</option>
+                                <option>합의</option>
+                                <option>통보</option>
+                            </select>
+                        </span>
                         <span class="name">홍길동</span>
                         <i class="fas fa-minus-circle fa-lg"></i>
                     </li>
                     <li>
                         <span class="num">2</span>
-                        <span class="progress">합의</span>
+                        <span class="progress selectbox">
+                            <select>
+                                <option>결재</option>
+                                <option>합의</option>
+                                <option>통보</option>
+                            </select>
+                        </span>
                         <span class="name">홍길동</span>
                         <i class="fas fa-minus-circle fa-lg"></i>
                     </li>
                     <li>
                         <span class="num">3</span>
-                        <span class="progress">합의</span>
-                        <span class="name">홍길동</span>
-                        <i class="fas fa-minus-circle fa-lg"></i>
+                        <span class="progress selectbox">
+                            <select>
+                                <option>결재</option>
+                                <option>합의</option>
+                                <option>통보</option>
+                            </select>
+                        </span>
+                        <button onclick="modal('modal-search')"><i class="fas fa-plus fa-lg"></i></button>
                     </li>
-                    <li><button onclick="modal('modal-02')"><i class="fas fa-plus fa-lg"></i></button></li>
                 </ul>
             </section>
         </div><!-- end Content -->
         <button class="main" onclick="confirmSubmit()">결재 상신</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
     </div><!-- end Main Content -->
 
-
     <!-- Modal1 -->
-    <div class="modal modal-01">
+    <div class="modal modal-search">
         <header>
-            <h4>결재경로설정 안내</h4>
-        </header>
-        <div class="content">
-            <p>* 결재경로 : 1차(부서장), 2차(팀장)</p>
-            <p>* 근태담당자에게 별도 통보 없음</p>
-        </div>
-        <section class="btn-container">
-            <button class="cancel2">닫기</button>
-        </section>
-    </div><!-- end Modal1 -->
-
-    <!-- Modal2 -->
-    <div class="modal modal-02">
-        <header>
-            <h4>결재자 검색</h4>
-        </header>
-        <div class="content">
-            <section class="search">
-                <div class="selectbox">
-                    <select>
-                        <option>결재</option>
-                        <option>합의</option>
-                        <option>통보</option>
-                    </select>
-                </div>
+            <div class="search">
                 <input type="search" placeholder="결재자 검색" />
                 <i class="fas fa-search" onclick=""></i>
-            </section>
+            </div>
             <ul class="list">
-                <li>
+                <li class="th">
                     <span>성명</span>
                     <span>사번</span>
                     <span>부서명</span>
                     <span>직책</span>
                 </li>
+            </ul>
+        </header>
+        <div class="content">
+            <ul class="list">
                 <li>
                     <span>홍길동</span>
                     <span>B000000</span>
@@ -222,7 +218,37 @@
             <button class="cancel">취소</button>
             <button class="main">확인</button>
         </div>
-    </div><!-- end Modal2 -->
+    </div><!-- end Modal1 -->
+
+    <!-- start Settings -->
+    <div class="aside-settings">
+        <header>
+            <div class="back" onclick=""></div>
+            <h2>앱 설정</h2>
+            <div class="hidden"></div>
+        </header>
+        <section>
+            <ul>
+                <li>버전관리</li>
+                <li>
+                    <span class="txt-gray">현재버전 v.1.0.2</span>
+                    <span class="border-gray">업데이트</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div><!-- end Settings -->
     <div class="modal-backdrop"></div>
     <script src='js/jquery-3.4.1.min.js'></script>
     <script src="js/index.js"></script>

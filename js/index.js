@@ -154,6 +154,8 @@ function modal(type) {
 	$(".modal-backdrop").addClass("active");
 	if (type == "aside") {
 		$("aside").toggleClass("active");
+	}else if (type == "settings") {
+		$(".aside-settings").toggleClass("active");
 	} else if (type == "modal-01") {
 		$(".modal-01").toggleClass("active");
 	} else if (type == "modal-02") {
@@ -162,6 +164,8 @@ function modal(type) {
 		$(".modal-03").toggleClass("active");
 	} else if (type == "modal-04") {
 		$(".modal-04").toggleClass("active");
+	} else if (type == "modal-search") {
+		$(".modal-search").toggleClass("active");
 	} else if (type == "modal-inside") {
 		$(".modal-backdrop2").addClass("active");
 		$(".modal-inside").toggleClass("active");
@@ -169,7 +173,11 @@ function modal(type) {
 }
 
 $(".modal-backdrop, .close, .cancel, .cancel2, .menu.open").on("click", function() {
-	$(".modal-backdrop, aside, .modal").removeClass("active");
+	$(".modal-backdrop, aside, .modal, .aside-settings").removeClass("active");
+});
+
+$(".aside-settings .back").on("click", function(){
+	$(".aside-settings").removeClass("active");
 });
 
 $(".cancel-inside, .modal-backdrop2").on("click", function() {
@@ -177,4 +185,33 @@ $(".cancel-inside, .modal-backdrop2").on("click", function() {
 });
 
 
+// Checkbox Select All
+function toggle(source) {
+	checkboxes = document.getElementsByName('check-all');
+	for(var i=0, n=checkboxes.length; i<n; i++){
+		checkboxes[i].checked = source.checked;
+	}
+}
   
+
+// Checkbox Select All
+$(".show-checkbox").click(function () {
+	$(".checkbox").toggleClass("hidden");
+});
+
+
+
+// Back to top
+var pxScrolled = 10;
+
+$('.content').scroll(function() {
+if ($(this).scrollTop() > pxScrolled) {
+    $('.scroll-top').addClass("active");
+} else {
+    $('.scroll-top').removeClass("active");
+} 
+});
+
+$('.scroll-top').click(function() {
+$('.content').animate({scrollTop: 0}, 300);
+})

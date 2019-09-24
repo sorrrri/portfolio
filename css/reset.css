@@ -12,6 +12,16 @@
        url(../fonts/NanumGothic.otf) format('opentype');
 }
 
+@font-face {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Dosis.ttf);
+  src: local('Dosis'),
+       local('Dosis'),
+       url(../fonts/Dosis.ttf) format('truetype')
+}
+
 
 
 /* reset */
@@ -28,7 +38,7 @@ body{-webkit-text-size-adjust: antialiased; -moz-osx-font-smoothing: grayscale;-
 
 input:checked[type='checkbox']{background-color:#666;-webkit-appearance:checkbox}
 input[type='submit'],input[type='reset'],input[type='file']{border-radius:0;-webkit-appearance:button}
-input[type='number'],input[type='tel'],input[type='date'],textarea,select{border-radius:0}
+input[type='number'],input[type='tel'], textarea,select{border-radius:0}
 
 textarea:focus{outline:none}
 a{color:inherit;text-decoration:none;outline:none}
