@@ -103,7 +103,7 @@ i.fa-angle-left, i.fa-angle-right {margin:0 .5rem}
 .show-checkbox {background-image:url(../images/ico/select.png); background-repeat:no-repeat; background-size:18px 18px; background-position:center; width:2rem; height:2rem}
 
 /* Buttons */
-button {width:100%; height:45px; background:#e5ebf7; color:#003EB1; border:1px solid #B2C5E7; border-radius:3px}
+button {font-family:'Nanum Gothic'; width:100%; height:45px; background:#e5ebf7; color:#003EB1; border:1px solid #B2C5E7; border-radius:3px}
 button.main {border:0; background:#003EB1 !important; color:white}
 button.main-border {border:1px solid #B2C5E7; color:#003Eb1; background:transparent}
 button[disabled] {background:transparent !important; border:1px solid #ccc; color:#B3B6B9}
@@ -198,7 +198,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 /* Content List Title */
 .list-title {margin-bottom:.5rem; display:flex; justify-content:space-between; align-items:center}
-.list-title.wrapper {margin-bottom:0}
+.list-title.wrapper {padding:0 .5rem !important}
 .list-title select {border:0 none}
 .list-title > div {display:flex; align-items:center}
 .list-title .toggle-btn {margin-left:.3rem}
@@ -432,7 +432,7 @@ header h3 {color:#003EB1; font-family:'돋움'; font-weight:normal}
 
 
 /* Modal */
-.modal-backdrop, .modal-backdrop2 {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.6); z-index:25; visibility:hidden; opacity:0; transition:0.25s}
+.modal-backdrop, .modal-backdrop2 {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.6); z-index:31; visibility:hidden; opacity:0; transition:0.25s}
 .modal-backdrop2 {z-index:75}
 .modal {opacity:0; pointer-events:none; visibility:hidden; position:fixed; top:50%; left:50%; width:calc(100% - 2rem); background:white; transform:translate(-50%, -50%); border-radius:.5rem; transition:.25s}
 .modal.active {opacity:1; pointer-events:auto; visibility:visible; z-index:50; }
