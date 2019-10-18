@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>휴일근무 신청</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>
+                    <span>현재버전</span>
+                    <span>v.1.0.2</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li class="menu-title">이용안내</li>
+                <li onclick="location.href='license.html'">
+                    <span>오픈소스 라이선스</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+    
+    <div class="main-content bg-gray overtime">
+        <header>
+            <div class="back" style="visibility:hidden;"></div>
+            <h2>휴일근무 신청</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <ul class="sub-menu">
+            <li class="current">휴일특근 사전신청</li>
+            <li><a href="overtime_2.html">야간근로 사전신청</a></li>
+        </ul>
+        <div class="content wrapper">
+            <section class="no-data">
+                사전신청된 내용이 없습니다.
+            </section>
+        </div><!-- end Content -->
+        <button class="main" onclick="location.href='overtime_1_details.html'">휴일특근 사전등록 신청</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

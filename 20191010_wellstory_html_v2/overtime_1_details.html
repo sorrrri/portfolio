@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>휴일근무 신청</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section class="aside-settings">
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>버전관리</li>
+                <li>
+                    <span class="txt-gray">현재버전 v.1.0.2</span>
+                    <span class="border-gray">업데이트</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">이용안내</li>
+                <li><a href="license.html">오픈소스 라이선스<i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+    
+    <div class="main-content overtime bg-gray">
+        <header>
+            <div class="back" onclick="location.href='overtime_1.html'"></div>
+            <h2>휴일・야간근무 사전신청</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <div class="content">
+            <section>
+                <h4>휴일특근 사전신청 등록</h4>
+                <div class="container">
+                    <div class="input-container">
+                        <label>신청일자</label>
+                        <input type="date">
+                        <span class="status red">휴일</span>
+                    </div>
+                    <div class="input-container">
+                        <label>신청시간</label>
+                        <input type="time" class="time-select" placeholder="시작일" />
+                        <span>~</span>
+                        <input type="time" class="time-select" placeholder="종료일" />
+                        <span class="progress">8.00시간</span>
+                    </div>
+                    <div class="input-container">
+                        <label for="">대체휴일</label>
+                        <input type="text" readonly="readonly" value="2019. 08. 14" />
+                    </div>
+                    <div class="input-container">
+                        <label for="">대체휴일일자</label>
+                        <input type="date" />
+                    </div>
+                    <div class="input-container">
+                        <label for="">사유선택</label>
+                        <div class="selectbox">
+                            <select>
+                                <option value="">일상잔여업무수행</option>
+                                <option value="">성수기업무수행</option>
+                                <option value="">행사</option>
+                                <option value="">긴급사항처리</option>
+                                <option value="">시설유지보수</option>
+                                <option value="">공무공사</option>
+                                <option value="">현장지원</option>
+                                <option value="">기타</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <textarea rows="3" placeholder="사유작성"></textarea>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h4>주간 초과근무 현황</h4>
+                <div class="container extra-hours">
+                    <h5>2019.08.19(월) ~ 2019.08.25(일)</h5>
+                    <ul>
+                        <li>
+                            <h5>주간 초과</h5>
+                            <div>총 <strong>10.00</strong> 시간</div>
+                        </li>
+                        <li>
+                            <h5>평일</h5>
+                            <div><strong>8.00</strong> 시간</div>
+                        </li>
+                        <li>
+                            <h5>휴일</h5>
+                            <div><strong>2.00</strong> 시간</div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h4>결재 경로 설정 <i class="fas fa-question-circle tooltip"
+                        title="* 결재경로 : 1차(부서장), 2차(팀장)<br />* 근태담당자에게 별도 통보 없음"></i></h4>
+                <ul class="list container">
+                    <li>
+                        <span class="num">1</span>
+                        <span class="progress selectbox">
+                            <select>
+                                <option>결재</option>
+                                <option>합의</option>
+                                <option>통보</option>
+                            </select>
+                        </span>
+                        <span class="name">홍길동</span>
+                        <i class="fas fa-minus-circle fa-lg"></i>
+                    </li>
+                    <li>
+                        <span class="num">2</span>
+                        <span class="progress selectbox">
+                            <select>
+                                <option>결재</option>
+                                <option>합의</option>
+                                <option>통보</option>
+                            </select>
+                        </span>
+                        <span class="name">홍길동</span>
+                        <i class="fas fa-minus-circle fa-lg"></i>
+                    </li>
+                    <li>
+                        <span class="num">3</span>
+                        <span class="progress selectbox">
+                            <select>
+                                <option>결재</option>
+                                <option>합의</option>
+                                <option>통보</option>
+                            </select>
+                        </span>
+                        <button onclick="modal('modal-search')"><i class="fas fa-plus fa-lg"></i></button>
+                    </li>
+                </ul>
+            </section>
+        </div><!-- end Content -->
+        <button class="main" onclick="confirmSubmit()">결재 상신</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+
+    <!-- Modal1 -->
+    <div class="modal modal-search">
+        <header>
+            <div class="search">
+                <input type="search" maxlength="20" placeholder="결재자 검색" />
+                <i class="fas fa-search" onclick=""></i>
+            </div>
+            <ul class="list">
+                <li class="th">
+                    <span>성명</span>
+                    <span>사번</span>
+                    <span>부서명</span>
+                    <span>직책</span>
+                </li>
+            </ul>
+        </header>
+        <div class="content">
+            <ul class="list">
+                <li>
+                    <span>홍길동</span>
+                    <span>B000000</span>
+                    <span>안전그룹</span>
+                    <span>프로</span>
+                </li>
+                <li>
+                    <span>홍길동</span>
+                    <span>B000000</span>
+                    <span>안전그룹</span>
+                    <span>프로/그룹장</span>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main">확인</button>
+        </div>
+    </div><!-- end Modal1 -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

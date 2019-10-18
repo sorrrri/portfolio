@@ -204,7 +204,7 @@ $(".show-checkbox").click(function () {
 // Back to top
 var pxScrolled = 10;
 
-$('.content').scroll(function() {
+$('.main-content .content').scroll(function() {
 if ($(this).scrollTop() > pxScrolled) {
     $('.scroll-top').addClass("active");
 } else {

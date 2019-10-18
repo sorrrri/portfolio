@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계약품의관리</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>
+                    <span>현재버전</span>
+                    <span>v.1.0.2</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li class="menu-title">이용안내</li>
+                <li onclick="location.href='license.html'">
+                    <span>오픈소스 라이선스</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+    
+    <div class="main-content">
+        <header>
+            <div class="back hidden"></div>
+            <h2>계약품의관리</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <div class="content wrapper">
+            <section title="search-area">
+                <div class="search">
+                    <input type="search" maxlength="20" placeholder="고객사명을 입력해주세요." />
+                    <i class="fas fa-search" onclick=""></i>
+                </div>
+                <button class="main" disabled="disabled" onclick="modal('modal-01')">조회</button>
+            </section>
+        </div><!-- end Content -->
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+
+    <!-- Modal -->
+    <div class="modal modal-full modal-01">
+        <header>
+            <div class="search">
+                <input type="search" maxlength="20" value="고메돈까스" />
+                <i class="fas fa-search" onclick=""></i>
+            </div>
+            <div class="list-title">
+                <h6>Total <strong class="red">6</strong>건</h6>
+                <div>
+                    <div class="filter selectbox">
+                        <select>
+                            <option>전체 </option>
+                        </select>
+                    </div>
+                </div>
+            </div><!-- end List Title -->
+        </header>
+        <section class="content" onclick="location.href='contract_list_2.html'">
+            <div class="list-item" onclick="">
+                <h4>고메돈까스지점2</h4>
+                <span class="status open">운영</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <h4>고메돈까스지점2</h4>
+                <span class="status stop">인벤토리</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <h4>고메돈까스지점2</h4>
+                <span class="status stop">중단</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <h4>고메돈까스지점2</h4>
+                <span class="status stop">중단</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <h4>고메돈까스지점2</h4>
+                <span class="status stop">휴/폐업</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+            <div class="list-item" onclick="">
+                <h4>고메돈까스지점2</h4>
+                <span class="status stop">휴/폐업</span>
+                <ul>
+                    <li>코드명 : COMO001L01</li>
+                    <li>대표자 : 홍길동</li>
+                </ul>
+            </div>
+        </section>
+        <section class="btn-container">
+            <button class="cancel">닫기</button>
+        </section>
+    </div><!-- end Modal -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

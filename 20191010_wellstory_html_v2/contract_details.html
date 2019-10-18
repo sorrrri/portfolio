@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계약품의 상세보기</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside>
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>
+                    <span>현재버전</span>
+                    <span>v.1.0.2</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li class="menu-title">이용안내</li>
+                <li onclick="location.href='license.html'">
+                    <span>오픈소스 라이선스</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <div class="main-content bg-gray">
+        <header>
+            <div class="back" onclick="location.href='contract_list.html'"></div>
+            <h2>계약품의 상세보기</h2>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>
+        </header>
+        <section class="content">
+            <h4 class="content-title">[변경] 고메돈까스인천시청점_외식그룹1파트</h4>
+            <sub>품의ID : 201806109S0</sub>
+            <div class="right-container">전체 펼치기 <i class="fa fa-chevron-down"></i></div>
+            <ul class="accordion-menu contract">
+                <li>
+                    <div class="dropdownlink">
+                        기본정보<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>고객사명</span>
+                            <span>고객사명</span>
+                        </li>
+                        <li>
+                            <span>기업구분</span>
+                            <span>기업구분</span>
+                        </li>
+                        <li>
+                            <span>법인/주민번호</span>
+                            <span>법인/주민번호</span>
+                        </li>
+                        <li>
+                            <span>대표자명</span>
+                            <span>대표자명</span>
+                        </li>
+                        <li>
+                            <span>사업자번호</span>
+                            <span>사업자번호</span>
+                        </li>
+                        <li>
+                            <span>우편번호/주소</span>
+                            <span>우편번호/주소</span>
+                        </li>
+                        <li>
+                            <span>급/외식구분</span>
+                            <span>급/외식구분</span>
+                        </li>
+                        <li>
+                            <span>분류</span>
+                            <span>분류</span>
+                        </li>
+                        <li>
+                            <span>업군</span>
+                            <span>업군</span>
+                        </li>
+                        <li>
+                            <span>계약방식</span>
+                            <span>계약방식</span>
+                        </li>
+                        <li>
+                            <span>수주예상액</span>
+                            <span>수주예상액</span>
+                        </li>
+                        <li>
+                            <span>발주예정일</span>
+                            <span>발주예정일</span>
+                        </li>
+                        <li>
+                            <span>계약일-종료일</span>
+                            <span>계약일-종료일</span>
+                        </li>
+                        <li>
+                            <span>발주형태</span>
+                            <span>발주형태</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        결재상태
+                        <i class="fa fa-chevron-down"></i>
+                        <span class="status done">완료</span>
+                    </div>
+                    <ul class="submenuItems payment-status">
+                        <li>
+                            <span>1</span>
+                            <span>기안</span>
+                            <span>홍길동</span>
+                            <span>19.01.01 15:30</span>
+                            <span>승인</span>
+                        </li>
+                        <li>
+                            <span>2</span>
+                            <span>합의</span>
+                            <span>홍길동</span>
+                            <span>19.01.01 15:30</span>
+                            <span>합의</span>
+                        </li>
+                        <li>
+                            <span>3</span>
+                            <span>합의</span>
+                            <span>홍길동</span>
+                            <span>19.01.01 15:30</span>
+                            <span>미결</span>
+                        </li>
+                        <li><button onclick="modal('modal-01')"><i class="fas fa-paperclip"></i> 파일보기</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        Payer<i class="fa fa-chevron-down"></i>
+                        <span class="status done">완료</span>
+                    </div>
+                    <ul class="submenuItems">
+                        <li class="table">
+                            <ul class="row th">
+                                <li>Payer코드</li>
+                                <li>Payer명</li>
+                                <li>Sold to 코드</li>
+                                <li>Sold to 명</li>
+                            </ul>
+                            <ul class="row">
+                                <li>11111111</li>
+                                <li>Payer명</li>
+                                <li>11111111</li>
+                                <li>Sold to 명</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        Ship to<i class="fa fa-chevron-down"></i>
+                        <span class="status done">완료</span>
+                    </div>
+                    <ul class="submenuItems">
+                        <li class="table">
+                            <ul class="row th">
+                                <li>Ship to 코드</li>
+                                <li>Ship to 명</li>
+                                <li>Ship to 코드</li>
+                                <li>Ship to 명</li>
+                            </ul>
+                            <ul class="row">
+                                <li>11111111</li>
+                                <li>Ship to 명</li>
+                                <li>11111111</li>
+                                <li>Ship to 명</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        Sold to<i class="fa fa-chevron-down"></i>
+                        <span class="status ing">진행중</span>
+                    </div>
+                    <ul class="submenuItems">
+                        <li class="table">
+                            <ul class="row th">
+                                <li>Sold to 코드</li>
+                                <li>Sold to 명</li>
+                            </ul>
+                            <ul class="row">
+                                <li>11111111</li>
+                                <li>Sold to 명</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        가상계좌<i class="fa fa-chevron-down"></i>
+                        <span class="status ing">진행중</span>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>Payer Code</span>
+                            <span>11111111</span>
+                        </li>
+                        <li>
+                            <span>Payer ID</span>
+                            <span>ID</span>
+                        </li>
+                        <li>
+                            <span>Payer Code명</span>
+                            <span>Payer Code명</span>
+                        </li>
+                        <li>
+                            <span>가상계좌</span>
+                            <span>가상 111-1111-11111</span>
+                        </li>
+                        <li><button>SMS 전송</button></li>
+                        <li>
+                            <span>Payer Code</span>
+                            <span>11111111</span>
+                        </li>
+                        <li>
+                            <span>Payer ID</span>
+                            <span>ID</span>
+                        </li>
+                        <li>
+                            <span>Payer Code명</span>
+                            <span>Payer Code명</span>
+                        </li>
+                        <li>
+                            <span>가상계좌</span>
+                        </li>
+                        <li><button>계좌생성요청</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        담보<i class="fa fa-chevron-down"></i>
+                        <span class="status done">완료</span>
+                    </div>
+                    <ul class="submenuItems guarantee">
+                        <li>
+                            <span>총액 20,000,000</span>
+                        </li>
+                        <li>
+                            <span>A000000 주식회사 고메돈까스</span>
+                        </li>
+                        <li>
+                            <span>Special Limit</span>
+                            <div>
+                                <span>10,000,000</span>
+                                <span>2019.08.05~2019.09.30</span>
+                            </div>
+                            <span class="progress">성공</span>
+                        </li>
+                        <li>
+                            <span>보증보험 (100000201702001208)</span>
+                            <div>
+                                <span>10,000,000 / 8,000,000</span>
+                                <span>2019.08.05~2019.09.30</span>
+                            </div>
+                            <span class="progress">실패</span>
+                        </li>
+                        <li><button>담보 전송</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        계약서
+                        <i class="fa fa-chevron-down"></i>
+                        <span class="status ing">진행중</span>
+                    </div>
+                    <ul class="submenuItems">
+                        <li>
+                            <button onclick="">계약서 보기</button>
+                            <button onclick="">파일 조회</button>
+                        </li>
+                    </ul>
+                </li>
+                <li>법무검토<span class="status stop">-</span></li>
+                <li>인장날인<span class="status stop">-</span></li>
+            </ul>
+        </section><!-- end Content -->
+        <button class="main" onclick="location.href='contract_details_2.html'">변경품의 요청</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+    <!-- Modal -->
+    <div class="modal modal-01">
+        <div class="wrapper">
+            <div class="input-container">
+                <input type="text" readonly value="Asdfg.jpg" />
+            </div>
+            <div class="input-container">
+                <input type="text" readonly value="File.pdf" />
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="cancel2">취소</button>
+        </div>
+    </div><!-- end Modal -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
