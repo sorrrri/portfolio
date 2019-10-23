@@ -120,6 +120,28 @@
     border-bottom: 0
 }
 
+.main-content .submenuItems.guarantee li i.fa-minus-circle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 1rem
+}
+
+.main-content .submenuItems.guarantee li span:nth-child(2) {
+    margin-top: .5rem
+}
+
+.main-content .submenuItems.guarantee li.total span:nth-child(2) {
+    margin-top: 0 !important
+}
+
+.main-content .submenuItems.guarantee li span:nth-child(3) {
+    color: #A3A6A9
+}
+
+
+
 /* Overtime Page - 휴일근무신청 */
 .extra-hours ul {
     display: flex
@@ -181,21 +203,29 @@
     justify-content: space-between
 }
 
-.mortgage .accordion-menu li:nth-of-type(3) .submenuItems li:first-child {
-    justify-content: space-between
+.mortgage .accordion-menu li:nth-of-type(3) .information>li:first-of-type {
+    flex-direction: column !important
 }
 
-.mortgage .accordion-menu li:nth-of-type(3) .submenuItems>li:first-child span:first-child {
-    font-weight: normal;
+.mortgage .accordion-menu li:nth-of-type(3) .information>li:first-of-type span {
     width: auto
 }
 
-.mortgage .accordion-menu li:nth-of-type(3) .submenuItems>li:first-child span:last-child {
-    flex: auto;
-    text-align: right
+.mortgage .accordion-menu li:nth-of-type(3) .information>li:first-of-type span:first-of-type {
+    color: #333333
 }
 
+.mortgage .accordion-menu li:nth-of-type(3) .information>li:first-of-type span:last-of-type {
+    color: #A3A6A9 !important
+}
 
+.mortgage .submenuItems li.plural li {
+    flex-direction: column
+}
+
+.mortgage .submenuItems li.plural li span:nth-of-type(2) {
+    color: #A3A6A9
+}
 
 /* Checking Page - 위생안전점검 */
 .check-pm .header-2 {
@@ -209,18 +239,19 @@
     border-bottom: 1px solid #DDD
 }
 
-.check-pm .header-2 .accordion-menu .submenuItems li {
+/* .check-pm .header-2 .accordion-menu .submenuItems li {
     flex-direction: column;
     align-items: flex-start;
-}
+} */
 
 .check-pm .header-2 .accordion-menu .submenuItems li:first-child {
     margin-right: 1rem;
-    margin-bottom: 1rem !important
+    margin-bottom: .5rem !important
 }
 
 .check-pm .header-2 .accordion-menu .submenuItems li:last-child {
-    border-bottom: 0
+    border-bottom: 0;
+    margin-bottom: .5rem !important
 }
 
 .check-pm .header-2 .search {
@@ -280,14 +311,31 @@
     content: '• '
 }
 
+.check-pm .accordion-menu.arrow-center label {
+    line-height: 1.5;
+}
+
+.check-pm .accordion-menu .arrow-center {
+    border-radius: 3px
+}
+
+.check-pm .accordion-menu .arrow-center>li {
+    background-color: transparent
+}
+
+.check-outside .header-2 .accordion-menu .submenuItems li:last-child {
+    margin-bottom: .5rem !important
+}
+
 .check-outside .list li {
-    padding: 1rem .5rem
+    padding: 1rem .5rem;
+    justify-content: space-between;
 }
 
 .check-outside .list .status {
     max-width: 50px;
     text-align: center !important;
-    margin:0 .5rem;
+    margin: 0 .5rem;
     position: relative
 }
 
@@ -301,13 +349,12 @@
 }
 
 .check-outside .list input {
-    margin-right: .5rem;
     text-indent: 0;
     flex: 0 1 auto
 }
 
 .check-outside .list input:first-child {
-    width:35%
+    width: 35%
 }
 
 .check-outside .list input::-webkit-search-cancel-button {
@@ -399,12 +446,12 @@
 
 .attendance .border-container .list li div:first-child {
     text-indent: 2px;
-    display: flex; 
+    display: flex;
     align-items: center;
     flex: 1 1 auto;
 }
 
-.attendance .border-container .list li div:first-child > * {
+.attendance .border-container .list li div:first-child>* {
     text-align: left !important;
     white-space: nowrap;
 }
