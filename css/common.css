@@ -1593,10 +1593,6 @@ header h3 {
   display: inline-block
 }
 
-.content .accordion-menu .submenuItems li span:last-child {
-  margin-right: 1.5rem
-}
-
 .content .accordion-menu .submenuItems li .status {
   top: 1rem;
   right: .5rem;
@@ -1606,7 +1602,10 @@ header h3 {
 .accordion-menu .into {
   flex-direction: column;
   border-bottom: 0 !important;
-  padding: .5rem 0 0 !important
+  padding: 0 0 .5rem !important
+}
+.accordion-menu .into:last-of-type {
+  padding-bottom:1rem !important
 }
 
 .accordion-menu .into .dropdownlink {
@@ -1632,6 +1631,18 @@ header h3 {
   border-top: 0
 }
 
+
+.accordion-menu .into.open .dropdownlink {
+  border-radius: 3px 3px 0 0;
+  border: 1px solid #4C78C8;
+  border-bottom: 1px solid #EEE;
+}
+.accordion-menu .into.open .submenuItems {
+  border: 1px solid #4C78C8;
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+}
+
 .accordion-menu .list {
   display: block !important
 }
@@ -1651,6 +1662,9 @@ header h3 {
 
 .accordion-menu .information li {
   flex-direction: row !important
+}
+.accordion-menu .information li.into {
+  flex-direction: column !important
 }
 
 .accordion-menu .information li span:first-of-type {
@@ -1998,7 +2012,7 @@ header h3 {
   width: 100vw;
   height: calc(100% - 2rem);
   margin-top: 1rem;
-  border-radius: 1rem
+  border-radius: .7rem
 }
 
 .modal-full.active .content {
