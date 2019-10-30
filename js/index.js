@@ -197,6 +197,7 @@ function toggle(source) {
 // Checkbox Select All
 $(".show-checkbox").click(function () {
 	$(".checkbox").toggleClass("hidden");
+	$(this).toggleClass("active")
 });
 
 

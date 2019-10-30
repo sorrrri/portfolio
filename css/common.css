@@ -470,6 +470,10 @@ i.fa-angle-right {
   height: 2rem
 }
 
+.show-checkbox.active {
+  background-image: url(../images/ico/select_off.png);
+}
+
 /* Buttons */
 button {
   font-family: 'Nanum Gothic';
@@ -2356,7 +2360,7 @@ input[type="checkbox"]+label:before {
   margin-right: 3px;
   border-radius: 2px;
   transition: .2s;
-  border: 1px solid #DDD;
+  border: 1px solid #AAA;
   content: '';
   display: inline-block;
   vertical-align: text-top;
