@@ -1,0 +1,89 @@
+@media all and (max-width :845px) {
+
+
+h5 {font-size:15px}
+.content {width:100%}
+.menu {display:none}
+.menu-02 {display:block !important}
+.aside {margin-left:-240px}
+.aside {position: absolute; z-index: 999;}
+.aside.open {margin:0;}
+.aside.open + .content .menu-02 {left:250px}   
+.aside.open + .content .header h4 {display:none}
+}
+@media all and (max-width :425px) {
+body {font-size:13px;}
+a { -webkit-tap-highlight-color:transparent;}
+div.main {min-width:auto; width:100vw; height:100vh; min-height:auto; display:flex; -webkit-overflow-scrolling:touch; }
+
+.map_box {width:100%; padding-top:1em}
+
+.faq {display:none}
+.aside i.bot {display:none}
+.aside > div:nth-child(2) h6 {display:inline-block}
+.header h4 {display: inline-block; position:absolute; left:50%; transform:translateX(-50%)}
+
+.slick-slide {width:263px !important}
+.slick-slide h5 {width:100%; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+.slick-slide img {height:160px}
+.slick-prev, .slick-next {height:1rem; width:1rem}
+
+
+.msg-view {width:100vw; padding:1em .5em; -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
+.msg-view .btn-container {margin: 15px 13px 13px;}
+.msg-unit {}
+.msg-unit.left {max-width:86%}
+.msg-unit.left > div {margin-left:45px}
+.msg-unit.left > i {width:36px; height:36px}
+.msg-name {margin-bottom:5px}
+.loader .msg-bubble {width:60px}
+.msg-bubble {max-width:86%}
+.msg-bubble a {margin-top:.5rem; display:block}
+.msg-input button {width:60px}
+
+.msg-help {min-width:auto !important; max-width:86%}
+.msg-help .details.coupon li {font-weight:normal !important}
+.msg-help .details.coupon li span {font-size:12px; font-weight:bold; display:block}
+.msg-help .select {display:block !important}
+.msg-help .selectbox {max-width:none !important; width:100% !important; margin-bottom: 5px}
+.msg-help .details li {float:none !important}
+.msg-help .details > div, .msg-help .details ul {display:block !important}
+.msg-help .details .detail-container ul:last-child {margin-bottom:0}
+
+.msg-help.type-thumb .thumb {height:120px}
+.msg-help.type-showroom .details ul li:first-child {width:100%; border-right:0; border-bottom:1px solid #EBEBEB;}
+.msg-help.type-showroom .details ul li:last-child {top:auto; bottom:0}
+
+
+.msg-help.type-1 {padding-bottom:.5rem}
+.msg-help.type-1 ul {padding-top:.5rem}
+.msg-help.type-1 ul li {font-size:13px; width:50%}
+.msg-help.type-1 ul li a {padding:2px 0;}
+.msg-help.type-2 .details {text-align:center}
+.msg-help.type-2 .details > div > i {margin:0 auto; height:56px;}
+.msg-help.type-2 .details > div > i img {width:40px; height:40px}
+.msg-help.type-2 .details.type-txt h6 {font-size:13px; line-height:inherit; padding:.5em}
+.msg-help.type-2 .details.type-txt .links a:first-child {padding-right:1em; border-right:1px solid #ddd}
+.msg-help.type-2 .details.type-txt ul li {width:100% !important; float:inherit; display:block}
+.msg-help.type-2 .details.type-txt ul li:first-child {padding-bottom:1em; border-bottom:1px solid #E9E9E9; border-right:0}
+.msg-help.type-2 .details.type-ico ul li {border-left:0; }
+.msg-help.type-2 .details.type-ico ul li:first-child {padding:0 0 .5rem}
+.msg-help.type-2 .details.type-ico .links {display:flex; padding:.5em 0}
+.msg-help.type-2 .details.type-ico .links a {text-align:center;width:50%; margin:0 auto}
+.msg-help.type-2 .details.type-ico .links a:first-child {border-right:1px solid #e9e9e9}
+.msg-help.type-2 .details ul li {padding:.5rem .7rem}
+.msg-help.type-3 .details ul {margin-bottom:.5rem}
+.msg-help.type-3 .details ul li:first-child {font-weight:bold}
+
+.selectbox ul li {border:0 none; }
+.selectbox_list {z-index:10}
+
+.modal {width:80%; min-width:auto; padding: 2em 1em}
+.modal h4 {margin-bottom:1em}
+.modal button {padding:0 2.5em}
+
+.tab-menu {display:block !important; margin-bottom:.5rem !important}
+.tab-menu button {width:100%; background:white; border-bottom:0 !important}
+.tab-menu button:last-child {border-bottom:1px solid #EBEBEB !important}
+.tab-menu .current {background:#FFCC33}
+}
