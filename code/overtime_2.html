@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>휴일근무 신청</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside class="aside">
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태 관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="attendance_1.html">근무현황</a></li>
+                        <li><a href="attendance_2.html">근무계획</a></li>
+                        <li><a href="attendance_3.html">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일・야간근무 사전신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_2.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="check_pm_list_1.html">PM일일점검</a></li>
+                        <li><a href="check_outside_list.html">사외점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <!-- start Aside settings -->
+    <aside class="aside-settings">
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>
+                    <span>현재버전</span>
+                    <span>v.1.0.2</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li class="menu-title">이용안내</li>
+                <li onclick="location.href='license.html'">
+                    <span>오픈소스 라이선스</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->    
+    <div class="main-content bg-gray">
+        <header>
+            <div class="back" style="visibility:hidden;"></div>
+            <h2>휴일・야간근무 사전신청</h2>
+            <div class="menu-set" onclick="modal('settings')"><i class="fas fa-cog"></i></div>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>        </header>
+        <ul class="sub-menu">
+            <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
+            <li class="current">야간근로 사전신청</li>
+        </ul>
+        <div class="content">
+            <div class="year">
+                <h1>
+                    <i class="fas fa-angle-left"></i>
+                    2019년 8월
+                    <i class="fas fa-angle-right"></i>
+                </h1>
+            </div>
+            <ul class="accordion-menu extra-work">
+                <li>
+                    <div class="dropdownlink">
+                        <span><strong>08.03(토)</strong> 08:00 ~ 17:00</span>
+                        <div>
+                            <span class="status done">완결</span>
+                            <span>8.00</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>사유구분</span>
+                            <span>긴급사항처리</span>
+                        </li>
+                        <li>
+                            <span>사유</span>
+                            <span>이슈 발생으로 사업장 방문 지원</span>
+                        </li>
+                        <li>
+                            <span>대체휴일</span>
+                            <span>대체휴가, 적치 1일</span>
+                        </li>
+                        <li>
+                            <span>대체휴일일자</span>
+                            <span>2019.08.14(수)</span>
+                        </li>
+                        <li class="list">
+                            <span class="title">결재사유</span>
+                            <ul class="payment-status">
+                                <li>
+                                    <span>1</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                                <li>
+                                    <span>2</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                                <li>
+                                    <span>3</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <span><strong>08.04(일)</strong> 08:00 ~ 14:00</span>
+                        <div>
+                            <span class="status done">완결</span>
+                            <span>5.00</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>사유구분</span>
+                            <span>긴급사항처리</span>
+                        </li>
+                        <li>
+                            <span>사유</span>
+                            <span>이슈 발생으로 사업장 방문 지원</span>
+                        </li>
+                        <li>
+                            <span>대체휴일</span>
+                            <span>대체휴가, 적치 1일</span>
+                        </li>
+                        <li>
+                            <span>대체휴일일자</span>
+                            <span>2019.08.14(수)</span>
+                        </li>
+                        <li class="list">
+                            <span class="title">결재사유</span>
+                            <ul class="payment-status">
+                                <li>
+                                    <span>1</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                                <li>
+                                    <span>2</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                                <li>
+                                    <span>3</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <span><strong>08.10(토)</strong> 12:00 ~ 16:00</span>
+                        <div>
+                            <span class="status ing">진행중</span>
+                            <span>4.00</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li>
+                            <span>사유구분</span>
+                            <span>긴급사항처리</span>
+                        </li>
+                        <li>
+                            <span>사유</span>
+                            <span>이슈 발생으로 사업장 방문 지원</span>
+                        </li>
+                        <li>
+                            <span>대체휴일</span>
+                            <span>대체휴가, 적치 1일</span>
+                        </li>
+                        <li>
+                            <span>대체휴일일자</span>
+                            <span>2019.08.14(수)</span>
+                        </li>
+                        <li class="list">
+                            <span class="title">결재사유</span>
+                            <ul class="payment-status">
+                                <li>
+                                    <span>1</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                                <li>
+                                    <span>2</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                                <li>
+                                    <span>3</span>
+                                    <span>기안</span>
+                                    <span>홍길동</span>
+                                    <span>19.01.01 15:30</span>
+                                    <span>승인</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- end Content -->
+        <button class="main" onclick="location.href='overtime_2_details.html'">야간근로 사전등록 신청</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

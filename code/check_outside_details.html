@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>위생안전 점검</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside class="aside">
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태 관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="attendance_1.html">근무현황</a></li>
+                        <li><a href="attendance_2.html">근무계획</a></li>
+                        <li><a href="attendance_3.html">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일・야간근무 사전신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_2.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="check_pm_list_1.html">PM일일점검</a></li>
+                        <li><a href="check_outside_list.html">사외점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <!-- start Aside settings -->
+    <aside class="aside-settings">
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>
+                    <span>현재버전</span>
+                    <span>v.1.0.2</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li class="menu-title">이용안내</li>
+                <li onclick="location.href='license.html'">
+                    <span>오픈소스 라이선스</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+    <div class="main-content check-outside bg-gray">
+        <header>
+            <div class="back" onclick="location.href='check_outside_list.html'"></div>
+            <h2>사외점검</h2>
+            <div class="menu-set" onclick="modal('settings')"><i class="fas fa-cog"></i></div>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>        </header>
+        <div class="content">
+            <h4>점검정보</h4>
+            <section class="container">
+                <section>
+                    <h5>사업장: 한국타이어대전기숙사1</h5>
+                    <div class="input-container">
+                        <label>점검일자</label>
+                        <input type="date" />
+                    </div>
+                    <div class="input-container">
+                        <label>점검구분</label>
+                        <div class="selectbox">
+                            <select>
+                                <option>위생</option>
+                                <option>안전</option>
+                                <option>환경</option>
+                                <option>기타</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <label>점검기관</label>
+                        <input type="search" maxlength="20" onclick="modal('modal-01')" readonly="readonly" />
+                    </div>
+                    <div class="input-container">
+                        <label>점검명</label>
+                        <input type="search" maxlength="20" onclick="modal('modal-02')" readonly="readonly" />
+                    </div>
+                    <div class="input-container">
+                        <label>점검자</label>
+                        <input type="search" maxlength="20" onclick="" />
+                    </div>
+                    <div class="input-container">
+                        <label>수검자</label>
+                        <input type="search" maxlength="20" onclick="" />
+                    </div>
+                </section>
+                <section>
+                    <h5>미생물 채취여부</h5>
+                    <ul class="tab-menu">
+                        <li class="tab current">샘플수거</li>
+                        <li>ATP측정</li>
+                        <li>없음</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <h4>점검항목
+                    <i class="fas fa-question-circle tooltip" title="점검항목은 한글 15자, 특이사항은 한글 50자 까지 입력가능합니다.">
+                    </i>
+                </h4>
+                <div class="container">
+                    <ul class="list">
+                        <li>
+                            <input type="text" value="건강진단결과" />
+                            <input type="text" value="특이사항 없음" />
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li>
+                            <input type="text" value="영업신고증" />
+                            <input type="text" value="특이사항 없음" />
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li>
+                            <input type="text" value="유통기한" />
+                            <input type="text" value="특이사항 없음" />
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li><button onclick="modal('modal-03')"><i class="fas fa-plus fa-lg"></i></button></li>
+                    </ul>
+                </div>
+            </section>
+        </div><!-- end Content -->
+        <button class="main" onclick="">등록</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+    <!-- Modal1 -->
+    <div class="modal modal-01">
+        <header>
+            <h4>점검기관 입력
+                <i class="fas fa-question-circle tooltip" title="직접 입력과 자주쓰는 태그를 선택하여 입력할 수 있습니다."></i>
+            </h4>
+        </header>
+        <div class="content">
+            <section class="search">
+                <input type="text" placeholder="점검기관 입력" />
+            </section>
+            <div class="border-container">
+                <h6>자주쓰는 점검기관(기본)</h6>
+                <ul class="tags">
+                    <li>시청</li>
+                    <li>도청</li>
+                    <li>구청</li>
+                    <li>식약처</li>
+                </ul>
+            </div>
+            <div class="border-container">
+                <h6>자주쓰는 점검기관(추가)</h6>
+                <ul class="tags">
+                    <li>위생과</li>
+                    <li>환경과</li>
+                    <li>보건소</li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main" onclick="confirmSubmit()">확인</button>
+        </div>
+    </div><!-- end Modal1 -->
+    <!-- Modal2 -->
+    <div class="modal modal-02">
+        <header>
+            <h4>점검명 입력
+                <i class="fas fa-question-circle tooltip" title="직접 입력과 자주쓰는 태그를 선택하여 입력할 수 있습니다."></i>
+            </h4>
+        </header>
+        <div class="content">
+            <section class="search">
+                <input type="text" placeholder="점검명 입력" />
+            </section>
+            <div class="border-container">
+                <h6>자주쓰는 점검명</h6>
+                <ul class="tags">
+                    <li>집단급식소 위생점검</li>
+                    <li>하절기 특별 위생점검</li>
+                    <li>겨울철 식중독 예방점검</li>
+                    <li>다중이용업소 특별점검</li>
+                </ul>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main" onclick="confirmSubmit()">확인</button>
+        </div>
+    </div><!-- end Modal2 -->
+    <!-- Modal3 -->
+    <div class="modal modal-03">
+        <header>
+            <h4>점검항목 입력
+                <i class="fas fa-question-circle tooltip" title="직접 입력과 자주쓰는 태그를 선택하여 입력할 수 있습니다."></i>
+            </h4>
+        </header>
+        <div class="content">
+            <div class="border-container">
+                <h6>자주쓰는 점검항목</h6>
+                <ul class="tags">
+                    <li>건강진단결과서</li>
+                    <li>영업신고증</li>
+                    <li>유통기한</li>
+                    <li>거래명세서</li>
+                    <li>건강진단결과서</li>
+                    <li>영업신고증</li>
+                    <li>유통기한</li>
+                    <li>거래명세서</li>
+                </ul>
+            </div>
+            <ul class="list">
+                <li>
+                    <input type="text" placeholder="점검항목 입력" />
+                </li>
+                <li>
+                    <button onclick="modal('modal-03')"><i class="fas fa-plus fa-lg"></i></button>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main" onclick="confirmSubmit()">확인</button>
+        </div>
+    </div><!-- end Modal3 -->
+    <div class="modal-backdrop"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
