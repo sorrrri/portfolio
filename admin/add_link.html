@@ -3,46 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>관리자 페이지 | 링크 추가 및 수정</title>
+    <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
-<div class="content">
-    <section>
-        <div class="table table-admin-main">
-            <div class="row th">
-                <span>이름</span>
-                <span>이미지</span>
-                <span>카테고리</span>
-                <span>URL</span>
-                <span>태그</span>
-                <span>관리</span>
-            </div>
-            <div>
-                <span>백신</span>
-                <span>icon</span>
-                <span>대시보드</span>
-                <span>www.vaccine...</span>
-                <span>백신,조작적</span>
-                <span>
+<div class="container">
+    <div class="content">
+        <section>
+            <div class="table table-admin-main">
+                <div class="row th">
+                    <span>이름</span>
+                    <span>이미지</span>
+                    <span>카테고리</span>
+                    <span>URL</span>
+                    <span>태그</span>
+                    <span>관리</span>
+                </div>
+                <div>
+                    <span>백신</span>
+                    <span>icon</span>
+                    <span>대시보드</span>
+                    <span>www.vaccine...</span>
+                    <span>백신,조작적</span>
+                    <span>
                     <button>수정</button>
                     <button>삭제</button>
                 </span>
+                </div>
             </div>
+        </section>
+        <section>
+            <div class="input-image">
+                <label for="attach-image">이미지 첨부</label>
+                <input type="file" id="attach-image"/>
+            </div>
+            <div class="thumbnail-image">
+                <img src="" alt="">
+            </div>
+        </section>
+        <div class="list-buttons">
+            <button>완료</button>
+            <button>취소</button>
         </div>
-    </section>
-    <section>
-        <div class="input-image">
-        <label for="attach-image">이미지 첨부</label>
-        <input type="file" />
-        </div>
-        <div class="thumbnail-image">
-            <img src="" alt="">
-        </div>
-    </section>
-    <div class="list-buttons">
-        <button>완료</button>
-        <button>취소</button>
     </div>
 </div>
-
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 </html>
