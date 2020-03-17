@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>관리자 페이지 로그인 화면</title>
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./../src/css/style.css">
+    <link rel="stylesheet" href="./../src/css/all.css">
 </head>
 <body>
-<div class="container">
+<div class="container login">
     <div class="content">
+        <h3 class="title">관리자 화면으로 접속합니다.</h3>
         <div class="login-container">
-            <div class="id">
+            <div class="input-container id">
+                <i class="fas fa-user"></i>
                 <label for="admin-id">ID</label>
                 <input type="text" id="admin-id">
             </div>
-            <div class="password">
+            <div class="input-container password">
+                <i class="fas fa-lock"></i>
                 <label for="admin-password">ID</label>
                 <input type="text" id="admin-password">
             </div>
-            <button type="submit">login</button>
+            <button type="submit">로그인</button>
         </div>
     </div>
 </div>

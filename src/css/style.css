@@ -1,7 +1,47 @@
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 400;
+    src: url(./../webfonts/NanumSquareR.eot);
+    src: url(./../webfonts/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+    url(./../webfonts/NanumSquareR.woff) format('woff'),
+    url(./../webfonts/NanumSquareR.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 700;
+    src: url(./../webfonts/NanumSquareB.eot);
+    src: url(./../webfonts/NanumSquareB.eot?#iefix) format('embedded-opentype'),
+    url(./../webfonts/NanumSquareB.woff) format('woff'),
+    url(./../webfonts/NanumSquareB.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquare';
+    font-weight: 300;
+    src: url(./../webfonts/NanumSquareL.eot);
+    src: url(./../webfonts/NanumSquareL.eot?#iefix) format('embedded-opentype'),
+    url(./../webfonts/NanumSquareL.woff) format('woff'),
+    url(./../webfonts/NanumSquareL.ttf) format('truetype');
+}
+
+:root {
+    --var-mainColor: #01797F;
+    --var-secondaryColor: #0A2E51
+}
+
 * {
+    box-sizing: border-box
+}
+
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font: 17px/1.5 'NanumSquare';
+    font-family: NanumSquare;
 }
 
 ul {
@@ -16,6 +56,19 @@ a {
     color: #333
 }
 
+input {
+    border: 0;
+    padding: .7rem;
+    font: 16px/1.5 'NanumSquare';
+    outline: 0;
+}
+
+button {
+    border: 0;
+    font: 14px 'NanumSquare';
+    font-weight: bold;
+}
+
 .container {
     width: 100%;
     min-height: 100vh;
@@ -23,10 +76,15 @@ a {
     flex-direction: column
 }
 
+.input-container {
+    position: relative;
+}
+
 section {
     width: 100%;
     margin: 1rem auto
 }
+
 
 /* Header */
 header {
@@ -51,15 +109,15 @@ header .menu li {
 
 /* Search */
 .search {
-    position:relative;
+    position: relative;
     min-width: 30vw;
 }
 
 .search i {
     color: #AAA;
-    position:absolute;
-    right:1rem;
-    top:50%;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
     transform: translateY(-50%);
 }
 
@@ -68,17 +126,26 @@ header .menu li {
 }
 
 .search input {
-    width:100%;
+    width: 100%;
     background: #F7F8F9;
-    padding:.7rem;
     border-radius: 10rem;
-    border: 0
 }
 
 
-.admin {display: flex; align-content: center}
-.admin a {display: flex; align-content: center}
-.admin ion-icon {font-size:1.5rem}
+.admin {
+    display: flex;
+    align-content: center
+}
+
+.admin a {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.admin ion-icon {
+    font-size: 1.5rem;
+}
 
 
 /* Content */
@@ -91,13 +158,16 @@ header .menu li {
     flex-direction: column;
     padding: 2rem;
     min-width: 800px;
-    width:80%;
+    width: 80%;
     max-width: 1200px
 }
 
 
 /* Main */
-.category {justify-content: center}
+.category {
+    justify-content: center
+}
+
 .category li {
     margin: 1rem;
     font-weight: bold;
@@ -155,7 +225,7 @@ header .menu li {
 }
 
 .list-cards .list .card .title {
-    font-size:1.2rem
+    font-size: 1.2rem
 }
 
 .list-cards .list .card small {
@@ -171,7 +241,74 @@ header .menu li {
     background-color: #A5678E
 }
 
-
 .card.etc {
     background-color: #BFB8DA
+}
+
+
+.login {
+    background: linear-gradient(rgba(0, 118, 126, .8), rgba(10, 46, 81, .8));
+    text-align: center;
+}
+
+.login::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: url("../images/bg_03.jpg");
+    background-size: cover;
+    z-index: -1;
+    opacity: .3;
+}
+
+.login .title {
+    color: white;
+    margin-bottom: 5rem
+}
+
+
+.login-container {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 1rem;
+}
+
+.login-container .input-container {
+    margin-bottom: .5rem;
+}
+
+.login-container i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .2;
+}
+
+.login-container label {
+    display: none
+}
+
+.login-container input {
+    width: 100%;
+    padding: 1rem .5rem;
+    border-radius: .5rem;
+    text-indent: 2rem;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 1rem .5rem;
+    border-radius: .5rem;
+    background-color: #0191B4;
+    color: white
+}
+
+.login-container .id {
+}
+
+.login-container .password {
 }
