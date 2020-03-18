@@ -60,7 +60,7 @@ a {
 input {
     border: 0;
     padding: .7rem;
-    font: 16px/1.5 'NanumSquare';
+    font: 17px/1.5 'NanumSquare';
     background-color: transparent;
     outline: 0;
 }
@@ -76,6 +76,24 @@ button {
     transition: background-color .2s;
     cursor: pointer;
     outline: 0;
+}
+
+button.new, button.submit {
+    display: flex;
+    align-items: center;
+    font: normal 14px 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    background-color: #0191B4;
+    color: white
+}
+
+button.cancel {
+    opacity: .3;
+}
+
+button.new [class*=icon-], button.submit [class*=icon-] {
+    margin-right: .2rem;
+    font-size: 1rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -94,18 +112,6 @@ ion-icon {
 
 .list-buttons button {
     padding: .7rem 1rem
-}
-
-.list-buttons button.new {
-    font: normal 14px 'Work Sans', sans-serif;
-    text-transform: uppercase;
-    background-color: #0191B4;
-    color: white
-}
-
-.list-buttons button.new .icon-new {
-    margin-right: .2rem;
-    font-size: 1rem;
 }
 
 .container {
@@ -460,7 +466,6 @@ header .menu li {
 }
 
 
-
 /* Administrator Pages */
 
 .admin {
@@ -516,23 +521,108 @@ header .menu li {
 
 .edit-container {
     background-color: white;
-    padding:2rem;
+    padding: 2rem;
     border-radius: .5rem;
 }
 
 .edit-container .row {
     display: flex;
-    line-height: 3rem;
+    padding: 1rem 0;
 }
 
 .edit-container label {
-    flex: 0 0 20%
+    font-family: 'Work Sans', sans-serif;
+    color: #A3A6A9;
+    flex: 0 0 20%;
+    position: relative;
+    align-self: center;
 }
 
 .edit-container label ~ * {
-    flex: 1 1 auto
+    flex: 1 1 auto;
+    border-bottom: 1px solid #ECF0F6;
 }
 
-.edit-container input[type="text"] {
-    border-bottom: 1px solid #ECF0F6;
+.edit-container label[for="edit-image"] {
+    border: 2px dotted #ECF0F6;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    flex-basis: auto;
+    cursor: pointer;
+}
+
+.edit-container label[for="edit-image"] .icon-plus {
+    font-size: 3rem;
+    color: #C3C6C9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.edit-container input[type="image"] {
+    display: none;
+}
+
+.edit-container + .list-buttons button {
+    padding: .7rem 1.5rem
+}
+
+.edit-container input[type="url"]::before {
+    content: 'http://'
+}
+
+.selectbox {
+    font: 17px/1.5 'NanumSquare';
+    background-color: transparent;
+    cursor: pointer
+}
+
+.selectbox-current {
+    padding: .7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectbox-current .arrow {
+}
+
+.selectbox-current {
+    overflow: hidden;
+    position: relative;
+    z-index: 3
+}
+
+.selectbox-options {
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    position: absolute;
+    border: 1px solid #EBEBEB;
+    overflow-y: auto;
+    transition: opacity .2s;
+    z-index: 1
+}
+
+.selectbox-options.active {
+    opacity: 1;
+    visibility: visible;
+    background: white;
+    flex-direction: column;
+}
+
+.selectbox-options li {
+    padding:.7rem;
+    transition: background-color .2s;
+}
+
+.selectbox-options li:not(:last-child) {
+    border-bottom: 1px solid #EBEBEB
+}
+
+.selectbox-options li:hover {
+    background: #ECF0F6;
 }

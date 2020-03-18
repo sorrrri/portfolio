@@ -10,33 +10,50 @@
     <div class="content">
         <section class="edit-container">
             <div class="row">
-                <input class="edit-image" type="file" />
+                <label for="edit-image">
+                    <ion-icon class="icon-plus" name="add-outline"></ion-icon>
+                    <input type="image" id="edit-image"/>
+                </label>
             </div>
             <div class="row">
                 <label for="edit-name">name</label>
-                <input type="text" id="edit-name" />
+                <input type="text" id="edit-name"/>
             </div>
             <div class="row">
                 <label for="edit-category">category</label>
                 <div class="selectbox">
-                    <div></div>
+                    <div class="selectbox-current">
+                        <span class="selected">대시보드</span>
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </div>
+                    <ul class="selectbox-options">
+                        <li>대시보드</li>
+                        <li>뷰어</li>
+                    </ul>
                 </div>
             </div>
             <div class="row">
                 <label for="edit-url">URL</label>
-                <input type="text" id="edit-url" />
+                <input type="url" id="edit-url"/>
             </div>
             <div class="row">
                 <label for="edit-tag">tag</label>
-                <input type="text" id="edit-tag" />
+                <input type="text" id="edit-tag"/>
             </div>
         </section>
         <div class="list-buttons">
-            <button class="submit" type="submit">완료</button>
-            <button class="cancel">취소</button>
+            <button class="cancel" onclick="history.back()">취소</button>
+            <button class="submit" type="submit">
+                <ion-icon name="checkmark-outline"></ion-icon> 완료
+            </button>
         </div>
     </div>
 </div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="./../src/js/index.js"></script>
 </body>
 </html>

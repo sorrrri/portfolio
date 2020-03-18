@@ -1,18 +1,31 @@
 function modal() {
-    jQuery(".modal, .backdrop").addClass("active");
+    $(".modal, .backdrop").addClass("active");
 }
 
 function closeModal() {
-    jQuery(".modal, .backdrop").removeClass("active");
+    $(".modal, .backdrop").removeClass("active");
 }
 
-jQuery(".close, .modal .cancel, .backdrop").on("click", function() {
+$(".close, .modal .cancel, .backdrop").on("click", function () {
     closeModal();
 });
 
 /*
-jQuery(document).keyUp(function(e) {
+$(document).keyUp(function(e) {
     if(e.keyCode === 27) {
         closeModal();
     }
 });*/
+
+$(document).ready(function () {
+
+    // Selectbox
+    $(".selectbox-current").click(function () {
+        $(".selectbox-options").addClass("active");
+    });
+
+    $(".selectbox-options li").click(function () {
+        $(".selectbox-current .selected").text($(this).text());
+        $(".selectbox-options").removeClass("active");
+    });
+});
