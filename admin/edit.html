@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지 | 링크 추가 및 수정</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+</head>
+<body>
+<div class="container admin">
+    <div class="content">
+        <section class="edit-container">
+            <div class="row">
+                <input class="edit-image" type="file" />
+            </div>
+            <div class="row">
+                <label for="edit-name">name</label>
+                <input type="text" id="edit-name" />
+            </div>
+            <div class="row">
+                <label for="edit-category">category</label>
+                <div class="selectbox">
+                    <div></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="edit-url">URL</label>
+                <input type="text" id="edit-url" />
+            </div>
+            <div class="row">
+                <label for="edit-tag">tag</label>
+                <input type="text" id="edit-tag" />
+            </div>
+        </section>
+        <div class="list-buttons">
+            <button class="submit" type="submit">완료</button>
+            <button class="cancel">취소</button>
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+</html>

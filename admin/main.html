@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>관리자 페이지 메인화면</title>
-    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/style.css?ver=2">
+    <link rel="stylesheet" href="../src/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="container admin admin-main">
     <header>
         <div></div>
         <ul class="menu">
@@ -16,33 +18,69 @@
     </header>
     <div class="content">
         <div class="list-buttons">
-            <button>
-                링크추가
+            <button class="new">
+                <ion-icon class="icon-new" name="add-outline"></ion-icon>
+                <span>new</span>
             </button>
         </div>
         <div class="table table-admin-main">
             <div class="row th">
-                <span>이름</span>
-                <span>이미지</span>
-                <span>카테고리</span>
-                <span>URL</span>
-                <span>태그</span>
-                <span>관리</span>
+                <div class="cell">name</div>
+                <div class="cell">category</div>
+                <div class="cell">URL</div>
+                <div class="cell">tag</div>
+                <div class="cell">edit</div>
             </div>
-            <div>
-                <span>백신</span>
-                <span>icon</span>
-                <span>대시보드</span>
-                <span>www.vaccine...</span>
-                <span>백신,조작적</span>
-                <span>
-                <button>수정</button>
-                <button>삭제</button>
-            </span>
+            <div class="row">
+                <div class="cell">
+                    <span class="icon"><img src="./../src/images/icons/vaccine.svg" alt=""></span>
+                    <span>백신</span>
+                </div>
+                <div class="cell">대시보드</div>
+                <div class="cell link">www.vaccineabcdefghijklmnopqrstuv</div>
+                <div class="cell">백신,조작적</div>
+                <div class="cell buttons">
+                    <button class="edit" onclick="location.href='./edit.html'">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                    <button class="delete" onclick="modal()">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="cell">
+                    <span class="icon"><img src="./../src/images/icons/vaccine.svg" alt=""></span>
+                    <span>백신</span>
+                </div>
+                <div class="cell">대시보드</div>
+                <div class="cell link">www.vaccineabcdefghijklmnopqrstuv</div>
+                <div class="cell">백신,조작적</div>
+                <div class="cell buttons">
+                    <button class="edit" onclick="location.href='./edit.html'">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                    <button class="delete" onclick="modal()">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+    <div class="backdrop"></div>
+    <div class="modal">
+        <h4>'백신' 링크를 삭제 하시겠습니까?</h4>
+        <div class="list-buttons">
+            <button class="cancel"><ion-icon name="close-outline"></ion-icon> 아니오</button>
+            <button class="confirm"><ion-icon name="checkmark-outline"></ion-icon> 예</button>
+        </div>
+    </div>
 </div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="./../src/js/index.js"></script>
 </body>
 </html>
