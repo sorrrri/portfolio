@@ -17,6 +17,34 @@ $(document).keyUp(function(e) {
     }
 });*/
 
+
+function previewFile() {
+
+    var preview = document.querySelector('img');
+    var file = document.querySelector('#edit-image').files[0];
+    var reader = new FileReader();
+    var label = document.getElementsByClassName('edit-image');
+    var icon = document.querySelector('ion-icon');
+
+    reader.onloadend = function () {
+        preview.src = reader.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+    }
+
+    label.classList.add('active');
+    icon.parentNode.removeChild(icon);
+};
+
+function selectbox() {
+   var selectboxCurrent = document.getElementsByClassName('selectbox-current');
+
+}
+
 $(document).ready(function () {
 
     // Selectbox

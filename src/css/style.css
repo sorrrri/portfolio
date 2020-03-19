@@ -445,6 +445,7 @@ header .menu li {
 
 .login-container input {
     font-family: 'Baloo Chettan 2', cursive;
+    background-color: white;
     width: 100%;
     padding: 1rem .5rem;
     border-radius: .5rem;
@@ -454,7 +455,9 @@ header .menu li {
 .login-container button {
     width: 100%;
     padding: 1rem .5rem;
+    line-height: 1.5rem;
     border-radius: .5rem;
+    justify-content: center;
     background-color: #0191B4;
     color: white
 }
@@ -544,13 +547,21 @@ header .menu li {
 }
 
 .edit-container label[for="edit-image"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px dotted #ECF0F6;
     border-radius: 50%;
     width: 100px;
     height: 100px;
     margin: 0 auto;
     flex-basis: auto;
+    overflow: hidden;
     cursor: pointer;
+}
+
+.edit-container label[for="edit-image"].active {
+    border-style: solid;
 }
 
 .edit-container label[for="edit-image"] .icon-plus {
@@ -562,8 +573,13 @@ header .menu li {
     transform: translate(-50%, -50%);
 }
 
-.edit-container input[type="image"] {
+.edit-container input[type="file"] {
     display: none;
+}
+
+.edit-container input[type="file"] + img {
+    width:70%;
+    height:70%
 }
 
 .edit-container + .list-buttons button {
