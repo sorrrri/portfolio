@@ -46,7 +46,7 @@
                     <button class="edit" onclick="location.href='{% url 'update' pk=labs.id %}'">
                         <ion-icon name="create-outline"></ion-icon>
                     </button>
-                    <button class="delete" onclick="modal()">
+                    <button class="delete" onclick="location.href='{% url 'delete' pk=labs.id %}'">
                         <ion-icon name="trash-outline"></ion-icon>
                     </button>
                 </div>
