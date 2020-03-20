@@ -8,6 +8,7 @@ from .models import Labs
 
 class LabsListView(ListView):
     model = Labs
+    paginate_by = 5
 
 class LabsCreateView(CreateView):
     model = Labs
