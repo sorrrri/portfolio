@@ -107,6 +107,7 @@ ion-icon {
     display: flex;
     align-self: flex-end;
     margin-bottom: .5rem;
+    justify-content: flex-end
 }
 
 .list-buttons button {
