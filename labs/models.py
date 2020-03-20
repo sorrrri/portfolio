@@ -1,4 +1,5 @@
 from django.db import models
 
-site_name = models.CharField(max_length=100)
-url = models.URLField('Site URL')
+class Labs(models.Model):
+    site_name = models.CharField(max_length=100)
+    url = models.URLField('Site URL')
