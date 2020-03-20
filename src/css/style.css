@@ -88,7 +88,6 @@ button.new, button.submit {
 }
 
 button.cancel {
-    opacity: .3;
 }
 
 button.new [class*=icon-], button.submit [class*=icon-] {
@@ -201,6 +200,7 @@ header {
 }
 
 header .menu {
+    font-family: 'Work Sans', sans-serif;
     display: flex;
     align-content: center;
     flex-wrap: wrap
@@ -584,6 +584,10 @@ header .menu li {
 
 .edit-container + .list-buttons button {
     padding: .7rem 1.5rem
+}
+
+.edit-container + .list-buttons .cancel {
+    opacity:.3
 }
 
 .edit-container input[type="url"]::before {
