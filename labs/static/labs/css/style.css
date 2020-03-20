@@ -297,6 +297,10 @@ header .menu li {
     line-height: 2rem;
 }
 
+.table .row .cell.name {
+    justify-content: left
+}
+
 .table .row .cell.link {
     width: 30%;
     display: inline-block;

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'labs/css/style.css' %}">
+</head>
+<body>
+<div class="container admin">
+    <header>
+        <div></div>
+        <ul class="menu">
+            <li><a href="./login.html">login</a></li>
+            <li>logout</li>
+        </ul>
+    </header>
+    <div class="content">
+        <h1>링크 수정</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <section class="edit-container">
+                {{form.as_p}}
+                <div class="row">
+                    <label for="edit-image">
+                        <ion-icon class="icon-plus" name="add-outline"></ion-icon>
+                        <input type="file" id="edit-image" onchange="previewFile()"/>
+                        <img class="thumbnail-image" src="./../src/images/health.png" alt="">
+                    </label>
+                </div>
+                <div class="row">
+                    <label for="edit-name">name</label>
+                    <input type="text" id="edit-name" value="생체신호"/>
+                </div>
+                <div class="row">
+                    <label for="edit-category">category</label>
+                    <div id="edit-category" class="selectbox">
+                        <div class="selectbox-current">
+                            <span class="selected">대시보드</span>
+                            <ion-icon name="chevron-down-outline"></ion-icon>
+                        </div>
+                        <ul class="selectbox-options">
+                            <li>대시보드</li>
+                            <li>뷰어</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="edit-url">URL</label>
+                    <input type="url" id="edit-url" value="http://www.vitalviewer.com"/>
+                </div>
+                <div class="row">
+                    <label for="edit-tag">tag</label>
+                    <input type="text" id="edit-tag" value="viewer, 아주대"/>
+                </div>
+            </section>
+            <div class="list-buttons">
+                <button class="cancel" onclick="history.back()">취소</button>
+                <button class="submit" type="submit">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                    완료
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

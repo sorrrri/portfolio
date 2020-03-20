@@ -6,6 +6,7 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'labs/css/style.css' %}" >
+    <link rel="stylesheet" href="{% static 'labs/css/all.css' %}">
 </head>
 <body>
 <div class="container admin admin-main">
@@ -34,7 +35,7 @@
 
             {% for labs in object_list %}
             <div class="row">
-                <div class="cell">
+                <div class="cell name">
                     <span class="icon"><img src="{% static 'labs/images/icons/vaccine.svg' %}"></span>
                     <span>{{labs.site_name}}</span>
                 </div>
@@ -42,7 +43,7 @@
                 <div class="cell link"><a href="{{labs.url}}" target="_blank">{{labs.url}}</a></div>
                 <div class="cell">백신,조작적</div>
                 <div class="cell buttons">
-                    <button class="edit" onclick="location.href='./edit.html'">
+                    <button class="edit" onclick="location.href='{% url 'update' pk=labs.id %}'">
                         <ion-icon name="create-outline"></ion-icon>
                     </button>
                     <button class="delete" onclick="modal()">
@@ -62,5 +63,6 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 </html>

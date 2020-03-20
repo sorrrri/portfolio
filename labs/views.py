@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 
@@ -21,3 +21,10 @@ class LabsCreateView(CreateView):
 
 class LabsDetailView(DetailView):
     model = Labs
+
+
+
+class LabsUpdateView(UpdateView):
+    model = Labs
+    fields = ['site_name', 'url']
+    template_name_suffix = '_update'
