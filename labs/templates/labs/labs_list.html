@@ -1,73 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List Page</title>
+{% extends 'base.html' %}
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'labs/css/style.css' %}" >
-    <link rel="stylesheet" href="{% static 'labs/css/all.css' %}">
-</head>
-<body>
-<div class="container admin admin-main">
-    <header>
-        <div></div>
-        <ul class="menu">
-            <li><a href="./login.html">login(임시)</a></li>
-            <li>logout</li>
-        </ul>
-    </header>
-    <div class="content">
-        <div class="list-buttons">
-            <button class="new" onclick="location.href='{% url 'create' %}'">
-                <ion-icon class="icon-new" name="add-outline"></ion-icon>
-                <span>new</span>
-            </button>
-        </div>
-        <div class="table table-admin-main">
-            <div class="row th">
-                <div class="cell">name</div>
-                <div class="cell">category</div>
-                <div class="cell">URL</div>
-                <div class="cell">tag</div>
-                <div class="cell">edit</div>
-            </div>
+{% block title %}List Object{% endblock %}
 
-            {% for labs in object_list %}
-            <div class="row">
-                <div class="cell name">
-                    <span class="icon"><img src="{% static 'labs/images/icons/vaccine.svg' %}"></span>
-                    <span>{{labs.site_name}}</span>
-                </div>
-                <div class="cell">대시보드</div>
-                <div class="cell link"><a href="{{labs.url}}" target="_blank">{{labs.url}}</a></div>
-                <div class="cell">백신,조작적</div>
-                <div class="cell buttons">
-                    <button class="edit" onclick="location.href='{% url 'update' pk=labs.id %}'">
-                        <ion-icon name="create-outline"></ion-icon>
-                    </button>
-                    <button class="delete" onclick="location.href='{% url 'delete' pk=labs.id %}'">
-                        <ion-icon name="trash-outline"></ion-icon>
-                    </button>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+{% block content %}
+<div class="content admin-main">
+    <div class="list-buttons">
+        <button class="new" onclick="location.href='{% url 'create' %}'">
+            <ion-icon class="icon-new" name="add-outline"></ion-icon>
+            <span>new</span>
+        </button>
     </div>
-    <div class="backdrop"></div>
-    <div class="modal">
-        <h4>'백신' 링크를 삭제 하시겠습니까?</h4>
-        <div class="list-buttons">
-            <button class="cancel"><ion-icon name="close-outline"></ion-icon> 아니오</button>
-            <button class="confirm"><ion-icon name="checkmark-outline"></ion-icon> 예</button>
+    <div class="table table-admin-main">
+        <div class="row th">
+            <div class="cell">name</div>
+            <div class="cell">category</div>
+            <div class="cell">URL</div>
+            <div class="cell">tag</div>
+            <div class="cell">edit</div>
         </div>
+
+        {% for labs in object_list %}
+        <div class="row">
+            <div class="cell name">
+                <span class="icon"><img src="./static/images/icons/vaccine.svg"></span>
+                <span>{{labs.site_name}}</span>
+            </div>
+            <div class="cell">대시보드</div>
+            <div class="cell link"><a href="{{labs.url}}" target="_blank">{{labs.url}}</a></div>
+            <div class="cell">백신,조작적</div>
+            <div class="cell buttons">
+                <button class="edit" onclick="location.href='{% url 'update' pk=labs.id %}'">
+                    <ion-icon name="create-outline"></ion-icon>
+                </button>
+                <button class="delete" onclick="location.href='{% url 'delete' pk=labs.id %}'">
+                    <ion-icon name="trash-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous"></script>
-<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-<script src="{% static 'labs/js/index.js' %}"></script>
-</body>
-</html>
+<div class="backdrop"></div>
+<div class="modal">
+    <h4>'백신' 링크를 삭제 하시겠습니까?</h4>
+    <div class="list-buttons">
+        <button class="cancel">
+            <ion-icon name="close-outline"></ion-icon>
+            아니오
+        </button>
+        <button class="confirm">
+            <ion-icon name="checkmark-outline"></ion-icon>
+            예
+        </button>
+    </div>
+</div>
+{% endblock %}

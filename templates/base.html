@@ -2,18 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>삭제 요청 페이지</title>
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'labs/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'labs/css/all.css' %}">
 </head>
 <body>
-<form action="" method="post">
-    {% csrf_token %}
-    <div class="modal">
-        <h4>"{{object}}" 링크를 삭제 하시겠습니까?</h4>
-        <div class="list-buttons">
-            <button class="cancel"><ion-icon name="close-outline"></ion-icon> 아니오</button>
-            <button class="confirm" type="submit"><ion-icon name="checkmark-outline"></ion-icon> 예</button>
-        </div>
-    </div>
-</form>
+<div class="container admin">
+    <header>
+        <div></div>
+        <ul class="menu">
+            <li><a href="./login.html">login</a></li>
+            <li>logout</li>
+        </ul>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="{% static 'labs/js/index.js' %}"></script>
 </body>
 </html>

@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'base.html' %}
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'labs/css/style.css' %}">
-</head>
-<body>
-<div class="container admin">
-    <header>
-        <div></div>
-        <ul class="menu">
-            <li><a href="./login.html">login</a></li>
-            <li>logout</li>
-        </ul>
-    </header>
+{% block title %}List Object{% endblock %}
+
+{% block content %}
     <div class="content">
         <h1>링크 수정</h1>
         <form action="" method="post">
@@ -27,7 +14,7 @@
                     <label for="edit-image">
                         <ion-icon class="icon-plus" name="add-outline"></ion-icon>
                         <input type="file" id="edit-image" onchange="previewFile()"/>
-                        <img class="thumbnail-image" src="./../src/images/health.png" alt="">
+                        <img class="thumbnail-image" src="../static/images/health.png" alt="">
                     </label>
                 </div>
                 <div class="row">
@@ -65,6 +52,4 @@
             </div>
         </form>
     </div>
-</div>
-</body>
-</html>
+{% endblock %}
