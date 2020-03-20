@@ -3,5 +3,5 @@ from django.views.generic.list import ListView
 
 from .models import Labs
 
-class ListView(ListView):
+class LabsListView(ListView):
     model = Labs

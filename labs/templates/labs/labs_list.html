@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Page</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'labs/css/style.css' %}" >
+</head>
+<body>
+<div class="container admin admin-main">
+    <header>
+        <div></div>
+        <ul class="menu">
+            <li><a href="./login.html">login(임시)</a></li>
+            <li>logout</li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="list-buttons">
+            <button class="new" onclick="location.href='./new.html'">
+                <ion-icon class="icon-new" name="add-outline"></ion-icon>
+                <span>new</span>
+            </button>
+        </div>
+        <div class="table table-admin-main">
+            <div class="row th">
+                <div class="cell">name</div>
+                <div class="cell">category</div>
+                <div class="cell">URL</div>
+                <div class="cell">tag</div>
+                <div class="cell">edit</div>
+            </div>
+
+            {% for labs in object_list %}
+            <div class="row">
+                <div class="cell">
+                    <span class="icon"><img src="{% static 'labs/images/icons/vaccine.svg' %}"></span>
+                    <span>{{labs.site_name}}</span>
+                </div>
+                <div class="cell">대시보드</div>
+                <div class="cell link"><a href="{{labs.url}}" target="_blank">{{labs.url}}</a></div>
+                <div class="cell">백신,조작적</div>
+                <div class="cell buttons">
+                    <button class="edit" onclick="location.href='./edit.html'">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                    <button class="delete" onclick="modal()">
+                        <ion-icon name="trash-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="backdrop"></div>
+    <div class="modal">
+        <h4>'백신' 링크를 삭제 하시겠습니까?</h4>
+        <div class="list-buttons">
+            <button class="cancel"><ion-icon name="close-outline"></ion-icon> 아니오</button>
+            <button class="confirm"><ion-icon name="checkmark-outline"></ion-icon> 예</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
