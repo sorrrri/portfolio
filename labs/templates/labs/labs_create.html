@@ -8,22 +8,24 @@
     <form action="" method="post">
         {% csrf_token %}
 
-        <section class="edit-container">
-            {{form.as_p}}
+        <section class="detail-container">
             <div class="row">
-                <label for="edit-image">
+                <label for="detail-image">
                     <ion-icon class="icon-plus" name="add-outline"></ion-icon>
-                    <input type="file" id="edit-image" onchange="previewFile()"/>
+                    <input type="file" id="detail-image" onchange="previewFile()"/>
                     <img src="" alt="">
                 </label>
             </div>
+            <ul class="detail-list">
+                {{form.as_ul}}
+            </ul>
             <div class="row">
-                <label for="edit-name">name</label>
-                <input type="text" id="edit-name"/>
+                <label for="detail-name">name</label>
+                <input type="text" id="detail-name"/>
             </div>
             <div class="row">
-                <label for="edit-category">category</label>
-                <div id="edit-category" class="selectbox">
+                <label for="detail-category">category</label>
+                <div id="detail-category" class="selectbox">
                     <div class="selectbox-current">
                         <span class="selected">대시보드</span>
                         <ion-icon name="chevron-down-outline"></ion-icon>
@@ -35,12 +37,12 @@
                 </div>
             </div>
             <div class="row">
-                <label for="edit-url">URL</label>
-                <input type="url" id="edit-url"/>
+                <label for="detail-url">URL</label>
+                <input type="url" id="detail-url"/>
             </div>
             <div class="row">
-                <label for="edit-tag">tag</label>
-                <input type="text" id="edit-tag"/>
+                <label for="detail-tag">tag</label>
+                <input type="text" id="detail-tag"/>
             </div>
         </section>
         <div class="list-buttons">

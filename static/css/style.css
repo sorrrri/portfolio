@@ -318,6 +318,22 @@ header .menu li {
     margin-right: 3px;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding:1rem 0
+}
+
+.pagination li {
+    padding:.5rem;
+    display: flex;
+    align-items: center
+}
+
+.pagination a {
+    display: flex
+}
+
 
 /* Main */
 .category {
@@ -525,20 +541,29 @@ header .menu li {
 }
 
 
-/* Admin Edit Page */
+/* Admin Create/Update Page */
 
-.edit-container {
+.detail-container {
     background-color: white;
     padding: 2rem;
     border-radius: .5rem;
 }
 
-.edit-container .row {
+.detail-list {
+    flex-direction:column
+}
+
+.detail-list li {
     display: flex;
     padding: 1rem 0;
 }
 
-.edit-container label {
+.detail-container .row {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.detail-container label {
     font-family: 'Work Sans', sans-serif;
     color: #A3A6A9;
     flex: 0 0 20%;
@@ -546,12 +571,12 @@ header .menu li {
     align-self: center;
 }
 
-.edit-container label ~ * {
+.detail-container label ~ * {
     flex: 1 1 auto;
     border-bottom: 1px solid #ECF0F6;
 }
 
-.edit-container label[for="edit-image"] {
+.detail-container label[for="detail-image"] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -565,11 +590,11 @@ header .menu li {
     cursor: pointer;
 }
 
-.edit-container label[for="edit-image"].active {
+.detail-container label[for="detail-image"].active {
     border-style: solid;
 }
 
-.edit-container label[for="edit-image"] .icon-plus {
+.detail-container label[for="detail-image"] .icon-plus {
     font-size: 3rem;
     color: #C3C6C9;
     position: absolute;
@@ -578,24 +603,24 @@ header .menu li {
     transform: translate(-50%, -50%);
 }
 
-.edit-container input[type="file"] {
+.detail-container input[type="file"] {
     display: none;
 }
 
-.edit-container input[type="file"] + img {
+.detail-container input[type="file"] + img {
     width:70%;
     height:70%
 }
 
-.edit-container + .list-buttons button {
+.detail-container + .list-buttons button {
     padding: .7rem 1.5rem
 }
 
-.edit-container + .list-buttons .cancel {
+.detail-container + .list-buttons .cancel {
     opacity:.3
 }
 
-.edit-container input[type="url"]::before {
+.detail-container input[type="url"]::before {
     content: 'http://'
 }
 
