@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="modal active">
+        <h4>로그아웃 완료되었습니다.</h4>
+        <div class="list-buttons">
+            <button class="confirm" type="submit"><ion-icon name="checkmark-outline"></ion-icon> 돌아가기</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
