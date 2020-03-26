@@ -365,6 +365,7 @@ header .menu li {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .list-cards .list .card i {
@@ -392,8 +393,14 @@ header .menu li {
     background-color: #A5678E
 }
 
-.card.etc {
+.card.etc-01 {
+    background-color: #7FACD6
+}
+.card.etc-02 {
     background-color: #BFB8DA
+}
+.card.etc-03 {
+    background-color: #E8B7D4
 }
 
 
