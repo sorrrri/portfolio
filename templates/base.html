@@ -15,7 +15,7 @@
         <ul class="menu">
             {% if user.is_authenticated %}
             <li>안녕하세요, {{user.get_username}}님</li>
-            <li><a href="{% url 'logout' %}">logout</a></li>
+            <li><a href="{% url 'logout' %}"><ion-icon name="log-out-outline"></ion-icon> logout</a></li>
             {% else %}
             <li><a href="{% url 'login' %}">login</a></li>
             {% endif %}
