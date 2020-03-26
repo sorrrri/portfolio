@@ -345,6 +345,10 @@ header .menu li {
     margin-bottom: 3rem;
 }
 
+.viewer .card {
+    background-color: slategray;
+}
+
 /*.list-icons li div[class^="icon"] {width:5rem; height:5rem; margin:.5rem; border-radius: 2rem; background-color:#FBFBFB; background-repeat: no-repeat; background-position: center; background-size:50%}*/
 /*.list-icons li .title {text-align:center}*/
 
@@ -386,21 +390,21 @@ header .menu li {
 }
 
 .card.vaccine {
-    background-color: #33539E
+    background-image: linear-gradient(to left, #47CACC, #47CACC)
 }
 
 .card.vital-signs {
-    background-color: #A5678E
+    background-image: linear-gradient(to left, #63BCC9, #63BCC9)
 }
 
 .card.etc-01 {
-    background-color: #7FACD6
+    background-image: linear-gradient(to left, #CDB3D4, #CDB3D4)
 }
 .card.etc-02 {
-    background-color: #BFB8DA
+    background-image: linear-gradient(to left, #E7B7C8, #E7B7C8)
 }
 .card.etc-03 {
-    background-color: #E8B7D4
+    background-image: linear-gradient(to left, #FFBE88, #FFBE88)
 }
 
 
