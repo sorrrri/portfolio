@@ -100,7 +100,8 @@ h1, h2, h3, h4, h5 {
 }
 
 ion-icon {
-    font-size: 1rem
+    font-size: 1rem;
+    vertical-align: middle
 }
 
 .list-buttons {
@@ -575,7 +576,7 @@ header .menu li {
     border-bottom: 1px solid #ECF0F6;
 }
 
-.detail-container label[for="detail-image"] {
+.detail-container label[for="id_photo"] {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -589,11 +590,11 @@ header .menu li {
     cursor: pointer;
 }
 
-.detail-container label[for="detail-image"].active {
+.detail-container label[for="id_photo"].active {
     border-style: solid;
 }
 
-.detail-container label[for="detail-image"] .icon-plus {
+.detail-container label[for="id_photo"] .icon-plus {
     font-size: 3rem;
     color: #C3C6C9;
     position: absolute;
@@ -622,6 +623,32 @@ header .menu li {
 
 .detail-container input[type="url"]::before {
     content: 'http://'
+}
+
+select {
+    font: 17px/1.5 'NanumSquare';
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    padding: .7rem;
+    display: flex;
+    justify-content: space-between;
+    border: 0;
+    text-shadow: 0 0 0 #000;
+}
+
+select::before {
+    content: 'dd';
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    width:30px;
+    background:white
+}
+
+select:focus {
+    outline: 1px solid #EEE;
 }
 
 .selectbox {

@@ -21,7 +21,7 @@ $(document).keyUp(function(e) {
 function previewFile() {
 
     var preview = document.querySelector('img');
-    var file = document.querySelector('#detail-image').files[0];
+    var file = document.querySelector('#id_photo').files[0];
     var reader = new FileReader();
     var label = document.querySelector('label');
     var icon = document.querySelector('ion-icon');

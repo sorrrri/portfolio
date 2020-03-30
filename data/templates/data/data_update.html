@@ -9,13 +9,6 @@
             {% csrf_token %}
 
             <section class="detail-container">
-                <div class="row">
-                    <label for="detail-image">
-                        <ion-icon class="icon-plus" name="add-outline"></ion-icon>
-                        <input type="file" id="detail-image" onchange="previewFile()" accept=".jpg,.jpeg,.png,.gif,.bmp" />
-                        <img class="thumbnail-image" src="{{object.photo.url}}" alt="">
-                    </label>
-                </div>
                 <ul class="detail-list">
                 {{form.as_ul}}
                 </ul>
