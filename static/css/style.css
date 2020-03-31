@@ -1,28 +1,28 @@
 @font-face {
     font-family: 'NanumSquare';
     font-weight: 400;
-    src: url(./../webfonts/NanumSquareR.eot);
-    src: url(./../webfonts/NanumSquareR.eot?#iefix) format('embedded-opentype'),
-    url(./../webfonts/NanumSquareR.woff) format('woff'),
-    url(./../webfonts/NanumSquareR.ttf) format('truetype');
+    src: url({% static 'webfonts/NanumSquareR.eot' %});
+    src: url({% static 'webfonts/NanumSquareR.eot?#iefix' %}) format('embedded-opentype'),
+    src: url({% static 'webfonts/NanumSquareR.woff' %}) format('woff'),
+    src: url({% static 'webfonts/NanumSquareR.ttf' %}) format('truetype'),
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: bold;
-    src: url(./../webfonts/NanumSquareB.eot);
-    src: url(./../webfonts/NanumSquareB.eot?#iefix) format('embedded-opentype'),
-    url(./../webfonts/NanumSquareB.woff) format('woff'),
-    url(./../webfonts/NanumSquareB.ttf) format('truetype');
+    src: url({% static 'webfonts/NanumSquareB.eot' %});
+    src: url({% static 'webfonts/NanumSquareB.eot?#iefix' %}) format('embedded-opentype'),
+    src: url({% static 'webfonts/NanumSquareB.woff' %}) format('woff'),
+    src: url({% static 'webfonts/NanumSquareB.ttf' %}) format('truetype'),
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: 300;
-    src: url(./../webfonts/NanumSquareL.eot);
-    src: url(./../webfonts/NanumSquareL.eot?#iefix) format('embedded-opentype'),
-    url(./../webfonts/NanumSquareL.woff) format('woff'),
-    url(./../webfonts/NanumSquareL.ttf) format('truetype');
+    src: url({% static 'webfonts/NanumSquareL.eot' %});
+    src: url({% static 'webfonts/NanumSquareL.eot?#iefix' %}) format('embedded-opentype'),
+    src: url({% static 'webfonts/NanumSquareL.woff' %}) format('woff'),
+    src: url({% static 'webfonts/NanumSquareL.ttf' %}) format('truetype'),
 }
 
 :root {
@@ -517,7 +517,8 @@ header .menu li {
 }
 
 .admin-main .table .row .icon img {
-    width: 60%
+    width: 60%;
+    align-self: center
 }
 
 .admin-main .table .row .cell:nth-child(1) {
