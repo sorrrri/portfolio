@@ -538,7 +538,8 @@ header .menu li {
 }
 
 .admin-main .table .row .icon img {
-    width: 60%
+    width: 60%;
+    align-self: center
 }
 
 .admin-main .table .row .cell:nth-child(1) {
