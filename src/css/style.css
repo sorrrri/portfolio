@@ -199,6 +199,11 @@ aside {
     justify-content: space-between;
     flex:0 0 auto;
     overflow-y:hidden;
+    transition: width .2s;
+}
+
+aside:hover {
+    width: 5rem
 }
 
 aside .icons {
@@ -372,6 +377,7 @@ header .menu li {
     justify-content: center
 }
 
+
 .category li {
     margin: 1rem;
     font-weight: bold;
@@ -411,10 +417,15 @@ header .menu li {
 /*.list-icons li div[class^="icon"] {width:5rem; height:5rem; margin:.5rem; border-radius: 2rem; background-color:#FBFBFB; background-repeat: no-repeat; background-position: center; background-size:50%}*/
 /*.list-icons li .title {text-align:center}*/
 
+.list-cards h4 {
+    color: #A3A6A9;
+}
+
 .list-cards .list {
     display: flex;
     overflow: hidden;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin: 0 -.5rem;
 }
 
 .list-cards .list .card {
@@ -451,7 +462,7 @@ header .menu li {
     color: #A3A6A9;
 }
 
-.list-cards .list .card:hover {
+.list-cards .list .card:hover, .list-cards .list .card:hover small {
     color:white;
 }
 
@@ -479,16 +490,6 @@ header .menu li {
 .card.etc-03:hover {
     background-color: #89C0B7
 }
-
-
-.card.etc-02:hover {
-    background-color: #e56b6f
-}
-
-.card.etc-03:hover {
-    background-color: #eaac8b
-}
-
 
 .login {
     background: linear-gradient(rgba(0, 118, 126, .8), rgba(10, 46, 81, .8));
