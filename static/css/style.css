@@ -317,6 +317,10 @@ header .menu li {
     margin-right: 3px;
 }
 
+.modal + .pagination {
+    display:none
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -330,9 +334,18 @@ header .menu li {
 }
 
 .pagination a {
-    display: flex
+    display: flex;
+    line-height: 32px;
+    font-family: 'Work Sans', sans-serif;
 }
 
+.pagination .disabled a {
+    color: #0191B4
+}
+
+.pagination .disabled a[href="#"] {
+    color: #333
+}
 
 /* Main */
 .category {
@@ -404,16 +417,24 @@ header .menu li {
     font-size: 12px;
 }
 
-.card.vaccine {
-    background-color: #33539E
+.card.vaccine:hover {
+    background-color: #7696BA
 }
 
-.card.vital-signs {
-    background-color: #A5678E
+.card.vital-signs:hover {
+    background-color: #A9CBB8
 }
 
-.card.etc {
-    background-color: #BFB8DA
+.card.etc-01:hover {
+    background-color: #94D5D8
+}
+
+.card.etc-02:hover {
+    background-color: #F2D6B4
+}
+
+.card.etc-03:hover {
+    background-color: #89C0B7
 }
 
 
@@ -482,7 +503,7 @@ header .menu li {
     color: white
 }
 
-.login-container .id {
+.login-container #id_username {
 }
 
 .login-container .password {

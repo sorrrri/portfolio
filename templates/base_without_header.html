@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2|Work+Sans&display=swap" rel="stylesheet">
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" type="text/css">
 </head>
 <body>
 {% block content %}
