@@ -449,7 +449,8 @@ header .menu li {
 
 .list-cards .list .card small {
     opacity: .8;
-    font-size: 12px;
+    font-size: 14px;
+    color: #A3A6A9;
 }
 
 .list-cards .list .card:hover {
@@ -462,16 +463,25 @@ header .menu li {
 }
 
 .card.vaccine:hover {
-    background-color: #355070
+    background-color: #7696BA
 }
 
 .card.vital-signs:hover {
-    background-color: #6d597a
+    background-color: #A9CBB8
 }
 
 .card.etc-01:hover {
-    background-color: #b56576
+    background-color: #94D5D8
 }
+
+.card.etc-02:hover {
+    background-color: #F2D6B4
+}
+
+.card.etc-03:hover {
+    background-color: #89C0B7
+}
+
 
 .card.etc-02:hover {
     background-color: #e56b6f
