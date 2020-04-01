@@ -10,7 +10,7 @@ from .models import Data
 
 class DataListView(ListView):
     model = Data
-    paginate_by = 5
+    paginate_by = 10
 
 class DataCreateView(CreateView):
     model = Data
