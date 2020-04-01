@@ -3,89 +3,29 @@
 {% block title %}List Object{% endblock %}
 
 {% block content %}
-<div class="content admin-main">
-    <h1>Lorem ipsum</h1>
-    <div class="list-buttons">
-        <button class="new" onclick="location.href='{% url 'create' %}'">
-            <ion-icon class="icon-new" name="add-outline"></ion-icon>
-            <span>new</span>
-        </button>
-    </div>
-    <div class="table table-admin-main">
-        <div class="row th">
-            <div class="cell">name</div>
-            <div class="cell">type</div>
-            <div class="cell">URL</div>
-            <div class="cell">tag</div>
-            <div class="cell">edit</div>
+<div class="content">
+    <h1>연구실 이름</h1>
+    <ul class="category">
+        <li class="active">전체</li>
+        <li>대시보드</li>
+        <li>뷰어</li>
+    </ul>
+    <section class="list-cards">
+        <div class="dashboard">
+            <ul class="list">
+                {% for data in object_list %}
+                <li class="card vaccine">
+                    <a href="{{data.url}}" target="_blank">
+                        <img src="/media/{{data.photo}}">
+                        <div class="text">
+                            <h3 class="title">{{data.name}}</h3>
+                            <small>{{data.tag}}</small>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-
-        {% for data in object_list %}
-        <div class="row">
-            <div class="cell name">
-                <span class="icon"><img src="/media/{{data.photo}}"></span>
-                <span>{{data.name}}</span>
-            </div>
-            <div class="cell">{{data.type}}</div>
-            <div class="cell link"><a href="{{data.url}}" target="_blank">{{data.url}}</a></div>
-            <div class="cell">{{data.tag}}</div>
-            <div class="cell buttons">
-                <button class="edit" onclick="location.href='{% url 'update' pk=data.id %}'">
-                    <ion-icon name="create-outline"></ion-icon>
-                </button>
-                <button class="delete" onclick="location.href='{% url 'delete' pk=data.id %}'">
-                    <ion-icon name="trash-outline"></ion-icon>
-                </button>
-            </div>
-        </div>
-        {% endfor %}
-
-
-        {% block pagination %}
-        {% if is_paginated %}
-        <ul class="pagination">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a href="{% url 'list' %}?page={{ page_obj.previous_page_number }}" class="page-link" tabindex="-1"><ion-icon name="chevron-back-outline"></ion-icon></a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a href="#" class="page-link" tabindex="-1"><ion-icon name="chevron-back-outline"></ion-icon></a>
-            </li>
-            {% endif %}
-
-            {% for object in page_obj.paginator.page_range %}
-            <li class="page-item {% if page_obj.number == forloop.counter %} disabled{% endif %}">
-                <a href="{{ request.path }}?page={{ forloop.counter }}" class="page-link">{{ forloop.counter }}</a>
-            </li>
-            {% endfor %}
-
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a href="{% url 'list' %}?page={{ page_obj.next_page_number }}" class="page-link"><ion-icon name="chevron-forward-outline"></ion-icon></a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a href="#" class="page-link"><ion-icon name="chevron-forward-outline"></ion-icon></a>
-            </li>
-            {% endif %}
-        </ul>
-        {% endif %}
-        {% endblock %}
-    </div>
-</div>
-<div class="backdrop"></div>
-<div class="modal">
-    <h4>'백신' 링크를 삭제 하시겠습니까?</h4>
-    <div class="list-buttons">
-        <button class="cancel">
-            <ion-icon name="close-outline"></ion-icon>
-            아니오
-        </button>
-        <button class="confirm">
-            <ion-icon name="checkmark-outline"></ion-icon>
-            예
-        </button>
-    </div>
+    </section>
 </div>
 {% endblock %}
