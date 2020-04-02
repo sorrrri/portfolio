@@ -1,31 +1,40 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 
 {% block title %}List Object{% endblock %}
 
 {% block content %}
 <div class="content">
+
+    <div class="filters-group">
+        <label for="filters-search-input" class="filter-label">Search</label>
+        <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input">
+    </div>
+
     <h1>연구실 이름</h1>
-    <ul class="category">
-        <li class="active">전체</li>
-        <li>대시보드</li>
-        <li>뷰어</li>
+    <ul class="category filter-options">
+        <li>all</li>
+        <li>dashboard</li>
+        <li>viewer</li>
     </ul>
-    <section class="list-cards">
-        <div class="dashboard">
-            <ul class="list">
-                {% for data in object_list %}
-                <li class="card vaccine">
-                    <a href="{{data.url}}" target="_blank">
-                        <img src="/media/{{data.photo}}">
-                        <div class="text">
-                            <h3 class="title">{{data.name}}</h3>
-                            <small>{{data.tag}}</small>
+
+    <section>
+        <ul id="grid" class="projects">
+            {% for data in object_list %}
+            <li class="project" data-groups="{{data.category}}" data-title="{{data.description}}">
+                <a href="{{data.url}}" target="_blank">
+                    <div class="aspect aspect--16x9">
+                        <div class="aspect__inner">
+                            <img src="/media/{{data.photo}}" obj.alt="obj.alt"/>
                         </div>
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">{{data.name}}</h3>
+                        <small>{{data.description}}</small>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
     </section>
 </div>
 

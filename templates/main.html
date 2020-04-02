@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2|Work+Sans&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div></div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+    {% block pagination %}
+    {% endblock %}
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+<script src='https://unpkg.com/shufflejs@5'></script>
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+</body>
+</html>

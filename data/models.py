@@ -6,12 +6,11 @@ class Data(models.Model):
     TYPE_CHOICES = (
         ('dashboard', '대시보드'),
         ('viewer', '뷰어'),
-        ('dashboard2', '대시보드2'),
     )
     name = models.CharField(max_length=30)
-    type = models.CharField(max_length=30, choices=TYPE_CHOICES, default='dashboard')
+    category = models.CharField(max_length=30, choices=TYPE_CHOICES, default='dashboard')
     url = models.URLField('URL')
-    tag = models.CharField(max_length=60)
+    description = models.CharField(max_length=60)
 
     # 이미지 업로드 기능 추가
     # author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_photos')
