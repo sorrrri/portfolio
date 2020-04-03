@@ -113,6 +113,14 @@ ion-icon {
     vertical-align: middle
 }
 
+.container {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #F7F8F9
+}
 .list-buttons {
     display: flex;
     align-self: flex-end;
@@ -124,13 +132,6 @@ ion-icon {
     padding: .7rem 1rem
 }
 
-.container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-color: #F7F8F9
-}
 
 .input-container {
     position: relative;
@@ -390,6 +391,8 @@ header .menu li {
 }
 
 .projects {
+    position: relative;
+    overflow: hidden;
     margin: 0 -.5rem;
 }
 
@@ -419,6 +422,7 @@ header .menu li {
 }
 
 .project:hover {
+    transform: translateY(-5px);
     box-shadow: 0 2px 13px rgba(210, 200, 230, .1);
 }
 
@@ -586,5 +590,27 @@ header .menu li {
     .card {
         flex: 1 1 30%;
         max-width: 30%
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        justify-content: space-between
+    }
+    .content {
+        min-width: auto
+    }
+
+    .content h1 {
+        text-align: center
+    }
+
+    .category {
+        display:none
+    }
+    .project {
+        flex: 1 1 100%;
+        max-width: none;
+        margin: 0 0 .5rem
     }
 }
