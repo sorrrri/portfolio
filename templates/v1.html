@@ -13,14 +13,6 @@
 <div class="container admin">
     <header>
         <div></div>
-        <!--<ul class="menu">
-            {% if user.is_authenticated %}
-            <li>안녕하세요, <strong>{{user.get_username}}</strong>님</li>
-            <li><a href="{% url 'logout' %}"><ion-icon name="log-out-outline"></ion-icon> logout</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">login</a></li>
-            {% endif %}
-        </ul>-->
     </header>
     {% block content %}
 
@@ -37,6 +29,8 @@
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src='https://unpkg.com/shufflejs@5'></script>
+<script src="{% static 'js/shuffle.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>
