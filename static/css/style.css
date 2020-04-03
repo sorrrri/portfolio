@@ -594,8 +594,9 @@ header .menu li {
 }
 
 @media screen and (max-width: 480px) {
-    header {
-        justify-content: space-between
+    .search {
+        flex: 1 1 auto;
+        max-width: none;
     }
     .content {
         min-width: auto
