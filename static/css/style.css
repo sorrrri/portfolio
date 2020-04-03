@@ -2,27 +2,21 @@
     font-family: 'NanumSquare';
     font-weight: 400;
     src: url({% static 'webfonts/NanumSquareR.eot' %});
-    src: url({% static 'webfonts/NanumSquareR.eot?#iefix' %}) format('embedded-opentype'),
-    src: url({% static 'webfonts/NanumSquareR.woff' %}) format('woff'),
-    src: url({% static 'webfonts/NanumSquareR.ttf' %}) format('truetype'),
+    src: url({% static 'webfonts/NanumSquareR.eot?#iefix' %}) format('embedded-opentype'), src: url({% static 'webfonts/NanumSquareR.woff' %}) format('woff'), src: url({% static 'webfonts/NanumSquareR.ttf' %}) format('truetype'),
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: bold;
     src: url({% static 'webfonts/NanumSquareB.eot' %});
-    src: url({% static 'webfonts/NanumSquareB.eot?#iefix' %}) format('embedded-opentype'),
-    src: url({% static 'webfonts/NanumSquareB.woff' %}) format('woff'),
-    src: url({% static 'webfonts/NanumSquareB.ttf' %}) format('truetype'),
+    src: url({% static 'webfonts/NanumSquareB.eot?#iefix' %}) format('embedded-opentype'), src: url({% static 'webfonts/NanumSquareB.woff' %}) format('woff'), src: url({% static 'webfonts/NanumSquareB.ttf' %}) format('truetype'),
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: 300;
     src: url({% static 'webfonts/NanumSquareL.eot' %});
-    src: url({% static 'webfonts/NanumSquareL.eot?#iefix' %}) format('embedded-opentype'),
-    src: url({% static 'webfonts/NanumSquareL.woff' %}) format('woff'),
-    src: url({% static 'webfonts/NanumSquareL.ttf' %}) format('truetype'),
+    src: url({% static 'webfonts/NanumSquareL.eot?#iefix' %}) format('embedded-opentype'), src: url({% static 'webfonts/NanumSquareL.woff' %}) format('woff'), src: url({% static 'webfonts/NanumSquareL.ttf' %}) format('truetype'),
 }
 
 :root {
@@ -33,6 +27,21 @@
 * {
     box-sizing: border-box
 }
+
+input::-ms-clear,
+input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+    display: none;
+}
+
 
 body {
     margin: 0;
@@ -200,8 +209,8 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex:0 0 auto;
-    overflow-y:hidden;
+    flex: 0 0 auto;
+    overflow-y: hidden;
     transition: width .2s;
 }
 
@@ -297,7 +306,7 @@ header .menu li {
     width: 100%;
     background: white;
     border-radius: 10rem;
-    padding:.7rem 1rem
+    padding: .7rem 1rem
 }
 
 
@@ -307,6 +316,7 @@ header .menu li {
     height: 36px;
     cursor: pointer
 }
+
 .cog-icon {
     transform-origin: 50% 50%;
     transition: transform .8s ease-out;
@@ -405,11 +415,10 @@ header .menu li {
     overflow: hidden;
     background: white;
     cursor: pointer;
-    transition: transform .2s;
+    transition: box-shadow .2s;
 }
 
 .project:hover {
-    transform: translateY(-5px);
     box-shadow: 0 2px 13px rgba(210, 200, 230, .1);
 }
 
@@ -427,25 +436,25 @@ header .menu li {
 }
 
 .aspect {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  overflow: hidden;
-  margin-bottom: 1rem
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    overflow: hidden;
+    margin-bottom: 1rem
 }
 
 .aspect__inner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /* Add more aspect ratios here */
 .aspect--16x9 {
-  padding-bottom: 56.25%;
+    padding-bottom: 56.25%;
 }
 
 .project-title {
@@ -463,11 +472,11 @@ header .menu li {
 .pagination {
     display: flex;
     justify-content: center;
-    padding:1rem 0
+    padding: 1rem 0
 }
 
 .pagination li {
-    padding:.5rem;
+    padding: .5rem;
     display: flex;
     align-items: center
 }
@@ -560,20 +569,20 @@ header .menu li {
 }
 
 
-@media screen and (max-width:1400px) {
+@media screen and (max-width: 1400px) {
     .content {
         width: 100%
     }
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
     .card {
         flex: 1 1 22%;
         max-width: 22%
     }
 }
 
-@media screen and (max-width:800px) {
+@media screen and (max-width: 800px) {
     .card {
         flex: 1 1 30%;
         max-width: 30%
