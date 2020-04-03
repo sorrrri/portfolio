@@ -7,15 +7,15 @@
 
     <h1>통합 메인 화면</h1>
     <ul class="category filter-options">
-        <li>all</li>
-        <li>대시보드</li>
-        <li>뷰어</li>
+        <li class="active">all</li>
+        <li data-group="대시보드">대시보드</li>
+        <li data-group="뷰어">뷰어</li>
     </ul>
 
     <section>
         <ul id="grid" class="projects">
             {% for data in object_list %}
-            <li class="project" data-groups="{{data.category}}" data-title="{{data.description}}">
+            <li class="project" data-groups='["{{data.category}}"]' data-title="{{data.description}}">
                 <a href="{{data.url}}" target="_blank">
                     <img src="/media/{{data.photo}}" obj.alt="obj.alt"/>
                     <div class="project-details">

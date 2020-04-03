@@ -1,3 +1,5 @@
+'use strict';
+
 var Shuffle = window.Shuffle;
 
 var ShuffleInstance = function (element) {
@@ -5,6 +7,7 @@ var ShuffleInstance = function (element) {
 
   this.shuffle = new Shuffle(element, {
     itemSelector: '.project',
+    sizer: element.querySelector('.my-sizer-element'),
   });
 
   // Log events.
@@ -13,7 +16,7 @@ var ShuffleInstance = function (element) {
   this._activeFilters = [];
 
   this.addFilterButtons();
-  //this.addSorting();
+  this.addSorting();
   this.addSearchFilter();
 
   this.mode = 'exclusive';
@@ -58,11 +61,11 @@ ShuffleInstance.prototype.addFilterButtons = function () {
 ShuffleInstance.prototype._handleFilterClick = function (evt) {
   var btn = evt.currentTarget;
   var isActive = btn.classList.contains('active');
-  var btnGroup = btn.getAttribute('data-groups');
+  var btnGroup = btn.getAttribute('data-group');
 
-  // You don't need _both_ of these modes. This is only for the demo.
+  // You don't need _both_ of these modes. This is only for the ShuffleInstance.
 
-  // For this custom 'additive' mode in the demo, clicking on filter buttons
+  // For this custom 'additive' mode in the ShuffleInstance, clicking on filter buttons
   // doesn't remove any other filters.
   if (this.mode === 'additive') {
     // If this button is already active, remove it from the list of filters.
@@ -77,7 +80,7 @@ ShuffleInstance.prototype._handleFilterClick = function (evt) {
     // Filter elements
     this.shuffle.filter(this._activeFilters);
 
-    // 'exclusive' mode lets only one filter button be active at a time.
+  // 'exclusive' mode lets only one filter button be active at a time.
   } else {
     this._removeActiveClassFromChildren(btn.parentNode);
 
@@ -101,7 +104,7 @@ ShuffleInstance.prototype._removeActiveClassFromChildren = function (parent) {
   }
 };
 
-/*ShuffleInstance.prototype.addSorting = function () {
+ShuffleInstance.prototype.addSorting = function () {
   var buttonGroup = document.querySelector('.sort-options');
 
   if (!buttonGroup) {
@@ -146,8 +149,9 @@ ShuffleInstance.prototype._handleSortChange = function (evt) {
   }
 
   this.shuffle.sort(options);
-};*/
+};
 
+// Advanced filtering
 ShuffleInstance.prototype.addSearchFilter = function () {
   var searchInput = document.querySelector('.js-shuffle-search');
 
@@ -187,6 +191,5 @@ ShuffleInstance.prototype._handleSearchKeyup = function (evt) {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-  window.shuffleInstance = new ShuffleInstance(document.getElementById('grid'));
+  window.ShuffleInstance = new ShuffleInstance(document.getElementById('grid'));
 });
-
