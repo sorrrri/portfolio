@@ -17,11 +17,7 @@
             {% for data in object_list %}
             <li class="project" data-groups="{{data.category}}" data-title="{{data.description}}">
                 <a href="{{data.url}}" target="_blank">
-                    <div class="aspect aspect--16x9">
-                        <div class="aspect__inner">
-                            <img src="/media/{{data.photo}}" obj.alt="obj.alt"/>
-                        </div>
-                    </div>
+                    <img src="/media/{{data.photo}}" obj.alt="obj.alt"/>
                     <div class="project-details">
                         <h3 class="project-title">{{data.name}}</h3>
                         <small>{{data.description}}</small>

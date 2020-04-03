@@ -5,7 +5,6 @@ var ShuffleInstance = function (element) {
 
   this.shuffle = new Shuffle(element, {
     itemSelector: '.project',
-    sizer: element.querySelector('.my-sizer-element'),
   });
 
   // Log events.
