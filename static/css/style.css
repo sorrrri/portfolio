@@ -621,6 +621,7 @@ header .menu li {
     }
 
     .category {
+        justify-content: left;
         overflow-x: auto;
         margin: 0 -2rem;
         border-top: 1px solid #EEE;
