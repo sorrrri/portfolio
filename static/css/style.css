@@ -402,10 +402,6 @@ header .menu li {
     margin: 0 -.5rem;
 }
 
-.projects h4 {
-    color: #A3A6A9;
-}
-
 .projects .list {
     display: flex;
     overflow: hidden;
@@ -467,14 +463,17 @@ header .menu li {
 }
 
 .project-title {
-    font-size: 1.2rem;
     line-height: 1
 }
 
 .project small {
-    opacity: .8;
-    font-size: 14px;
-    color: #A3A6A9;
+    font-size: 13px;
+    font-weight: bold;
+    color: #C3C6C9;
+}
+
+.project-description {
+    font-size: 15px;
 }
 
 
