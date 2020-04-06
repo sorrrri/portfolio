@@ -304,6 +304,7 @@ header .menu li {
 }
 
 .search input {
+    -webkit-appearance: textfield;
     width: 100%;
     background: white;
     border-radius: 10rem;
@@ -360,8 +361,13 @@ header .menu li {
     max-width: 1200px;
 }
 
+.content h1 {
+    text-align: center
+}
+
 /* Main */
 .category {
+    display: flex;
     justify-content: center
 }
 
@@ -619,7 +625,6 @@ header .menu li {
         margin: 0 -2rem;
         border-top: 1px solid #EEE;
         border-bottom: 1px solid #EEE;
-}
     }
 
     .filter-options {
