@@ -417,6 +417,7 @@ header .menu li {
     overflow: hidden;
     cursor: pointer;
     transition: box-shadow .2s;
+    user-select: none
 }
 
 .project:hover {
@@ -463,13 +464,14 @@ header .menu li {
 }
 
 .project-title {
-    margin-bottom: 1rem
+    line-height: 1;
+    margin-bottom: .5rem
 }
 
 .project small {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
-    color: #C3C6C9;
+    color: #a3a6a9;
 }
 
 .project-description {
