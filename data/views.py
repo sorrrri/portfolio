@@ -10,7 +10,7 @@ from .models import Data
 
 class DataListView(ListView):
     model = Data
-    paginate_by = 10
+    # paginate_by = 10
 
     # def get_queryset(self):
     #     filter_val = self.request.GET.get('filter', 'type')

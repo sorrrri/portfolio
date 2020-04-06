@@ -418,6 +418,7 @@ header .menu li {
     cursor: pointer;
     transition: box-shadow .2s;
     user-select: none
+    -webkit-user-select: none
 }
 
 .project:hover {
