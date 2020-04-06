@@ -368,7 +368,9 @@ header .menu li {
 /* Main */
 .category {
     display: flex;
-    justify-content: center
+    justify-content: center;
+    user-select: none
+    -webkit-user-select: none
 }
 
 .category li {
@@ -427,13 +429,13 @@ header .menu li {
 }
 
 .project a {
-    padding: 1.5rem;
+    padding: 1.2rem;
     background: white;
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    word-break: keep-all;
     text-align: center
 }
 
@@ -633,6 +635,14 @@ header .menu li {
         margin: 0 -1rem;
         border-top: 1px solid #EEE;
         border-bottom: 1px solid #EEE;
+    }
+
+    .category li {
+        margin: 1rem 1.2rem
+    }
+
+    .category li.active::after, .category li:hover::after {
+        bottom: -1rem;
     }
 
     .filter-options {
