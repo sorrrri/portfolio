@@ -418,17 +418,13 @@ header .menu li {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    transition: box-shadow .2s;
     user-select: none
     -webkit-user-select: none
 }
 
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 2px 13px rgba(210, 200, 230, .1);
-}
 
 .project a {
+    position: relative;
     padding: 1.2rem;
     background: white;
     border-radius: .5rem;
@@ -436,7 +432,13 @@ header .menu li {
     flex-direction: column;
     align-items: center;
     word-break: keep-all;
-    text-align: center
+    text-align: center;
+    transition: transform .2s;
+}
+
+.project a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 13px rgba(210, 200, 230, .1);
 }
 
 .project img {
