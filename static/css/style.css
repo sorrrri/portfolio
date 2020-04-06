@@ -1,22 +1,22 @@
 @font-face {
     font-family: 'NanumSquare';
     font-weight: 400;
-    src: url({% static 'webfonts/NanumSquareR.eot' %});
-    src: url({% static 'webfonts/NanumSquareR.eot?#iefix' %}) format('embedded-opentype'), src: url({% static 'webfonts/NanumSquareR.woff' %}) format('woff'), src: url({% static 'webfonts/NanumSquareR.ttf' %}) format('truetype'),
+    src: url('../fonts/NanumSquareR.eot');
+    src: url('../fonts/NanumSquareR.eot?#iefix') format('embedded-opentype'), src: url('../fonts/NanumSquareR.woff') format('woff'), src: url('../fonts/NanumSquareR.ttf') format('truetype'),
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: bold;
-    src: url({% static 'webfonts/NanumSquareB.eot' %});
-    src: url({% static 'webfonts/NanumSquareB.eot?#iefix' %}) format('embedded-opentype'), src: url({% static 'webfonts/NanumSquareB.woff' %}) format('woff'), src: url({% static 'webfonts/NanumSquareB.ttf' %}) format('truetype'),
+    src: url('../fonts/NanumSquareB.eot');
+    src: url('../fonts/NanumSquareB.eot?#iefix') format('embedded-opentype'), src: url('../fonts/NanumSquareB.woff') format('woff'), src: url('../fonts/NanumSquareB.ttf') format('truetype'),
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: 300;
-    src: url({% static 'webfonts/NanumSquareL.eot' %});
-    src: url({% static 'webfonts/NanumSquareL.eot?#iefix' %}) format('embedded-opentype'), src: url({% static 'webfonts/NanumSquareL.woff' %}) format('woff'), src: url({% static 'webfonts/NanumSquareL.ttf' %}) format('truetype'),
+    src: url('../fonts/NanumSquareL.eot');
+    src: url('../fonts/NanumSquareL.eot?#iefix') format('embedded-opentype'), src: url('../fonts/NanumSquareL.woff') format('woff'), src: url('../fonts/NanumSquareL.ttf') format('truetype'),
 }
 
 :root {
@@ -594,20 +594,36 @@ header .menu li {
 }
 
 @media screen and (max-width: 480px) {
+    header {
+        justify-content: space-between
+    }
+
     .search {
         flex: 1 1 auto;
-        max-width: none;
+        min-width: auto;
+        max-width: none
     }
+
     .content {
         min-width: auto
     }
 
     .content h1 {
-        text-align: center
+        font-size:1.5rem;
+        text-align: center;
+        margin-bottom: 1rem
     }
 
     .category {
-        display:none
+        overflow-x: auto;
+        margin: 0 -2rem;
+        border-top: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+}
+    }
+
+    .filter-options {
+        min-width: max-content
     }
     .project {
         flex: 1 1 100%;
