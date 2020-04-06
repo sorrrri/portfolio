@@ -426,7 +426,7 @@ header .menu li {
 }
 
 .project a {
-    padding: 2rem;
+    padding: 1.5rem;
     background: white;
     border-radius: .5rem;
     display: flex;
@@ -584,7 +584,7 @@ header .menu li {
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .project {
         width: 25%
     }
