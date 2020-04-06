@@ -585,16 +585,14 @@ header .menu li {
 }
 
 @media screen and (max-width: 1000px) {
-    .card {
-        flex: 1 1 22%;
-        max-width: 22%
+    .project {
+        width: 20%
     }
 }
 
 @media screen and (max-width: 800px) {
-    .card {
-        flex: 1 1 30%;
-        max-width: 30%
+    .project {
+        width: 33.333%
     }
 }
 
