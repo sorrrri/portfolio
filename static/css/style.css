@@ -414,15 +414,11 @@ header .menu li {
 }
 
 .project {
-    flex: 1 1 16%;
-    width: 100%;
-    max-width: 20%;
-    padding: 2rem;
-    border-radius: .5rem;
-    margin: .5rem;
+    box-sizing: border-box;
+    width: 20%;
+    padding: .5rem;
     position: relative;
     overflow: hidden;
-    background: white;
     cursor: pointer;
     transition: box-shadow .2s;
 }
@@ -433,6 +429,9 @@ header .menu li {
 }
 
 .project a {
+    padding: 2rem;
+    background: white;
+    border-radius: .5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -611,6 +610,7 @@ header .menu li {
     }
 
     .content {
+        padding: 1rem;
         min-width: auto
     }
 
@@ -623,7 +623,7 @@ header .menu li {
     .category {
         justify-content: left;
         overflow-x: auto;
-        margin: 0 -2rem;
+        margin: 0 -1rem;
         border-top: 1px solid #EEE;
         border-bottom: 1px solid #EEE;
     }
@@ -632,8 +632,6 @@ header .menu li {
         min-width: max-content
     }
     .project {
-        flex: 1 1 100%;
-        max-width: none;
-        margin: 0 0 .5rem
+        width: 100%;
     }
 }
