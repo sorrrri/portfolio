@@ -10,6 +10,7 @@ from .models import Data
 
 class DataListView(ListView):
     model = Data
+    ordering = 'name'
     # paginate_by = 10
 
     # def get_queryset(self):

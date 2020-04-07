@@ -443,7 +443,7 @@ header .menu li {
 
 .project img {
     height: 3rem;
-    margin-bottom: 1rem
+    margin-bottom: .5rem
 }
 
 .aspect {
@@ -469,7 +469,12 @@ header .menu li {
 }
 
 .project-title {
-    margin-bottom: 1rem
+    margin-bottom: .5rem;
+    height: 40px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%
 }
 
 .project small {
@@ -480,6 +485,11 @@ header .menu li {
 
 .project-description {
     font-size: 15px;
+    height: 36px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%
 }
 
 
