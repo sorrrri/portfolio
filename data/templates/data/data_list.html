@@ -21,7 +21,6 @@
             {% for data in object_list %}
             <li class="project" data-groups='["{{data.category}}"]' data-title="{{data.description}}">
                 <a href="{{data.url}}" target="_blank">
-                    <small>{{data.category}}</small>
                     <h4 class="project-title">{{data.name}}</h4>
                     <img src="/media/{{data.photo}}" obj.alt="obj.alt"/>
                     <div class="project-description">{{data.description}}</div>
