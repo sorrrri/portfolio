@@ -76,8 +76,6 @@ input {
 
 button {
     border: 0;
-    font: 14px/1 'NanumSquare';
-    font-weight: bold;
     background-color: transparent;
     display: flex;
     align-content: center;
@@ -94,9 +92,6 @@ button.new, button.submit {
     text-transform: uppercase;
     background-color: #0191B4;
     color: white
-}
-
-button.cancel {
 }
 
 button.new [class*=icon-], button.submit [class*=icon-] {
@@ -118,13 +113,12 @@ ion-icon {
     height: 100vh;
     overflow: hidden;
     display: flex;
-    background-color: #F7F8F9
 }
 
 aside {
+    padding: 1rem .7rem 1.5rem;
     flex: 0 0 200px;
     background-color: white;
-    padding: 2rem .7rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -132,10 +126,12 @@ aside {
 }
 
 aside .logo {
+    line-height: 50px;
     font-size: 2rem;
-    font-family: "Arial Black";
+    font-family: "Nunito", "sans-serif";
+    color: #3d2aa8;
+    letter-spacing: 3px;
     text-align: center;
-    margin-bottom: 1rem;
 }
 
 aside .menu {
@@ -149,6 +145,7 @@ aside .menu li {
 }
 
 aside .menu a {
+    font-family: "Raleway", "sans-serif";
     display: block;
     border-radius: .3rem;
     color: #A3A6A9;
@@ -158,43 +155,66 @@ aside .menu a {
 
 aside .menu a.active, aside .menu a:hover {
     color: white;
-    background-color: rebeccapurple;
+    background-color: #3d2aa8;
 }
 
 aside .record {
+    font-size: 1rem;
+    color: #3d2aa8;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 5rem;
-    height: 5rem;
-    background-color: beige;
+    padding:1rem;
+    background-color: #ebebf5;
     border-radius: .5rem;
-    color: rebeccapurple;
-    font-family: Arial;
 }
 
-aside .record h5 {
+aside .record span {
+    font-family: 'Raleway', 'sans-serif';
+    font-weight: 500;
+    text-transform: capitalize;
     margin: .5rem
 }
 
 /* Content */
 .content {
+    padding: 1rem;
+    background-color: #ebeef5;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h1 {
+    line-height: 50px;
+    text-indent: .5rem;
+    flex: 0 0 auto;
+    font-family: 'Raleway', 'sans-serif';
+    font-weight: 400;
+}
+
+.charts {
     flex: 1 1 auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 1rem;
+    margin-top: -.5rem
 }
 
 .content .chart-container {
     flex: 1 1 50%;
-    padding: 1rem;
+    padding: .5rem;
 }
 
 .content .chart-container a {
     background: white;
     border-radius: .5rem;
-    display: block;
+    display: flex;
+    align-items: center;
     height: 100%;
     padding: 1rem
+}
+
+.content .chart {
+    flex: 1;
+    min-height: 300px;
 }
