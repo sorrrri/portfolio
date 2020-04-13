@@ -27,6 +27,8 @@ function drawChart() {
 
     var options1 = {
         title: "% under COx 0.3",
+        width: "100%",
+        height: "100%",
         bar: {groupWidth: "70%"},
         legend: {position: 'bottom'},
         vAxis: {
@@ -62,6 +64,8 @@ function drawChart() {
 
     var options2 = {
         title: "% under MAP opt",
+        width: "100%",
+        height: "100%",
         curveType: 'function',
         legend: {position: 'bottom'},
         vAxis: {
@@ -95,6 +99,8 @@ function drawChart() {
 
     var options3 = {
         title: "% under ETCO2 opt",
+        width: "100%",
+        height: "100%",
         curveType: 'function',
         legend: {position: "bottom"},
         vAxis: {
@@ -127,6 +133,8 @@ function drawChart() {
 
     var options4 = {
         title: "RSO2",
+        width: "100%",
+        height: "100%",
         curveType: 'function',
         legend: {position: "bottom"},
         vAxis: {

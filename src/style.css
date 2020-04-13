@@ -111,8 +111,27 @@ ion-icon {
 .container {
     width: 100%;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     display: flex;
+    overflow: hidden
+}
+
+
+/* Index */
+.index {
+    background: url("./images/background.jpg") no-repeat center;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.index input {
+    background-color: white;
+    border-radius: .5rem;
+    width: 40vw;
+    padding: 1rem;
 }
 
 aside {
@@ -132,6 +151,7 @@ aside .logo {
     color: #3d2aa8;
     letter-spacing: 3px;
     text-align: center;
+    margin-bottom: .5rem;
 }
 
 aside .menu {
@@ -183,26 +203,53 @@ aside .btn-record span {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    overflow-y: auto
+}
+
+.content .title {
+    padding: .5rem;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .title .btn-save {
+    font-size: 1rem;
+    color: white;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 1rem;
+    background-color: LightSeaGreen;
+    border-radius: .5rem;
+}
+
+.content .title .btn-save span {
+    font-family: 'Raleway', 'sans-serif';
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: .5rem
 }
 
 .content h1 {
-    line-height: 50px;
-    text-indent: .5rem;
     flex: 0 0 auto;
     font-family: 'Raleway', 'sans-serif';
     font-weight: 400;
 }
 
-.charts {
+.frame {
     flex: 1 1 auto;
     display: flex;
     flex-wrap: wrap;
-    margin-top: -.5rem
+    margin-top: -.5rem;
+    box-sizing: border-box;
 }
 
 .content .chart-container {
     flex: 1 1 50%;
     padding: .5rem;
+    flex-wrap: wrap;
 }
 
 .content .chart-container a {
@@ -211,20 +258,18 @@ aside .btn-record span {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 1rem
+    box-sizing: border-box;
 }
 
 .content .chart {
     flex: 1;
-    min-height: 300px;
 }
 
 
 /* Record */
 
 .content .records {
-    width:50%;
-    height: 100%;
+    flex: 1 1 50%;
 }
 
 .content .record-container {
@@ -232,16 +277,40 @@ aside .btn-record span {
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 1rem;
     margin: .5rem
 }
 
+.content .record-title {
+    font-family: "Raleway", "sans-serif";
+    color: #0191B4;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
 .content .record {
+    font-family: "Nunito", "sans-serif";
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #EEE;
+}
+
+.content .record label {
+    font-size: 16px;
+    color: #A3A6A9;
+    flex: 1 1 auto
 }
 
 .content .record input {
-    flex: 1 1 auto
+    font-family: "Nunito", "sans-serif";
+    flex: 0 0 30%;
+    text-align: right;
+    font-weight: bold;
+    box-shadow: 0 0 0 0;
+}
+
+.content .record input:focus {
+    outline: 1px solid #0191B4;
 }

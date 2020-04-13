@@ -12,12 +12,12 @@
         <div>
             <div class="logo">APEX</div>
             <ul class="menu">
-                <li><a href="">show charts1</a></li>
+                <li><a href="main.html">show charts1</a></li>
                 <li><a href="">show charts2</a></li>
                 <li><a href="">review</a></li>
             </ul>
         </div>
-        <button class="record active">
+        <button class="btn-record active">
             <i class="far fa-edit"></i>
             <span>health record</span>
         </button>
@@ -25,102 +25,110 @@
     <section class="content">
         <div class="title">
             <h1><span>홍길동님,</span> health records</h1>
-            <button><i class="fas fa-check"></i> save</button>
+            <button class="btn-save">
+                <i class="fas fa-check"></i>
+                <span>save</span>
+            </button>
         </div>
-        <div class="records">
-            <div class="record-container">
-                <label for="input-time">time</label>
-                <input id="input-time" type="time"/>
-            </div>
-            <div class="record-container">
-                <div class="record-title">Arterial BGA</div>
-                <div class="record">
-                    <label for="arterial-ph">PH</label>
-                    <input id="arterial-ph" type="text"/>
+        <div class="frame">
+            <div class="records">
+                <div class="record-container">
+                    <div class="record">
+                        <label for="input-time">time</label>
+                        <input id="input-time" type="time"/>
+                    </div>
                 </div>
-                <div class="record">
-                    <label for="arterial-sao2">SaO2</label>
-                    <input id="arterial-sao2" type="text"/>
+                <div class="record-container">
+                    <div class="record-title">Arterial BGA</div>
+                    <div class="record">
+                        <label for="arterial-ph">PH</label>
+                        <input id="arterial-ph" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="arterial-sao2">SaO2</label>
+                        <input id="arterial-sao2" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="arterial-co2">CO2</label>
+                        <input id="arterial-co2" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="arterial-hco3">HCO3</label>
+                        <input id="arterial-hco3" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="arterial-be">BE</label>
+                        <input id="arterial-be" type="number"/>
+                    </div>
                 </div>
-                <div class="record">
-                    <label for="arterial-co2">CO2</label>
-                    <input id="arterial-co2" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="arterial-hco3">HCO3</label>
-                    <input id="arterial-hco3" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="arterial-be">BE</label>
-                    <input id="arterial-be" type="text"/>
-                </div>
-            </div>
-            <div class="record-container">
-                <div class="record-title">Jugular BGA</div>
-                <div class="record">
-                    <label for="jugular-ph">PH</label>
-                    <input id="jugular-ph" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="jugular-sao2">SaO2</label>
-                    <input id="jugular-sao2" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="jugular-co2">CO2</label>
-                    <input id="jugular-co2" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="jugular-hco3">HCO3</label>
-                    <input id="jugular-hco3" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="jugular-be">BE</label>
-                    <input id="jugular-be" type="text"/>
-                </div>
-            </div>
-        </div>
-        <div class="records">
-            <div class="record-container">
-                <div class="record">
-                    <label for="time-lactate">time</label>
-                    <input id="time-lactate" type="time"/>
-                </div>
-                <div class="record">
-                    <label for="arterial-lactate">Arterial Lactate</label>
-                    <input id="arterial-lactate" type="text"/>
-                </div>
-                <div class="record">
-                    <label for="jugular-lactate">Jugular Lactate</label>
-                    <input id="jugular-lactate" type="text"/>
+                <div class="record-container">
+                    <div class="record-title">Jugular BGA</div>
+                    <div class="record">
+                        <label for="jugular-ph">PH</label>
+                        <input id="jugular-ph" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="jugular-sao2">SaO2</label>
+                        <input id="jugular-sao2" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="jugular-co2">CO2</label>
+                        <input id="jugular-co2" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="jugular-hco3">HCO3</label>
+                        <input id="jugular-hco3" type="number"/>
+                    </div>
+                    <div class="record">
+                        <label for="jugular-be">BE</label>
+                        <input id="jugular-be" type="number"/>
+                    </div>
                 </div>
             </div>
-            <div class="record-container">
-                <div class="record">
-                    <label for="time-glucose">time</label>
-                    <input id="time-glucose" type="time"/>
+            <div class="records">
+                <div class="record-container">
+                    <div class="record">
+                        <label for="time-lactate">time</label>
+                        <input id="time-lactate" type="time"/>
+                    </div>
+                    <div class="record">
+                        <label for="arterial-lactate">Arterial Lactate</label>
+                        <input id="arterial-lactate" type="text"/>
+                    </div>
+                    <div class="record">
+                        <label for="jugular-lactate">Jugular Lactate</label>
+                        <input id="jugular-lactate" type="text"/>
+                    </div>
                 </div>
-                <div class="record">
-                    <label for="arterial-glucose">Arterial Lactate</label>
-                    <input id="arterial-glucose" type="text"/>
+                <div class="record-container">
+                    <div class="record">
+                        <label for="time-glucose">time</label>
+                        <input id="time-glucose" type="time"/>
+                    </div>
+                    <div class="record">
+                        <label for="arterial-glucose">Arterial Lactate</label>
+                        <input id="arterial-glucose" type="text"/>
+                    </div>
+                    <div class="record">
+                        <label for="jugular-glucose">Jugular Lactate</label>
+                        <input id="jugular-glucose" type="text"/>
+                    </div>
                 </div>
-                <div class="record">
-                    <label for="jugular-glucose">Jugular Lactate</label>
-                    <input id="jugular-glucose" type="text"/>
-                </div>
-            </div>
-            <div class="record-container">
-                <div class="record">
-                    <label for="time-hgb">time</label>
-                    <input id="time-hgb" type="time"/>
-                </div>
-                <div class="record">
-                    <label for="hgb">Hgb</label>
-                    <input id="hgb" type="text"/>
+                <div class="record-container">
+                    <div class="record">
+                        <label for="time-hgb">time</label>
+                        <input id="time-hgb" type="time"/>
+                    </div>
+                    <div class="record">
+                        <label for="hgb">Hgb</label>
+                        <input id="hgb" type="text"/>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
 <script src="https://kit.fontawesome.com/de76a5146b.js" crossorigin="anonymous"></script>
+<script src="src/index.js"></script>
 </body>
 </html>
