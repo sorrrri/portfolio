@@ -117,6 +117,47 @@ ion-icon {
     overflow: hidden
 }
 
+/* First Page */
+.eicu-apex {
+    justify-content: center;
+    align-items: center;
+    background: url("images/bg_01.jpg") no-repeat;
+    background-size: cover;
+}
+
+.eicu-apex .input-container {
+    color: white;
+    text-align: center;
+}
+.eicu-apex .input-container label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.eicu-apex .input-container label h1 {
+    font: normal 4rem/1 "Nunito";
+    text-transform: uppercase;
+}
+
+.eicu-apex .input-container label span {
+    font: 20px "Nunito", "sans-serif";
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+.eicu-apex .input-container input {
+    background: white;
+    border-radius: .5rem;
+    padding: 1rem;
+    width: 30vw;
+}
+
+.eicu-apex .logo {
+    position: absolute;
+    bottom:1rem;
+    right: 1rem
+}
+
 
 /* Index */
 .index {
@@ -145,13 +186,13 @@ aside {
 }
 
 aside .logo {
-    line-height: 50px;
-    font-size: 2rem;
-    font-family: "Nunito", "sans-serif";
-    color: #3d2aa8;
-    letter-spacing: 3px;
     text-align: center;
     margin-bottom: .5rem;
+}
+
+aside .logo a {
+    font: 1.5rem/2 "Nunito", "sans-serif";
+    color: #3d2aa8;
 }
 
 aside .menu {
@@ -236,6 +277,7 @@ aside .btn-record span {
     flex: 0 0 auto;
     font-family: 'Raleway', 'sans-serif';
     font-weight: 400;
+    text-transform: capitalize;
 }
 
 .frame {
@@ -250,6 +292,7 @@ aside .btn-record span {
     flex: 1 1 50%;
     padding: .5rem;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .content .chart-container a {
@@ -282,8 +325,8 @@ aside .btn-record span {
 }
 
 .content .record-title {
-    font-family: "Raleway", "sans-serif";
     color: #0191B4;
+    font-family: "Raleway", "sans-serif";
     font-weight: bold;
     margin-bottom: 1rem;
 }
