@@ -118,14 +118,14 @@ ion-icon {
     border-radius: 1.5rem;
     display: inline-block;
     position: relative;
-    background-color: #3d2aa8;
+    background-color: #0191B4;
     background-size: 12px;
     cursor: pointer;
     transition: .25s
 }
 
 .btn-toggle.dark {
-    background-color: #9c62f1;
+    background-color: #0191B4;
     background-size: 12px
 }
 
@@ -237,7 +237,6 @@ aside .logo {
 
 aside .logo a {
     font: 1.5rem/2 "Nunito", "sans-serif";
-    color: #3d2aa8;
 }
 
 aside .menu {
