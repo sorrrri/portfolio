@@ -12,15 +12,24 @@
         <div>
             <div class="logo"><a href="index.html">EICU-APEX</a></div>
             <ul class="menu">
-                <li><a href="" class="active">show charts1</a></li>
+                <li><a class="active" href="main.html">show charts1</a></li>
                 <li><a href="">show charts2</a></li>
                 <li><a href="">review</a></li>
+                <li>
+                    <button class="btn-record active" onclick="location.href='record.html'">
+                        <i class="far fa-edit"></i>
+                        <span>health record</span>
+                    </button>
+                </li>
             </ul>
         </div>
-        <button class="btn-record" onclick="location.href='record.html'">
-            <i class="far fa-edit"></i>
-            <span>health record</span>
-        </button>
+        <div class="change-theme">
+            <small>light</small>
+            <div class="btn-toggle">
+                <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+            </div>
+            <small>dark</small>
+        </div>
     </aside>
     <section class="content">
         <div class="title">
@@ -53,6 +62,10 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="src/script.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/de76a5146b.js" crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
 <script src="src/index.js"></script>
 </body>
 </html>

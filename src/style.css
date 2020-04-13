@@ -25,7 +25,9 @@
 }
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 input::-ms-clear,
@@ -108,14 +110,61 @@ ion-icon {
     vertical-align: middle
 }
 
+/* Toggle Button */
+.btn-toggle {
+    width: 3rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    border-radius: 1.5rem;
+    display: inline-block;
+    position: relative;
+    background-color: #3d2aa8;
+    background-size: 12px;
+    cursor: pointer;
+    transition: .25s
+}
+
+.btn-toggle.dark {
+    background-color: #9c62f1;
+    background-size: 12px
+}
+
+.btn-toggle.dark .round-btn {
+    left: calc(2rem - 4px)
+}
+
+.btn-toggle .round-btn {
+    width: 1rem;
+    height: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .25s
+}
+
+.btn-toggle .cb-value {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 9;
+}
+
+
 .container {
     width: 100%;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     display: flex;
-    overflow: hidden
 }
+
 
 /* First Page */
 .eicu-apex {
@@ -130,6 +179,7 @@ ion-icon {
     text-align: center;
     position: relative;
 }
+
 .eicu-apex .input-container label {
     display: block;
     margin-bottom: 1rem;
@@ -152,6 +202,7 @@ ion-icon {
     padding: 1rem;
     width: 30vw;
 }
+
 .eicu-apex .input-container i {
     position: absolute;
     bottom: .25rem;
@@ -163,26 +214,10 @@ ion-icon {
 
 .eicu-apex .logo {
     position: absolute;
-    bottom:1rem;
+    bottom: 1rem;
     right: 1rem
 }
 
-
-/* Index */
-.index {
-    background: url("./images/background.jpg") no-repeat center;
-    background-size: cover;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.index input {
-    background-color: white;
-    border-radius: .5rem;
-    width: 40vw;
-    padding: 1rem;
-}
 
 aside {
     padding: 1rem .7rem 1.5rem;
@@ -192,11 +227,12 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    transition: background-color .2s;
 }
 
 aside .logo {
     text-align: center;
-    margin-bottom: .5rem;
+    margin-bottom: 2rem;
 }
 
 aside .logo a {
@@ -220,7 +256,7 @@ aside .menu a {
     border-radius: .3rem;
     color: #A3A6A9;
     padding: .5rem 1rem;
-    transition: background-color .2s;
+    transition: background-color .4s;
 }
 
 aside .menu a.active, aside .menu a:hover {
@@ -234,7 +270,7 @@ aside .btn-record {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:1rem;
+    padding: 1rem;
     background-color: #ebebf5;
     border-radius: .5rem;
 }
@@ -246,6 +282,16 @@ aside .btn-record span {
     margin: .5rem
 }
 
+aside .change-theme {
+    font-family: "Nunito", "sans-serif";
+    color: #A3A6A9;
+    text-transform: capitalize;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
 /* Content */
 .content {
     padding: 1rem;
@@ -253,11 +299,12 @@ aside .btn-record span {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    overflow-y: auto
+    overflow-y: auto;
+    transition: background-color .4s;
 }
 
 .content .title {
-    padding: .5rem;
+    padding: .3rem .5rem.5rem;
     flex: 0 0 auto;
     display: flex;
     justify-content: space-between;
@@ -270,9 +317,9 @@ aside .btn-record span {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:0 1rem;
-    background-color: LightSeaGreen;
-    border-radius: .5rem;
+    padding: 0 1rem;
+    background-color: #0191B4;
+    border-radius: .2rem;
 }
 
 .content .title .btn-save span {
@@ -283,10 +330,15 @@ aside .btn-record span {
 }
 
 .content h1 {
+    font-size: 1.5rem;
     flex: 0 0 auto;
     font-family: 'Raleway', 'sans-serif';
     font-weight: 400;
     text-transform: capitalize;
+}
+
+.content h1 span {
+    font-weight: bold;
 }
 
 .frame {
@@ -330,7 +382,8 @@ aside .btn-record span {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    margin: .5rem
+    margin: .5rem;
+    transition: background-color .4s;
 }
 
 .content .record-title {
@@ -347,11 +400,12 @@ aside .btn-record span {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #EEE;
+    transition: border-bottom-color .4s;
 }
 
 .content .record label {
     font-size: 16px;
-    color: #A3A6A9;
+    color: #777;
     flex: 1 1 auto
 }
 
@@ -365,4 +419,56 @@ aside .btn-record span {
 
 .content .record input:focus {
     outline: 1px solid #0191B4;
+}
+
+
+
+/* Dark Theme */
+
+.theme-dark aside {
+    background: #1c1f2c;
+}
+
+.theme-dark aside .logo a {
+    color: white;
+}
+
+.theme-dark aside .menu a.active {
+    background-color: #9c62f1;
+}
+
+.theme-dark aside .btn-record {
+    background: rgba(235, 235, 245, .1);
+}
+
+.theme-dark aside .btn-record {
+    color: #c5b1f4;
+}
+
+.theme-dark .content {
+    background: #111523;
+}
+
+.theme-dark .content .title {
+    color: white;
+}
+
+.theme-dark .chart-container a, .theme-dark .record-container {
+    background: #1c1f2c;
+}
+
+.theme-dark .chart rect {
+    fill: transparent;
+}
+.theme-dark .chart text {
+    stroke :transparent;
+    fill: white;
+}
+
+.theme-dark .record {
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.theme-dark .record input {
+    color: white
 }
