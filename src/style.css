@@ -44,6 +44,13 @@ input::-webkit-search-results-decoration {
     display: none;
 }
 
+input, input:before, input:after {
+    -webkit-user-select: initial;
+    -khtml-user-select: initial;
+    -moz-user-select: initial;
+    -ms-user-select: initial;
+    user-select: initial;
+}
 
 body {
     margin: 0;
@@ -220,7 +227,7 @@ ion-icon {
 
 
 aside {
-    padding: 1rem .7rem 1.5rem;
+    padding: 1.5rem .7rem;
     flex: 0 0 200px;
     background-color: white;
     display: flex;
@@ -264,12 +271,13 @@ aside .menu a.active, aside .menu a:hover {
 }
 
 aside .btn-record {
+    width: 100%;
     font-size: 1rem;
     color: #3d2aa8;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: .5rem 1rem;
     background-color: #ebebf5;
     border-radius: .5rem;
 }
@@ -303,13 +311,17 @@ aside .change-theme {
 }
 
 .content .title {
-    padding: .3rem .5rem.5rem;
+    height: 60px;
+    padding: 0.5rem;
     flex: 0 0 auto;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: .5rem;
 }
 
 .content .title .btn-save {
+    height: 100%;
     font-size: 1rem;
     color: white;
     align-self: center;
@@ -329,7 +341,7 @@ aside .change-theme {
 }
 
 .content h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     flex: 0 0 auto;
     font-family: 'Raleway', 'sans-serif';
     font-weight: 400;
@@ -421,18 +433,17 @@ aside .change-theme {
 }
 
 
-
 /* Dark Theme */
 
 .theme-dark aside {
-    background: #1c1f2c;
+    background: #252936;
 }
 
 .theme-dark aside .logo a {
     color: white;
 }
 
-.theme-dark aside .menu a.active {
+.theme-dark aside .menu a.active, .theme-dark aside .menu a:hover {
     background-color: #9c62f1;
 }
 
@@ -453,14 +464,15 @@ aside .change-theme {
 }
 
 .theme-dark .chart-container a, .theme-dark .record-container {
-    background: #1c1f2c;
+    background: #252936;
 }
 
 .theme-dark .chart rect {
     fill: transparent;
 }
+
 .theme-dark .chart text {
-    stroke :transparent;
+    stroke: transparent;
     fill: white;
 }
 
