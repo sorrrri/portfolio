@@ -121,13 +121,14 @@ ion-icon {
 .eicu-apex {
     justify-content: center;
     align-items: center;
-    background: url("images/bg_01.jpg") no-repeat;
+    background: url("images/bg_04.gif") no-repeat;
     background-size: cover;
 }
 
 .eicu-apex .input-container {
     color: white;
     text-align: center;
+    position: relative;
 }
 .eicu-apex .input-container label {
     display: block;
@@ -150,6 +151,14 @@ ion-icon {
     border-radius: .5rem;
     padding: 1rem;
     width: 30vw;
+}
+.eicu-apex .input-container i {
+    position: absolute;
+    bottom: .25rem;
+    right: 0;
+    padding: 1rem;
+    color: #333;
+    cursor: pointer;
 }
 
 .eicu-apex .logo {
