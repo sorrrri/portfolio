@@ -177,7 +177,7 @@ ion-icon {
 .eicu-apex {
     justify-content: center;
     align-items: center;
-    background: url("images/bg_04.gif") no-repeat;
+    background: url("images/bg_04.jpg") no-repeat;
     background-size: cover;
 }
 
@@ -237,6 +237,10 @@ aside {
     transition: background-color .2s;
 }
 
+aside > div {
+    width: 100%
+}
+
 aside .logo {
     text-align: center;
     margin-bottom: 2rem;
@@ -267,7 +271,7 @@ aside .menu a {
 
 aside .menu a.active, aside .menu a:hover {
     color: white;
-    background-color: #3d2aa8;
+    background-color: #333;
 }
 
 aside .btn-record {
@@ -293,7 +297,7 @@ aside .change-theme {
     font-family: "Nunito", "sans-serif";
     color: #A3A6A9;
     text-transform: capitalize;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -311,13 +315,13 @@ aside .change-theme {
 }
 
 .content .title {
-    height: 60px;
-    padding: 0.5rem;
+    height: 40px;
+    padding: 0 .5rem;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
 }
 
 .content .title .btn-save {
@@ -444,7 +448,8 @@ aside .change-theme {
 }
 
 .theme-dark aside .menu a.active, .theme-dark aside .menu a:hover {
-    background-color: #9c62f1;
+    background-color: white;
+    color: #333;
 }
 
 .theme-dark aside .btn-record {
@@ -482,4 +487,12 @@ aside .change-theme {
 
 .theme-dark .record input {
     color: white
+}
+
+
+
+@media screen and (max-width:1280px) {
+    .chart-container, .records {
+        flex: 1 1 100% !important
+    }
 }
