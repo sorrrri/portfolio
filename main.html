@@ -7,58 +7,256 @@
     <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-<div class="container">
+<div class="container theme-dark">
     <aside>
         <div>
             <div class="logo"><a href="index.html">EICU-APEX</a></div>
-            <ul class="menu">
-                <li><a class="active" href="main.html">show charts1</a></li>
-                <li><a href="charts_02.html">show charts2</a></li>
-                <li><a href="">review</a></li>
-                <li>
-                    <button class="btn-record active" onclick="location.href='record.html'">
-                        <i class="far fa-edit"></i>
-                        <span>health record</span>
-                    </button>
-                </li>
-            </ul>
+            <nav class="navigation nav_tabs">
+                <a href="#charts1">show charts1</a>
+                <a href="#charts2">show charts2</a>
+                <a href="#review">review</a>
+                <a href="#record" class="btn-record">
+                    <i class="far fa-edit"></i>
+                    <span>health record</span>
+                </a>
+            </nav>
         </div>
         <div class="change-theme">
-            <small>light</small>
+            <small>dark</small>
             <div class="btn-toggle">
                 <input type="checkbox" checked class="cb-value"/> <span class="round-btn"></span>
             </div>
-            <small>dark</small>
+            <small>light</small>
         </div>
     </aside>
-    <section class="content">
-        <div class="title">
-            <h1>Show Charts 1</h1>
-        </div>
-        <div class="frame">
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="columnchart_values"></div>
+
+    <main class="content">
+        <!-- Chart 1 -->
+        <section id="charts1" class="section">
+            <div class="title">
+                <h1>Show Charts 1</h1>
+            </div>
+            <div class="frame">
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_COx"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_MAP"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_ETCO2"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_RSO2"></div>
+                    </div>
                 </div>
             </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="columnchart_values2"></div>
+        </section>
+
+        <!-- Charts 2 -->
+        <section id="charts2" class="section">
+            <div class="title">
+                <h1>Show Charts 2</h1>
+            </div>
+            <div class="frame">
+                <div class="chart-container">
+                    <div class="chart" style="padding: 0 2rem">
+                        <div id="chart_pupil"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart" style="padding: 0 2rem">
+                        <div id="chart_NPI"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_SJVO2"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_AJDL"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_CEO2"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_AJDO2"></div>
+                    </div>
                 </div>
             </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="columnchart_values3"></div>
+        </section>
+
+        <!-- Review -->
+        <section id="review" class="section">
+            <div class="title">
+                <h1>Review</h1>
+                <button class="btn-save">
+                    <i class="fas fa-search"></i>
+                    <span>search</span>
+                </button>
+            </div>
+            <div class="record-container">
+                <div class="record">
+                    <label for="input-time">time</label>
+                    <input id="input-time" type="time"/>
                 </div>
             </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="columnchart_values4"></div>
+            <div class="frame">
+                <div class="chart-container">
+                    <div class="chart" style="padding: 0 2rem">
+                        <div id="chart_div"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart" style="padding: 0 2rem">
+                        <div id="chart_div2"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_div3"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_div4"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_div5"></div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart">
+                        <div id="chart_div6"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Health Record -->
+        <section id="record" class="section">
+            <div class="title">
+                <h1><span>홍길동</span>님, health record</h1>
+                <button class="btn-save">
+                    <i class="fas fa-check"></i>
+                    <span>save</span>
+                </button>
+            </div>
+            <div class="frame">
+                <div class="records">
+                    <div class="record-container">
+                        <div class="record">
+                            <label for="search-time">time</label>
+                            <input id="search-time" type="time"/>
+                        </div>
+                    </div>
+                    <div class="record-container">
+                        <div class="record-title">Arterial BGA</div>
+                        <div class="record">
+                            <label for="arterial-ph">PH</label>
+                            <input id="arterial-ph" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="arterial-sao2">SaO2</label>
+                            <input id="arterial-sao2" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="arterial-co2">CO2</label>
+                            <input id="arterial-co2" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="arterial-hco3">HCO3</label>
+                            <input id="arterial-hco3" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="arterial-be">BE</label>
+                            <input id="arterial-be" type="number"/>
+                        </div>
+                    </div>
+                    <div class="record-container">
+                        <div class="record-title">Jugular BGA</div>
+                        <div class="record">
+                            <label for="jugular-ph">PH</label>
+                            <input id="jugular-ph" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="jugular-sao2">SaO2</label>
+                            <input id="jugular-sao2" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="jugular-co2">CO2</label>
+                            <input id="jugular-co2" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="jugular-hco3">HCO3</label>
+                            <input id="jugular-hco3" type="number"/>
+                        </div>
+                        <div class="record">
+                            <label for="jugular-be">BE</label>
+                            <input id="jugular-be" type="number"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="records">
+                    <div class="record-container">
+                        <div class="record">
+                            <label for="time-lactate">time</label>
+                            <input id="time-lactate" type="time"/>
+                        </div>
+                        <div class="record">
+                            <label for="arterial-lactate">Arterial Lactate</label>
+                            <input id="arterial-lactate" type="text"/>
+                        </div>
+                        <div class="record">
+                            <label for="jugular-lactate">Jugular Lactate</label>
+                            <input id="jugular-lactate" type="text"/>
+                        </div>
+                    </div>
+                    <div class="record-container">
+                        <div class="record">
+                            <label for="time-glucose">time</label>
+                            <input id="time-glucose" type="time"/>
+                        </div>
+                        <div class="record">
+                            <label for="arterial-glucose">Arterial Lactate</label>
+                            <input id="arterial-glucose" type="text"/>
+                        </div>
+                        <div class="record">
+                            <label for="jugular-glucose">Jugular Lactate</label>
+                            <input id="jugular-glucose" type="text"/>
+                        </div>
+                    </div>
+                    <div class="record-container">
+                        <div class="record">
+                            <label for="time-hgb">time</label>
+                            <input id="time-hgb" type="time"/>
+                        </div>
+                        <div class="record">
+                            <label for="hgb">Hgb</label>
+                            <input id="hgb" type="text"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </div>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="src/script.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/de76a5146b.js" crossorigin="anonymous"></script>

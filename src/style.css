@@ -131,12 +131,12 @@ ion-icon {
     transition: .25s
 }
 
-.btn-toggle.dark {
+.btn-toggle.light {
     background-color: #0191B4;
     background-size: 12px
 }
 
-.btn-toggle.dark .round-btn {
+.btn-toggle.light .round-btn {
     left: calc(2rem - 4px)
 }
 
@@ -175,8 +175,9 @@ ion-icon {
 
 /* First Page */
 .eicu-apex {
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20vh 10vw;
     background: url("images/bg_04.jpg") no-repeat;
     background-size: cover;
 }
@@ -250,17 +251,17 @@ aside .logo a {
     font: 1.5rem/2 "Nunito", "sans-serif";
 }
 
-aside .menu {
+aside .navigation {
     display: flex;
     flex-wrap: wrap;
 }
 
-aside .menu li {
+aside .navigation a {
     flex: 1 1 100%;
     margin-bottom: .5rem;
 }
 
-aside .menu a {
+aside .navigation a {
     font-family: "Raleway", "sans-serif";
     display: block;
     border-radius: .3rem;
@@ -269,12 +270,12 @@ aside .menu a {
     transition: background-color .4s;
 }
 
-aside .menu a.active, aside .menu a:hover {
+aside .navigation a.active, aside .navigation a:hover {
     color: white;
     background-color: #333;
 }
 
-aside .btn-record {
+aside .navigation .btn-record {
     width: 100%;
     font-size: 1rem;
     color: #3d2aa8;
@@ -305,9 +306,20 @@ aside .change-theme {
 
 /* Content */
 .content {
+    flex: 1 1 100%;
+    height: 100%;
+    display: flex;
     padding: 1rem;
     background-color: #ebeef5;
-    flex: 1 1 auto;
+}
+
+.section {
+    flex: 1 1 100%;
+    height: 100%;
+    display: none;
+}
+
+.section:target {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -365,19 +377,46 @@ aside .change-theme {
 }
 
 .content .chart-container {
+    opacity: 0;
     flex: 1 1 50%;
     padding: .5rem;
+    display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+    animation: fadeIn .7s forwards;
+}
+
+.content .chart-container:nth-of-type(1) {
+    animation-delay: .0s
+}
+.content .chart-container:nth-of-type(2) {
+    animation-delay: .1s
+}
+.content .chart-container:nth-of-type(3) {
+    animation-delay: .2s
+}
+.content .chart-container:nth-of-type(4) {
+    animation-delay: .3s
+}
+.content .chart-container:nth-of-type(5) {
+    animation-delay: .4s
+}
+.content .chart-container:nth-of-type(6) {
+    animation-delay: .5s
 }
 
 .content .chart-container .chart {
+    flex: 1 1 100%;
     background: white;
     border-radius: .5rem;
     display: flex;
     align-items: center;
-    height: 100%;
     box-sizing: border-box;
+}
+
+@keyframes fadeIn  {
+    0% { opacity: 0}
+    100% { opacity: 1}
 }
 
 .content .chart > div {
@@ -449,13 +488,13 @@ aside .change-theme {
     color: white;
 }
 
-.theme-dark aside .menu a.active, .theme-dark aside .menu a:hover {
+.theme-dark aside .navigation a.active, .theme-dark aside .navigation a:hover {
     background-color: white;
     color: #333;
 }
 
 .theme-dark aside .btn-record {
-    background: rgba(235, 235, 245, .1);
+    background-color: rgba(235, 235, 245, .1);
 }
 
 .theme-dark aside .btn-record {
@@ -475,7 +514,6 @@ aside .change-theme {
 }
 
 .theme-dark .chart rect {
-    fill: transparent;
 }
 
 .theme-dark .chart text {

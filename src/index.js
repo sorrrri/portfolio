@@ -7,7 +7,6 @@ window.addEventListener('resize', () => {
 })
 
 
-
 // Disabling and enabling buttons
 // $('.search input').on('keyup', function () {
 //     if ($('button').attr('disabled','disabled')) {
@@ -16,14 +15,25 @@ window.addEventListener('resize', () => {
 // });
 
 
+$(window).resize(function () {
+    location.reload();
+});
+
+$(".navigation a").mouseup(function () {
+    setTimeout(function () {
+        location.reload();
+    }, 10);
+});
+
+
 // Toggle Button
-$('.cb-value').click(function() {
+$('.cb-value').click(function () {
     var mainParent = $(this).parent('.btn-toggle');
-    if($(mainParent).find('input.cb-value').is(':checked')) {
-        $(mainParent).addClass('dark');
-        $(".container").addClass("theme-dark");
-    } else {
-        $(mainParent).removeClass('dark');
+    if ($(mainParent).find('input.cb-value').is(':checked')) {
+        $(mainParent).addClass('light');
         $(".container").removeClass("theme-dark");
+    } else {
+        $(mainParent).removeClass('light');
+        $(".container").addClass("theme-dark");
     }
 })
