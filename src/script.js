@@ -1,4 +1,3 @@
-
 google.charts.load("current", {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -41,9 +40,6 @@ function drawChart() {
     chart1.draw(view1, options1);
 
 
-
-
-
     var data2 = google.visualization.arrayToDataTable([
         ["Time", "MAP"],
         ["0", 0.27],
@@ -76,7 +72,6 @@ function drawChart() {
 
     var chart2 = new google.visualization.LineChart(document.getElementById("columnchart_values2"));
     chart2.draw(view2, options2);
-
 
 
     var data3 = google.visualization.arrayToDataTable([
@@ -145,4 +140,6 @@ function drawChart() {
 
     var chart4 = new google.visualization.LineChart(document.getElementById("columnchart_values4"));
     chart4.draw(view4, options4);
+
+
 }

@@ -371,7 +371,7 @@ aside .change-theme {
     overflow: hidden;
 }
 
-.content .chart-container a {
+.content .chart-container .chart {
     background: white;
     border-radius: .5rem;
     display: flex;
@@ -380,9 +380,11 @@ aside .change-theme {
     box-sizing: border-box;
 }
 
-.content .chart {
+.content .chart > div {
     flex: 1;
 }
+
+
 
 
 /* Record */
@@ -468,7 +470,7 @@ aside .change-theme {
     color: white;
 }
 
-.theme-dark .chart-container a, .theme-dark .record-container {
+.theme-dark .chart-container .chart, .theme-dark .record-container {
     background: #252936;
 }
 
