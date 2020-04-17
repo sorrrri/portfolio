@@ -112,6 +112,11 @@ h1, h2, h3, h4, h5 {
     margin: 0
 }
 
+.active {
+    visibility: visible !important;
+    opacity: 1 !important
+}
+
 ion-icon {
     font-size: 1rem;
     vertical-align: middle
@@ -306,20 +311,14 @@ aside .change-theme {
 
 /* Content */
 .content {
+    display: none;
     flex: 1 1 100%;
     height: 100%;
-    display: flex;
     padding: 1rem;
     background-color: #ebeef5;
 }
 
-.section {
-    flex: 1 1 100%;
-    height: 100%;
-    display: none;
-}
-
-.section:target {
+.content:target {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -376,7 +375,7 @@ aside .change-theme {
     box-sizing: border-box;
 }
 
-.content .chart-container {
+.chart-container {
     opacity: 0;
     flex: 1 1 50%;
     padding: .5rem;
@@ -386,53 +385,59 @@ aside .change-theme {
     animation: fadeIn .7s forwards;
 }
 
-.content .chart-container:nth-of-type(1) {
+.chart-container:nth-of-type(1) {
     animation-delay: .0s
 }
-.content .chart-container:nth-of-type(2) {
+
+.chart-container:nth-of-type(2) {
     animation-delay: .1s
 }
-.content .chart-container:nth-of-type(3) {
+
+.chart-container:nth-of-type(3) {
     animation-delay: .2s
 }
-.content .chart-container:nth-of-type(4) {
+
+.chart-container:nth-of-type(4) {
     animation-delay: .3s
 }
-.content .chart-container:nth-of-type(5) {
+
+.chart-container:nth-of-type(5) {
     animation-delay: .4s
 }
-.content .chart-container:nth-of-type(6) {
+
+.chart-container:nth-of-type(6) {
     animation-delay: .5s
 }
 
-.content .chart-container .chart {
+.chart {
     flex: 1 1 100%;
     background: white;
     border-radius: .5rem;
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    position: relative;
 }
 
-@keyframes fadeIn  {
-    0% { opacity: 0}
-    100% { opacity: 1}
+.chart .more {
+    position: absolute;
+    top: 1rem;
+    right: 1rem
 }
 
-.content .chart > div {
+
+.chart > div {
     flex: 1;
 }
 
 
-
-
 /* Record */
 
-.content .records {
+.records {
     flex: 1 1 50%;
 }
 
-.content .record-container {
+.record-container {
     background: white;
     border-radius: .5rem;
     display: flex;
@@ -442,14 +447,14 @@ aside .change-theme {
     transition: background-color .4s;
 }
 
-.content .record-title {
+.record-title {
     color: #0191B4;
     font-family: "Raleway", "sans-serif";
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-.content .record {
+.record {
     font-family: "Nunito", "sans-serif";
     display: flex;
     width: 100%;
@@ -459,13 +464,13 @@ aside .change-theme {
     transition: border-bottom-color .4s;
 }
 
-.content .record label {
+.record label {
     font-size: 16px;
     color: #777;
     flex: 1 1 auto
 }
 
-.content .record input {
+.record input {
     font-family: "Nunito", "sans-serif";
     flex: 0 0 30%;
     text-align: right;
@@ -473,9 +478,46 @@ aside .change-theme {
     box-shadow: 0 0 0 0;
 }
 
-.content .record input:focus {
+.record input:focus {
     outline: 1px solid #0191B4;
 }
+
+
+/* Modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 31;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.25s
+}
+
+
+.modal {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    position: fixed;
+    padding:2rem;
+    top: 50%;
+    left: 50%;
+    background: white;
+    display: flex;
+    transform: translate(-50%, -50%);
+    border-radius: .5rem;
+    transition: .25s
+}
+
+.modal.active {
+    pointer-events: auto;
+    z-index: 50;
+}
+
 
 
 /* Dark Theme */
@@ -521,6 +563,14 @@ aside .change-theme {
     fill: white;
 }
 
+.theme-dark .google-visualization-tooltip {
+    color: black
+}
+
+.theme-dark .chart .more {
+    color: white;
+}
+
 .theme-dark .record {
     border-color: rgba(255, 255, 255, .1);
 }
@@ -530,9 +580,18 @@ aside .change-theme {
 }
 
 
-
-@media screen and (max-width:1280px) {
+@media screen and (max-width: 1080px) {
     .chart-container, .records {
         flex: 1 1 100% !important
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
     }
 }

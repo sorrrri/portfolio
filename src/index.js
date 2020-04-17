@@ -37,3 +37,18 @@ $('.cb-value').click(function () {
         $(".container").addClass("theme-dark");
     }
 })
+
+
+
+// Modal
+$(".btn-COx-MAP").on("click", function () {
+    $(".modal-COx-MAP, .modal-backdrop").addClass("active")
+})
+
+$(".btn-ETCO2").on("click", function () {
+    $(".modal-ETCO2, .modal-backdrop").addClass("active")
+})
+
+$(".modal-backdrop").on("click", function() {
+    $(".modal-backdrop, .modal").removeClass("active");
+});

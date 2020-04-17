@@ -9,6 +9,10 @@ google.charts.setOnLoadCallback(drawSJVO2Chart);
 google.charts.setOnLoadCallback(drawAJDLChart);
 google.charts.setOnLoadCallback(drawCEO2Chart);
 google.charts.setOnLoadCallback(drawAJDO2Chart);
+google.charts.setOnLoadCallback(drawCOxMAPChart);
+google.charts.setOnLoadCallback(drawRSO2MAPChart);
+google.charts.setOnLoadCallback(drawCO2xETCO2Chart );
+google.charts.setOnLoadCallback(drawRSO2ETCO2Chart);
 
 function drawCOxChart() {
     var data_COx = google.visualization.arrayToDataTable([
@@ -34,6 +38,7 @@ function drawCOxChart() {
         }]);
 
     var options_COx = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: "% under COx 0.3",
         width: "100%",
@@ -72,6 +77,7 @@ function drawMAPChart() {
         }]);
 
     var options_MAP = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: "% under MAP opt",
         width: "100%",
@@ -110,6 +116,7 @@ function drawETCO2Chart() {
         }]);
 
     var options_ETCO2 = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: "% under ETCO2 opt",
         width: "100%",
@@ -148,6 +155,7 @@ function drawRSO2Chart() {
         }]);
 
     var options_RSO2 = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: "RSO2",
         width: "100%",
@@ -179,6 +187,7 @@ function drawPupilChart() {
     ]);
 
     var materialOptions = {
+        tooltip: { isHtml: true },
         animation:{
             duration: 1000,
             easing: 'out',
@@ -209,6 +218,7 @@ function drawNPIChart() {
     ]);
 
     var materialOptions_NPI = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         chart: {
             title: 'NPI',
@@ -234,6 +244,7 @@ function drawSJVO2Chart() {
     ]);
 
     var options_SJVO2 = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: 'SJVO2',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
@@ -259,6 +270,7 @@ function drawAJDLChart() {
     ]);
 
     var options_AJDL = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: 'AJDL',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
@@ -285,6 +297,7 @@ function drawCEO2Chart() {
     ]);
 
     var options_CEO2 = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: 'CEO2',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
@@ -311,6 +324,7 @@ function drawAJDO2Chart() {
     ]);
 
     var options_AJDO2 = {
+        tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: 'AJDO2',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
@@ -324,15 +338,136 @@ function drawAJDO2Chart() {
 }
 
 
-function resizeChart () {
-    chart.draw(data, options);
+
+function drawCOxMAPChart() {
+    var data_COxMAP = google.visualization.arrayToDataTable([
+        ["MAP", "COx"],
+        ["40", 0.27],
+        ["50", 0.197],
+        ["60", 0.243],
+        ["70", 0.2],
+        ["80", 0.27],
+        ["90", 0.197],
+        ["100", 0.243],
+        ["110", 0.2],
+        ["120", 0.175],
+    ]);
+
+    var view_COxMAP = new google.visualization.DataView(data_COxMAP);
+    view_COxMAP.setColumns([0, 1,
+        {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+        }]);
+
+    var options_COxMAP = {
+        tooltip: { isHtml: true },
+        backgroundColor: 'transparent',
+        title: "MAP opt: 80-90 (every 6hr)",
+        width: "400px",
+        height: "50vh",
+        bar: {groupWidth: "70%"},
+        legend: {position: 'bottom'},
+        vAxis: {
+            minValue: 0,
+            ticks: [0, .2, .4]
+        },
+    };
+
+    var chart_COxMAP = new google.visualization.ColumnChart(document.getElementById("chart_COxMAP"));
+    chart_COxMAP.draw(view_COxMAP, options_COxMAP);
 }
-if (document.addEventListener) {
-    window.addEventListener('resize', resizeChart);
+
+
+function drawRSO2MAPChart() {
+    var data_RSO2MAP = google.visualization.arrayToDataTable([
+        ['MAP', 'RSO2'],
+        [8, 12],
+        [4, 5.5],
+        [11, 14],
+        [4, 5],
+        [3, 3.5],
+        [6.5, 7]
+    ]);
+
+    var options_RSO2MAP = {
+        tooltip: { isHtml: true },
+        backgroundColor: 'transparent',
+        title: 'COx: 0.3 (every 5min)',
+        hAxis: {title: 'MAP', minValue: 0, maxValue: 15},
+        vAxis: {title: 'RSO2', minValue: 0, maxValue: 15},
+        legend: 'none'
+    };
+
+    var chart_RSO2MAP = new google.visualization.ScatterChart(document.getElementById('chart_RSO2MAP'));
+
+    chart_RSO2MAP.draw(data_RSO2MAP, options_RSO2MAP);
 }
-else if (document.attachEvent) {
-    window.attachEvent('onresize', resizeChart);
+
+
+function drawCO2xETCO2Chart() {
+    var data_CO2xETCO2 = google.visualization.arrayToDataTable([
+        ["ETCO2", "CO2x"],
+        ["10", 0.27],
+        ["15", 0.197],
+        ["20", 0.243],
+        ["25", 0.2],
+        ["30", 0.27],
+        ["35", 0.197],
+        ["40", 0.243],
+        ["45", 0.2],
+        ["50", 0.175],
+    ]);
+
+    var view_CO2xETCO2 = new google.visualization.DataView(data_CO2xETCO2);
+    view_CO2xETCO2.setColumns([0, 1,
+        {
+            calc: "stringify",
+            sourceColumn: 1,
+            type: "string",
+            role: "annotation"
+        }]);
+
+    var options_CO2xETCO2 = {
+        tooltip: { isHtml: true },
+        backgroundColor: 'transparent',
+        title: "ETCO2 opt: 30-35 (every 6hr)",
+        width: "600px",
+        bar: {groupWidth: "70%"},
+        legend: {position: 'bottom'},
+        vAxis: {
+            minValue: 0,
+            ticks: [0, .2, .4]
+        },
+    };
+
+    var chart_CO2xETCO2 = new google.visualization.ColumnChart(document.getElementById("chart_CO2xETCO2"));
+    chart_CO2xETCO2.draw(view_CO2xETCO2, options_CO2xETCO2);
 }
-else {
-    window.resize = resizeChart;
+
+function drawRSO2ETCO2Chart() {
+    var data_RSO2ETCO2 = google.visualization.arrayToDataTable([
+        ['ETCO2', 'RSO2'],
+        [8, 12],
+        [4, 5.5],
+        [11, 14],
+        [4, 5],
+        [3, 3.5],
+        [6.5, 7]
+    ]);
+
+    var options_RSO2ETCO2 = {
+        tooltip: { isHtml: true },
+        backgroundColor: 'transparent',
+        title: 'CO2x: 0.2 (every 5min)',
+        hAxis: {title: 'MAP', minValue: 0, maxValue: 15},
+        vAxis: {title: 'RSO2', minValue: 0, maxValue: 15},
+        legend: 'none'
+    };
+
+    var chart_RSO2ETCO2 = new google.visualization.ScatterChart(document.getElementById('chart_RSO2ETCO2'));
+
+    chart_RSO2ETCO2.draw(data_RSO2ETCO2, options_RSO2ETCO2);
 }
