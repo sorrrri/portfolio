@@ -322,17 +322,3 @@ function drawAJDO2Chart() {
 
     chart_AJDO2.draw(data_AJDO2, options_AJDO2);
 }
-
-
-function resizeChart () {
-    chart.draw(data, options);
-}
-if (document.addEventListener) {
-    window.addEventListener('resize', resizeChart);
-}
-else if (document.attachEvent) {
-    window.attachEvent('onresize', resizeChart);
-}
-else {
-    window.resize = resizeChart;
-}

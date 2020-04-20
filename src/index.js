@@ -27,6 +27,30 @@ $(".navigation a").mouseup(function () {
 
 
 // Toggle Button
+/*$('.cb-value').click(function () {
+    var mainParent = $(this).parent('.btn-toggle');
+    if ($(mainParent).find('input.cb-value').is(':checked')) {
+        $(mainParent).addClass('light');
+        $(".container").removeClass("theme-dark");
+    } else {
+        $(mainParent).removeClass('light');
+        $(".container").addClass("theme-dark");
+    }
+})*/
+
+function setMyCookie() {
+    myCookieVal = $('.btn-toggle').hasClass('light') ? 'isActive' : 'notActive';
+    $.cookie('myCookieName', myCookieVal, {path: '/'});
+}
+
+if ($.cookie('myCookieName') == 'isActive') {
+    $('.btn-toggle').addClass('light');
+    $('.container').removeClass('theme-dark');
+} else {
+    $('.btn-toggle').removeClass('light');
+    $('.container').addClass('theme-dark');
+}
+
 $('.cb-value').click(function () {
     var mainParent = $(this).parent('.btn-toggle');
     if ($(mainParent).find('input.cb-value').is(':checked')) {
@@ -36,4 +60,5 @@ $('.cb-value').click(function () {
         $(mainParent).removeClass('light');
         $(".container").addClass("theme-dark");
     }
+    setMyCookie();
 })
