@@ -12,12 +12,12 @@
         <div>
             <div class="logo"><a href="index.html">EICU-APEX</a></div>
             <nav class="navigation nav_tabs">
-                <a href="#charts1">show charts1</a>
-                <a href="#charts2">show charts2</a>
-                <a href="#review">review</a>
+                <a href="#charts1">MAP/etCO2</a>
+                <a href="#charts2">Others</a>
+                <a href="#review">Review</a>
                 <a href="#record" class="btn-record">
                     <i class="far fa-edit"></i>
-                    <span>health record</span>
+                    <span>Manual records</span>
                 </a>
             </nav>
         </div>
@@ -33,7 +33,7 @@
     <!-- Chart 1 -->
     <section id="charts1" class="content">
         <div class="title">
-            <h1>Show Charts 1</h1>
+            <h1>MAP/etCO2</h1>
         </div>
         <div class="frame">
             <div class="chart-container">
@@ -66,7 +66,7 @@
     <!-- Charts 2 -->
     <section id="charts2" class="content">
         <div class="title">
-            <h1>Show Charts 2</h1>
+            <h1>Others</h1>
         </div>
         <div class="frame">
             <div class="chart-container">
@@ -114,7 +114,7 @@
         <div class="record-container">
             <div class="record">
                 <label for="input-time">time</label>
-                <input id="input-time" type="time"/>
+                <input id="input-time" type="datetime-local"/>
             </div>
         </div>
         <div class="frame">
@@ -154,7 +154,7 @@
     <!-- Health Record -->
     <section id="record" class="content">
         <div class="title">
-            <h1><span>홍길동</span>님, health record</h1>
+            <h1><span>홍길동</span>님, Manual records</h1>
             <button class="btn-save">
                 <i class="fas fa-check"></i>
                 <span>save</span>
@@ -165,7 +165,7 @@
                 <div class="record-container">
                     <div class="record">
                         <label for="search-time">time</label>
-                        <input id="search-time" type="time"/>
+                        <input id="search-time" type="datetime-local"/>
                     </div>
                 </div>
                 <div class="record-container">
@@ -219,7 +219,7 @@
                 <div class="record-container">
                     <div class="record">
                         <label for="time-lactate">time</label>
-                        <input id="time-lactate" type="time"/>
+                        <input id="time-lactate" type="datetime-local"/>
                     </div>
                     <div class="record">
                         <label for="arterial-lactate">Arterial Lactate</label>
@@ -233,21 +233,21 @@
                 <div class="record-container">
                     <div class="record">
                         <label for="time-glucose">time</label>
-                        <input id="time-glucose" type="time"/>
+                        <input id="time-glucose" type="datetime-local"/>
                     </div>
                     <div class="record">
-                        <label for="arterial-glucose">Arterial Lactate</label>
+                        <label for="arterial-glucose">Arterial Glucose</label>
                         <input id="arterial-glucose" type="text"/>
                     </div>
                     <div class="record">
-                        <label for="jugular-glucose">Jugular Lactate</label>
+                        <label for="jugular-glucose">Jugular Glucose</label>
                         <input id="jugular-glucose" type="text"/>
                     </div>
                 </div>
                 <div class="record-container">
                     <div class="record">
                         <label for="time-hgb">time</label>
-                        <input id="time-hgb" type="time"/>
+                        <input id="time-hgb" type="datetime-local" />
                     </div>
                     <div class="record">
                         <label for="hgb">Hgb</label>

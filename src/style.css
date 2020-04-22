@@ -44,6 +44,10 @@ input::-webkit-search-results-decoration {
     display: none;
 }
 
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-clear-button
+{ display: none; }
+
 input, input:before, input:after {
     -webkit-user-select: initial;
     -khtml-user-select: initial;
@@ -304,6 +308,7 @@ aside .navigation .btn-record {
 }
 
 aside .btn-record span {
+    font-size: 15px;
     font-family: 'Raleway', 'sans-serif';
     font-weight: 500;
     text-transform: capitalize;
@@ -473,17 +478,19 @@ aside .change-theme {
     justify-content: space-between;
     border-bottom: 1px solid #EEE;
     transition: border-bottom-color .4s;
+    position: relative;
 }
 
 .record label {
     font-size: 16px;
     color: #777;
-    flex: 1 1 auto
+    position: absolute;
+    left: 1rem
 }
 
 .record input {
     font-family: "Nunito", "sans-serif";
-    flex: 0 0 30%;
+    flex: 1 1 100%;
     text-align: right;
     font-weight: bold;
     box-shadow: 0 0 0 0;

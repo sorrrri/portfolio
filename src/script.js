@@ -40,7 +40,7 @@ function drawCOxChart() {
     var options_COx = {
         tooltip: { isHtml: true },
         backgroundColor: 'transparent',
-        title: "% under COx 0.3",
+        // title: "% under COx 0.3",
         width: "100%",
         height: "100%",
         bar: {groupWidth: "70%"},
@@ -79,7 +79,7 @@ function drawMAPChart() {
     var options_MAP = {
         tooltip: { isHtml: true },
         backgroundColor: 'transparent',
-        title: "% under MAP opt",
+        // title: "% under MAP opt",
         width: "100%",
         height: "100%",
         curveType: 'function',
@@ -118,7 +118,7 @@ function drawETCO2Chart() {
     var options_ETCO2 = {
         tooltip: { isHtml: true },
         backgroundColor: 'transparent',
-        title: "% under ETCO2 opt",
+        // title: "% under ETCO2 opt",
         width: "100%",
         height: "100%",
         curveType: 'function',
@@ -157,7 +157,7 @@ function drawRSO2Chart() {
     var options_RSO2 = {
         tooltip: { isHtml: true },
         backgroundColor: 'transparent',
-        title: "RSO2",
+        // title: "RSO2",
         width: "100%",
         height: "100%",
         curveType: 'function',
@@ -462,7 +462,7 @@ function drawRSO2ETCO2Chart() {
         tooltip: { isHtml: true },
         backgroundColor: 'transparent',
         title: 'CO2x: 0.2 (every 5min)',
-        hAxis: {title: 'MAP', minValue: 0, maxValue: 15},
+        hAxis: {title: 'etCO2', minValue: 0, maxValue: 15},
         vAxis: {title: 'RSO2', minValue: 0, maxValue: 15},
         legend: 'none'
     };
