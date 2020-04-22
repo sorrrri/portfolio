@@ -11,7 +11,7 @@ google.charts.setOnLoadCallback(drawCEO2Chart);
 google.charts.setOnLoadCallback(drawAJDO2Chart);
 google.charts.setOnLoadCallback(drawCOxMAPChart);
 google.charts.setOnLoadCallback(drawRSO2MAPChart);
-google.charts.setOnLoadCallback(drawCO2xETCO2Chart );
+google.charts.setOnLoadCallback(drawCO2xETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2ETCO2Chart);
 
 function drawCOxChart() {
@@ -38,7 +38,7 @@ function drawCOxChart() {
         }]);
 
     var options_COx = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         // title: "% under COx 0.3",
         width: "100%",
@@ -47,14 +47,15 @@ function drawCOxChart() {
         legend: {position: 'bottom'},
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4]
+            ticks: [0, .2, .4],
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
         },
     };
 
     var chart_COx = new google.visualization.ColumnChart(document.getElementById("chart_COx"));
     chart_COx.draw(view_COx, options_COx);
 }
-
 
 
 function drawMAPChart() {
@@ -77,7 +78,7 @@ function drawMAPChart() {
         }]);
 
     var options_MAP = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         // title: "% under MAP opt",
         width: "100%",
@@ -86,14 +87,15 @@ function drawMAPChart() {
         legend: {position: 'bottom'},
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4]
+            ticks: [0, .2, .4],
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
         },
     };
 
     var chart_MAP = new google.visualization.LineChart(document.getElementById("chart_MAP"));
     chart_MAP.draw(view_MAP, options_MAP);
 }
-
 
 
 function drawETCO2Chart() {
@@ -116,7 +118,7 @@ function drawETCO2Chart() {
         }]);
 
     var options_ETCO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         // title: "% under ETCO2 opt",
         width: "100%",
@@ -125,14 +127,15 @@ function drawETCO2Chart() {
         legend: {position: "bottom"},
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4]
+            ticks: [0, .2, .4],
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
         },
     };
 
     var chart_ETCO2 = new google.visualization.LineChart(document.getElementById("chart_ETCO2"));
     chart_ETCO2.draw(view_ETCO2, options_ETCO2);
 }
-
 
 
 function drawRSO2Chart() {
@@ -155,7 +158,7 @@ function drawRSO2Chart() {
         }]);
 
     var options_RSO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         // title: "RSO2",
         width: "100%",
@@ -164,14 +167,15 @@ function drawRSO2Chart() {
         legend: {position: "bottom"},
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4]
+            ticks: [0, .2, .4],
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
         },
     };
 
     var chart_RSO2 = new google.visualization.LineChart(document.getElementById("chart_RSO2"));
     chart_RSO2.draw(view_RSO2, options_RSO2);
 }
-
 
 
 function drawPupilChart() {
@@ -187,8 +191,8 @@ function drawPupilChart() {
     ]);
 
     var materialOptions = {
-        tooltip: { isHtml: true },
-        animation:{
+        tooltip: {isHtml: true},
+        animation: {
             duration: 1000,
             easing: 'out',
         },
@@ -204,7 +208,6 @@ function drawPupilChart() {
 }
 
 
-
 function drawNPIChart() {
     var data_NPI = new google.visualization.DataTable();
     data_NPI.addColumn('number', 'Time(hours)');
@@ -218,7 +221,7 @@ function drawNPIChart() {
     ]);
 
     var materialOptions_NPI = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         chart: {
             title: 'NPI',
@@ -229,7 +232,6 @@ function drawNPIChart() {
     var chart_NPI = new google.charts.Scatter(document.getElementById('chart_NPI'));
     chart_NPI.draw(data_NPI, google.charts.Scatter.convertOptions(materialOptions_NPI));
 }
-
 
 
 function drawSJVO2Chart() {
@@ -244,12 +246,16 @@ function drawSJVO2Chart() {
     ]);
 
     var options_SJVO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: 'SJVO2',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
         vAxis: {title: 'SJVO2', minValue: 0, maxValue: 15},
-        legend: 'none'
+        legend: 'none',
+        vAxis: {
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
+        },
     };
 
     var chart_SJVO2 = new google.visualization.ScatterChart(document.getElementById('chart_SJVO2'));
@@ -270,19 +276,22 @@ function drawAJDLChart() {
     ]);
 
     var options_AJDL = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: 'AJDL',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
         vAxis: {title: 'AJDL', minValue: 0, maxValue: 15},
-        legend: 'none'
+        legend: 'none',
+        vAxis: {
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
+        },
     };
 
     var chart_AJDL = new google.visualization.ScatterChart(document.getElementById('chart_AJDL'));
 
     chart_AJDL.draw(data_AJDL, options_AJDL);
 }
-
 
 
 function drawCEO2Chart() {
@@ -297,19 +306,22 @@ function drawCEO2Chart() {
     ]);
 
     var options_CEO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: 'CEO2',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
         vAxis: {title: 'CEO2', minValue: 0, maxValue: 15},
-        legend: 'none'
+        legend: 'none',
+        vAxis: {
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
+        },
     };
 
     var chart_CEO2 = new google.visualization.ScatterChart(document.getElementById('chart_CEO2'));
 
     chart_CEO2.draw(data_CEO2, options_CEO2);
 }
-
 
 
 function drawAJDO2Chart() {
@@ -324,19 +336,22 @@ function drawAJDO2Chart() {
     ]);
 
     var options_AJDO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: 'AJDO2',
         hAxis: {title: 'Time(72hour)', minValue: 0, maxValue: 15},
         vAxis: {title: 'AJDO2', minValue: 0, maxValue: 15},
-        legend: 'none'
+        legend: 'none',
+        vAxis: {
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
+        },
     };
 
     var chart_AJDO2 = new google.visualization.ScatterChart(document.getElementById('chart_AJDO2'));
 
     chart_AJDO2.draw(data_AJDO2, options_AJDO2);
 }
-
 
 
 function drawCOxMAPChart() {
@@ -363,7 +378,7 @@ function drawCOxMAPChart() {
         }]);
 
     var options_COxMAP = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: "MAP opt: 80-90 (every 6hr)",
         width: "400px",
@@ -372,8 +387,10 @@ function drawCOxMAPChart() {
         legend: {position: 'bottom'},
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4]
-        },
+            ticks: [0, .2, .4],
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
+        }
     };
 
     var chart_COxMAP = new google.visualization.ColumnChart(document.getElementById("chart_COxMAP"));
@@ -393,11 +410,17 @@ function drawRSO2MAPChart() {
     ]);
 
     var options_RSO2MAP = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: 'COx: 0.3 (every 5min)',
         hAxis: {title: 'MAP', minValue: 0, maxValue: 15},
-        vAxis: {title: 'RSO2', minValue: 0, maxValue: 15},
+        vAxis: {
+            title: 'RSO2',
+            minValue: 0,
+            maxValue: 15,
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
+        },
         legend: 'none'
     };
 
@@ -431,7 +454,7 @@ function drawCO2xETCO2Chart() {
         }]);
 
     var options_CO2xETCO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: "ETCO2 opt: 30-35 (every 6hr)",
         width: "600px",
@@ -439,7 +462,9 @@ function drawCO2xETCO2Chart() {
         legend: {position: 'bottom'},
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4]
+            ticks: [0, .2, .4],
+            baselineColor: '#ccc',
+            gridlineColor: '#ccc',
         },
     };
 
@@ -459,7 +484,7 @@ function drawRSO2ETCO2Chart() {
     ]);
 
     var options_RSO2ETCO2 = {
-        tooltip: { isHtml: true },
+        tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         title: 'CO2x: 0.2 (every 5min)',
         hAxis: {title: 'etCO2', minValue: 0, maxValue: 15},

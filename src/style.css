@@ -582,7 +582,8 @@ aside .change-theme {
 }
 
 .theme-dark .google-visualization-tooltip {
-    color: black
+    color: black;
+    display: none;
 }
 
 .theme-dark .chart .more {
