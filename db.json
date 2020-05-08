@@ -1,0 +1,270 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$180000$lIJ5ay0aYl3n$Sa5UHmTPgTIxaOmsitNeSUFegRFAs91hIQT27yO0UOE=",
+        "last_login": "2020-04-24T09:11:06.771Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2020-04-03T04:27:38.780Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "data.categorychoice",
+    "pk": "test333",
+    "fields": {}
+},
+{
+    "model": "data.categorychoice",
+    "pk": "test5",
+    "fields": {}
+},
+{
+    "model": "data.categorychoice",
+    "pk": "\ub300\uc2dc\ubcf4\ub4dc",
+    "fields": {}
+},
+{
+    "model": "data.categorychoice",
+    "pk": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+    "fields": {}
+},
+{
+    "model": "data.categorychoice",
+    "pk": "\uc784\uc0c1\uc11c\ube44\uc2a4",
+    "fields": {}
+},
+{
+    "model": "data.categorychoice",
+    "pk": "\ud648\ud398\uc774\uc9c0",
+    "fields": {}
+},
+{
+    "model": "data.data",
+    "pk": 1,
+    "fields": {
+        "name": "\ub124\uc774\ubc84",
+        "category": "\ub300\uc2dc\ubcf4\ub4dc",
+        "url": "http://www.naver.com",
+        "description": "\ub124\uc774\ubc84 \ud654\uba74\uc73c\ub85c \uc774\ub3d9\ud569\ub2c8\ub2e4",
+        "photo": "images/20200403/naver.png",
+        "created": "2020-04-03T04:32:32.332Z",
+        "updated": "2020-04-03T04:32:32.332Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 2,
+    "fields": {
+        "name": "\uad6c\uae00",
+        "category": "\ud648\ud398\uc774\uc9c0",
+        "url": "http://www.google.com",
+        "description": "\uad6c\uae00\uc774\uc5d0\uc694",
+        "photo": "images/20200403/google.png",
+        "created": "2020-04-03T04:34:48.154Z",
+        "updated": "2020-04-03T08:33:40.881Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 3,
+    "fields": {
+        "name": "KT",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://www.kt.com",
+        "description": "KT\ub85c \uc774\ub3d9",
+        "photo": "images/20200403/kt.png",
+        "created": "2020-04-03T04:36:04.689Z",
+        "updated": "2020-04-03T08:33:51.496Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 4,
+    "fields": {
+        "name": "\uc544\uc8fc\ub300 \uc5f0\uad6c\uc2e4",
+        "category": "\ud648\ud398\uc774\uc9c0",
+        "url": "http://www.naver.com",
+        "description": "\uc5f0\uad6c\uc2e4 \ud648\ud398\uc774\uc9c0",
+        "photo": "images/no_image.png",
+        "created": "2020-04-06T03:23:00.413Z",
+        "updated": "2020-04-06T03:23:00.413Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 5,
+    "fields": {
+        "name": "\ubc14\uc774\uc624\ubc45\ud06c",
+        "category": "\ud648\ud398\uc774\uc9c0",
+        "url": "http://www.naver.com",
+        "description": "\ubc14\uc774\uc624\ubc45\ud06c \ud648\ud398\uc774\uc9c0",
+        "photo": "images/20200406/blood-test.png",
+        "created": "2020-04-06T03:23:35.758Z",
+        "updated": "2020-04-06T05:50:05.801Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 6,
+    "fields": {
+        "name": "\ubc84\ub4dc\uc628",
+        "category": "\ud648\ud398\uc774\uc9c0",
+        "url": "http://www.naver.com",
+        "description": "\ubc84\ub4dc\uc628 \ud648\ud398\uc774\uc9c0",
+        "photo": "images/no_image.png",
+        "created": "2020-04-06T03:23:59.127Z",
+        "updated": "2020-04-06T03:23:59.127Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 7,
+    "fields": {
+        "name": "NS \uc6f9 \ub514\ube44",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "NS \uc6f9 \ub514\ube44",
+        "photo": "images/20200406/diagnose.png",
+        "created": "2020-04-06T03:24:17.760Z",
+        "updated": "2020-04-06T05:55:40.209Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 8,
+    "fields": {
+        "name": "\uc0dd\uccb4\uc2e0\ud638 \ubdf0\uc5b4",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://52.78.14.28:8080/",
+        "description": "\uc0dd\uccb4\uc2e0\ud638 \ubdf0\uc5b4",
+        "photo": "images/20200406/healthy.png",
+        "created": "2020-04-06T03:24:36.441Z",
+        "updated": "2020-04-07T11:01:05.787Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 9,
+    "fields": {
+        "name": "\uc544\uc8fc\ub300 PhysioNet",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "\uc544\uc8fc\ub300 PhysioNet",
+        "photo": "images/20200406/waterdrop.png",
+        "created": "2020-04-06T03:24:51.371Z",
+        "updated": "2020-04-06T05:53:44.858Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 10,
+    "fields": {
+        "name": "\uc774\ubca4\ud2b8\ub85c\uac70",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "\uc774\ubca4\ud2b8\ub85c\uac70",
+        "photo": "images/no_image.png",
+        "created": "2020-04-06T03:25:02.442Z",
+        "updated": "2020-04-06T03:25:02.443Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 11,
+    "fields": {
+        "name": "\ubc31\uc2e0 \uc870\uc791\uc801 \uc815\uc758",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "\uc870\uc791\uc801 \uc815\uc758 \uc2dc\uc2a4\ud15c",
+        "photo": "images/20200406/vaccine.png",
+        "created": "2020-04-06T03:25:14.628Z",
+        "updated": "2020-04-06T05:49:09.943Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 12,
+    "fields": {
+        "name": "\uc0dd\uccb4\uc2e0\ud638 \ub808\uc774\ube14\ub9c1",
+        "category": "\ub370\uc774\ud130\ubca0\uc774\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "\ub808\uc774\ube14\ub9c1 \ud234",
+        "photo": "images/20200406/cardio_TK1Thty.png",
+        "created": "2020-04-06T03:25:27.530Z",
+        "updated": "2020-04-06T05:48:52.306Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 13,
+    "fields": {
+        "name": "\uc2dd\uc57d\ucc98 QT \ub2a5\ub3d9\uac10\uc2dc",
+        "category": "\ub300\uc2dc\ubcf4\ub4dc",
+        "url": "http://www.naver.com",
+        "description": "\ub2a5\ub3d9\uac10\uc2dc \uc2dc\uc2a4\ud15c",
+        "photo": "images/20200406/unnamed.png",
+        "created": "2020-04-06T03:25:40.178Z",
+        "updated": "2020-04-06T05:48:08.074Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 14,
+    "fields": {
+        "name": "\ubc31\uc2e0 \ub2a5\ub3d9\uac10\uc2dc",
+        "category": "\ub300\uc2dc\ubcf4\ub4dc",
+        "url": "http://www.naver.com",
+        "description": "\ubc31\uc2e0 \ub2a5\ub3d9\uac10\uc2dc \uc2dc\uc2a4\ud15c",
+        "photo": "images/20200406/electrocardiogram.png",
+        "created": "2020-04-06T03:25:54.814Z",
+        "updated": "2020-04-06T05:45:30.860Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 15,
+    "fields": {
+        "name": "\uc0dd\uccb4\uc2e0\ud638",
+        "category": "\ub300\uc2dc\ubcf4\ub4dc",
+        "url": "http://52.78.14.28:3000/",
+        "description": "\uc0dd\uccb4\uc2e0\ud638 \ub300\uc26c\ubcf4\ub4dc",
+        "photo": "images/20200406/heart.png",
+        "created": "2020-04-06T03:26:10.292Z",
+        "updated": "2020-04-07T11:00:35.536Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 16,
+    "fields": {
+        "name": "APEX",
+        "category": "\uc784\uc0c1\uc11c\ube44\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "APEX",
+        "photo": "images/no_image.png",
+        "created": "2020-04-06T03:26:22.721Z",
+        "updated": "2020-04-06T03:26:22.721Z"
+    }
+},
+{
+    "model": "data.data",
+    "pk": 17,
+    "fields": {
+        "name": "\uc0dd\uccb4\uc2e0\ud638",
+        "category": "\uc784\uc0c1\uc11c\ube44\uc2a4",
+        "url": "http://www.naver.com",
+        "description": "\ud5a5\ud6c4 \uc0dd\uccb4\uc2e0\ud638 \ubd84\uc11d",
+        "photo": "images/20200406/heartbeat.png",
+        "created": "2020-04-06T03:26:33.908Z",
+        "updated": "2020-04-06T05:54:06.169Z"
+    }
+}
+]
