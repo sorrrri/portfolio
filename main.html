@@ -8,251 +8,122 @@
 </head>
 <body>
 <div class="container theme-dark">
-    <aside>
-        <div>
-            <div class="logo"><a href="index.html">EICU-APEX</a></div>
-            <nav class="navigation nav_tabs">
-                <a href="#charts1">MAP/etCO2</a>
-                <a href="#charts2">Others</a>
-                <a href="#review">Review</a>
-                <a href="#record" class="btn-record">
-                    <i class="far fa-edit"></i>
-                    <span>Manual records</span>
-                </a>
-            </nav>
-        </div>
-        <div class="change-theme">
+    <div class="header">
+        <div class="logo"><a href="index.html">EICU-APEX</a></div>
+        <nav class="navigation nav_tabs">
+            <a href="main.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                    <path d="M16 1H2c-.55 0-1 .45-1 1v14c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM7 13H5V8h2v5zm3 0H8V5h2v8zm3 0h-2V9h2v4z"/>
+                </svg>
+                graph</a>
+            <a href="input.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                </svg>
+                <span>input</span>
+            </a>
+        </nav>
+        <!--<div class="change-theme">
             <small>dark</small>
             <div class="btn-toggle">
                 <input type="checkbox" checked class="cb-value"/> <span class="round-btn"></span>
             </div>
             <small>light</small>
+        </div>-->
+        <div class="search">
+            <select>
+                <option value="1458723">1458723</option>
+                <option value="3452525">3452525</option>
+                <option value="7537332">7537332</option>
+                <option value="2321542">2321542</option>
+                <option value="8645624">8645624</option>
+                <option value="3267435">3267435</option>
+                <option value="6845625">6845625</option>
+            </select>
+            <input type="search"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
         </div>
-    </aside>
+    </div>
+    <div class="header-charts">
+        <input class="checkbox" id="check-chart-COx" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-COx">COx</label>
+        <input class="checkbox" id="check-chart-MAP" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-MAP">MAP</label>
+        <input class="checkbox" id="check-chart-ETCO2" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-ETCO2">ETCO2</label>
+        <input class="checkbox" id="check-chart-RSO2" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-RSO2">RSO2</label>
+        <input class="checkbox" id="check-chart-pupil" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-pupil">Pupil Size</label>
+        <input class="checkbox" id="check-chart-NPI" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-NPI">NPI</label>
+        <input class="checkbox" id="check-chart-SJVO2" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-SJVO2">SJVO2</label>
+        <input class="checkbox" id="check-chart-AJDL" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-AJDL">AJDL</label>
+        <input class="checkbox" id="check-chart-CEO2" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-CEO2">CEO2</label>
+        <input class="checkbox" id="check-chart-AJDO2" type="checkbox" name="charts" checked="checked">
+        <label for="check-chart-AJDO2">AJDO2</label>
+    </div>
 
     <!-- Chart 1 -->
-    <section id="charts1" class="content">
-        <div class="title">
-            <h1>MAP/etCO2</h1>
-        </div>
+    <section class="content">
         <div class="frame">
-            <div class="chart-container">
+            <div id="chart-COx-container" class="chart-container">
                 <div class="chart">
                     <i class="more btn-COx-MAP fas fa-ellipsis-h"></i>
                     <div id="chart_COx">
                     </div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-MAP-container" class="chart-container">
                 <div class="chart">
                     <i class="more btn-COx-MAP fas fa-ellipsis-h"></i>
                     <div id="chart_MAP"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-ETCO2-container" class="chart-container">
                 <div class="chart">
                     <i class="more btn-ETCO2 fas fa-ellipsis-h"></i>
                     <div id="chart_ETCO2"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-RSO2-container" class="chart-container">
                 <div class="chart">
                     <div id="chart_RSO2"></div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Charts 2 -->
-    <section id="charts2" class="content">
-        <div class="title">
-            <h1>Others</h1>
-        </div>
-        <div class="frame">
-            <div class="chart-container">
+            <div id="chart-pupil-container" class="chart-container">
                 <div class="chart" style="padding: 0 2rem">
                     <div id="chart_pupil"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-NPI-container" class="chart-container">
                 <div class="chart" style="padding: 0 2rem">
                     <div id="chart_NPI"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-SJVO2-container" class="chart-container">
                 <div class="chart">
                     <div id="chart_SJVO2"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-AJDL-container" class="chart-container">
                 <div class="chart">
                     <div id="chart_AJDL"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-CEO2-container" class="chart-container">
                 <div class="chart">
                     <div id="chart_CEO2"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div id="chart-AJDO2-container" class="chart-container">
                 <div class="chart">
                     <div id="chart_AJDO2"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Review -->
-    <section id="review" class="content">
-        <div class="title">
-            <h1>Review</h1>
-            <button class="btn-save">
-                <i class="fas fa-search"></i>
-                <span>search</span>
-            </button>
-        </div>
-        <div class="record-container">
-            <div class="record">
-                <label for="input-time">time</label>
-                <input id="input-time" type="datetime-local"/>
-            </div>
-        </div>
-        <div class="frame">
-            <div class="chart-container">
-                <div class="chart" style="padding: 0 2rem">
-                    <div id="chart_div"></div>
-                </div>
-            </div>
-            <div class="chart-container">
-                <div class="chart" style="padding: 0 2rem">
-                    <div id="chart_div2"></div>
-                </div>
-            </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="chart_div3"></div>
-                </div>
-            </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="chart_div4"></div>
-                </div>
-            </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="chart_div5"></div>
-                </div>
-            </div>
-            <div class="chart-container">
-                <div class="chart">
-                    <div id="chart_div6"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Health Record -->
-    <section id="record" class="content">
-        <div class="title">
-            <h1><span>홍길동</span>님, Manual records</h1>
-            <button class="btn-save">
-                <i class="fas fa-check"></i>
-                <span>save</span>
-            </button>
-        </div>
-        <div class="frame">
-            <div class="records">
-                <div class="record-container">
-                    <div class="record">
-                        <label for="search-time">time</label>
-                        <input id="search-time" type="datetime-local"/>
-                    </div>
-                </div>
-                <div class="record-container">
-                    <div class="record-title">Arterial BGA</div>
-                    <div class="record">
-                        <label for="arterial-ph">PH</label>
-                        <input id="arterial-ph" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="arterial-sao2">SaO2</label>
-                        <input id="arterial-sao2" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="arterial-co2">CO2</label>
-                        <input id="arterial-co2" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="arterial-hco3">HCO3</label>
-                        <input id="arterial-hco3" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="arterial-be">BE</label>
-                        <input id="arterial-be" type="number"/>
-                    </div>
-                </div>
-                <div class="record-container">
-                    <div class="record-title">Jugular BGA</div>
-                    <div class="record">
-                        <label for="jugular-ph">PH</label>
-                        <input id="jugular-ph" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="jugular-sao2">SaO2</label>
-                        <input id="jugular-sao2" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="jugular-co2">CO2</label>
-                        <input id="jugular-co2" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="jugular-hco3">HCO3</label>
-                        <input id="jugular-hco3" type="number"/>
-                    </div>
-                    <div class="record">
-                        <label for="jugular-be">BE</label>
-                        <input id="jugular-be" type="number"/>
-                    </div>
-                </div>
-            </div>
-            <div class="records">
-                <div class="record-container">
-                    <div class="record">
-                        <label for="time-lactate">time</label>
-                        <input id="time-lactate" type="datetime-local"/>
-                    </div>
-                    <div class="record">
-                        <label for="arterial-lactate">Arterial Lactate</label>
-                        <input id="arterial-lactate" type="text"/>
-                    </div>
-                    <div class="record">
-                        <label for="jugular-lactate">Jugular Lactate</label>
-                        <input id="jugular-lactate" type="text"/>
-                    </div>
-                </div>
-                <div class="record-container">
-                    <div class="record">
-                        <label for="time-glucose">time</label>
-                        <input id="time-glucose" type="datetime-local"/>
-                    </div>
-                    <div class="record">
-                        <label for="arterial-glucose">Arterial Glucose</label>
-                        <input id="arterial-glucose" type="text"/>
-                    </div>
-                    <div class="record">
-                        <label for="jugular-glucose">Jugular Glucose</label>
-                        <input id="jugular-glucose" type="text"/>
-                    </div>
-                </div>
-                <div class="record-container">
-                    <div class="record">
-                        <label for="time-hgb">time</label>
-                        <input id="time-hgb" type="datetime-local" />
-                    </div>
-                    <div class="record">
-                        <label for="hgb">Hgb</label>
-                        <input id="hgb" type="text"/>
-                    </div>
                 </div>
             </div>
         </div>

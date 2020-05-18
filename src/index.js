@@ -19,13 +19,6 @@ $(window).resize(function () {
     location.reload();
 });
 
-$(".navigation a").mouseup(function () {
-    setTimeout(function () {
-        location.reload();
-    }, 10);
-});
-
-
 
 // Modal
 $(".btn-COx-MAP").on("click", function () {
@@ -36,10 +29,9 @@ $(".btn-ETCO2").on("click", function () {
     $(".modal-ETCO2, .modal-backdrop").addClass("active")
 })
 
-$(".modal-backdrop").on("click", function() {
+$(".modal-backdrop").on("click", function () {
     $(".modal-backdrop, .modal").removeClass("active");
 });
-
 
 
 // Toggle Button
@@ -92,3 +84,33 @@ searchTime.value = new Date().toISOString().slice(0, 16);
 timeLactate.value = new Date().toISOString().slice(0, 16);
 timeGlucose.value = new Date().toISOString().slice(0, 16);
 timeHgb.value = new Date().toISOString().slice(0, 16);
+
+
+function charts() {
+    var checkChartCOx = document.getElementById("check-chart-COx");
+    var checkChartMAP = document.getElementById("check-chart-MAP");
+    var checkChartETCO2 = document.getElementById("check-chart-ETCO2");
+    var checkChartRSO2 = document.getElementById("check-chart-RSO2");
+    var checkChartPupil = document.getElementById("check-chart-pupil");
+    var checkChartNPI = document.getElementById("check-chart-NPI");
+    var checkChartSJVO2 = document.getElementById("check-chart-SJVO2");
+    var checkChartAJDL = document.getElementById("check-chart-AJDL");
+    var checkChartCEO2 = document.getElementById("check-chart-CEO2");
+    var checkChartAJDO2 = document.getElementById("check-chart-AJDO2");
+
+    var chartCOxContainer = document.getElementById('chart-COx-container');
+    var chartMAPContainer = document.getElementById('chart-MAP-container');
+    var chartETCO2Container = document.getElementById('chart-ETCO2-container');
+    var chartRSO2Container = document.getElementById('chart-RSO2-container');
+    var chartPupilContainer = document.getElementById('chart-pupil-container');
+    var chartNPIContainer = document.getElementById('chart-NPI-container');
+    var chartSJVO2Container = document.getElementById('chart-SJVO2-container');
+    var chartAJDLContainer = document.getElementById('chart-AJDL-container');
+    var chartCEO2Container = document.getElementById('chart-CEO2-container');
+    var chartAJDO2Container = document.getElementById('chart-AJDO2-container');
+
+    if ($(checkChartCOx).is(":checked") == true) {
+        $(chartCOxContainer).addClass('active')
+    }
+
+}
