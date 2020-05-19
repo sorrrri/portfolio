@@ -14,53 +14,76 @@ google.charts.setOnLoadCallback(drawRSO2MAPChart);
 google.charts.setOnLoadCallback(drawCO2xETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2ETCO2Chart);
 
+
+
+
 function drawCOxChart() {
     var data_COx = new google.visualization.DataTable();
-    data_COx.addColumn('timeofday', 'Time of Day');
+    data_COx.addColumn('date', 'Time of Day');
     data_COx.addColumn('number', 'COx');
     data_COx.addColumn({'type': 'string', 'role': 'tooltip'});
     data_COx.addColumn({'role': 'style'});
     data_COx.addRows([
-        [{v: [8, 0, 0], f: '8 am'}, 0.2, null],
-        [{v: [9, 0, 0], f: '9 am'}, 0.2, null, null],
-        [{v: [10, 0, 0], f:'10 am'}, 0.3, null, null],
-        [{v: [11, 0, 0], f: '11 am'}, 0.4, null, null],
-        [{v: [12, 0, 0], f: '12 pm'}, 0.25, null, null],
-        [{v: [13, 0, 0], f: '1 pm'}, 0.36, null, null],
-        [{v: [14, 0, 0], f: '2 pm'}, 0.17, null, null],
-        [{v: [15, 0, 0], f: '3 pm'}, 0.28, null, null],
-        [{v: [16, 0, 0], f: '4 pm'}, 0.29, null, null],
-        [{v: [17, 0, 0], f: '5 pm'}, 0.30, 'shape-type: star; fill-color: coral;'],
-        [{v: [18, 0, 0], f: '6 am'}, 0.2, null, null],
-        [{v: [19, 0, 0], f: '7 am'}, 0.2, null, null],
-        [{v: [20, 0, 0], f:'8 am'}, 0.3, null, null],
-        [{v: [21, 0, 0], f: '9 am'}, 0.4, null, null],
-        [{v: [22, 0, 0], f: '10 pm'}, 0.25, null, null],
-        [{v: [23, 0, 0], f: '11 pm'}, 0.36, null, null],
-        [{v: [24, 0, 0], f: '12 pm'}, 0.17, null, null],
-        [{v: [1, 0, 0], f: '13 pm'}, 0.28, null, null],
-        [{v: [2, 0, 0], f: '14 pm'}, 0.29, null, null],
-        [{v: [3, 0, 0], f: '15 pm'}, 0.30, null, null],
+        [new Date(2020, 5, 20, 13), 0.2, null, null],
+        [new Date(2020, 5, 20, 14), 0.2, null, null],
+        [new Date(2020, 5, 20, 15), 0.3, null, null],
+        [new Date(2020, 5, 20, 16), 0.2, null, null],
+        [new Date(2020, 5, 20, 17), 0.25, null, null],
+        [new Date(2020, 5, 20, 18), 0.36, null, null],
+        [new Date(2020, 5, 20, 19), 0.17, null, null],
+        [new Date(2020, 5, 20, 20), 0.28, null, null],
+        [new Date(2020, 5, 20, 21), 0.29, null, null],
+        [new Date(2020, 5, 20, 22), 0.30, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 5, 20, 23), 0.2, null, null],
+        [new Date(2020, 5, 20, 24), 0.2, null, null],
+        [new Date(2020, 5, 21, 1), 0.3, null, null],
+        [new Date(2020, 5, 21, 2), 0.3, null, null],
+        [new Date(2020, 5, 21, 3), 0.25, null, null],
+        [new Date(2020, 5, 21, 4), 0.36, null, null],
+        [new Date(2020, 5, 21, 5), 0.17, null, null],
+        [new Date(2020, 5, 21, 6), 0.28, null, null],
+        [new Date(2020, 5, 21, 7), 0.29, null, null],
+        [new Date(2020, 5, 21, 8), 0.30, null, null],
     ]);
 
     var options_COx = {
+        colors: ["#0191B4"],
+        tooltip: {isHtml: true},
         explorer: { axis:'horizontal' },
         backgroundColor: 'transparent',
         height: "100%",
-        bar: {groupWidth: "60%"},
-        legend: {position: 'top'},
+        legend: "none",
+        pointSize: 7,
+        curveType: 'function',
         hAxis: {
-            format: 'h:mm a'
+            baselineColor: '#777',
+            gridlineColor: '#333',
+            gridlines: {
+                units: {
+                    days: {format: ['M dd']},
+                    hours: {format: ['HH:mm']},
+                }
+            },
+            minorGridlines: {
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
+            }
         },
         vAxis: {
             minValue: 0,
-            ticks: [0, .2, .4],
-            baselineColor: '#ccc',
-            gridlineColor: '#ccc',
+            ticks: [0, .3, .4],
+            baselineColor: '#777',
+            gridlineColor: '#777',
         },
+        chartArea: {
+            width: '95%',
+            height: '80%'
+        }
     };
 
-    var chart_COx = new google.visualization.ColumnChart(document.getElementById("chart_COx"));
+    var chart_COx = new google.visualization.LineChart(document.getElementById("chart_COx"));
     chart_COx.draw(data_COx, options_COx);
 }
 
@@ -131,7 +154,7 @@ function drawETCO2Chart() {
         width: "100%",
         height: "100%",
         curveType: 'function',
-        legend: {position: "bottom"},
+        legend: "left",
         vAxis: {
             minValue: 0,
             ticks: [0, .2, .4],
