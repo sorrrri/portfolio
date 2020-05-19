@@ -46,86 +46,84 @@
             </svg>
         </div>
     </div>
-    <div class="header-charts">
-        <input class="checkbox" id="check-chart-COx" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-COx">COx</label>
-        <input class="checkbox" id="check-chart-MAP" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-MAP">MAP</label>
-        <input class="checkbox" id="check-chart-ETCO2" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-ETCO2">ETCO2</label>
-        <input class="checkbox" id="check-chart-RSO2" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-RSO2">RSO2</label>
-        <input class="checkbox" id="check-chart-pupil" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-pupil">Pupil Size</label>
-        <input class="checkbox" id="check-chart-NPI" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-NPI">NPI</label>
-        <input class="checkbox" id="check-chart-SJVO2" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-SJVO2">SJVO2</label>
-        <input class="checkbox" id="check-chart-AJDL" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-AJDL">AJDL</label>
-        <input class="checkbox" id="check-chart-CEO2" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-CEO2">CEO2</label>
-        <input class="checkbox" id="check-chart-AJDO2" type="checkbox" name="charts" checked="checked">
-        <label for="check-chart-AJDO2">AJDO2</label>
+    <div id="filters-container" class="filter-charts">
+        <div class="checkbox">
+            <input id="filter-COx" type="checkbox" name="charts" value="filter-COx" checked="checked">
+            <label for="filter-COx">COx</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-MAP" type="checkbox" name="charts" value="filter-MAP" checked="checked">
+            <label for="filter-MAP">MAP</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-ETCO2" type="checkbox" name="charts" value="filter-ETCO2" checked="checked">
+            <label for="filter-ETCO2">ETCO2</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-RSO2" type="checkbox" name="charts" value="filter-RSO2" checked="checked">
+            <label for="filter-RSO2">RSO2</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-pupil" type="checkbox" name="charts" value="filter-pupil" checked="checked">
+            <label for="filter-pupil">Pupil Size</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-NPI" type="checkbox" name="charts" value="filter-NPI" checked="checked">
+            <label for="filter-NPI">NPI</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-SJVO2" type="checkbox" name="charts" value="filter-SJVO2" checked="checked">
+            <label for="filter-SJVO2">SJVO2</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-AJDL" type="checkbox" name="charts" value="filter-AJDL" checked="checked">
+            <label for="filter-AJDL">AJDL</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-CEO2" type="checkbox" name="charts" value="filter-CEO2" checked="checked">
+            <label for="filter-CEO2">CEO2</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-AJDO2" type="checkbox" name="charts" value="filter-AJDO2" checked="checked">
+            <label for="filter-AJDO2">AJDO2</label>
+
+        </div>
     </div>
 
     <!-- Chart 1 -->
     <section class="content">
-        <div class="frame">
-            <div id="chart-COx-container" class="chart-container">
-                <div class="chart">
-                    <i class="more btn-COx-MAP fas fa-ellipsis-h"></i>
-                    <div id="chart_COx">
-                    </div>
-                </div>
-            </div>
-            <div id="chart-MAP-container" class="chart-container">
-                <div class="chart">
-                    <i class="more btn-COx-MAP fas fa-ellipsis-h"></i>
-                    <div id="chart_MAP"></div>
-                </div>
-            </div>
-            <div id="chart-ETCO2-container" class="chart-container">
-                <div class="chart">
-                    <i class="more btn-ETCO2 fas fa-ellipsis-h"></i>
-                    <div id="chart_ETCO2"></div>
-                </div>
-            </div>
-            <div id="chart-RSO2-container" class="chart-container">
-                <div class="chart">
-                    <div id="chart_RSO2"></div>
-                </div>
-            </div>
-            <div id="chart-pupil-container" class="chart-container">
-                <div class="chart" style="padding: 0 2rem">
-                    <div id="chart_pupil"></div>
-                </div>
-            </div>
-            <div id="chart-NPI-container" class="chart-container">
-                <div class="chart" style="padding: 0 2rem">
-                    <div id="chart_NPI"></div>
-                </div>
-            </div>
-            <div id="chart-SJVO2-container" class="chart-container">
-                <div class="chart">
-                    <div id="chart_SJVO2"></div>
-                </div>
-            </div>
-            <div id="chart-AJDL-container" class="chart-container">
-                <div class="chart">
-                    <div id="chart_AJDL"></div>
-                </div>
-            </div>
-            <div id="chart-CEO2-container" class="chart-container">
-                <div class="chart">
-                    <div id="chart_CEO2"></div>
-                </div>
-            </div>
-            <div id="chart-AJDO2-container" class="chart-container">
-                <div class="chart">
-                    <div id="chart_AJDO2"></div>
-                </div>
-            </div>
+        <div class="chart-container filter-COx">
+            <i class="more btn-COx-MAP fas fa-ellipsis-h"></i>
+            <div id="chart_COx" class="chart"></div>
+        </div>
+        <div class="chart-container filter-MAP">
+            <i class="more btn-COx-MAP fas fa-ellipsis-h"></i>
+            <div id="chart_MAP" class="chart"></div>
+        </div>
+        <div class="chart-container filter-AJDO2ETCO2">
+            <i class="more btn-ETCO2 fas fa-ellipsis-h"></i>
+            <div id="chart_ETCO2" class="chart"></div>
+        </div>
+        <div class="chart-container filter-RSO2">
+            <div id="chart_RSO2" class="chart"></div>
+        </div>
+        <div class="chart-container filter-pupil">
+            <div id="chart_pupil" class="chart"></div>
+        </div>
+        <div class="chart-container filter-NPI">
+            <div id="chart_NPI" class="chart"></div>
+        </div>
+        <div class="chart-container filter-SJVO2">
+            <div id="chart_SJVO2" class="chart"></div>
+        </div>
+        <div class="chart-container filter-AJDL">
+            <div id="chart_AJDL" class="chart"></div>
+        </div>
+        <div class="chart-container filter-CEO2">
+            <div id="chart_CEO2" class="chart"></div>
+        </div>
+        <div class="chart-container filter-AJDO2">
+            <div id="chart_AJDO2" class="chart"></div>
         </div>
     </section>
 
@@ -153,11 +151,8 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="src/script.js" type="text/javascript"></script>
-<script src="https://kit.fontawesome.com/de76a5146b.js" crossorigin="anonymous"></script>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="src/index.js"></script>
 </body>

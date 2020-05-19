@@ -79,38 +79,29 @@ var timeLactate = document.getElementById('time-lactate');
 var timeGlucose = document.getElementById('time-glucose');
 var timeHgb = document.getElementById('time-hgb');
 
-inputTime.value = new Date().toISOString().slice(0, 16);
+/*inputTime.value = new Date().toISOString().slice(0, 16);
 searchTime.value = new Date().toISOString().slice(0, 16);
 timeLactate.value = new Date().toISOString().slice(0, 16);
 timeGlucose.value = new Date().toISOString().slice(0, 16);
-timeHgb.value = new Date().toISOString().slice(0, 16);
+timeHgb.value = new Date().toISOString().slice(0, 16);*/
 
 
-function charts() {
-    var checkChartCOx = document.getElementById("check-chart-COx");
-    var checkChartMAP = document.getElementById("check-chart-MAP");
-    var checkChartETCO2 = document.getElementById("check-chart-ETCO2");
-    var checkChartRSO2 = document.getElementById("check-chart-RSO2");
-    var checkChartPupil = document.getElementById("check-chart-pupil");
-    var checkChartNPI = document.getElementById("check-chart-NPI");
-    var checkChartSJVO2 = document.getElementById("check-chart-SJVO2");
-    var checkChartAJDL = document.getElementById("check-chart-AJDL");
-    var checkChartCEO2 = document.getElementById("check-chart-CEO2");
-    var checkChartAJDO2 = document.getElementById("check-chart-AJDO2");
 
-    var chartCOxContainer = document.getElementById('chart-COx-container');
-    var chartMAPContainer = document.getElementById('chart-MAP-container');
-    var chartETCO2Container = document.getElementById('chart-ETCO2-container');
-    var chartRSO2Container = document.getElementById('chart-RSO2-container');
-    var chartPupilContainer = document.getElementById('chart-pupil-container');
-    var chartNPIContainer = document.getElementById('chart-NPI-container');
-    var chartSJVO2Container = document.getElementById('chart-SJVO2-container');
-    var chartAJDLContainer = document.getElementById('chart-AJDL-container');
-    var chartCEO2Container = document.getElementById('chart-CEO2-container');
-    var chartAJDO2Container = document.getElementById('chart-AJDO2-container');
+// On checkbox click in the color filter
+$("#filters-container .checkbox").click(() => {
+    // Define constants for length of checked checkboxes array
+    const selectedChartLength = $('.filter-charts :checkbox').filter(':checked').length;
+    // Hide all items in the list
+    $(".chart-container").hide();
 
-    if ($(checkChartCOx).is(":checked") == true) {
-        $(chartCOxContainer).addClass('active')
+    // If checkboxes are selected in the color-filter ONLY
+    if (selectedChartLength >= 1) {
+        // For each of the checked checkboxes in the color-filter
+        $(".filter-charts :checkbox:checked").each((index, element) => {
+            // Show items with the class of the value of the checkbox
+            $("." + $(element).val()).fadeIn();
+        });
+
+        // If checkboxes are selected in color-filter AND type-filter
     }
-
-}
+});
