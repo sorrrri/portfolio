@@ -61,7 +61,8 @@ body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -346,8 +347,10 @@ ion-icon {
     justify-content: space-between;
 }
 
-.filter-charts {
-
+.filter-charts .checkbox label {
+    font-size: 15px;
+    color: rgba(255, 255, 255, .3);
+    color: rgba(255, 255, 255, .3);
 }
 
 
@@ -439,7 +442,7 @@ ion-icon {
 }
 
 
-.chart-container > div {
+.chart-container .chart {
     flex: 1;
 }
 
@@ -450,11 +453,18 @@ ion-icon {
     padding: 1rem;
 }
 
-
-
 .records {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.records .record-container {
     flex: 1 1 50%;
     padding: .25rem;
+}
+
+.records .checkbox {
+    flex: 1 1 20%
 }
 
 .record-container {
@@ -471,7 +481,7 @@ ion-icon {
     color: #0191B4;
     font-family: "Raleway", "sans-serif";
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin: 1rem 1rem .5rem;
 }
 
 .record {
@@ -480,14 +490,12 @@ ion-icon {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #EEE;
-    transition: border-bottom-color .4s;
     position: relative;
 }
 
 .record label {
     font-size: 16px;
-    color: #777;
+    color: #A3A6A9;
     position: absolute;
     left: 1rem
 }
@@ -498,6 +506,8 @@ ion-icon {
     text-align: right;
     font-weight: bold;
     box-shadow: 0 0 0 0;
+    border-bottom: 1px solid #EEE;
+    transition: border-bottom-color .4s;
 }
 
 .record input:focus {
@@ -596,12 +606,16 @@ ion-icon {
     fill: white;
 }
 
-.theme-dark .record {
-    border-color: rgba(255, 255, 255, .1);
+.theme-dark .record {;
 }
 
 .theme-dark .record input {
-    color: white
+    color: white;
+    border-color: rgba(255, 255, 255, .1)
+}
+.theme-dark .record textarea {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, .1)
 }
 
 .theme-dark .modal .chart-container {
@@ -652,10 +666,9 @@ ion-icon {
 }
 
 .checkbox label {
+    color: white;
     display: flex;
-    font-size: 15px;
-    line-height: 1;
-    color: rgba(255, 255, 255, .3);
+    align-items: center;
     position: relative;
     cursor: pointer;
     padding: 0;
@@ -680,7 +693,7 @@ ion-icon {
     content: '';
     position: absolute;
     left: 3px;
-    top: 7px;
+    top: 10px;
     background: white;
     width: 2px;
     height: 2px;
@@ -691,10 +704,21 @@ ion-icon {
 
 
 select {
+    font-size: 14px;
     font-family: "Nunito", "sans-serif";
     border: 0;
     border-radius: .3rem;
     padding: .5rem;
     margin-right: .5rem;
     cursor: pointer;
+}
+
+textarea {
+    font-size: 17px;
+    font-family: "Nanumsquare";
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+    resize: none;
+    color: white;
 }

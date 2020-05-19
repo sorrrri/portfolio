@@ -15,68 +15,43 @@ google.charts.setOnLoadCallback(drawCO2xETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2ETCO2Chart);
 
 function drawCOxChart() {
-    var data_COx = google.visualization.arrayToDataTable([
-        ["Time", "COx"],
-        ["01", 0.27],
-        ["02", 0.27],
-        ["03", 0.197],
-        ["04", 0.243],
-        ["05", 0.2],
-        ["06", 0.27],
-        ["07", 0.197],
-        ["08", 0.243],
-        ["09", 0.2],
-        ["10", 0.175],
-        ["11", 0.27],
-        ["12", 0.197],
-        ["13", 0.27],
-        ["14", 0.197],
-        ["15", 0.243],
-        ["16", 0.2],
-        ["17", 0.175],
-        ["18", 0.27],
-        ["19", 0.197],
-        ["20", 0.243],
-        ["21", 0.2],
-        ["22", 0.27],
-        ["23", 0.27],
-        ["24", 0.197],
-        ["01", 0.243],
-        ["02", 0.2],
-        ["03", 0.27],
-        ["04", 0.197],
-        ["05", 0.243],
-        ["06", 0.2],
-        ["07", 0.175],
-        ["08", 0.27],
-        ["09", 0.197],
-        ["10", 0.243],
-        ["11", 0.2],
-        ["12", 0.27],
-        ["13", 0.197],
-        ["14", 0.243],
-        ["15", 0.2],
-        ["16", 0.175],
+    var data_COx = new google.visualization.DataTable();
+    data_COx.addColumn('timeofday', 'Time of Day');
+    data_COx.addColumn('number', 'COx');
+    data_COx.addColumn({'type': 'string', 'role': 'tooltip'});
+    data_COx.addColumn({'role': 'style'});
+    data_COx.addRows([
+        [{v: [8, 0, 0], f: '8 am'}, 0.2, null],
+        [{v: [9, 0, 0], f: '9 am'}, 0.2, null, null],
+        [{v: [10, 0, 0], f:'10 am'}, 0.3, null, null],
+        [{v: [11, 0, 0], f: '11 am'}, 0.4, null, null],
+        [{v: [12, 0, 0], f: '12 pm'}, 0.25, null, null],
+        [{v: [13, 0, 0], f: '1 pm'}, 0.36, null, null],
+        [{v: [14, 0, 0], f: '2 pm'}, 0.17, null, null],
+        [{v: [15, 0, 0], f: '3 pm'}, 0.28, null, null],
+        [{v: [16, 0, 0], f: '4 pm'}, 0.29, null, null],
+        [{v: [17, 0, 0], f: '5 pm'}, 0.30, 'shape-type: star; fill-color: coral;'],
+        [{v: [18, 0, 0], f: '6 am'}, 0.2, null, null],
+        [{v: [19, 0, 0], f: '7 am'}, 0.2, null, null],
+        [{v: [20, 0, 0], f:'8 am'}, 0.3, null, null],
+        [{v: [21, 0, 0], f: '9 am'}, 0.4, null, null],
+        [{v: [22, 0, 0], f: '10 pm'}, 0.25, null, null],
+        [{v: [23, 0, 0], f: '11 pm'}, 0.36, null, null],
+        [{v: [24, 0, 0], f: '12 pm'}, 0.17, null, null],
+        [{v: [1, 0, 0], f: '13 pm'}, 0.28, null, null],
+        [{v: [2, 0, 0], f: '14 pm'}, 0.29, null, null],
+        [{v: [3, 0, 0], f: '15 pm'}, 0.30, null, null],
     ]);
 
-    var view_COx = new google.visualization.DataView(data_COx);
-    view_COx.setColumns([0, 1,
-        {
-            calc: "stringify",
-            sourceColumn: 1,
-            type: "string",
-            role: "annotation"
-        }]);
-
     var options_COx = {
-        explorer: {axis: 'horizontal', keepInBounds: true},
-        tooltip: {isHtml: true},
+        explorer: { axis:'horizontal' },
         backgroundColor: 'transparent',
-        // title: "% under COx 0.3",
-        width: "100%",
         height: "100%",
-        bar: {groupWidth: "70%"},
-        legend: {position: 'bottom'},
+        bar: {groupWidth: "60%"},
+        legend: {position: 'top'},
+        hAxis: {
+            format: 'h:mm a'
+        },
         vAxis: {
             minValue: 0,
             ticks: [0, .2, .4],
@@ -86,7 +61,7 @@ function drawCOxChart() {
     };
 
     var chart_COx = new google.visualization.ColumnChart(document.getElementById("chart_COx"));
-    chart_COx.draw(view_COx, options_COx);
+    chart_COx.draw(data_COx, options_COx);
 }
 
 
