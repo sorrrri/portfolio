@@ -51,7 +51,6 @@ input[type="datetime-local"]::-webkit-clear-button {
 
 input, input:before, input:after {
     -webkit-user-select: initial;
-    -khtml-user-select: initial;
     -moz-user-select: initial;
     -ms-user-select: initial;
     user-select: initial;
@@ -123,10 +122,6 @@ h1, h2, h3, h4, h5 {
     opacity: 1 !important
 }
 
-ion-icon {
-    font-size: 1rem;
-    vertical-align: middle
-}
 
 /* Toggle Button */
 .btn-toggle {
@@ -350,7 +345,6 @@ ion-icon {
 .filter-charts .checkbox label {
     font-size: 15px;
     color: rgba(255, 255, 255, .3);
-    color: rgba(255, 255, 255, .3);
 }
 
 
@@ -369,16 +363,15 @@ ion-icon {
     transition: background-color .4s;
 }
 
-.content .title {
-    height: 40px;
+.title {
     flex: 0 0 auto;
     display: flex;
+    padding: 1rem;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
 }
 
-.content .title .btn-save {
+.title .btn-save {
     height: 100%;
     font-size: 1rem;
     color: white;
@@ -391,7 +384,7 @@ ion-icon {
     border-radius: .2rem;
 }
 
-.content .title .btn-save span {
+.title .btn-save span {
     font-family: 'Raleway', 'sans-serif';
     font-weight: 500;
     text-transform: capitalize;
@@ -431,7 +424,7 @@ ion-icon {
 }
 
 .chart-container:first-of-type {
-    margin-top:0
+    margin-top: 0
 }
 
 .chart-container .more {
@@ -450,7 +443,8 @@ ion-icon {
 /* Record */
 
 .content-input {
-    padding: 1rem;
+    padding: .5rem;
+    padding-top: 0
 }
 
 .records {
@@ -461,6 +455,10 @@ ion-icon {
 .records .record-container {
     flex: 1 1 50%;
     padding: .25rem;
+}
+
+.records-checkbox {
+    padding: 1rem
 }
 
 .records .checkbox {
@@ -532,7 +530,7 @@ ion-icon {
 
 .modal {
     opacity: 0;
-    width:90%;
+    width: 90%;
     pointer-events: none;
     visibility: hidden;
     position: fixed;
@@ -541,6 +539,7 @@ ion-icon {
     left: 50%;
     background: white;
     display: flex;
+    flex-direction: column;
     transform: translate(-50%, -50%);
     border-radius: .5rem;
     transition: .25s
@@ -556,8 +555,13 @@ ion-icon {
 .theme-dark {
     background: #111523;
 }
+
+.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4, .theme-dark h5 {
+    color: white;
+}
+
 .theme-dark .header {
-    background: linear-gradient(90deg, darkslateblue, darkslategray) ;
+    background: linear-gradient(90deg, darkslateblue, darkslategray);
 }
 
 .theme-dark .header .logo a {
@@ -612,13 +616,14 @@ ion-icon {
     color: white;
     border-color: rgba(255, 255, 255, .1)
 }
+
 .theme-dark .record textarea {
     color: white;
     border: 1px solid rgba(255, 255, 255, .1)
 }
 
-.theme-dark .modal .chart-container {
-    background-color: white;
+.theme-dark .modal {
+    background-color: #252936;
 }
 
 
@@ -665,7 +670,7 @@ ion-icon {
 }
 
 .checkbox label {
-    color: white;
+    color: #D3D6D9;
     display: flex;
     align-items: center;
     position: relative;

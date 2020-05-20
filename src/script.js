@@ -1,4 +1,4 @@
-google.charts.load("current", {'packages': ['corechart', 'scatter']});
+google.charts.load("current", {'packages': ['corechart', 'bar', 'scatter']});
 google.charts.setOnLoadCallback(drawCOxChart);
 google.charts.setOnLoadCallback(drawRSO2Chart);
 google.charts.setOnLoadCallback(drawMAPChart);
@@ -32,10 +32,10 @@ function drawCOxChart() {
         [new Date(2020, 4, 20, 16), 0.2, null, null],
         [new Date(2020, 4, 20, 17), 0.25, null, null],
         [new Date(2020, 4, 20, 18), 0.36, null, null],
-        [new Date(2020, 4, 20, 19), 0.17, null, null],
+        [new Date(2020, 4, 20, 19), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
         [new Date(2020, 4, 20, 20), 0.28, null, null],
         [new Date(2020, 4, 20, 21), 0.29, null, null],
-        [new Date(2020, 4, 20, 22), 0.30, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
         [new Date(2020, 4, 20, 23), 0.2, null, null],
         [new Date(2020, 4, 20, 24), 0.2, null, null],
         [new Date(2020, 4, 21, 1), 0.3, null, null],
@@ -104,7 +104,7 @@ function drawRSO2Chart() {
         [new Date(2020, 4, 20, 19), 59, null, null],
         [new Date(2020, 4, 20, 20), 62, null, null],
         [new Date(2020, 4, 20, 21), 61, null, null],
-        [new Date(2020, 4, 20, 22), 58, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 58, null, null],
         [new Date(2020, 4, 20, 23), 57, null, null],
         [new Date(2020, 4, 20, 24), 60, null, null],
         [new Date(2020, 4, 21, 1), 63, null, null],
@@ -173,11 +173,11 @@ function drawMAPChart() {
         [new Date(2020, 4, 20, 19), 94, null, null],
         [new Date(2020, 4, 20, 20), 92, null, null],
         [new Date(2020, 4, 20, 21), 101, null, null],
-        [new Date(2020, 4, 20, 22), 103, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 103, null, null],
         [new Date(2020, 4, 20, 23), 106, null, null],
         [new Date(2020, 4, 20, 24), 107, null, null],
         [new Date(2020, 4, 21, 1), 109, null, null],
-        [new Date(2020, 4, 21, 2), 113, null, null],
+        [new Date(2020, 4, 21, 2), 113, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
         [new Date(2020, 4, 21, 3), 104, null, null],
         [new Date(2020, 4, 21, 4), 106, null, null],
         [new Date(2020, 4, 21, 5), 108, null, null],
@@ -242,7 +242,7 @@ function drawETCO2Chart() {
         [new Date(2020, 4, 20, 19), 39, null, null],
         [new Date(2020, 4, 20, 20), 32, null, null],
         [new Date(2020, 4, 20, 21), 31, null, null],
-        [new Date(2020, 4, 20, 22), 38, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 38, null, null],
         [new Date(2020, 4, 20, 23), 37, null, null],
         [new Date(2020, 4, 20, 24), 35, null, null],
         [new Date(2020, 4, 21, 1), 33, null, null],
@@ -314,7 +314,7 @@ function drawSJVO2Chart() {
         [new Date(2020, 4, 20, 19), 72, null, null],
         [new Date(2020, 4, 20, 20), 73, null, null],
         [new Date(2020, 4, 20, 21), 71, null, null],
-        [new Date(2020, 4, 20, 22), 68, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 68, null, null],
         [new Date(2020, 4, 20, 23), 66, null, null],
         [new Date(2020, 4, 20, 24), 65, null, null],
         [new Date(2020, 4, 21, 1), 62, null, null],
@@ -384,7 +384,7 @@ function drawADJLChart() {
         [new Date(2020, 4, 20, 19), 2, null, null],
         [new Date(2020, 4, 20, 20), 3, null, null],
         [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 8, null, null],
         [new Date(2020, 4, 20, 23), 6, null, null],
         [new Date(2020, 4, 20, 24), 5, null, null],
         [new Date(2020, 4, 21, 1), 2, null, null],
@@ -454,7 +454,7 @@ function drawLOIChart() {
         [new Date(2020, 4, 20, 19), 2, null, null],
         [new Date(2020, 4, 20, 20), 3, null, null],
         [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 8, null, null],
         [new Date(2020, 4, 20, 23), 6, null, null],
         [new Date(2020, 4, 20, 24), 5, null, null],
         [new Date(2020, 4, 21, 1), 2, null, null],
@@ -524,7 +524,7 @@ function drawAVDO2Chart() {
         [new Date(2020, 4, 20, 19), 2, null, null],
         [new Date(2020, 4, 20, 20), 3, null, null],
         [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 8, null, null],
         [new Date(2020, 4, 20, 23), 6, null, null],
         [new Date(2020, 4, 20, 24), 5, null, null],
         [new Date(2020, 4, 21, 1), 2, null, null],
@@ -594,7 +594,7 @@ function drawCEO2Chart() {
         [new Date(2020, 4, 20, 19), 39, null, null],
         [new Date(2020, 4, 20, 20), 32, null, null],
         [new Date(2020, 4, 20, 21), 31, null, null],
-        [new Date(2020, 4, 20, 22), 38, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 38, null, null],
         [new Date(2020, 4, 20, 23), 37, null, null],
         [new Date(2020, 4, 20, 24), 35, null, null],
         [new Date(2020, 4, 21, 1), 33, null, null],
@@ -666,7 +666,7 @@ function drawAJglcChart() {
         [new Date(2020, 4, 20, 19), 2, null, null],
         [new Date(2020, 4, 20, 20), 3, null, null],
         [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 8, null, null],
         [new Date(2020, 4, 20, 23), 6, null, null],
         [new Date(2020, 4, 20, 24), 5, null, null],
         [new Date(2020, 4, 21, 1), 2, null, null],
@@ -736,7 +736,7 @@ function drawAJCO2Chart() {
         [new Date(2020, 4, 20, 19), 39, null, null],
         [new Date(2020, 4, 20, 20), 32, null, null],
         [new Date(2020, 4, 20, 21), 31, null, null],
-        [new Date(2020, 4, 20, 22), 38, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 30, null, null],
         [new Date(2020, 4, 20, 23), 37, null, null],
         [new Date(2020, 4, 20, 24), 35, null, null],
         [new Date(2020, 4, 21, 1), 33, null, null],
@@ -808,7 +808,7 @@ function drawRQChart() {
         [new Date(2020, 4, 20, 19), 2, null, null],
         [new Date(2020, 4, 20, 20), 3, null, null],
         [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 8, null, null],
         [new Date(2020, 4, 20, 23), 6, null, null],
         [new Date(2020, 4, 20, 24), 5, null, null],
         [new Date(2020, 4, 21, 1), 2, null, null],
@@ -878,7 +878,7 @@ function drawNPIChart() {
         [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
         [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
         [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, null, null],
         [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
         [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
         [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
@@ -892,7 +892,7 @@ function drawNPIChart() {
     ]);
 
     var options_NPI = {
-        colors: ['#47CACC', '#CDB3D4'],
+        colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         explorer: {axis: 'horizontal'},
         backgroundColor: 'transparent',
@@ -949,7 +949,7 @@ function drawPupilChart() {
         [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
         [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
         [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, null, null],
         [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
         [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
         [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
@@ -963,7 +963,7 @@ function drawPupilChart() {
     ]);
 
     var options_pupil = {
-        colors: ['#47CACC', '#CDB3D4'],
+        colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         explorer: {axis: 'horizontal'},
         backgroundColor: 'transparent',
@@ -1004,74 +1004,131 @@ function drawPupilChart() {
 
 
 function drawCOxMAPChart() {
-    var data_COxMAP = google.visualization.arrayToDataTable([
-        ["MAP", "COx"],
-        ["40", 0.27],
-        ["50", 0.197],
-        ["60", 0.243],
-        ["70", 0.2],
-        ["80", 0.27],
-        ["90", 0.197],
-        ["100", 0.243],
-        ["110", 0.2],
-        ["120", 0.175],
+    var data_COxMAP = new google.visualization.DataTable();
+    data_COxMAP.addColumn('date', 'Time of Day');
+    data_COxMAP.addColumn('number', 'COxMAP');
+    data_COxMAP.addColumn({'type': 'string', 'role': 'tooltip'});
+    data_COxMAP.addColumn({'role': 'style'});
+    data_COxMAP.addRows([
+        [new Date(2020, 4, 20, 13), 1, null, null],
+        [new Date(2020, 4, 20, 14), 0.7, null, null],
+        [new Date(2020, 4, 20, 15), 0.47, null, null],
+        [new Date(2020, 4, 20, 16), 0.94, null, null],
+        [new Date(2020, 4, 20, 17), 0.8, null, null],
+        [new Date(2020, 4, 20, 18), 0.64, null, null],
+        [new Date(2020, 4, 20, 19), 0.67, null, null],
+        [new Date(2020, 4, 20, 20), 0.5, null, null],
+        [new Date(2020, 4, 20, 21), 0.3, null, null],
+        [new Date(2020, 4, 20, 22), 0, null, null],
+        [new Date(2020, 4, 20, 23), -0.3, null, null],
+        [new Date(2020, 4, 20, 24), -0.15, null, null],
+        [new Date(2020, 4, 21, 1), -0.4, null, null],
+        [new Date(2020, 4, 21, 2), -0.2, null, null],
+        [new Date(2020, 4, 21, 3), -0.16, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null],
+        [new Date(2020, 4, 21, 5), 0.12, null, null],
+        [new Date(2020, 4, 21, 6), 0.6, null, null],
+        [new Date(2020, 4, 21, 7), 0.4, null, null],
+        [new Date(2020, 4, 21, 8), 0.34, null, null],
     ]);
 
-    var view_COxMAP = new google.visualization.DataView(data_COxMAP);
-    view_COxMAP.setColumns([0, 1,
-        {
-            calc: "stringify",
-            sourceColumn: 1,
-            type: "string",
-            role: "annotation"
-        }]);
-
     var options_COxMAP = {
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
+        explorer: {axis: 'horizontal'},
         backgroundColor: 'transparent',
-        title: "MAP opt: 80-90 (every 6hr)",
-        width: "400px",
-        height: "50vh",
-        bar: {groupWidth: "70%"},
-        legend: {position: 'bottom'},
+        height: "100%",
+        legend: "top",
+        curveType: 'function',
+        hAxis: {
+            gridlines: {
+                color: '#777',
+                units: {
+                    days: {format: ['MMM dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
+            minorGridlines: {
+                color: '#333',
+                hours: {format: ['hh:mm:ss a', 'ha']},
+            }
+        },
         vAxis: {
-            minValue: 0,
-            ticks: [0, .2, .4],
-            baselineColor: '#ccc',
-            gridlineColor: '#ccc',
+            ticks: [-1, -0.5, 0, 0.5, 1],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+        },
+        chartArea: {
+            width: '94%',
         }
     };
 
     var chart_COxMAP = new google.visualization.ColumnChart(document.getElementById("chart_COxMAP"));
-    chart_COxMAP.draw(view_COxMAP, options_COxMAP);
+    chart_COxMAP.draw(data_COxMAP, options_COxMAP);
 }
 
 
 
 function drawRSO2MAPChart() {
-    var data_RSO2MAP = google.visualization.arrayToDataTable([
-        ['MAP', 'RSO2'],
-        [8, 12],
-        [4, 5.5],
-        [11, 14],
-        [4, 5],
-        [3, 3.5],
-        [6.5, 7]
+    var data_RSO2MAP = new google.visualization.DataTable();
+    data_RSO2MAP.addColumn('date', 'Time of Day');
+    data_RSO2MAP.addColumn('number', 'rSO2');
+    data_RSO2MAP.addColumn({'type': 'string', 'role': 'tooltip'});
+    data_RSO2MAP.addColumn({'role': 'style'});
+    data_RSO2MAP.addRows([
+        [new Date(2020, 4, 20, 13), 60, null, null],
+        [new Date(2020, 4, 20, 14), 61, null, null],
+        [new Date(2020, 4, 20, 15), 63, null, null],
+        [new Date(2020, 4, 20, 16), 67, null, null],
+        [new Date(2020, 4, 20, 17), 65, null, null],
+        [new Date(2020, 4, 20, 18), 70, null, null],
+        [new Date(2020, 4, 20, 19), 72, null, null],
+        [new Date(2020, 4, 20, 20), 73, null, null],
+        [new Date(2020, 4, 20, 21), 71, null, null],
+        [new Date(2020, 4, 20, 22), 68, null, null],
+        [new Date(2020, 4, 20, 23), 66, null, null],
+        [new Date(2020, 4, 20, 24), 65, null, null],
+        [new Date(2020, 4, 21, 1), 62, null, null],
+        [new Date(2020, 4, 21, 2), 63, null, null],
+        [new Date(2020, 4, 21, 3), 67, null, null],
+        [new Date(2020, 4, 21, 4), 70, null, null],
+        [new Date(2020, 4, 21, 5), 71, null, null],
+        [new Date(2020, 4, 21, 6), 76, null, null],
+        [new Date(2020, 4, 21, 7), 74, null, null],
+        [new Date(2020, 4, 21, 8), 73, null, null],
     ]);
 
     var options_RSO2MAP = {
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
+        explorer: {axis: 'horizontal'},
         backgroundColor: 'transparent',
-        title: 'COx: 0.3 (every 5min)',
-        hAxis: {title: 'MAP', minValue: 0, maxValue: 15},
-        vAxis: {
-            title: 'RSO2',
-            minValue: 0,
-            maxValue: 15,
-            baselineColor: '#ccc',
-            gridlineColor: '#ccc',
+        height: "100%",
+        legend: "top",
+        pointSize: 7,
+        curveType: 'function',
+        hAxis: {
+            gridlines: {
+                color: '#777',
+                count: -1,
+                units: {
+                    days: {format: ['MMM dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
+            minorGridlines: {
+                color: '#333',
+                hours: {format: ['hh:mm:ss a', 'ha']},
+            }
         },
-        legend: 'none'
+        vAxis: {
+            ticks: [20, 40, 60, 80, 100],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+        },
+        chartArea: {
+            width: '94%',
+        }
     };
 
     var chart_RSO2MAP = new google.visualization.ScatterChart(document.getElementById('chart_RSO2MAP'));
@@ -1082,67 +1139,131 @@ function drawRSO2MAPChart() {
 
 
 function drawCO2xETCO2Chart() {
-    var data_CO2xETCO2 = google.visualization.arrayToDataTable([
-        ["ETCO2", "CO2x"],
-        ["10", 0.27],
-        ["15", 0.197],
-        ["20", 0.243],
-        ["25", 0.2],
-        ["30", 0.27],
-        ["35", 0.197],
-        ["40", 0.243],
-        ["45", 0.2],
-        ["50", 0.175],
+    var data_CO2xETCO2 = new google.visualization.DataTable();
+    data_CO2xETCO2.addColumn('date', 'Time of Day');
+    data_CO2xETCO2.addColumn('number', 'CO2xETCO2');
+    data_CO2xETCO2.addColumn({'type': 'string', 'role': 'tooltip'});
+    data_CO2xETCO2.addColumn({'role': 'style'});
+    data_CO2xETCO2.addRows([
+        [new Date(2020, 4, 20, 13), 1, null, null],
+        [new Date(2020, 4, 20, 14), 0.7, null, null],
+        [new Date(2020, 4, 20, 15), 0.47, null, null],
+        [new Date(2020, 4, 20, 16), 0.94, null, null],
+        [new Date(2020, 4, 20, 17), 0.8, null, null],
+        [new Date(2020, 4, 20, 18), 0.64, null, null],
+        [new Date(2020, 4, 20, 19), 0.67, null, null],
+        [new Date(2020, 4, 20, 20), 0.5, null, null],
+        [new Date(2020, 4, 20, 21), 0.3, null, null],
+        [new Date(2020, 4, 20, 22), 0, null, null],
+        [new Date(2020, 4, 20, 23), -0.3, null, null],
+        [new Date(2020, 4, 20, 24), -0.15, null, null],
+        [new Date(2020, 4, 21, 1), -0.4, null, null],
+        [new Date(2020, 4, 21, 2), -0.2, null, null],
+        [new Date(2020, 4, 21, 3), -0.16, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null],
+        [new Date(2020, 4, 21, 5), 0.12, null, null],
+        [new Date(2020, 4, 21, 6), 0.6, null, null],
+        [new Date(2020, 4, 21, 7), 0.4, null, null],
+        [new Date(2020, 4, 21, 8), 0.34, null, null],
     ]);
 
-    var view_CO2xETCO2 = new google.visualization.DataView(data_CO2xETCO2);
-    view_CO2xETCO2.setColumns([0, 1,
-        {
-            calc: "stringify",
-            sourceColumn: 1,
-            type: "string",
-            role: "annotation"
-        }]);
-
     var options_CO2xETCO2 = {
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
+        explorer: {axis: 'horizontal'},
         backgroundColor: 'transparent',
-        title: "ETCO2 opt: 30-35 (every 6hr)",
-        width: "600px",
-        bar: {groupWidth: "70%"},
-        legend: {position: 'bottom'},
-        vAxis: {
-            minValue: 0,
-            ticks: [0, .2, .4],
-            baselineColor: '#ccc',
-            gridlineColor: '#ccc',
+        height: "100%",
+        legend: "top",
+        curveType: 'function',
+        hAxis: {
+            gridlines: {
+                color: '#777',
+                count: -1,
+                units: {
+                    days: {format: ['MMM dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
+            minorGridlines: {
+                color: '#333',
+                hours: {format: ['hh:mm:ss a', 'ha']},
+            }
         },
+        vAxis: {
+            ticks: [-1, -0.5, 0, 0.5, 1],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+        },
+        chartArea: {
+            width: '94%',
+        }
     };
 
     var chart_CO2xETCO2 = new google.visualization.ColumnChart(document.getElementById("chart_CO2xETCO2"));
-    chart_CO2xETCO2.draw(view_CO2xETCO2, options_CO2xETCO2);
+    chart_CO2xETCO2.draw(data_CO2xETCO2, options_CO2xETCO2);
 }
 
 
-
 function drawRSO2ETCO2Chart() {
-    var data_RSO2ETCO2 = google.visualization.arrayToDataTable([
-        ['ETCO2', 'RSO2'],
-        [8, 12],
-        [4, 5.5],
-        [11, 14],
-        [4, 5],
-        [3, 3.5],
-        [6.5, 7]
+    var data_RSO2ETCO2 = new google.visualization.DataTable();
+    data_RSO2ETCO2.addColumn('date', 'Time of Day');
+    data_RSO2ETCO2.addColumn('number', 'rSO2');
+    data_RSO2ETCO2.addColumn({'type': 'string', 'role': 'tooltip'});
+    data_RSO2ETCO2.addColumn({'role': 'style'});
+    data_RSO2ETCO2.addRows([
+        [new Date(2020, 4, 20, 13), 60, null, null],
+        [new Date(2020, 4, 20, 14), 61, null, null],
+        [new Date(2020, 4, 20, 15), 63, null, null],
+        [new Date(2020, 4, 20, 16), 67, null, null],
+        [new Date(2020, 4, 20, 17), 65, null, null],
+        [new Date(2020, 4, 20, 18), 70, null, null],
+        [new Date(2020, 4, 20, 19), 72, null, null],
+        [new Date(2020, 4, 20, 20), 73, null, null],
+        [new Date(2020, 4, 20, 21), 71, null, null],
+        [new Date(2020, 4, 20, 22), 68, null, null],
+        [new Date(2020, 4, 20, 23), 66, null, null],
+        [new Date(2020, 4, 20, 24), 65, null, null],
+        [new Date(2020, 4, 21, 1), 62, null, null],
+        [new Date(2020, 4, 21, 2), 63, null, null],
+        [new Date(2020, 4, 21, 3), 67, null, null],
+        [new Date(2020, 4, 21, 4), 70, null, null],
+        [new Date(2020, 4, 21, 5), 71, null, null],
+        [new Date(2020, 4, 21, 6), 76, null, null],
+        [new Date(2020, 4, 21, 7), 74, null, null],
+        [new Date(2020, 4, 21, 8), 73, null, null],
     ]);
 
     var options_RSO2ETCO2 = {
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
+        explorer: {axis: 'horizontal'},
         backgroundColor: 'transparent',
-        title: 'CO2x: 0.2 (every 5min)',
-        hAxis: {title: 'etCO2', minValue: 0, maxValue: 15},
-        vAxis: {title: 'RSO2', minValue: 0, maxValue: 15},
-        legend: 'none'
+        height: "100%",
+        legend: "top",
+        pointSize: 7,
+        curveType: 'function',
+        hAxis: {
+            gridlines: {
+                color: '#777',
+                count: -1,
+                units: {
+                    days: {format: ['MMM dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
+            minorGridlines: {
+                color: '#333',
+                hours: {format: ['hh:mm:ss a', 'ha']},
+            }
+        },
+        vAxis: {
+            ticks: [20, 40, 60, 80, 100],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+        },
+        chartArea: {
+            width: '94%',
+        }
     };
 
     var chart_RSO2ETCO2 = new google.visualization.ScatterChart(document.getElementById('chart_RSO2ETCO2'));
