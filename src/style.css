@@ -351,7 +351,6 @@ h1, h2, h3, h4, h5 {
 /* Content */
 .content {
     flex: 1 1 100%;
-    height: 100%;
     background-color: #ebeef5;
     overflow-y: auto;
 }

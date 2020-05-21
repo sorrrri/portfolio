@@ -69,13 +69,16 @@ function drawCOxChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [0, .3, .5],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -138,13 +141,16 @@ function drawRSO2Chart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [20, 30, 40, 50, 60, 70, 80],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -207,13 +213,16 @@ function drawMAPChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [0, 50, 100, 150],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -285,6 +294,9 @@ function drawETCO2Chart() {
             ticks: [0, 10, 20, 30, 40, 50, 60],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '95%',
@@ -348,13 +360,16 @@ function drawSJVO2Chart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [20, 40, 60, 80, 100],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -418,12 +433,15 @@ function drawADJLChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -488,12 +506,15 @@ function drawLOIChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -558,12 +579,15 @@ function drawAVDO2Chart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -629,7 +653,7 @@ function drawCEO2Chart() {
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['HH:mm:ss a', 'ha']},
+                    hours: {format: ['HH:mm a', 'ha']},
                 }
             }
         },
@@ -637,6 +661,9 @@ function drawCEO2Chart() {
             ticks: [0, 10, 20, 30, 40, 50, 60],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '95%',
@@ -700,12 +727,15 @@ function drawAJglcChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -770,15 +800,15 @@ function drawAJCO2Chart() {
             },
             minorGridlines: {
                 color: '#333',
-                units: {
-                    hours: {format: ['HH:mm:ss a', 'ha']},
-                }
             }
         },
         vAxis: {
             ticks: [0, 10, 20, 30, 40, 50, 60],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '95%',
@@ -842,12 +872,15 @@ function drawRQChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -912,13 +945,16 @@ function drawNPIChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [0, 1, 2, 3, 4, 5],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -983,13 +1019,16 @@ function drawPupilChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [0, 1, 2, 3, 4, 5],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -1050,13 +1089,16 @@ function drawCOxMAPChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -1118,13 +1160,16 @@ function drawRSO2MAPChart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [20, 40, 60, 80, 100],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -1186,13 +1231,16 @@ function drawCO2xETCO2Chart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
@@ -1253,13 +1301,16 @@ function drawRSO2ETCO2Chart() {
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm:ss a', 'ha']},
+                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             ticks: [20, 40, 60, 80, 100],
             baselineColor: '#777',
             gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
         },
         chartArea: {
             width: '94%',
