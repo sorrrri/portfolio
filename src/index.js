@@ -15,9 +15,9 @@ window.addEventListener('resize', () => {
 // });
 
 
-$(window).resize(function () {
-    location.reload();
-});
+// $(window).resize(function () {
+//     location.reload();
+// });
 
 
 // Modal
@@ -44,7 +44,7 @@ $(".modal-backdrop").on("click", function () {
         $(mainParent).removeClass('light');
         $(".container").addClass("theme-dark");
     }
-})*/
+})
 
 function setMyCookie() {
     myCookieVal = $('.btn-toggle').hasClass('light') ? 'isActive' : 'notActive';
@@ -69,7 +69,7 @@ $('.cb-value').click(function () {
         $(".container").addClass("theme-dark");
     }
     setMyCookie();
-})
+})*/
 
 
 // Set the Current Time
@@ -86,7 +86,6 @@ timeGlucose.value = new Date().toISOString().slice(0, 16);
 timeHgb.value = new Date().toISOString().slice(0, 16);*/
 
 
-
 // On checkbox click in the color filter
 $("#filters-container .checkbox").click(() => {
     // Define constants for length of checked checkboxes array
@@ -101,7 +100,5 @@ $("#filters-container .checkbox").click(() => {
             // Show items with the class of the value of the checkbox
             $("." + $(element).val()).fadeIn();
         });
-
-        // If checkboxes are selected in color-filter AND type-filter
     }
 });

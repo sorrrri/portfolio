@@ -410,6 +410,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .chart-container {
+    opacity: 0;
     background: white;
     border-radius: .5rem;
     flex: 1 1 100%;
@@ -419,6 +420,63 @@ h1, h2, h3, h4, h5 {
     flex-wrap: wrap;
     position: relative;
     overflow: hidden;
+    animation: fadeIn .7s forwards;
+}
+
+.chart-container:nth-of-type(1) {
+    animation-delay: 1.0s
+}
+
+.chart-container:nth-of-type(2) {
+    animation-delay: 1.1s
+}
+
+.chart-container:nth-of-type(3) {
+    animation-delay: 1.2s
+}
+
+.chart-container:nth-of-type(4) {
+    animation-delay: 1.3s
+}
+
+.chart-container:nth-of-type(5) {
+    animation-delay: 1.4s
+}
+
+.chart-container:nth-of-type(6) {
+    animation-delay: 1.5s
+}
+
+.chart-container:nth-of-type(7) {
+    animation-delay: 1.6s
+}
+
+.chart-container:nth-of-type(8) {
+    animation-delay: 1.7s
+}
+
+.chart-container:nth-of-type(9) {
+    animation-delay: 1.8s
+}
+
+.chart-container:nth-of-type(10) {
+    animation-delay: 1.9s
+}
+
+.chart-container:nth-of-type(11) {
+    animation-delay: 2.0s
+}
+
+.chart-container:nth-of-type(12) {
+    animation-delay: 2.1s
+}
+
+.chart-container:nth-of-type(13) {
+    animation-delay: 2.2s
+}
+
+.chart-container:nth-of-type(14) {
+    animation-delay: 2.3s
 }
 
 .chart-container:first-of-type {
