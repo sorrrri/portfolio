@@ -51,7 +51,10 @@ function drawCOxChart() {
     var options_COx = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "COx",
@@ -123,7 +126,10 @@ function drawRSO2Chart() {
     var options_RSO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "rSO2",
@@ -195,7 +201,10 @@ function drawMAPChart() {
     var options_MAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "MAP",
@@ -267,7 +276,10 @@ function drawETCO2Chart() {
     var options_ETCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "EtCO2",
@@ -342,7 +354,10 @@ function drawSJVO2Chart() {
     var options_SJVO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "SjVO2",
@@ -415,7 +430,10 @@ function drawADJLChart() {
     var options_ADJL = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "ADJL",
@@ -488,7 +506,10 @@ function drawLOIChart() {
     var options_LOI = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "LOI",
@@ -561,7 +582,10 @@ function drawAVDO2Chart() {
     var options_AVDO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "AVDO2",
@@ -634,7 +658,10 @@ function drawCEO2Chart() {
     var options_CEO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "CEO2",
@@ -709,7 +736,10 @@ function drawAJglcChart() {
     var options_AJglc = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "AJglc",
@@ -782,7 +812,10 @@ function drawAJCO2Chart() {
     var options_AJCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "AJCO2",
@@ -854,7 +887,10 @@ function drawRQChart() {
     var options_RQ = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "RQ",
@@ -927,7 +963,10 @@ function drawNPIChart() {
     var options_NPI = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "NPI",
@@ -1001,7 +1040,10 @@ function drawPupilChart() {
     var options_pupil = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "Pupil Size",
@@ -1074,7 +1116,10 @@ function drawCOxMAPChart() {
     var options_COxMAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
@@ -1143,7 +1188,10 @@ function drawRSO2MAPChart() {
     var options_RSO2MAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
@@ -1215,7 +1263,10 @@ function drawCO2xETCO2Chart() {
     var options_CO2xETCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
@@ -1284,7 +1335,10 @@ function drawRSO2ETCO2Chart() {
     var options_RSO2ETCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {axis: 'horizontal'},
+        explorer: {
+            axis: 'horizontal',
+            keepInBounds: true,
+        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
