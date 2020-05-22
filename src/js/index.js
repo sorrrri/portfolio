@@ -7,6 +7,13 @@ window.addEventListener('resize', () => {
 })
 
 
+document.documentElement.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, false);
+
+
 // Disabling and enabling buttons
 // $('.search input').on('keyup', function () {
 //     if ($('button').attr('disabled','disabled')) {

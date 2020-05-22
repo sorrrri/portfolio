@@ -794,4 +794,8 @@ textarea {
     .header .search {
         display: none;
     }
+
+    .filter-charts .checkbox {
+        flex: 1 1 25%
+    }
 }
