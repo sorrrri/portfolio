@@ -328,6 +328,7 @@ h1, h2, h3, h4, h5 {
     margin: 1rem;
     border-radius: .3rem;
     display: flex;
+    flex-wrap: wrap;
     flex: 1 1 auto;
     justify-content: space-between;
 }
@@ -772,4 +773,25 @@ textarea {
     border: 0;
     resize: none;
     color: white;
+}
+
+
+@media screen and (max-width: 480px) {
+    .header .navigation {
+        position: relative;
+        left: auto;
+        transform: initial;
+    }
+
+    .header .navigation svg {
+        margin-right: 0;
+    }
+
+    .header .navigation span {
+        display: none;
+    }
+
+    .header .search {
+        display: none;
+    }
 }
