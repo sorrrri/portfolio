@@ -26,6 +26,18 @@ function drawCOxChart() {
     data_COx.addColumn({'type': 'string', 'role': 'tooltip'});
     data_COx.addColumn({'role': 'style'});
     data_COx.addRows([
+        [new Date(2020, 4, 20, 1), 0.2, null, null],
+        [new Date(2020, 4, 20, 2), 0.2, null, null],
+        [new Date(2020, 4, 20, 3), 0.3, null, null],
+        [new Date(2020, 4, 20, 4), 0.2, null, null],
+        [new Date(2020, 4, 20, 5), 0.25, null, null],
+        [new Date(2020, 4, 20, 6), 0.36, null, null],
+        [new Date(2020, 4, 20, 7), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
+        [new Date(2020, 4, 20, 8, 0.28, null, null],
+        [new Date(2020, 4, 20, 9), 0.29, null, null],
+        [new Date(2020, 4, 20, 10), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 11), 0.2, null, null],
+        [new Date(2020, 4, 20, 12), 0.2, null, null],
         [new Date(2020, 4, 20, 13), 0.2, null, null],
         [new Date(2020, 4, 20, 14), 0.2, null, null],
         [new Date(2020, 4, 20, 15), 0.3, null, null],
