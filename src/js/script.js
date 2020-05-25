@@ -26,84 +26,6 @@ function drawCOxChart() {
     data_COx.addColumn({'type': 'string', 'role': 'tooltip'});
     data_COx.addColumn({'role': 'style'});
     data_COx.addRows([
-        [new Date(2020, 4, 17, 7), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 17, 8), 0.28, null, null],
-        [new Date(2020, 4, 17, 9), 0.29, null, null],
-        [new Date(2020, 4, 17, 10), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 17, 11), 0.2, null, null],
-        [new Date(2020, 4, 17, 12), 0.2, null, null],
-        [new Date(2020, 4, 17, 13), 0.2, null, null],
-        [new Date(2020, 4, 17, 14), 0.2, null, null],
-        [new Date(2020, 4, 17, 15), 0.3, null, null],
-        [new Date(2020, 4, 17, 16), 0.2, null, null],
-        [new Date(2020, 4, 17, 17), 0.25, null, null],
-        [new Date(2020, 4, 17, 18), 0.36, null, null],
-        [new Date(2020, 4, 17, 19), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 17, 20), 0.28, null, null],
-        [new Date(2020, 4, 17, 21), 0.29, null, null],
-        [new Date(2020, 4, 17, 22), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 17, 23), 0.2, null, null],
-        [new Date(2020, 4, 17, 24), 0.2, null, null],
-        [new Date(2020, 4, 18, 1), 0.2, null, null],
-        [new Date(2020, 4, 18, 2), 0.2, null, null],
-        [new Date(2020, 4, 18, 3), 0.3, null, null],
-        [new Date(2020, 4, 18, 4), 0.2, null, null],
-        [new Date(2020, 4, 18, 5), 0.25, null, null],
-        [new Date(2020, 4, 18, 6), 0.36, null, null],
-        [new Date(2020, 4, 18, 7), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 18, 8), 0.28, null, null],
-        [new Date(2020, 4, 18, 9), 0.29, null, null],
-        [new Date(2020, 4, 18, 10), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 18, 11), 0.2, null, null],
-        [new Date(2020, 4, 18, 12), 0.2, null, null],
-        [new Date(2020, 4, 18, 13), 0.2, null, null],
-        [new Date(2020, 4, 18, 14), 0.2, null, null],
-        [new Date(2020, 4, 18, 15), 0.3, null, null],
-        [new Date(2020, 4, 18, 16), 0.2, null, null],
-        [new Date(2020, 4, 18, 17), 0.25, null, null],
-        [new Date(2020, 4, 18, 18), 0.36, null, null],
-        [new Date(2020, 4, 18, 19), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 18, 20), 0.28, null, null],
-        [new Date(2020, 4, 18, 21), 0.29, null, null],
-        [new Date(2020, 4, 18, 22), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 18, 23), 0.2, null, null],
-        [new Date(2020, 4, 18, 24), 0.2, null, null],
-        [new Date(2020, 4, 19, 1), 0.2, null, null],
-        [new Date(2020, 4, 19, 2), 0.2, null, null],
-        [new Date(2020, 4, 19, 3), 0.3, null, null],
-        [new Date(2020, 4, 19, 4), 0.2, null, null],
-        [new Date(2020, 4, 19, 5), 0.25, null, null],
-        [new Date(2020, 4, 19, 6), 0.36, null, null],
-        [new Date(2020, 4, 19, 7), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 19, 8), 0.28, null, null],
-        [new Date(2020, 4, 19, 9), 0.29, null, null],
-        [new Date(2020, 4, 19, 10), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 19, 11), 0.2, null, null],
-        [new Date(2020, 4, 19, 12), 0.2, null, null],
-        [new Date(2020, 4, 19, 13), 0.2, null, null],
-        [new Date(2020, 4, 19, 14), 0.2, null, null],
-        [new Date(2020, 4, 19, 15), 0.3, null, null],
-        [new Date(2020, 4, 19, 16), 0.2, null, null],
-        [new Date(2020, 4, 19, 17), 0.25, null, null],
-        [new Date(2020, 4, 19, 18), 0.36, null, null],
-        [new Date(2020, 4, 19, 19), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 19, 20), 0.28, null, null],
-        [new Date(2020, 4, 19, 21), 0.29, null, null],
-        [new Date(2020, 4, 19, 22), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 19, 23), 0.2, null, null],
-        [new Date(2020, 4, 19, 24), 0.2, null, null],
-        [new Date(2020, 4, 20, 1), 0.2, null, null],
-        [new Date(2020, 4, 20, 2), 0.2, null, null],
-        [new Date(2020, 4, 20, 3), 0.3, null, null],
-        [new Date(2020, 4, 20, 4), 0.2, null, null],
-        [new Date(2020, 4, 20, 5), 0.25, null, null],
-        [new Date(2020, 4, 20, 6), 0.36, null, null],
-        [new Date(2020, 4, 20, 7), 0.17, 'Adjust Oxygenation (O2)', 'point { size: 12; shape-type: star; fill-color: coral; }'],
-        [new Date(2020, 4, 20, 8), 0.28, null, null],
-        [new Date(2020, 4, 20, 9), 0.29, null, null],
-        [new Date(2020, 4, 20, 10), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 11), 0.2, null, null],
-        [new Date(2020, 4, 20, 12), 0.2, null, null],
         [new Date(2020, 4, 20, 13), 0.2, null, null],
         [new Date(2020, 4, 20, 14), 0.2, null, null],
         [new Date(2020, 4, 20, 15), 0.3, null, null],
@@ -129,10 +51,6 @@ function drawCOxChart() {
     var options_COx = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "COx",
@@ -154,6 +72,7 @@ function drawCOxChart() {
             }
         },
         vAxis: {
+            lineWidth:10,
             ticks: [0, .3, .5],
             baselineColor: '#777',
             gridlineColor: '#777',
@@ -163,7 +82,6 @@ function drawCOxChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -204,10 +122,6 @@ function drawRSO2Chart() {
     var options_RSO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "rSO2",
@@ -238,7 +152,6 @@ function drawRSO2Chart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -279,10 +192,6 @@ function drawMAPChart() {
     var options_MAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "MAP",
@@ -313,7 +222,6 @@ function drawMAPChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -354,10 +262,6 @@ function drawETCO2Chart() {
     var options_ETCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "EtCO2",
@@ -432,10 +336,6 @@ function drawSJVO2Chart() {
     var options_SJVO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "SjVO2",
@@ -466,7 +366,6 @@ function drawSJVO2Chart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -508,10 +407,6 @@ function drawADJLChart() {
     var options_ADJL = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "ADJL",
@@ -541,7 +436,6 @@ function drawADJLChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -584,10 +478,6 @@ function drawLOIChart() {
     var options_LOI = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "LOI",
@@ -617,7 +507,6 @@ function drawLOIChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -660,10 +549,6 @@ function drawAVDO2Chart() {
     var options_AVDO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "AVDO2",
@@ -693,7 +578,6 @@ function drawAVDO2Chart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -736,10 +620,6 @@ function drawCEO2Chart() {
     var options_CEO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "CEO2",
@@ -814,10 +694,6 @@ function drawAJglcChart() {
     var options_AJglc = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "AJglc",
@@ -847,7 +723,6 @@ function drawAJglcChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -890,10 +765,6 @@ function drawAJCO2Chart() {
     var options_AJCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "AJCO2",
@@ -965,10 +836,6 @@ function drawRQChart() {
     var options_RQ = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "RQ",
@@ -998,7 +865,6 @@ function drawRQChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -1041,10 +907,6 @@ function drawNPIChart() {
     var options_NPI = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "NPI",
@@ -1075,7 +937,6 @@ function drawNPIChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -1118,10 +979,6 @@ function drawPupilChart() {
     var options_pupil = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         title: "Pupil Size",
@@ -1152,7 +1009,6 @@ function drawPupilChart() {
         },
         chartArea: {
             width: '94%',
-            height: '80%'
         }
     };
 
@@ -1194,10 +1050,6 @@ function drawCOxMAPChart() {
     var options_COxMAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
@@ -1266,10 +1118,6 @@ function drawRSO2MAPChart() {
     var options_RSO2MAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
@@ -1341,10 +1189,6 @@ function drawCO2xETCO2Chart() {
     var options_CO2xETCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
@@ -1413,10 +1257,6 @@ function drawRSO2ETCO2Chart() {
     var options_RSO2ETCO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
-        explorer: {
-            axis: 'horizontal',
-            keepInBounds: true,
-        },
         backgroundColor: 'transparent',
         height: "100%",
         legend: "top",
