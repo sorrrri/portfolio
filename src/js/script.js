@@ -87,7 +87,7 @@ function drawCOxChart() {
         }
     };
 
-    var chart_COx = new google.visualization.LineChart(document.getElementById("chart_COx"));
+    var chart_COx = new google.visualization.AreaChart(document.getElementById("chart_COx"));
     chart_COx.draw(data_COx, options_COx);
 }
 
@@ -159,7 +159,7 @@ function drawRSO2Chart() {
         }
     };
 
-    var chart_RSO2 = new google.visualization.LineChart(document.getElementById("chart_RSO2"));
+    var chart_RSO2 = new google.visualization.AreaChart(document.getElementById("chart_RSO2"));
     chart_RSO2.draw(data_RSO2, options_RSO2);
 }
 
@@ -672,7 +672,7 @@ function drawCEO2Chart() {
         }
     };
 
-    var chart_CEO2 = new google.visualization.LineChart(document.getElementById("chart_CEO2"));
+    var chart_CEO2 = new google.visualization.AreaChart(document.getElementById("chart_CEO2"));
     chart_CEO2.draw(data_CEO2, options_CEO2);
 }
 
@@ -817,7 +817,7 @@ function drawAJCO2Chart() {
         }
     };
 
-    var chart_AJCO2 = new google.visualization.LineChart(document.getElementById("chart_AJCO2"));
+    var chart_AJCO2 = new google.visualization.AreaChart(document.getElementById("chart_AJCO2"));
     chart_AJCO2.draw(data_AJCO2, options_AJCO2);
 }
 
@@ -963,7 +963,7 @@ function drawNPIChart() {
         }
     };
 
-    var chart_NPI = new google.visualization.LineChart(document.getElementById('chart_NPI'));
+    var chart_NPI = new google.visualization.AreaChart(document.getElementById('chart_NPI'));
     chart_NPI.draw(data_NPI, options_NPI);
 }
 
@@ -1037,7 +1037,7 @@ function drawPupilChart() {
         }
     };
 
-    var chart_pupil = new google.visualization.LineChart(document.getElementById('chart_pupil'));
+    var chart_pupil = new google.visualization.AreaChart(document.getElementById('chart_pupil'));
     chart_pupil.draw(data_pupil, options_pupil);
 }
 
