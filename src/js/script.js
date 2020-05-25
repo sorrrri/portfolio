@@ -667,8 +667,8 @@ function drawCEO2Chart() {
             }
         },
         chartArea: {
-            width: '95%',
-            height: '80%'
+            width: '96%',
+            height:'73%'
         }
     };
 
