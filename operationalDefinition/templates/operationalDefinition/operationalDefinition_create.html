@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    {{ form.media.css }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <header></header>
+    <div class="content">
+        <form action="" method="post">
+            <div class="title">
+                <h1>조작적 정의 생성</h1>
+                <button type="submit">생성</button>
+            </div>
+            {% csrf_token %}
+            <div class="input-container">
+                <label class="required">Category</label>
+                {{ form.category }}
+            </div>
+            <div class="input-container">
+                <label class="required">ICD Code</label>
+                {{ form.primary_icd_code }}
+            </div>
+            <div class="input-container">
+                <label>ICD Code</label>
+                {{ form.icd_code }}
+                <input type="number" name="icd_subtract_days" id="id_icd_subtract_days" placeholder="Subtract Days">
+                <input type="number" name="icd_add_days" id="id_icd_add_days" placeholder="Add Days">
+            </div>
+            <div class="input-container">
+                <label>EDI Code</label>
+                {{ form.edi_code }}
+                <input type="number" name="edi_subtract_days" id="id_edi_subtract_days" placeholder="Subtract Days">
+                <input type="number" name="edi_add_days" id="id_edi_add_days" placeholder="Add Days">
+            </div>
+            <div class="input-container">
+                <label>Description</label>
+                {{ form.description }}
+            </div>
+            <div class="button-container">
+                <button type="submit">생성</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{ form.media.js }}
+</body>
+</html>

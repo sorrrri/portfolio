@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>조작적 정의 생성</h1>
+    <form action="" method="post">
+        <button type="submit">생성</button>
+        <input type="hidden" name="csrfmiddlewaretoken"
+               value="xXGaoZMZS6DJnSqrqzBDy6VVnnQiuQBME2qZ5F704TZ1TSYTHUebhl9Mz78dLark">
+        <div class="input-container">
+            <label>Category:</label>
+            <select name="category" required="" id="id_category">
+                <option value="" selected="">---------</option>
+                <option value="HOI">HOI</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="id_icd_code">Icd code:</label>
+            <select name="icd_code" required="" id="id_icd_code">
+                <option value="" selected="">---------</option>
+                {% for i in client_create %}
+                <option value="{{i.branch}}">{{i.branch}}</option>
+                {% endfor %}
+                <option value="1">A00</option>
+            </select>
+        </div>
+        <div class="input-container">
+            <label for="id_icd_name">Icd name:</label>
+            <input type="text" name="icd_name" maxlength="100" id="id_icd_name">
+            <a href="{% url 'icd_code_list' %}" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </a>
+        </div>
+        <div class="input-container">
+            <label for="id_icd_subtract_days">Icd subtract days:</label>
+            <input type="number" name="icd_subtract_days" id="id_icd_subtract_days">
+        </div>
+        <div class="input-container">
+            <label for="id_icd_add_days">Icd add days:</label>
+            <input type="number" name="icd_add_days" id="id_icd_add_days">
+        </div>
+        <div class="input-container">
+            <label for="id_edi_code">Edi code:</label>
+            <input type="text" name="edi_code" maxlength="10" id="id_edi_code">
+        </div>
+        <div class="input-container">
+            <label for="id_edi_name">Edi name:</label>
+            <input type="text" name="edi_name" maxlength="100" id="id_edi_name">
+        </div>
+        <div class="input-container">
+            <label for="id_atc_code">Atc code:</label>
+            <input type="text" name="atc_code" maxlength="20" id="id_atc_code">
+        </div>
+        <div class="input-container">
+            <label for="id_edi_subtract_days">Edi subtract days:</label>
+            <input type="number" name="edi_subtract_days" id="id_edi_subtract_days">
+        </div>
+        <div class="input-container">
+            <label for="id_edi_add_days">Edi add days:</label>
+            <input type="number" name="edi_add_days" id="id_edi_add_days">
+        </div>
+        <div class="input-container">
+            <label for="id_description">Description:</label>
+            <input type="text" name="description" maxlength="300" id="id_description">
+        </div>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{ form.media.js }}
+{% endblock %}

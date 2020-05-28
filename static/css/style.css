@@ -1,0 +1,146 @@
+@font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa-Semibold.ttf');
+}
+
+@font-face {
+    font-family: 'Mukta';
+    src: url('../fonts/Mukta-Regular.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font: 17px/1.5 'Arial';
+    background-color: #F3F6F9;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex
+}
+
+a {
+    text-decoration: none;
+    color: #333
+}
+
+input, select {
+    border: 0;
+    padding: .7rem;
+    font: 17px/1.5 'NanumSquare';
+    background-color: white;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+label {
+    font-family: Mukta;
+    flex: 0 0 20%;
+    color: slategray;
+}
+
+button {
+    border: 0;
+    background: cornflowerblue;
+    color: white;
+    border-radius: .2rem;
+    padding: .5rem 1rem
+}
+
+.content {
+    padding: 2rem
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.input-container {
+    padding: 1rem 0;
+    border-bottom: 1px solid #EEE;
+    display: flex;
+    align-items: center;
+}
+
+
+.input-container *:last-child {
+    flex: 1 1 auto
+}
+
+.table {
+
+}
+
+.table .row {
+    flex: 1 1 auto;
+    display: flex;
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-radius: .5rem;
+    margin: .5rem 0;
+}
+
+.table .row span {
+}
+
+.table .th {
+    border-radius: 0;
+    background: transparent;
+    font: 13px/1.5 'Comfortaa';
+    padding-bottom: 0;
+    color: slategray;
+}
+
+.table .row span:nth-of-type(1) {
+    width: 5%
+}
+
+.table .row span:nth-of-type(2) {
+    width: 10%
+}
+
+.table .row span:nth-of-type(3) {
+    width: 15%
+}
+
+.table .row span:nth-of-type(4) {
+    width: 10%
+}
+
+.table .row span:nth-of-type(5) {
+    width: 30%
+}
+
+.table .row span:nth-of-type(6) {
+    width: 15%
+}
+
+.table .row span:nth-of-type(7) {
+    width: 15%
+}
+
+input[type="number"] {
+    flex: 0 0 10% !important;
+    margin-left: 1rem;
+    text-align: right;
+}
+
+.select2-container {
+    flex: 1 1 auto
+}
