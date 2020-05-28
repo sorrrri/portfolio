@@ -1,13 +1,56 @@
-{% extends 'base.html' %}
-{% block title %}{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}조작적 정의 수정{% endblock %}</title>
 
-{% block content %}
-<div class="content">
-    <h1>상세수정</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">수정</button>
-    </form>
+    {{ form.media.css }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo"><a href="/">main</a></div>
+        <ul>
+            <li>jangood1122</li>
+        </ul>
+    </header>
+    <div class="content">
+        <form action="" method="post">
+            <div class="title">
+                <h2>조작적 정의 수정</h2>
+                <button type="submit">수정</button>
+            </div>
+            {% csrf_token %}
+            <div class="input-container">
+                <label class="required">Category</label>
+                {{ form.category }}
+            </div>
+            <div class="input-container">
+                <label class="required">ICD Code</label>
+                {{ form.primary_icd_code }}
+            </div>
+            <div class="input-container">
+                <label>ICD Code</label>
+                {{ form.icd_code }}
+                <input type="number" name="icd_subtract_days" id="id_icd_subtract_days" placeholder="Subtract Days">
+                <input type="number" name="icd_add_days" id="id_icd_add_days" placeholder="Add Days">
+            </div>
+            <div class="input-container">
+                <label>EDI Code</label>
+                {{ form.edi_code }}
+                <input type="number" name="edi_subtract_days" id="id_edi_subtract_days" placeholder="Subtract Days">
+                <input type="number" name="edi_add_days" id="id_edi_add_days" placeholder="Add Days">
+            </div>
+            <div class="input-container">
+                <label>Description</label>
+                {{ form.description }}
+            </div>
+        </form>
+    </div>
 </div>
-{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{ form.media.js }}
+</body>
+</html>

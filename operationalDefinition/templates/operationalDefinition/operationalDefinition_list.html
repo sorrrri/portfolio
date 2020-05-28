@@ -13,34 +13,35 @@
             <span>category</span>
             <span>create date</span>
             <span>user ID</span>
-            <span>description</span>
             <span>query</span>
             <span>extraction date</span>
-            <span>buttons</span>
+            <span>edit</span>
         </div>
 
         {% for operationalDefinition in object_list %}
         <div class="row">
             <span>{{forloop.counter}}</span>
             <span>{{operationalDefinition.category}}</span>
-            <span>{{operationalDefinition.created}}</span>
-            <span>{{operationalDefinition.username}}</span>
-            <span>{{operationalDefinition.description}}</span>
-            <span>select * {{operationalDefinition.primary_icd_code}}</span>
+            <span>{{operationalDefinition.created|date:"Y/m/d, P"}}</span>
+            <span>{{User}}</span>
+            <span class="cell-query">select * {{operationalDefinition.primary_icd_code}}
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path
+                        d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            </span>
             <span>{{operationalDefinition.updated}}</span>
             <span>
-                <a href="{% url 'detail' pk=operationalDefinition.id %}">
+                <!--<a href="{% url 'detail' pk=operationalDefinition.pk %}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                      viewBox="0 0 18 18">
                     <path
                             d="M4 7.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S5.5 9.83 5.5 9 4.83 7.5 4 7.5zm10 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm-5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5z"/>
                 </svg>
-                </a>
-                <a href="{% url 'update' pk=operationalDefinition.id %}">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                </a>-->
+                <a href="{% url 'update' pk=operationalDefinition.pk %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                         <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
                     </svg>
-                    </a>
+                </a>
             </span>
         </div>
         {% endfor %}

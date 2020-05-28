@@ -6,7 +6,7 @@ class Category(models.Model):
     title = models.CharField(max_length=30, primary_key=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return self.title
 
 
 class ICDCode(models.Model):
@@ -17,7 +17,7 @@ class ICDCode(models.Model):
         ordering = ("name",)
 
     def __str__(self):
-        return self.name
+        return self.name + ": " + self.title
 
 
 class EDICode(models.Model):
@@ -28,7 +28,7 @@ class EDICode(models.Model):
         ordering = ("name",)
 
     def __str__(self):
-        return self.name
+        return self.name + ": " + self.title
 
 
 class ATCCode(models.Model):
@@ -39,19 +39,19 @@ class ATCCode(models.Model):
         ordering = ("name",)
 
     def __str__(self):
-        return self.name
+        return self.name + ": " + self.title
 
 
 class OperationalDefinition(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
     primary_icd_code = models.ManyToManyField(ICDCode, related_name="primary_icd_code")
-    icd_code = models.ManyToManyField(ICDCode, related_name='icd_code', blank=True, null=True)
+    icd_code = models.ManyToManyField(ICDCode, related_name='icd_code', blank=True)
     icd_subtract_days = models.IntegerField(blank=True, null=True)
     icd_add_days = models.IntegerField(blank=True, null=True)
 
-    edi_code = models.ManyToManyField(EDICode, related_name='edi_code', blank=True, null=True)
-    atc_code = models.ManyToManyField(ATCCode, related_name='atc_code', blank=True, null=True)
+    edi_code = models.ManyToManyField(EDICode, related_name='edi_code', blank=True)
+    atc_code = models.ManyToManyField(ATCCode, related_name='atc_code', blank=True)
     edi_subtract_days = models.IntegerField(blank=True, null=True)
     edi_add_days = models.IntegerField(blank=True, null=True)
 

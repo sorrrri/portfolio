@@ -32,10 +32,9 @@ class OperationalDefinitionDetailView(DetailView):
 
 class OperationalDefinitionUpdateView(UpdateView):
     model = OperationalDefinition
-    fields = ['category', 'primary_icd_code', 'icd_code', 'icd_name', 'icd_subtract_days', 'icd_add_days',
-              'edi_code', 'atc_code', 'edi_subtract_days', 'edi_add_days', 'description']
-    template_name_suffix = '_update'
     success_url = reverse_lazy('list')
+    template_name_suffix = '_update'
+    form_class = forms.OperationalDefinitionForm
 
 
 class OperationalDefinitionDeleteView(DeleteView):

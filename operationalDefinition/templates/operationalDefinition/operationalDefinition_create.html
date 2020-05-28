@@ -10,11 +10,16 @@
 </head>
 <body>
 <div class="container">
-    <header></header>
+    <header>
+        <div class="logo"><a href="/">main</a></div>
+        <ul>
+            <li>jangood1122</li>
+        </ul>
+    </header>
     <div class="content">
         <form action="" method="post">
             <div class="title">
-                <h1>조작적 정의 생성</h1>
+                <h2>조작적 정의 생성</h2>
                 <button type="submit">생성</button>
             </div>
             {% csrf_token %}
@@ -41,9 +46,6 @@
             <div class="input-container">
                 <label>Description</label>
                 {{ form.description }}
-            </div>
-            <div class="button-container">
-                <button type="submit">생성</button>
             </div>
         </form>
     </div>
