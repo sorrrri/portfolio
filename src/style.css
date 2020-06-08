@@ -487,6 +487,19 @@ h1, h2, h3, h4, h5 {
 
 .chart-container .chart {
     flex: 1;
+    position: relative;
+}
+
+.chart-container .chart::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 10rem;
+    width: 1px;
+    height: 100%;
+    background-color: yellow;
 }
 
 
