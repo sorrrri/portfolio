@@ -23,29 +23,31 @@ function drawCOxChart() {
     var data_COx = new google.visualization.DataTable();
     data_COx.addColumn('date', 'Time of Day');
     data_COx.addColumn('number', 'COx');
+    data_COx.addColumn({'type': 'number', 'role': 'interval'});
+    data_COx.addColumn({'type': 'number', 'role': 'interval'});
     data_COx.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_COx.addColumn({'role': 'style'});
+    data_COx.addColumn({'type': 'string', 'role': 'style'});
     data_COx.addRows([
-        [new Date(2020, 4, 20, 13), 0.2, null, null],
-        [new Date(2020, 4, 20, 14), 0.2, null, null],
-        [new Date(2020, 4, 20, 15), 0.3, null, null],
-        [new Date(2020, 4, 20, 16), 0.2, null, null],
-        [new Date(2020, 4, 20, 17), 0.25, null, null],
-        [new Date(2020, 4, 20, 18), 0.36, null, null],
-        [new Date(2020, 4, 20, 19), 0.17, null, null],
-        [new Date(2020, 4, 20, 20), 0.28, null, null],
-        [new Date(2020, 4, 20, 21), 0.29, null, null],
-        [new Date(2020, 4, 20, 22), 0.30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 0.2, null, null],
-        [new Date(2020, 4, 20, 24), 0.2, null, null],
-        [new Date(2020, 4, 21, 1), 0.3, null, null],
-        [new Date(2020, 4, 21, 2), 0.3, null, null],
-        [new Date(2020, 4, 21, 3), 0.25, null, null],
-        [new Date(2020, 4, 21, 4), 0.36, null, null],
-        [new Date(2020, 4, 21, 5), 0.17, null, null],
-        [new Date(2020, 4, 21, 6), 0.28, null, null],
-        [new Date(2020, 4, 21, 7), 0.29, null, null],
-        [new Date(2020, 4, 21, 8), 0.30, null, null],
+        [new Date(2020, 4, 20, 13), 0.2, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 0.2, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 0.3, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 0.2, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 0.25, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 0.36, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 0.17, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 0.28, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 0.29, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 0.30, 0, .5, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 0.2, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 0.2, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 0.3, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 0.3, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 0.25, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 0.36, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 0.17, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 0.28, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 0.29, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 0.30, null, null, null, null],
     ]);
 
     var options_COx = {
@@ -54,26 +56,22 @@ function drawCOxChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: "yellow"
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
             title: "COx",
-            lineWidth:10,
+            lineWidth: 10,
             ticks: [0, .3, .5],
             baselineColor: '#777',
             gridlineColor: '#777',
@@ -83,7 +81,7 @@ function drawCOxChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -96,29 +94,31 @@ function drawRSO2Chart() {
     var data_RSO2 = new google.visualization.DataTable();
     data_RSO2.addColumn('date', 'Time of Day');
     data_RSO2.addColumn('number', 'rSO2');
+    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
     data_RSO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_RSO2.addColumn({'role': 'style'});
+    data_RSO2.addColumn({'type': 'string', 'role': 'style'});
     data_RSO2.addRows([
-        [new Date(2020, 4, 20, 13), 50, null, null],
-        [new Date(2020, 4, 20, 14), 52, null, null],
-        [new Date(2020, 4, 20, 15), 56, null, null],
-        [new Date(2020, 4, 20, 16), 48, null, null],
-        [new Date(2020, 4, 20, 17), 49, null, null],
-        [new Date(2020, 4, 20, 18), 53, null, null],
-        [new Date(2020, 4, 20, 19), 59, null, null],
-        [new Date(2020, 4, 20, 20), 62, null, null],
-        [new Date(2020, 4, 20, 21), 61, null, null],
-        [new Date(2020, 4, 20, 22), 58, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 57, null, null],
-        [new Date(2020, 4, 20, 24), 60, null, null],
-        [new Date(2020, 4, 21, 1), 63, null, null],
-        [new Date(2020, 4, 21, 2), 64, null, null],
-        [new Date(2020, 4, 21, 3), 67, null, null],
-        [new Date(2020, 4, 21, 4), 65, null, null],
-        [new Date(2020, 4, 21, 5), 66, null, null],
-        [new Date(2020, 4, 21, 6), 70, null, null],
-        [new Date(2020, 4, 21, 7), 72, null, null],
-        [new Date(2020, 4, 21, 8), 71, null, null],
+        [new Date(2020, 4, 20, 13), 50, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 52, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 56, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 48, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 49, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 53, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 59, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 62, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 61, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 58, 20, 80, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 57, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 60, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 63, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 64, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 67, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 65, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 66, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 70, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 72, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 71, null, null, null, null],
     ]);
 
     var options_RSO2 = {
@@ -127,21 +127,17 @@ function drawRSO2Chart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        intervals: {
+            color: "yellow"
+        },
+        pointSize: 5,
+        fontSize: 15,
         curveType: 'function',
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -155,7 +151,7 @@ function drawRSO2Chart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -169,29 +165,31 @@ function drawMAPChart() {
     data_MAP.addColumn('date', 'Time of Day');
     data_MAP.addColumn('number', 'Left');
     data_MAP.addColumn('number', 'Right');
+    data_MAP.addColumn({'type': 'number', 'role': 'interval'});
+    data_MAP.addColumn({'type': 'number', 'role': 'interval'});
     data_MAP.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_MAP.addColumn({'role': 'style'});
+    data_MAP.addColumn({'type': 'string', 'role': 'style'});
     data_MAP.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null, null, null],
     ]);
 
     var options_MAP = {
@@ -200,21 +198,17 @@ function drawMAPChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: "yellow"
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -228,7 +222,7 @@ function drawMAPChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -242,29 +236,31 @@ function drawETCO2Chart() {
     data_ETCO2.addColumn('date', 'Time of Day');
     data_ETCO2.addColumn('number', 'Left');
     data_ETCO2.addColumn('number', 'Right');
+    data_ETCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_ETCO2.addColumn({'type': 'number', 'role': 'interval'});
     data_ETCO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_ETCO2.addColumn({'role': 'style'});
+    data_ETCO2.addColumn({'type': 'string', 'role': 'style'});
     data_ETCO2.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null, null, null],
     ]);
 
     var options_ETCO2 = {
@@ -273,21 +269,17 @@ function drawETCO2Chart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: "yellow"
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -301,7 +293,7 @@ function drawETCO2Chart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -310,34 +302,35 @@ function drawETCO2Chart() {
 }
 
 
-
 function drawSJVO2Chart() {
     var data_SJVO2 = new google.visualization.DataTable();
     data_SJVO2.addColumn('date', 'Time of Day');
     data_SJVO2.addColumn('number', 'MAP');
+    data_SJVO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_SJVO2.addColumn({'type': 'number', 'role': 'interval'});
     data_SJVO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_SJVO2.addColumn({'role': 'style'});
+    data_SJVO2.addColumn({'type': 'string', 'role': 'style'});
     data_SJVO2.addRows([
-        [new Date(2020, 4, 20, 13), 60, null, null],
-        [new Date(2020, 4, 20, 14), 61, null, null],
-        [new Date(2020, 4, 20, 15), 63, null, null],
-        [new Date(2020, 4, 20, 16), 67, null, null],
-        [new Date(2020, 4, 20, 17), 65, null, null],
-        [new Date(2020, 4, 20, 18), 70, null, null],
-        [new Date(2020, 4, 20, 19), 72, null, null],
-        [new Date(2020, 4, 20, 20), 73, null, null],
-        [new Date(2020, 4, 20, 21), 71, null, null],
-        [new Date(2020, 4, 20, 22), 68, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 66, null, null],
-        [new Date(2020, 4, 20, 24), 65, null, null],
-        [new Date(2020, 4, 21, 1), 62, null, null],
-        [new Date(2020, 4, 21, 2), 63, null, null],
-        [new Date(2020, 4, 21, 3), 67, null, null],
-        [new Date(2020, 4, 21, 4), 70, null, null],
-        [new Date(2020, 4, 21, 5), 71, null, null],
-        [new Date(2020, 4, 21, 6), 76, null, null],
-        [new Date(2020, 4, 21, 7), 74, null, null],
-        [new Date(2020, 4, 21, 8), 73, null, null],
+        [new Date(2020, 4, 20, 13), 60, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 61, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 63, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 67, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 65, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 70, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 72, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 73, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 71, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 68, 20, 100, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 66, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 65, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 62, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 63, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 67, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 70, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 71, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 76, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 74, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 73, null, null, null, null],
     ]);
 
     var options_SJVO2 = {
@@ -346,21 +339,16 @@ function drawSJVO2Chart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: "yellow"
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -374,7 +362,7 @@ function drawSJVO2Chart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -388,29 +376,31 @@ function drawADJLChart() {
     var data_ADJL = new google.visualization.DataTable();
     data_ADJL.addColumn('date', 'Time of Day');
     data_ADJL.addColumn('number', 'ADJL');
+    data_ADJL.addColumn({'type': 'number', 'role': 'interval'});
+    data_ADJL.addColumn({'type': 'number', 'role': 'interval'});
     data_ADJL.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_ADJL.addColumn({'role': 'style'});
+    data_ADJL.addColumn({'type': 'string', 'role': 'style'});
     data_ADJL.addRows([
-        [new Date(2020, 4, 20, 13), 0, null, null],
-        [new Date(2020, 4, 20, 14), 1, null, null],
-        [new Date(2020, 4, 20, 15), 3, null, null],
-        [new Date(2020, 4, 20, 16), 7, null, null],
-        [new Date(2020, 4, 20, 17), 5, null, null],
-        [new Date(2020, 4, 20, 18), 0, null, null],
-        [new Date(2020, 4, 20, 19), 2, null, null],
-        [new Date(2020, 4, 20, 20), 3, null, null],
-        [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 6, null, null],
-        [new Date(2020, 4, 20, 24), 5, null, null],
-        [new Date(2020, 4, 21, 1), 2, null, null],
-        [new Date(2020, 4, 21, 2), 3, null, null],
-        [new Date(2020, 4, 21, 3), 7, null, null],
-        [new Date(2020, 4, 21, 4), 0, null, null],
-        [new Date(2020, 4, 21, 5), 1, null, null],
-        [new Date(2020, 4, 21, 6), 6, null, null],
-        [new Date(2020, 4, 21, 7), 4, null, null],
-        [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 20, 13), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 7, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 5, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 2, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 8, -5, 10, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 6, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 5, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 2, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 7, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 1, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 6, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 7, null, null, null, null],
     ]);
 
     var options_ADJL = {
@@ -419,21 +409,16 @@ function drawADJLChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -446,7 +431,7 @@ function drawADJLChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -456,34 +441,35 @@ function drawADJLChart() {
 }
 
 
-
 function drawLOIChart() {
     var data_LOI = new google.visualization.DataTable();
     data_LOI.addColumn('date', 'Time of Day');
     data_LOI.addColumn('number', 'LOI');
+    data_LOI.addColumn({'type': 'number', 'role': 'interval'});
+    data_LOI.addColumn({'type': 'number', 'role': 'interval'});
     data_LOI.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_LOI.addColumn({'role': 'style'});
+    data_LOI.addColumn({'type': 'string', 'role': 'style'});
     data_LOI.addRows([
-        [new Date(2020, 4, 20, 13), 0, null, null],
-        [new Date(2020, 4, 20, 14), 1, null, null],
-        [new Date(2020, 4, 20, 15), 3, null, null],
-        [new Date(2020, 4, 20, 16), 7, null, null],
-        [new Date(2020, 4, 20, 17), 5, null, null],
-        [new Date(2020, 4, 20, 18), 0, null, null],
-        [new Date(2020, 4, 20, 19), 2, null, null],
-        [new Date(2020, 4, 20, 20), 3, null, null],
-        [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 6, null, null],
-        [new Date(2020, 4, 20, 24), 5, null, null],
-        [new Date(2020, 4, 21, 1), 2, null, null],
-        [new Date(2020, 4, 21, 2), 3, null, null],
-        [new Date(2020, 4, 21, 3), 7, null, null],
-        [new Date(2020, 4, 21, 4), 0, null, null],
-        [new Date(2020, 4, 21, 5), 1, null, null],
-        [new Date(2020, 4, 21, 6), 6, null, null],
-        [new Date(2020, 4, 21, 7), 4, null, null],
-        [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 20, 13), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 7, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 5, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 2, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 8, -5, 10, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 6, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 5, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 2, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 7, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 1, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 6, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 7, null, null, null, null],
     ]);
 
     var options_LOI = {
@@ -492,21 +478,16 @@ function drawLOIChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -519,7 +500,7 @@ function drawLOIChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -529,34 +510,35 @@ function drawLOIChart() {
 }
 
 
-
 function drawAVDO2Chart() {
     var data_AVDO2 = new google.visualization.DataTable();
     data_AVDO2.addColumn('date', 'Time of Day');
     data_AVDO2.addColumn('number', 'AVDO2');
+    data_AVDO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_AVDO2.addColumn({'type': 'number', 'role': 'interval'});
     data_AVDO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_AVDO2.addColumn({'role': 'style'});
+    data_AVDO2.addColumn({'type': 'string', 'role': 'style'});
     data_AVDO2.addRows([
-        [new Date(2020, 4, 20, 13), 0, null, null],
-        [new Date(2020, 4, 20, 14), 1, null, null],
-        [new Date(2020, 4, 20, 15), 3, null, null],
-        [new Date(2020, 4, 20, 16), 7, null, null],
-        [new Date(2020, 4, 20, 17), 5, null, null],
-        [new Date(2020, 4, 20, 18), 0, null, null],
-        [new Date(2020, 4, 20, 19), 2, null, null],
-        [new Date(2020, 4, 20, 20), 3, null, null],
-        [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 6, null, null],
-        [new Date(2020, 4, 20, 24), 5, null, null],
-        [new Date(2020, 4, 21, 1), 2, null, null],
-        [new Date(2020, 4, 21, 2), 3, null, null],
-        [new Date(2020, 4, 21, 3), 7, null, null],
-        [new Date(2020, 4, 21, 4), 0, null, null],
-        [new Date(2020, 4, 21, 5), 1, null, null],
-        [new Date(2020, 4, 21, 6), 6, null, null],
-        [new Date(2020, 4, 21, 7), 4, null, null],
-        [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 20, 13), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 7, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 5, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 2, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 8, -5, 10, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 6, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 5, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 2, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 7, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 1, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 6, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 7, null, null, null, null],
     ]);
 
     var options_AVDO2 = {
@@ -565,21 +547,16 @@ function drawAVDO2Chart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -592,7 +569,7 @@ function drawAVDO2Chart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -602,34 +579,35 @@ function drawAVDO2Chart() {
 }
 
 
-
 function drawCEO2Chart() {
     var data_CEO2 = new google.visualization.DataTable();
     data_CEO2.addColumn('date', 'Time of Day');
     data_CEO2.addColumn('number', 'CEO2');
+    data_CEO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_CEO2.addColumn({'type': 'number', 'role': 'interval'});
     data_CEO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_CEO2.addColumn({'role': 'style'});
+    data_CEO2.addColumn({'type': 'string', 'role': 'style'});
     data_CEO2.addRows([
-        [new Date(2020, 4, 20, 13), 30, null, null],
-        [new Date(2020, 4, 20, 14), 32, null, null],
-        [new Date(2020, 4, 20, 15), 26, null, null],
-        [new Date(2020, 4, 20, 16), 28, null, null],
-        [new Date(2020, 4, 20, 17), 29, null, null],
-        [new Date(2020, 4, 20, 18), 33, null, null],
-        [new Date(2020, 4, 20, 19), 39, null, null],
-        [new Date(2020, 4, 20, 20), 32, null, null],
-        [new Date(2020, 4, 20, 21), 31, null, null],
-        [new Date(2020, 4, 20, 22), 38, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 37, null, null],
-        [new Date(2020, 4, 20, 24), 35, null, null],
-        [new Date(2020, 4, 21, 1), 33, null, null],
-        [new Date(2020, 4, 21, 2), 34, null, null],
-        [new Date(2020, 4, 21, 3), 32, null, null],
-        [new Date(2020, 4, 21, 4), 31, null, null],
-        [new Date(2020, 4, 21, 5), 30, null, null],
-        [new Date(2020, 4, 21, 6), 27, null, null],
-        [new Date(2020, 4, 21, 7), 28, null, null],
-        [new Date(2020, 4, 21, 8), 31, null, null],
+        [new Date(2020, 4, 20, 13), 30, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 32, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 26, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 28, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 29, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 33, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 39, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 32, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 31, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 38, 0, 60, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 37, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 35, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 33, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 34, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 32, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 31, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 30, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 27, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 28, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 31, null, null, null, null],
     ]);
 
     var options_CEO2 = {
@@ -638,23 +616,18 @@ function drawCEO2Chart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                units: {
-                    hours: {format: ['HH:mm a', 'ha']},
-                }
+                units: {}
             }
         },
         vAxis: {
@@ -668,7 +641,7 @@ function drawCEO2Chart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -677,34 +650,35 @@ function drawCEO2Chart() {
 }
 
 
-
 function drawAJglcChart() {
     var data_AJglc = new google.visualization.DataTable();
     data_AJglc.addColumn('date', 'Time of Day');
     data_AJglc.addColumn('number', 'AJglc');
+    data_AJglc.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJglc.addColumn({'type': 'number', 'role': 'interval'});
     data_AJglc.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_AJglc.addColumn({'role': 'style'});
+    data_AJglc.addColumn({'type': 'string', 'role': 'style'});
     data_AJglc.addRows([
-        [new Date(2020, 4, 20, 13), 0, null, null],
-        [new Date(2020, 4, 20, 14), 1, null, null],
-        [new Date(2020, 4, 20, 15), 3, null, null],
-        [new Date(2020, 4, 20, 16), 7, null, null],
-        [new Date(2020, 4, 20, 17), 5, null, null],
-        [new Date(2020, 4, 20, 18), 0, null, null],
-        [new Date(2020, 4, 20, 19), 2, null, null],
-        [new Date(2020, 4, 20, 20), 3, null, null],
-        [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 6, null, null],
-        [new Date(2020, 4, 20, 24), 5, null, null],
-        [new Date(2020, 4, 21, 1), 2, null, null],
-        [new Date(2020, 4, 21, 2), 3, null, null],
-        [new Date(2020, 4, 21, 3), 7, null, null],
-        [new Date(2020, 4, 21, 4), 0, null, null],
-        [new Date(2020, 4, 21, 5), 1, null, null],
-        [new Date(2020, 4, 21, 6), 6, null, null],
-        [new Date(2020, 4, 21, 7), 4, null, null],
-        [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 20, 13), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 7, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 5, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 2, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 8, -5, 10, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 6, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 5, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 2, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 7, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 1, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 6, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 7, null, null, null, null],
     ]);
 
     var options_AJglc = {
@@ -713,21 +687,18 @@ function drawAJglcChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
+            format: 'M/d HH:mm',
             gridlines: {
                 color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -740,7 +711,7 @@ function drawAJglcChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -750,34 +721,35 @@ function drawAJglcChart() {
 }
 
 
-
 function drawAJCO2Chart() {
     var data_AJCO2 = new google.visualization.DataTable();
     data_AJCO2.addColumn('date', 'Time of Day');
     data_AJCO2.addColumn('number', 'AJCO2');
+    data_AJCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJCO2.addColumn({'type': 'number', 'role': 'interval'});
     data_AJCO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_AJCO2.addColumn({'role': 'style'});
+    data_AJCO2.addColumn({'type': 'string', 'role': 'style'});
     data_AJCO2.addRows([
-        [new Date(2020, 4, 20, 13), 30, null, null],
-        [new Date(2020, 4, 20, 14), 32, null, null],
-        [new Date(2020, 4, 20, 15), 26, null, null],
-        [new Date(2020, 4, 20, 16), 28, null, null],
-        [new Date(2020, 4, 20, 17), 29, null, null],
-        [new Date(2020, 4, 20, 18), 33, null, null],
-        [new Date(2020, 4, 20, 19), 39, null, null],
-        [new Date(2020, 4, 20, 20), 32, null, null],
-        [new Date(2020, 4, 20, 21), 31, null, null],
-        [new Date(2020, 4, 20, 22), 30, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 37, null, null],
-        [new Date(2020, 4, 20, 24), 35, null, null],
-        [new Date(2020, 4, 21, 1), 33, null, null],
-        [new Date(2020, 4, 21, 2), 34, null, null],
-        [new Date(2020, 4, 21, 3), 32, null, null],
-        [new Date(2020, 4, 21, 4), 31, null, null],
-        [new Date(2020, 4, 21, 5), 30, null, null],
-        [new Date(2020, 4, 21, 6), 27, null, null],
-        [new Date(2020, 4, 21, 7), 28, null, null],
-        [new Date(2020, 4, 21, 8), 31, null, null],
+        [new Date(2020, 4, 20, 13), 30, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 32, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 26, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 28, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 29, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 33, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 39, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 32, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 31, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 30, 0, 60, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 37, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 35, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 33, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 34, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 32, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 31, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 30, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 27, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 28, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 31, null, null, null, null],
     ]);
 
     var options_AJCO2 = {
@@ -786,17 +758,16 @@ function drawAJCO2Chart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
+            format: 'M/d HH:mm',
             gridlines: {
                 color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
@@ -822,34 +793,35 @@ function drawAJCO2Chart() {
 }
 
 
-
 function drawRQChart() {
     var data_RQ = new google.visualization.DataTable();
     data_RQ.addColumn('date', 'Time of Day');
     data_RQ.addColumn('number', 'RQ');
+    data_RQ.addColumn({'type': 'number', 'role': 'interval'});
+    data_RQ.addColumn({'type': 'number', 'role': 'interval'});
     data_RQ.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_RQ.addColumn({'role': 'style'});
+    data_RQ.addColumn({'type': 'string', 'role': 'style'});
     data_RQ.addRows([
-        [new Date(2020, 4, 20, 13), 0, null, null],
-        [new Date(2020, 4, 20, 14), 1, null, null],
-        [new Date(2020, 4, 20, 15), 3, null, null],
-        [new Date(2020, 4, 20, 16), 7, null, null],
-        [new Date(2020, 4, 20, 17), 5, null, null],
-        [new Date(2020, 4, 20, 18), 0, null, null],
-        [new Date(2020, 4, 20, 19), 2, null, null],
-        [new Date(2020, 4, 20, 20), 3, null, null],
-        [new Date(2020, 4, 20, 21), 1, null, null],
-        [new Date(2020, 4, 20, 22), 8, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 6, null, null],
-        [new Date(2020, 4, 20, 24), 5, null, null],
-        [new Date(2020, 4, 21, 1), 2, null, null],
-        [new Date(2020, 4, 21, 2), 3, null, null],
-        [new Date(2020, 4, 21, 3), 7, null, null],
-        [new Date(2020, 4, 21, 4), 0, null, null],
-        [new Date(2020, 4, 21, 5), 1, null, null],
-        [new Date(2020, 4, 21, 6), 6, null, null],
-        [new Date(2020, 4, 21, 7), 4, null, null],
-        [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 20, 13), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 7, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 5, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 0, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 2, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 3, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 1, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 8, -5, 10, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 6, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 5, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 2, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 7, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 0, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 1, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 6, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 7, null, null, null, null],
     ]);
 
     var options_RQ = {
@@ -858,21 +830,18 @@ function drawRQChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
+            format: 'M/d HH:mm',
             gridlines: {
                 color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -885,7 +854,7 @@ function drawRQChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -894,35 +863,36 @@ function drawRQChart() {
 }
 
 
-
 function drawNPIChart() {
     var data_NPI = new google.visualization.DataTable();
-    data_NPI.addColumn('date', 'Time of Day');
+    data_NPI.addColumn('datetime', 'Time of Day');
     data_NPI.addColumn('number', 'Left');
     data_NPI.addColumn('number', 'Right');
+    data_NPI.addColumn({'type': 'number', 'role': 'interval'});
+    data_NPI.addColumn({'type': 'number', 'role': 'interval'});
     data_NPI.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_NPI.addColumn({'role': 'style'});
+    data_NPI.addColumn({'type': 'string', 'role': 'style'});
     data_NPI.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null, null, null],
     ]);
 
     var options_NPI = {
@@ -931,21 +901,17 @@ function drawNPIChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            format: 'M/d HH:mm',
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -959,7 +925,7 @@ function drawNPIChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -968,35 +934,36 @@ function drawNPIChart() {
 }
 
 
-
 function drawPupilChart() {
     var data_pupil = new google.visualization.DataTable();
-    data_pupil.addColumn('date', 'Time of Day');
+    data_pupil.addColumn('datetime', 'Time of Day');
     data_pupil.addColumn('number', 'Left');
     data_pupil.addColumn('number', 'Right');
-    data_pupil.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_pupil.addColumn({'role': 'style'});
+    data_pupil.addColumn({'type': 'number', 'role': 'interval'});
+    data_pupil.addColumn({'type': 'number', 'role': 'interval'});
+    data_pupil.addColumn({'type': 'string', 'role': 'tootlip'});
+    data_pupil.addColumn({'type': 'string', 'role': 'style'});
     data_pupil.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 'Fluid infusion', 'point { size: 12; shape-type: triangle; fill-color: yellow; }'],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null, null, null],
+        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null, null, null],
+        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null, null, null],
+        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null, null, null],
+        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null, null, null],
+        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null, null, null],
+        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null, null, null],
+        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null, null, null],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5, 'Fluid infusion', 'point { size: 10; shape-type: triangle; fill-color: yellow; }'],
+        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null, null, null],
+        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null, null, null],
+        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null, null, null],
+        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null, null, null],
+        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null, null, null],
+        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null, null, null],
+        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null, null, null],
+        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null, null, null],
+        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null, null, null],
+        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null, null, null],
     ]);
 
     var options_pupil = {
@@ -1005,21 +972,18 @@ function drawPupilChart() {
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
-        fontSize:15,
-        curveType: 'function',
+        fontSize: 15,
+        pointSize: 5,
+        intervals: {
+            color: 'yellow'
+        },
         hAxis: {
+            format: 'M/d HH:mm',
             gridlines: {
                 color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -1033,7 +997,7 @@ function drawPupilChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         }
     };
 
@@ -1042,29 +1006,26 @@ function drawPupilChart() {
 }
 
 
-
 function drawCOxMAPChart() {
     var data_COxMAP = new google.visualization.DataTable();
     data_COxMAP.addColumn('number', 'MAP');
     data_COxMAP.addColumn('number', 'COx');
-    data_COxMAP.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_COxMAP.addColumn({'role': 'style'});
     data_COxMAP.addRows([
-        [60, 1, null, null],
-        [70, 0.47, null, null],
-        [80, 0.8, null, null],
-        [90, 0.67, null, null],
-        [100, 0.3, null, null],
-        [110, -0.3, null, null],
-        [120, -0.4, null, null],
-        [130, -0.16, null, null],
-        [140, 0.12, null, null],
-        [150, 0.4, null, null],
-        [160, 0.34, null, null],
-        [170, 0.67, null, null],
-        [180, 0.3, null, null],
-        [190, -0.3, null, null],
-        [200, -0.3, null, null],
+        [60, 1],
+        [70, 0.47],
+        [80, 0.8],
+        [90, 0.67],
+        [100, 0.3],
+        [110, -0.3],
+        [120, -0.4],
+        [130, -0.16],
+        [140, 0.12],
+        [150, 0.4],
+        [160, 0.34],
+        [170, 0.67],
+        [180, 0.3],
+        [190, -0.3],
+        [200, -0.3],
     ]);
 
     var options_COxMAP = {
@@ -1072,7 +1033,7 @@ function drawCOxMAPChart() {
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        fontSize:15,
+        fontSize: 15,
         title: "Time under MAPopt : --hr--min",
         legend: "none",
         curveType: 'function',
@@ -1080,14 +1041,9 @@ function drawCOxMAPChart() {
             title: "MAP",
             gridlines: {
                 color: '#777',
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -1101,7 +1057,7 @@ function drawCOxMAPChart() {
         },
         chartArea: {
             width: '80%',
-            height:'80%'
+            height: '80%'
         }
     };
 
@@ -1110,29 +1066,26 @@ function drawCOxMAPChart() {
 }
 
 
-
 function drawRSO2MAPChart() {
     var data_RSO2MAP = new google.visualization.DataTable();
     data_RSO2MAP.addColumn('number', 'MAP');
     data_RSO2MAP.addColumn('number', 'rSO2');
-    data_RSO2MAP.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_RSO2MAP.addColumn({'role': 'style'});
     data_RSO2MAP.addRows([
-        [60, 1, null, null],
-        [70, 0.47, null, null],
-        [80, 0.8, null, null],
-        [90, 0.67, null, null],
-        [100, 0.3, null, null],
-        [110, -0.3, null, null],
-        [120, -0.4, null, null],
-        [130, -0.16, null, null],
-        [140, 0.12, null, null],
-        [150, 0.4, null, null],
-        [160, 0.34, null, null],
-        [170, 0.67, null, null],
-        [180, 0.3, null, null],
-        [190, -0.3, null, null],
-        [200, -0.3, null, null],
+        [60, 1],
+        [70, 0.47],
+        [80, 0.8],
+        [90, 0.67],
+        [100, 0.3],
+        [110, -0.3],
+        [120, -0.4],
+        [130, -0.16],
+        [140, 0.12],
+        [150, 0.4],
+        [160, 0.34],
+        [170, 0.67],
+        [180, 0.3],
+        [190, -0.3],
+        [200, -0.3],
     ]);
 
     var options_RSO2MAP = {
@@ -1142,21 +1095,15 @@ function drawRSO2MAPChart() {
         height: "100%",
         legend: "none",
         pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
         curveType: 'function',
         hAxis: {
             title: "MAP",
             gridlines: {
                 color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -1170,11 +1117,11 @@ function drawRSO2MAPChart() {
         },
         chartArea: {
             width: '96%',
-            height:'73%'
+            height: '73%'
         },
         chartArea: {
             width: '80%',
-            height:'80%'
+            height: '80%'
         }
     };
 
@@ -1184,18 +1131,15 @@ function drawRSO2MAPChart() {
 }
 
 
-
 function drawCO2xETCO2Chart() {
     var data_CO2xETCO2 = new google.visualization.DataTable();
     data_CO2xETCO2.addColumn('number', 'CO2x');
     data_CO2xETCO2.addColumn('number', 'ETCO2');
-    data_CO2xETCO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_CO2xETCO2.addColumn({'role': 'style'});
     data_CO2xETCO2.addRows([
-        [10, 1, null, null],
-        [20, 0.47, null, null],
-        [30, 0.8, null, null],
-        [40, 0.67, null, null],
+        [10, 1],
+        [20, 0.47],
+        [30, 0.8],
+        [40, 0.67],
     ]);
 
     var options_CO2xETCO2 = {
@@ -1205,21 +1149,13 @@ function drawCO2xETCO2Chart() {
         height: "100%",
         title: "Time under ETCO2opt : --hr--min",
         legend: "none",
-        fontSize:15,
+        fontSize: 15,
         curveType: 'function',
         hAxis: {
             title: "ETCO2",
-            gridlines: {
-                color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
-            },
+            gridlineColor: '#777',
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -1233,7 +1169,7 @@ function drawCO2xETCO2Chart() {
         },
         chartArea: {
             width: '80%',
-            height:'80%'
+            height: '80%'
         }
     };
 
@@ -1246,13 +1182,11 @@ function drawRSO2ETCO2Chart() {
     var data_RSO2ETCO2 = new google.visualization.DataTable();
     data_RSO2ETCO2.addColumn('number', 'rSO2');
     data_RSO2ETCO2.addColumn('number', 'ETCO2');
-    data_RSO2ETCO2.addColumn({'type': 'string', 'role': 'tooltip'});
-    data_RSO2ETCO2.addColumn({'role': 'style'});
     data_RSO2ETCO2.addRows([
-        [10, 1, null, null],
-        [20, 0.47, null, null],
-        [30, 0.8, null, null],
-        [40, 0.67, null, null],
+        [10, 1],
+        [20, 0.47],
+        [30, 0.8],
+        [40, 0.67],
     ]);
 
     var options_RSO2ETCO2 = {
@@ -1262,21 +1196,15 @@ function drawRSO2ETCO2Chart() {
         height: "100%",
         legend: "none",
         pointSize: 7,
-        fontSize:15,
+        fontSize: 15,
         curveType: 'function',
         hAxis: {
             title: "ETCO2",
             gridlines: {
                 color: '#777',
-                count: -1,
-                units: {
-                    days: {format: ['MMM dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
             },
             minorGridlines: {
                 color: '#333',
-                hours: {format: ['hh:mm a', 'ha']},
             }
         },
         vAxis: {
@@ -1290,7 +1218,7 @@ function drawRSO2ETCO2Chart() {
         },
         chartArea: {
             width: '80%',
-            height:'80%'
+            height: '80%'
         }
     };
 
