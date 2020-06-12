@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import OperationalDefinition, Category, ICDCode
+from .models import OperationalDefinition, Category, ICDCode, EDICode, VaccineCode
 
 
 class OperationalDefinitionAdmin(admin.ModelAdmin):
@@ -17,8 +17,16 @@ class CategoryAdmin(admin.ModelAdmin):
 class ICDCodeAdmin(admin.ModelAdmin):
     pass
 
+class EDICodeAdmin(admin.ModelAdmin):
+    pass
+
+class VaccineCodeAdmin(admin.ModelAdmin):
+    pass
+
 
 admin.site.register(OperationalDefinition, OperationalDefinitionAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(ICDCode, ICDCodeAdmin)
+admin.site.register(EDICode, EDICodeAdmin)
+admin.site.register(VaccineCode, VaccineCodeAdmin)
 

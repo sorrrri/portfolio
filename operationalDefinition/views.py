@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import DetailView, UpdateView, DeleteView, ListView
@@ -12,18 +12,19 @@ class OperationalDefinitionListView(ListView):
     ordering = "-updated"
 
 
-class OperationalDefinitionICDCodeListView(ListView):
-    model = OperationalDefinition
-    template_name = "operationalDefinition/icd_code_list.html"
-    ordering = "icd_code"
-    success_url = reverse_lazy('create')
-
-
 class OperationalDefinitionCreateView(generic.CreateView):
     model = OperationalDefinition
     success_url = reverse_lazy('list')
     template_name_suffix = '_create'
     form_class = forms.OperationalDefinitionForm
+
+    def form_valid(self, form):
+        form.instance.user_id = self.request.user.id
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        else:
+            return self.render_to_response({'form': form})
 
 
 class OperationalDefinitionDetailView(DetailView):

@@ -25,7 +25,7 @@ SECRET_KEY = 'x_6obbcdry4n$2tn4(z3uza$*y8!vheooy-oa2#@rbc1u#^+l!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'operationalDefinition',
-    'django_select2'
+    'django_select2',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +76,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'operationalDefinition_03',
+        'HOST': 'localhost',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'SQL Server Native Client 11.0',
+            'MARS_Connection': True,
+            'driver_supports_utf8': True,
+        },
     }
 }
 
@@ -105,9 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -118,6 +127,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -136,3 +148,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 #
 # # Tell select2 which cache configuration to use:
 # SELECT2_CACHE_BACKEND = "select2"
+

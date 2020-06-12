@@ -6,51 +6,457 @@
 
     {{ form.media.css }}
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 </head>
 <body>
 <div class="container">
     <header>
-        <div class="logo"><a href="/">main</a></div>
-        <ul>
-            <li>jangood1122</li>
+        <div class="logo"><a href="/">Operational Definition</a></div>
+        <ul class="navigation">
+            {% if user.is_authenticated %}
+            <li><a href="#">Welcome, <strong>{{user.get_username}}</strong></a></li>
+            <li><a href="{% url 'logout' %}" class="logout">logout</a></li>
+
+            {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            {% endif %}
         </ul>
     </header>
-    <div class="content">
-        <form action="" method="post">
-            <div class="title">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="title">
+            <div class="wrapper">
                 <h2>조작적 정의 생성</h2>
-                <button type="submit">생성</button>
+                <button type="submit">create</button>
             </div>
-            {% csrf_token %}
-            <div class="input-container">
-                <label class="required">Category</label>
-                {{ form.category }}
+        </div>
+        <div class="content">
+            <div class="wrapper">
+                <section>
+                    <div class="white-container required-container category">
+                        <div class="input-container">
+                            <label class="required">Category</label>
+                            {{ form.category }}
+                        </div>
+                    </div>
+                    <div class="white-container required-container">
+                        <div class="input-container">
+                            <label class="required">ICD Code</label>
+                            {{ form.primary_icd_code }}
+                        </div>
+                        <div class="input-container">
+                            <label class="required">EDI Code</label>
+                            {{ form.primary_edi_code }}
+                        </div>
+                        <div class="input-container">
+                            <label class="required">Vaccine Code</label>
+                            {{ form.primary_vaccine_code }}
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="white-container">
+                        <fieldset>
+                            <legend>ICD Code</legend>
+                            <div class="codes icd-codes">
+                                <div class="input-container active">
+<!--                                    <select class="add-icd-code"></select>-->
+                                    {{ form.icd_code_01 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_01">
+                                    <input type="number" class="add-days" id="icd_add_days_01">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_02 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_02">
+                                    <input type="number" class="add-days" id="icd_add_days_02">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_03 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_03">
+                                    <input type="number" class="add-days" id="icd_add_days_03">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_04 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_04">
+                                    <input type="number" class="add-days" id="icd_add_days_04">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_05 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_05">
+                                    <input type="number" class="add-days" id="icd_add_days_05">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_06 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_06">
+                                    <input type="number" class="add-days" id="icd_add_days_06">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_07 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_07">
+                                    <input type="number" class="add-days" id="icd_add_days_07">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_08 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_08">
+                                    <input type="number" class="add-days" id="icd_add_days_08">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_09 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_09">
+                                    <input type="number" class="add-days" id="icd_add_days_09">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.icd_code_10 }}
+                                    <input type="number" class="subtract-days" id="icd_subtract_days_10">
+                                    <input type="number" class="add-days" id="icd_add_days_10">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-input-container add-icd-codes">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </div>
+                        </fieldset>
+                        <fieldset class="codes">
+                            <legend>EDI Code</legend>
+                            <div class="codes edi-codes">
+                                <div class="input-container active">
+                                    {{ form.edi_code_01 }}
+                                    <input type="number" class="subtract-days"  id="edi_subtract_days_01"/>
+                                    <input type="number" class="add-days"  id="edi_add_days_01"/>
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_02 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_02">
+                                    <input type="number" class="add-days" id="edi_add_days_02">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_03 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_03">
+                                    <input type="number" class="add-days" id="edi_add_days_03">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_04 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_04">
+                                    <input type="number" class="add-days" id="edi_add_days_04">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_05 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_05">
+                                    <input type="number" class="add-days" id="edi_add_days_05">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_06 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_06">
+                                    <input type="number" class="add-days" id="edi_add_days_06">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_07 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_07">
+                                    <input type="number" class="add-days" id="edi_add_days_07">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_08 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_08">
+                                    <input type="number" class="add-days" id="edi_add_days_08">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_09 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_09">
+                                    <input type="number" class="add-days" id="edi_add_days_09">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.edi_code_10 }}
+                                    <input type="number" class="subtract-days" id="edi_subtract_days_10">
+                                    <input type="number" class="add-days" id="edi_add_days_10">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-input-container add-edi-codes">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </div>
+                        </fieldset>
+                        <fieldset class="codes">
+                            <legend>Vaccine Code</legend>
+                            <div class="codes vaccine-codes">
+                                <div class="input-container active">
+                                    {{ form.vaccine_code_01 }}
+                                    <input type="number" class="subtract-days"  id="vaccine_subtract_days_01"/>
+                                    <input type="number" class="add-days"  id="vaccine_add_days_01"/>
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_02 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_02">
+                                    <input type="number" class="add-days" id="vaccine_add_days_02">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_03 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_03">
+                                    <input type="number" class="add-days" id="vaccine_add_days_03">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_04 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_04">
+                                    <input type="number" class="add-days" id="vaccine_add_days_04">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_05 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_05">
+                                    <input type="number" class="add-days" id="vaccine_add_days_05">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_06 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_06">
+                                    <input type="number" class="add-days" id="vaccine_add_days_06">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_07 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_07">
+                                    <input type="number" class="add-days" id="vaccine_add_days_07">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_08 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_08">
+                                    <input type="number" class="add-days" id="vaccine_add_days_08">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_09 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_09">
+                                    <input type="number" class="add-days" id="vaccine_add_days_09">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-container">
+                                    {{ form.vaccine_code_10 }}
+                                    <input type="number" class="subtract-days" id="vaccine_subtract_days_10">
+                                    <input type="number" class="add-days" id="vaccine_add_days_10">
+                                    <div class="remove-input-container" onclick="removeParentElement(this)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-input-container add-vaccine-codes">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+                <section>
+                    <div class="white-container input-container">
+                        <label>Description</label>
+                        {{ form.description }}
+                    </div>
+                    <div class="white-container input-container query">
+                        <label>Query</label>
+                        <div>
+                            <div class="query-title">
+                                <button id="buttonQuery" class="button-convert" onclick="addQuery()" type="button">
+                                    convert
+                                </button>
+                                <div class="tooltip" onclick="copyQuery()" onmouseout="outFunc()">
+                                    <a class="button-copy-query">
+                                        <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
+                                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            {{ form.query }}
+                        </div>
+                    </div>
+                </section>
             </div>
-            <div class="input-container">
-                <label class="required">ICD Code</label>
-                {{ form.primary_icd_code }}
-            </div>
-            <div class="input-container">
-                <label>ICD Code</label>
-                {{ form.icd_code }}
-                <input type="number" name="icd_subtract_days" id="id_icd_subtract_days" placeholder="Subtract Days">
-                <input type="number" name="icd_add_days" id="id_icd_add_days" placeholder="Add Days">
-            </div>
-            <div class="input-container">
-                <label>EDI Code</label>
-                {{ form.edi_code }}
-                <input type="number" name="edi_subtract_days" id="id_edi_subtract_days" placeholder="Subtract Days">
-                <input type="number" name="edi_add_days" id="id_edi_add_days" placeholder="Add Days">
-            </div>
-            <div class="input-container">
-                <label>Description</label>
-                {{ form.description }}
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 {{ form.media.js }}
+
+<script src="{% static 'js/ICDCodes.js' %}"></script>
+
 </body>
+
 </html>
