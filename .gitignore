@@ -11,6 +11,7 @@
 *.pot
 *.pyc
 __pycache__/
+migrations/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -358,4 +359,3 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,django,python,pycharm
-**/migrations/
