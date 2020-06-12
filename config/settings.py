@@ -80,9 +80,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'operationalDefinition_03',
-        'HOST': 'localhost',
+        'NAME': 'operationalDefinition',
+        'HOST': '10.5.12.73',
         'PORT': '1433',
+        'USER': 'sori',
+        'PASSWORD': 'qwer1234!@',
         'OPTIONS': {
             'driver': 'SQL Server Native Client 11.0',
             'MARS_Connection': True,
