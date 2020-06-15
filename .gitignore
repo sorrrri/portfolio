@@ -1,6 +1,7 @@
 # custom
 .idea/
 .config_secret/
+.static_root/
 
 # Created by .ignore support plugin (hsz.mobi)
 
