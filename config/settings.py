@@ -9,23 +9,25 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import json
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+CONFIG_SECRET_DIR = os.path.join(BASE_DIR, '.config_secret')
+CONFIG_SECRET_COMMON_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_common.json')
+config_secret_common = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x_6obbcdry4n$2tn4(z3uza$*y8!vheooy-oa2#@rbc1u#^+l!'
+SECRET_KEY = config_secret_common['django']['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config_secret_common['django']['debug']
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config_secret_common['django']['allowed_hosts']
 
 
 # Application definition
@@ -76,21 +78,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'operationalDefinition',
-        'HOST': '10.5.12.73',
-        'PORT': '1433',
-        'USER': 'sori',
-        'PASSWORD': 'qwer1234!@',
-        'OPTIONS': {
-            'driver': 'SQL Server Native Client 11.0',
-            'MARS_Connection': True,
-            'driver_supports_utf8': True,
-        },
-    }
-}
+DATABASES = config_secret_common['django']['databases']
 
 
 # Password validation
