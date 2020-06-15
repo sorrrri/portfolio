@@ -13,7 +13,7 @@
 
 .title button, .button-container button {
     height: 100%;
-    padding: 1rem 2rem;
+    padding: .8rem 1.6rem;
     display: flex;
     align-items: center;
     text-transform: capitalize;
@@ -73,7 +73,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: .8rem .5rem;
     background: white;
     border-radius: .5rem;
     margin: .5rem 0;
@@ -125,7 +125,8 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-align: left
+    text-align: left;
+    font-family: 'NanumSquare';
 }
 
 .cell-query svg {
@@ -134,7 +135,7 @@
 }
 
 .cell-buttons a {
-    margin: 0 .2rem;
+    margin: 0 2px;
     display: flex;
     align-items: center;
 }
@@ -211,5 +212,10 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
+}
+
+
+@media screen and (max-width: 480px) {
 
 }

@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'NanumSquare';
+    font-weight: 300;
+    src: url('../fonts/NanumSquareR.eot');
+    src: url('../fonts/NanumSquareR.eot?#iefix') format('embedded-opentype'), url('../fonts/NanumSquareR.woff') format('woff'), url('../fonts/NanumSquareR.ttf') format('truetype')
+}
+
+@font-face {
     font-family: 'Comfortaa';
     src: url('../fonts/Comfortaa-Semibold.ttf');
 }
@@ -52,6 +59,7 @@ a {
 }
 
 h1, h2, h3 {
+    color: slategray;
     margin: 0
 }
 
@@ -95,12 +103,15 @@ label {
 
 legend {
     font-family: Comfortaa;
-    color: #333333;
+    color: slategray;
+    font-size: 13px;
     padding: 0 1rem
 }
 
 .input-container > label:nth-child(1) {
     flex: 0 0 20%;
+    font-size: 13px;
+    color: slategray;
 }
 
 button {
@@ -244,7 +255,7 @@ header {
 .content {
     flex: 1 1 auto;
     overflow-y: auto;
-    padding-top: 2rem;
+    padding: 2rem;
 }
 
 section {

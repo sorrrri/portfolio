@@ -90,7 +90,19 @@
                             <div class="codes vaccine-codes" id="vaccine_code_select_list">
 
                             </div>
-                            <div class="add-input-container add-vaccine-codes"  id="btn-add-vaccine-codes" onclick="fn_add_vaccine_code_select();">
+                            <div class="add-input-container add-vaccine-codes" id="btn-add-vaccine-codes" onclick="fn_add_vaccine_code_select();">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                                </svg>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="codes">
+                            <legend>Test1 Code</legend>
+                            <div class="codes test1-codes" id="test1_code_select_list">
+
+                            </div>
+                            <div class="add-input-container add-test1-codes" id="btn-add-test1-codes" onclick="fn_add_test1_code_select();">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                                 </svg>
@@ -143,6 +155,9 @@
         g_vaccine_count = 0;
         vaccine_curr_row_count = 0;
 
+        g_test1_count = 0;
+        test1_curr_row_count = 0;
+
         init_operational_create();
 
         $(document).on("click", ".remove_icd_code", function(){
@@ -184,16 +199,31 @@
             }
         });
 
+        $(document).on("click", ".remove_test1_code", function(){
+
+            var this_num = $(this).data("num");
+
+            $("#wrap_test1_container_" + this_num).remove();
+            test1_curr_row_count -=1;
+            if (test1_curr_row_count == 10){
+                $("#btn-add-test1-codes").hide();
+            } else {
+                $("#btn-add-test1-codes").show();
+            }
+        });
+
     });
 
     function init_operational_create() {
         init_fn_select2("ICD_CODE_MULTI");
         init_fn_select2("EDI_CODE_MULTI");
         init_fn_select2("VACCINE_CODE_MULTI");
+        init_fn_select2("TEST1_CODE_MULTI");
 
         fn_add_icd_code_select();
         fn_add_edi_code_select();
         fn_add_vaccine_code_select();
+        fn_add_test1_code_select();
 
 
 
@@ -260,6 +290,23 @@
                                          );
         init_fn_select2("vaccine_code_select_"+pad(g_vaccine_count));
         g_vaccine_count += 1;
+    }
+
+    var g_test1_count = 0;
+    var test1_curr_row_count = 0;
+    function fn_add_test1_code_select() {
+        var _add_code = "test1";
+        test1_curr_row_count = $(".test1_container").length + 1;
+        if (test1_curr_row_count == 10) {
+            $("#btn-add-test1-codes").hide();
+        } else {
+            $("#btn-add-test1-codes").show();
+        }
+        $("#test1_code_select_list").append(_CODE_LIST_HTML.replace(/{code_type}/gi, _add_code)
+                                                         .replace(/{code_num}/gi, pad(g_test1_count))
+                                         );
+        init_fn_select2("test1_code_select_"+pad(g_test1_count));
+        g_test1_count += 1;
     }
 
 
