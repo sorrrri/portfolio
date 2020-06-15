@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect
+import json
+
+from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 
 from . import forms
-from .models import OperationalDefinition
+from .models import OperationalDefinition, ICDCode
 
 
 class OperationalDefinitionListView(ListView):
@@ -41,3 +44,24 @@ class OperationalDefinitionUpdateView(UpdateView):
 class OperationalDefinitionDeleteView(DeleteView):
     model = OperationalDefinition
     success_url = reverse_lazy('list')
+
+
+def get_select_icd_code(request):
+    queryset = ICDCode.objects.all()
+    query = request.GET.get('q')
+    queryset = queryset.filter(name__icontains=query)
+    results = [
+        {
+            'id': icdcode.name,
+            'text': icdcode.title,
+        } for icdcode in queryset
+    ]
+
+    content = {
+        "results": results,
+        "pagination": {
+            "more": False
+        }
+    }
+
+    return HttpResponse(json.dumps(content, ensure_ascii=True), content_type='application/json')
