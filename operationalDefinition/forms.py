@@ -1,7 +1,7 @@
 from django import forms
 from django_select2 import forms as s2forms
 
-from .models import OperationalDefinition
+from .models import OperationalDefinition, Category
 
 
 class PrimaryCodeWidget(s2forms.ModelSelect2MultipleWidget):
@@ -18,6 +18,19 @@ class CodeWidget(s2forms.ModelSelect2Widget):
         "name__icontains",
         "title__icontains"
     ]
+
+
+class CategoryOperationalDefinitionForm(forms.ModelForm):
+    class Meta:
+        model = OperationalDefinition
+        fields = ['category', 'query', 'description']
+        widgets = {
+            'category': forms.Select(
+                attrs={
+                    'onchange': "ctg_change();"
+                }
+            )
+        }
 
 
 class OperationalDefinitionForm(forms.ModelForm):
