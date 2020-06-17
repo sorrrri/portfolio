@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Object{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1>링크 추가</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <section class="detail-container">
+            <ul class="detail-list">
+                {{form.as_ul}}
+            </ul>
+        </section>
+        <div class="list-buttons">
+            <button class="cancel" onclick="history.back()">취소</button>
+            <button class="submit" type="submit">
+                <ion-icon name="checkmark-outline"></ion-icon>
+                완료
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
