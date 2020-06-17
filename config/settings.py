@@ -11,21 +11,25 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+CONFIG_SECRET_DIR = os.path.join(BASE_DIR, '.config_secret')
+CONFIG_SECRET_COMMON_FILE = os.path.join(CONFIG_SECRET_DIR, 'settings_common.json')
+CONFIG_SECRET_COMMON = json.loads(open(CONFIG_SECRET_COMMON_FILE).read())
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r8l@33oks4vu&&s+ut4*&_*9grhd9y10086ejacrxx9^@6u9hp'
+SECRET_KEY = CONFIG_SECRET_COMMON['django']['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = CONFIG_SECRET_COMMON['django']['debug']
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = CONFIG_SECRET_COMMON['django']['allowed_hosts']
 
 
 # Application definition
@@ -111,6 +115,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_L10N = True
+
 
 USE_TZ = True
 
