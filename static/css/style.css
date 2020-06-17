@@ -42,6 +42,7 @@
 
 .required-container .input-container {
     border-bottom: 0;
+    padding: 0;
 }
 
 .query-title {
@@ -149,7 +150,7 @@
     flex: 1 1 auto;
     background: white;
     margin: .5rem;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1rem;
 }
 

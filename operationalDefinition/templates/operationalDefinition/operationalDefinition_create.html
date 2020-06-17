@@ -135,7 +135,8 @@
 <script>
 
     $(document).ready(function() {
-        $("#id_category > option:eq(3)").attr("selected","selected");
+        {#$("#id_category > option:eq(3)").attr("selected","selected");#}
+        document.getElementById("id_category").options[3].selected = "selected";
         ctg_change();
         g_icd_count = 0;
         icd_curr_row_count = 0;
