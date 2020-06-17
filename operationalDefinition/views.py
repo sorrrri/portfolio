@@ -19,7 +19,7 @@ class OperationalDefinitionCreateView(generic.CreateView):
     model = OperationalDefinition
     success_url = reverse_lazy('list')
     template_name_suffix = '_create'
-    form_class = forms.OperationalDefinitionForm
+    form_class = forms.CategoryOperationalDefinitionForm
 
     def form_valid(self, form):
         form.instance.user_id = self.request.user.id

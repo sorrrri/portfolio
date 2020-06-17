@@ -43,15 +43,15 @@
                         </div>
                     </div>
                     <div class="white-container required-container">
-                        <div class="input-container">
+                        <div class="input-container" id="id_primary_icd_code" style="display:none;">
                             <label class="required">ICD Code</label>
                             <select class="" name="icd_code_mult[]" multiple="multiple" id="ICD_CODE_MULTI"></select>
                         </div>
-                        <div class="input-container">
+                        <div class="input-container" id="id_primary_edi_code" style="display:none;">
                             <label class="required">EDI Code</label>
                             <select class="" name="edi_code_mult[]" multiple="multiple" id="EDI_CODE_MULTI"></select>
                         </div>
-                        <div class="input-container">
+                        <div class="input-container" id="id_primary_vaccine_code" style="display:none;">
                             <label class="required">Vaccine Code</label>
                             <select class="" name="vaccine_code_mult[]" multiple="multiple" id="VACCINE_CODE_MULTI"></select>
                         </div>
@@ -59,7 +59,7 @@
                 </section>
                 <section>
                     <div class="white-container">
-                        <fieldset>
+                        <fieldset id="icd_codes_field" style="display:none;">
                             <legend>ICD Code</legend>
                             <div class="codes icd-codes" id="icd_code_select_list">
                                 <!-- icd code list -->
@@ -72,7 +72,7 @@
                             </div>
                         </fieldset>
 
-                        <fieldset class="codes">
+                        <fieldset class="codes" id="edi_codes_field" style="display:none;">>
                             <legend>EDI Code</legend>
                             <div class="codes edi-codes" id="edi_code_select_list">
                                 <!-- edi code list -->
@@ -85,7 +85,7 @@
                             </div>
                         </fieldset>
 
-                        <fieldset class="codes">
+                        <fieldset class="codes" id="vaccine_codes_field" style="display:none;">>
                             <legend>Vaccine Code</legend>
                             <div class="codes vaccine-codes" id="vaccine_code_select_list">
 
@@ -133,7 +133,10 @@
 
 
 <script>
+
     $(document).ready(function() {
+        $("#id_category > option:eq(3)").attr("selected","selected");
+        ctg_change();
         g_icd_count = 0;
         icd_curr_row_count = 0;
 
@@ -202,8 +205,8 @@
 
     var _CODE_LIST_HTML =   '<div class="input-container active {code_type}_container" id="wrap_{code_type}_container_{code_num}">' +
                                 '<select class="select_code_input" name="" id="{code_type}_code_select_{code_num}"></select>' +
-                                '<input type="number" class="subtract-days" id="{code_type}_subtract_days_{code_num}">' +
-                                '<input type="number" class="add-days" id="{code_type}_add_days_{code_num}">' +
+                                '<input type="number" class="subtract-days" id="{code_type}_subtract_days_{code_num}"><small>일 전</small>' +
+                                '<input type="number" class="add-days" id="{code_type}_add_days_{code_num}"><small>일 후</small>' +
                                 '<div class="remove-input-container remove_{code_type}_code" data-num="{code_num}">' +
                                     '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">' +
                                         '<path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>' +
@@ -262,6 +265,54 @@
         g_vaccine_count += 1;
     }
 
+
+    function ctg_change() {
+        var currentSelect = $("#id_category").val();
+
+        if (currentSelect == "HOI"){
+            $("#id_primary_icd_code").show();
+            $("#id_primary_edi_code").hide();
+            $("#id_primary_vaccine_code").hide();
+
+            $("#icd_codes_field").show();
+            $("#edi_codes_field").show();
+            $("#vaccine_codes_field").hide();
+        } else if (currentSelect == "VOI") {
+            $("#id_primary_icd_code").hide();
+            $("#id_primary_edi_code").hide();
+            $("#id_primary_vaccine_code").show();
+
+            $("#icd_codes_field").show();
+            $("#edi_codes_field").show();
+            $("#vaccine_codes_field").show();
+
+        } else if (currentSelect == "Condition") {
+            $("#id_primary_icd_code").show();
+            $("#id_primary_edi_code").hide();
+            $("#id_primary_vaccine_code").hide();
+
+            $("#icd_codes_field").show();
+            $("#edi_codes_field").show();
+            $("#vaccine_codes_field").hide();
+
+        } else if (currentSelect == "Drug Exposure") {
+            $("#id_primary_icd_code").hide();
+            $("#id_primary_edi_code").show();
+            $("#id_primary_vaccine_code").hide();
+
+            $("#icd_codes_field").hide();
+            $("#edi_codes_field").show();
+            $("#vaccine_codes_field").hide();
+        } else {
+            $("#id_primary_icd_code").show();
+            $("#id_primary_edi_code").show();
+            $("#id_primary_vaccine_code").show();
+
+            $("#icd_codes_field").hide();
+            $("#edi_codes_field").hide();
+            $("#vaccine_codes_field").hide();
+        }
+    }
 
     // select2 초기화
     function init_fn_select2(_id) {
