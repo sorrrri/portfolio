@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 
 from config.bizutil import BizService
@@ -47,6 +48,7 @@ class OperationalDefinitionDeleteView(DeleteView):
     success_url = reverse_lazy('list')
 
 
+@csrf_exempt
 def get_select_icd_code(request):
     query = request.GET.get('q')
     queryset = ICDCode.objects.filter(name__icontains=query)
@@ -55,6 +57,7 @@ def get_select_icd_code(request):
     return HttpResponse(json.dumps(content, ensure_ascii=True), content_type='application/json')
 
 
+@csrf_exempt
 def get_select_edi_code(request):
     query = request.GET.get('q')
     queryset = EDICode.objects.filter(name__icontains=query)
@@ -63,6 +66,7 @@ def get_select_edi_code(request):
     return HttpResponse(json.dumps(content, ensure_ascii=True), content_type='application/json')
 
 
+@csrf_exempt
 def get_select_vaccine_code(request):
     query = request.GET.get('q')
     queryset = VaccineCode.objects.filter(name__icontains=query)
