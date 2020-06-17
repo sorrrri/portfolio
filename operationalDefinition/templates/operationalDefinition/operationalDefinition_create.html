@@ -190,9 +190,9 @@
     });
 
     function init_operational_create() {
-        init_fn_select2("ICD_CODE_MULTI");
-        init_fn_select2("EDI_CODE_MULTI");
-        init_fn_select2("VACCINE_CODE_MULTI");
+        init_fn_select2("ICD_CODE_MULTI", "{% url 'icd_code_list' %}");
+        init_fn_select2("EDI_CODE_MULTI", "{% url 'edi_code_list' %}");
+        init_fn_select2("VACCINE_CODE_MULTI", "{% url 'vaccine_code_list' %}");
 
         fn_add_icd_code_select();
         fn_add_edi_code_select();
@@ -227,7 +227,7 @@
         $("#icd_code_select_list").append(_CODE_LIST_HTML.replace(/{code_type}/gi, _add_code)
                                                          .replace(/{code_num}/gi, pad(g_icd_count))
                                          );
-        init_fn_select2("icd_code_select_"+pad(g_icd_count));
+        init_fn_select2("icd_code_select_"+pad(g_icd_count), "{% url 'icd_code_list' %}");
         g_icd_count += 1;
     }
 
@@ -244,7 +244,7 @@
         $("#edi_code_select_list").append(_CODE_LIST_HTML.replace(/{code_type}/gi, _add_code)
                                                          .replace(/{code_num}/gi, pad(g_edi_count))
                                          );
-        init_fn_select2("edi_code_select_"+pad(g_edi_count));
+        init_fn_select2("edi_code_select_"+pad(g_edi_count), "{% url 'edi_code_list' %}");
         g_edi_count += 1;
     }
 
@@ -261,7 +261,7 @@
         $("#vaccine_code_select_list").append(_CODE_LIST_HTML.replace(/{code_type}/gi, _add_code)
                                                          .replace(/{code_num}/gi, pad(g_vaccine_count))
                                          );
-        init_fn_select2("vaccine_code_select_"+pad(g_vaccine_count));
+        init_fn_select2("vaccine_code_select_"+pad(g_vaccine_count), "{% url 'vaccine_code_list' %}");
         g_vaccine_count += 1;
     }
 
@@ -315,12 +315,12 @@
     }
 
     // select2 초기화
-    function init_fn_select2(_id) {
+    function init_fn_select2(_id, _url) {
         id_select = "#" + _id;
 
         $(id_select).select2({
             ajax: {
-                url: "{% url 'icd_code_list' %}",
+                url: _url,
                 dataType: 'json',
                 delay: 250,
                 cache: true,

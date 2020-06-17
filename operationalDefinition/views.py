@@ -6,8 +6,9 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.views.generic import DetailView, UpdateView, DeleteView, ListView
 
+from config.bizutil import BizService
 from . import forms
-from .models import OperationalDefinition, ICDCode
+from .models import OperationalDefinition, ICDCode, EDICode, VaccineCode
 
 
 class OperationalDefinitionListView(ListView):
@@ -47,21 +48,24 @@ class OperationalDefinitionDeleteView(DeleteView):
 
 
 def get_select_icd_code(request):
-    queryset = ICDCode.objects.all()
     query = request.GET.get('q')
-    queryset = queryset.filter(name__icontains=query)
-    results = [
-        {
-            'id': icdcode.name,
-            'text': icdcode.title,
-        } for icdcode in queryset
-    ]
+    queryset = ICDCode.objects.filter(name__icontains=query)
+    content = BizService.get_select_code(queryset)
 
-    content = {
-        "results": results,
-        "pagination": {
-            "more": False
-        }
-    }
+    return HttpResponse(json.dumps(content, ensure_ascii=True), content_type='application/json')
+
+
+def get_select_edi_code(request):
+    query = request.GET.get('q')
+    queryset = EDICode.objects.filter(name__icontains=query)
+    content = BizService.get_select_code(queryset)
+
+    return HttpResponse(json.dumps(content, ensure_ascii=True), content_type='application/json')
+
+
+def get_select_vaccine_code(request):
+    query = request.GET.get('q')
+    queryset = VaccineCode.objects.filter(name__icontains=query)
+    content = BizService.get_select_code(queryset)
 
     return HttpResponse(json.dumps(content, ensure_ascii=True), content_type='application/json')
