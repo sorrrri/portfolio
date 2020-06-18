@@ -47,6 +47,9 @@ class OperationalDefinitionDeleteView(DeleteView):
     model = OperationalDefinition
     success_url = reverse_lazy('list')
 
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
 
 @csrf_exempt
 def get_select_icd_code(request):
