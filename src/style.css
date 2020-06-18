@@ -560,6 +560,11 @@ h1, h2, h3, h4, h5 {
     transition: border-bottom-color .4s;
 }
 
+.record input[type="datetime"],
+.record input[type="datetime-local"] {
+    font-weight: normal;
+}
+
 .record input:focus {
     outline: 1px solid #47CACC;
 }

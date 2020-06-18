@@ -80,17 +80,15 @@ $('.cb-value').click(function () {
 
 
 // Set the Current Time
-var inputTime = document.getElementById('input-time');
 var searchTime = document.getElementById('search-time');
 var timeLactate = document.getElementById('time-lactate');
 var timeGlucose = document.getElementById('time-glucose');
 var timeHgb = document.getElementById('time-hgb');
 
-/*inputTime.value = new Date().toISOString().slice(0, 16);
 searchTime.value = new Date().toISOString().slice(0, 16);
 timeLactate.value = new Date().toISOString().slice(0, 16);
 timeGlucose.value = new Date().toISOString().slice(0, 16);
-timeHgb.value = new Date().toISOString().slice(0, 16);*/
+timeHgb.value = new Date().toISOString().slice(0, 16);
 
 
 // On checkbox click in the color filter
