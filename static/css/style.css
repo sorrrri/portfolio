@@ -1,6 +1,6 @@
 .title {
     flex: 0 0 auto;
-    padding: 1.5rem;
+    padding: 1rem;
     border-bottom: 1px solid #E3E6E9;
     box-sizing: border-box;
 }
@@ -89,7 +89,7 @@
 .table .th {
     border-radius: 0;
     background: transparent;
-    font: 13px/1.5 'OpenSans';
+    font: 13px/1.5 'Comfortaa';
     padding-bottom: 0;
     color: slategray;
 }
@@ -177,7 +177,7 @@
 }
 
 .add-input-container svg {
-    fill: slategray;
+    fill: lightsteelblue;
     cursor: pointer;
 }
 
@@ -205,7 +205,7 @@
     display: flex;
 }
 
-.select2-container--default .select2-selection--multiple .select2-selection__clear {
+.select2-container .select2-search--inline .select2-search__field {
     margin-top: 0;
 }
 

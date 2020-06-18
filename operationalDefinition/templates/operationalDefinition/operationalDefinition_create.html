@@ -44,15 +44,15 @@
                     </div>
                     <div class="white-container required-container">
                         <div class="input-container" id="id_primary_icd_code" style="display:none;">
-                            <label class="required">ICD Code</label>
+                            <label class="required"><i class="icon-code-icd">I</i>ICD Code</label>
                             <select class="" name="icd_code_mult[]" multiple="multiple" id="ICD_CODE_MULTI"></select>
                         </div>
                         <div class="input-container" id="id_primary_edi_code" style="display:none;">
-                            <label class="required">EDI Code</label>
+                            <label class="required"><i class="icon-code-edi">E</i>EDI Code</label>
                             <select class="" name="edi_code_mult[]" multiple="multiple" id="EDI_CODE_MULTI"></select>
                         </div>
                         <div class="input-container" id="id_primary_vaccine_code" style="display:none;">
-                            <label class="required">Vaccine Code</label>
+                            <label class="required"><i class="icon-code-vaccine">V</i>Vaccine Code</label>
                             <select class="" name="vaccine_code_mult[]" multiple="multiple" id="VACCINE_CODE_MULTI"></select>
                         </div>
                     </div>
@@ -60,38 +60,38 @@
                 <section>
                     <div class="white-container">
                         <fieldset id="icd_codes_field" style="display:none;">
-                            <legend>ICD Code</legend>
+                            <legend><i class="icon-code-icd">I</i>ICD Code</legend>
                             <div class="codes icd-codes" id="icd_code_select_list">
                                 <!-- icd code list -->
 
                             </div>
                             <div class="add-input-container add-icd-codes" id="btn-add-icd-codes" onclick="fn_add_icd_code_select();">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                                 </svg>
                             </div>
                         </fieldset>
 
                         <fieldset class="codes" id="edi_codes_field" style="display:none;">
-                            <legend>EDI Code</legend>
+                            <legend><i class="icon-code-edi">E</i>EDI Code</legend>
                             <div class="codes edi-codes" id="edi_code_select_list">
                                 <!-- edi code list -->
 
                             </div>
                             <div class="add-input-container add-edi-codes" id="btn-add-edi-codes" onclick="fn_add_edi_code_select();">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                                 </svg>
                             </div>
                         </fieldset>
 
                         <fieldset class="codes" id="vaccine_codes_field" style="display:none;">
-                            <legend>Vaccine Code</legend>
+                            <legend><i class="icon-code-vaccine">V</i>Vaccine Code</legend>
                             <div class="codes vaccine-codes" id="vaccine_code_select_list">
 
                             </div>
                             <div class="add-input-container add-vaccine-codes"  id="btn-add-vaccine-codes" onclick="fn_add_vaccine_code_select();">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                                 </svg>
                             </div>
@@ -135,7 +135,7 @@
 <script>
 
     $(document).ready(function() {
-        {#$("#id_category > option:eq(3)").attr("selected","selected");#}
+        //{$("#id_category > option:eq(3)").attr("selected","selected");}
         document.getElementById("id_category").options[3].selected = "selected";
         ctg_change();
         g_icd_count = 0;

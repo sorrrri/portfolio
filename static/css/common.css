@@ -11,8 +11,18 @@
 }
 
 @font-face {
+    font-family: 'Comfortaa';
+    src: url('../fonts/Comfortaa-Bold.ttf');
+}
+
+@font-face {
     font-family: 'Mukta';
     src: url('../fonts/Mukta-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'PTSerif';
+    src: url('../fonts/PTSerif-Regular.ttf');
 }
 
 body {
@@ -42,7 +52,6 @@ body {
 .required::before {
     content: "*";
     color: salmon;
-    font-size: 20px;
     position: absolute;
     left: -.7rem;
 }
@@ -106,17 +115,20 @@ legend {
     font-family: OpenSans;
     font-size: 13px;
     color: #444;
-    display: contents;
+    display: flex;
+    align-items: center
 }
 
 .input-container > label:nth-child(1) {
     flex: 0 0 20%;
     font-size: 14px;
     color: #444;
+    display: flex;
+    align-items: center;
 }
 
 button {
-    font-family: OpenSans;
+    font-family: Comfortaa;
     border: 0;
     background: cornflowerblue;
     color: white;
@@ -145,6 +157,32 @@ button:focus, input:focus, textarea:focus {
 .active {
     opacity: 1 !important;
     visibility: visible !important;
+}
+
+i[class*="icon-code"] {
+    font: normal bold 10px/1 "PTSerif";
+    width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: .5rem;
+    color: white;
+}
+
+.icon-code-icd {
+    background: #fd9390;
+}
+
+.icon-code-edi {
+    background: #757cf7;
+
+}
+
+.icon-code-vaccine {
+    background: #fdd310;
+
 }
 
 .button-container {
@@ -233,7 +271,7 @@ header {
 }
 
 .logo {
-    font-family: OpenSans;
+    font-family: Comfortaa;
 }
 
 .navigation {
@@ -266,7 +304,7 @@ section {
 }
 
 section:last-of-type {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .wrapper {
