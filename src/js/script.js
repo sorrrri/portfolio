@@ -47,6 +47,26 @@ function drawCOxChart() {
         [new Date(2020, 4, 21, 6), 0.28, null, null, null],
         [new Date(2020, 4, 21, 7), 0.29, null, null, null],
         [new Date(2020, 4, 21, 8), 0.30, null, null, null],
+        [new Date(2020, 4, 21, 9), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 10), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 11), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 12), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 13), 0.25, null, null, null],
+        [new Date(2020, 4, 21, 14), 0.36, null, null, null],
+        [new Date(2020, 4, 21, 15), 0.17, null, null, null],
+        [new Date(2020, 4, 21, 16), 0.28, null, null, null],
+        [new Date(2020, 4, 21, 17), 0.29, null, null, null],
+        [new Date(2020, 4, 21, 18), 0.30, null, null, null],
+        [new Date(2020, 4, 21, 19), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 20), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 21), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 22), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 23), 0.25, null, null, null],
+        [new Date(2020, 4, 21, 24), 0.36, null, null, null],
+        [new Date(2020, 4, 22, 1), 0.17, null, null, null],
+        [new Date(2020, 4, 22, 2), 0.28, null, null, null],
+        [new Date(2020, 4, 22, 3), 0.29, null, null, null],
+        [new Date(2020, 4, 22, 4), 0.30, null, null, null],
     ]);
 
     var options_COx = {
@@ -62,10 +82,23 @@ function drawCOxChart() {
             color: "yellow"
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -116,6 +149,26 @@ function drawRSO2Chart() {
         [new Date(2020, 4, 21, 6), 70, null, null],
         [new Date(2020, 4, 21, 7), 72, null, null],
         [new Date(2020, 4, 21, 8), 71, null, null],
+        [new Date(2020, 4, 21, 9), 60, null, null],
+        [new Date(2020, 4, 21, 10), 65, null, null],
+        [new Date(2020, 4, 21, 11), 62, null, null],
+        [new Date(2020, 4, 21, 12), 67, null, null],
+        [new Date(2020, 4, 21, 13), 54, null, null],
+        [new Date(2020, 4, 21, 14), 51, null, null],
+        [new Date(2020, 4, 21, 15), 46, null, null],
+        [new Date(2020, 4, 21, 16), 47, null, null],
+        [new Date(2020, 4, 21, 17), 57, null, null],
+        [new Date(2020, 4, 21, 18), 60, null, null],
+        [new Date(2020, 4, 21, 19), 65, null, null],
+        [new Date(2020, 4, 21, 20), 62, null, null],
+        [new Date(2020, 4, 21, 21), 63, null, null],
+        [new Date(2020, 4, 21, 22), 73, null, null],
+        [new Date(2020, 4, 21, 23), 75, null, null],
+        [new Date(2020, 4, 21, 24), 56, null, null],
+        [new Date(2020, 4, 22, 1), 57, null, null],
+        [new Date(2020, 4, 22, 2), 56, null, null],
+        [new Date(2020, 4, 22, 3), 59, null, null],
+        [new Date(2020, 4, 22, 4), 70, null, null],
     ]);
 
     var options_RSO2 = {
@@ -131,10 +184,23 @@ function drawRSO2Chart() {
         fontSize: 15,
         curveType: 'function',
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -185,6 +251,26 @@ function drawMAPChart() {
         [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
         [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
         [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
     ]);
 
     var options_MAP = {
@@ -200,10 +286,23 @@ function drawMAPChart() {
             color: "yellow"
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -254,6 +353,26 @@ function drawETCO2Chart() {
         [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
         [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
         [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
     ]);
 
     var options_ETCO2 = {
@@ -269,10 +388,23 @@ function drawETCO2Chart() {
             color: "yellow"
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -322,6 +454,26 @@ function drawSJVO2Chart() {
         [new Date(2020, 4, 21, 6), 76, null, null],
         [new Date(2020, 4, 21, 7), 74, null, null],
         [new Date(2020, 4, 21, 8), 73, null, null],
+        [new Date(2020, 4, 21, 9), 60, null, null],
+        [new Date(2020, 4, 21, 10), 65, null, null],
+        [new Date(2020, 4, 21, 11), 62, null, null],
+        [new Date(2020, 4, 21, 12), 67, null, null],
+        [new Date(2020, 4, 21, 13), 54, null, null],
+        [new Date(2020, 4, 21, 14), 51, null, null],
+        [new Date(2020, 4, 21, 15), 46, null, null],
+        [new Date(2020, 4, 21, 16), 47, null, null],
+        [new Date(2020, 4, 21, 17), 57, null, null],
+        [new Date(2020, 4, 21, 18), 60, null, null],
+        [new Date(2020, 4, 21, 19), 65, null, null],
+        [new Date(2020, 4, 21, 20), 62, null, null],
+        [new Date(2020, 4, 21, 21), 63, null, null],
+        [new Date(2020, 4, 21, 22), 73, null, null],
+        [new Date(2020, 4, 21, 23), 75, null, null],
+        [new Date(2020, 4, 21, 24), 56, null, null],
+        [new Date(2020, 4, 22, 1), 57, null, null],
+        [new Date(2020, 4, 22, 2), 56, null, null],
+        [new Date(2020, 4, 22, 3), 59, null, null],
+        [new Date(2020, 4, 22, 4), 70, null, null],
     ]);
 
     var options_SJVO2 = {
@@ -336,10 +488,23 @@ function drawSJVO2Chart() {
             color: "yellow"
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -390,6 +555,26 @@ function drawADJLChart() {
         [new Date(2020, 4, 21, 6), 6, null, null],
         [new Date(2020, 4, 21, 7), 4, null, null],
         [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 21, 9), 8, null, null],
+        [new Date(2020, 4, 21, 10), 4, null, null],
+        [new Date(2020, 4, 21, 11), 6, null, null],
+        [new Date(2020, 4, 21, 12), 7, null, null],
+        [new Date(2020, 4, 21, 13), 8, null, null],
+        [new Date(2020, 4, 21, 14), 7, null, null],
+        [new Date(2020, 4, 21, 15), 4, null, null],
+        [new Date(2020, 4, 21, 16), 0, null, null],
+        [new Date(2020, 4, 21, 17), 5, null, null],
+        [new Date(2020, 4, 21, 18), 3, null, null],
+        [new Date(2020, 4, 21, 19), 2, null, null],
+        [new Date(2020, 4, 21, 20), 1, null, null],
+        [new Date(2020, 4, 21, 21), 4, null, null],
+        [new Date(2020, 4, 21, 22), 7, null, null],
+        [new Date(2020, 4, 21, 23), 4, null, null],
+        [new Date(2020, 4, 21, 24), 6, null, null],
+        [new Date(2020, 4, 22, 1), 8, null, null],
+        [new Date(2020, 4, 22, 2), 4, null, null],
+        [new Date(2020, 4, 22, 3), 1, null, null],
+        [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
     var options_ADJL = {
@@ -404,10 +589,23 @@ function drawADJLChart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -457,6 +655,26 @@ function drawLOIChart() {
         [new Date(2020, 4, 21, 6), 6, null, null],
         [new Date(2020, 4, 21, 7), 4, null, null],
         [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 21, 9), 8, null, null],
+        [new Date(2020, 4, 21, 10), 4, null, null],
+        [new Date(2020, 4, 21, 11), 6, null, null],
+        [new Date(2020, 4, 21, 12), 7, null, null],
+        [new Date(2020, 4, 21, 13), 8, null, null],
+        [new Date(2020, 4, 21, 14), 7, null, null],
+        [new Date(2020, 4, 21, 15), 4, null, null],
+        [new Date(2020, 4, 21, 16), 0, null, null],
+        [new Date(2020, 4, 21, 17), 5, null, null],
+        [new Date(2020, 4, 21, 18), 3, null, null],
+        [new Date(2020, 4, 21, 19), 2, null, null],
+        [new Date(2020, 4, 21, 20), 1, null, null],
+        [new Date(2020, 4, 21, 21), 4, null, null],
+        [new Date(2020, 4, 21, 22), 7, null, null],
+        [new Date(2020, 4, 21, 23), 4, null, null],
+        [new Date(2020, 4, 21, 24), 6, null, null],
+        [new Date(2020, 4, 22, 1), 8, null, null],
+        [new Date(2020, 4, 22, 2), 4, null, null],
+        [new Date(2020, 4, 22, 3), 1, null, null],
+        [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
     var options_LOI = {
@@ -471,10 +689,23 @@ function drawLOIChart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -524,6 +755,26 @@ function drawAVDO2Chart() {
         [new Date(2020, 4, 21, 6), 6, null, null],
         [new Date(2020, 4, 21, 7), 4, null, null],
         [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 21, 9), 8, null, null],
+        [new Date(2020, 4, 21, 10), 4, null, null],
+        [new Date(2020, 4, 21, 11), 6, null, null],
+        [new Date(2020, 4, 21, 12), 7, null, null],
+        [new Date(2020, 4, 21, 13), 8, null, null],
+        [new Date(2020, 4, 21, 14), 7, null, null],
+        [new Date(2020, 4, 21, 15), 4, null, null],
+        [new Date(2020, 4, 21, 16), 0, null, null],
+        [new Date(2020, 4, 21, 17), 5, null, null],
+        [new Date(2020, 4, 21, 18), 3, null, null],
+        [new Date(2020, 4, 21, 19), 2, null, null],
+        [new Date(2020, 4, 21, 20), 1, null, null],
+        [new Date(2020, 4, 21, 21), 4, null, null],
+        [new Date(2020, 4, 21, 22), 7, null, null],
+        [new Date(2020, 4, 21, 23), 4, null, null],
+        [new Date(2020, 4, 21, 24), 6, null, null],
+        [new Date(2020, 4, 22, 1), 8, null, null],
+        [new Date(2020, 4, 22, 2), 4, null, null],
+        [new Date(2020, 4, 22, 3), 1, null, null],
+        [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
     var options_AVDO2 = {
@@ -538,10 +789,23 @@ function drawAVDO2Chart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -591,6 +855,26 @@ function drawCEO2Chart() {
         [new Date(2020, 4, 21, 6), 27, null, null],
         [new Date(2020, 4, 21, 7), 28, null, null],
         [new Date(2020, 4, 21, 8), 31, null, null],
+        [new Date(2020, 4, 21, 9), 30, null, null],
+        [new Date(2020, 4, 21, 10), 31, null, null],
+        [new Date(2020, 4, 21, 11), 34, null, null],
+        [new Date(2020, 4, 21, 12), 36, null, null],
+        [new Date(2020, 4, 21, 13), 38, null, null],
+        [new Date(2020, 4, 21, 14), 37, null, null],
+        [new Date(2020, 4, 21, 15), 34, null, null],
+        [new Date(2020, 4, 21, 16), 30, null, null],
+        [new Date(2020, 4, 21, 17), 35, null, null],
+        [new Date(2020, 4, 21, 18), 33, null, null],
+        [new Date(2020, 4, 21, 19), 32, null, null],
+        [new Date(2020, 4, 21, 20), 31, null, null],
+        [new Date(2020, 4, 21, 21), 34, null, null],
+        [new Date(2020, 4, 21, 22), 37, null, null],
+        [new Date(2020, 4, 21, 23), 34, null, null],
+        [new Date(2020, 4, 21, 24), 36, null, null],
+        [new Date(2020, 4, 22, 1), 28, null, null],
+        [new Date(2020, 4, 22, 2), 24, null, null],
+        [new Date(2020, 4, 22, 3), 31, null, null],
+        [new Date(2020, 4, 22, 4), 32, null, null],
     ]);
 
     var options_CEO2 = {
@@ -606,11 +890,23 @@ function drawCEO2Chart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
-                units: {}
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -660,6 +956,26 @@ function drawAJglcChart() {
         [new Date(2020, 4, 21, 6), 6, null, null],
         [new Date(2020, 4, 21, 7), 4, null, null],
         [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 21, 9), 8, null, null],
+        [new Date(2020, 4, 21, 10), 4, null, null],
+        [new Date(2020, 4, 21, 11), 6, null, null],
+        [new Date(2020, 4, 21, 12), 7, null, null],
+        [new Date(2020, 4, 21, 13), 8, null, null],
+        [new Date(2020, 4, 21, 14), 7, null, null],
+        [new Date(2020, 4, 21, 15), 4, null, null],
+        [new Date(2020, 4, 21, 16), 0, null, null],
+        [new Date(2020, 4, 21, 17), 5, null, null],
+        [new Date(2020, 4, 21, 18), 3, null, null],
+        [new Date(2020, 4, 21, 19), 2, null, null],
+        [new Date(2020, 4, 21, 20), 1, null, null],
+        [new Date(2020, 4, 21, 21), 4, null, null],
+        [new Date(2020, 4, 21, 22), 7, null, null],
+        [new Date(2020, 4, 21, 23), 4, null, null],
+        [new Date(2020, 4, 21, 24), 6, null, null],
+        [new Date(2020, 4, 22, 1), 8, null, null],
+        [new Date(2020, 4, 22, 2), 4, null, null],
+        [new Date(2020, 4, 22, 3), 1, null, null],
+        [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
     var options_AJglc = {
@@ -674,12 +990,23 @@ function drawAJglcChart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
             gridlines: {
-                color: '#777',
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
             },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -729,6 +1056,26 @@ function drawAJCO2Chart() {
         [new Date(2020, 4, 21, 6), 27, null, null],
         [new Date(2020, 4, 21, 7), 28, null, null],
         [new Date(2020, 4, 21, 8), 31, null, null],
+        [new Date(2020, 4, 21, 9), 30, null, null],
+        [new Date(2020, 4, 21, 10), 31, null, null],
+        [new Date(2020, 4, 21, 11), 34, null, null],
+        [new Date(2020, 4, 21, 12), 36, null, null],
+        [new Date(2020, 4, 21, 13), 38, null, null],
+        [new Date(2020, 4, 21, 14), 37, null, null],
+        [new Date(2020, 4, 21, 15), 34, null, null],
+        [new Date(2020, 4, 21, 16), 30, null, null],
+        [new Date(2020, 4, 21, 17), 35, null, null],
+        [new Date(2020, 4, 21, 18), 33, null, null],
+        [new Date(2020, 4, 21, 19), 32, null, null],
+        [new Date(2020, 4, 21, 20), 31, null, null],
+        [new Date(2020, 4, 21, 21), 34, null, null],
+        [new Date(2020, 4, 21, 22), 37, null, null],
+        [new Date(2020, 4, 21, 23), 34, null, null],
+        [new Date(2020, 4, 21, 24), 36, null, null],
+        [new Date(2020, 4, 22, 1), 28, null, null],
+        [new Date(2020, 4, 22, 2), 24, null, null],
+        [new Date(2020, 4, 22, 3), 31, null, null],
+        [new Date(2020, 4, 22, 4), 32, null, null],
     ]);
 
     var options_AJCO2 = {
@@ -744,12 +1091,23 @@ function drawAJCO2Chart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
             gridlines: {
-                color: '#777',
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
             },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -762,8 +1120,8 @@ function drawAJCO2Chart() {
             }
         },
         chartArea: {
-            width: '95%',
-            height: '80%'
+            width: '96%',
+            height: '73%'
         }
     };
 
@@ -799,6 +1157,26 @@ function drawRQChart() {
         [new Date(2020, 4, 21, 6), 6, null, null],
         [new Date(2020, 4, 21, 7), 4, null, null],
         [new Date(2020, 4, 21, 8), 7, null, null],
+        [new Date(2020, 4, 21, 9), 8, null, null],
+        [new Date(2020, 4, 21, 10), 4, null, null],
+        [new Date(2020, 4, 21, 11), 6, null, null],
+        [new Date(2020, 4, 21, 12), 7, null, null],
+        [new Date(2020, 4, 21, 13), 8, null, null],
+        [new Date(2020, 4, 21, 14), 7, null, null],
+        [new Date(2020, 4, 21, 15), 4, null, null],
+        [new Date(2020, 4, 21, 16), 0, null, null],
+        [new Date(2020, 4, 21, 17), 5, null, null],
+        [new Date(2020, 4, 21, 18), 3, null, null],
+        [new Date(2020, 4, 21, 19), 2, null, null],
+        [new Date(2020, 4, 21, 20), 1, null, null],
+        [new Date(2020, 4, 21, 21), 4, null, null],
+        [new Date(2020, 4, 21, 22), 7, null, null],
+        [new Date(2020, 4, 21, 23), 4, null, null],
+        [new Date(2020, 4, 21, 24), 6, null, null],
+        [new Date(2020, 4, 22, 1), 8, null, null],
+        [new Date(2020, 4, 22, 2), 4, null, null],
+        [new Date(2020, 4, 22, 3), 1, null, null],
+        [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
     var options_RQ = {
@@ -813,12 +1191,23 @@ function drawRQChart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
             gridlines: {
-                color: '#777',
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
             },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -868,6 +1257,26 @@ function drawNPIChart() {
         [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
         [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
         [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
     ]);
 
     var options_NPI = {
@@ -883,10 +1292,23 @@ function drawNPIChart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
-            gridlineColor: '#777',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
@@ -937,6 +1359,26 @@ function drawPupilChart() {
         [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
         [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
         [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
     ]);
 
     var options_pupil = {
@@ -951,12 +1393,23 @@ function drawPupilChart() {
             color: 'yellow'
         },
         hAxis: {
-            format: 'M/d HH:mm',
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
             gridlines: {
-                color: '#777',
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
             },
             minorGridlines: {
                 color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
             }
         },
         vAxis: {
