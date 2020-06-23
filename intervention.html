@@ -147,24 +147,6 @@
     timeLactate.value = new Date().toISOString().slice(0, 16);
     timeGlucose.value = new Date().toISOString().slice(0, 16);
     timeHgb.value = new Date().toISOString().slice(0, 16);
-
-
-    // On checkbox click in the filter
-    $("#filters-container .checkbox").click(() => {
-        // Define constants for length of checked checkboxes array
-        const selectedChartLength = $('.filter-charts :checkbox').filter(':checked').length;
-        // Hide all items in the list
-        $(".chart-container").hide();
-
-        // If checkboxes are selected in the color-filter ONLY
-        if (selectedChartLength >= 1) {
-            // For each of the checked checkboxes in the color-filter
-            $(".filter-charts :checkbox:checked").each((index, element) => {
-                // Show items with the class of the value of the checkbox
-                $("." + $(element).val()).fadeIn();
-            });
-        }
-    });
 </script>
 </body>
 </html>
