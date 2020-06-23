@@ -135,7 +135,36 @@
 </div>
 
 <script src="src/js/jquery-3.5.1.min.js"></script>
-<script src="src/js/jquery.cookie.min.js"></script>
 <script src="src/js/index.js"></script>
+<script>
+    // Set the Current Time
+    var searchTime = document.getElementById('search-time');
+    var timeLactate = document.getElementById('time-lactate');
+    var timeGlucose = document.getElementById('time-glucose');
+    var timeHgb = document.getElementById('time-hgb');
+
+    searchTime.value = new Date().toISOString().slice(0, 16);
+    timeLactate.value = new Date().toISOString().slice(0, 16);
+    timeGlucose.value = new Date().toISOString().slice(0, 16);
+    timeHgb.value = new Date().toISOString().slice(0, 16);
+
+
+    // On checkbox click in the filter
+    $("#filters-container .checkbox").click(() => {
+        // Define constants for length of checked checkboxes array
+        const selectedChartLength = $('.filter-charts :checkbox').filter(':checked').length;
+        // Hide all items in the list
+        $(".chart-container").hide();
+
+        // If checkboxes are selected in the color-filter ONLY
+        if (selectedChartLength >= 1) {
+            // For each of the checked checkboxes in the color-filter
+            $(".filter-charts :checkbox:checked").each((index, element) => {
+                // Show items with the class of the value of the checkbox
+                $("." + $(element).val()).fadeIn();
+            });
+        }
+    });
+</script>
 </body>
 </html>
