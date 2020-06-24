@@ -323,7 +323,7 @@ h1, h2, h3, h4, h5 {
 .filter-charts {
     color: white;
     background-color: slategrey;
-    padding: 1rem;
+    padding: .5rem 1rem;
     margin: 1rem;
     border-radius: .3rem;
     display: flex;
@@ -758,7 +758,7 @@ h1, h2, h3, h4, h5 {
     content: '';
     position: absolute;
     left: 3px;
-    top: 10px;
+    top: 16px;
     background: white;
     width: 2px;
     height: 2px;
