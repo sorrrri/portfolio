@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>사용자 추가</title>
+    <title>사용자 정보 수정</title>
     <link rel="stylesheet" href="../src/css/common.css">
     <link rel="stylesheet" href="../src/css/style.css">
 </head>
@@ -19,38 +19,19 @@
     </header>
     <div class="content">
         <div class="title">
-            <h1>사용자 추가</h1>
+            <h1>사용자 정보 관리</h1>
             <div class="button-container">
-                <button class="button-submit">생성</button>
+                <button class="button-submit">수정</button>
                 <button class="button-cancel" onclick="javascript:history.back()">취소</button>
             </div>
         </div>
         <div class="content-view">
             <div class="input-container">
-                <label for="userName">이름</label>
-                <input type="text" id="userName"/>
+                <label for="ward">병동</label>
+                <input type="text" id="ward" value="MICU" />
             </div>
             <div class="input-container">
-                <label for="userName">사번</label>
-                <input type="number" id="userNumber"/>
-            </div>
-            <div class="input-container">
-                <label for="userName">연락처</label>
-                <input type="number" id="phoneNumber"/>
-            </div>
-            <div class="input-container">
-                <label for="activation">활성화 여부</label>
-                <input type="checkbox" id="activation"/>
-            </div>
-            <div class="input-container">
-                <label for="tempPassword">임시 비밀번호 설정</label>
-                <div class="temp-password">
-                    <input type="text" id="tempPassword"/>
-                    <button>확인</button>
-                </div>
-            </div>
-            <div class="input-container">
-                <label for="bedNumber">병동</label>
+                <label for="bedNumber">침상번호</label>
                 <select name="bedNumber" id="bedNumber">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -76,7 +57,7 @@
         </div>
     </div>
     <div class="button-container">
-        <button class="button-submit">생성</button>
+        <button class="button-submit">수정</button>
         <button class="button-cancel" onclick="javascript:history.back()">취소</button>
     </div>
 </div>

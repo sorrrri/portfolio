@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>계정 관리</title>
-    <link rel="stylesheet" href="./src/css/common.css">
-    <link rel="stylesheet" href="./src/css/login.css">
+    <link rel="stylesheet" href="../src/css/common.css">
+    <link rel="stylesheet" href="../src/css/style.css">
 </head>
 <body>
 
+<div class="container">
+    <header>
+        <div class="logo"><a href="../index.html">event-logo</a></div>
+        <ul class="menu">
+            <li><a href="./account.html">홍길동</a></li>
+            <li><a href="">logout</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="title">
+            <h1>내 계정 관리</h1>
+            <div class="button-container">
+                <button class="button-submit">수정</button>
+                <button class="button-cancel" onclick="javascript:history.back()">취소</button>
+            </div>
+        </div>
+        <div class="content-view">
+            <div class="input-container">
+                <label for="superUserName">이름</label>
+                <input type="text" id="superUserName" readonly/>
+            </div>
+            <div class="input-container">
+                <label for="setPassword">비밀번호 변경</label>
+                <input type="password" id="setPassword"/>
+            </div>
+            <div class="input-container">
+                <label for="checkPassword">비밀번호 확인</label>
+                <input type="password" id="checkPassword"/>
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="button-submit">수정</button>
+        <button class="button-cancel" onclick="javascript:history.back()">취소</button>
+    </div>
+</div>
 <script src="./src/js/jquery-3.5.1.min.js"></script>
 </body>
 </html>

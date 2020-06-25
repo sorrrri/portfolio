@@ -32,4 +32,15 @@ header {
     .content + .button-container .button-cancel {
         flex: 0 0 40%
     }
+
+    .input-container .temp-password {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .temp-password input {
+        display: flex;
+        flex: 1 1 auto;
+        margin-right: .5rem;
+    }
 }
