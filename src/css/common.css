@@ -394,6 +394,53 @@ input[type="radio"] + label:empty:before {
 }
 
 
+/* =====================================================
+   Some defaults across all toggle demos
+   ===================================================== */
+.toggle {
+    display: block;
+    text-align: center;
+    user-select: none;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle--btn {
+    display: block;
+    background-color: var(--darkmodeTertiaryColor);
+    margin: 0 auto;
+    font-size: 1.4em;
+    transition: all 350ms ease-in;
+}
+.toggle--btn:hover {
+    cursor: pointer;
+}
+
+.toggle-admin .toggle--btn {
+    position: relative;
+    height: 22px;
+    width: 36px;
+    border-radius: 25px;
+}
+.toggle-admin .toggle--feature {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    fill: white;
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.toggle-admin .toggle-checkbox:checked + .toggle--btn {
+    background-color: lightcoral;
+    fill: white;
+}
+.toggle-admin .toggle-checkbox:checked + .toggle--btn svg {
+    left: 16px;
+}
 
 
 /* Scrollbar */
@@ -451,7 +498,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode header {
-    border-color: #676a94;
+    border-color: var(--darkmodeSecondaryColor);
 }
 
 .dark-mode .menu {
