@@ -13,7 +13,7 @@
     --darkPurple: #676a94;
     --darkmodePrimaryColor: #27292d;
     --darkmodeSecondaryColor: #373a46;
-    --darkmodeThirdaryColor: #27292d;
+    --darkmodeTertiaryColor: #85899a;
 }
 body {
     margin: 0;
@@ -437,7 +437,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .button-cancel {
-    background-color: var(--darkmodeSecondaryColor);
+    background-color: var(--darkmodeTertiaryColor);
     color: white;
 }
 
@@ -486,5 +486,5 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode input[type="radio"]:hover + label:before, .dark-mode input[type="radio"]:checked + label:before {
-    box-shadow: inset 0 0 0 2px var(--dar);
+    box-shadow: inset 0 0 0 2px var(--darkmodePrimaryColor);
 }
