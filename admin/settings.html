@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>정보 관리</title>
+    <title>정보 수정</title>
     <link rel="stylesheet" href="../src/css/common.css">
     <link rel="stylesheet" href="../src/css/style.css">
 </head>
@@ -17,9 +17,10 @@
             <li><a href="">logout</a></li>
             <li>
                 <div class="toggle toggle-admin">
-                    <input type="checkbox" id="toggle-admin" class="toggle-checkbox" checked="checked" />
+                    <input type="checkbox" id="toggle-admin" class="toggle-checkbox" checked="checked"/>
                     <label class="toggle--btn" for="toggle-admin">
-                        <svg class="toggle--feature" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                        <svg class="toggle--feature" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                             viewBox="0 0 24 24">
                             <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
                         </svg>
                     </label>
@@ -35,56 +36,63 @@
             </ul>
         </section>
         <section class="title">
-            <h1>사용자 추가</h1>
+            <h1>정보 수정</h1>
             <div class="button-container">
-                <button class="button-submit">생성</button>
+                <button class="button-submit">저장</button>
                 <button class="button-cancel" onclick="javascript:history.back()">취소</button>
             </div>
         </section>
         <section class="content-view">
-            <div class="input-container">
-                <label for="userName">이름</label>
-                <input type="text" id="userName"/>
-            </div>
-            <div class="input-container">
-                <label for="userName">사번</label>
-                <input type="number" id="userNumber"/>
-            </div>
-            <div class="input-container">
-                <label for="userName">연락처</label>
-                <input type="number" id="phoneNumber"/>
-            </div>
-            <div class="input-container">
-                <label for="activation">활성화 여부</label>
-                <input type="checkbox" id="activation"/>
-            </div>
-            <div class="input-container">
-                <label for="tempPassword">임시 비밀번호 설정</label>
-                <div class="temp-password">
-                    <input type="text" id="tempPassword"/>
-                    <button>확인</button>
+            <fieldset>
+                <legend>병동-침상번호</legend>
+                <div class="input-container">
+                    <input type="text" id="set-er-iso" value="ER-ISO" readonly/>
                 </div>
-            </div>
-            <div class="input-container">
-                <label for="bedNumber">병동</label>
-                <select name="bedNumber" id="bedNumber">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <div class="input-container">
-                <label for="event">이벤트</label>
-                <select name="bedNumber" id="event">
-                    <option value="event1">event 1</option>
-                    <option value="event2">event 2</option>
-                    <option value="event3">event 3</option>
-                    <option value="event4">event 4</option>
-                    <option value="event5">event 5</option>
-                </select>
-            </div>
+                <div class="input-container">
+                    <input type="text" id="su" value="SU" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-ncu-b" value="NCU B" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-ticub" value="TICUB" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-ticuc" value="TICUC" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-3icua" value="3ICUA" readonly/>
+                </div>
+                <svg class="add-input add-input-ward-bed" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                </svg>
+            </fieldset>
+            <fieldset>
+                <legend>이벤트타입별-상세이벤트</legend>
+                <div class="input-container">
+                    <input type="text" id="set-event-type-01" value="Event Type 1" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-event-type-02" value="Event Type 2" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-event-type-03" value="Event Type 3" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-event-type-04" value="Event Type 4" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-event-type-05" value="Event Type 5" readonly/>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="set-event-type-06" value="Event Type 6" readonly/>
+                </div>
+                <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                     viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                </svg>
+            </fieldset>
         </section>
     </div>
     <div class="button-container">

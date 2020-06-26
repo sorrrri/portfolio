@@ -14,7 +14,14 @@
     --darkmodePrimaryColor: #27292d;
     --darkmodeSecondaryColor: #373a46;
     --darkmodeTertiaryColor: #85899a;
+    --brightPurple: #8f93e0;
+    --brightGray: #d8dae0
 }
+
+svg {
+    fill: var(--darkmodePrimaryColor);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -47,6 +54,12 @@ a {
     color: #31517b
 }
 
+.add-input {
+    display: flex;
+    margin:0 auto;
+    fill: var(--brightPurple);
+}
+
 h1, h2, h3, h4, h5, p {
     margin: 0
 }
@@ -59,6 +72,17 @@ small {
 .active {
     opacity: 1 !important;
     display: flex !important;
+}
+
+fieldset {
+    border-radius: .5rem;
+    border: 1px solid var(--darkmodeSecondaryColor);
+    margin-bottom: 2rem;
+}
+
+legend {
+    text-align: center;
+    color: var(--brightGray);
 }
 
 input, select {
@@ -98,6 +122,14 @@ button {
 .button-cancel {
     background-color: var(--secondaryColor);
     color: var(--darkPurple)
+}
+
+.button-modify {
+    background-color: var(--secondaryColor);
+    color: var(--darkPurple);
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
 }
 
 textarea {
@@ -141,10 +173,12 @@ header ul {
 }
 
 .content .title {
+    height: 2rem;
     padding: 2rem;
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .content .title h1 {
@@ -411,10 +445,10 @@ input[type="radio"] + label:empty:before {
 
 .toggle--btn {
     display: block;
-    background-color: var(--darkmodeTertiaryColor);
+    background-color: var(--brightGray);
     margin: 0 auto;
     font-size: 1.4em;
-    transition: all 350ms ease-in;
+    transition: .2s;
 }
 .toggle--btn:hover {
     cursor: pointer;
@@ -437,7 +471,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .toggle-admin .toggle-checkbox:checked + .toggle--btn {
-    background-color: lightcoral;
+    background-color: var(--brightPurple);
     fill: white;
 }
 .toggle-admin .toggle-checkbox:checked + .toggle--btn svg {
@@ -526,7 +560,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .table .row {
-    background-color: #373a46;
+    background-color: var(--darkmodeSecondaryColor);
 }
 
 .dark-mode .table .row span {
