@@ -13,7 +13,7 @@
     <header>
         <div class="logo"><a href="../index.html">event-logo</a></div>
         <ul class="menu">
-            <li><a href="./account.html">홍길동</a></li>
+            <li><a href="my_account.html">홍길동</a></li>
             <li><a href="">logout</a></li>
             <li>
                 <div class="toggle toggle-admin">
@@ -28,14 +28,20 @@
         </ul>
     </header>
     <div class="content">
-        <div class="title">
+        <section class="header-admin">
+            <ul>
+                <li><a class="active" href="./user_list.html">사용자 관리</a></li>
+                <li><a href="./settings.html">정보 수정</a></li>
+            </ul>
+        </section>
+        <section class="title">
             <h1>사용자 추가</h1>
             <div class="button-container">
                 <button class="button-submit">생성</button>
                 <button class="button-cancel" onclick="javascript:history.back()">취소</button>
             </div>
-        </div>
-        <div class="content-view">
+        </section>
+        <section class="content-view">
             <div class="input-container">
                 <label for="userName">이름</label>
                 <input type="text" id="userName"/>
@@ -79,7 +85,7 @@
                     <option value="event5">event 5</option>
                 </select>
             </div>
-        </div>
+        </section>
     </div>
     <div class="button-container">
         <button class="button-submit">생성</button>

@@ -39,6 +39,7 @@ ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
 }
 
 a {
@@ -156,7 +157,7 @@ header ul {
     font-size: 16px;
 }
 
-.wrapper, section {
+.wrapper {
     flex: 1 1 auto;
     padding: 2rem;
     margin: 0 auto;
@@ -474,7 +475,9 @@ input[type="radio"] + label:empty:before {
 }
 
 
-
+/* =====================================================
+   Dark mode
+   ===================================================== */
 .dark-mode {
     background-color: var(--darkmodePrimaryColor);
     color: white;
@@ -514,6 +517,8 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .content .title h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0;
 }
 
 .dark-mode .search svg {
