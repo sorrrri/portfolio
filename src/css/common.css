@@ -8,9 +8,12 @@
     src: url('../fonts/Raleway-Medium.ttf');
 }
 :root {
-    --primary-color: #5c61b2;
-    --secondary-color: #dfe1f0;
-    --darkPurple: #676a94
+    --primaryColor: #5c61b2;
+    --secondaryColor: #dfe1f0;
+    --darkPurple: #676a94;
+    --darkmodePrimaryColor: #27292d;
+    --darkmodeSecondaryColor: #373a46;
+    --darkmodeThirdaryColor: #27292d;
 }
 body {
     margin: 0;
@@ -80,7 +83,7 @@ label {
 button {
     font-family: Comfortaa;
     border: 0;
-    background: var(--primary-color);
+    background: var(--primaryColor);
     color: white;
     border-radius: .2rem;
     padding: .5rem 1rem;
@@ -88,11 +91,11 @@ button {
 }
 
 .button-submit {
-    background-color: var(--primary-color);
+    background-color: var(--primaryColor);
 }
 
 .button-cancel {
-    background-color: var(--secondary-color);
+    background-color: var(--secondaryColor);
     color: var(--darkPurple)
 }
 
@@ -420,4 +423,68 @@ input[type="radio"] + label:empty:before {
     100% {
         opacity: 1
     }
+}
+
+
+
+.dark-mode {
+    background-color: var(--darkmodePrimaryColor);
+    color: white;
+}
+
+.dark-mode a {
+    color: white
+}
+
+.dark-mode .button-cancel {
+    background-color: var(--darkmodeSecondaryColor);
+    color: white;
+}
+
+.dark-mode p, .dark-mode label {
+    color: #d0d3dc !important;
+}
+
+.dark-mode input, .dark-mode select {
+    background-color: #373a46 !important;
+    color: white;
+}
+
+.dark-mode header {
+    border-color: #676a94;
+}
+
+.dark-mode .menu {
+    background-color: var(--darkmodePrimaryColor);
+    color: white;
+    border-color: #393b40;
+}
+
+.dark-mode .menu a {
+    color: #ccc;
+    transition: .2s color;
+}
+
+.dark-mode .content .title h1 {
+}
+
+.dark-mode .search svg {
+    fill: rgba(255, 255, 255, .3)
+}
+
+.dark-mode .table .row {
+    background-color: #373a46;
+}
+
+.dark-mode .table .row span {
+    color: #d0d3dc;
+}
+
+.dark-mode input[type="radio"] + label:before {
+    background-color: #373a46;
+    border-color: var(--darkmodePrimaryColor);
+}
+
+.dark-mode input[type="radio"]:hover + label:before, .dark-mode input[type="radio"]:checked + label:before {
+    box-shadow: inset 0 0 0 2px var(--dar);
 }

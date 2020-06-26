@@ -6,6 +6,7 @@ header {
     .wrapper, section {
         padding: 0
     }
+
     .content {
         padding: 1rem;
     }
@@ -21,6 +22,7 @@ header {
 
     .content + .button-container {
         display: flex;
+        flex: 0 0 auto
     }
 
     .content + .button-container button {
@@ -29,6 +31,7 @@ header {
         border-radius: 0;
         padding: 1rem
     }
+
     .content + .button-container .button-cancel {
         flex: 0 0 40%
     }
