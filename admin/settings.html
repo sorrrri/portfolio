@@ -43,52 +43,52 @@
             </div>
         </section>
         <section class="content-view">
-            <fieldset>
+            <fieldset class="set-ward-bed">
                 <legend>병동-침상번호</legend>
-                <div class="input-container">
-                    <input type="text" id="set-er-iso" value="ER-ISO" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
+                    <input type="text" value="ER-ISO" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="su" value="SU" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
+                    <input type="text" value="SU" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-ncu-b" value="NCU B" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
+                    <input type="text" value="NCU B" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-ticub" value="TICUB" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
+                    <input type="text" value="TICUB" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-ticuc" value="TICUC" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
+                    <input type="text" value="TICUC" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-3icua" value="3ICUA" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
+                    <input type="text" value="3ICUA" readonly/>
                 </div>
-                <svg class="add-input add-input-ward-bed" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                <svg class="add-input add-input-ward-bed" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                      viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                 </svg>
             </fieldset>
-            <fieldset>
+            <fieldset class="set-event">
                 <legend>이벤트타입별-상세이벤트</legend>
-                <div class="input-container">
-                    <input type="text" id="set-event-type-01" value="Event Type 1" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-event'">
+                    <input type="text" value="Event Type 1" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-event-type-02" value="Event Type 2" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-event'">
+                    <input type="text" value="Event Type 2" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-event-type-03" value="Event Type 3" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-event'">
+                    <input type="text" value="Event Type 3" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-event-type-04" value="Event Type 4" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-event'">
+                    <input type="text" value="Event Type 4" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-event-type-05" value="Event Type 5" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-event'">
+                    <input type="text" value="Event Type 5" readonly/>
                 </div>
-                <div class="input-container">
-                    <input type="text" id="set-event-type-06" value="Event Type 6" readonly/>
+                <div class="input-container" onclick="location.href='#modal-set-event'">
+                    <input type="text" value="Event Type 6" readonly/>
                 </div>
-                <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                      viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
                 </svg>
@@ -98,6 +98,89 @@
     <div class="button-container">
         <button class="button-submit">생성</button>
         <button class="button-cancel" onclick="javascript:history.back()">취소</button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="modal-set-ward-bed" class="overlay">
+    <div class="modal">
+        <div class="title">
+            <h3>침상 번호</h3>
+            <a class="close" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </a>
+        </div>
+        <section>
+            <div class="input-container">
+                <input type="text" value="1" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="2" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="3" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="4" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="5" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="6" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="7" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="8" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="9" />
+            </div>
+            <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+            </svg>
+        </section>
+    </div>
+</div>
+<div id="modal-set-event" class="overlay">
+    <div class="modal">
+        <div class="title">
+            <h3>상세 이벤트</h3>
+            <a class="close" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </a>
+        </div>
+        <section>
+            <div class="input-container">
+                <input type="text" value="Event Type 1" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="Event Type 2" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="Event Type 3" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="Event Type 4" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="Event Type 5" />
+            </div>
+            <div class="input-container">
+                <input type="text" value="Event Type 6" />
+            </div>
+            <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+            </svg>
+        </section>
     </div>
 </div>
 <script src="../src/js/jquery-3.5.1.min.js"></script>

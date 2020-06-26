@@ -172,10 +172,7 @@ header ul {
     transition: .2s border-color;
 }
 
-.content .title {
-    height: 2rem;
-    padding: 2rem;
-    margin-bottom: 2rem;
+.title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -476,6 +473,55 @@ input[type="radio"] + label:empty:before {
 }
 .toggle-admin .toggle-checkbox:checked + .toggle--btn svg {
     left: 16px;
+}
+
+
+
+/* =====================================================
+   Modal
+   ===================================================== */
+.modal {
+    width: 90%;
+    max-height: 60%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    background: white;
+    display: flex;
+    transform: translate(-50%, -50%);
+    border-radius: .5rem;
+    transition: .25s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 50;
+}
+
+.modal section {
+    padding: 0 1rem 1rem 1rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+.modal .title {
+    padding: 1rem
 }
 
 

@@ -2,19 +2,23 @@ header {
     border-bottom: 1px solid #eee;
 }
 
-.content + .button-container {
-    display: none
-}
-
 .header-admin {
     flex: 0 0 auto;
-    width: 100%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 1rem auto;
     border-bottom: 1px solid var(--darkmodeSecondaryColor);
 }
 
 .header-admin li {
     flex:1 1 auto;
+}
+
+.header-admin li:first-of-type a {
+    border-radius: .2rem 0 0 .2rem ;
+}
+
+.header-admin li:last-of-type a {
+    border-radius: 0 .2rem .2rem 0;
 }
 
 .header-admin a {
@@ -27,21 +31,25 @@ header {
 }
 
 .header-admin a.active {
-    font-weight: bold;
-    color: white;
-    background-color: var(--darkmodePrimaryColor);
-}
-
-.header-admin a.active::before {
-    content: '';
-    position: absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    width:100%;
-    height: 2px;
+    color: rgba(255,255,255,.8);
     background-color: var(--primaryColor);
 }
+
+.content .title {
+    height: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content + .button-container {
+    display: none
+}
+
+
+.modal input {
+    background-color: #F3F6F9;
+}
+
 
 @media screen and (max-width: 768px) {
     .wrapper, section {
@@ -159,5 +167,10 @@ header {
     .cell-event {
         left: 1rem;
         bottom: 1rem
+    }
+
+    .modal {
+        display: flex;
+        flex-direction: column;
     }
 }
