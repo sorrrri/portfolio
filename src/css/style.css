@@ -3,7 +3,6 @@ header {
 }
 
 .header-admin {
-    flex: 0 0 auto;
     width: 90%;
     max-width: 500px;
     margin: 1rem auto;
@@ -36,13 +35,6 @@ header {
     background-color: var(--primaryColor);
 }
 
-.content .title {
-    padding: 2rem 0;
-    width: 100%;
-    max-width: 1200px;
-    box-sizing: border-box;
-}
-
 .content + .button-container {
     display: none
 }
@@ -58,6 +50,10 @@ header {
     flex: 1 1 25%;
     box-sizing: border-box;
     padding: .5rem;
+}
+
+.cell-bed-number {
+    width: 10%;
 }
 
 .cell-counter {
