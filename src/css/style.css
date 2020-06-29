@@ -168,7 +168,7 @@ fieldset {
     }
 
     .input-container {
-        flex: 1 1 100%;
+        flex:unset;
         margin-bottom: .7rem;
         padding: 0;
     }
