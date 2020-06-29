@@ -186,6 +186,7 @@ fieldset {
     }
 
     .content .title h1 {
+        font-size: 1.3rem;
         margin: 0;
 
     }
