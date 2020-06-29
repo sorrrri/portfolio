@@ -1,3 +1,19 @@
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+})
+
+
+document.documentElement.addEventListener('touchstart', function (event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();
+    }
+}, false);
+
+
 /* =====================================================
    Login Page - Temporary Scripts
    ===================================================== */
@@ -5,11 +21,23 @@ const loginButton = document.querySelector('#login-button')
 const loginForm = document.querySelector('.login-form')
 const wrapper = document.querySelector('.wrapper')
 
-/*    loginButton.addEventListener('click', (e) => {
+
+/* =====================================================
+   Login - Fade out effect
+   ===================================================== */
+const fadeOutEffect = () => {
+    setInterval(function () {
+        loginForm.style.display = "none"
+    }, 400);
+    wrapper.classList.add('form-success')
+}
+
+if(loginButton) {
+    loginButton.addEventListener('click', (e) => {
         e.preventDefault()
-        loginForm.fadeOut(500);
-        wrapper.classList.add('form-success')
-    })*/
+        fadeOutEffect()
+    })
+}
 
 
 /* =====================================================
@@ -18,16 +46,16 @@ const wrapper = document.querySelector('.wrapper')
 const toggleAdmin = document.querySelector('.toggle-admin')
 const toggleCheckbox = document.querySelector('.toggle-checkbox')
 
-toggleAdmin.addEventListener('click', () => {
-    if (toggleCheckbox.checked) {
-        location.href = './admin/user_list.html'
-    } else {
-        location.href = '../index.html'
-    }
-})
+if(toggleAdmin) {
 
-
-
+    toggleAdmin.addEventListener('click', () => {
+        if (toggleCheckbox.checked) {
+            location.href = './admin/user_list.html'
+        } else {
+            location.href = '../index.html'
+        }
+    })
+}
 
 
 /*
