@@ -43,17 +43,18 @@
             </div>
         </section>
         <section class="content-view">
+            <div class="input-container toggle-activation">
+                <div class="toggle">
+                    <input type="checkbox" id="toggle-activation" class="toggle-checkbox" checked="checked"/>
+                    <label class="toggle-button" for="toggle-activation">
+                        <span class="toggle-feature"></span>
+                    </label>
+                </div>
+                <label for="toggle-activation">계정 활성화</label>
+            </div>
             <div class="input-container">
                 <label for="userName">이름</label>
-                <div>
-                    <input type="text" id="userName" value="홍길동"/>
-                    <div class="toggle toggle-activation">
-                        <input type="checkbox" id="toggle-activation" class="toggle-checkbox" checked="checked"/>
-                        <label class="toggle-button" for="toggle-activation">
-                            <span class="toggle-feature"></span>
-                        </label>
-                    </div>
-                </div>
+                <input type="text" id="userName" value="홍길동"/>
             </div>
             <div class="input-container">
                 <label for="userName">사번</label>

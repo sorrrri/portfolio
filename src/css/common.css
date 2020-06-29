@@ -187,14 +187,27 @@ header ul {
     align-items: center;
 }
 
+.title button {
+    padding: .7rem 2rem
+}
+
 .content .title h1 {
     font: normal 1.7rem/1 'Nanumsquare';
-    margin-bottom: .5rem;
 }
 
 .content .title p {
     color: #5e5c67;
     font-size: 16px;
+}
+
+.content-view {
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
 }
 
 .wrapper {
@@ -211,6 +224,7 @@ header ul {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    position: relative;
 }
 
 .input-container div {
