@@ -93,6 +93,7 @@ legend {
 }
 
 input, select {
+    -webkit-appearance: none;
     border: 0;
     padding: .7rem;
     font: 15px/1.5 'NanumSquare';
