@@ -568,7 +568,9 @@ input[type="radio"] + label:empty:before {
 }
 
 .modal .title {
-    padding: 1rem
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 
