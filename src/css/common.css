@@ -183,6 +183,7 @@ header ul {
 }
 
 .content > .title {
+    flex: 0 0 auto;
     padding: 2rem 0;
     width: 100%;
     max-width: 1200px;
@@ -207,6 +208,7 @@ header ul {
 }
 
 .content-view {
+    flex: 0 1 auto;
     padding: 0 1rem 1rem 1rem;
     display: flex;
     flex-wrap: wrap;

@@ -3,6 +3,7 @@ header {
 }
 
 .header-admin {
+    flex: 0 0 auto;
     width: 90%;
     max-width: 500px;
     margin: 1rem auto;
