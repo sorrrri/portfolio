@@ -2,11 +2,16 @@
     font-family: 'Nunito';
     src: url('../fonts/Nunito-Regular.ttf');
 }
-
 @font-face {
     font-family: 'Raleway';
     src: url('../fonts/Raleway-Medium.ttf');
 }
+@font-face {
+    font-family: 'Nanumsquare';
+    src: url('../fonts/NanumSquareL.ttf'),
+    url("../fonts/NanumsquareL.woff") format('woff'), url("../fonts/NanumsquareL.eot") format('embedded-opentype');
+}
+
 :root {
     --primaryColor: #5c61b2;
     --secondaryColor: #dfe1f0;
@@ -57,11 +62,13 @@ a {
 
 .add-input {
     display: flex;
+    justify-content: center;
     margin:0 auto;
     fill: var(--brightPurple);
 }
 
 h1, h2, h3, h4, h5, p {
+    font-family: 'Nanumsquare';
     margin: 0
 }
 
@@ -77,8 +84,7 @@ small {
 
 fieldset {
     border-radius: .5rem;
-    border: 1px solid var(--darkmodeSecondaryColor);
-    margin-bottom: 2rem;
+    border: 1px solid var(--darkPurple);
 }
 
 legend {
@@ -101,13 +107,14 @@ input:focus, select:focus, button:focus {
 }
 
 label {
-    font-family: Mukta;
+    font-family: 'Nanumsquare';
     flex: 0 0 20% !important;
     color: slategray;
 }
 
 button {
-    font-family: Comfortaa;
+    font-size: 16px;
+    font-family: 'Nanumsquare';
     border: 0;
     background: var(--primaryColor);
     color: white;
@@ -166,6 +173,7 @@ header ul {
 .content {
     opacity: 0;
     flex: 1 1 auto;
+    align-items: center;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -180,7 +188,7 @@ header ul {
 }
 
 .content .title h1 {
-    font: normal 1.7rem/1 Raleway;
+    font: normal 1.7rem/1 'Nanumsquare';
     margin-bottom: .5rem;
 }
 
@@ -203,6 +211,15 @@ header ul {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+}
+
+.input-container div {
+    display: flex;
+    align-items: center;
+}
+
+.input-container div input {
+    flex: 1 1 auto;
 }
 
 .button-container {
@@ -386,6 +403,10 @@ input[type="radio"] + label:empty:before {
     margin-right: 0
 }
 
+.input-comment {
+    flex: 1 1 100% !important;
+}
+
 
 
 
@@ -405,6 +426,7 @@ input[type="radio"] + label:empty:before {
     border-radius: .5rem;
     margin: .5rem 0;
     position: relative;
+    cursor: pointer;
     animation: fadeIn .8s forwards;
 }
 
@@ -413,7 +435,6 @@ input[type="radio"] + label:empty:before {
     align-items: center;
     display: flex;
     justify-content: center;
-    flex: 1 1 11.111%
 }
 
 .table .th {
@@ -441,38 +462,38 @@ input[type="radio"] + label:empty:before {
     display: none;
 }
 
-.toggle--btn {
+.toggle-button {
     display: block;
     background-color: var(--brightGray);
     margin: 0 auto;
     font-size: 1.4em;
     transition: .2s;
 }
-.toggle--btn:hover {
+.toggle-button:hover {
     cursor: pointer;
 }
 
-.toggle-admin .toggle--btn {
+.toggle .toggle-button {
     position: relative;
     height: 22px;
     width: 36px;
     border-radius: 25px;
 }
-.toggle-admin .toggle--feature {
+.toggle .toggle-feature {
     display: block;
     position: absolute;
     top: 3px;
-    left: 4px;
+    left: 3px;
     fill: white;
     border-radius: 50%;
     transition: .2s;
 }
 
-.toggle-admin .toggle-checkbox:checked + .toggle--btn {
+.toggle .toggle-checkbox:checked + .toggle-button {
     background-color: var(--brightPurple);
     fill: white;
 }
-.toggle-admin .toggle-checkbox:checked + .toggle--btn svg {
+.toggle .toggle-checkbox:checked + .toggle-button > * {
     left: 16px;
 }
 
@@ -489,6 +510,7 @@ input[type="radio"] + label:empty:before {
     left: 50%;
     background: white;
     display: flex;
+    flex-direction: column;
     transform: translate(-50%, -50%);
     border-radius: .5rem;
     transition: .25s;
@@ -578,7 +600,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode input, .dark-mode select {
-    background-color: #373a46 !important;
+    background-color: #484c5a !important;
     color: white;
 }
 
@@ -598,8 +620,6 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .content .title h1 {
-    font-size: 1.2rem;
-    margin-bottom: 0;
 }
 
 .dark-mode .search svg {
