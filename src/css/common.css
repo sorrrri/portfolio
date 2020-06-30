@@ -62,7 +62,7 @@ a {
 
 .add-input {
     display: flex;
-    justify-content: center;
+    justify-self: center;
     margin:0 auto;
     fill: var(--brightPurple);
 }
