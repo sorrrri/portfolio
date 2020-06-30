@@ -107,7 +107,7 @@ fieldset {
 
 .toggle-activation .toggle {
     display: flex;
-    width: 60px;
+    width: 40px;
     height: 80%;
 }
 
@@ -117,17 +117,17 @@ fieldset {
 }
 
 .toggle-activation .toggle-button {
-    height: 30px;
+    height: 24px;
     border-radius: .3rem;
     flex: 0 0 100% !important;
     background-color: orangered;
 }
 
 .toggle-activation .toggle-feature {
-    top: 4px;
+    top: 3px;
     left: 4px;
-    width:30px;
-    height: 22px;
+    width: 22px;
+    height: 18px;
     background-color: white;
     border-radius: .3rem;
 }
@@ -137,7 +137,7 @@ fieldset {
 }
 
 .toggle-activation .toggle-checkbox:checked + .toggle-button > * {
-    left: 26px;
+    left: 15px;
 }
 
 .modal {
@@ -169,14 +169,12 @@ fieldset {
 
     .input-container {
         flex:unset;
-        margin-bottom: .7rem;
+        margin-bottom: 1rem;
         padding: 0;
     }
 
     .content-view {
-        flex-direction: column;
-        flex-wrap: unset;
-        justify-content: unset;
+        display: block;
         background-color: transparent !important;
         padding: 0rem !important;
     }
