@@ -2,10 +2,12 @@
     font-family: 'Nunito';
     src: url('../fonts/Nunito-Regular.ttf');
 }
+
 @font-face {
     font-family: 'Raleway';
     src: url('../fonts/Raleway-Medium.ttf');
 }
+
 @font-face {
     font-family: 'Nanumsquare';
     src: url('../fonts/NanumSquareL.ttf'),
@@ -62,8 +64,8 @@ a {
 
 .add-input {
     width: 100%;
-    margin:0 auto;
-    fill: var(--brightPurple);
+    margin: 0 auto;
+    fill: var(--brightPurple) !important;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -91,10 +93,9 @@ legend {
     color: var(--brightGray);
 }
 
-input, select {
+input {
     -webkit-appearance: none;
     height: auto;
-    line-height: normal;
     border: 0;
     padding: .7rem;
     font: 15px/1.5 'NanumSquare';
@@ -102,6 +103,11 @@ input, select {
     outline: 0;
     box-sizing: border-box;
     border-radius: .3rem;
+    position: relative;
+}
+
+input[type="password"] {
+    font-family: "Comfortaa";
 }
 
 input:focus, select:focus, button:focus {
@@ -109,14 +115,11 @@ input:focus, select:focus, button:focus {
 }
 
 label {
-    font-family: 'Nanumsquare';
     flex: 0 0 20% !important;
     color: slategray;
 }
 
 button {
-    font-size: 16px;
-    font-family: 'Nanumsquare';
     border: 0;
     background: var(--primaryColor);
     color: white;
@@ -149,15 +152,17 @@ textarea {
     padding: .5rem;
     resize: none;
 }
+
 textarea:focus {
     outline: 0
 }
+
 header {
     flex: 0 0 auto;
     display: flex;
     align-content: center;
     justify-content: space-between;
-    padding: 0 .5rem;
+    padding: 0 1rem;
     box-sizing: border-box;
 }
 
@@ -196,7 +201,7 @@ header ul {
 
 
 .content > .title .button-container button {
-    padding: .7rem 2rem
+    padding: .6rem 1.6rem
 }
 
 .content .title h1 {
@@ -431,8 +436,49 @@ input[type="radio"] + label:empty:before {
 }
 
 
+/*selectbox*/
+select {
+    display: flex;
+    flex: 1 1 auto;
+    -webkit-appearance: none;
+    padding: .7rem;
+    height: auto;
+    border: 0;
+    font: 15px/1.5 'NanumSquare';
+    background-color: white;
+    outline: 0;
+    box-sizing: border-box;
+}
 
+select::-ms-expand {
+    display: none;
+}
 
+.selectbox {
+    position: relative;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: .3rem;
+    background-color: white;
+}
+
+.selectbox::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    width: 0;
+    height: 0;
+    margin-top: -10px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+/*table*/
 .table {
     width: 100%;
     max-width: 1200px;
@@ -473,7 +519,7 @@ input[type="radio"] + label:empty:before {
 
 
 /* =====================================================
-   Some defaults across all toggle demos
+   Toggle buttons
    ===================================================== */
 .toggle {
     display: block;
@@ -492,6 +538,7 @@ input[type="radio"] + label:empty:before {
     font-size: 1.4em;
     transition: .2s;
 }
+
 .toggle-button:hover {
     cursor: pointer;
 }
@@ -502,6 +549,7 @@ input[type="radio"] + label:empty:before {
     width: 36px;
     border-radius: 25px;
 }
+
 .toggle .toggle-feature {
     display: block;
     position: absolute;
@@ -516,10 +564,10 @@ input[type="radio"] + label:empty:before {
     background-color: var(--brightPurple);
     fill: white;
 }
+
 .toggle .toggle-checkbox:checked + .toggle-button > * {
     left: 16px;
 }
-
 
 
 /* =====================================================
@@ -556,6 +604,18 @@ input[type="radio"] + label:empty:before {
 .overlay:target {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+    z-index: 50;
+}
+
+.dimmed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
     pointer-events: auto;
     z-index: 50;
 }
@@ -629,6 +689,11 @@ input[type="radio"] + label:empty:before {
     color: white;
 }
 
+.dark-mode .selectbox::before {
+    border: solid var(--secondaryColor);
+    border-width: 0 1px 1px 0;
+}
+
 .dark-mode header {
     border-color: var(--darkmodeSecondaryColor);
 }
@@ -647,7 +712,7 @@ input[type="radio"] + label:empty:before {
 .dark-mode .content .title h1 {
 }
 
-.dark-mode .search svg {
+.dark-mode svg {
     fill: rgba(255, 255, 255, .3)
 }
 

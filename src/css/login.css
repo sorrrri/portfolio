@@ -53,6 +53,7 @@ body :-ms-input-placeholder {
 }
 
 .wrapper {
+    max-width: none;
     margin: 0;
     background: var(--primaryColor);
     background: -webkit-gradient(linear, left top, right bottom, from(var(--primaryColor)), to(var(--secondaryColor)));
@@ -60,6 +61,7 @@ body :-ms-input-placeholder {
     flex: 1 1 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 .wrapper.form-success .login-container h1 {
@@ -68,7 +70,7 @@ body :-ms-input-placeholder {
 }
 .login-container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 5rem;
     padding: 80px 0;
     height: 400px;
     text-align: center;
@@ -108,7 +110,7 @@ form input:hover {
 form input:focus {
     background-color: white;
     width: 300px;
-    color: #53e3a6;
+    color: var(--primaryColor);
 }
 form button {
     -webkit-appearance: none;

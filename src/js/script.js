@@ -43,7 +43,6 @@ if (loginButton) {
    Header - Toggle Button
    ===================================================== */
 const toggleAdmin = document.querySelector('.toggle-admin')
-const toggleActivation = document.querySelector('.toggle-activation')
 const toggleCheckbox = document.querySelector('.toggle-checkbox')
 
 if (toggleAdmin) {
@@ -56,38 +55,87 @@ if (toggleAdmin) {
     })
 }
 
-/*if (toggleActivation) {
-    toggleActivation.addEventListener('click', () => {
-        if (toggleCheckbox.checked) {
-            location.href = './admin/user_list.html'
-        } else {
-            location.href = '../index.html'
-        }
-    })
-}*/
 
+/* =====================================================
+   Admin Settings - Add Input
+   ===================================================== */
+const addWardBed = document.querySelector('.add-input-ward-bed')
+if(addWardBed) {
+    const setWardBedInput = document.querySelector('.set-ward-bed input')
+    const wardBedList = document.querySelector('.ward-bed-list')
 
+    function setWardBed(text) {
+        const createdList = document.createElement('li')
+        const createdSpan = document.createElement('span')
+        const createdButtonContainer = document.createElement('div')
+        const createdDeleteButton = document.createElement('button')
 
+        createdSpan.innerText = text
+        createdButtonContainer.classList.add('button-container')
+        createdDeleteButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`
+        createdDeleteButton.classList.add('delete-setting')
+        createdButtonContainer.appendChild(createdDeleteButton)
 
+        createdList.appendChild(createdSpan)
+        createdList.appendChild(createdButtonContainer)
+        wardBedList.appendChild(createdList)
 
+        createdDeleteButton.addEventListener('click', deleteSettings)
+    }
 
-const addInput = document.querySelectorAll('.add-input')
-const createInputContainer = `<div class="input-container" onclick="location.href='#modal-set-event'">
-                                <input type="text" >
-                            </div>`
+    function deleteSettings(event) {
+        const currentButton = event.target
+        const currentList = currentButton.closest('li')
+        wardBedList.removeChild(currentList)
+    }
 
-// const addInputFunction = () => {
-//
-// }
+    function handleSetWardBed(e) {
+        e.preventDefault()
+        const currentValue = setWardBedInput.value
+        setWardBed(currentValue)
+        setWardBedInput.value = ''
+    }
 
-if (addInput) {
-    addInput.addEventListener('click', () => {
-        this.appendChild(createInputContainer)
-    })
+    addWardBed.addEventListener('click', handleSetWardBed)
 }
 
-/*function addDrugs() {
-    var drugs = document.getElementById("drugs");
-    var clone = drugs.firstElementChild.cloneNode(true);
-    drugs.appendChild(clone);
-}*/
+
+const addEvent = document.querySelector('.add-input-event')
+if(addEvent) {
+    const setEventInput = document.querySelector('.set-event input')
+    const eventList = document.querySelector('.event-list')
+
+    function setEvent(text) {
+        const createdList = document.createElement('li')
+        const createdSpan = document.createElement('span')
+        const createdButtonContainer = document.createElement('div')
+        const createdDeleteButton = document.createElement('button')
+
+        createdSpan.innerText = text
+        createdButtonContainer.classList.add('button-container')
+        createdDeleteButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`
+        createdDeleteButton.classList.add('delete-setting')
+        createdButtonContainer.appendChild(createdDeleteButton)
+
+        createdList.appendChild(createdSpan)
+        createdList.appendChild(createdButtonContainer)
+        eventList.appendChild(createdList)
+
+        createdDeleteButton.addEventListener('click', deleteSettings)
+    }
+
+    function deleteSettings(event) {
+        const currentButton = event.target
+        const currentList = currentButton.closest('li')
+        eventList.removeChild(currentList)
+    }
+
+    function handleSetEvent(e) {
+        e.preventDefault()
+        const currentValue = setEventInput.value
+        setEvent(currentValue)
+        setEventInput.value = ''
+    }
+
+    addEvent.addEventListener('click', handleSetEvent)
+}

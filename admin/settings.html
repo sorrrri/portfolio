@@ -42,26 +42,63 @@
                 <button class="button-cancel" onclick="javascript:history.back()">취소</button>
             </div>
         </section>
-        <section class="content-view">
+        <section class="content-view content-settings">
             <fieldset class="set-ward-bed">
                 <legend>병동-침상번호</legend>
-                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
-                    <input type="text" value="ER-ISO" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
-                    <input type="text" value="SU" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
-                    <input type="text" value="NCU B" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
-                    <input type="text" value="TICUB" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
-                    <input type="text" value="TICUC" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-ward-bed'">
-                    <input type="text" value="3ICUA" readonly/>
+                <ul class="ward-bed-list">
+                    <li>
+                        <span onclick="location.href='#modal-set-ward-bed'">ER-ISO</span>
+                        <div class="button-container">
+                            <button class="delete-setting">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <span onclick="location.href='#modal-set-ward-bed'">SU</span>
+                        <div class="button-container">
+                            <button class="delete-setting">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <span onclick="location.href='#modal-set-ward-bed'">NCU B</span>
+                        <div class="button-container">
+                            <button class="delete-setting">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <span onclick="location.href='#modal-set-ward-bed'">TICUB</span>
+                        <div class="button-container">
+                            <button class="delete-setting">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <span onclick="location.href='#modal-set-ward-bed'">TICUC</span>
+                        <div class="button-container">
+                            <button class="delete-setting">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="input-container">
+                    <input type="text"/>
                 </div>
                 <svg class="add-input add-input-ward-bed" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                      viewBox="0 0 24 24">
@@ -70,23 +107,37 @@
             </fieldset>
             <fieldset class="set-event">
                 <legend>이벤트타입별-상세이벤트</legend>
-                <div class="input-container" onclick="location.href='#modal-set-event'">
-                    <input type="text" value="Event Type 1" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-event'">
-                    <input type="text" value="Event Type 2" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-event'">
-                    <input type="text" value="Event Type 3" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-event'">
-                    <input type="text" value="Event Type 4" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-event'">
-                    <input type="text" value="Event Type 5" readonly/>
-                </div>
-                <div class="input-container" onclick="location.href='#modal-set-event'">
-                    <input type="text" value="Event Type 6" readonly/>
+                <ul class="event-list">
+                    <li>
+                        <span onclick="location.href='#modal-set-event'">Event Type 1</span>
+                        <div class="button-container">
+                            <svg class="delete-setting" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
+                                <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            </svg>
+                        </div>
+                    </li>
+                    <li>
+                        <span onclick="location.href='#modal-set-event'">Event Type 1</span>
+                        <div class="button-container">
+                            <svg class="delete-setting" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
+                                <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            </svg>
+                        </div>
+                    </li>
+                    <li>
+                        <span onclick="location.href='#modal-set-event'">Event Type 1</span>
+                        <div class="button-container">
+                            <svg class="delete-setting" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
+                                <path d="M14.59 8L12 10.59 9.41 8 8 9.41 10.59 12 8 14.59 9.41 16 12 13.41 14.59 16 16 14.59 13.41 12 16 9.41 14.59 8zM12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+                <div class="input-container">
+                    <input type="text"/>
                 </div>
                 <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                      viewBox="0 0 24 24">
@@ -114,31 +165,31 @@
         </div>
         <section>
             <div class="input-container">
-                <input type="text" value="1" />
+                <input type="text" value="1"/>
             </div>
             <div class="input-container">
-                <input type="text" value="2" />
+                <input type="text" value="2"/>
             </div>
             <div class="input-container">
-                <input type="text" value="3" />
+                <input type="text" value="3"/>
             </div>
             <div class="input-container">
-                <input type="text" value="4" />
+                <input type="text" value="4"/>
             </div>
             <div class="input-container">
-                <input type="text" value="5" />
+                <input type="text" value="5"/>
             </div>
             <div class="input-container">
-                <input type="text" value="6" />
+                <input type="text" value="6"/>
             </div>
             <div class="input-container">
-                <input type="text" value="7" />
+                <input type="text" value="7"/>
             </div>
             <div class="input-container">
-                <input type="text" value="8" />
+                <input type="text" value="8"/>
             </div>
             <div class="input-container">
-                <input type="text" value="9" />
+                <input type="text" value="9"/>
             </div>
             <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                  viewBox="0 0 24 24">
@@ -159,22 +210,22 @@
         </div>
         <section>
             <div class="input-container">
-                <input type="text" value="Event Type 1" />
+                <input type="text" value="Event Type 1"/>
             </div>
             <div class="input-container">
-                <input type="text" value="Event Type 2" />
+                <input type="text" value="Event Type 2"/>
             </div>
             <div class="input-container">
-                <input type="text" value="Event Type 3" />
+                <input type="text" value="Event Type 3"/>
             </div>
             <div class="input-container">
-                <input type="text" value="Event Type 4" />
+                <input type="text" value="Event Type 4"/>
             </div>
             <div class="input-container">
-                <input type="text" value="Event Type 5" />
+                <input type="text" value="Event Type 5"/>
             </div>
             <div class="input-container">
-                <input type="text" value="Event Type 6" />
+                <input type="text" value="Event Type 6"/>
             </div>
             <svg class="add-input add-input-event" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                  viewBox="0 0 24 24">

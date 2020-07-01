@@ -86,17 +86,28 @@ header {
 }
 
 .svg-check {
-    fill: lightseagreen;
+    fill: lightseagreen !important;
 }
 
 .svg-disabled {
-    fill: orangered;
+    fill: orangered !important;
 }
 
 fieldset {
     flex: 1 1 auto;
     max-width: 360px;
     margin: 0 .5rem;
+    max-height: 60vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.toggle-feature {
+    transform: rotate(0);
+}
+
+.toggle-admin .toggle-checkbox:checked + .toggle-button .toggle-feature {
+    transform: rotate(90deg);
 }
 
 .toggle-activation{
@@ -156,6 +167,28 @@ fieldset {
     display: flex;
     flex: 1 1 auto;
     margin-right: .5rem;
+}
+
+.content-settings ul {
+    flex-direction: column;
+    padding: .5rem;
+}
+
+.content-settings li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .7rem;
+    border-bottom: 1px solid var(--darkPurple);
+}
+
+.content-settings li svg {
+    cursor: pointer;
+}
+
+.content-settings li button {
+    padding: 0;
+    background-color: transparent;
 }
 
 @media screen and (max-width: 768px) {
