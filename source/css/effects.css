@@ -19,26 +19,26 @@
 }
 
 .bg .segment:nth-child(2) {
-    background-position: 0px 70%;
+    background-position: 0 70%;
     flex: 0.5;
 }
 
 .bg .segment:nth-child(3) {
-    background-position: 0px 40%;
+    background-position: 0 40%;
     flex: 3;
 }
 
 .bg .segment:nth-child(4) {
-    background-position: 0px 10%;
+    background-position: 0 10%;
     flex: 2;
 }
 
 .bg .segment:nth-child(5) {
-    background-position: 0px 53%;
+    background-position: 0 53%;
 }
 
 .segment.straighten {
-    background-position: 0px 50% !important;
+    background-position: 0 50% !important;
     transition: all 800ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
@@ -64,6 +64,10 @@ svg {
     animation: revealTextAnimation 0.64s ease forwards;
 }
 
+p.text.reveal {
+    color: var(--brightGray);
+}
+
 .text:before {
     content: "";
     position: absolute;
@@ -74,31 +78,31 @@ svg {
 }
 
 .text.reveal:before {
-    background: #6c2e13;
+    background: var(--darkPurple);
     animation: blockRevealAnimation 0.8s ease forwards;
 }
 
-.img-container {
+.image-container {
     display: flex;
     justify-content: space-between;
 }
 
-.img-container .img {
+.image-container .image {
     margin: .5rem
 }
 
-.img {
+.image {
     position: relative;
     display: block;
     overflow: hidden;
 }
 
-.img img {
+.image img {
     max-width: 100%;
     opacity: 0;
 }
 
-.img:before {
+.image:before {
     content: "";
     position: absolute;
     top: 0;
@@ -108,12 +112,12 @@ svg {
     z-index: 2;
 }
 
-.img.reveal:before {
-    background: #544c26;
+.image.reveal:before {
+    background: var(--primaryColor);
     animation: blockRevealAnimation 0.8s ease forwards;
 }
 
-.img.reveal img {
+.image.reveal img {
     animation: revealImgAnimation 0.8s ease forwards;
 }
 

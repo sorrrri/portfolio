@@ -10,8 +10,8 @@ body.style.height = Math.floor(height) + "px";
 function smoothScroll() {
     offset += (window.pageYOffset - offset) * speed;
 
-    var scroll = "translateY(-" + offset + "px) translateZ(0)";
-    scrollWrap.style.transform = scroll;
+    var customScroll = "translateY(-" + offset + "px) translateZ(0)";
+    scrollWrap.style.transform = customScroll;
 
     callScroll = requestAnimationFrame(smoothScroll);
 }
@@ -19,7 +19,7 @@ function smoothScroll() {
 smoothScroll();
 
 $(function () {
-    var elements = $(".text, .img").toArray();
+    var elements = $(".text, .image").toArray();
     $(window).scroll(function () {
         elements.forEach(function (item) {
             if ($(this).scrollTop() >= $(item).offset().top - 400) {

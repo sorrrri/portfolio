@@ -379,15 +379,15 @@ var pJS = function(tag_id, params){
 
         if(this.shape == 'image'){
             var sh = pJS.particles.shape;
-            this.img = {
+            this.image = {
                 src: sh.image.src,
                 ratio: sh.image.width / sh.image.height
             }
-            if(!this.img.ratio) this.img.ratio = 1;
-            if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg != undefined){
+            if(!this.image.ratio) this.image.ratio = 1;
+            if(pJS.tmp.image_type == 'svg' && pJS.tmp.source_svg != undefined){
                 pJS.fn.vendors.createSvgImg(this);
                 if(pJS.tmp.pushing){
-                    this.img.loaded = false;
+                    this.image.loaded = false;
                 }
             }
         }
@@ -466,14 +466,14 @@ var pJS = function(tag_id, params){
                     p.x-radius,
                     p.y-radius,
                     radius*2,
-                    radius*2 / p.img.ratio
+                    radius*2 / p.image.ratio
                 );
             }
 
-                if(pJS.tmp.img_type == 'svg'){
-                    var img_obj = p.img.obj;
+                if(pJS.tmp.image_type == 'svg'){
+                    var img_obj = p.image.obj;
                 }else{
-                    var img_obj = pJS.tmp.img_obj;
+                    var img_obj = pJS.tmp.image_obj;
                 }
 
                 if(img_obj){
@@ -660,7 +660,7 @@ var pJS = function(tag_id, params){
         cancelRequestAnimFrame(pJS.fn.checkAnimFrame);
         cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
         pJS.tmp.source_svg = undefined;
-        pJS.tmp.img_obj = undefined;
+        pJS.tmp.image_obj = undefined;
         pJS.tmp.count_svg = 0;
         pJS.fn.particlesEmpty();
         pJS.fn.canvasClear();
@@ -1223,8 +1223,8 @@ var pJS = function(tag_id, params){
         /* create particle img obj */
         var img = new Image();
         img.addEventListener('load', function(){
-            p.img.obj = img;
-            p.img.loaded = true;
+            p.image.obj = img;
+            p.image.loaded = true;
             DOMURL.revokeObjectURL(url);
             pJS.tmp.count_svg++;
         });
@@ -1269,7 +1269,7 @@ var pJS = function(tag_id, params){
 
     pJS.fn.vendors.loadImg = function(type){
 
-        pJS.tmp.img_error = undefined;
+        pJS.tmp.image_error = undefined;
 
         if(pJS.particles.shape.image.src != ''){
 
@@ -1284,7 +1284,7 @@ var pJS = function(tag_id, params){
                             pJS.fn.vendors.checkBeforeDraw();
                         }else{
                             console.log('Error pJS - Image not found');
-                            pJS.tmp.img_error = true;
+                            pJS.tmp.image_error = true;
                         }
                     }
                 }
@@ -1294,7 +1294,7 @@ var pJS = function(tag_id, params){
 
                 var img = new Image();
                 img.addEventListener('load', function(){
-                    pJS.tmp.img_obj = img;
+                    pJS.tmp.image_obj = img;
                     pJS.fn.vendors.checkBeforeDraw();
                 });
                 img.src = pJS.particles.shape.image.src;
@@ -1303,7 +1303,7 @@ var pJS = function(tag_id, params){
 
         }else{
             console.log('Error pJS - No image.src');
-            pJS.tmp.img_error = true;
+            pJS.tmp.image_error = true;
         }
 
     };
@@ -1313,7 +1313,7 @@ var pJS = function(tag_id, params){
 
         if(pJS.particles.shape.type == 'image'){
 
-            if(pJS.tmp.img_type == 'svg'){
+            if(pJS.tmp.image_type == 'svg'){
 
                 if(pJS.tmp.count_svg >= pJS.particles.number.value){
                     pJS.fn.particlesDraw();
@@ -1321,17 +1321,17 @@ var pJS = function(tag_id, params){
                     else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }else{
                     //console.log('still loading...');
-                    if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                    if(!pJS.tmp.image_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }
 
             }else{
 
-                if(pJS.tmp.img_obj != undefined){
+                if(pJS.tmp.image_obj != undefined){
                     pJS.fn.particlesDraw();
                     if(!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
                     else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }else{
-                    if(!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+                    if(!pJS.tmp.image_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
                 }
 
             }
@@ -1350,12 +1350,12 @@ var pJS = function(tag_id, params){
         // if shape is image
         if(pJS.particles.shape.type == 'image'){
 
-            if(pJS.tmp.img_type == 'svg' && pJS.tmp.source_svg == undefined){
+            if(pJS.tmp.image_type == 'svg' && pJS.tmp.source_svg == undefined){
                 pJS.tmp.checkAnimFrame = requestAnimFrame(check);
             }else{
                 //console.log('images loaded! cancel check');
                 cancelRequestAnimFrame(pJS.tmp.checkAnimFrame);
-                if(!pJS.tmp.img_error){
+                if(!pJS.tmp.image_error){
                     pJS.fn.vendors.init();
                     pJS.fn.vendors.draw();
                 }
@@ -1389,8 +1389,8 @@ var pJS = function(tag_id, params){
     pJS.fn.vendors.start = function(){
 
         if(isInArray('image', pJS.particles.shape.type)){
-            pJS.tmp.img_type = pJS.particles.shape.image.src.substr(pJS.particles.shape.image.src.length - 3);
-            pJS.fn.vendors.loadImg(pJS.tmp.img_type);
+            pJS.tmp.image_type = pJS.particles.shape.image.src.substr(pJS.particles.shape.image.src.length - 3);
+            pJS.fn.vendors.loadImg(pJS.tmp.image_type);
         }else{
             pJS.fn.vendors.checkBeforeDraw();
         }
