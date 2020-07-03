@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Budon</title>
-    <link rel="stylesheet" href="source/css/common.css"/>
+    <link rel="stylesheet" href="source/css/base.css"/>
     <link rel="stylesheet" href="source/css/particle.css"/>
     <link rel="stylesheet" href="source/css/effects.css"/>
     <link rel="stylesheet" href="source/css/style.css"/>
@@ -12,22 +12,15 @@
 
 </head>
 <body>
-<div class="bg">
-    <div class="segment"></div>
-    <div class="segment"></div>
-    <div class="segment"></div>
-    <div class="segment"></div>
-    <div class="segment"></div>
-</div>
-<div class="smooth-scroll-wrapper">
+<main class="smooth-scroll-wrapper">
     <header>
         <div class="logo"></div>
         <ul class="menu">
-            <li><a href="">home</a></li>
-            <li><a href="">products</a></li>
-            <li><a href="">members</a></li>
-            <li><a href="">partners</a></li>
-            <li><a href="">contact</a></li>
+            <li><a href="#intro">home</a></li>
+            <li><a href="#products">products</a></li>
+            <li><a href="#members">members</a></li>
+            <li><a href="#partners">partners</a></li>
+            <li><a href="#contact">contact</a></li>
         </ul>
     </header>
     <div class="content">
@@ -108,23 +101,29 @@
                 </li>
             </ul>
         </section>
+
+
         <section id="partners">
             <h2 class="text">Partners</h2>
-            <ul>
-                <li><img src="source/images/partners/ajou_medical.png" alt=""></li>
-                <li><img src="source/images/partners/cmi_lab.png" alt=""></li>
-                <li><img src="source/images/partners/wonkwang.png" alt=""></li>
-                <li><img src="source/images/partners/ge_healthcare.png" alt=""></li>
-                <li><img src="source/images/partners/nihonkohden.png" alt=""></li>
-            </ul>
+            <div>
+                <ul class="marquee-inner">
+                    <li><img src="source/images/partners/ajou_medical_wh.png" alt=""></li>
+                    <li><img src="source/images/partners/cmi_lab_wh.png" alt=""></li>
+                    <li><img src="source/images/partners/wonkwang_wh.png" alt=""></li>
+                    <li><img src="source/images/partners/ge_healthcare_wh.png" alt=""></li>
+                    <li><img src="source/images/partners/nihonkohden_wh.png" alt=""></li>
+                </ul>
+            </div>
         </section>
+
+
         <section id="contact">
             <ul>
-                <li>
+                <li class="text">
                     <h3>phone</h3>
                     <p>+82 31 219 4476</p>
                 </li>
-                <li>
+                <li class="text">
                     <h3>address</h3>
                     <p>206, Worldcup-ro,
                         Yeongtong-gu, Suwon-si,
@@ -132,14 +131,14 @@
                         Republic of Korea
                     </p>
                 </li>
-                <li>
+                <li class="text">
                     <h3>e-mail</h3>
                     <p><a href="mailto:d.yoon.ajou@gmail.com">d.yoon.ajou@gmail.com</a></p>
                 </li>
             </ul>
         </section>
     </div>
-</div>
+</main>
 <script src="./source/js/particle.js"></script>
 <script src="./source/js/script.js"></script>
 </body>
