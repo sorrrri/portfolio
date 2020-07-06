@@ -6,6 +6,15 @@
     font-family: 'Poppins';
     src: url('../fonts/Poppins-Light.ttf');
 }
+@font-face {
+    font-family: 'Ultra';
+    src: url('../fonts/Ultra-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Extrabold.ttf');
+}
 
 :root {
     --primaryColor: #5c61b2;
@@ -67,7 +76,6 @@ a {
 }
 
 h1, h2, h3, h4, h5, p {
-    font-family: 'Nanumsquare';
     margin: 0
 }
 
@@ -191,6 +199,7 @@ header .logo {
     opacity: 0;
     flex: 1 1 auto;
     align-items: center;
+    overflow-x: hidden;
     overflow-y: auto;
     display: flex;
     flex-direction: column;

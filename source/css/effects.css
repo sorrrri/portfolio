@@ -1,10 +1,10 @@
-svg {
+/*svg {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0
-}
+}*/
 
 .text {
     color: transparent;
@@ -68,7 +68,7 @@ p.text.reveal {
 }
 
 .image.reveal:before {
-    background: var(--primaryColor);
+    background: var(--darkmodeSecondaryColor);
     animation: blockRevealAnimation 0.8s ease forwards;
 }
 

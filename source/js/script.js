@@ -23,7 +23,9 @@ smoothScroll();
 
 
 $(function () {
+
     var fadeIn = $('section > *').toArray();
+
     $(window).scroll(function () {
         fadeIn.forEach(function (item) {
             if ($(this).scrollTop() >= $(item).offset().top - 400) {
@@ -31,13 +33,17 @@ $(function () {
             }
         });
     });
+
     fadeIn.forEach(function (item) {
         if ($(this).scrollTop() >= $(item).offset().top - 400) {
             $(item).css('opacity', '1')
         }
     });
 
+
+
     var elements = $(".text, .image").toArray();
+
     $(window).scroll(function () {
         elements.forEach(function (item) {
             if ($(this).scrollTop() >= $(item).offset().top - 400) {
@@ -45,6 +51,7 @@ $(function () {
             }
         });
     });
+
     elements.forEach(function (item) {
         if ($(this).scrollTop() >= $(item).offset().top - 400) {
             $(item).addClass("reveal");
@@ -57,27 +64,13 @@ $(function () {
             contactChild.style.opacity = "1"
         }
     });
+
+    const contactTitle = document.querySelector("#contact h2")
+    const contactContent = document.querySelector("#contact ul")
+
+    if(contactTitle.style.opacity = "1") {
+        contactContent.style.opacity = "1"
+    }
 });
 
 
-
-$(document).ready(function () {
-
-    $("a, button, canvas, .slick-slider").on("mouseenter", function () {
-        $(".segment").addClass("straighten");
-
-    })
-
-    $("a, button, canvas, .slick-slider").on("mouseleave", function () {
-
-        $(".segment").removeClass("straighten");
-
-    })
-
-    $('a[href^="#"]').click(function () {
-        var target = this.hash;
-        //console.log(target, $target);
-        $('html, body').animate({ 'scrollTop': $(target).offset().top }), 1500;
-    });
-
-})
