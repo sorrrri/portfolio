@@ -20,9 +20,15 @@ document.documentElement.addEventListener('touchstart', function (event) {
 /* =====================================================
    Login Page - Fade out effect
    ===================================================== */
-const loginButton = document.querySelector('#login-button')
-const loginForm = document.querySelector('.login-form')
+const loginContainer = document.querySelector('.login-container')
+const tabContainer = document.querySelector('.tab-container')
+const tabSignIn = document.querySelector('.tab-sign-in')
+const tabSignUp = document.querySelector('.tab-sign-up')
+const signInForm = document.querySelector('.sign-in-form')
+const signUpForm = document.querySelector('.sign-up-form')
+const loginForm = document.querySelector('.sign-in-form')
 const wrapper = document.querySelector('.wrapper')
+
 
 const fadeOutEffect = () => {
     setInterval(function () {
@@ -31,7 +37,24 @@ const fadeOutEffect = () => {
     wrapper.classList.add('form-success')
 }
 
-if (loginButton) {
+if (loginContainer) {
+    tabSignIn.classList.add('active')
+    signInForm.classList.add('active')
+
+    tabSignIn.addEventListener('click', () => {
+        tabSignIn.classList.add('active')
+        tabSignUp.classList.remove('active')
+        signInForm.classList.add('active')
+        signUpForm.classList.remove('active')
+    })
+
+    tabSignUp.addEventListener('click', () => {
+        tabSignUp.classList.add('active')
+        tabSignIn.classList.remove('active')
+        signUpForm.classList.add('active')
+        signInForm.classList.remove('active')
+    })
+
     loginButton.addEventListener('click', (e) => {
         e.preventDefault()
         fadeOutEffect()

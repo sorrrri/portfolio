@@ -92,6 +92,18 @@ header {
 .svg-disabled {
     fill: orangered !important;
 }
+.cell-activation .activate {
+    background: url("../images/check.png") center no-repeat;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+}
+.cell-activation .disabled {
+    background: url("../images/disabled.png") center no-repeat;
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+}
 
 fieldset {
     flex: 1 1 auto;

@@ -72,19 +72,54 @@ body :-ms-input-placeholder {
     max-width: 600px;
     margin: 0 auto 5rem;
     padding: 80px 0;
-    height: 400px;
+    height: 360px;
     text-align: center;
 }
-.login-container h1 {
-    font-size: 40px;
-    font-weight: 200;
-    transition: 1s ease-in-out;
+
+.login-container label {
+    font-size:1.5rem;
+    position: relative;
+    z-index: 10;
 }
+
+
+.login-container form {
+    display: none;
+}
+
+.tab {
+    z-index: 10;
+    position: relative;
+    font-size: 1.5rem;
+    margin: .5rem;
+    cursor: pointer;
+    color: var(--secondaryColor)
+}
+
+.tab.active {
+    color: white;
+}
+
+.tab.active::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--darkPurple) !important;
+}
+
 form {
     padding: 20px 0;
     position: relative;
     z-index: 2;
+    animation: fadeIn 1s forwards;
 }
+
+form.active {
+    flex-direction: column;
+}
+
 form input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -92,7 +127,7 @@ form input {
     outline: 0;
     border: 1px solid rgba(255, 255, 255, 0.4);
     background-color: rgba(255, 255, 255, 0.2);
-    width: 250px;
+    width: 100%;
     border-radius: 3px;
     padding: 10px 15px;
     margin: 0 auto 10px auto;
@@ -109,7 +144,6 @@ form input:hover {
 }
 form input:focus {
     background-color: white;
-    width: 300px;
     color: var(--primaryColor);
 }
 form button {
@@ -118,12 +152,10 @@ form button {
     appearance: none;
     outline: 0;
     background-color: white;
-    border: 0;
-    padding: 10px 15px;
+    padding: 1rem;
     color: var(--primaryColor);
     border-radius: 3px;
-    width: 250px;
-    cursor: pointer;
+    width: 100%;
     font-size: 18px;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
@@ -227,8 +259,8 @@ form button:hover {
         transform: translateY(0);
     }
     100% {
-        -webkit-transform: translateY(-700px) rotate(600deg);
-        transform: translateY(-700px) rotate(600deg);
+        -webkit-transform: translateY(-120vh) rotate(600deg);
+        transform: translateY(-120vh) rotate(600deg);
     }
 }
 @keyframes square {
@@ -237,7 +269,7 @@ form button:hover {
         transform: translateY(0);
     }
     100% {
-        -webkit-transform: translateY(-700px) rotate(600deg);
-        transform: translateY(-700px) rotate(600deg);
+        -webkit-transform: translateY(-120vh) rotate(600deg);
+        transform: translateY(-120vh) rotate(600deg);
     }
 }

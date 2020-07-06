@@ -11,11 +11,21 @@
 <div class="container">
     <div class="wrapper">
         <div class="login-container">
-            <h1>Welcome</h1>
-            <form class="login-form">
+            <ul class="tab-container">
+                <li class="tab tab-sign-in">Sign in</li>
+                <li class="tab tab-sign-up">Sign up</li>
+            </ul>
+            <form class="sign-in-form">
                 <input type="text" placeholder="Username">
                 <input type="password" placeholder="Password">
-                <button type="submit" id="login-button">Login</button>
+                <button type="submit">Sign in</button>
+            </form>
+            <form class="sign-up-form">
+                <input id="id" type="text" placeholder="ID">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Check Password">
+                <input type="number" placeholder="연락처">
+                <button type="submit">Sign up</button>
             </form>
         </div>
     </div>
