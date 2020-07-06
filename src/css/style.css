@@ -199,17 +199,18 @@ fieldset {
 }
 
 .content-settings li button {
-    color: var(--secondaryColor);
-    background-color: var(--darkPurple);
-}
-
-.delete-setting {
     padding: 0;
     background-color: transparent !important;
 }
 
+.content-settings li svg {
+    fill: var(--brightPurple);
+}
+.delete-setting {
+}
+
 .delete-setting svg {
-    fill: orangered;
+    fill: orangered !important;
 }
 
 .edit-setting svg {
