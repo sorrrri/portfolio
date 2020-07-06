@@ -190,17 +190,25 @@ fieldset {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .7rem;
+    padding: .7rem 0;
     border-bottom: 1px solid var(--darkPurple);
 }
 
-.content-settings li svg {
-    cursor: pointer;
+.content-settings li input {
+    flex: 1 1 auto
 }
 
 .content-settings li button {
     padding: 0;
     background-color: transparent;
+}
+
+.delete-setting svg {
+    fill: orangered;
+}
+
+.edit-setting svg {
+    fill: var(--brightPurple);
 }
 
 @media screen and (max-width: 768px) {
