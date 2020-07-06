@@ -84,22 +84,26 @@ if (toggleAdmin) {
    ===================================================== */
 const addWardBed = document.querySelector('.add-input-ward-bed')
 if(addWardBed) {
-    const setWardBedInput = document.querySelector('.set-ward-bed input')
+    const setWardBedInput = document.querySelector('.set-ward-bed .input-container input')
     const wardBedList = document.querySelector('.ward-bed-list')
 
     function setWardBed(text) {
         const createdList = document.createElement('li')
-        const createdSpan = document.createElement('span')
+        const createdInput = document.createElement('input')
         const createdButtonContainer = document.createElement('div')
         const createdDeleteButton = document.createElement('button')
+        const createdEditButton = document.createElement('button')
 
-        createdSpan.innerText = text
+        createdInput.value = text
         createdButtonContainer.classList.add('button-container')
         createdDeleteButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`
+        createdEditButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`
         createdDeleteButton.classList.add('delete-setting')
+        createdEditButton.classList.add('edit-setting')
         createdButtonContainer.appendChild(createdDeleteButton)
+        createdButtonContainer.appendChild(createdEditButton)
 
-        createdList.appendChild(createdSpan)
+        createdList.appendChild(createdInput)
         createdList.appendChild(createdButtonContainer)
         wardBedList.appendChild(createdList)
 
@@ -125,22 +129,26 @@ if(addWardBed) {
 
 const addEvent = document.querySelector('.add-input-event')
 if(addEvent) {
-    const setEventInput = document.querySelector('.set-event input')
+    const setEventInput = document.querySelector('.set-event .input-container input')
     const eventList = document.querySelector('.event-list')
 
     function setEvent(text) {
         const createdList = document.createElement('li')
-        const createdSpan = document.createElement('span')
+        const createdInput = document.createElement('input')
         const createdButtonContainer = document.createElement('div')
         const createdDeleteButton = document.createElement('button')
+        const createdEditButton = document.createElement('button')
 
-        createdSpan.innerText = text
+        createdInput.value = text
         createdButtonContainer.classList.add('button-container')
         createdDeleteButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`
+        createdEditButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`
         createdDeleteButton.classList.add('delete-setting')
+        createdEditButton.classList.add('edit-setting')
         createdButtonContainer.appendChild(createdDeleteButton)
+        createdButtonContainer.appendChild(createdEditButton)
 
-        createdList.appendChild(createdSpan)
+        createdList.appendChild(createdInput)
         createdList.appendChild(createdButtonContainer)
         eventList.appendChild(createdList)
 
