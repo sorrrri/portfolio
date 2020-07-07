@@ -167,7 +167,13 @@ fieldset {
     max-width: 360px;
 }
 
+.modal .input-container {
+    flex-direction: row;
+    margin-bottom: 0;
+}
+
 .modal input {
+    flex: 1 1 auto;
     background-color: #F3F6F9;
 }
 
@@ -204,13 +210,19 @@ fieldset {
 }
 
 .content-settings li svg {
-    fill: var(--brightPurple);
+    fill: var(--secondaryColor);
 }
 .delete-setting {
+    padding: 0;
+    background-color: transparent !important;
 }
 
 .delete-setting svg {
-    fill: orangered !important;
+    fill: var(--darkPurple) !important;
+}
+.modal .delete-setting svg {
+    margin-left: .5rem;
+    fill: var(--brightGray) !important;
 }
 
 .edit-setting svg {
@@ -258,11 +270,13 @@ fieldset {
     }
 
     .content + .button-container button {
+        font-size: 16px;
         flex: 1 1 auto;
         margin: 0;
         border-radius: 0;
         padding: 1.2rem;
         font-weight: bold;
+        justify-content: center;
     }
 
     .content + .button-container .button-cancel {
