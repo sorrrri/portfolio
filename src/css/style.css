@@ -1,29 +1,3 @@
-section {
-    width: 100%;
-    min-height: 70vh;
-    padding: 12rem 10vw 10rem;
-    box-sizing: border-box;
-    position: relative;
-}
-
-section > * {
-    opacity: 0;
-    transition: opacity .4s;
-}
-
-section .title::before {
-    content: attr(data-count);
-    font-family: "Ultra";
-    display: flex;
-    font-size: 2rem;
-    color: white;
-    margin-bottom: -1rem;
-    text-indent: .5rem;
-    transform: rotate(90deg);
-    position: absolute;
-    padding-right: 1rem;
-}
-
 header {
     position: fixed;
     width: 100%;
@@ -79,20 +53,50 @@ h1 {
 h2 {
     font: 10vw/1 "Montserrat";
     color: white;
+}
+
+h3 {
+    font: normal 2rem/3 "Poppins";
+    color: white;
+}
+
+section {
+    width: 100%;
+    min-height: 70vh;
+    padding: 12rem 10vw 10rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+section > * {
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+section .title {
     font-weight: normal;
     color: transparent;
     -webkit-text-stroke: 1px rgba(255, 255, 255, .3);
     text-transform: uppercase;
     white-space: nowrap;
     position: absolute;
-    left: 0;
+    left: 5vw;
     top: 0;
     z-index: 10;
+    user-select: none;
 }
 
-h3 {
-    font: normal 2rem/3 "Poppins";
+section .title::before {
+    content: attr(data-count);
+    font-family: "Ultra";
+    display: flex;
+    font-size: 2rem;
     color: white;
+    margin-bottom: -1rem;
+    text-indent: .5rem;
+    transform: rotate(90deg);
+    position: absolute;
+    padding-right: 1rem;
 }
 
 
@@ -217,7 +221,7 @@ h3 {
     width: 100%;
     display: flex;
     position: relative;
-    animation: marquee 5s linear infinite;
+    animation: marquee 10s linear infinite;
     justify-content: space-around;
 }
 
@@ -280,7 +284,7 @@ h3 {
 .title-circle {
     opacity: 0 !important;
     position: absolute;
-    left: 0;
+    left: 3vw;
     top: 0;
     transition: opacity .4s;
     z-index: 5;
