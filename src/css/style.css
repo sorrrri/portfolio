@@ -1,3 +1,7 @@
+button {
+    font: 15px/1 'NanumSquare'
+}
+
 header {
     border-bottom: 1px solid var(--secondaryColor);
 }
@@ -217,7 +221,6 @@ fieldset {
 
 .modal .input-container {
     flex-direction: row;
-    margin-bottom: 0;
 }
 
 .modal input {
@@ -296,7 +299,7 @@ fieldset {
 
     .input-container {
         flex: unset;
-        margin-bottom: 0;
+        padding: 0;
     }
 
     .content-view {
@@ -422,6 +425,10 @@ fieldset {
     .cell-activation {
         right: 1rem;
         top: 1rem
+    }
+
+    .content-settings .input-container {
+        padding: 0 .5rem
     }
 
     .modal {
