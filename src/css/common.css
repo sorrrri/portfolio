@@ -157,6 +157,8 @@ button {
 }
 
 textarea {
+    appearance: none;
+    -webkit-appearance: none;
     background-color: white;
     border: 1px solid var(--secondaryColor);
     border-radius: .5rem;
