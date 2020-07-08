@@ -701,6 +701,7 @@ select::-ms-expand {
 
 .dark-mode input {
     background-color: var(--charcoal);
+    border: 0;
     color: white;
 }
 
@@ -712,7 +713,8 @@ select::-ms-expand {
 }
 
 .dark-mode .selectbox {
-    background-color: #484c5a !important
+    background-color: #484c5a !important;
+    border: 0
 }
 
 .dark-mode .selectbox::before {

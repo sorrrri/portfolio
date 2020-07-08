@@ -2,6 +2,11 @@ header {
     border-bottom: 1px solid var(--secondaryColor);
 }
 
+.logo a {
+    font-size: 20px;
+    font-family: Raleway;
+}
+
 .header-admin {
     flex: 0 0 auto;
     width: 90%;
@@ -101,12 +106,16 @@ header {
     width: 15%;
 }
 
+.cell-user-id {
+    width: 10%;
+}
+
 .cell-user-name {
     width: 10%;
 }
 
 .cell-updated-date {
-    width: 20%;
+    width: 15%;
 }
 
 .cell-ward {
@@ -114,7 +123,7 @@ header {
 }
 
 .cell-event {
-    width: 25%;
+    width: 20%;
     flex: 1 1 auto
 }
 
@@ -365,6 +374,16 @@ fieldset {
     .cell-bed-number::before {
         content: '침상번호:';
         margin-right: .5rem
+    }
+
+    .cell-user-id {
+        right: 1rem;
+        bottom: 2rem;
+    }
+
+    .cell-user-id::before {
+        content: 'id:';
+        margin-right: .2rem
     }
 
     .cell-user-name {
