@@ -41,9 +41,11 @@ svg {
 
 body {
     --color-text: #fff;
-    --color-bg: #000;
+    --color-bg: #27292d;
     --color-link: #4b4b4b;
     --color-link-hover: #fff;
+    --color-intro-bg: #0e0e0e;
+    --modal-color-text: #27292d;
     color: var(--color-text);
     background-color: var(--color-bg);
     width: 100%;
@@ -55,6 +57,7 @@ body {
 }
 
 canvas {
+    opacity:.5;
     position: fixed;
     top: 0;
     left: 0;
@@ -284,7 +287,7 @@ header .logo {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    animation: fadeIn .4s forwards;
+    animation: fadeInOpacity .4s forwards;
     transition: .2s border-color;
 }
 
@@ -596,7 +599,7 @@ select::-ms-expand {
     margin: .5rem 0;
     position: relative;
     cursor: pointer;
-    animation: fadeIn .8s forwards;
+    animation: fadeInOpacity .8s forwards;
 }
 
 .table .row span {
@@ -674,22 +677,25 @@ select::-ms-expand {
    Modal
    ===================================================== */
 .modal {
+    position: relative;
     width: 90%;
     max-height: 60%;
-    position: relative;
-    top: 50%;
-    left: 50%;
+    padding: 2rem;
     background: white;
     display: flex;
     flex-direction: column;
-    transform: translate(-50%, -50%);
     border-radius: .5rem;
-    transition: .25s;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: default;
+    transition: .25s;
 }
 
 .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -753,7 +759,7 @@ select::-ms-expand {
 }
 
 
-@keyframes fadeIn {
+@keyframes fadeInOpacity {
     0% {
         opacity: 0
     }
