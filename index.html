@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Budon</title>
     <link rel="stylesheet" href="src/css/base.css"/>
-    <link rel="stylesheet" href="src/css/particle.css"/>
     <link rel="stylesheet" href="src/css/effects.css"/>
     <link rel="stylesheet" href="src/css/style.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        document.documentElement.className = "js";
+        var supportsCssVars = function () {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+        };
+        supportsCssVars() || alert("Please view this in a modern browser that supports CSS Variables.");
+    </script>
 
 </head>
-<body>
-<main class="smooth-scroll-wrapper">
+<body class="loading">
+<main>
     <header>
         <div class="logo"></div>
         <ul class="menu">
@@ -23,199 +30,203 @@
             <li><a href="#contact">contact</a></li>
         </ul>
     </header>
-    <div class="content">
-        <section id="intro">
-            <img src='src/images/background/06.jpg' alt="">
-            <div id="particles-js"></div>
-            <h1>Budon</h1>
-            <p class="text-typing">
-                We discovers hidden information in the medical data. <span> </span>
-            </p>
-        </section>
-        <section id="products">
-            <h2 class="title" data-count="01">Product</h2>
-            <div class="title-circle">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                     y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
-                     xml:space="preserve">
+    <div data-scroll>
+
+        <div class="content">
+            <section id="intro">
+                <img src="src/images/background/06.jpg" class="js-image" alt="Some image">
+                <h1>Budon</h1>
+                <p class="text-typing">
+                    We discovers hidden information in the medical data. <span> </span>
+                </p>
+            </section>
+            <section id="products">
+                <h2 class="title" data-count="01">Product</h2>
+                <div class="title-circle">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         x="0px"
+                         y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
+                         xml:space="preserve">
                     <defs>
                         <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
                     </defs>
-                    <circle cx="150" cy="100" r="75" fill="none"/>
-                    <g>
+                        <circle cx="150" cy="100" r="75" fill="none"/>
+                        <g>
                         <use xlink:href="#circlePath" fill="none"/>
-                        <text fill="#FFF">
+                            <text fill="#FFF">
                             <textPath xlink:href="#circlePath">products products products products products</textPath>
                         </text>
                     </g>
                 </svg>
-            </div>
-            <div class="image-container">
-                <div class="image">
-                    <img src="src/images/aibis_on.png" alt=""/>
                 </div>
-                <div class="image">
-                    <img src="src/images/ptod_on.png" alt=""/>
+                <div class="image-container">
+                    <div class="image">
+                        <img src="src/images/aibis_on.png" alt=""/>
+                    </div>
+                    <div class="image">
+                        <img src="src/images/ptod_on.png" alt=""/>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="members">
-            <h2 class="title" data-count="02">Members</h2>
-            <div class="title-circle">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                     y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
-                     xml:space="preserve">
+            <section id="members">
+                <h2 class="title" data-count="02">Members</h2>
+                <div class="title-circle">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         x="0px"
+                         y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
+                         xml:space="preserve">
                     <defs>
                         <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
                     </defs>
-                    <circle cx="150" cy="100" r="75" fill="none"/>
-                    <g>
+                        <circle cx="150" cy="100" r="75" fill="none"/>
+                        <g>
                         <use xlink:href="#circlePath" fill="none"/>
-                        <text fill="#FFF">
+                            <text fill="#FFF">
                             <textPath xlink:href="#circlePath">members members members members members</textPath>
                         </text>
                     </g>
                 </svg>
-            </div>
-            <div class="image d-yoon">
-                <img src="src/images/d-yoon.jpg" alt=""/>
-            </div>
-            <h3 class="text">
-                Dukyong Yoon, MD, PhD
-                CEO
-            </h3>
-            <ul class="text">
-                <li>
-                    <h4>Assistant professor</h4>
-                    <span class="description">
+                </div>
+                <div class="image d-yoon">
+                    <img src="src/images/d-yoon.jpg" alt=""/>
+                </div>
+                <h3 class="text">
+                    Dukyong Yoon, MD, PhD
+                    CEO
+                </h3>
+                <ul class="text">
+                    <li>
+                        <h4>Assistant professor</h4>
+                        <span class="description">
                         Department of Biomedical informatics, Ajou University School of Medicine, Suwon, Korea (Mar/2016 – present)
                     </span>
-                </li>
-                <li>
-                    <h4>Assistant professor</h4>
-                    <span class="description">
+                    </li>
+                    <li>
+                        <h4>Assistant professor</h4>
+                        <span class="description">
                         Department of Artificial Intelligent and Data Science, Ajou University, Suwon, Korea (Sep/2017 – present)
                     </span>
-                </li>
-                <li>
-                    <h4>Board Member</h4>
-                    <span class="description">
+                    </li>
+                    <li>
+                        <h4>Board Member</h4>
+                        <span class="description">
                         The Korean Society of Medical Informatics (Feb/2016 – present)
                     </span>
-                </li>
-                <li>
-                    <h4>Board Member</h4>
-                    <span class="description">
+                    </li>
+                    <li>
+                        <h4>Board Member</h4>
+                        <span class="description">
                         The Korean Society of Health Informatics and Statistics (Mar/2019 – present)
                     </span>
-                </li>
-                <li>
-                    <h4>Vice Chairman</h4>
-                    <span class="description">
+                    </li>
+                    <li>
+                        <h4>Vice Chairman</h4>
+                        <span class="description">
                         Korean Society of Medical Big-data Research (Mar/2019 – present)
                     </span>
-                </li>
-                <li>
-                    <h4>Chief Executive Officer</h4>
-                    <span class="description">
+                    </li>
+                    <li>
+                        <h4>Chief Executive Officer</h4>
+                        <span class="description">
                         BUD.on (Nov/2018 – present)
                     </span>
-                </li>
-                <li>
-                    <h4>Research assistant</h4>
-                    <span class="description">
+                    </li>
+                    <li>
+                        <h4>Research assistant</h4>
+                        <span class="description">
                         Department of Biomedical informatics, Ajou University School of Medicine, Suwon, Korea (Mar/2009 – Feb/2016)
                     </span>
-                </li>
-                <li>
-                    <h4>Internship</h4>
-                    <span class="description">Ajou University Hospital (Mar/2008 – Feb/2009)</span>
-                </li>
-            </ul>
-        </section>
+                    </li>
+                    <li>
+                        <h4>Internship</h4>
+                        <span class="description">Ajou University Hospital (Mar/2008 – Feb/2009)</span>
+                    </li>
+                </ul>
+            </section>
 
 
-        <section id="partners">
-            <h2 class="title" data-count="03">Partners</h2>
-            <div class="title-circle">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                     y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
-                     xml:space="preserve">
+            <section id="partners">
+                <h2 class="title" data-count="03">Partners</h2>
+                <div class="title-circle">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         x="0px"
+                         y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
+                         xml:space="preserve">
                     <defs>
                         <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
                     </defs>
-                    <circle cx="150" cy="100" r="75" fill="none"/>
-                    <g>
+                        <circle cx="150" cy="100" r="75" fill="none"/>
+                        <g>
                         <use xlink:href="#circlePath" fill="none"/>
-                        <text fill="#FFF">
+                            <text fill="#FFF">
                             <textPath xlink:href="#circlePath">partners partners partners partners partners</textPath>
                         </text>
                     </g>
                 </svg>
-            </div>
-            <div class="slider">
-                <ul>
-                    <li><img src="src/images/partners/ajou_medical_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/cmi_lab_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/wonkwang_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/ge_healthcare_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/nihonkohden_wh.png" alt=""></li>
-                </ul>
-                <ul>
-                    <li><img src="src/images/partners/ajou_medical_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/cmi_lab_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/wonkwang_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/ge_healthcare_wh.png" alt=""></li>
-                    <li><img src="src/images/partners/nihonkohden_wh.png" alt=""></li>
-                </ul>
-            </div>
-        </section>
+                </div>
+                <div class="slider">
+                    <ul>
+                        <li><img src="src/images/partners/ajou_medical_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/cmi_lab_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/wonkwang_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/ge_healthcare_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/nihonkohden_wh.png" alt=""></li>
+                    </ul>
+                    <ul>
+                        <li><img src="src/images/partners/ajou_medical_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/cmi_lab_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/wonkwang_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/ge_healthcare_wh.png" alt=""></li>
+                        <li><img src="src/images/partners/nihonkohden_wh.png" alt=""></li>
+                    </ul>
+                </div>
+            </section>
 
 
-        <section id="contact">
-            <h2 class="title" data-count="04">Contact</h2>
-            <div class="title-circle">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                     y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
-                     xml:space="preserve">
+            <section id="contact">
+                <h2 class="title" data-count="04">Contact</h2>
+                <div class="title-circle">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         x="0px"
+                         y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300"
+                         xml:space="preserve">
                     <defs>
                         <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
                     </defs>
-                    <circle cx="150" cy="100" r="75" fill="none"/>
-                    <g>
+                        <circle cx="150" cy="100" r="75" fill="none"/>
+                        <g>
                         <use xlink:href="#circlePath" fill="none"/>
-                        <text fill="#FFF">
+                            <text fill="#FFF">
                             <textPath xlink:href="#circlePath">contact contact contact contact contact</textPath>
                         </text>
                     </g>
                 </svg>
-            </div>
-            <ul>
-                <li class="text">
-                    <h3>phone</h3>
-                    <p>+82 31 219 4476</p>
-                </li>
-                <li class="text">
-                    <h3>address</h3>
-                    <p>206, Worldcup-ro,
-                        Yeongtong-gu, Suwon-si,
-                        Gyeonggi-do,
-                        Republic of Korea
-                    </p>
-                </li>
-                <li class="text">
-                    <h3>e-mail</h3>
-                    <p><a href="mailto:d.yoon.ajou@gmail.com">d.yoon.ajou@gmail.com</a></p>
-                </li>
-            </ul>
-        </section>
+                </div>
+                <ul>
+                    <li>
+                        <h3>phone</h3>
+                        <p>+82 31 219 4476</p>
+                    </li>
+                    <li>
+                        <h3>address</h3>
+                        <p>206, Worldcup-ro,
+                            Yeongtong-gu, Suwon-si,
+                            Gyeonggi-do,
+                            Republic of Korea
+                        </p>
+                    </li>
+                    <li>
+                        <h3>e-mail</h3>
+                        <p><a href="mailto:d.yoon.ajou@gmail.com">d.yoon.ajou@gmail.com</a></p>
+                    </li>
+                </ul>
+            </section>
+        </div>
     </div>
 </main>
-<svg class="cursor" width="80" height="80" viewBox="0 0 80 80">
-    <circle class="cursor__inner" cx="40" cy="40" r="20"/>
-</svg>
-<script src="src/js/particle.js"></script>
+<div id="container"></div>
+<script src="src/js/app.js"></script>
 <script src="src/js/script.js"></script>
 </body>
 </html>
