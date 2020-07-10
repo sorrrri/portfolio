@@ -45,9 +45,43 @@ $("#products img").on("mouseleave", function () {
 });
 
 
+$('a').click(function(){
+    var $target = $($.attr(this, 'href'));
+
+    if ( ! $target.length ) return;
+
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 1000);
+
+    return false;
+});
+
 
 
 $(function () {
+
+    const icoMenu = document.querySelector('.ico-menu');
+    const menu = document.querySelector('.menu');
+    const menuLink = document.querySelector('.menu a');
+
+    $(window).scroll(function() {
+
+        if($(window).scrollTop() === 0) {
+            icoMenu.style.display = "none"
+            menu.classList.add("active")
+        } else {
+            menu.classList.remove("active")
+            icoMenu.style.display = "flex"
+        }
+    });
+
+    $('.menu a').on('click', function () {
+        $('.menu').hide();
+        icoMenu.classList.remove('active')
+    })
+
+
 
     var fadeIn = $('section > *').toArray();
 
