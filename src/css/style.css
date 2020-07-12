@@ -289,6 +289,12 @@ fieldset {
 }
 
 @media screen and (max-width: 768px) {
+    header a {
+        padding: .6rem .3rem;
+    }
+    .header-admin {
+        margin: 0 0 1rem;
+    }
     .wrapper, section {
         padding: 0
     }
@@ -343,7 +349,7 @@ fieldset {
 
     fieldset {
         max-width: none;
-        margin-bottom: 2rem;
+        margin: 0 0 1rem;
     }
 
     .table .row:nth-of-type(2) {
