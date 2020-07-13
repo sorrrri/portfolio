@@ -54,7 +54,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font: 17px/1.5 'Nunito', 'sans-serif', 'NanumSquare';
+    font: 16px/1.5 'Nunito', 'sans-serif', 'NanumSquare';
 }
 
 ul {
