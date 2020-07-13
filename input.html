@@ -163,6 +163,10 @@
         </div>
         <div class="record-container">
             <div class="record">
+                <label for="time-onsd">time</label>
+                <input id="time-onsd" type="datetime-local"/>
+            </div>
+            <div class="record">
                 <label for="onsd">ONSD</label>
                 <input id="onsd" type="text"/>
             </div>
@@ -178,11 +182,13 @@
     var timeLactate = document.getElementById('time-lactate');
     var timeGlucose = document.getElementById('time-glucose');
     var timeHgb = document.getElementById('time-hgb');
+    var timeONSD = document.getElementById('time-onsd');
 
     searchTime.value = new Date().toISOString().slice(0, 16);
     timeLactate.value = new Date().toISOString().slice(0, 16);
     timeGlucose.value = new Date().toISOString().slice(0, 16);
     timeHgb.value = new Date().toISOString().slice(0, 16);
+    timeONSD.value = new Date().toISOString().slice(0, 16);
 </script>
 </body>
 </html>
