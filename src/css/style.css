@@ -85,7 +85,7 @@ h1 {
 }
 
 h2 {
-    font: 10vw/1 "Montserrat";
+    font: 9vw/1 "Montserrat";
     color: white;
 }
 
@@ -97,7 +97,7 @@ h3 {
 section {
     width: 100%;
     min-height: 70vh;
-    padding: 24vh 10vw 10rem;
+    padding: 20vh 10vw 10rem;
     box-sizing: border-box;
     position: relative;
 }
@@ -430,18 +430,6 @@ section .title::before {
 /* =====================================================
    MODAL
    ===================================================== */
-.modal {
-    color: var(--modal-color-text);
-    width: 50vw;
-    height: 50vh;
-    overflow-y: auto
-}
-
-.modal .close {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .modal h2 {
     font-size: 1.2rem;
     color: var(--modal-color-text);
@@ -463,33 +451,6 @@ section .title::before {
     margin-right: .5rem;
 }
 
-#modal-container.two {
-    transform: scale(1);
-}
-
-#modal-container.two + main {
-    animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-.modal {
-    animation: quickScaleDown 0s .5s linear forwards;
-}
-
-.overlay .modal {
-    animation: scaleDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-.overlay ~ main {
-    animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-.overlay:target ~ main {
-    animation: scaleBack 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-
-    z-index: 1;
-    transform: scale(0.6)
-}
-
 
 @keyframes fadeIn {
     0% {
@@ -506,58 +467,6 @@ section .title::before {
     }
     100% {
         background: rgba(0, 0, 0, 0);
-    }
-}
-
-@keyframes scaleUp {
-    0% {
-        transform: scale(0.8) translateY(1000px);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1) translateY(0px);
-        opacity: 1;
-    }
-}
-
-@keyframes scaleDown {
-    0% {
-        transform: scale(1) translateY(0px);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0.8) translateY(1000px);
-        opacity: 0;
-    }
-}
-
-@keyframes scaleBack {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0.85);
-    }
-}
-
-@keyframes scaleForward {
-    0% {
-        transform: scale(0.85);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes quickScaleDown {
-    0% {
-        transform: scale(1);
-    }
-    99.9% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
     }
 }
 
