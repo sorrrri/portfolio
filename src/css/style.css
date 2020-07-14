@@ -470,6 +470,121 @@ section .title::before {
     }
 }
 
+
+
+@media screen and (max-width: 768px) {
+    .cursor, .cursor-follower, #container, .title-circle {
+        display: none;
+    }
+
+    html,
+    body {
+        cursor: default;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 10vh 1rem 5rem;
+        min-height: unset;
+    }
+
+    section .title::before {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 12vw;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .ico-menu {
+        display: flex !important;
+    }
+
+    .menu {
+        display: none !important;
+    }
+
+
+
+    #intro {
+        max-height: 80vh;
+    }
+
+    #intro h1 {
+        font-size: 7rem;
+    }
+
+    #intro p {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+
+    #products .images {
+        flex-direction: column;
+    }
+
+    .image.d-yoon {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #members .text {
+        margin-left: 0;
+    }
+
+    #members h3 {
+        font: normal 1.2rem/3 "Poppins"
+    }
+
+    #members h4 {
+        flex: unset;
+        margin-bottom: .2rem;
+    }
+
+    #members .description {
+        margin-bottom: 1rem;
+    }
+
+    #members li {
+        flex-direction: column;
+    }
+
+    #partners ul {
+        width: 300vw;
+    }
+
+    #partners li {
+        width: 100vw;
+        padding: 1.5rem;
+    }
+
+    #contact ul {
+        margin: 0;
+        flex-direction: column;
+    }
+
+    #contact li {
+        margin-bottom: 2rem;
+        text-align: left;
+        padding: 0;
+    }
+
+    #contact h3 {
+        line-height: 2;
+    }
+
+    #contact ul li:not(:last-of-type) {
+        border-right: 0;
+    }
+}
+
 /* =====================================================
    ANIMATIONS
    ===================================================== */
