@@ -288,6 +288,12 @@ fieldset {
     fill: var(--brightPurple);
 }
 
+@media screen and (max-width: 1200px) {
+    .content {
+        padding: 0 1rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     header a {
         padding: .6rem .3rem;
