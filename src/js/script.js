@@ -40,16 +40,6 @@ $(document).on("mousemove", function (e) {
     mouseY = e.pageY;
 });
 
-$("#products img").on("mouseenter", function () {
-    cursor.addClass("active");
-    follower.addClass("active");
-});
-
-$("#products img").on("mouseleave", function () {
-    cursor.removeClass("active");
-    follower.removeClass("active");
-});
-
 
 $('.menu a').click(function () {
     var $target = $($.attr(this, 'href'));
@@ -107,21 +97,6 @@ $(function () {
     });
 
 
-    var elements = $(".text, .image").toArray();
-
-    $(window).scroll(function () {
-        elements.forEach(function (item) {
-            if ($(this).scrollTop() >= $(item).offset().top - 400) {
-                $(item).addClass("reveal");
-            }
-        });
-    });
-
-    elements.forEach(function (item) {
-        if ($(this).scrollTop() >= $(item).offset().top - 400) {
-            $(item).addClass("reveal");
-        }
-    });
 
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {

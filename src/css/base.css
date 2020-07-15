@@ -43,7 +43,7 @@ svg {
 
 body {
     --color-text: #fff;
-    --color-bg: #27292d;
+    --color-bg: #2F3135;
     --color-link: #4b4b4b;
     --color-link-hover: #fff;
     --color-intro-bg: #0e0e0e;
@@ -736,10 +736,6 @@ select::-ms-expand {
     visibility: hidden;
     opacity: 0;
     z-index: 5;
-}
-
-.overlay ~ main {
-    animation: scaleForward 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 .overlay.active ~ main {
