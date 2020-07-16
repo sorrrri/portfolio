@@ -158,8 +158,6 @@ section .title::before {
     user-select: none;
     padding-top: 30vh;
     overflow: hidden;
-    background-size: cover;
-    transition: background-image 2s;
 }
 
 #intro .image-slider {
@@ -173,14 +171,21 @@ section .title::before {
 
 #intro #images {
     opacity: 0;
-    animation: fadeInOut 4.4s infinite;
-    transition: opacity .2s;
+    transform: scale(1.1);
+    animation: fadeInOut 4s infinite;
 }
 
 @keyframes fadeInOut {
-    0% {opacity: 0}
-    50% {opacity: 1}
-    100% {opacity: 0}
+    0% {
+        opacity: 0
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+    }
 
 }
 
@@ -208,17 +213,6 @@ section .title::before {
     margin: 0;
     padding: 0;
     border-right: .1em solid;
-}
-
-
-#intro .image {
-    opacity: 0 !important;
-    position: fixed;
-    width: 90vw;
-    top: 5vh;
-    left: 5vw;
-    right: 0%;
-    overflow: hidden;
 }
 
 #intro img {
@@ -324,6 +318,7 @@ section .title::before {
     background-position: center;
     transition: .8s ease-in-out;
 }
+
 #products .open-modal-aibis .image::before {
     background-image: url("../images/background/04.jpg");
 
