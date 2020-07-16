@@ -42,7 +42,6 @@
 
 html,
 body {
-    cursor: none;
 }
 
 header {
@@ -65,33 +64,7 @@ header .menu {
 }
 
 header .menu li {
-    opacity: 0;
     margin-left: 2rem;
-    animation: moveDown 1.2s forwards
-}
-
-header .menu li:nth-child(1) {
-    animation-delay: .1s
-}
-
-header .menu li:nth-child(2) {
-    animation-delay: .3s
-}
-
-header .menu li:nth-child(3) {
-    animation-delay: .5s
-}
-
-header .menu li:nth-child(4) {
-    animation-delay: .7s
-}
-
-header .menu li:nth-child(5) {
-    animation-delay: .9s
-}
-
-header .menu li:nth-child(6) {
-    animation-delay: 1.1s
 }
 
 
@@ -131,21 +104,23 @@ h2 {
 }
 
 h3 {
-    font: normal 2rem/3 "Poppins";
+    font: 1.8rem/1.2 "Poppins";
     color: white;
 }
 
 section {
     width: 100%;
+    min-width: 1200px;
     min-height: 70vh;
-    padding: 12vh 10vw 10rem;
+    padding: 12rem 10vw;
     box-sizing: border-box;
     position: relative;
 }
 
 section > * {
     opacity: 0;
-    transition: opacity .4s;
+    transition: opacity .8s;
+    user-select: none;
 }
 
 section .title {
@@ -160,7 +135,7 @@ section .title {
 }
 
 section .title::before {
-    content: attr(data-count);
+    /*content: attr(data-count);*/
     font-family: "Ultra";
     display: flex;
     font-size: 1.2rem;
@@ -183,18 +158,30 @@ section .title::before {
     user-select: none;
     padding-top: 30vh;
     overflow: hidden;
+    background-size: cover;
+    transition: background-image 2s;
 }
 
-#intro::before {
-    content: '';
+#intro .image-slider {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("../images/background/16.jpg") no-repeat center;
-    opacity: .5;
     z-index: -1;
+}
+
+#intro #images {
+    opacity: 0;
+    animation: fadeInOut 4.4s infinite;
+    transition: opacity .2s;
+}
+
+@keyframes fadeInOut {
+    0% {opacity: 0}
+    50% {opacity: 1}
+    100% {opacity: 0}
+
 }
 
 
@@ -245,6 +232,60 @@ section .title::before {
 /* =====================================================
    PRODUCTS
    ===================================================== */
+#products .text {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    transform: translateY(2rem);
+    z-index: 10;
+    transition: all .6s;
+}
+
+#products .image-item:hover,
+#products .image-item.active {
+    cursor: pointer;
+}
+
+#products .image-item:hover .text,
+#products .image-item.active .text {
+    transform: translateY(0);
+}
+
+#products .image-item:hover .text p,
+#products .image-item.active .text p {
+    opacity: 1;
+}
+
+#products .text h3 {
+    margin-bottom: 1rem;
+    color: var(--brightGray);
+}
+
+#products .text p,
+#products .text ul {
+    opacity: 0;
+    transition: .6s;
+}
+
+#products ul {
+    opacity: 0;
+    flex-direction: column;
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    width: 90%;
+    z-index: 10;
+    transition: all .6s;
+}
+
+#products .image-item.active .text {
+    top: 2rem;
+}
+
+#products .image-item.active ul {
+    opacity: 1;
+}
+
 #products .images {
     display: flex;
 }
@@ -254,43 +295,71 @@ section .title::before {
     padding: .5rem;
     display: flex;
     justify-content: center;
-    cursor: none;
+    position: relative;
+    overflow: hidden;
 }
-
 
 #products .image {
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+    flex: 1 1 auto;
+    height: 50vh;
+    min-height: 450px;
+    max-height: 500px;
     display: flex;
+    align-items: center;
     justify-content: center;
     border: 1px solid var(--color-link);
+    overflow: hidden;
 }
 
-#products .image img {
-    opacity: .6;
-    width: 70%;
-    flex-basis: unset;
-    padding: 3rem 0;
-    transition: all 1s cubic-bezier(0.25, 1, 0.3, 1);
+#products .image::before {
+    content: '';
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    right: .5rem;
+    bottom: .5rem;
+    opacity: .7;
+    background-size: 140%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: .8s ease-in-out;
+}
+#products .open-modal-aibis .image::before {
+    background-image: url("../images/background/04.jpg");
+
 }
 
-#products .image:hover img {
-    opacity: .8;
-    transform: scale(1.1);
+#products .open-modal-ptod .image::before {
+    background-image: url("../images/background/03.jpg");
 }
 
+#products .image-item:hover .image::before,
+#products .image-item.active .image::before {
+    background-size: 150%;
+    opacity: .2;
+}
+
+#products .image-item:hover .more {
+    opacity: 1;
+    fill: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    transition: opacity .2s;
+    z-index: 15;
+}
+
+#products .image-item .more,
+#products .image-item.active .more {
+    opacity: 0;
+}
 
 /* =====================================================
    MEMBERS
    ===================================================== */
-.image.d-yoon {
-    width: 50vw;
-    margin-left: 17vw
-}
-
-#members .text {
-    margin-left: 17vw;
-    flex-direction: column;
+.member {
+    display: flex;
 }
 
 #members::before {
@@ -301,8 +370,31 @@ section .title::before {
     right: 0;
     bottom: 0;
     background: url("../images/background/15.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
     opacity: .2;
     z-index: -1;
+}
+
+.image.d-yoon {
+    background: url("../images/d-yoon.jpg") no-repeat bottom;
+    background-size: cover;
+    width: 40vw;
+    height: 60vh;
+    min-width: 400px;
+    max-width: 500px;
+    min-height: 550px;
+    max-height: 650px;
+    overflow: hidden;
+}
+
+#members .text {
+    margin-left: 2rem;
+    flex-direction: column;
+}
+
+#members ul {
+    flex-direction: column;
 }
 
 #members li {
@@ -311,7 +403,8 @@ section .title::before {
 }
 
 #members h3 {
-    font-weight: bold;
+    font: bold 2rem/1 "Poppins";
+    margin-bottom: 2rem;
 }
 
 #members h4 {
@@ -363,7 +456,6 @@ section .title::before {
    ===================================================== */
 #contact {
     min-height: unset;
-    padding-bottom: 5rem;
 }
 
 #contact::before {
@@ -374,6 +466,8 @@ section .title::before {
     right: 0;
     bottom: 0;
     background: url("../images/background/15.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
     opacity: .2;
     z-index: -1;
 }
@@ -395,6 +489,7 @@ section .title::before {
 
 #contact h3 {
     font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 #contact p {

@@ -1,38 +1,4 @@
 /* =====================================================
-   Cursor Effect
-   ===================================================== */
-var cursor = $(".cursor"),
-    follower = $(".cursor-follower");
-
-var posX = 0,
-    posY = 0,
-    mouseX = 0,
-    mouseY = 0;
-
-TweenMax.to({}, 0.016, {
-    repeat: -1,
-    onRepeat: function () {
-        posX += (mouseX - posX) / 9;
-        posY += (mouseY - posY) / 9;
-
-        TweenMax.set(follower, {
-            css: {
-                left: posX - 20,
-                top: posY - 20
-            }
-        });
-
-        TweenMax.set(cursor, {
-            css: {
-                left: mouseX,
-                top: mouseY
-            }
-        });
-    }
-});
-
-
-/* =====================================================
    Trigger
    ===================================================== */
 $(document).on("mousemove", function (e) {
@@ -97,7 +63,6 @@ $(function () {
     });
 
 
-
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
             var contactChild = document.querySelector('#contact > *');
@@ -117,53 +82,38 @@ $(function () {
 /* =====================================================
    Modal Effect
    ===================================================== */
-const overlay = document.querySelector('.overlay')
 const modal = document.querySelector('.modal')
-const modalClose = document.querySelector('.close')
 const openModalAibis = document.querySelector('.open-modal-aibis')
 const openModalPtod = document.querySelector('.open-modal-ptod')
-const modalAibis = document.querySelector('.modal-content-aibis')
-const modalPtod = document.querySelector('.modal-content-ptod')
-
-function openModal() {
-    overlay.classList.add('active')
-    modal.classList.add('active')
-    modal.classList.remove('hide')
-}
-
-function closeModal() {
-    overlay.classList.remove('active')
-    modal.classList.add('hide')
-    modal.classList.remove('active')
-    modalAibis.classList.remove('active')
-    modalPtod.classList.remove('active')
-}
-
-$(".close, .overlay").on("click", function() {
-    closeModal();
-});
-
-if(modal) {
+if (openModalAibis) {
 
     openModalAibis.addEventListener('click', () => {
-        modalAibis.classList.add('active')
-        openModal()
+        $('.open-modal-aibis').toggleClass('active')
     })
     openModalPtod.addEventListener('click', () => {
-        modalPtod.classList.add('active')
-        openModal()
+        $('.open-modal-ptod').toggleClass('active')
     })
-
-    overlay.addEventListener('click', () => {
-        closeModal();
-    })
-    modalClose.addEventListener('click', () => {
-        closeModal();
-    })
-
-    $(document).keyup(function (e) {
-        if (e.keyCode == 27) {
-            closeModal();
-        }
-    });
 }
+
+
+//background
+let images = [
+    'src/images/background/11.jpg',
+    'src/images/background/12.jpg',
+    'src/images/background/13.jpg',
+    'src/images/background/14.jpg',
+    'src/images/background/16.jpg',
+];
+let i = 0;
+
+const slider = () => {
+    document.getElementById('images').src = images[i];
+
+    if (i < images.length - 1) {
+        i++;
+    } else {
+        i = 0;
+    }
+}
+
+setInterval(slider, 4000);
