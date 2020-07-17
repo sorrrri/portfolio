@@ -652,6 +652,10 @@ section .title::before {
         display: none;
     }
 
+    #intro .text {
+        display: flex;
+    }
+
     #intro img {
         width: auto;
         height: 100%;
