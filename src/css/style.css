@@ -1,5 +1,6 @@
 .ico-menu {
     position: absolute;
+    top:0;
     right: 0;
     transform: scale(.7);
 }
@@ -235,18 +236,18 @@ section .title::before {
     transition: all .6s;
 }
 
-#products .image-item:hover,
-#products .image-item.active {
+#products .product-container:hover,
+#products .product-container.active {
     cursor: pointer;
 }
 
-#products .image-item:hover .text,
-#products .image-item.active .text {
+#products .product-container:hover .text,
+#products .product-container.active .text {
     transform: translateY(0);
 }
 
-#products .image-item:hover .text p,
-#products .image-item.active .text p {
+#products .product-container:hover .text p,
+#products .product-container.active .text p {
     opacity: 1;
 }
 
@@ -264,48 +265,57 @@ section .title::before {
 #products ul {
     opacity: 0;
     flex-direction: column;
-    position: absolute;
-    left: 2rem;
-    bottom: 2rem;
     width: 90%;
     z-index: 10;
     transition: all .6s;
 }
 
-#products .image-item.active .text {
-    top: 2rem;
+#products .product-container.active .text {
+    position: relative;
+    left: unset;
+    bottom: unset;
+    margin-bottom: 2rem;
 }
 
-#products .image-item.active ul {
+#products .product-container.active ul {
     opacity: 1;
 }
 
-#products .images {
+#products .product-container li {
+    margin-bottom: .5rem;
+    text-indent: -.8rem;
+}
+
+#products .product-container li::before {
+    content: '-';
+    margin-right: .5rem;
+}
+
+#products .flex-wrapper {
     display: flex;
 }
 
-#products .image-item {
+#products .product-container {
     flex: 1 1 50%;
     padding: .5rem;
     display: flex;
-    justify-content: center;
     position: relative;
-    overflow: hidden;
 }
 
-#products .image {
+#products .product {
+    padding: 2rem;
     flex: 1 1 auto;
     height: 50vh;
     min-height: 450px;
     max-height: 500px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     border: 1px solid var(--color-link);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-#products .image::before {
+#products .product::before {
     content: '';
     position: absolute;
     top: .5rem;
@@ -313,28 +323,28 @@ section .title::before {
     right: .5rem;
     bottom: .5rem;
     opacity: .7;
-    background-size: 140%;
+    background-size: 160%;
     background-repeat: no-repeat;
     background-position: center;
     transition: .8s ease-in-out;
 }
 
-#products .open-modal-aibis .image::before {
+#products .open-modal-aibis .product::before {
     background-image: url("../images/background/04.jpg");
 
 }
 
-#products .open-modal-ptod .image::before {
+#products .open-modal-ptod .product::before {
     background-image: url("../images/background/03.jpg");
 }
 
-#products .image-item:hover .image::before,
-#products .image-item.active .image::before {
-    background-size: 150%;
+#products .product-container:hover .product::before,
+#products .product-container.active .product::before {
+    background-size: 170%;
     opacity: .2;
 }
 
-#products .image-item:hover .more {
+#products .product-container:hover .more {
     opacity: 1;
     fill: white;
     border: 1px solid white;
@@ -345,9 +355,13 @@ section .title::before {
     z-index: 15;
 }
 
-#products .image-item .more,
-#products .image-item.active .more {
+#products .product-container .more,
+#products .product-container.active .more {
     opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* =====================================================
@@ -596,6 +610,7 @@ section .title::before {
 
     section {
         padding: 10vh 1rem 5rem;
+        min-width: unset;
         min-height: unset;
     }
 
@@ -637,14 +652,25 @@ section .title::before {
         display: none;
     }
 
-    #products .images {
+    #intro img {
+        width: auto;
+        height: 100%;
+    }
+
+    #products .flex-wrapper {
         flex-direction: column;
         justify-content: flex-start;
+    }
+
+    #products .product {
+        min-height: unset;
     }
 
     .image.d-yoon {
         width: 100%;
         margin-left: 0;
+        min-width: unset;
+        min-height: unset;
     }
 
     #members .text {
@@ -664,17 +690,26 @@ section .title::before {
         margin-bottom: 1rem;
     }
 
+    #members .member {
+        flex-direction: column;
+    }
+
     #members li {
         flex-direction: column;
     }
 
     #partners ul {
-        width: 300vw;
+        width:100%;
+        flex-direction: column;
     }
 
     #partners li {
-        width: 100vw;
+        width: auto;
         padding: 1.5rem;
+    }
+
+    #partners img {
+        width: auto
     }
 
     #contact ul {
@@ -690,6 +725,7 @@ section .title::before {
 
     #contact h3 {
         line-height: 2;
+        margin-bottom: 0;
     }
 
     #contact ul li:not(:last-of-type) {
