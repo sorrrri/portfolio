@@ -6,6 +6,8 @@
 }
 
 .ico-menu svg {
+    width: 80px;
+    height: 80px;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: transform 400ms;
@@ -636,7 +638,6 @@ section .title::before {
 
 
     #intro {
-        max-height: 80vh;
     }
 
     #intro h1 {
