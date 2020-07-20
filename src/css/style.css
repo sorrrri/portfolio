@@ -153,11 +153,12 @@ section .title::before {
    INTRO
    ===================================================== */
 #intro {
-    height: 90vh;
+    height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     user-select: none;
-    padding-top: 30vh;
     overflow: hidden;
 }
 
@@ -199,7 +200,6 @@ section .title::before {
     font-size: 1.5rem;
     opacity: 1;
     position: relative;
-    margin-left: 8vw;
 }
 
 #intro .text {
