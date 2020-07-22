@@ -18,7 +18,7 @@
     </script>
 
 </head>
-<body>
+<body class="loading">
 <main>
     <header>
         <a href="/">
@@ -42,10 +42,16 @@
     </header>
     <div data-scroll>
         <div class="content">
+            <div class="image-slider content__item-img">
+                <div class="slide slide1"></div>
+                <div class="slide slide2"></div>
+                <div class="slide slide3"></div>
+                <div class="slide slide4"></div>
+                <div class="slide slide5"></div>
+                <div class="slide slide6"></div>
+                <div class="slide slide7"></div>
+            </div>
             <section id="intro">
-                <div class="image-slider">
-                    <img src="src/images/background/10.jpg" id=images alt=""/>
-                </div>
                 <h1>Bud.on</h1>
                 <p class="text-typing">
                     We discovers hidden information in the medical data. <span> </span>
@@ -58,7 +64,7 @@
                 <h2 class="title" data-count="01">Product</h2>
                 <div class="flex-wrapper">
                     <div class="product-container open-modal-aibis">
-                        <div class="product">
+                        <div class="product content__item-img">
                             <div class="text">
                                 <h3>AIBiS.on:<br>AI Biosignal Solution</h3>
                                 <p>생체신호(심전도, 뇌파 등)를 수집할 수 있는 플랫폼</p>
@@ -72,7 +78,8 @@
                                 <li>(인공지능 기반 SaMD*가 탑재된 버전은 현재 개발 중입니다)</li>
                                 <li>*SaMD: Software as a Medical Device</li>
                             </ul>
-                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
                         </div>
@@ -85,14 +92,16 @@
                             </div>
                             <ul>
                                 <li>이미지 형태의 자료에서 유용한 데이터를 추출해주는 솔루션입니다.</li>
-                                <li>병원 전자의무기록 내에는 이차 활용이 불가능한 스캔된 보고서 형태의 자료들이 많이 존재합니다. (청력검사, NST 검사, 폐기능 검사 등)</li>
+                                <li>병원 전자의무기록 내에는 이차 활용이 불가능한 스캔된 보고서 형태의 자료들이 많이 존재합니다. (청력검사, NST 검사, 폐기능 검사 등)
+                                </li>
                                 <li>인공지능 기술을 이용하여 이미지 형태의 자료에서 유용한 정보를 인식하고 이를 데이터로 추출하게 됩니다.</li>
                                 <li>본 솔루션을 통해 보유 중인 데이터의 가치를 업그레이드 시킬 수 있습니다.</li>
                                 <li>현재 개발 완료된 적용 사례</li>
                                 <li>청력검사 보고서 내 그래프의 수치화</li>
                                 <li>NST 검사 결과지의 파형 정보 추출 및 전산화</li>
                             </ul>
-                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
                                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
                         </div>
@@ -199,6 +208,7 @@
         </div>
     </div>
 </main>
+<script src="src/js/imagesloaded.pkgd.min.js"></script>
 <script src="src/js/script.js"></script>
 </body>
 </html>
