@@ -97,7 +97,6 @@ p {
 
 h1 {
     font: normal 10rem/1 "Teko";
-    text-transform: uppercase;
     color: white;
 }
 
@@ -181,7 +180,7 @@ section .title::before {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    animation: fade-slider 34s linear infinite;
+    animation: fade-slider 29s linear infinite;
     z-index: -1;
 }
 .slide:nth-child(1) {
@@ -205,12 +204,8 @@ section .title::before {
     animation-delay: 19s;
 }
 .slide:nth-child(6) {
-    background-image: url("../images/background/15.jpg");
-    animation-delay: 24s;
-}
-.slide:nth-child(7) {
     background-image: url("../images/background/16.jpg");
-    animation-delay: 29s;
+    animation-delay: 24s;
 }
 
 @keyframes fade-slider {
@@ -306,7 +301,6 @@ section .title::before {
 #products ul {
     opacity: 0;
     flex-direction: column;
-    width: 90%;
     z-index: 10;
     transition: all .6s;
 }
@@ -330,6 +324,14 @@ section .title::before {
 #products .product-container li::before {
     content: '-';
     margin-right: .5rem;
+}
+
+#products ul ul {
+    padding-left: 1rem
+}
+
+#products ul ul li::before {
+    content: '·' !important;
 }
 
 #products .flex-wrapper {
@@ -371,7 +373,7 @@ section .title::before {
 }
 
 #products .open-modal-aibis .product::before {
-    background-image: url("../images/background/04.jpg");
+    background-image: url("../images/aibis_on.png");
 
 }
 
