@@ -144,7 +144,7 @@ class SmoothScroll {
     // Preload images
 const preloadImages = () => {
         return new Promise((resolve, reject) => {
-            imagesLoaded(document.querySelectorAll('.content__item-img'), {background: true}, resolve);
+            imagesLoaded(document.querySelectorAll('.slide'), {background: true}, resolve);
         });
     };
 

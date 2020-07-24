@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BUD.on</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="src/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="src/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="src/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="src/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="src/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="src/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="src/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="src/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="src/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="src/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/favicon/favicon-16x16.png">
+    <link rel="manifest" href="src/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="src/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="stylesheet" href="src/css/base.css"/>
     <link rel="stylesheet" href="src/css/style.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
     <script>
         document.documentElement.className = "js";
         var supportsCssVars = function () {
@@ -42,28 +59,28 @@
     </header>
     <div data-scroll>
         <div class="content">
-            <div class="image-slider content__item-img">
-                <div class="slide slide1"></div>
-                <div class="slide slide2"></div>
-                <div class="slide slide3"></div>
-                <div class="slide slide4"></div>
-                <div class="slide slide5"></div>
-                <div class="slide slide6"></div>
-            </div>
             <section id="intro">
+                <div class="image-slider">
+                    <div class="slide slide1"></div>
+                    <div class="slide slide2"></div>
+                    <div class="slide slide3"></div>
+                    <div class="slide slide4"></div>
+                    <div class="slide slide5"></div>
+                    <div class="slide slide6"></div>
+                </div>
                 <h1>BUD.on</h1>
                 <p class="text-typing">
-                    We discovers hidden information in the medical data. <span> </span>
+                    We discover hidden information in the medical data. <span> </span>
                 </p>
                 <p class="text">
-                    We discovers hidden information<br>in the medical data. <span> </span>
+                    We discover hidden information<br>in the medical data. <span> </span>
                 </p>
             </section>
             <section id="products">
                 <h2 class="title" data-count="01">Product</h2>
                 <div class="flex-wrapper">
                     <div class="product-container open-modal-aibis">
-                        <div class="product content__item-img">
+                        <div class="product">
                             <div class="text">
                                 <h3>AIBiS.on:<br>AI Biosignal Solution</h3>
                                 <p>생체신호(심전도, 뇌파 등)를 수집할 수 있는 플랫폼</p>
@@ -200,6 +217,7 @@
         </div>
     </div>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="src/js/imagesloaded.pkgd.min.js"></script>
 <script src="src/js/script.js"></script>
 </body>
