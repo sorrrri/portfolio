@@ -392,20 +392,22 @@ header .menu li {
     height: 3px
 }
 
-.projects {
+.links {
     position: relative;
     overflow: hidden;
     margin: 0 -.5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.projects .list {
+.links .list {
     display: flex;
     overflow: hidden;
     flex-wrap: wrap;
     margin: 0 -.5rem;
 }
 
-.project {
+.link {
     box-sizing: border-box;
     width: 20%;
     padding: .5rem;
@@ -417,7 +419,7 @@ header .menu li {
 }
 
 
-.project a {
+.link a {
     position: relative;
     padding: 1.2rem;
     background: white;
@@ -430,12 +432,12 @@ header .menu li {
     transition: transform .2s;
 }
 
-.project a:hover {
+.link a:hover {
     transform: translateY(-5px);
     box-shadow: 0 2px 13px rgba(210, 200, 230, .1);
 }
 
-.project img {
+.link img {
     height: 3rem;
     margin-bottom: .5rem
 }
@@ -462,7 +464,7 @@ header .menu li {
     padding-bottom: 56.25%;
 }
 
-.project-title {
+.link-title {
     margin-bottom: .5rem;
     height: 40px;
     line-height: 1.2;
@@ -471,13 +473,13 @@ header .menu li {
     width: 100%
 }
 
-.project small {
+.link small {
     font-size: 13px;
     font-weight: bold;
     color: #a3a6a9;
 }
 
-.project-description {
+.link-description {
     font-size: 15px;
     height: 36px;
     line-height: 1.2;
@@ -594,13 +596,13 @@ header .menu li {
 }
 
 @media screen and (max-width: 1200px) {
-    .project {
+    .link {
         width: 25%
     }
 }
 
 @media screen and (max-width: 900px) {
-    .project {
+    .link {
         width: 33.333%
     }
 }
@@ -654,7 +656,7 @@ header .menu li {
     .filter-options {
         min-width: max-content
     }
-    .project {
+    .link {
         width: 50%;
     }
 }
