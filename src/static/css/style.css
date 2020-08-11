@@ -2,21 +2,27 @@
     font-family: 'NanumSquare';
     font-weight: 400;
     src: url('../fonts/NanumSquareR.eot');
-    src: url('../fonts/NanumSquareR.eot?#iefix') format('embedded-opentype'), src: url('../fonts/NanumSquareR.woff') format('woff'), src: url('../fonts/NanumSquareR.ttf') format('truetype'),
+    src: url('../fonts/NanumSquareR.eot?#iefix') format('embedded-opentype');
+    src: url('../fonts/NanumSquareR.woff') format('woff');
+    src: url('../fonts/NanumSquareR.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: bold;
     src: url('../fonts/NanumSquareB.eot');
-    src: url('../fonts/NanumSquareB.eot?#iefix') format('embedded-opentype'), src: url('../fonts/NanumSquareB.woff') format('woff'), src: url('../fonts/NanumSquareB.ttf') format('truetype'),
+    src: url('../fonts/NanumSquareB.eot?#iefix') format('embedded-opentype');
+    src: url('../fonts/NanumSquareB.woff') format('woff');
+    src: url('../fonts/NanumSquareB.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'NanumSquare';
     font-weight: 300;
     src: url('../fonts/NanumSquareL.eot');
-    src: url('../fonts/NanumSquareL.eot?#iefix') format('embedded-opentype'), src: url('../fonts/NanumSquareL.woff') format('woff'), src: url('../fonts/NanumSquareL.ttf') format('truetype'),
+    src: url('../fonts/NanumSquareL.eot?#iefix') format('embedded-opentype');
+    src: url('../fonts/NanumSquareL.woff') format('woff');
+    src: url('../fonts/NanumSquareL.ttf') format('truetype');
 }
 
 :root {
@@ -242,19 +248,7 @@ aside span[class*="icon-"] {
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;
-}
-
-aside .icon-dashboard {
-    background-image: url("../images/icons/dashboard.png");
-}
-
-aside .icon-viewer {
-    background-image: url("../images/icons/viewer.png");
-}
-
-aside .icon-laptop {
-    background-image: url("../images/icons/laptop.png");
-}
+}l
 
 aside .icon-admin {
     width: 100%;
@@ -369,7 +363,7 @@ header .menu li {
 .category {
     display: flex;
     justify-content: center;
-    user-select: none
+    user-select: none;
     -webkit-user-select: none
 }
 
@@ -418,7 +412,7 @@ header .menu li {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    user-select: none
+    user-select: none;
     -webkit-user-select: none
 }
 

@@ -45,6 +45,7 @@ function selectbox() {
 
 }
 
+/*
 $(document).ready(function () {
 
     // Selectbox
@@ -56,4 +57,4 @@ $(document).ready(function () {
         $(".selectbox-current .selected").text($(this).text());
         $(".selectbox-options").removeClass("active");
     });
-});
+});*/
