@@ -1,5 +1,50 @@
 import React from "react";
 
+class Link extends React.Component {
+    render() {
+        const link = this.props.link
+        const linkURL = this.props.linkURL
+        const name = link.name
+        const imageURL = link.imageURL
+        const description = link.description
+
+        return (
+            <li className="project" data-groups='[]' data-title="">
+                <a href={linkURL} target="_blank">
+                    <h4 className="project-title">{name}</h4>
+                    <img src={imageURL}/>
+                    <div className="project-description">{description}</div>
+                </a>
+            </li>
+        );
+    }
+}
+
+class Links extends React.Component {
+    render() {
+        const item = []
+
+        this.props.links.forEach((link) => {
+            item.push(
+                <Link
+                    link={link}
+                    linkURL={link.linkURL}
+                    name={link.name}
+                    imageURL={link.imageURL}
+                    descript={link.description}/>
+            )
+        });
+
+        return (
+            <section>
+                <ul id="grid" className="projects">
+                    {item}
+                </ul>
+            </section>
+        )
+    }
+}
+
 class Content extends React.Component {
     render() {
         return (
@@ -15,18 +60,7 @@ class Content extends React.Component {
                         <li data-group="임상서비스">임상서비스</li>
                     </ul>
                 </nav>
-
-                <section>
-                    <ul id="grid" className="projects">
-                        <li className="project" data-groups='[]' data-title="">
-                            <a href="" target="_blank">
-                                <h4 className="project-title">test</h4>
-                                <img src="" />
-                                <div className="project-description">test desc</div>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
+                <Links links={this.props.links}/>
             </div>
         )
     }

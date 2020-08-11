@@ -526,7 +526,7 @@ header .menu li {
     right: 0;
     bottom: 0;
     content: '';
-    background: url("./../images/bg_login.jpg");
+    background: url("/public/images/bg_login.jpg");
     background-size: cover;
     z-index: -1;
     opacity: .3;
