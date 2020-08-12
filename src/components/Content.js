@@ -1,15 +1,73 @@
 import React from "react";
 
+const CATEGORIES = [
+    {category: 'all', title: 'all'},
+    {category: 'dashboard', title: '대시보드'},
+    {category: 'system', title: '시스템'},
+    {category: 'web', title: '웹페이지'}
+]
+
+class Category extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {isFocused: false}
+        this.handleFocus = this.handleFocus.bind(this)
+    }
+
+    handleFocus() {
+        this.setState(state => ({
+            isFocused: true
+        }))
+    }
+
+    render() {
+        const category = this.props.category
+        const title = this.props.title
+
+        return (
+            <li
+                className={this.state.isFocused ? 'active' : ''}
+                onClick={this.handleFocus} data-groups={category}>
+                {title}
+            </li>
+        )
+    }
+}
+
+class Categories extends React.Component {
+
+    render() {
+        const items = []
+
+        this.props.categories.forEach((category) => {
+            items.push(
+                <Category
+                    category={category.category}
+                    title={category.title}
+                />
+            )
+        })
+        return (
+            <nav className="category">
+                <ul className="filter-options">
+                    {items}
+                </ul>
+            </nav>
+        )
+    }
+}
+
 class Link extends React.Component {
     render() {
         const link = this.props.link
+        const category = this.props.category
         const linkURL = this.props.linkURL
         const title = link.title
         const imageURL = link.imageURL
         const description = link.description
 
         return (
-            <li className="link" data-groups='[]' data-title="">
+            <li className="link" data-groups={category}>
                 <a href={linkURL} target="_blank">
                     <h4 className="link-title">{title}</h4>
                     <img src={imageURL}/>
@@ -26,12 +84,16 @@ class Links extends React.Component {
         const items = []
 
         this.props.links.forEach((link) => {
+            if (link.category.indexOf(filterText) === -1) {
+                return
+            }
             if (link.title.indexOf(filterText) === -1) {
                 return
             }
             items.push(
                 <Link
                     key={link.title}
+                    category={link.category}
                     link={link}
                     linkURL={link.linkURL}
                     title={link.title}
@@ -111,32 +173,77 @@ class FilterableLinks extends React.Component {
 }
 
 const LINKS = [
-    {linkURL: 'http://www.naver.com', title: 'apex', imageURL: '/images/icons/009-microorganisms.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'ns-db', imageURL: '/images/icons/012-report.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'vass', imageURL: '/images/icons/014-medical report.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'dqts', imageURL: '/images/icons/018-intellectual.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'mel', imageURL: '/images/icons/019-molecules.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'budon', imageURL: '/images/icons/036-laboratory.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'quicklinks', imageURL: '/images/icons/037-science book.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'naver', imageURL: '/images/icons/041-dna.png', description: '네이버'},
-    {linkURL: 'http://www.naver.com', title: 'naver2', imageURL: '/images/icons/046-chemical.png', description: '네이버'}
+    {
+        category: 'dashboard',
+        linkURL: 'http://www.naver.com',
+        title: 'apex',
+        imageURL: '/images/icons/009-microorganisms.png',
+        description: '네이버'
+    },
+    {
+        category: 'system',
+        linkURL: 'http://www.naver.com',
+        title: 'ns-db',
+        imageURL: '/images/icons/012-report.png',
+        description: '네이버'
+    },
+    {
+        category: 'dashboard',
+        linkURL: 'http://www.naver.com',
+        title: 'vass',
+        imageURL: '/images/icons/014-medical report.png',
+        description: '네이버'
+    },
+    {
+        category: 'web',
+        linkURL: 'http://www.naver.com',
+        title: 'dqts',
+        imageURL: '/images/icons/018-intellectual.png',
+        description: '네이버'
+    },
+    {
+        category: 'system',
+        linkURL: 'http://www.naver.com',
+        title: 'mel',
+        imageURL: '/images/icons/019-molecules.png',
+        description: '네이버'
+    },
+    {
+        category: 'web',
+        linkURL: 'http://www.naver.com',
+        title: 'budon',
+        imageURL: '/images/icons/036-laboratory.png',
+        description: '네이버'
+    },
+    {
+        category: 'system',
+        linkURL: 'http://www.naver.com',
+        title: 'quicklinks',
+        imageURL: '/images/icons/037-science book.png',
+        description: '네이버'
+    },
+    {
+        category: 'web',
+        linkURL: 'http://www.naver.com',
+        title: 'naver',
+        imageURL: '/images/icons/041-dna.png',
+        description: '네이버'
+    },
+    {
+        category: 'web',
+        linkURL: 'http://www.naver.com',
+        title: 'naver2',
+        imageURL: '/images/icons/046-chemical.png',
+        description: '네이버'
+    }
 ]
 
 class Content extends React.Component {
     render() {
         return (
             <div className="content">
-
                 <h1>통합 메인 화면</h1>
-                <nav className="category">
-                    <ul className="filter-options">
-                        <li className="active">all</li>
-                        <li data-group="홈페이지">홈페이지</li>
-                        <li data-group="데이터베이스">데이터베이스</li>
-                        <li data-group="대시보드">대시보드</li>
-                        <li data-group="임상서비스">임상서비스</li>
-                    </ul>
-                </nav>
+                <Categories categories={CATEGORIES}/>
                 <FilterableLinks links={LINKS}/>
             </div>
         )
