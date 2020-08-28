@@ -125,7 +125,7 @@ function drawCOxChart() {
 function drawRSO2Chart() {
     var data_RSO2 = new google.visualization.DataTable();
     data_RSO2.addColumn('date', 'Time of Day');
-    data_RSO2.addColumn('number', 'rSO2');
+    data_RSO2.addColumn('number', 'RSO2');
     data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
     data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
     data_RSO2.addRows([
@@ -204,7 +204,7 @@ function drawRSO2Chart() {
             }
         },
         vAxis: {
-            title: "rSO2",
+            title: "RSO2",
             ticks: [20, 30, 40, 50, 60, 70, 80],
             baselineColor: '#777',
             gridlineColor: '#777',
@@ -1495,7 +1495,7 @@ function drawCOxMAPChart() {
 function drawRSO2MAPChart() {
     var data_RSO2MAP = new google.visualization.DataTable();
     data_RSO2MAP.addColumn('number', 'MAP');
-    data_RSO2MAP.addColumn('number', 'rSO2');
+    data_RSO2MAP.addColumn('number', 'RSO2');
     data_RSO2MAP.addRows([
         [60, 1],
         [70, 0.47],
@@ -1606,7 +1606,7 @@ function drawCO2xETCO2Chart() {
 
 function drawRSO2ETCO2Chart() {
     var data_RSO2ETCO2 = new google.visualization.DataTable();
-    data_RSO2ETCO2.addColumn('number', 'rSO2');
+    data_RSO2ETCO2.addColumn('number', 'RSO2');
     data_RSO2ETCO2.addColumn('number', 'ETCO2');
     data_RSO2ETCO2.addRows([
         [10, 1],
