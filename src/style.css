@@ -405,7 +405,7 @@ h1, h2, h3, h4, h5 {
 
 .chart-container {
     opacity: 0;
-    background: white;
+    background-color: white;
     border-radius: .5rem;
     padding: .2rem;
     margin: .5rem;
@@ -414,9 +414,68 @@ h1, h2, h3, h4, h5 {
     height: 180px;
     position: relative;
     overflow: hidden;
+    background-position: center;
+    background-repeat-y: no-repeat;
     animation: fadeIn .7s forwards;
 }
 
+.filter-COx {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>COx</text></svg>");
+}
+
+.filter-RSO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>RSO2</text></svg>");
+}
+
+.filter-MAP {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>MAP</text></svg>");
+}
+
+.filter-ETCO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>ETCO2</text></svg>");
+}
+
+.filter-SJVO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>SJVO2</text></svg>");
+}
+
+.filter-ADJL {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>ADJL</text></svg>");
+}
+
+.filter-LOI {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>LOI</text></svg>");
+}
+
+.filter-AVDO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>AVDO2</text></svg>");
+}
+
+.filter-CEO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>CEO2</text></svg>");
+}
+
+.filter-AJglc {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>AJglc</text></svg>");
+}
+
+.filter-AJCO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>AJCO2</text></svg>");
+}
+
+.filter-RQ {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>RQ</text></svg>");
+}
+
+.filter-NPI {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>NPI</text></svg>");
+}
+
+.filter-pupil {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>Pupil Size</text></svg>");
+}
+
+/*
 .chart-container:nth-of-type(1) {
     animation-delay: 1.0s
 }
@@ -472,6 +531,7 @@ h1, h2, h3, h4, h5 {
 .chart-container:nth-of-type(14) {
     animation-delay: 2.3s
 }
+*/
 
 .chart-container:first-of-type {
     margin-top: 0
@@ -484,10 +544,40 @@ h1, h2, h3, h4, h5 {
     z-index: 10;
 }
 
+.chart-container h5 {
+    display: flex;
+    flex-wrap: nowrap;
+    align-self: center;
+    transform: rotate(-90deg);
+}
+
 
 .chart-container .chart {
     flex: 1;
     position: relative;
+}
+
+
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+.chart-container {
+    cursor: move;
+}
+.chart-container.dragElem {
+    opacity: 0.4;
+}
+.chart-container.over {
+//border: 2px dashed #000;
+    border-top: 2px solid blue;
 }
 
 
@@ -650,7 +740,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .theme-dark .chart-container, .theme-dark .record-container {
-    background: #252936;
+    background-color: #252936;
 }
 
 .theme-dark .chart rect {
