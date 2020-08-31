@@ -226,51 +226,53 @@ function drawRSO2Chart() {
 function drawMAPChart() {
     var data_MAP = new google.visualization.DataTable();
     data_MAP.addColumn('date', 'Time of Day');
-    data_MAP.addColumn('number', 'Left');
-    data_MAP.addColumn('number', 'Right');
+    data_MAP.addColumn('number', 'MAP');
+    data_MAP.addColumn('number', 'OP_BP_mean');
+    data_MAP.addColumn('number', 'OP_BP_L');
+    data_MAP.addColumn('number', 'OP_BP_R');
     data_MAP.addColumn({'type': 'number', 'role': 'interval'});
     data_MAP.addColumn({'type': 'number', 'role': 'interval'});
     data_MAP.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
-        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 20, 13), 56.7, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 14), 55.72, 99.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 15), 56.03, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 16), 56.72, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 17), 57.46, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 18), 57.7, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 19), 57.91, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 20), 58.05, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 21), 58.34, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 22), 59.95, 89.87, 91.01, 88.73, 0, 5],
+        [new Date(2020, 4, 20, 23), 86.67, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 20, 24), 89.41, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 1), 90.2, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 2), 90.6, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 3), 90.94, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 4), 92.27, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 5), 93.99, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 6), 94.72, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 7), 95.18, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 8), 96.02, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 9), 96.86, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 10), 97.02, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 11), 98.35, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 12), 99.17, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 13), 99.11, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 14), 98.54, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 15), 98.38, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 16), 99.08, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 17), 99.08, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 18), 99.11, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 19), 102.45, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 20), 102.28, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 21), 101.22, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 22), 99.86, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 23), 99.05, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 21, 24), 99.35, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 22, 1), 99.26, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 22, 2), 98.99, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 22, 3), 99.1, 89.87, 91.01, 88.73, null, null],
+        [new Date(2020, 4, 22, 4), 99.25, 89.87, 91.01, 88.73, null, null],
     ]);
 
     var options_MAP = {
@@ -307,7 +309,7 @@ function drawMAPChart() {
         },
         vAxis: {
             title: "MAP",
-            ticks: [0, 1, 2, 3, 4, 5],
+            ticks: [0, 50, 100, 150],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -317,7 +319,17 @@ function drawMAPChart() {
         chartArea: {
             width: '96%',
             height: '73%'
-        }
+        },
+        series: {
+            0: {
+                color: 'red',
+                lineWidth: 4,
+            },
+            1: {
+                color: 'blue',
+                lineWidth: 4,
+            }
+        },
     };
 
     var chart_MAP = new google.visualization.LineChart(document.getElementById('chart_MAP'));
