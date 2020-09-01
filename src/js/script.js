@@ -280,7 +280,6 @@ function drawMAPChart() {
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: "none",
         fontSize: 15,
         pointSize: 5,
         curveType: 'function',
@@ -323,11 +322,17 @@ function drawMAPChart() {
         series: {
             0: {
                 color: 'red',
-                lineWidth: 4,
+                lineWidth: 3,
             },
             1: {
                 color: 'blue',
-                lineWidth: 4,
+                lineWidth: 3,
+            },
+            2: {
+                lineWidth: 1,
+            },
+            3: {
+                lineWidth: 1,
             }
         },
     };
