@@ -138,8 +138,12 @@
 <script src="src/js/index.js"></script>
 <script>
     // Set the Current Time
+    var date = new Date();
+    date.setHours(date.getHours() + 9);
+    var ISODate = date.toISOString();
+
     var searchTime = document.getElementById('search-time');
-    searchTime.value = new Date().toISOString().slice(0, 16);
+    searchTime.value = ISODate.slice(0, 16);
 </script>
 </body>
 </html>
