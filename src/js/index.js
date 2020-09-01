@@ -29,19 +29,19 @@ function toggleScrollHandler() {
 }
 
 function handleScrollToTop() {
-    content.scrollTop = 0
+    content.scrollTo({top: 0, behavior: "smooth"})
 }
 
 function handleScrollToBottom() {
-    content.scrollTop = content.scrollHeight - content.clientHeight
+    content.scrollTo({top: content.scrollHeight - content.clientHeight, behavior: "smooth"})
 }
 
 function handleScrollToLeft() {
-    content.scrollLeft = 0
+    content.scrollTo({left: 0, behavior: "smooth"})
 }
 
 function handleScrollToRight() {
-    content.scrollLeft = content.scrollWidth - content.clientWidth
+    content.scrollTo({left: content.scrollWidth - content.clientWidth, behavior: "smooth"})
 }
 
 if(scrollHandler) {
