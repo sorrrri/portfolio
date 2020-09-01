@@ -533,13 +533,13 @@ function drawMAPChart() {
         series: {
             1: {
                 type: 'line',
-                color: '#FAA7B8'
+                color: 'darkseagreen'
             },
         },
         bar: { groupWidth: '20%' },
         candlestick: {
-            fallingColor: { strokeWidth: 0, fill: '#47CACC' },
-            risingColor: { strokeWidth: 0, fill: '#47CACC' }
+            fallingColor: { strokeWidth: 0, fill: '#FAA7B8' },
+            risingColor: { strokeWidth: 0, fill: '#FAA7B8' }
         }
     };
 
@@ -651,13 +651,13 @@ function drawETCO2Chart() {
         series: {
             1: {
                 type: 'line',
-                color: '#FAA7B8'
+                color: 'darkseagreen'
             },
         },
         bar: { groupWidth: '20%' },
         candlestick: {
-            fallingColor: { strokeWidth: 0, fill: '#47CACC' },
-            risingColor: { strokeWidth: 0, fill: '#47CACC' }
+            fallingColor: { strokeWidth: 0, fill: '#FAA7B8' },
+            risingColor: { strokeWidth: 0, fill: '#FAA7B8' }
         }
     };
 

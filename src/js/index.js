@@ -15,8 +15,26 @@ document.documentElement.addEventListener('touchstart', function (event) {
 
 
 
+// Modal
+let backdrop = document.querySelector('.modal-backdrop')
+let modal = document.querySelectorAll('.modal')
+
+const COxMAPModal = () => {
+  const modal = document.querySelector('.modal-COx-MAP')
+  modal.classList.add('active')
+  backdrop.classList.add('active')
+}
+
+const ETCO2Modal = () => {
+  const modal = document.querySelector('.modal-ETCO2')
+  modal.classList.add('active')
+  backdrop.classList.add('active')
+}
 
 
+$(".modal-backdrop").on("click", function () {
+    $(".modal-backdrop, .modal").removeClass("active");
+});
 const content = document.querySelector('.content')
 const scrollHandler = document.querySelector('.scroll-handler')
 const scrollToTop = document.querySelector('.scroll-to-top')
