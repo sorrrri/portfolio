@@ -485,19 +485,19 @@ h1, h2, h3, h4, h5 {
 }
 
 .filter-COxMAP {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>COx MAP</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>COx MAP</text></svg>");
 }
 
 .filter-COxETCO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>COx ETCO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>COx ETCO2</text></svg>");
 }
 
 .filter-RSO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>RSO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>RSO2</text></svg>");
 }
 
 .filter-MAP {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>MAP</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>MAP</text></svg>");
     position: relative;
 }
 
@@ -513,7 +513,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .filter-ETCO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>ETCO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>ETCO2</text></svg>");
 }
 
 .filter-ETCO2::before {
@@ -528,43 +528,43 @@ h1, h2, h3, h4, h5 {
 }
 
 .filter-SJVO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>SJVO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>SJVO2</text></svg>");
 }
 
 .filter-ADJL {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>ADJL</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>ADJL</text></svg>");
 }
 
 .filter-LOI {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>LOI</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>LOI</text></svg>");
 }
 
 .filter-AVDO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>AVDO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>AVDO2</text></svg>");
 }
 
 .filter-CEO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>CEO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>CEO2</text></svg>");
 }
 
 .filter-AJglc {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>AJglc</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>AJglc</text></svg>");
 }
 
 .filter-AJCO2 {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>AJCO2</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>AJCO2</text></svg>");
 }
 
 .filter-RQ {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>RQ</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>RQ</text></svg>");
 }
 
 .filter-NPI {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>NPI</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>NPI</text></svg>");
 }
 
 .filter-pupil {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>Pupil Size</text></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>Pupil Size</text></svg>");
 }
 
 /*
