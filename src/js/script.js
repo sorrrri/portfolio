@@ -1,5 +1,6 @@
 google.charts.load("current", {'packages': ['corechart', 'bar', 'scatter']});
-google.charts.setOnLoadCallback(drawCOxChart);
+google.charts.setOnLoadCallback(drawCOxMAPChart);
+google.charts.setOnLoadCallback(drawCOxETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2Chart);
 google.charts.setOnLoadCallback(drawMAPChart);
 google.charts.setOnLoadCallback(drawETCO2Chart);
@@ -13,7 +14,7 @@ google.charts.setOnLoadCallback(drawAJCO2Chart);
 google.charts.setOnLoadCallback(drawRQChart);
 google.charts.setOnLoadCallback(drawNPIChart);
 google.charts.setOnLoadCallback(drawPupilChart);
-google.charts.setOnLoadCallback(drawCOxMAPChart);
+google.charts.setOnLoadCallback(drawModalCOxMAPChart);
 google.charts.setOnLoadCallback(drawRSO2MAPChart);
 google.charts.setOnLoadCallback(drawCO2xETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2ETCO2Chart);
@@ -122,67 +123,272 @@ function drawCOxChart() {
 }
 
 
-function drawRSO2Chart() {
-    var data_RSO2 = new google.visualization.DataTable();
-    data_RSO2.addColumn('date', 'Time of Day');
-    data_RSO2.addColumn('number', 'RSO2');
-    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_RSO2.addRows([
-        [new Date(2020, 4, 20, 13), 50, null, null],
-        [new Date(2020, 4, 20, 14), 52, null, null],
-        [new Date(2020, 4, 20, 15), 56, null, null],
-        [new Date(2020, 4, 20, 16), 48, null, null],
-        [new Date(2020, 4, 20, 17), 49, null, null],
-        [new Date(2020, 4, 20, 18), 53, null, null],
-        [new Date(2020, 4, 20, 19), 59, null, null],
-        [new Date(2020, 4, 20, 20), 62, null, null],
-        [new Date(2020, 4, 20, 21), 61, null, null],
-        [new Date(2020, 4, 20, 22), 58, 20, 80],
-        [new Date(2020, 4, 20, 23), 57, null, null],
-        [new Date(2020, 4, 20, 24), 60, null, null],
-        [new Date(2020, 4, 21, 1), 63, null, null],
-        [new Date(2020, 4, 21, 2), 64, null, null],
-        [new Date(2020, 4, 21, 3), 67, null, null],
-        [new Date(2020, 4, 21, 4), 65, null, null],
-        [new Date(2020, 4, 21, 5), 66, null, null],
-        [new Date(2020, 4, 21, 6), 70, null, null],
-        [new Date(2020, 4, 21, 7), 72, null, null],
-        [new Date(2020, 4, 21, 8), 71, null, null],
-        [new Date(2020, 4, 21, 9), 60, null, null],
-        [new Date(2020, 4, 21, 10), 65, null, null],
-        [new Date(2020, 4, 21, 11), 62, null, null],
-        [new Date(2020, 4, 21, 12), 67, null, null],
-        [new Date(2020, 4, 21, 13), 54, null, null],
-        [new Date(2020, 4, 21, 14), 51, null, null],
-        [new Date(2020, 4, 21, 15), 46, null, null],
-        [new Date(2020, 4, 21, 16), 47, null, null],
-        [new Date(2020, 4, 21, 17), 57, null, null],
-        [new Date(2020, 4, 21, 18), 60, null, null],
-        [new Date(2020, 4, 21, 19), 65, null, null],
-        [new Date(2020, 4, 21, 20), 62, null, null],
-        [new Date(2020, 4, 21, 21), 63, null, null],
-        [new Date(2020, 4, 21, 22), 73, null, null],
-        [new Date(2020, 4, 21, 23), 75, null, null],
-        [new Date(2020, 4, 21, 24), 56, null, null],
-        [new Date(2020, 4, 22, 1), 57, null, null],
-        [new Date(2020, 4, 22, 2), 56, null, null],
-        [new Date(2020, 4, 22, 3), 59, null, null],
-        [new Date(2020, 4, 22, 4), 70, null, null],
+function drawCOxMAPChart() {
+    var data_COxMAP = new google.visualization.DataTable();
+    data_COxMAP.addColumn('date', 'Time of Day');
+    data_COxMAP.addColumn('number', 'Left');
+    data_COxMAP.addColumn('number', 'Right');
+    data_COxMAP.addColumn({'type': 'number', 'role': 'interval'});
+    data_COxMAP.addColumn({'type': 'number', 'role': 'interval'});
+    data_COxMAP.addRows([
+        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
+        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
+        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
+        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
+        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
+        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
+        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
+        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
+        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5],
+        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
+        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
+        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
+        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
+        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
+        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
+        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
+        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
+        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
     ]);
 
-    var options_RSO2 = {
-        colors: ["#47CACC"],
+    var options_COxMAP = {
+        colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
+        fontSize: 15,
+        pointSize: 5,
+        curveType: 'function',
         intervals: {
             color: "yellow"
         },
-        pointSize: 5,
+        hAxis: {
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
+            minorGridlines: {
+                color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
+            }
+        },
+        vAxis: {
+            title: "COx MAP",
+            ticks: [0, 1, 2, 3, 4, 5],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        chartArea: {
+            width: '96%',
+            height: '73%'
+        }
+    };
+
+    var chart_COxMAP = new google.visualization.LineChart(document.getElementById('chart_COxMAP'));
+    chart_COxMAP.draw(data_COxMAP, options_COxMAP);
+}
+
+
+function drawCOxETCO2Chart() {
+    var data_COxETCO2 = new google.visualization.DataTable();
+    data_COxETCO2.addColumn('date', 'Time of Day');
+    data_COxETCO2.addColumn('number', 'Left');
+    data_COxETCO2.addColumn('number', 'Right');
+    data_COxETCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_COxETCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_COxETCO2.addRows([
+        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
+        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
+        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
+        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
+        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
+        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
+        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
+        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
+        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
+        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5],
+        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
+        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
+        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
+        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
+        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
+        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
+        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
+        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
+        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
+        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
+    ]);
+
+    var options_COxETCO2 = {
+        colors: ['#FAA7B8', '#6096FD'],
+        tooltip: {isHtml: true},
+        backgroundColor: 'transparent',
+        height: "100%",
+        legend: "none",
         fontSize: 15,
+        pointSize: 5,
         curveType: 'function',
+        intervals: {
+            color: "yellow"
+        },
+        hAxis: {
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
+            gridlines: {
+                color:'#777',
+                units: {
+                    days: {format: ['MM/dd']},
+                    hours: {format: ['HH:mm', 'ha']},
+                }
+            },
+            minorGridlines: {
+                color: '#333',
+                units: {
+                    hours: {format: ['hh:mm:ss a', 'ha']},
+                    minutes: {format: ['HH:mm a Z', ':mm']}
+                }
+            }
+        },
+        vAxis: {
+            title: "COx ETCO2",
+            ticks: [0, 1, 2, 3, 4, 5],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        chartArea: {
+            width: '96%',
+            height: '73%'
+        }
+    };
+
+    var chart_COxETCO2 = new google.visualization.LineChart(document.getElementById('chart_COxETCO2'));
+    chart_COxETCO2.draw(data_COxETCO2, options_COxETCO2);
+}
+
+
+function drawRSO2Chart() {
+    var data_RSO2 = new google.visualization.DataTable();
+    data_RSO2.addColumn('date', 'Time of Day');
+    data_RSO2.addColumn('number', 'Left');
+    data_RSO2.addColumn('number', 'Right');
+    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_RSO2.addRows([
+        [new Date(2020, 4, 20, 13), 34.0, 38.0, null, null],
+        [new Date(2020, 4, 20, 14), 34.75, 38.25, null, null],
+        [new Date(2020, 4, 20, 15), 35.0, 38.5, null, null],
+        [new Date(2020, 4, 20, 16), 35.0, 38.5, null, null],
+        [new Date(2020, 4, 20, 17), 35.0, 38.0, null, null],
+        [new Date(2020, 4, 20, 18), 35.0, 38.0, null, null],
+        [new Date(2020, 4, 20, 19), 35.0, 38.0, null, null],
+        [new Date(2020, 4, 20, 20), 35.0, 38.0, null, null],
+        [new Date(2020, 4, 20, 21), 35.0, 38.0, null, null],
+        [new Date(2020, 4, 20, 22), 35.0, 38.0, 20, 60],
+        [new Date(2020, 4, 20, 23), 35.5, 37.75, null, null],
+        [new Date(2020, 4, 20, 24), 36.0, 38.25, null, null],
+        [new Date(2020, 4, 21, 1), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 2), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 3), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 4), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 5), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 6), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 7), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 8), 36.0, 38.5, null, null],
+        [new Date(2020, 4, 21, 9), 37.75, 40.0, null, null],
+        [new Date(2020, 4, 21, 10), 37.5, 40.0, null, null],
+        [new Date(2020, 4, 21, 11), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 12), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 13), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 14), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 15), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 16), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 17), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 18), 38.0, 40.0, null, null],
+        [new Date(2020, 4, 21, 19), 38.25, 40.75, null, null],
+        [new Date(2020, 4, 21, 20), 38.5, 40.5, null, null],
+        [new Date(2020, 4, 21, 21), 38.5, 40.75, null, null],
+        [new Date(2020, 4, 21, 22), 38.5, 41.0, null, null],
+        [new Date(2020, 4, 21, 23), 39.0, 41.0, null, null],
+        [new Date(2020, 4, 21, 24), 39.0, 41.0, null, null],
+        [new Date(2020, 4, 22, 1), 39.0, 41.0, null, null],
+        [new Date(2020, 4, 22, 2), 39.0, 41.0, null, null],
+        [new Date(2020, 4, 22, 3), 39.0, 41.0, null, null],
+        [new Date(2020, 4, 22, 4), 39.0, 41.0, null, null],
+    ]);
+
+    var options_RSO2 = {
+        colors: ['#FAA7B8', '#6096FD'],
+        tooltip: {isHtml: true},
+        backgroundColor: 'transparent',
+        height: "100%",
+        legend: "none",
+        fontSize: 15,
+        pointSize: 5,
+        curveType: 'function',
+        intervals: {
+            color: "yellow"
+        },
         hAxis: {
             viewWindow: {
                 min: new Date(2020, 4, 20, 13),
@@ -205,9 +411,9 @@ function drawRSO2Chart() {
         },
         vAxis: {
             title: "RSO2",
-            ticks: [20, 30, 40, 50, 60, 70, 80],
             baselineColor: '#777',
             gridlineColor: '#777',
+            ticks: [20, 30, 40, 50, 60],
             minorGridlines: {
                 color: '#333',
             }
@@ -218,9 +424,10 @@ function drawRSO2Chart() {
         }
     };
 
-    var chart_RSO2 = new google.visualization.AreaChart(document.getElementById("chart_RSO2"));
+    var chart_RSO2 = new google.visualization.LineChart(document.getElementById('chart_RSO2'));
     chart_RSO2.draw(data_RSO2, options_RSO2);
 }
+
 
 
 function drawMAPChart() {
@@ -346,55 +553,55 @@ function drawMAPChart() {
 function drawETCO2Chart() {
     var data_ETCO2 = new google.visualization.DataTable();
     data_ETCO2.addColumn('date', 'Time of Day');
-    data_ETCO2.addColumn('number', 'Left');
-    data_ETCO2.addColumn('number', 'Right');
+    data_ETCO2.addColumn('number', 'ETCO2');
     data_ETCO2.addColumn({'type': 'number', 'role': 'interval'});
     data_ETCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_ETCO2.addColumn({'type': 'string', 'role': 'annotation'});
     data_ETCO2.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
-        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
+        [new Date(2020, 4, 20, 13), 0.2, null, null, null],
+        [new Date(2020, 4, 20, 14), 0.2, null, null, null],
+        [new Date(2020, 4, 20, 15), 0.3, null, null, null],
+        [new Date(2020, 4, 20, 16), 0.2, null, null, null],
+        [new Date(2020, 4, 20, 17), 0.25, null, null, null],
+        [new Date(2020, 4, 20, 18), 0.36, null, null, null],
+        [new Date(2020, 4, 20, 19), 0.17, null, null, null],
+        [new Date(2020, 4, 20, 20), 0.28, null, null, null],
+        [new Date(2020, 4, 20, 21), 0.29, null, null, null],
+        [new Date(2020, 4, 20, 22), 0.30, 0, .5, "Fluid Infusion"],
+        [new Date(2020, 4, 20, 23), 0.2, null, null, null],
+        [new Date(2020, 4, 20, 24), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 1), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 2), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 3), 0.25, null, null, null],
+        [new Date(2020, 4, 21, 4), 0.36, null, null, null],
+        [new Date(2020, 4, 21, 5), 0.17, null, null, null],
+        [new Date(2020, 4, 21, 6), 0.28, null, null, null],
+        [new Date(2020, 4, 21, 7), 0.29, null, null, null],
+        [new Date(2020, 4, 21, 8), 0.30, null, null, null],
+        [new Date(2020, 4, 21, 9), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 10), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 11), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 12), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 13), 0.25, null, null, null],
+        [new Date(2020, 4, 21, 14), 0.36, null, null, null],
+        [new Date(2020, 4, 21, 15), 0.17, null, null, null],
+        [new Date(2020, 4, 21, 16), 0.28, null, null, null],
+        [new Date(2020, 4, 21, 17), 0.29, null, null, null],
+        [new Date(2020, 4, 21, 18), 0.30, null, null, null],
+        [new Date(2020, 4, 21, 19), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 20), 0.2, null, null, null],
+        [new Date(2020, 4, 21, 21), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 22), 0.3, null, null, null],
+        [new Date(2020, 4, 21, 23), 0.25, null, null, null],
+        [new Date(2020, 4, 21, 24), 0.36, null, null, null],
+        [new Date(2020, 4, 22, 1), 0.17, null, null, null],
+        [new Date(2020, 4, 22, 2), 0.28, null, null, null],
+        [new Date(2020, 4, 22, 3), 0.29, null, null, null],
+        [new Date(2020, 4, 22, 4), 0.30, null, null, null],
     ]);
 
     var options_ETCO2 = {
-        colors: ['#FAA7B8', '#6096FD'],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -427,7 +634,8 @@ function drawETCO2Chart() {
         },
         vAxis: {
             title: "ETCO2",
-            ticks: [0, 1, 2, 3, 4, 5],
+            lineWidth: 10,
+            ticks: [0, .3, .5],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -440,7 +648,7 @@ function drawETCO2Chart() {
         }
     };
 
-    var chart_ETCO2 = new google.visualization.LineChart(document.getElementById('chart_ETCO2'));
+    var chart_ETCO2 = new google.visualization.AreaChart(document.getElementById("chart_ETCO2"));
     chart_ETCO2.draw(data_ETCO2, options_ETCO2);
 }
 
@@ -1450,11 +1658,11 @@ function drawPupilChart() {
 }
 
 
-function drawCOxMAPChart() {
-    var data_COxMAP = new google.visualization.DataTable();
-    data_COxMAP.addColumn('number', 'MAP');
-    data_COxMAP.addColumn('number', 'COx');
-    data_COxMAP.addRows([
+function drawModalCOxMAPChart() {
+    var data_ModalCOxMAP = new google.visualization.DataTable();
+    data_ModalCOxMAP.addColumn('number', 'MAP');
+    data_ModalCOxMAP.addColumn('number', 'COx');
+    data_ModalCOxMAP.addRows([
         [60, 1],
         [70, 0.47],
         [80, 0.8],
@@ -1472,7 +1680,7 @@ function drawCOxMAPChart() {
         [200, -0.3],
     ]);
 
-    var options_COxMAP = {
+    var options_ModalCOxMAP = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -1505,8 +1713,8 @@ function drawCOxMAPChart() {
         }
     };
 
-    var chart_COxMAP = new google.visualization.ColumnChart(document.getElementById("chart_COxMAP"));
-    chart_COxMAP.draw(data_COxMAP, options_COxMAP);
+    var chart_ModalCOxMAP = new google.visualization.ColumnChart(document.getElementById("chart_ModalCOxMAP"));
+    chart_ModalCOxMAP.draw(data_ModalCOxMAP, options_ModalCOxMAP);
 }
 
 

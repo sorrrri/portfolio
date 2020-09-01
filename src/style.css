@@ -484,8 +484,12 @@ h1, h2, h3, h4, h5 {
     animation: fadeIn .7s forwards;
 }
 
-.filter-COx {
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>COx</text></svg>");
+.filter-COxMAP {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>COx MAP</text></svg>");
+}
+
+.filter-COxETCO2 {
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='500px'><text x='0' y='15' fill='gray' font-size='20'>COx ETCO2</text></svg>");
 }
 
 .filter-RSO2 {

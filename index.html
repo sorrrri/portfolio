@@ -56,8 +56,12 @@
     </div>
     <div id="filters-container" class="filter-charts">
         <div class="checkbox">
-            <input id="filter-COx" type="checkbox" name="charts" value="filter-COx" checked="checked">
-            <label for="filter-COx">COx</label>
+            <input id="filter-COxMAP" type="checkbox" name="charts" value="filter-COxMAP" checked="checked">
+            <label for="filter-COxMAP">COx MAP</label>
+        </div>
+        <div class="checkbox">
+            <input id="filter-COxETCO2" type="checkbox" name="charts" value="filter-COxETCO2" checked="checked">
+            <label for="filter-COxETCO2">COx ETCO2</label>
         </div>
         <div class="checkbox">
             <input id="filter-RSO2" type="checkbox" name="charts" value="filter-RSO2" checked="checked">
@@ -142,8 +146,11 @@
                 </svg>
             </button>
         </div>
-        <div class="chart-container filter-COx" draggable="true">
-            <div id="chart_COx" class="chart"></div>
+        <div class="chart-container filter-COxMAP" draggable="true">
+            <div id="chart_COxMAP" class="chart"></div>
+        </div>
+        <div class="chart-container filter-COxETCO2" draggable="true">
+            <div id="chart_COxETCO2" class="chart"></div>
         </div>
         <div class="chart-container filter-RSO2" draggable="true">
             <div id="chart_RSO2" class="chart"></div>
@@ -199,7 +206,7 @@
     <!-- Modal COx -->
     <div class="modal modal-COx-MAP">
         <div class="chart-container">
-            <div id="chart_COxMAP" class="chart"></div>
+            <div id="chart_ModalCOxMAP" class="chart"></div>
         </div>
         <div class="chart-container">
             <div id="chart_RSO2MAP" class="chart"></div>
