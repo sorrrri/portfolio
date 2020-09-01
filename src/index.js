@@ -14,7 +14,6 @@ window.addEventListener('resize', () => {
 //     }
 // });
 
-
 $(window).resize(function () {
     location.reload();
 });

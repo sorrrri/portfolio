@@ -15,6 +15,46 @@ document.documentElement.addEventListener('touchstart', function (event) {
 
 
 
+
+
+const content = document.querySelector('.content')
+const scrollHandler = document.querySelector('.scroll-handler')
+const scrollToTop = document.querySelector('.scroll-to-top')
+const scrollToBottom = document.querySelector('.scroll-to-bottom')
+const scrollToLeft = document.querySelector('.scroll-to-left')
+const scrollToRight = document.querySelector('.scroll-to-right')
+
+function toggleScrollHandler() {
+    scrollHandler.classList.toggle("active")
+}
+
+function handleScrollToTop() {
+    content.scrollTop = 0
+}
+
+function handleScrollToBottom() {
+    content.scrollTop = content.scrollHeight - content.clientHeight
+}
+
+function handleScrollToLeft() {
+    content.scrollLeft = 0
+}
+
+function handleScrollToRight() {
+    content.scrollLeft = content.scrollWidth - content.clientWidth
+}
+
+if(scrollHandler) {
+    scrollHandler.addEventListener('click', toggleScrollHandler)
+    scrollToTop.addEventListener('click', handleScrollToTop)
+    scrollToBottom.addEventListener('click', handleScrollToBottom)
+    scrollToLeft.addEventListener('click', handleScrollToLeft)
+    scrollToRight.addEventListener('click', handleScrollToRight)
+
+}
+
+
+
 var dragSrcEl = null;
 
 function handleDragStart(e) {
