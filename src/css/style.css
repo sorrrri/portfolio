@@ -970,6 +970,10 @@ textarea:focus {
     outline: 1px solid #47CACC
 }
 
+.select2-container {
+    width: 12rem !important;
+}
+
 .select2-container--default .select2-results>.select2-results__options {
     display: block;
 }
