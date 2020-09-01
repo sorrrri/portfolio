@@ -115,6 +115,33 @@
 
     <!-- Chart 1 -->
     <section class="content content-chart">
+        <div class="scroll-handler">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"/>
+                </svg>
+            </span>
+            <button class="scroll-to-top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                </svg>
+            </button>
+            <button class="scroll-to-bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                </svg>
+            </button>
+            <button class="scroll-to-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+                </svg>
+            </button>
+            <button class="scroll-to-right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                </svg>
+            </button>
+        </div>
         <div class="chart-container filter-COx" draggable="true">
             <div id="chart_COx" class="chart"></div>
         </div>
@@ -196,42 +223,42 @@
 <script src="src/js/jquery-3.5.1.min.js"></script>
 <script src="src/js/index.js"></script>
 <script>
-    // On checkbox click in the filter
-    $("#filters-container .checkbox").click(() => {
-        // Define constants for length of checked checkboxes array
-        const selectedChartLength = $('.filter-charts :checkbox').filter(':checked').length;
-        // Hide all items in the list
-        $(".chart-container").hide();
+  // On checkbox click in the filter
+  $("#filters-container .checkbox").click(() => {
+    // Define constants for length of checked checkboxes array
+    const selectedChartLength = $('.filter-charts :checkbox').filter(':checked').length;
+    // Hide all items in the list
+    $(".chart-container").hide();
 
-        // If checkboxes are selected in the color-filter ONLY
-        if (selectedChartLength >= 1) {
-            // For each of the checked checkboxes in the color-filter
-            $(".filter-charts :checkbox:checked").each((index, element) => {
-                // Show items with the class of the value of the checkbox
-                $("." + $(element).val()).fadeIn();
-            });
-        }
-    });
-
-    // Modal
-    let modal = document.querySelectorAll('.modal')
-    let backdrop = document.querySelector('.modal-backdrop')
-
-    const COxMAPModal = () => {
-      const modal = document.querySelector('.modal-COx-MAP')
-      modal.classList.add('active')
-      backdrop.classList.add('active')
+    // If checkboxes are selected in the color-filter ONLY
+    if (selectedChartLength >= 1) {
+      // For each of the checked checkboxes in the color-filter
+      $(".filter-charts :checkbox:checked").each((index, element) => {
+        // Show items with the class of the value of the checkbox
+        $("." + $(element).val()).fadeIn();
+      });
     }
+  });
 
-    const ETCO2Modal = () => {
-      const modal = document.querySelector('.modal-ETCO2')
-      modal.classList.add('active')
-      backdrop.classList.add('active')
-    }
+  // Modal
+  let modal = document.querySelectorAll('.modal')
+  let backdrop = document.querySelector('.modal-backdrop')
 
-    $(".modal-backdrop").on("click", function () {
-        $(".modal-backdrop, .modal").removeClass("active");
-    });
+  const COxMAPModal = () => {
+    const modal = document.querySelector('.modal-COx-MAP')
+    modal.classList.add('active')
+    backdrop.classList.add('active')
+  }
+
+  const ETCO2Modal = () => {
+    const modal = document.querySelector('.modal-ETCO2')
+    modal.classList.add('active')
+    backdrop.classList.add('active')
+  }
+
+  $(".modal-backdrop").on("click", function () {
+    $(".modal-backdrop, .modal").removeClass("active");
+  });
 </script>
 </body>
 </html>
