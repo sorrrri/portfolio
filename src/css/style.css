@@ -747,6 +747,19 @@ h1, h2, h3, h4, h5 {
 
 
 /* Modal */
+.close {
+    cursor: pointer;
+}
+
+.close svg {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    fill: white;
+    width: 2rem;
+    height: 2rem;
+}
+
 .modal-backdrop {
     position: fixed;
     top: 0;
