@@ -34,7 +34,7 @@ input::-webkit-search-results-button,
 input::-webkit-search-results-decoration {
     display: none;
 }
-
+input[type="datetime-local"]::-webkit-calendar-picker-indicator,
 input[type="datetime-local"]::-webkit-inner-spin-button,
 input[type="datetime-local"]::-webkit-clear-button {
     display: none;
@@ -305,6 +305,11 @@ h1, h2, h3, h4, h5 {
     cursor: pointer;
 }
 
+.select2-selection__rendered::after,
+.select2-results__option--selected::after {
+    content:'(streaming)'
+}
+
 .header .change-theme {
     font-family: "Nunito", "sans-serif";
     color: #A3A6A9;
@@ -347,6 +352,16 @@ h1, h2, h3, h4, h5 {
     flex: 1 1 100%;
     background-color: #ebeef5;
     overflow: auto;
+}
+
+.content.list .record-container {
+    padding: .7rem;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.content.list .record-container:hover {
+    background-color: darkslategray;
 }
 
 .scroll-handler {
@@ -435,15 +450,19 @@ h1, h2, h3, h4, h5 {
     align-items: center;
     justify-content: center;
     padding: 0 1rem;
-    background-color: #47CACC;
+    background-color: slateblue;
     border-radius: .2rem;
+}
+
+.title .btn-save svg {
+    fill: white;
 }
 
 .title .btn-save span {
     font-family: 'Raleway', 'sans-serif';
     font-weight: 500;
     text-transform: capitalize;
-    margin: .5rem
+    margin: .5rem 0
 }
 
 .content h1 {
@@ -671,7 +690,8 @@ h1, h2, h3, h4, h5 {
 
 /* Record */
 
-.content-input {
+.content-input,
+.content.list {
     padding: 0 .5rem .5rem .5rem;
 }
 
@@ -734,6 +754,13 @@ h1, h2, h3, h4, h5 {
     box-shadow: 0 0 0 0;
     border-bottom: 1px solid #EEE;
     transition: border-bottom-color .4s;
+}
+
+.record span {
+    font-family: "Nunito", "sans-serif";
+    text-align: right;
+    font-weight: bold;
+    flex: 1 1 100%;
 }
 
 .record input[type="datetime"],
@@ -862,7 +889,9 @@ h1, h2, h3, h4, h5 {
 .theme-dark .record {;
 }
 
-.theme-dark .record input {
+.theme-dark .record input,
+.theme-dark .record span
+{
     color: white;
     border-color: rgba(255, 255, 255, .1)
 }
