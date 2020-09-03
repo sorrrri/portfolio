@@ -5,6 +5,7 @@
     <title>EICU - APEX</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="src/css/style.css">
+    <link href="src/css/select2.min.css" rel="stylesheet"/>
 </head>
 <body class="theme-dark">
 <div class="container">
@@ -31,7 +32,7 @@
             </a>
         </nav>
         <div class="search">
-            <select>
+            <select class="js-example-basic-single" name="patient">
                 <option value="streaming">2321542(streaming)</option>
                 <option value="1458723">1458723</option>
                 <option value="3452525">3452525</option>
@@ -135,6 +136,7 @@
 </div>
 
 <script src="src/js/jquery-3.5.1.min.js"></script>
+<script src="src/js/select2.min.js"></script>
 <script src="src/js/index.js"></script>
 <script>
     // Set the Current Time
