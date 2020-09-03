@@ -141,7 +141,7 @@ function drawCOxMAPChart() {
         [new Date(2020, 4, 20, 19), 0.796, 0.717, null, null, null],
         [new Date(2020, 4, 20, 20), 0.868, 0.881, null, null, null],
         [new Date(2020, 4, 20, 21), 0.56, 0.343, null, null, null],
-        [new Date(2020, 4, 20, 22), -0.377, -0.637, -1, 1, 'Fluid Infusion'],
+        [new Date(2020, 4, 20, 22), -0.377, -0.637, -3, 3, 'Fluid Infusion'],
         [new Date(2020, 4, 20, 23), -0.385, -0.516, null, null, null],
         [new Date(2020, 4, 20, 24), -0.347, -0.438, null, null, null],
         [new Date(2020, 4, 21, 1), -0.705, -0.677, null, null, null],
@@ -208,7 +208,7 @@ function drawCOxMAPChart() {
         },
         vAxis: {
             title: "COx MAP",
-            ticks: [-1, 0, 1],
+            ticks: [-3, -2, -1, 0, 1, 2, 3],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -243,7 +243,7 @@ function drawCOxETCO2Chart() {
         [new Date(2020, 4, 20, 19), 0.567, 0.581, null, null],
         [new Date(2020, 4, 20, 20), 0.636, 0.657, null, null],
         [new Date(2020, 4, 20, 21), 0.553, 0.554, null, null],
-        [new Date(2020, 4, 20, 22), 0.533, 0.334, -1, 1],
+        [new Date(2020, 4, 20, 22), 0.533, 0.334, -3, 3],
         [new Date(2020, 4, 20, 23), 0.375, 0.136, null, null],
         [new Date(2020, 4, 20, 24), 0.052, -0.114, null, null],
         [new Date(2020, 4, 21, 1), 0.203, 0.137, null, null],
@@ -310,7 +310,7 @@ function drawCOxETCO2Chart() {
         },
         vAxis: {
             title: "COx ETCO2",
-            ticks: [-1, 0, 1],
+            ticks: [-3, -2, -1, 0, 1, 2, 3],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
