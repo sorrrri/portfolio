@@ -239,9 +239,23 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     background-color: white;
     display: flex;
+    flex-direction: column;
+    transition: background-color .2s;
+}
+
+.header > div {
+    flex: 1 1 100%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color .2s;
+
+}
+
+.header .logo-nrf {
+    width: 100px;
+    height: 30px;
+    background: url("../images/logo_nrf.png") no-repeat center;
+    background-size: contain;
 }
 
 .header .logo {
@@ -839,6 +853,7 @@ h1, h2, h3, h4, h5 {
 
 .theme-dark .header {
     background: linear-gradient(90deg, darkslateblue, darkslategray);
+    color: white
 }
 
 .theme-dark .header .logo a {

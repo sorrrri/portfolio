@@ -1891,4 +1891,3 @@ function drawRSO2ETCO2Chart() {
 
     chart_RSO2ETCO2.draw(data_RSO2ETCO2, options_RSO2ETCO2);
 }
-
