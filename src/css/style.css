@@ -233,8 +233,7 @@ h1, h2, h3, h4, h5 {
 }
 
 
-.header {
-    padding: .5rem 1rem;
+header {
     flex: 0 0 auto;
     width: 100%;
     background-color: white;
@@ -243,30 +242,51 @@ h1, h2, h3, h4, h5 {
     transition: background-color .2s;
 }
 
-.header > div {
+header section {
     flex: 1 1 100%;
     display: flex;
+    padding: .7rem;
     justify-content: space-between;
     align-items: center;
 
 }
 
-.header .logo-nrf {
-    width: 100px;
-    height: 30px;
-    background: url("../images/logo_nrf.png") no-repeat center;
-    background-size: contain;
+header section.nrf {
+    padding: .5rem .7rem;
+    color: #CCC
 }
 
-.header .logo {
+header .logo-nrf {
+    width: 80px;
+    height: 24px;
+    background: url("../images/logo_nrf.png") no-repeat center;
+    background-size: contain;
+    opacity: .7;
+}
+
+header .apex-header {
+    flex-direction: column;
+    margin: 0 .5rem;
+    border-radius: .2rem;
+}
+
+header .apex-header > div {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%
+}
+
+header .logo {
     text-align: center;
 }
 
-.header .logo a {
+header .logo a {
     font: 18px/1.5 "Nunito", "sans-serif";
 }
 
-.header .navigation {
+header .navigation {
     display: flex;
     align-items: center;
     position: absolute;
@@ -274,7 +294,7 @@ h1, h2, h3, h4, h5 {
     transform: translateX(-50%);
 }
 
-.header .navigation a {
+header .navigation a {
     font-family: "Raleway", "sans-serif";
     display: flex;
     align-items: center;
@@ -285,21 +305,21 @@ h1, h2, h3, h4, h5 {
     transition: background-color .4s;
 }
 
-.header .navigation a.active, nav .navigation a:hover {
+header .navigation a.active, nav .navigation a:hover {
     color: white;
     background-color: #333;
 }
 
-.header .navigation svg {
+header .navigation svg {
     fill: white;
     margin-right: .5rem;
 }
 
-.header .search {
+header .search {
     position: relative;
 }
 
-.header .search input {
+header .search input {
     border-radius: .3rem;
     width: 8rem;
     background-color: rgba(255, 255, 255, .1);
@@ -310,7 +330,7 @@ h1, h2, h3, h4, h5 {
     padding-right: 2rem;
 }
 
-.header .search svg {
+header .search svg {
     position: absolute;
     right: .5rem;
     top: 50%;
@@ -324,7 +344,7 @@ h1, h2, h3, h4, h5 {
     content:'(streaming)'
 }
 
-.header .change-theme {
+header .change-theme {
     font-family: "Nunito", "sans-serif";
     color: #A3A6A9;
     text-transform: capitalize;
@@ -333,7 +353,7 @@ h1, h2, h3, h4, h5 {
     cursor: pointer;
 }
 
-.header .change-theme small {
+header .change-theme small {
     display: none;
 }
 
@@ -343,7 +363,7 @@ h1, h2, h3, h4, h5 {
     color: white;
     background-color: slategrey;
     padding: .5rem 1rem;
-    margin: 1rem;
+    margin-top: .7rem;
     border-radius: .3rem;
     display: flex;
     flex-wrap: wrap;
@@ -851,25 +871,29 @@ h1, h2, h3, h4, h5 {
     color: white;
 }
 
-.theme-dark .header {
-    background: linear-gradient(90deg, darkslateblue, darkslategray);
+.theme-dark header {
+    background: #111523;
     color: white
 }
 
-.theme-dark .header .logo a {
+.theme-dark header .apex-header {
+    background: linear-gradient(90deg, darkslateblue, darkslategray);
+}
+
+.theme-dark header .logo a {
     color: white;
 }
 
-.theme-dark .header .navigation a.active, .theme-dark nav .navigation a:hover {
+.theme-dark header .navigation a.active, .theme-dark nav .navigation a:hover {
     background-color: white;
     color: #333;
 }
 
-.theme-dark .header .btn-record {
+.theme-dark header .btn-record {
     background-color: rgba(235, 235, 245, .1);
 }
 
-.theme-dark .header .btn-record {
+.theme-dark header .btn-record {
     color: #c5b1f4;
 }
 
@@ -1037,21 +1061,21 @@ textarea:focus {
 
 
 @media screen and (max-width: 480px) {
-    .header .navigation {
+    header .navigation {
         position: relative;
         left: auto;
         transform: initial;
     }
 
-    .header .navigation svg {
+    header .navigation svg {
         margin-right: 0;
     }
 
-    .header .navigation span {
+    header .navigation span {
         display: none;
     }
 
-    .header .search {
+    header .search {
         display: none;
     }
 
