@@ -294,7 +294,7 @@ header .apex-header ul {
 header .apex-header ul li {
     display: flex;
     align-items: center;
-    padding-left: .3rem;
+    padding-left: .5rem;
 }
 
 header .apex-header .countdown,
@@ -305,10 +305,6 @@ header .apex-header .countdown svg {
 
 header .apex-header .refresh svg {
     margin-right: 0;
-}
-
-header .apex-header .refresh button {
-    background-color: transparent;
 }
 
 header .apex-header button {
@@ -1052,7 +1048,7 @@ header .change-theme small {
     margin-right: 3px;
     width: 14px;
     height: 14px;
-    background-color: rgba(255, 255, 255, .3)
+    background-color: rgba(255, 255, 255, .2)
 }
 
 .checkbox input:checked + label:after {
