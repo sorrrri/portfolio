@@ -867,7 +867,8 @@ header .change-theme small {
     background: #111523;
 }
 
-.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4, .theme-dark h5 {
+.theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4, .theme-dark h5,
+.theme-dark a {
     color: white;
 }
 
@@ -1052,7 +1053,7 @@ textarea:focus {
 }
 
 .select2-container {
-    width: 12rem !important;
+    width: 10.8rem !important;
 }
 
 .select2-container--default .select2-results>.select2-results__options {

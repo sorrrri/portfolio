@@ -5,6 +5,7 @@
     <title>EICU - APEX</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="src/css/style.css">
+    <link href="src/css/select2.min.css" rel="stylesheet"/>
 </head>
 <body class="theme-dark">
 <div class="container">
@@ -38,30 +39,24 @@
                         </svg>
                         <span>intervention</span>
                     </a>
-                </nav>
-                <!--<div class="change-theme">
-                    <small>dark</small>
-                    <div class="btn-toggle">
-                        <input type="checkbox" checked class="cb-value"/> <span class="round-btn"></span>
+                    <div class="search">
+                        <select class="js-example-basic-single" name="patients">
+                            <option value="streaming">2321542</option>
+                            <option value="1458723">1458723</option>
+                            <option value="3452525">3452525</option>
+                            <option value="7537332">7537332</option>
+                            <option value="2321542">2321542</option>
+                            <option value="8645624">8645624</option>
+                            <option value="3267435">3267435</option>
+                            <option value="6845625">6845625</option>
+                        </select>
                     </div>
-                    <small>light</small>
-                </div>-->
-                <div class="search">
-                    <select class="js-example-basic-single" name="state">
-                        <option value="streaming">2321542(streaming)</option>
-                        <option value="1458723">1458723</option>
-                        <option value="3452525">3452525</option>
-                        <option value="7537332">7537332</option>
-                        <option value="2321542">2321542</option>
-                        <option value="8645624">8645624</option>
-                        <option value="3267435">3267435</option>
-                        <option value="6845625">6845625</option>
-                    </select>
-                    <!--<input type="search"/>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                    </svg>-->
-                </div>
+                </nav>
+                <ul>
+                    <li>
+                        <a href="login.html">login</a>
+                    </li>
+                </ul>
             </div>
         </section>
     </header>
@@ -153,12 +148,9 @@
 </div>
 
 <script src="src/js/jquery-3.5.1.min.js"></script>
+<script src="src/js/select2.min.js"></script>
 <script src="src/js/index.js"></script>
 <script>
-  $(document).ready(function () {
-    $('.js-example-basic-single').select2();
-  });
-
   // Set the Current Time
   var date = new Date();
   date.setHours(date.getHours() + 9);

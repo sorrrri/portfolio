@@ -11,6 +11,11 @@ document.documentElement.addEventListener('touchstart', function (event) {
 }, false);
 
 
+$(document).ready(function () {
+  $('.js-example-basic-single').select2();
+});
+
+
 const filterCharts = document.querySelector('.filter-charts')
 if (filterCharts) {
   // On checkbox click in the filter
