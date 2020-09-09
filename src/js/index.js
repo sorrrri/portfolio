@@ -6,15 +6,15 @@ window.addEventListener('resize', () => {
 })
 document.documentElement.addEventListener('touchstart', function (event) {
   if (event.touches.length > 1) {
-    event.preventDefault();
+    event.preventDefault()
   }
-}, false);
+}, false)
 
 
-$(document).ready(function () {
+const select2Selectbox = document.querySelector('.js-example-basic-single')
+if (select2Selectbox) {
   $('.js-example-basic-single').select2();
-});
-
+}
 
 function countdown(elementName, minutes, seconds) {
   var element, endTime, hours, mins, msLeft, time;

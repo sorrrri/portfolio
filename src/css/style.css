@@ -294,7 +294,7 @@ header .apex-header ul {
 header .apex-header ul li {
     display: flex;
     align-items: center;
-    padding: 0 .3rem;
+    padding-left: .3rem;
 }
 
 header .apex-header .countdown,
@@ -407,7 +407,7 @@ header .change-theme small {
 .filter-charts {
     color: white;
     background-color: rgba(0,0,0,.3);
-    padding: .5rem 1rem;
+    padding: .3rem .6rem;
     margin-top: .7rem;
     border-radius: .3rem;
     display: flex;
