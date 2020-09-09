@@ -87,7 +87,9 @@ button {
     border: 0;
     background-color: transparent;
     display: flex;
-    align-content: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
     border-radius: .2rem;
     transition: background-color .2s;
     cursor: pointer;
@@ -97,7 +99,7 @@ button {
 button.new, button.submit {
     display: flex;
     align-items: center;
-    font: normal 14px 'Work Sans', sans-serif;
+    font: normal 13px 'Raleway', sans-serif;
     text-transform: uppercase;
     background-color: #47CACC;
     color: white
@@ -284,6 +286,43 @@ header .apex-header > div {
     width: 100%
 }
 
+header .apex-header ul {
+    display: flex;
+    align-items: center;
+}
+
+header .apex-header ul li {
+    display: flex;
+    align-items: center;
+    padding: 0 .3rem;
+}
+
+header .apex-header .countdown,
+header .apex-header .countdown svg {
+    color: #D3D6D9;
+    fill: #D3D6D9;
+}
+
+header .apex-header .refresh svg {
+    margin-right: 0;
+}
+
+header .apex-header .refresh button {
+    background-color: transparent;
+}
+
+header .apex-header button {
+    border-radius: .2rem;
+    padding: 0 .5rem;
+    height: 1.8rem;
+    background-color: rgba(255,255,255,.1);
+
+}
+
+header .apex-header .refresh button:hover {
+    background-color: lightseagreen;
+}
+
 header .logo {
     text-align: center;
 }
@@ -316,9 +355,9 @@ header .navigation a.active, nav .navigation a:hover {
     background-color: #333;
 }
 
-header .navigation svg {
+header svg {
     fill: white;
-    margin-right: .5rem;
+    margin-right: .2rem;
 }
 
 header .search {
@@ -367,7 +406,7 @@ header .change-theme small {
 /* Filters Container */
 .filter-charts {
     color: white;
-    background-color: slategrey;
+    background-color: rgba(0,0,0,.3);
     padding: .5rem 1rem;
     margin-top: .7rem;
     border-radius: .3rem;
@@ -485,13 +524,8 @@ header .change-theme small {
     height: 100%;
     font-size: 1rem;
     color: white;
-    align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 0 1rem;
     background-color: slateblue;
-    border-radius: .2rem;
 }
 
 .title .btn-save svg {
@@ -626,7 +660,6 @@ header .change-theme small {
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='2000px'><text x='0' y='15' fill='gray' font-size='20'>Pupil Size</text></svg>");
 }
 
-/*
 .chart-container:nth-of-type(1) {
     animation-delay: 1.0s
 }
@@ -682,7 +715,6 @@ header .change-theme small {
 .chart-container:nth-of-type(14) {
     animation-delay: 2.3s
 }
-*/
 
 .chart-container:first-of-type {
     margin-top: 0
@@ -875,6 +907,10 @@ header .change-theme small {
 
 .theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark h4, .theme-dark h5,
 .theme-dark a {
+    color: white;
+}
+
+.theme-dark button {
     color: white;
 }
 
