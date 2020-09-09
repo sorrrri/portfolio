@@ -29,7 +29,7 @@ function countdown(elementName, minutes, seconds) {
     time = new Date(msLeft);
     hours = time.getUTCHours();
     mins = time.getUTCMinutes();
-    element.innerHTML = (hours ? hours + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
+    element.innerHTML = (hours ? twoDigits(hours) + ':' + twoDigits(mins) : twoDigits(mins)) + ':' + twoDigits(time.getUTCSeconds());
     setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
 
   }
