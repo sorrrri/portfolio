@@ -7,21 +7,16 @@ from news.models import News
 
 
 class NewsListMain(ListView):
+    template_name = 'news/main.html'
     model = News
-    paginate_by = 2
+    paginate_by = 3
 
 
-class NewsList(ListView):
-    template_name = 'news/news_list2.html'
+class NewsListView(ListView):
+    template_name = 'news/news_list.html'
     model = News
-    paginate_by = 2
+    paginate_by = 10
 
 
-# def news_list(request):
-#     news = News.objects.all()
-#     return render(request, 'news/news_list2.html', {'news': news})
-#     paginate_by = 2
-
-
-class NewsDetail(DetailView):
+class NewsDetailView(DetailView):
     model = News

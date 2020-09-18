@@ -1,14 +1,48 @@
-{% extends 'main.html' %}
+{% extends 'base_news.html' %}
+{% block title %} 공지사항 {% endblock %}
 
 {% block content %}
     {% for news in object_list %}
-        <div class="list">
+        <a class="list" href="{% url 'news_detail' pk=news.id %}">
             <div class="list-title">
                 <span>{{ news.title }}</span>
-                <span>{{ news.author.username }}</span>
+                <span class="username">{{ news.author.username }}</span>
             </div>
-            <div class="content">{{ news.content }}</div>
-        </div>
+        </a>
     {% endfor %}
+    {% block pagination %}
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a href="{% url 'news_list' %}?page={{ page_obj.previous_page_number }}" tabindex="-1"
+                           class="page-link">Previous</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a href="#" class="page-link" tabindex="-1">Previous</a>
+                    </li>
+                {% endif %}
+
+                {% for object in page_obj.paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == forloop.counter %} disabled{% endif %}">
+                        <a href="{{ request.path }}?page={{ forloop.counter }}"
+                           class="page-link">{{ forloop.counter }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a href="{% url 'news_list' %}?page={{ page_obj.next_page_number }}" class="page-link">Next</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a href="#" class="page-link">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    {% endblock %}
+
 
 {% endblock %}

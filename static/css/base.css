@@ -112,8 +112,10 @@ a {
 a:hover,
 a:focus {
     color: var(--color-link-hover);
-    outline: none;
-    text-decoration: underline;
+}
+
+svg {
+    fill: var(--brightGray);
 }
 
 .js-image {
