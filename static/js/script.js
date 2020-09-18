@@ -213,32 +213,31 @@ $(function () {
 
     $(window).scroll(function () {
         fadeIn.forEach(function (item) {
-            if ($(this).scrollTop() >= $(item).offset().top - 400) {
+            if ($(this).scrollTop() >= $(item).offset().top - (window.innerHeight / 2 + 200)) {
                 $(item).css('opacity', '1')
             }
         });
     });
 
     fadeIn.forEach(function (item) {
-        if ($(this).scrollTop() >= $(item).offset().top - 400) {
+        if ($(this).scrollTop() >= $(item).offset().top - (window.innerHeight / 2 + 200)) {
             $(item).css('opacity', '1')
         }
     });
 
 
     $(window).scroll(function () {
-        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-            var contactChild = document.querySelector('#contact > *');
-            contactChild.style.opacity = "1"
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            $('section > *').css('opacity', '1')
         }
     });
 
-    const contactTitle = document.querySelector("#contact h2")
+/*    const contactTitle = document.querySelector("#contact h2")
     const contactContent = document.querySelector("#contact ul")
 
     if (contactTitle.style.opacity = "1") {
         contactContent.style.opacity = "1"
-    }
+    }*/
 });
 
 
