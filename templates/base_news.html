@@ -56,11 +56,11 @@
             </svg>
         </div>
         <ul class="menu active">
-            <li><a href="#products">products</a></li>
-            <li><a href="#products">products</a></li>
-            <li><a href="#members">members</a></li>
-            <li><a href="#partners">partners</a></li>
-            <li><a href="#contact">contact</a></li>
+            {% if user.is_authenticated %}
+            <li>
+                <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
+            </li>
+            {% endif %}
         </ul>
     </header>
     <div data-scroll>

@@ -217,14 +217,14 @@ $(function () {
         }
 
         fadeIn.forEach(function (item) {
-            if ($(this).scrollTop() >= $(item).offset().top - (window.innerHeight / 2 + (window.innerHeight / 2 / 2))) {
+            if ($(this).scrollTop() >= $(item).offset().top - (window.innerHeight * 0.9)) {
                 $(item).css('opacity', '1')
             }
         });
     });
 
     fadeIn.forEach(function (item) {
-        if ($(this).scrollTop() >= $(item).offset().top - (window.innerHeight / 2 + (window.innerHeight / 2 / 2))) {
+        if ($(this).scrollTop() >= $(item).offset().top - (window.innerHeight * 0.9)) {
             $(item).css('opacity', '1')
         }
     });

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'news'
+    'news',
+    'common',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,9 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 STATIC_ROOT = os.path.join(ROOT_DIR, 'static_root')
+
+LOGIN_URL = '/common/login/'
+LOGIN_REDIRECT_URL = '/news_create/'
+
+LOGOUT_REDIRECT_URL = '/'
+

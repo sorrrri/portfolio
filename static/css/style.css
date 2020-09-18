@@ -1,3 +1,20 @@
+input[type="text"],
+textarea {
+        background: rgba(255,255,255,.1);
+    color: white
+}
+
+.ico-create {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1rem;
+    position: absolute;
+    right: 9vw;
+    top: 10rem;
+    z-index: 15;
+}
+
 .ico-more {
     display: flex;
     align-items: center;
