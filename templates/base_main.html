@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="버드온 BUD.on">
+    <meta property="og:description" content="We discover hidden information in the medical data.">
+    <meta property="og:url" content="http://www.bud-on.com">
+    <meta name="description" content="We discover hidden information in the medical data.">
+    <title>버드온 BUD.on</title>
+
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'favicon/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <script>
+        document.documentElement.className = "js";
+        var supportsCssVars = function () {
+            var e, t = document.createElement("style");
+            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
+        };
+        supportsCssVars() || alert("Please view this in a modern browser that supports CSS Variables.");
+    </script>
+</head>
+<body class="loading">
+<main>
+    <header>
+        <a href="/">
+            <div class="logo"></div>
+        </a>
+        <div class="ico-menu" onclick="this.classList.toggle('active')">
+            <svg viewBox="0 0 100 100" width="80">
+                <path class="line top"
+                      d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"/>
+                <path class="line middle" d="m 30,50 h 40"/>
+                <path class="line bottom"
+                      d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"/>
+            </svg>
+        </div>
+        <ul class="menu active">
+            <li><a href="#news">news</a></li>
+            <li><a href="#products">products</a></li>
+            <li><a href="#members">members</a></li>
+            <li><a href="#partners">partners</a></li>
+            <li><a href="#contact">contact</a></li>
+            {% if user.is_authenticated %}
+            <li>
+                <a class="nav-link" href="{% url 'common:logout' %}">{{ user.username }} (로그아웃)</a>
+            </li>
+            {% endif %}
+        </ul>
+    </header>
+    <div data-scroll>
+        <div class="content">
+            <section id="intro">
+                <div class="image-slider">
+                    <div class="slide slide1"></div>
+                    <div class="slide slide2"></div>
+                    <div class="slide slide3"></div>
+                    <div class="slide slide4"></div>
+                    <div class="slide slide5"></div>
+                    <div class="slide slide6"></div>
+                </div>
+                <h1>BUD.on</h1>
+                <p class="text-typing">
+                    We discover hidden information in the medical data. <span> </span>
+                </p>
+                <p class="text">
+                    We discover hidden information<br>in the medical data. <span> </span>
+                </p>
+            </section>
+
+            <section id="news">
+                <h2 class="title" data-count="03">News</h2>
+                {% block content %}
+                {% endblock %}
+            </section>
+
+            <section id="products">
+                <h2 class="title" data-count="01">Product</h2>
+                <div class="flex-wrapper">
+                    <div class="product-container open-modal-aibis">
+                        <div class="product">
+                            <div class="text">
+                                <h3>AIBiS.on:<br>AI Biosignal Solution</h3>
+                                <p>생체신호(심전도, 뇌파 등)를 수집할 수 있는 플랫폼</p>
+                            </div>
+                            <ul>
+                                <li>중환자실, 수술실, 응급실 등에서 수집되는 생체신호(심전도, 뇌파 등)를 수집할 수 있는 플랫폼입니다.</li>
+                                <li>GE, Philips, Nihon Koden 사의 환자 모니터 기기와 연동 가능합니다. (타기종 모니터도 추가 개발 가능)</li>
+                                <li>고밀도의 대용량 데이터 수집 인프라로, 생체신호 기반 인공지능 연구를 지원합니다.</li>
+                                <li>아주대 생체신호 데이터 수집 현황: http://52.78.14.28:3000/</li>
+                                <li>생체신호 데이터 뷰어: http://52.78.14.28:8080/</li>
+                                <li>(인공지능 기반 SaMD*가 탑재된 버전은 현재 개발 중입니다)<br>
+                                    *SaMD: Software as a Medical Device
+                                </li>
+                            </ul>
+                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="product-container open-modal-ptod">
+                        <div class="product">
+                            <div class="text">
+                                <h3>PtoD.on:<br>Pixel Image to Data Solotion</h3>
+                                <p>이미지 형태의 자료에서 유용한 데이터를 추출해주는 솔루션</p>
+                            </div>
+                            <ul>
+                                <li>이미지 형태의 자료에서 유용한 데이터를 추출해주는 솔루션입니다.</li>
+                                <li>병원 전자의무기록 내에는 이차 활용이 불가능한 스캔된 보고서 형태의 자료들이 많이 존재합니다. (청력검사, NST 검사, 폐기능 검사 등)
+                                </li>
+                                <li>인공지능 기술을 이용하여 이미지 형태의 자료에서 유용한 정보를 인식하고 이를 데이터로 추출하게 됩니다.</li>
+                                <li>본 솔루션을 통해 보유 중인 데이터의 가치를 업그레이드 시킬 수 있습니다.</li>
+                                <li>현재 개발 완료된 적용 사례</li>
+                                <ul>
+                                    <li>청력검사 보고서 내 그래프의 수치화</li>
+                                    <li>NST 검사 결과지의 파형 정보 추출 및 전산화</li>
+                                </ul>
+                            </ul>
+                            <svg class="more" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="members">
+                <h2 class="title" data-count="02">Members</h2>
+                <div class="member">
+                    <div class="image d-yoon">
+                    </div>
+                    <div class="text">
+                        <h3>Dukyong Yoon</h3>
+                        <h4>MD, PhD CEO</h4>
+                        <ul>
+                            <li>
+                                <h5>Assistant professor</h5>
+                                <span class="description">
+                                    Department of Biomedical informatics, Ajou University School of Medicine, Suwon, Korea (Mar/2016 – present)
+                                </span>
+                            </li>
+                            <li>
+                                <h5>Assistant professor</h5>
+                                <span class="description">
+                                    Department of Artificial Intelligent and Data Science, Ajou University, Suwon, Korea (Sep/2017 – present)
+                                </span>
+                            </li>
+                            <li>
+                                <h5>Board Member</h5>
+                                <span class="description">
+                                    The Korean Society of Medical Informatics (Feb/2016 – present)
+                                </span>
+                            </li>
+                            <li>
+                                <h5>Board Member</h5>
+                                <span class="description">
+                                    The Korean Society of Health Informatics and Statistics (Mar/2019 – present)
+                                </span>
+                            </li>
+                            <li>
+                                <h5>Vice Chairman</h5>
+                                <span class="description">
+                                    Korean Society of Medical Big-data Research (Mar/2019 – present)
+                                </span>
+                            </li>
+                            <li>
+                                <h5>Chief Executive Officer</h5>
+                                <span class="description">
+                                    BUD.on (Nov/2018 – present)
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="partners">
+                <h2 class="title" data-count="04">Partners</h2>
+                <ul>
+                    <li><img src="{% static 'images/partners/ajou_medical_wh.png' %}" alt=""></li>
+                    <li><img src="{% static 'images/partners/cmi_lab_wh.png' %}" alt=""></li>
+                    <li><img src="{% static 'images/partners/wonkwang_wh.png' %}" alt=""></li>
+                    <li><img src="{% static 'images/partners/ge_healthcare_wh.png' %}" alt=""></li>
+                    <li><img src="{% static 'images/partners/nihonkohden_wh.png' %}" alt=""></li>
+                </ul>
+            </section>
+
+
+            <section id="contact">
+                <h2 class="title" data-count="05">Contact</h2>
+                <ul>
+                    <li>
+                        <h3>phone</h3>
+                        <p>+82 31 219 4476</p>
+                    </li>
+                    <li>
+                        <h3>address</h3>
+                        <p>206, Worldcup-ro,
+                            Yeongtong-gu, Suwon-si,
+                            Gyeonggi-do,
+                            Republic of Korea
+                        </p>
+                    </li>
+                    <li>
+                        <h3>e-mail</h3>
+                        <p><a href="mailto:d.yoon.ajou@gmail.com">d.yoon.ajou@gmail.com</a></p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
