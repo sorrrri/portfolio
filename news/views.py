@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 
@@ -37,3 +37,15 @@ class NewsListView(ListView):
 
 class NewsDetailView(DetailView):
     model = News
+
+
+class NewsUpdateView(UpdateView):
+    model = News
+    fields = ['title', 'content']
+    template_name_suffix = '_update'
+
+
+class NewsDeleteView(DeleteView):
+    model = News
+    success_url = reverse_lazy('list')
+

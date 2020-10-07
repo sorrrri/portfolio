@@ -9,6 +9,13 @@
         <h3 class="list-title">{{ news.title }}</h3>
         <div class="content">{{ news.content|linebreaks }}</div>
     </div>
-    <button onclick="location.href='{% url 'news_list' %}'">목록으로</button>
+    <div class="button-container">
+        {% if user.is_active %}
+        <button onclick="location.href='{% url 'news_update' pk=news.id %}'">수정</button>
+        <button onclick="location.href='{% url 'news_delete' pk=news.id %}'">삭제</button>
+
+        {% endif %}
+        <button onclick="location.href='{% url 'news_list' %}'">목록으로</button>
+    </div>
 </section>
 {% endblock %}}
