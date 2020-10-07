@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>코로나 현황판</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="src/js/chart.js"></script>
+    <link rel="stylesheet" href="src/css/base.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+<div class="container">
+    <aside>
+        <div class="logo">logo</div>
+        <div class="login">login</div>
+        <ul class="menu">
+            <li>
+                <a href="">환자 현황</a>
+            </li>
+            <li>
+                <a href="">환자 정보</a>
+            </li>
+            <li>
+                <a href="">환자 입력</a>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <header>
+            <ul class="sub-menu">
+                <li>
+                    <a class="active" href="#all">전체병원</a>
+                </li>
+                <li>
+                    <a href="#suwon">수원병원</a>
+                </li>
+                <li>
+                    <a href="#ansung">안성병원</a>
+                </li>
+                <li>
+                    <a href="#euijungbu">의정부병원</a>
+                </li>
+                <li>
+                    <a href="#pocheon">포천병원</a>
+                </li>
+                <li>
+                    <a href="#paju">파주병원</a>
+                </li>
+                <li>
+                    <a href="#icheon">이천병원</a>
+                </li>
+                <li>
+                    <a href="#ajou">아주대병원</a>
+                </li>
+            </ul>
+        </header>
+        <section id="all">
+            <div class="row">
+                <div class="count count-current">
+                    <h1>1</h1>
+                    <small>현재 시행중인 임상시험 건수</small>
+                </div>
+                <div class="count count-all">
+                    <h1>0</h1>
+                    <small>누적 임상시험 건수</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="chart-container">
+                    <div class="chart" id="chart-age"></div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart" id="chart-gender"></div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart" id="chart-severity"></div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart" id="chart-treatment"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="chart-container">
+                    <div class="chart" id="chart-days"></div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart" id="chart-current"></div>
+                </div>
+            </div>
+        </section>
+        <section id="suwon">
+
+        </section>
+        <section id="ansung">
+
+        </section>
+        <section id="euijungbu">
+
+        </section>
+        <section id="pocheon">
+
+        </section>
+        <section id="paju">
+
+        </section>
+        <section id="icheon">
+
+        </section>
+        <section id="ajou">
+
+        </section>
+    </main>
+</div>
+<script src="src/js/script.js"></script>
+</body>
+</html>
