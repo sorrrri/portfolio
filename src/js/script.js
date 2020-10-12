@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (subMenu) {
     subMenu.addEventListener('click', activeClass)
-    subMenu.addEventListener('mouseover', () => {
+    /*subMenu.addEventListener('mouseover', () => {
       document.getElementsByClassName('container').style.backgroundPosition = "100% 0"
-    })
+    })*/
   }
 })

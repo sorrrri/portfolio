@@ -1,6 +1,5 @@
 .container {
     background-size: 200%;
-    background-image: linear-gradient(to bottom left, lightseagreen 0%, darkslategray 80%, darkslategray 100%);
     transition: 600ms ease;
 }
 
@@ -12,6 +11,9 @@ aside {
 aside .logo {
     display: flex;
     justify-content: center;
+    font-weight: bold;
+    margin: 1rem 0;
+    font-size: 1.2rem;
 }
 
 aside .login {
@@ -22,6 +24,7 @@ aside .login {
 aside .menu {
     display: flex;
     flex-direction: column;
+    margin-top: 2rem
 }
 
 aside .menu li {
@@ -32,25 +35,48 @@ aside .menu li {
 
 aside .menu a {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: rgba(255,255,255,.1);
-    padding: .4rem .8rem;
+    padding: .4rem 0;
     border-radius: .3rem;
-    color: white;
+}
+
+aside .menu a > *:first-child {
+    fill: #aaacbf;
+    background: #eeeff4;
+    padding: .5rem;
+    box-sizing: content-box;
+    border-radius: .3rem;
+    transition: .2s all;
+}
+
+aside .menu a > *:last-child {
+    fill: rgba(0,0,0,.2);
+}
+
+aside .menu a:hover > *:first-child,
+aside .menu a.active > *:first-child {
+    fill: var(--primaryColor);
+    background: #ddf3f3;
 }
 
 main {
     flex-direction: column;
-    margin: .5rem .5rem .5rem 0;
     background-color: #F3F6F9;
     border-radius: .5rem;
 }
 
+main header {
+    padding: 1rem;
+}
+
 .sub-menu {
-    padding: .5rem;
     flex: 1 1 auto;
     text-align: center;
+    background: white;
+    border-radius: .3rem;
 }
 
 .sub-menu li {
@@ -61,7 +87,6 @@ main {
 .sub-menu a {
     justify-content: center;
     border-radius: .2rem;
-    background-color: #E3E6E9;
     transition: background-color .2s;
 }
 
@@ -93,7 +118,7 @@ section:target {
 
 .row {
     display: flex;
-    padding: .5rem;
+    padding: 0 .5rem;
     width: 100%;
     flex: 1 1 auto
 }
@@ -108,17 +133,40 @@ section:target {
 }
 
 .count {
-    flex: 1 1 auto;
+    flex: 1 1 50%;
     border-radius: .3rem;
-    padding: 1rem;
+    padding: .5rem 1rem;
     margin: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: white;
     transition: background-color .2s;
+}
+
+.count-current {
+    background-color: #938fd5;
+    background-image: linear-gradient(to right, #938fd5, #bbb8e4);
+}
+
+.count-all {
+    background-color: #8ea6db;
+    background-image: linear-gradient(to right, #8ea6db, #b8c9ef);
+}
+
+.count h1 {
+    color: rgba(0,0,0,.3);
+    font-size: 1.5rem;
+}
+
+.count small {
+    color: white;
 }
 
 .chart-container {
     /*height: 30vh;
     max-height: 250px;*/
+    background-color: white;
     flex: 1 1 auto;
     display: flex;
     border-radius: .3rem;

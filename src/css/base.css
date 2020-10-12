@@ -36,7 +36,7 @@
 }
 
 :root {
-    --primaryColor: #519188;
+    --primaryColor: #07babd;
     --secondaryColor: #3b9cff;
     --darkmodePrimaryColor: #27292d;
     --darkmodeSecondaryColor: #373a46;
@@ -59,7 +59,7 @@ body {
     width: 100%;
     overflow-x: hidden;
     text-rendering: optimizeLegibility;
-    font: 14px/1.5 'Poppins', 'Dotum';
+    font: 14px/1.5 'Poppins', 'NanumSquare';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -163,7 +163,8 @@ img {
 }
 
 h1, h2, h3, h4, h5, p {
-    margin: 0
+    margin: 0;
+    line-height: 1.2;
 }
 
 small {
@@ -308,7 +309,6 @@ aside ul {
 
 aside li {
     flex: 1 1 auto;
-    margin-bottom: 1rem;
 }
 
 .flex-wrapper {
