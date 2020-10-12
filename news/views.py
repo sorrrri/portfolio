@@ -43,9 +43,10 @@ class NewsUpdateView(UpdateView):
     model = News
     fields = ['title', 'content']
     template_name_suffix = '_update'
+    success_url = reverse_lazy('news_list')
 
 
 class NewsDeleteView(DeleteView):
     model = News
-    success_url = reverse_lazy('list')
+    success_url = reverse_lazy('news_list')
 
