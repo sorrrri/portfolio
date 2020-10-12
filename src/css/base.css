@@ -184,8 +184,6 @@ fieldset {
 }
 
 legend {
-    text-align: center;
-    color: #DDDDDD;
 }
 
 input {
@@ -596,7 +594,7 @@ select {
     display: flex;
     flex: 1 1 auto;
     -webkit-appearance: none;
-    padding: .7rem;
+    padding: .5rem;
     height: auto;
     border: 0;
     font: 15px/1.5 'NanumSquare';
@@ -623,7 +621,7 @@ select::-ms-expand {
     content: "";
     position: absolute;
     top: 50%;
-    right: 1rem;
+    right: .7rem;
     width: 0;
     height: 0;
     margin-top: -6px;
@@ -647,7 +645,7 @@ select::-ms-expand {
     display: flex;
     align-items: center;
     text-align: center;
-    padding: .7rem;
+    padding: .5rem;
     background: white;
     border-radius: .5rem;
     margin: .5rem 0;

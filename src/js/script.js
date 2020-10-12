@@ -13,8 +13,8 @@ document.documentElement.addEventListener('touchstart', function (event) {
 document.addEventListener('DOMContentLoaded', function () {
   const subMenu = document.querySelector('.sub-menu')
 
-  if (document.location.hash == "" || document.location.hash == "#")
-    document.location.hash = "#all";
+  /*if (document.location.hash == "" || document.location.hash == "#")
+    document.location.hash = "#all";*/
 
   function activeClass(e) {
     var elems = document.querySelectorAll(".active");

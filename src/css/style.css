@@ -70,6 +70,7 @@ main {
 
 main header {
     padding: 1rem;
+    flex-direction: column;
 }
 
 .sub-menu {
@@ -99,6 +100,7 @@ main header {
 
 section {
     opacity: 0;
+    padding: 1rem;
     flex: 1 1 auto;
     align-items: center;
     overflow-x: hidden;
@@ -108,7 +110,7 @@ section {
     transition: display .2s;
 }
 
-section:not(:target) {
+.dashboard section:not(:target) {
     display: none;
 }
 
@@ -118,7 +120,6 @@ section:target {
 
 .row {
     display: flex;
-    padding: 0 .5rem;
     width: 100%;
     flex: 1 1 auto
 }
@@ -135,8 +136,8 @@ section:target {
 .count {
     flex: 1 1 50%;
     border-radius: .3rem;
-    padding: .5rem 1rem;
-    margin: .5rem;
+    padding: .5rem .5rem .5rem 1rem;
+    margin: .25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -156,7 +157,14 @@ section:target {
 
 .count h1 {
     color: rgba(0,0,0,.3);
-    font-size: 1.5rem;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 .5rem;
+    background: rgba(255,255,255,0.3);
+    border-radius: .3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .count small {
@@ -170,7 +178,7 @@ section:target {
     flex: 1 1 auto;
     display: flex;
     border-radius: .3rem;
-    margin: .5rem;
+    margin: .25rem;
 }
 
 .chart {
@@ -182,4 +190,66 @@ section:target {
 .chart [dir="ltr"] {
     width: 100% !important;
     height: 100% !important;
+}
+
+
+/* ============================================================
+   Patient List
+   ============================================================ */
+.filters {
+    display: flex;
+    background-color: white;
+    border-radius: .3rem;
+    padding: .5rem;
+    margin: 1rem 0
+}
+
+.filters ul {
+    flex: 1 1 auto;
+    display: flex;
+    margin:0 .25rem 0 -.25rem
+}
+.filters li {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0 .25rem
+}
+
+.filters label {
+    font-size: 12px;
+}
+
+.filters button {
+    flex: 0 0 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters button svg {
+    fill: white
+}
+
+.table .row li {
+    flex: 1 1 7.692%;
+    display: flex;
+    justify-content: center;
+}
+
+.table span {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    border-radius: 50%;
+}
+
+.table .row .orange {
+    color: orange;
+    background-color: #fff1d6;
+}
+
+.table .row .red {
+    color: red;
+    background-color: #ffdfdf;
 }
