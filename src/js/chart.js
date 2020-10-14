@@ -26,6 +26,11 @@ function drawAgeChart() {
     pieHole: 0.4,
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
+    animation:{
+      duration: 1000,
+      easing: 'out',
+      startup: true
+    },
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart-age'));
@@ -45,6 +50,11 @@ function drawGenderChart() {
     pieHole: 0.4,
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
+    animation:{
+      duration: 1200,
+      easing: 'out',
+      startup: true
+    },
     /*chartArea: {width: '90%',}
     legend: 'none',
     pieSliceText: 'label',*/
@@ -67,6 +77,11 @@ function drawSeverityChart() {
     title: '중증도 비율',
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
+    animation:{
+      duration: 1400,
+      easing: 'out',
+      startup: true
+    },
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart-severity'));
@@ -86,6 +101,11 @@ function drawTreatmentChart() {
     title: '치료 현황',
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
+    animation:{
+      duration: 1600,
+      easing: 'out',
+      startup: true
+    },
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart-treatment'));
@@ -118,6 +138,11 @@ function drawDaysChart() {
       format: 'yyyy.MM.dd',
     },
     backgroundColor: 'transparent',
+    animation:{
+      duration: 800,
+      easing: 'out',
+      startup: true
+    },
   };
 
   var chart = new google.visualization.AreaChart(document.getElementById('chart-days'));
@@ -150,6 +175,11 @@ function drawCurrentChart() {
       format: 'yyyy.MM.dd',
     },
     backgroundColor: 'transparent',
+    animation:{
+      duration: 1000,
+      easing: 'out',
+      startup: true
+    },
   };
 
   var chart = new google.visualization.ColumnChart(document.getElementById('chart-current'));
