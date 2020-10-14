@@ -172,7 +172,8 @@ small {
     line-height: 1.2;
 }
 
-.active {
+.active,
+.active-sub-menu {
     opacity: 1 !important;
     visibility: visible !important;
     display: flex !important;
@@ -294,7 +295,6 @@ main {
 }
 
 aside {
-    padding: 1rem;
     flex-grow: 0;
     flex-shrink: 0;
     flex-direction: column;
@@ -538,7 +538,7 @@ input[type="radio"] {
 
 input[type="radio"] + label {
     cursor: pointer;
-    margin-right: .5rem
+    margin-right: 1rem
 }
 
 input[type="radio"] + label:before {
@@ -556,8 +556,8 @@ input[type="radio"] + label:before {
 }
 
 input[type="radio"]:hover + label:before, input[type="radio"]:checked + label:before {
-    border-color: #2869bd !important;
-    background-color: #2869bd !important;
+    border-color: var(--primaryColor) !important;
+    background-color: var(--primaryColor) !important;
     box-shadow: inset 0 0 0 2px #DDD;
 }
 
@@ -593,14 +593,16 @@ input[type="radio"] + label:empty:before {
 select {
     display: flex;
     flex: 1 1 auto;
+    width: 100%;
     -webkit-appearance: none;
-    padding: .5rem;
+    padding: .3rem 2rem .3rem .5rem;
     height: auto;
     border: 0;
     font: 15px/1.5 'NanumSquare';
     background-color: white;
     outline: 0;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 select::-ms-expand {
@@ -613,7 +615,6 @@ select::-ms-expand {
     box-sizing: border-box;
     border-radius: .3rem;
     background-color: white;
-    padding-right: 2rem;
     border: 1px solid #EEE
 }
 
@@ -636,7 +637,6 @@ select::-ms-expand {
 /*table*/
 .table {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto 1rem;
 }
 
@@ -645,7 +645,7 @@ select::-ms-expand {
     display: flex;
     align-items: center;
     text-align: center;
-    padding: .5rem;
+    padding: .5rem 0;
     background: white;
     border-radius: .5rem;
     margin: .5rem 0;
@@ -664,7 +664,7 @@ select::-ms-expand {
 .table .th {
     border-radius: 0;
     background: transparent !important;
-    padding-bottom: 0;
+    padding: 0;
 }
 
 .table .th span {

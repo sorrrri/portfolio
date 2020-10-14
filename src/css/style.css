@@ -1,11 +1,15 @@
 .container {
     background-size: 200%;
+    padding: .7rem;
+    background: linear-gradient(135deg, #92a8d0, #c9d3e6);
     transition: 600ms ease;
 }
 
 
 aside {
-    flex-basis: 200px
+    flex-basis: 200px;
+    background: rgba(255,255,255,.8);
+    border-radius: .5rem 0 0 .5rem;
 }
 
 aside .logo {
@@ -40,7 +44,10 @@ aside .menu a {
     width: 100%;
     background-color: rgba(255,255,255,.1);
     padding: .4rem 0;
-    border-radius: .3rem;
+}
+
+aside .menu a.active {
+    background-color: rgba(255,255,255,.9)
 }
 
 aside .menu a > *:first-child {
@@ -49,11 +56,13 @@ aside .menu a > *:first-child {
     padding: .5rem;
     box-sizing: content-box;
     border-radius: .3rem;
+    margin-left: 1rem;
     transition: .2s all;
 }
 
 aside .menu a > *:last-child {
     fill: rgba(0,0,0,.2);
+    margin-right: .5rem;
 }
 
 aside .menu a:hover > *:first-child,
@@ -63,13 +72,13 @@ aside .menu a.active > *:first-child {
 }
 
 main {
+    border-radius: 0 .5rem .5rem 0;
     flex-direction: column;
-    background-color: #F3F6F9;
-    border-radius: .5rem;
+    background: rgba(255,255,255,.9);
 }
 
 main header {
-    padding: 1rem;
+    padding: 1.3rem 1rem 1rem;
     flex-direction: column;
 }
 
@@ -82,7 +91,7 @@ main header {
 
 .sub-menu li {
     flex: 1 1 auto;
-    margin: .5rem;
+    margin: .4rem;
 }
 
 .sub-menu a {
@@ -92,11 +101,10 @@ main header {
 }
 
 .sub-menu a:hover,
-.sub-menu .active {
+.sub-menu .active-sub-menu {
     background-color: var(--primaryColor);
     color: white;
 }
-
 
 section {
     opacity: 0;
@@ -146,21 +154,18 @@ section:target {
 }
 
 .count-current {
-    background-color: #938fd5;
-    background-image: linear-gradient(to right, #938fd5, #bbb8e4);
+    background-color: #cccfd7;
 }
 
 .count-all {
-    background-color: #8ea6db;
-    background-image: linear-gradient(to right, #8ea6db, #b8c9ef);
+    background-color: #979aa3;
 }
 
 .count h1 {
-    color: rgba(0,0,0,.3);
+    color: white;
     min-width: 2rem;
     height: 2rem;
     padding: 0 .5rem;
-    background: rgba(255,255,255,0.3);
     border-radius: .3rem;
     display: flex;
     align-items: center;
@@ -198,10 +203,10 @@ section:target {
    ============================================================ */
 .filters {
     display: flex;
-    background-color: white;
+    background-color: #5a8cd7;
     border-radius: .3rem;
     padding: .5rem;
-    margin: 1rem 0
+    margin-top: 1rem
 }
 
 .filters ul {
@@ -218,6 +223,21 @@ section:target {
 
 .filters label {
     font-size: 12px;
+    color: #ddd;
+}
+
+.filters .selectbox {
+    background-color: rgba(0,0,0,.2);
+    border-width: 0;
+}
+
+.filters .selectbox::before {
+    border-color: white
+}
+
+.filters select {
+    background-color: transparent;
+    color: white;
 }
 
 .filters button {
@@ -232,7 +252,7 @@ section:target {
 }
 
 .table .row li {
-    flex: 1 1 7.692%;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
 }
@@ -252,4 +272,105 @@ section:target {
 .table .row .red {
     color: red;
     background-color: #ffdfdf;
+}
+
+.table .btn-edit {
+    background-color: #EEEEEE;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2rem;
+}
+
+.table .btn-edit svg {
+    fill: #566d80;
+}
+
+.patients_list .table .row li:nth-of-type(1) {
+    width: 8%;
+}
+
+.patients_list .table .row li:nth-of-type(2) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(3) {
+    width: 8.5%;
+}
+
+.patients_list .table .row li:nth-of-type(4) {
+    width: 8.5%;
+}
+
+.patients_list .table .row li:nth-of-type(5) {
+    width: 9%;
+}
+
+.patients_list .table .row li:nth-of-type(6) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(7) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(8) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(9) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(10) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(11) {
+    width: 7%;
+}
+
+.patients_list .table .row li:nth-of-type(12) {
+    width: 10%;
+}
+
+.patients_list .table .row li:nth-of-type(13) {
+    width: 7%;
+}
+
+
+/* ============================================================
+   Patient Add
+   ============================================================ */
+.patient_add header {
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+}
+
+.input-title {
+    flex: 0 0 120px;
+    color: slategray;
+}
+
+.input-select {
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.datepicker {
+    border: 1px solid #EEE
 }

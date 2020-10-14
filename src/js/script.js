@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
     document.location.hash = "#all";*/
 
   function activeClass(e) {
-    var elems = document.querySelectorAll(".active");
+    var elems = document.querySelectorAll(".active-sub-menu");
 
     Array.from(elems).forEach(el => {
-      el.classList.remove('active');
+      el.classList.remove('active-sub-menu');
     })
     // mark as active selected menu item
-    e.target.classList.add("active");
+    e.target.classList.add("active-sub-menu");
   }
 
   if (subMenu) {
@@ -33,3 +33,5 @@ document.addEventListener('DOMContentLoaded', function () {
     })*/
   }
 })
+
+

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>코로나 현황판</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="src/js/chart.js"></script>
+    <link rel="stylesheet" href="src/css/base.css">
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
+          changeMonth: true,
+          changeYear: true
+        });
+      });
+    </script>
+</head>
+<body>
+<div class="container">
+    <aside>
+        <div class="logo">logo</div>
+        <div class="login">login</div>
+        <ul class="menu">
+            <li>
+                <a href="index.html#all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    <span>환자 현황</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="patient_list.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    <span>환자 정보</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="active" href="patient_add.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                    <span>환자 입력</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="patient_add">
+        <header>
+            <h3>환자 정보</h3>
+            <button>등록</button>
+        </header>
+        <section>
+            <div class="inputs">
+                <div class="input-title">
+                    병원
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-hospital" id="suwon">
+                        <label for="suwon">수원병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="ansung">
+                        <label for="ansung">안성병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="euijungbu">
+                        <label for="euijungbu">의정부병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="pocheon">
+                        <label for="pocheon">포천병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="paju">
+                        <label for="paju">파주병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="icheon">
+                        <label for="icheon">이천병원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="ajou">
+                        <label for="ajou">아주대병원</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    확진날짜
+                </div>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="confirmationDate">
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    생년월일
+                </div>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="birthDate">
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    성별
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-gender" id="male">
+                        <label for="male">남성</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-hospital" id="female">
+                        <label for="female">여성</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    체온지수
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-temperature" id="temp_01">
+                        <label for="temp_01">0</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-temperature" id="temp_02">
+                        <label for="temp_02">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-temperature" id="temp_03">
+                        <label for="temp_03">2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    의식지수
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-consciousness" id="con_01">
+                        <label for="con_01">0</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-consciousness" id="con_02">
+                        <label for="con_02">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-consciousness" id="con_03">
+                        <label for="con_03">2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    심리지수
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-mentality" id="mental_01">
+                        <label for="mental_01">0</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-mentality" id="mental_02">
+                        <label for="mental_02">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-mentality" id="mental_03">
+                        <label for="mental_03">2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    심폐지수
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-cardiopulmonary" id="cardi_01">
+                        <label for="cardi_01">0</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-cardiopulmonary" id="cardi_02">
+                        <label for="cardi_02">1</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-cardiopulmonary" id="cardi_03">
+                        <label for="cardi_03">2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    중증도
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-severity" id="sev_01">
+                        <label for="sev_01">경증</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-severity" id="sev_02">
+                        <label for="sev_02">중등증</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-severity" id="sev_03">
+                        <label for="sev_03">중증</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    치료방법
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-treatment" id="treat_01">
+                        <label for="treat_01">생활치료소</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-treatment" id="treat_02">
+                        <label for="treat_02">통원치료</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-treatment" id="treat_03">
+                        <label for="treat_03">입원치료</label>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    퇴원날짜
+                </div>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="dischargeDate">
+                </div>
+            </div>
+            <div class="inputs">
+                <div class="input-title">
+                    입퇴원
+                </div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-status" id="status_01">
+                        <label for="status_01">입원중</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-status" id="status_02">
+                        <label for="status_02">전원</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-status" id="status_03">
+                        <label for="status_03">사망</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-status" id="status_04">
+                        <label for="status_04">완치퇴원</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<script src="src/js/script.js"></script>
+</body>
+</html>
