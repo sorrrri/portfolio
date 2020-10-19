@@ -133,15 +133,26 @@ $('.dark-light').click(function () {
     setMyCookie();
 })
 
-const goResult = document.querySelector('.go-result')
 
-if (goResult) {
-    goResult.addEventListener('click', () => {
+
+
+const btnResult = document.querySelector('.btn-result')
+const result = document.querySelector('.result ul')
+const refresh = document.querySelector('.refresh')
+
+if (btnResult) {
+    btnResult.addEventListener('click', validateForm)
+}
+
+if (refresh) {
+    refresh.addEventListener('click', () => {
+        btnResult.classList.add('show')
+        result.classList.remove('show')
     })
 }
 
-
-$('.button').click(function (e) {
-    e.preventDefault();
-    $(this).toggleClass('loading');
-});
+function validateForm(e) {
+    e.preventDefault()
+    btnResult.classList.remove('show')
+    result.classList.add('show')
+}

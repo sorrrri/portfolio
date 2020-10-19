@@ -43,27 +43,18 @@
             <section class="tutorial">
                 <div class="title">
                     <ul>
-                        <li>We use data from drugs that are suspected of causing QT prolongation in hospitals and those
-                            that do not. Inhibition of calcium, potassium, and sodium channels of these drugs was
-                            measured in vitro. Based on the measured values, we learn the effects of inhibition of each
-                            channel on QT prolongation in several machine learning models. The machine learning model
-                            used on this page is currently pilot tested.
+                        <li>병원에서 사용 중인 약물중 QT prolongation을 유발하는 것으로 의심되는 약물들과 그렇지 않은 약물들의 데이터를 사용. 해당 약물들의 calcium, potassium, sodium channel에 대한 inhibition을 in vitro 실험에서 측정. 측정된 값을 바탕으로 각 channel의 inhibition 정도가 QT prolongation에 미치는 영향을 여러 머신러닝 모델에 학습. 이 페이지에 사용된 머신러닝 모델은 현재 파일럿 테스트 중.
 
                         </li>
-                        <li>The appropriate concentration of the drug used in the channel inhibition experiment is based
-                            on the prescription of the drug currently being used in the hospital, and further
-                            experiments are conducted at concentrations corresponding to 0.1 times and 10 times. Before
-                            calculating the risk of QT prolongation for a specific drug, we recommend that you first
-                            contact the Korea Institute of Toxicology for the appropriate concentration of the drug.
-                        </li>
+                        <li>Channel inhibition 실험에 사용된 약물의 적정 농도는 현재 병원에서 사용 중인 약물의 처방을 기준으로 하고 0.1배,10배에 해당하는 농도에서도 추가로 실험. 특정 약물의 QT prolongation 위험도를 계산하기 전에 해당 약물의 적정 농도에 대해 안전성평가연구소에 먼저 의뢰를 하길 바람. 각 channel 별로 3가지 농도에서 실험한 결과를 입력하고 버튼을 누르면 0 또는 1의 결과를 표시하게 됨.</li>
                     </ul>
                 </div>
                 <ul>
-                    <li>Models used: RandomForest</li>
-                    <li>Concentration unit: uM, Inhibition unit: %</li>
-                    <li>con1/2/3: Concentration multiply 0.1/1/10</li>
-                    <li>Inhi1/2/3: Inhibition at con1/2/3</li>
-                    <li>Result: 0(No QT prolongation) ~ 1(QT prolongation)</li>
+                    <li>사용된 모델: RandomForest</li>
+                    <li>concentration 단위: uM, Inhibition 단위: %</li>
+                    <li>con1/2/3: 농도 0.1/1/10배</li>
+                    <li>Inhi1/2/3: con1/2/3에서 Inhibition</li>
+                    <li>result: 0(qt prolongation 없음) ~ 1(QT prolongation 있음)</li>
                 </ul>
             </section>
             <form action="" name="experimentForm">

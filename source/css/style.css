@@ -1,5 +1,5 @@
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 header .language {
@@ -160,14 +160,15 @@ footer .partners.dark li.logo-cmi {
 }
 
 .content .title {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .content .title h1 {
     font: normal 1.7rem/1 Raleway;
-    margin-bottom: .5rem;
+    margin-bottom: .2rem;
     color: #31517b
 }
 
@@ -216,7 +217,6 @@ section[class*="tab-content"] {
 .table {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto 3rem;
     box-sizing: border-box;
 }
 
@@ -329,7 +329,7 @@ section[class*="tab-content"] {
 .search {
     display: flex;
     position: relative;
-    flex: 0 0 50%;
+    flex: 0 0 45%;
 }
 
 .search svg {
@@ -348,7 +348,7 @@ section[class*="tab-content"] {
     background-color: white;
 }
 
-.tutorial section {
+.tutorial {
     font-family: "Nunito", "NanumSquare";
     background-color: white;
     padding: 2rem;
@@ -393,7 +393,7 @@ section[class*="tab-content"] {
 
 aside {
     flex: 0 0 18%;
-    min-width: 310px;
+    min-width: 280px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -492,6 +492,7 @@ aside legend {
 aside fieldset ul {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 aside fieldset li {
@@ -510,43 +511,22 @@ aside fieldset li {
     flex: 1 1 20%;
 }
 
-.preclinical .explanation {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0 2rem;
-    flex: 1 1 auto;
-}
-
-.preclinical .explanation li {
-    margin-bottom: 1rem;
-}
-
-.preclinical .explanation .table {
-    margin-bottom: 0;
-}
-
-.preclinical .explanation .table .row:last-of-type {
-    margin-bottom: 0;
-}
-
 .preclinical .experiment {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     background-color: white;
     border-radius: .5rem;
     padding: 2rem;
-    flex: 0 0 40%;
 }
 
 .preclinical fieldset {
+    flex: 1 1 50%;
     display: flex;
     flex-direction: column;
     border: 1px solid #EEE;
     border-radius: .5rem;
     min-width: 64px;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .preclinical legend {
@@ -555,11 +535,12 @@ aside fieldset li {
 }
 
 .preclinical .experiment .row {
-    padding: .3rem
+    padding: 0 0 .3rem
 }
 
 .preclinical .experiment .th {
     padding: 0;
+    margin-bottom: 0;
 }
 
 .preclinical .experiment .row input {
@@ -568,11 +549,24 @@ aside fieldset li {
 }
 
 .preclinical .experiment .row span:first-of-type {
-    flex: 0 0 15%;
+    flex: 0 0 30px;
     justify-content: flex-end;
 }
 
-.preclinical .button {
+.preclinical .experiment .result {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preclinical .btn-result {
+    display: none;
+}
+
+.preclinical .btn-result.show {
+    display: flex;
+    justify-content: center;
     margin: 1rem auto;
     padding: 1rem;
     width: 50%;
@@ -581,64 +575,36 @@ aside fieldset li {
     transition-duration: 0.2s;
 }
 
+
+
+.preclinical .experiment .result ul.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preclinical .experiment .result ul {
+    display: none;
+}
+
 .preclinical .button:hover {
     opacity: .9;
 }
 
-.preclinical .button.load-btn .spinner,
-.preclinical .button.load-btn .text {
-    -moz-transition-duration: 0.5s;
-    -webkit-transition-duration: 0.5s;
-    -o-transition-duration: 0.5s;
-    transition-duration: 0.5s;
-}
-
-.preclinical .button.load-btn .spinner {
-    position: absolute;
-    top: -3rem;
-    left: 0px;
-    height: 0px;
-    width: 100%;
-    line-height: 3rem;
-    opacity: 0;
-}
-
-.preclinical .button.load-btn .spinner::before {
-    content: 'result:';
-    margin-right: .5rem;
-}
-
-.preclinical .button.load-btn .text {
-    position: relative;
-}
-
-.preclinical .button.load-btn.loading {
-    background: #EBEBEB;
-}
-
-.preclinical .button.load-btn.loading .spinner {
-    top: 0px;
-    opacity: 1;
-    color: #333;
-}
-
-.preclinical .button.load-btn.loading .text {
-    bottom: -3rem;
-    opacity: 0;
-}
-
-.preclinical .experiment .notice {
-
-}
-
-.preclinical .experiment .notice li {
+.preclinical .refresh {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+    padding: .3rem;
+    border-radius: .3rem;
+    background-color: lightsteelblue;
     display: flex;
+    justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
-
-.preclinical .experiment .notice li::before {
-    content: '-';
-    margin-right: .3rem;
+.preclinical .refresh svg {
+    fill: white;
 }
 
 @-webkit-keyframes upload {
@@ -937,7 +903,7 @@ aside fieldset li {
 }
 
 
-.dark-mode .tutorial section {
+.dark-mode .tutorial {
     background-color: #373a46;
 }
 
