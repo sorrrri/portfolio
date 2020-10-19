@@ -352,6 +352,7 @@ section[class*="tab-content"] {
     font-family: "Nunito", "NanumSquare";
     background-color: white;
     padding: 2rem;
+    border-radius: .5rem;
 }
 
 .tutorial .title {
