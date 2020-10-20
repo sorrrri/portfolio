@@ -42,12 +42,12 @@
             </div>
             <section class="tutorial">
                 <div class="title">
-                    <ul>
-                        <li>병원에서 사용 중인 약물중 QT prolongation을 유발하는 것으로 의심되는 약물들과 그렇지 않은 약물들의 데이터를 사용. 해당 약물들의 calcium, potassium, sodium channel에 대한 inhibition을 in vitro 실험에서 측정. 측정된 값을 바탕으로 각 channel의 inhibition 정도가 QT prolongation에 미치는 영향을 여러 머신러닝 모델에 학습. 이 페이지에 사용된 머신러닝 모델은 현재 파일럿 테스트 중.
-
-                        </li>
-                        <li>Channel inhibition 실험에 사용된 약물의 적정 농도는 현재 병원에서 사용 중인 약물의 처방을 기준으로 하고 0.1배,10배에 해당하는 농도에서도 추가로 실험. 특정 약물의 QT prolongation 위험도를 계산하기 전에 해당 약물의 적정 농도에 대해 안전성평가연구소에 먼저 의뢰를 하길 바람. 각 channel 별로 3가지 농도에서 실험한 결과를 입력하고 버튼을 누르면 0 또는 1의 결과를 표시하게 됨.</li>
-                    </ul>
+                    <p>병원에서 사용 중인 약물중 QT prolongation을 유발하는 것으로 의심되는 약물들과 그렇지 않은 약물들의 데이터를 사용. 해당 약물들의 calcium,
+                        potassium, sodium channel에 대한 inhibition을 in vitro 실험에서 측정. 측정된 값을 바탕으로 각 channel의 inhibition
+                        정도가 QT prolongation에 미치는 영향을 여러 머신러닝 모델에 학습. 이 페이지에 사용된 머신러닝 모델은 현재 파일럿 테스트 중.</p>
+                    <p>Channel inhibition 실험에 사용된 약물의 적정 농도는 현재 병원에서 사용 중인 약물의 처방을 기준으로 하고 0.1배,10배에 해당하는 농도에서도 추가로 실험.
+                        특정 약물의 QT prolongation 위험도를 계산하기 전에 해당 약물의 적정 농도에 대해 안전성평가연구소에 먼저 의뢰를 하길 바람. 각 channel 별로 3가지
+                        농도에서 실험한 결과를 입력하고 버튼을 누르면 0 또는 1의 결과를 표시하게 됨.</p>
                 </div>
                 <ul>
                     <li>사용된 모델: RandomForest</li>
@@ -118,6 +118,14 @@
         </div>
     </div>
 </div>
+
+<!-- Scroll back to top-->
+<div class="progress-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
+    </svg>
+</div>
+
 <script type="text/javascript" src="source/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="source/js/jquery.cookie.min.js"></script>
 <script type="text/javascript" src="source/js/cookies.js"></script>

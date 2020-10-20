@@ -365,11 +365,13 @@ section[class*="tab-content"] {
 }
 
 .tutorial .title p {
-    display: none;
+    margin-bottom: 2rem;
+    color: slategray;
 }
 
 .tutorial .title li {
     color: slategray;
+    margin-bottom: 2rem;
 }
 
 .tutorial ul:not(:last-of-type) {
