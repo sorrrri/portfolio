@@ -32,6 +32,17 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementsByClassName('container').style.backgroundPosition = "100% 0"
     })*/
   }
+
+
+  const loginContainer = document.querySelector(".login-container")
+
+  if(loginContainer) {
+    loginContainer.addEventListener("mouseover", () => {
+      loginContainer.style.boxShadow = "inset 0 0 30px rgba(255,255,255,.2)"
+    })
+
+    loginContainer.addEventListener("mouseout", () => {
+      loginContainer.style.boxShadow = null
+    })
+  }
 })
-
-

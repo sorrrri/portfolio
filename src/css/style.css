@@ -1,3 +1,8 @@
+body {
+    background: dodgerblue;
+    transition: background-color 2s;
+}
+
 .container {
     background-size: 200%;
     padding: .7rem;
@@ -5,9 +10,89 @@
     transition: 600ms ease;
 }
 
+.login {
+    background: transparent;
+}
+
+.login-container {
+    align-self: center;
+    margin: 0 auto;
+    background: rgba(255,255,255,.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 30vw;
+    max-width: 320px;
+    z-index: 10;
+    transition: .4s;
+}
+
+.login .logo {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 1rem auto 2rem;
+    font-size: 1.2rem;
+    background: url("../images/logo_wh.png") no-repeat center;
+    background-size: contain;
+    width: 6rem;
+    height: 6rem;
+    opacity: .7;
+}
+
+.login h1 {
+    color: white;
+    font-family: "Montserrat";
+    margin-bottom: .5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.login div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.login svg {
+    fill: #d8e0eb;
+    position: absolute;
+    left: .9rem;
+    bottom: 2rem;
+    z-index: 10;
+}
+
+.login label {
+    display: none;
+}
+
+.login input {
+    font-family: 'Poppins';
+    color: white;
+    text-indent: 1.3rem;
+    padding: .7rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    background-color: rgba(255,255,255,.2);
+}
+
+.login button {
+    padding: .7rem 1rem;
+    border-radius: 50px;
+    width: 100%;
+    justify-content: center;
+    font-family: "Poppins";
+    font-size: 18px;
+    transition: background-color .2s;
+}
+
+.login button:hover {
+    background-color: #12d7da;
+}
 
 aside {
     flex-basis: 200px;
+    display: flex;
+    align-items: center;
     background: rgba(255,255,255,.8);
     border-radius: .5rem 0 0 .5rem;
 }
@@ -16,16 +101,22 @@ aside .logo {
     display: flex;
     justify-content: center;
     font-weight: bold;
-    margin: 1rem 0;
+    margin: 1rem auto;
     font-size: 1.2rem;
+    background: url("../images/logo_multi.png") no-repeat center;
+    background-size: contain;
+    width: 4rem;
+    height: 4rem;
 }
 
-aside .login {
+aside .link-login {
     display: flex;
     justify-content: center;
+    font-size: 18px;
 }
 
 aside .menu {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 2rem
@@ -42,7 +133,6 @@ aside .menu a {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: rgba(255,255,255,.1);
     padding: .4rem 0;
 }
 
@@ -52,7 +142,7 @@ aside .menu a.active {
 
 aside .menu a > *:first-child {
     fill: #aaacbf;
-    background: #eeeff4;
+    background: rgba(255,255,255,.5);
     padding: .5rem;
     box-sizing: content-box;
     border-radius: .3rem;
@@ -69,6 +159,14 @@ aside .menu a:hover > *:first-child,
 aside .menu a.active > *:first-child {
     fill: var(--primaryColor);
     background: #ddf3f3;
+}
+
+aside .link-admin {
+    position: absolute;
+    bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: #373a46;
 }
 
 main {
@@ -203,7 +301,7 @@ section:target {
    ============================================================ */
 .filters {
     display: flex;
-    background-color: #5a8cd7;
+    background-color: #4870ac;
     border-radius: .3rem;
     padding: .5rem;
     margin-top: 1rem
@@ -289,55 +387,55 @@ section:target {
     fill: #566d80;
 }
 
-.patients_list .table .row li:nth-of-type(1) {
+.patient_list .table .row li:nth-of-type(1) {
     width: 8%;
 }
 
-.patients_list .table .row li:nth-of-type(2) {
+.patient_list .table .row li:nth-of-type(2) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(3) {
+.patient_list .table .row li:nth-of-type(3) {
     width: 8.5%;
 }
 
-.patients_list .table .row li:nth-of-type(4) {
+.patient_list .table .row li:nth-of-type(4) {
     width: 8.5%;
 }
 
-.patients_list .table .row li:nth-of-type(5) {
+.patient_list .table .row li:nth-of-type(5) {
     width: 9%;
 }
 
-.patients_list .table .row li:nth-of-type(6) {
+.patient_list .table .row li:nth-of-type(6) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(7) {
+.patient_list .table .row li:nth-of-type(7) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(8) {
+.patient_list .table .row li:nth-of-type(8) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(9) {
+.patient_list .table .row li:nth-of-type(9) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(10) {
+.patient_list .table .row li:nth-of-type(10) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(11) {
+.patient_list .table .row li:nth-of-type(11) {
     width: 7%;
 }
 
-.patients_list .table .row li:nth-of-type(12) {
+.patient_list .table .row li:nth-of-type(12) {
     width: 10%;
 }
 
-.patients_list .table .row li:nth-of-type(13) {
+.patient_list .table .row li:nth-of-type(13) {
     width: 7%;
 }
 
@@ -373,4 +471,43 @@ section:target {
 
 .datepicker {
     border: 1px solid #EEE
+}
+
+
+
+
+/* ============================================================
+   Admin
+   ============================================================ */
+
+.admin {
+    color: white;
+}
+
+.admin a {
+    color: white;
+}
+
+.admin svg {
+    fill: white;
+}
+
+.admin aside {
+    background: rgb(49 59 75);
+}
+
+aside .menu a > *:first-child {
+    fill: #aaacbf;
+    background: rgba(0, 0, 0, .3);
+}
+
+.admin main {
+    background: rgb(65 75 91);
+}
+.admin main header {
+    flex-direction: row;
+}
+
+.admin .table .row {
+    background-color: #474c80
 }
