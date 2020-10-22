@@ -5,8 +5,7 @@ body {
 
 .container {
     background-size: 200%;
-    padding: .7rem;
-    background: linear-gradient(135deg, #92a8d0, #c9d3e6);
+    background: rgb(49 59 75);
     transition: 600ms ease;
 }
 
@@ -14,15 +13,23 @@ aside {
     flex-basis: 200px;
     display: flex;
     align-items: center;
-    background: rgba(255,255,255,.8);
-    border-radius: .5rem 0 0 .5rem;
+    background: rgb(49 59 75);
+}
+
+aside button {
+    font-family: 'Poppins';
+}
+
+aside header {
+    min-height: 150px;
+    flex-direction: column;
 }
 
 aside .logo {
     display: flex;
     justify-content: center;
     font-weight: bold;
-    margin: 1rem auto;
+    margin: 1.5rem auto 0;
     font-size: 1.2rem;
     background: url("../images/logo_multi.png") no-repeat center;
     background-size: contain;
@@ -33,26 +40,24 @@ aside .logo {
 aside .btn-login {
     display: flex;
     justify-content: center;
-    border: 1px solid #ccc;
     background: transparent;
-    color: #333;
-    font-family: 'Poppins';
     padding: .2rem .4rem;
     text-transform: capitalize;
     margin-top: .2rem;
-    transition: background-color .2s;
+    color: rgba(255, 255, 255, .7);
+    border: 1px solid rgba(255, 255, 255, .3);
+    transition: color .2s;
 }
 
 aside .btn-login:hover {
-    background-color: rgba(255,255,255,.3);
-    border: 1px solid #ddd;
+    color: rgba(255, 255, 255, 1);
 }
 
 aside .menu {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 2rem
+    margin-top: 1.5rem
 }
 
 aside .menu li {
@@ -62,38 +67,39 @@ aside .menu li {
 }
 
 aside .menu a {
+    position: relative;
+    color: rgba(255, 255, 255, .6);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
-    padding: .4rem 0;
+    padding: .4rem .8rem;
     transition: background-color .2s;
 }
 
 aside .menu a:hover,
 aside .menu a.active {
-    background-color: rgba(255,255,255,.9)
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, .1)
 }
 
 aside .menu a > *:first-child {
     fill: #aaacbf;
-    background: rgba(255,255,255,.5);
     padding: .5rem;
     box-sizing: content-box;
     border-radius: .3rem;
-    margin-left: 1rem;
     transition: .2s all;
 }
 
 aside .menu a > *:last-child {
-    fill: rgba(0,0,0,.2);
-    margin-right: .5rem;
+    position: absolute;
+    right: .5rem;
+    fill: rgba(255, 255, 255, .8);
+    margin-right: .2rem;
 }
 
 aside .menu a:hover > *:first-child,
 aside .menu a.active > *:first-child {
     fill: var(--primaryColor) !important;
-    background: #ddf3f3;
 }
 
 aside .btn-admin {
@@ -102,18 +108,19 @@ aside .btn-admin {
     display: flex;
     align-items: center;
     color: white;
-    background-color: slategray;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, .2);
 }
 
 aside .btn-admin svg {
-    fill: rgba(255,255,255,.5);
+    fill: var(--primaryColor);
     margin-right: .2rem;
 }
 
 main {
-    border-radius: 0 .5rem .5rem 0;
     flex-direction: column;
-    background: rgba(255,255,255,.9);
+    background: #edf1f9;
+    border-radius: 1rem 0 0 1rem;
 }
 
 main header {
@@ -168,16 +175,26 @@ section:target {
 .row {
     display: flex;
     width: 100%;
-    flex: 1 1 auto
+    flex: 1 1 auto;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: .5rem;
+    border-radius: .5rem;
+}
+
+.dashboard .row {
+    background-color: transparent;
+    padding: 0;
+    align-items: normal;
+    margin: -.5rem -.5rem .5rem
 }
 
 .row:nth-of-type(1) {
     flex: 0 0 auto
 }
 
-.row:nth-of-type(2) .chart-container{
-
-    flex: 1 1 20vh;
+.row:nth-of-type(2) .chart-container {
 }
 
 .count {
@@ -193,11 +210,11 @@ section:target {
 }
 
 .count-current {
-    background-color: #cccfd7;
+    background-color: rgba(49, 59, 75, .3);
 }
 
 .count-all {
-    background-color: #979aa3;
+    background-color: rgba(49, 59, 75, .9);
 }
 
 .count h1 {
@@ -251,8 +268,9 @@ section:target {
 .filters ul {
     flex: 1 1 auto;
     display: flex;
-    margin:0 .25rem 0 -.25rem
+    margin: 0 .25rem 0 -.25rem
 }
+
 .filters li {
     flex: 1 1 auto;
     display: flex;
@@ -266,7 +284,7 @@ section:target {
 }
 
 .filters .selectbox {
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(0, 0, 0, .2);
     border-width: 0;
 }
 
@@ -391,15 +409,6 @@ section:target {
     justify-content: space-between;
 }
 
-.row {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: white;
-    margin-bottom: .5rem;
-    border-radius: .5rem;
-}
-
 .input-title {
     flex: 0 0 120px;
     color: slategray;
@@ -436,7 +445,6 @@ input[type="radio"]:checked + label {
 }
 
 
-
 /* ============================================================
    Login
    ============================================================ */
@@ -447,7 +455,7 @@ input[type="radio"]:checked + label {
 .login-container {
     align-self: center;
     margin: 0 auto;
-    background: rgba(255,255,255,.1);
+    background: rgba(255, 255, 255, .1);
     padding: 2rem;
     border-radius: 1rem;
     width: 30vw;
@@ -502,7 +510,7 @@ input[type="radio"]:checked + label {
     padding: .7rem 1rem;
     margin-bottom: 1rem;
     border-radius: 50px;
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(255, 255, 255, .2);
 }
 
 .login button {
@@ -520,7 +528,6 @@ input[type="radio"]:checked + label {
 }
 
 
-
 /* ============================================================
    Admin
    ============================================================ */
@@ -531,71 +538,46 @@ input[type="radio"]:checked + label {
 }
 
 .admin a {
-    color: rgba(255,255,255,.7);
+    color: rgba(255, 255, 255, .7);
     transition: color .2s;
 }
 
 .admin a:hover {
-    color: rgba(255,255,255,1);
+    color: rgba(255, 255, 255, 1);
 }
 
 .admin svg {
     fill: white;
 }
 
-.admin aside {
-    background: rgb(49 59 75);
-}
-
-.admin .btn-login {
-    color: white;
-    border-color: rgba(255,255,255,.3)
-}
-
-.admin aside .menu a:hover,
-.admin aside .menu a.active {
-    background-color: rgba(255,255,255,.1)
-}
-
-.admin aside .menu a > *:first-child {
-    fill: #aaacbf;
-    background: rgba(0, 0, 0, .3);
-}
-
-.admin aside .menu a > *:last-child {
-    fill: rgba(255,255,255,.8);
-}
-
-.admin aside .btn-admin {
-    background-color: #222934;
-}
-
-.admin aside .btn-admin svg {
-    fill: var(--primaryColor);
-}
-
 .admin main {
     background: rgb(65 75 91);
 }
+
 .admin main header {
     flex-direction: row;
     align-items: center;
 }
 
 .admin .row {
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, .1);
 }
 
 .admin label {
-    background-color: rgba(255,255,255,.1) !important;
+    background-color: rgba(255, 255, 255, .1) !important;
 }
 
 .admin .input-title,
 .admin label {
-    color: rgba(255,255,255,.7);
+    color: rgba(255, 255, 255, .7);
 }
 
 .admin input {
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, .1);
     color: white;
+}
+
+
+.ui-datepicker .ui-datepicker-title {
+    display: flex;
 }
