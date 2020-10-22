@@ -69,7 +69,7 @@
             <span>admin</span>
         </button>
     </aside>
-    <main>
+    <main class="patient_add">
         <header>
             <h3>신규 사용자</h3>
             <div class="btn-container">
@@ -80,15 +80,15 @@
         <section>
             <div class="row">
                 <div class="input-title">이름</div>
-                <input type="text">
+                <input type="text" value="홍길동">
             </div>
             <div class="row">
                 <div class="input-title">ID</div>
-                <input type="text">
+                <input type="text" value="AA0000" readonly>
             </div>
             <div class="row">
                 <div class="input-title">password</div>
-                <input type="password">
+                <input type="password" value="1234567890">
             </div>
             <div class="row">
                 <div class="input-title">병원</div>
@@ -98,7 +98,7 @@
                         <label for="suwon">수원병원</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-hospital" id="ansung">
+                        <input type="radio" name="select-hospital" id="ansung" checked>
                         <label for="ansung">안성병원</label>
                     </div>
                     <div>
@@ -131,7 +131,7 @@
                         <label for="read">읽기만 가능</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-authority" id="edit">
+                        <input type="radio" name="select-authority" id="edit" checked>
                         <label for="edit">소속병원만 읽기/수정 가능</label>
                     </div>
                     <div>
