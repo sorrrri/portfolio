@@ -403,7 +403,6 @@ section:target {
    Patient Add
    ============================================================ */
 .patient_add header {
-    padding: 1rem;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
