@@ -177,7 +177,7 @@ section:target {
     width: 100%;
     flex: 1 1 auto;
     align-items: center;
-    padding: 1rem;
+    padding: .5rem 1rem;
     background-color: white;
     margin-bottom: .5rem;
     border-radius: .5rem;
@@ -440,7 +440,7 @@ input[type="radio"] + label::before {
 
 input[type="radio"] + label:hover,
 input[type="radio"]:checked + label {
-    background-color: #799ce0 !important;
+    background-color: #437ef1 !important;
     color: white;
 }
 
