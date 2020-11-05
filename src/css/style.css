@@ -305,6 +305,7 @@ section:target {
 .filters select {
     background-color: transparent;
     color: white;
+    border: 0
 }
 
 .filters button {
@@ -553,6 +554,10 @@ input[type="radio"]:checked + label {
 
 .admin a:hover {
     color: rgba(255, 255, 255, 1);
+}
+
+admin .btn-cancel {
+    background-color: rgba(255,255,255,.1);
 }
 
 .admin svg {
