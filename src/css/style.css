@@ -3,6 +3,10 @@ body {
     transition: background-color 2s;
 }
 
+option {
+    color: #333;
+}
+
 .container {
     background-size: 200%;
     background: rgb(49 59 75);
