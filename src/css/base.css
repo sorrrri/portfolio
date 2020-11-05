@@ -604,13 +604,14 @@ input[type="radio"] + label:empty:before {
 
 /*selectbox*/
 select {
+    border: 1px solid #EEE;
+    border-radius: .3rem;
     display: flex;
     flex: 1 1 auto;
     width: 100%;
     -webkit-appearance: none;
     padding: .3rem 2rem .3rem .5rem;
     height: auto;
-    border: 0;
     font: 15px/1.5 'NanumSquare';
     background-color: white;
     outline: 0;
@@ -626,9 +627,7 @@ select::-ms-expand {
     position: relative;
     background-color: white;
     box-sizing: border-box;
-    border-radius: .3rem;
-    background-color: white;
-    border: 1px solid #EEE
+    background-color: white
 }
 
 .selectbox::before {
@@ -841,7 +840,6 @@ select::-ms-expand {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.3);
-    transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
     z-index: 5;
@@ -896,6 +894,94 @@ select::-ms-expand {
         opacity: 1
     }
 }
+
+
+
+/* ============================================================
+   Date Picker
+   ============================================================ */
+.ui-datepicker {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 0 14px rgba(0,0,0, .1);
+    border-radius: .5rem;
+}
+
+.ui-icon {
+    display: none;
+}
+
+.ui-datepicker-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    display: flex;
+}
+
+.ui-datepicker .ui-datepicker-title select {
+    min-width: 80px;
+    margin: 0 .25rem;
+    appearance: auto;
+    padding-right: 0;
+}
+
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: .2rem;
+    transition: background-color .2s;
+    cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    left: 1rem;
+}
+
+.ui-datepicker .ui-datepicker-prev::before {
+    content: "<";
+    line-height: 10px;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 1rem;
+}
+
+.ui-datepicker .ui-datepicker-next::before {
+    content: ">";
+    line-height: 10px;
+}
+
+.ui-state-default {
+    border: 0 !important;
+    background-color: transparent;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s;
+}
+
+.ui-state-active {
+    background-color: var(--primaryColor);
+    color: white !important;
+}
+
+.ui-state-hover {
+    background-color: var(--secondaryColor);
+    color: white !important;
+}
+
 
 
 /* =====================================================

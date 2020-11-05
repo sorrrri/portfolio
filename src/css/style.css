@@ -114,6 +114,12 @@ aside .btn-admin {
     color: white;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, .2);
+    transition: background-color .2s;
+}
+
+aside .btn-admin:hover {
+    background-color: white;
+    color: #333;
 }
 
 aside .btn-admin svg {
@@ -578,9 +584,4 @@ input[type="radio"]:checked + label {
 .admin input {
     background-color: rgba(255, 255, 255, .1);
     color: white;
-}
-
-
-.ui-datepicker .ui-datepicker-title {
-    display: flex;
 }

@@ -11,6 +11,7 @@ document.documentElement.addEventListener('touchstart', function (event) {
 }, false)
 
 document.addEventListener('DOMContentLoaded', function () {
+
   const subMenu = document.querySelector('.sub-menu')
 
   /*if (document.location.hash == "" || document.location.hash == "#")
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const loginContainer = document.querySelector(".login-container")
 
-  if(loginContainer) {
+  if (loginContainer) {
     loginContainer.addEventListener("mouseover", () => {
       loginContainer.style.boxShadow = "inset 0 0 30px rgba(255,255,255,.2)"
     })
@@ -46,3 +47,4 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 })
+
