@@ -13,6 +13,10 @@ option {
     transition: 600ms ease;
 }
 
+.table .row:last-of-type {
+    margin-bottom: 0;
+}
+
 aside {
     flex-basis: 200px;
     display: flex;
@@ -431,6 +435,7 @@ section:target {
 .input-select {
     flex: 1 1 auto;
     display: flex;
+    align-items: center;
 }
 
 input[type="radio"] + label {
@@ -454,6 +459,93 @@ input[type="radio"]:checked + label {
     color: white;
 }
 
+
+/* ============================================================
+   Clinical Trial Patient List
+   ============================================================ */
+.clinical-trial-patient {
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+}
+
+.clinical-trial-patient .table {
+    margin-bottom: 0;
+}
+
+.patient-detail {
+    display: none;
+    flex: 0 0 30vh;
+    align-items: flex-start;
+    color: white;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+}
+
+.patient-detail-menu {
+    display: flex;
+    margin: 0 -.1rem;
+}
+
+.patient-detail-menu a {
+    border-radius: .3rem .3rem 0 0;
+    color: white;
+    padding: .5rem 2rem;
+    margin: 0 .1rem;
+    background-color: #C3C6C9;
+    transition: background-color .2s;
+}
+
+.patient-detail-menu a:hover,
+.patient-detail-menu .active-patient-menu {
+    background-color: darksalmon;
+}
+
+.patient-detail .table {
+    display: none;
+    background-color: darksalmon;
+    padding: 1rem .5rem;
+    transition: .2s;
+    margin-bottom: 0;
+}
+
+.patient-detail .table:target {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 .5rem .5rem .5rem;
+}
+
+.patient-detail .table .row {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.btn-file {
+    position: relative;
+    background-color: slategray;
+    margin-right: .5rem;
+}
+
+.btn-file::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.btn-file input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    font-size: 20px;
+    cursor: pointer;
+    height: 36px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
 
 /* ============================================================
    Login
@@ -557,7 +649,7 @@ input[type="radio"]:checked + label {
 }
 
 admin .btn-cancel {
-    background-color: rgba(255,255,255,.1);
+    background-color: rgba(255, 255, 255, .1);
 }
 
 .admin svg {

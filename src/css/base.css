@@ -660,7 +660,6 @@ select::-ms-expand {
     padding: .5rem 0;
     background: white;
     border-radius: .5rem;
-    margin: .5rem 0;
     position: relative;
     cursor: pointer;
     animation: fadeInOpacity .8s forwards;
