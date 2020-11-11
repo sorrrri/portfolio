@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 small {
-    font-family: Comfortaa;
+    font-family: "Comfortaa", cursive;
     line-height: 1.2;
 }
 
@@ -84,13 +84,13 @@ input:focus, select:focus, button:focus {
 }
 
 label {
-    font-family: Mukta;
+    font-family: "Mukta", sans-serif;
     flex: 0 0 20% !important;
     color: slategray;
 }
 
 button {
-    font-family: Comfortaa;
+    font-family: "Comfortaa", cursive;
     border: 0;
     background: #083b7d;
     color: white;

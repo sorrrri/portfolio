@@ -112,7 +112,7 @@ footer .partners.dark li.logo-cmi {
 }
 
 .navigation li {
-    font-family: Raleway;
+    font-family: "Raleway", sans-serif;
     display: flex;
     align-items: center;
 }
@@ -144,7 +144,7 @@ footer .partners.dark li.logo-cmi {
 }
 
 .logo {
-    font-family: Comfortaa;
+    font-family: "Comfortaa", cursive;
     display: flex;
     align-items: center;
     font-size: 13px;
@@ -349,7 +349,7 @@ section[class*="tab-content"] {
 }
 
 .tutorial {
-    font-family: "Nunito", "NanumSquare";
+    font-family: "Nunito", sans-serif, "NanumSquare", sans-serif;
     background-color: white;
     padding: 2rem;
     border-radius: .5rem;
@@ -522,19 +522,10 @@ aside fieldset li {
     padding: 2rem;
 }
 
-.preclinical fieldset {
-    flex: 1 1 50%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #EEE;
-    border-radius: .5rem;
-    min-width: 64px;
-    margin-bottom: 0;
-}
-
-.preclinical legend {
-    color: slategray;
-    text-align: center;
+.preclinical .table {
+    flex: 1 1 auto;
+    max-width: none;
+    width: auto;
 }
 
 .preclinical .experiment .row {
@@ -633,21 +624,21 @@ aside fieldset li {
     20% {
         width: 60px;
         height: 60px;
-        font-size: 0em;
+        font-size: 0;
         background-color: transparent;
     }
     90% {
         width: 60px;
         height: 60px;
         color: transparent;
-        font-size: 0em;
+        font-size: 0;
         background-color: transparent;
     }
     100% {
         width: 150px;
         height: 60px;
         color: transparent;
-        font-size: 0em;
+        font-size: 0;
         background-color: #819aa9;
     }
 }
@@ -675,21 +666,21 @@ aside fieldset li {
     20% {
         width: 60px;
         height: 60px;
-        font-size: 0em;
+        font-size: 0;
         background-color: transparent;
     }
     90% {
         width: 60px;
         height: 60px;
         color: transparent;
-        font-size: 0em;
+        font-size: 0;
         background-color: transparent;
     }
     100% {
         width: 150px;
         height: 60px;
         color: transparent;
-        font-size: 0em;
+        font-size: 0;
         background-color: #819aa9;
     }
 }
@@ -755,7 +746,7 @@ aside fieldset li {
         top: -20px;
     }
     100% {
-        top: 0px;
+        top: 0;
     }
 }
 
@@ -764,7 +755,7 @@ aside fieldset li {
         top: -20px;
     }
     100% {
-        top: 0px;
+        top: 0;
     }
 }
 
