@@ -62,9 +62,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // 임상시험환자 CSV 파일 업로드
-  document.getElementById("FileAttachment").onchange = function () {
-    document.querySelector(".upload-file").innerHTML =  document.getElementById("FileAttachment").value.replace(/C:\\fakepath\\/i, '');
-  };
+
+  const fileAttachment = document.getElementById("FileAttachment")
+
+  if(fileAttachment) {
+    fileAttachment.onchange = function () {
+      document.querySelector(".upload-file").innerHTML =  document.getElementById("FileAttachment").value.replace(/C:\\fakepath\\/i, '');
+    };
+  }
+
 
 
   // 로그인

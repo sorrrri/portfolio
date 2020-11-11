@@ -98,8 +98,16 @@ canvas {
     border-radius: 50%;
     opacity: 0.4;
     background: var(--color-link);
+    -webkit-animation: loaderAnim 0.7s linear infinite alternate forwards;
     animation: loaderAnim 0.7s linear infinite alternate forwards;
 
+}
+
+@-webkit-keyframes loaderAnim {
+    to {
+        opacity: 1;
+        transform: scale3d(0.5, 0.5, 1);
+    }
 }
 
 @keyframes loaderAnim {
@@ -334,6 +342,7 @@ aside li {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    -webkit-animation: fadeInOpacity .4s forwards;
     animation: fadeInOpacity .4s forwards;
     transition: .2s border-color;
 }
@@ -439,7 +448,6 @@ aside li {
     visibility: hidden;
     background-color: lightsteelblue;
     transform: translateY(15px);
-    -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 
@@ -453,7 +461,6 @@ aside li {
     stroke: white;
     stroke-width: 4;
     box-sizing: border-box;
-    -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
 
@@ -538,7 +545,6 @@ aside li {
     border-right: none;
     background: transparent;
     opacity: 1;
-    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
 
@@ -662,6 +668,7 @@ select::-ms-expand {
     border-radius: .5rem;
     position: relative;
     cursor: pointer;
+    -webkit-animation: fadeInOpacity .8s forwards;
     animation: fadeInOpacity .8s forwards;
 }
 
@@ -695,6 +702,9 @@ select::-ms-expand {
 .toggle {
     display: block;
     text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -885,6 +895,16 @@ select::-ms-expand {
 }
 
 
+@-webkit-keyframes fadeInOpacity {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+
 @keyframes fadeInOpacity {
     0% {
         opacity: 0
@@ -924,6 +944,8 @@ select::-ms-expand {
 .ui-datepicker .ui-datepicker-title select {
     min-width: 80px;
     margin: 0 .25rem;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
     appearance: auto;
     padding-right: 0;
 }

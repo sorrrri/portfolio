@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="">
     <title>코로나 현황판</title>
-    <link rel="stylesheet" href="src/css/base.css">
-    <link rel="stylesheet" href="src/css/style.css">
+    <script src="assets/js/script.js"></script>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/lib/noise.min.js"></script>
+    <script src="assets/lib/util.js"></script>
+    <script src="assets/lib/shift.js"></script>
+    <script>
+      window.canvasOptions = {
+        autoClear: true,
+        autoCompensate: false,
+        autoPushPop: true,
+        canvas: true,
+        centered: true,
+        desynchronized: false,
+        width: null,
+        height: null
+      };
+      /* requestAnimationFrame */
+    </script>
 </head>
-<body>
+<body style="background: dodgerblue; transition: background-color 2s;">
 <div class="container login content--canvas">
     <div class="login-container">
         <div class="logo"></div>
@@ -26,25 +44,8 @@
             </svg>
             <input type="text" id="password" placeholder="password"/>
         </div>
-        <button>Sign in</button>
+        <button onclick="location.href='index.html#all'">Sign in</button>
     </div>
 </div>
-<script src="src/js/noise.min.js"></script>
-<script src="src/js/util.js"></script>
-<script src="src/js/shift.js"></script>
-<script>
-  window.canvasOptions = {
-    autoClear: true,
-    autoCompensate: false,
-    autoPushPop: true,
-    canvas: true,
-    centered: true,
-    desynchronized: false,
-    width: null,
-    height: null
-  };
-  /* requestAnimationFrame */
-</script>
-<script src="src/js/script.js"></script>
 </body>
 </html>

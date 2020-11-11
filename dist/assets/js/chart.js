@@ -130,7 +130,9 @@ function drawDaysChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '일별 확진 통계',
-    hAxis: {title: '일별 확진자', titleTextStyle: {color: '#333'}},
+    hAxis: {
+      title: '일별 확진자', titleTextStyle: {color: '#333'}
+      },
     vAxis: {minValue: 0},
     legend: 'none',
     chartArea: {width: '80%',},

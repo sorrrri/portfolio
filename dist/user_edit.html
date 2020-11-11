@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="">
     <title>코로나 현황판</title>
-    <link rel="stylesheet" href="src/css/base.css">
-    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <script src="src/js/jquery-3.5.1.min.js"></script>
-    <script src="src/js/jquery-ui.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/lib/jquery-3.5.1.min.js"></script>
+    <script src="assets/lib/jquery-ui.min.js"></script>
     <script>
       $(function () {
         $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
@@ -93,24 +94,24 @@
     </aside>
     <main>
         <header>
-            <h3>신규 사용자</h3>
+            <h3>사용자 정보</h3>
             <div class="btn-container">
                 <button class="btn-cancel" onclick="history.back()">취소</button>
-                <button>등록</button>
+                <button>수정</button>
             </div>
         </header>
         <section>
             <div class="row">
                 <div class="input-title">이름</div>
-                <input type="text">
+                <input type="text" value="홍길동">
             </div>
             <div class="row">
                 <div class="input-title">ID</div>
-                <input type="text">
+                <input type="text" value="AA0000" readonly>
             </div>
             <div class="row">
                 <div class="input-title">password</div>
-                <input type="password">
+                <input type="password" value="1234567890">
             </div>
             <div class="row">
                 <div class="input-title">병원</div>
@@ -120,7 +121,7 @@
                         <label for="suwon">수원병원</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-hospital" id="ansung">
+                        <input type="radio" name="select-hospital" id="ansung" checked>
                         <label for="ansung">안성병원</label>
                     </div>
                     <div>
@@ -153,7 +154,7 @@
                         <label for="read">읽기만 가능</label>
                     </div>
                     <div>
-                        <input type="radio" name="select-authority" id="edit">
+                        <input type="radio" name="select-authority" id="edit" checked>
                         <label for="edit">소속병원만 읽기/수정 가능</label>
                     </div>
                     <div>
@@ -165,20 +166,5 @@
         </section>
     </main>
 </div>
-<script>
-  window.canvasOptions = {
-    autoClear: true,
-    autoCompensate: false,
-    autoPushPop: true,
-    canvas: true,
-    centered: true,
-    desynchronized: false,
-    width: null,
-    height: null
-  };
-  /* requestAnimationFrame */
-</script>
-<script src="src/js/logo.js"></script>
-<script src="src/js/script.js"></script>
 </body>
 </html>
