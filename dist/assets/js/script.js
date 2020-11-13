@@ -71,9 +71,9 @@ const toggleCheckbox = document.querySelector('.toggle-checkbox')
 if (toggleAdmin) {
     toggleAdmin.addEventListener('click', () => {
         if (toggleCheckbox.checked) {
-            location.href = './admin/user_list.html'
+            location.href = '../../admin/user_list.html'
         } else {
-            location.href = '../index.html'
+            location.href = '../../index.html'
         }
     })
 }
