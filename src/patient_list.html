@@ -89,6 +89,45 @@
             <div class="filters">
                 <ul>
                     <li>
+                        <label for="confirmation-number">확진번호</label>
+                        <input id="confirmation-number" type="text">
+                    </li>
+                    <li>
+                        <label for="patient-name">성명</label>
+                        <input id="patient-name" type="text">
+                    </li>
+                    <li>
+                        <label for="select-birth">출생연도</label>
+                        <div class="selectbox">
+                            <select name="" id="select-birth">
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="select-gender">성별</label>
+                        <div class="selectbox">
+                            <select name="" id="select-gender">
+                                <option value="male">남성</option>
+                                <option value="female">여성</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="select-confirmationDate">확진 월</label>
+                        <div class="selectbox">
+                            <select name="" id="select-confirmationDate">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
                         <label for="select-hospital">병원</label>
                         <div class="selectbox">
                             <select name="" id="select-hospital">
@@ -103,67 +142,39 @@
                         </div>
                     </li>
                     <li>
-                        <label for="select-age">연령대</label>
-                        <div class="selectbox">
-                            <select name="" id="select-age">
-                                <option value="01">0~10</option>
-                                <option value="02">11~20</option>
-                                <option value="03">21~30</option>
-                                <option value="04">31~40</option>
-                                <option value="05">41~50</option>
-                                <option value="06">51~60</option>
-                                <option value="07">61~70</option>
-                                <option value="08">71~80</option>
-                                <option value="09">81~</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <label for="select-gender">성별</label>
-                        <div class="selectbox">
-                            <select name="" id="select-gender">
-                                <option value="male">남성</option>
-                                <option value="female">여성</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <label for="select-temperature">체온지수</label>
-                        <div class="selectbox">
-                            <select name="" id="select-temperature">
-                                <option value="111">111</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <label for="select-consciousness">의식지수</label>
-                        <div class="selectbox">
-                            <select name="" id="select-consciousness">
-                                <option value="111">111</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <label for="select-mentality">심리지수</label>
-                        <div class="selectbox">
-                            <select name="" id="select-mentality">
-                                <option value="111">111</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <label for="select-cardiopulmonary">심폐지수</label>
-                        <div class="selectbox">
-                            <select name="" id="select-cardiopulmonary">
-                                <option value="111">111</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
                         <label for="select-severity">중증도</label>
                         <div class="selectbox">
                             <select name="" id="select-severity">
-                                <option value="111">111</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="select-severityDate">중증도 측정일</label>
+                        <div class="selectbox">
+                            <select name="" id="select-severityDate">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="select-status">상태</label>
+                        <div class="selectbox">
+                            <select name="" id="select-status">
+                                <option value="입원">입원</option>
+                                <option value="통원">통원</option>
+                                <option value="퇴원(자택)">퇴원(자택)</option>
+                                <option value="퇴원(전원)">퇴원(전원)</option>
+                                <option value="퇴원(요양소)">퇴원(요양소)</option>
+                                <option value="퇴원(생치소)">퇴원(생치소)</option>
+                                <option value="퇴원(사망)">퇴원(사망)</option>
                             </select>
                         </div>
                     </li>

@@ -12,7 +12,7 @@
     <script src="assets/lib/jquery-ui.min.js"></script>
     <script>
       $(function () {
-        $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
+        $("#confirmationDate, #birthDate, #dischargeDate, #severityDate").datepicker({
           changeMonth: true,
           changeYear: true,
           dateFormat: 'yy-mm-dd'
@@ -98,9 +98,40 @@
         </header>
         <section>
             <div class="row">
-                <div class="input-title">
-                    병원
+                <div class="input-title">성명</div>
+                <div class="input-select">
+                    <input type="text">
                 </div>
+            </div>
+            <div class="row">
+                <div class="input-title">확진번호</div>
+                <div class="input-select">
+                    <input type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">
+                    생년월일
+                </div>
+                <div class="input-select">
+                    <input class="datepicker" type="text" id="birthDate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">성별</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-gender" id="male">
+                        <label for="male">남성</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-gender" id="female">
+                        <label for="female">여성</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-title">병원</div>
                 <div class="input-select">
                     <div>
                         <input type="radio" name="select-hospital" id="suwon">
@@ -133,110 +164,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-title">
-                    확진날짜
-                </div>
+                <div class="input-title">확진일자</div>
                 <div class="input-select">
                     <input class="datepicker" type="text" id="confirmationDate">
                 </div>
             </div>
             <div class="row">
-                <div class="input-title">
-                    생년월일
-                </div>
+                <div class="input-title">퇴원(사망)일자</div>
                 <div class="input-select">
-                    <input class="datepicker" type="text" id="birthDate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">
-                    성별
-                </div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-gender" id="male">
-                        <label for="male">남성</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-gender" id="female">
-                        <label for="female">여성</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">
-                    체온지수
-                </div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-temperature" id="temp_01">
-                        <label for="temp_01">0</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-temperature" id="temp_02">
-                        <label for="temp_02">1</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-temperature" id="temp_03">
-                        <label for="temp_03">2</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">
-                    의식지수
-                </div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-consciousness" id="con_01">
-                        <label for="con_01">0</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-consciousness" id="con_02">
-                        <label for="con_02">1</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-consciousness" id="con_03">
-                        <label for="con_03">2</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">
-                    심리지수
-                </div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-mentality" id="mental_01">
-                        <label for="mental_01">0</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-mentality" id="mental_02">
-                        <label for="mental_02">1</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-mentality" id="mental_03">
-                        <label for="mental_03">2</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">
-                    심폐지수
-                </div>
-                <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-cardiopulmonary" id="cardi_01">
-                        <label for="cardi_01">0</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-cardiopulmonary" id="cardi_02">
-                        <label for="cardi_02">1</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-cardiopulmonary" id="cardi_03">
-                        <label for="cardi_03">2</label>
-                    </div>
+                    <input class="datepicker" type="text" id="dischargeDate">
                 </div>
             </div>
             <div class="row">
@@ -246,65 +182,62 @@
                 <div class="input-select">
                     <div>
                         <input type="radio" name="select-severity" id="sev_01">
-                        <label for="sev_01">경증</label>
+                        <label for="sev_01">1</label>
                     </div>
                     <div>
                         <input type="radio" name="select-severity" id="sev_02">
-                        <label for="sev_02">중등증</label>
+                        <label for="sev_02">2</label>
                     </div>
                     <div>
                         <input type="radio" name="select-severity" id="sev_03">
-                        <label for="sev_03">중증</label>
+                        <label for="sev_03">3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-severity" id="sev_04">
+                        <label for="sev_04">4</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-severity" id="sev_05">
+                        <label for="sev_05">5</label>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="input-title">
-                    치료방법
-                </div>
+                <div class="input-title">중증도 측정</div>
                 <div class="input-select">
-                    <div>
-                        <input type="radio" name="select-treatment" id="treat_01">
-                        <label for="treat_01">생활치료소</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-treatment" id="treat_02">
-                        <label for="treat_02">통원치료</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="select-treatment" id="treat_03">
-                        <label for="treat_03">입원치료</label>
-                    </div>
+                    <input class="datepicker" type="text" id="severityDate">
                 </div>
             </div>
             <div class="row">
-                <div class="input-title">
-                    퇴원날짜
-                </div>
-                <div class="input-select">
-                    <input class="datepicker" type="text" id="dischargeDate">
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-title">
-                    입퇴원
-                </div>
+                <div class="input-title">상태</div>
                 <div class="input-select">
                     <div>
                         <input type="radio" name="select-status" id="status_01">
-                        <label for="status_01">입원중</label>
+                        <label for="status_01">입원</label>
                     </div>
                     <div>
                         <input type="radio" name="select-status" id="status_02">
-                        <label for="status_02">전원</label>
+                        <label for="status_02">통원</label>
                     </div>
                     <div>
                         <input type="radio" name="select-status" id="status_03">
-                        <label for="status_03">사망</label>
+                        <label for="status_03">퇴원(자택)</label>
                     </div>
                     <div>
                         <input type="radio" name="select-status" id="status_04">
-                        <label for="status_04">완치퇴원</label>
+                        <label for="status_04">퇴원(전원)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-status" id="status_05">
+                        <label for="status_05">퇴원(요양)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-status" id="status_06">
+                        <label for="status_06">퇴원(생치소)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-status" id="status_07">
+                        <label for="status_07">사망</label>
                     </div>
                 </div>
             </div>

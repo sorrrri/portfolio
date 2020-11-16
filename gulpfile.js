@@ -96,7 +96,7 @@ gulp.task('browserSync', () => {
 gulp.task('watch', () => {
     return new Promise(resolve => {
         gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']))
-        gulp.watch(PATH.ASSETS.STYLE + "/**/*.css")
+        gulp.watch(PATH.ASSETS.STYLE + "/**/*.css", gulp.series(['css']))
         gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script']))
         resolve()
     })
