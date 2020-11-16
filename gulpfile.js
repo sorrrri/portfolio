@@ -3,6 +3,7 @@ const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync')
 const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
+const ghPages = require('gulp-gh-pages')
 
 const PATH = {
   HTML: './src',
@@ -25,7 +26,6 @@ const DEST_PATH = {
     LIB: './dist/assets/lib'
   }
 }
-
 
 
 gulp.task('library', () => {
@@ -84,19 +84,29 @@ gulp.task('nodemon:start', () => {
 })
 
 gulp.task('browserSync', () => {
-  return browserSync.init(null, {
-    proxy: 'http://localhost:8005',
-    port: 8006
+  return new Promise(resolve => {
+    browserSync.init(null, {
+      proxy: 'http://localhost:8005',
+      port: 8006
+    })
+    resolve()
   })
 })
 
 gulp.task('watch', () => {
-  return
-  gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']))
-  gulp.watch(PATH.ASSETS.STYLE + "/**/*.css")
-  gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script']))
+  return new Promise(resolve => {
+    gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']))
+    gulp.watch(PATH.ASSETS.STYLE + "/**/*.css", gulp.series(['css']))
+    gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script']))
+    resolve()
+  })
 })
 
+
+gulp.task('deploy', () => {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages())
+})
 
 const series = gulp.series([
   'clean',
