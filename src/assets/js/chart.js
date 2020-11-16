@@ -108,7 +108,7 @@ function drawTreatmentChart() {
     },
   };
 
-  var chart = new google.visuaㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴlizatㅇion.PieChart(document.getElementById('chart-treatment'));
+  var chart = new google.visualization.PieChart(document.getElementById('chart-treatment'));
   chart.draw(data, options);
 }
 
