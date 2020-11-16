@@ -3,6 +3,7 @@ const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync')
 const autoprefixer = require('gulp-autoprefixer')
 const del = require('del')
+const ghPages = require('gulp-gh-pages')
 
 const PATH = {
     HTML: './src',
@@ -101,6 +102,11 @@ gulp.task('watch', () => {
     })
 })
 
+gulp.task('deploy', () => {
+    return gulp
+        .src('./dist/**/*')
+        .pipe(ghPages())
+})
 
 const series = gulp.series([
     'clean',
