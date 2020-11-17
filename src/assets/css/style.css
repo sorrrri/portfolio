@@ -297,18 +297,9 @@ section:target {
     color: #ddd;
 }
 
-.filters input[type="text"],
 .filters .selectbox {
-    color: white;
     background-color: rgba(0, 0, 0, .2);
     border-width: 0;
-    border-radius: .3rem;
-}
-
-.filters input[type="text"] {
-    font: 15px/1.5 'NanumSquare';
-    padding: .3rem .5rem;
-    border-radius: .3rem;
 }
 
 .filters .selectbox::before {
@@ -437,7 +428,7 @@ section:target {
     color: slategray;
 }
 
-.input-select input {
+.datepicker {
     border: 1px solid #EEE
 }
 

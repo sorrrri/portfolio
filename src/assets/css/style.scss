@@ -1,0 +1,895 @@
+body {
+  overflow: hidden;
+}
+
+option {
+  color: #333;
+}
+
+.container {
+  background-size: 200%;
+  background: rgb(49, 59, 75);
+  transition: 600ms ease;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+  align-items: center;
+  padding: .5rem 1rem;
+  background-color: white;
+  margin-bottom: .5rem;
+  border-radius: .5rem;
+
+  .column {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+
+    .input-title {
+      flex: 0 0 auto !important;
+      margin-right: .5rem;
+    }
+
+    input[type="text"] {
+      width: 95%;
+      min-width: 80px;
+    }
+  }
+}
+
+.table {
+  .row {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .orange {
+      color: orange;
+      background-color: #fff1d6;
+    }
+
+    .red {
+      color: red;
+      background-color: #ffdfdf;
+    }
+  }
+
+  span {
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    border-radius: 50%;
+  }
+
+  .btn-edit {
+    background-color: #EEEEEE;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .2rem;
+
+    svg {
+      fill: #566d80;
+    }
+  }
+}
+
+
+aside {
+  flex-basis: 220px;
+  display: flex;
+  align-items: center;
+  background: rgb(49, 59, 75);
+
+  button {
+    font-family: 'Poppins';
+  }
+
+  .btn-login {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    padding: .2rem .4rem;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, .7);
+    border: 1px solid rgba(255, 255, 255, .3);
+    transition: color .2s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  .btn-admin {
+    position: absolute;
+    bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, .2);
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: white;
+      color: #333;
+    }
+
+    svg {
+      fill: var(--primaryColor);
+      margin-right: .2rem;
+    }
+
+  }
+
+  header {
+    min-height: 130px;
+    flex-direction: column;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      margin: 1.5rem auto 0;
+      font-size: 1.2rem;
+      background: url("../images/logo_multi.png") no-repeat center;
+      background-size: contain;
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+
+    small {
+      color: #a5ccdc;
+      padding: .3rem .8rem;
+      font-family: 'NanumSquare';
+      font-size: 13px;
+    }
+
+    ul {
+      margin-bottom: 2rem;
+    }
+
+    li {
+      display: flex;
+      flex: 1 1 auto;
+      width: 100%;
+    }
+
+    a {
+      position: relative;
+      color: rgba(255, 255, 255, .6);
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: .4rem .3rem;
+      transition: background-color .2s;
+
+      &:hover,
+      &.active {
+        color: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, .1);
+
+        > *:first-child {
+          fill: var(--primaryColor) !important;
+        }
+      }
+
+      > *:first-child {
+        fill: #aaacbf;
+        padding: .5rem;
+        box-sizing: content-box;
+        border-radius: .3rem;
+        transition: .2s all;
+      }
+
+      > *:last-child {
+        position: absolute;
+        right: .5rem;
+        fill: rgba(255, 255, 255, .8);
+        margin-right: .2rem;
+      }
+    }
+  }
+}
+
+main {
+  flex-direction: column;
+  background: #edf1f9;
+  border-radius: 1rem 0 0 1rem;
+
+  header {
+    padding: 1.3rem 1rem 1rem;
+    flex-direction: column;
+  }
+}
+
+.sub-menu {
+  flex: 1 1 auto;
+  text-align: center;
+  background: white;
+  border-radius: .3rem;
+
+  li {
+    flex: 1 1 auto;
+    margin: .4rem;
+  }
+
+  a {
+    justify-content: center;
+    border-radius: .2rem;
+    transition: background-color .2s;
+  }
+
+  a:hover,
+  .active-sub-menu {
+    background-color: var(--primaryColor);
+    color: white;
+  }
+}
+
+section {
+  opacity: 0;
+  padding: 1rem;
+  flex: 1 1 auto;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex-direction: column;
+  animation: fadeInOpacity .4s forwards;
+  transition: display .2s;
+
+  &:target {
+    display: flex;
+  }
+}
+
+.dashboard section:not(:target) {
+  display: none;
+}
+
+.dashboard .row {
+  background-color: transparent;
+  padding: 0;
+  align-items: normal;
+  margin: -.5rem -.5rem .5rem;
+
+  &:nth-of-type(1) {
+    flex: 0 0 auto
+  }
+
+  &:nth-of-type(2) {
+  }
+}
+
+.count {
+  flex: 1 1 50%;
+  border-radius: .3rem;
+  padding: .5rem .5rem .5rem 1rem;
+  margin: .25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  transition: background-color .2s;
+
+  &-current {
+    background-color: rgba(49, 59, 75, .3);
+  }
+
+  &-all {
+    background-color: rgba(49, 59, 75, .9);
+  }
+
+  h1 {
+    color: white;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 .5rem;
+    border-radius: .3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  small {
+    color: white;
+  }
+}
+
+.chart-container {
+  /*height: 30vh;
+  max-height: 250px;*/
+  background-color: white;
+  flex: 1 1 auto;
+  display: flex;
+  border-radius: .3rem;
+  margin: .25rem;
+
+  .chart {
+    flex: 1;
+    position: relative;
+    border-radius: .3rem;
+
+    [dir="ltr"] {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+
+
+/* ============================================================
+   Main
+   ============================================================ */
+main {
+
+  &[class*="list"] {
+
+  }
+
+  &[class*="add"] {
+    header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .input-title {
+      flex: 0 0 120px;
+      color: slategray;
+      word-break: keep-all;
+    }
+
+    .datepicker {
+      border: 1px solid #EEE
+    }
+
+    input[type="text"] {
+      border: 1px solid #EEE
+    }
+
+    .input-select {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: -.5rem;
+    }
+
+    input[type="radio"] + label {
+      min-width: 36px;
+      display: flex;
+      justify-content: center;
+      margin-right: .5rem;
+      margin-bottom: .5rem;
+      border-radius: .3rem;
+      background-color: #F3F6F9;
+      padding: .4rem 1rem;
+      transition: background-color .2s;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    input[type="radio"] + label:hover,
+    input[type="radio"]:checked + label {
+      background-color: #437ef1 !important;
+      color: white;
+    }
+  }
+}
+
+
+/* ============================================================
+   Patient List
+   ============================================================ */
+.filters {
+  display: flex;
+  background-color: #4870ac;
+  border-radius: .3rem;
+  padding: .5rem;
+  margin-top: 1rem;
+
+  ul {
+    flex: 1 1 auto;
+    display: flex;
+    margin: 0 .25rem 0 -.25rem;
+
+    li {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      margin: 0 .25rem;
+
+      label {
+        font-size: 12px;
+        color: #ddd;
+      }
+
+      .selectbox {
+        background-color: rgba(0, 0, 0, .2);
+        border-width: 0;
+
+        &::before {
+          border-color: white
+        }
+
+        select {
+          background-color: transparent;
+          color: white;
+          border: 0
+        }
+      }
+
+      button {
+        flex: 0 0 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          fill: white
+        }
+      }
+    }
+  }
+}
+
+.patient_list .table .row li {
+  &:nth-of-type(1) {
+    width: 8%;
+  }
+
+  &:nth-of-type(2) {
+    width: 7%;
+  }
+
+  &:nth-of-type(3) {
+    width: 8.5%;
+  }
+
+  &:nth-of-type(4) {
+    width: 8.5%;
+  }
+
+  &:nth-of-type(5) {
+    width: 9%;
+  }
+
+  &:nth-of-type(6) {
+    width: 7%;
+  }
+
+  &:nth-of-type(7) {
+    width: 7%;
+  }
+
+  &:nth-of-type(8) {
+    width: 7%;
+  }
+
+  &:nth-of-type(9) {
+    width: 7%;
+  }
+
+  &:nth-of-type(10) {
+    width: 7%;
+  }
+
+  &:nth-of-type(11) {
+    width: 7%;
+  }
+
+  &:nth-of-type(12) {
+    width: 10%;
+  }
+
+  &:nth-of-type(13) {
+    width: 7%;
+  }
+}
+
+
+/* ============================================================
+   Patient Add
+   ============================================================ */
+
+
+/* ============================================================
+   Clinical Trial Patient List
+   ============================================================ */
+.clinical-trials {
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+
+  .table {
+    margin-bottom: 0;
+
+    .row {
+
+      li {
+        &.col-check.active svg {
+          fill: lightseagreen;
+        }
+
+        &.col-buttons svg {
+          fill: slategray;
+        }
+
+        /*확진번호*/
+        &:nth-of-type(1) {
+          width: 10%;
+        }
+
+        /*성별*/
+        &:nth-of-type(2) {
+          width: 10%;
+        }
+
+        /*나이*/
+        &:nth-of-type(3) {
+          width: 10%;
+        }
+
+        /*확진일자*/
+        &:nth-of-type(4) {
+          width: 15%;
+        }
+
+        /*병원*/
+        &:nth-of-type(5) {
+          width: 10%;
+        }
+
+        /*중증도*/
+        &:nth-of-type(6) {
+          width: 5%;
+        }
+
+        /*중증도 측정일*/
+        &:nth-of-type(7) {
+          width: 15%;
+        }
+
+        /*참여연구*/
+        &:nth-of-type(8) {
+          width: 10%;
+        }
+
+        /*상세정보 입력여부*/
+        &:nth-of-type(9) {
+          width: 5%;
+        }
+
+        /*버튼*/
+        &:nth-of-type(10) {
+          width: 10%;
+        }
+      }
+    }
+  }
+}
+
+
+.clinical-trials-detail {
+  display: none;
+  flex: 0 0 30vh;
+  align-items: flex-start;
+  color: white;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+
+  &-menu {
+    display: flex;
+    margin: 0 -.1rem;
+
+    a {
+      border-radius: .3rem .3rem 0 0;
+      color: white;
+      padding: .5rem 2rem;
+      margin: 0 .1rem;
+      background-color: #C3C6C9;
+      transition: background-color .2s;
+    }
+  }
+
+  .table {
+    display: none;
+    background-color: darksalmon;
+    padding: 1rem .5rem;
+    transition: .2s;
+    margin-bottom: 0;
+
+    &:target {
+      display: flex;
+      flex-direction: column;
+      border-radius: 0 .5rem .5rem .5rem;
+    }
+
+    .row {
+      background-color: rgba(255, 255, 255, .3);
+    }
+  }
+}
+
+.clinical-trials-detail-menu a:hover,
+.clinical-trials-detail-menu .active-patient-menu {
+  background-color: darksalmon;
+}
+
+.btn-file {
+  position: relative;
+  background-color: var(--secondaryColor);
+  margin-right: .5rem;
+
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    font-size: 20px;
+    cursor: pointer;
+    height: 36px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+
+
+/* ============================================================
+   Clinical Trial Research List
+   ============================================================ */
+.clinical-trial-research-list {
+  .table {
+    li:nth-of-type(1) {
+      width: auto;
+    }
+    li:nth-of-type(2) {
+      width: auto;
+    }
+    li:nth-of-type(3) {
+      width: auto;
+    }
+    li:nth-of-type(4) {
+      width: auto;
+    }
+    li:nth-of-type(5) {
+      width: auto;
+    }
+    li:nth-of-type(6) {
+      width: auto;
+    }
+    li:nth-of-type(7) {
+      width: 5%;
+      flex: 0 0 auto;
+    }
+  }
+}
+
+
+/* ============================================================
+   Clinical Trial Research Add
+   ============================================================ */
+.clinical-trial-research-add {
+
+  .row {
+    text-transform: capitalize;
+
+    &.row-title input {
+      width: 100%;
+    }
+
+    &.row-date .selectbox {
+      flex: 0 0 80px;
+    }
+
+    &.row-alternate {
+
+      .input-select {
+        flex-wrap: nowrap;
+      }
+    }
+
+    &.row-group {
+      .column{
+        &:first-of-type {
+          flex: 0 0 360px
+        }
+        &:last-of-type {
+          flex: 1 1 auto
+        }
+      }
+    }
+
+    .column {
+      &:not(:first-of-type) {
+        flex: 0 0 auto;
+
+        .input-title {
+          max-width: 130px;
+        }
+      }
+    }
+    .column:first-of-type .input-title {
+      flex: 0 0 150px !important;
+      margin-right: 0;
+    }
+
+    .input-title {
+      flex: 0 0 150px;
+    }
+
+    input[type="text"] + * {
+      margin-left: .5rem;
+    }
+
+    select {
+      font-family: "Poppins";
+    }
+  }
+}
+
+
+/* ============================================================
+   Login
+   ============================================================ */
+.login {
+  background: transparent;
+
+  &-container {
+    align-self: center;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, .1);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 30vw;
+    max-width: 320px;
+    z-index: 10;
+    transition: .4s;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 1rem auto 2rem;
+    font-size: 1.2rem;
+    background: url("../images/logo_wh.png") no-repeat center;
+    background-size: contain;
+    width: 6rem;
+    height: 6rem;
+    opacity: .7;
+  }
+
+  h1 {
+    color: white;
+    font-family: "Montserrat";
+    margin-bottom: .5em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  svg {
+    fill: #d8e0eb;
+    position: absolute;
+    left: .9rem;
+    bottom: 2rem;
+    z-index: 10;
+  }
+
+  label {
+    display: none;
+  }
+
+  input {
+    font-family: 'Poppins';
+    color: white;
+    text-indent: 1.3rem;
+    padding: .7rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, .2);
+  }
+
+  button {
+    padding: .7rem 1rem;
+    border-radius: 50px;
+    width: 100%;
+    justify-content: center;
+    font-family: "Poppins";
+    font-size: 18px;
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: #12d7da;
+    }
+  }
+}
+
+
+/* ============================================================
+   Admin
+   ============================================================ */
+
+.admin {
+  background: #333;
+  color: white !important;
+
+  a {
+    color: rgba(255, 255, 255, .7);
+    transition: color .2s;
+
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  .btn-cancel {
+    background-color: rgba(255, 255, 255, .1);
+  }
+
+  svg {
+    fill: white;
+  }
+
+  main {
+    background: rgb(65, 75, 91);
+
+    header {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .row {
+    background-color: rgba(255, 255, 255, .1);
+  }
+
+  label {
+    background-color: rgba(255, 255, 255, .1) !important;
+  }
+
+  input {
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+  }
+
+  .input-title,
+  label {
+    color: rgba(255, 255, 255, .7);
+  }
+}
