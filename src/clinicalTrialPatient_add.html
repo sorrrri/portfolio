@@ -31,7 +31,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="patient_list.html">
+                    <a href="./patient_list.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
                             <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                         </svg>
@@ -121,13 +121,11 @@
                 <div class="input-title">
                     파일 선택
                 </div>
-                <div class="input-select">
-                    <button class="btn-file">
-                        <span>BROWSE</span>
-                        <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
-                    </button>
-                    <span class="upload-file">Maximum file size is 100mb</span>
-                </div>
+                <button class="btn-file">
+                    <span>파일 찾기</span>
+                    <input type="file" accept=".csv" name="FileAttachment" id="FileAttachment" class="upload"/>
+                </button>
+                <span class="upload-file">Maximum file size is 100mb</span>
             </div>
         </section>
     </main>
