@@ -48,16 +48,6 @@ option {
     &:last-of-type {
       margin-bottom: 0;
     }
-
-    .orange {
-      color: orange;
-      background-color: #fff1d6;
-    }
-
-    .red {
-      color: red;
-      background-color: #ffdfdf;
-    }
   }
 
   span {
@@ -263,20 +253,6 @@ section {
   display: none;
 }
 
-.dashboard .row {
-  background-color: transparent;
-  padding: 0;
-  align-items: normal;
-  margin: -.5rem -.5rem .5rem;
-
-  &:nth-of-type(1) {
-    flex: 0 0 auto
-  }
-
-  &:nth-of-type(2) {
-  }
-}
-
 .count {
   flex: 1 1 50%;
   border-radius: .3rem;
@@ -339,8 +315,30 @@ section {
    ============================================================ */
 main {
 
+  &[class*="dashboard"] {
+
+
+    .row {
+      background-color: transparent;
+      padding: 0;
+      align-items: normal;
+      margin: -.5rem -.5rem .5rem;
+
+      &:nth-of-type(1) {
+        flex: 0 0 auto
+      }
+
+      &:nth-of-type(2) {
+      }
+    }
+  }
+
   &[class*="list"] {
 
+    .btn-download {
+      background-color: #333;
+      direction: rtl;
+    }
   }
 
   &[class*="add"] {
@@ -398,6 +396,17 @@ main {
 
 
 /* ============================================================
+   Section
+   ============================================================ */
+section {
+  > .buttons {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+
+/* ============================================================
    Patient List
    ============================================================ */
 .filters {
@@ -423,6 +432,11 @@ main {
         color: #ddd;
       }
 
+      input[type="text"] {
+        background-color: rgba(0, 0, 0, .2);
+        color: white
+      }
+
       .selectbox {
         background-color: rgba(0, 0, 0, .2);
         border-width: 0;
@@ -437,75 +451,112 @@ main {
           border: 0
         }
       }
+    }
+  }
 
-      button {
-        flex: 0 0 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  button {
+    flex: 0 0 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        svg {
-          fill: white
-        }
-      }
+    svg {
+      fill: white
     }
   }
 }
 
-.patient_list .table .row li {
-  &:nth-of-type(1) {
-    width: 8%;
+.patient_list .table .row {
+
+  /*기저질환*/
+  &.th li:nth-of-type(10) {
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      justify-content: center;
+    }
   }
 
-  &:nth-of-type(2) {
-    width: 7%;
-  }
+  li {
+    /*체크박스*/
+    &:nth-of-type(1) {
+      width: 5%;
+    }
 
-  &:nth-of-type(3) {
-    width: 8.5%;
-  }
+    /*확진번호*/
+    &:nth-of-type(2) {
+      width: 5%;
+    }
 
-  &:nth-of-type(4) {
-    width: 8.5%;
-  }
+    /*성별*/
+    &:nth-of-type(3) {
+      width: 5%;
+    }
 
-  &:nth-of-type(5) {
-    width: 9%;
-  }
+    /*나이*/
+    &:nth-of-type(4) {
+      width: 5%;
+    }
 
-  &:nth-of-type(6) {
-    width: 7%;
-  }
+    /*확진일자*/
+    &:nth-of-type(5) {
+      width: 8%;
+    }
 
-  &:nth-of-type(7) {
-    width: 7%;
-  }
+    /*병원*/
+    &:nth-of-type(6) {
+      width: 10%;
+    }
 
-  &:nth-of-type(8) {
-    width: 7%;
-  }
+    /*중증도*/
+    &:nth-of-type(7) {
+      width: 5%;
+    }
 
-  &:nth-of-type(9) {
-    width: 7%;
-  }
+    /*중증도 측정일*/
+    &:nth-of-type(8) {
+      width: 8%;
+    }
 
-  &:nth-of-type(10) {
-    width: 7%;
-  }
+    /*입원일수*/
+    &:nth-of-type(9) {
+      width: 5%;
+    }
 
-  &:nth-of-type(11) {
-    width: 7%;
-  }
+    /*기저질환*/
+    &:nth-of-type(10) {
+      width: 16%;
 
-  &:nth-of-type(12) {
-    width: 10%;
-  }
+      &th ul {
+        display: flex;
+        flex-direction: column;
+      }
 
-  &:nth-of-type(13) {
-    width: 7%;
+      li, span {
+        flex: 0 0 30px;
+        margin: 0
+      }
+    }
+
+    /*상태*/
+    &:nth-of-type(11) {
+      width: 10%;
+    }
+
+    /*퇴원(사망)일자*/
+    &:nth-of-type(12) {
+      width: 8%;
+    }
+
+    /*버튼들*/
+    &:nth-of-type(13) {
+      width: 10%;
+      margin: 0 -.25rem;
+      padding: 0 .25rem;
+    }
   }
 }
-
 
 /* ============================================================
    Patient Add
@@ -513,8 +564,27 @@ main {
 
 
 /* ============================================================
-   Clinical Trial Patient List
+   Clinical Trial Patient Dashboard
    ============================================================ */
+.clinical-trial-patient-dashboard {
+  header {
+    flex-direction: row;
+    align-items: center;
+  }
+  section {
+    display: flex;
+  }
+
+  select {
+    min-width: 100px;
+  }
+}
+
+
+
+  /* ============================================================
+     Clinical Trial Patient List
+     ============================================================ */
 .clinical-trials {
   margin-bottom: 1rem;
   padding-bottom: 0;
@@ -672,21 +742,27 @@ main {
     li:nth-of-type(1) {
       width: auto;
     }
+
     li:nth-of-type(2) {
       width: auto;
     }
+
     li:nth-of-type(3) {
       width: auto;
     }
+
     li:nth-of-type(4) {
       width: auto;
     }
+
     li:nth-of-type(5) {
       width: auto;
     }
+
     li:nth-of-type(6) {
       width: auto;
     }
+
     li:nth-of-type(7) {
       width: 5%;
       flex: 0 0 auto;
@@ -719,10 +795,11 @@ main {
     }
 
     &.row-group {
-      .column{
+      .column {
         &:first-of-type {
           flex: 0 0 360px
         }
+
         &:last-of-type {
           flex: 1 1 auto
         }
@@ -738,6 +815,7 @@ main {
         }
       }
     }
+
     .column:first-of-type .input-title {
       flex: 0 0 150px !important;
       margin-right: 0;
@@ -893,3 +971,4 @@ main {
     color: rgba(255, 255, 255, .7);
   }
 }
+
