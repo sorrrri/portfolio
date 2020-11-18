@@ -22,12 +22,6 @@ option {
   margin-bottom: .5rem;
   border-radius: .5rem;
 
-  button {
-    margin-left: .5rem;
-    white-space: nowrap;
-    background-color: lightsteelblue;
-  }
-
   .column {
     flex: 1 1 auto;
     display: flex;
@@ -860,6 +854,12 @@ section {
             width: 100%
           }
         }
+      }
+
+      button {
+        margin-left: .5rem;
+        white-space: nowrap;
+        background-color: lightsteelblue;
       }
     }
 
