@@ -223,6 +223,10 @@ button {
   border-radius: .3rem;
   padding: .5rem 1rem;
   cursor: pointer;
+
+  svg + span {
+    margin-left: .2rem;
+  }
 }
 
 
