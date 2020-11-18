@@ -216,6 +216,7 @@ label {
 
 button {
   display: flex;
+  align-items: center;
   border: 0;
   background: var(--primaryColor);
   color: white;
@@ -227,11 +228,11 @@ button {
 
 .btn-container {
   display: flex;
-  margin:0 -.2rem
-}
+  margin: 0 -.2rem;
 
-.btn-container button {
-  margin: 0 .2rem
+  button {
+    margin: 0 .2rem
+  }
 }
 
 .btn-submit {
@@ -239,7 +240,7 @@ button {
 }
 
 .btn-cancel {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
 }
 
 .btn-modify {
@@ -256,10 +257,10 @@ textarea {
   border-radius: .5rem;
   padding: .5rem;
   resize: none;
-}
 
-textarea:focus {
-  outline: 0
+  &:focus {
+    outline: 0
+  }
 }
 
 header {
@@ -268,38 +269,34 @@ header {
   align-content: center;
   justify-content: space-between;
   box-sizing: border-box;
+
+  a {
+    display: flex;
+    padding: .4rem .8rem;
+  }
+
+  .logo {
+    line-height: 1;
+  }
+
+  .menu {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    a {
+      font-size: 13px;
+    }
+  }
+
+  button {
+    padding: .5rem 2rem;
+  }
 }
 
 .container > header {
   padding: 0 1rem;
-}
-
-header a {
-  display: flex;
-  padding: .4rem .8rem;
-}
-
-header .menu {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-header .menu a {
-  font-size: 13px;
-}
-
-header .logo {
-  line-height: 1;
-}
-
-header button {
-  padding: .5rem 2rem;
 }
 
 main {
@@ -312,14 +309,14 @@ aside {
   flex-shrink: 0;
   flex-direction: column;
   transition: .0s;
-}
 
-aside ul {
-  flex-direction: column;
-}
+  ul {
+    flex-direction: column;
 
-aside li {
-  flex: 1 1 auto;
+    li {
+      flex: 1 1 auto;
+    }
+  }
 }
 
 .flex-wrapper {
@@ -346,16 +343,15 @@ aside li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
 
+  .button-container button {
+    padding: .6rem 1.6rem
+  }
 
-.content-title .button-container button {
-  padding: .6rem 1.6rem
-}
-
-.content-title h1 {
-  font: normal 2rem/1 'Nanumsquare';
-  flex: 1 1 auto;
+  h1 {
+    font: normal 2rem/1 'Nanumsquare';
+    flex: 1 1 auto;
+  }
 }
 
 .content .title p {
@@ -393,23 +389,23 @@ aside li {
   align-content: center;
   margin-bottom: 1rem;
   position: relative;
-}
 
-.input-container label {
-  align-self: center;
-}
+  label {
+    align-self: center;
+  }
 
-.input-container input {
-  flex: 1 1 auto
-}
+  input {
+    flex: 1 1 auto
+  }
 
-.input-container div {
-  display: flex;
-  align-items: center;
-}
+  div {
+    display: flex;
+    align-items: center;
 
-.input-container div input {
-  flex: 1 1 auto;
+    input {
+      flex: 1 1 auto;
+    }
+  }
 }
 
 .button-container {
@@ -653,7 +649,6 @@ input[type="radio"] + label:empty:before {
 }
 
 
-
 /*table*/
 .table {
   width: 100%;
@@ -703,6 +698,9 @@ input[type="radio"] + label:empty:before {
 }
 
 .table .th {
+  font: 13px/1.2 'Comfortaa', 'Nanumsquare';
+  margin: 1rem auto .2rem !important;
+  color: slategray !important;
   word-break: keep-all;
   border-radius: 0;
   background: transparent !important;
@@ -711,8 +709,6 @@ input[type="radio"] + label:empty:before {
 }
 
 .table .th span {
-  font: 12px/1.5 'Comfortaa';
-  color: slategray !important;
 }
 
 .table .list {
@@ -927,14 +923,13 @@ input[type="radio"] + label:empty:before {
 }
 
 
-
 /* ============================================================
    Date Picker
    ============================================================ */
 .ui-datepicker {
   background-color: white;
   padding: 1rem;
-  box-shadow: 0 0 14px rgba(0,0,0, .1);
+  box-shadow: 0 0 14px rgba(0, 0, 0, .1);
   border-radius: .5rem;
 }
 
@@ -1012,7 +1007,6 @@ input[type="radio"] + label:empty:before {
   background-color: var(--secondaryColor);
   color: white !important;
 }
-
 
 
 /* =====================================================

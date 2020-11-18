@@ -337,7 +337,10 @@ main {
 
     .btn-download {
       background-color: #333;
-      direction: rtl;
+
+      svg {
+        fill: white
+      }
     }
   }
 
@@ -466,94 +469,132 @@ section {
   }
 }
 
-.patient_list .table .row {
+.patient_list {
 
-  /*기저질환*/
-  &.th li:nth-of-type(10) {
-    display: flex;
-    flex-direction: column;
+  .table .rows {
+    position: relative;
 
-    ul {
-      justify-content: center;
+    .ico-more {
+      width: 1rem;
+      cursor: pointer;
+      position: absolute;
+      top: 14px;
+      right: 1rem;
+      z-index: 1;
+    }
+
+    .sub-row {
+      display: none;
+    }
+
+    &.active-sub-row {
+      border: 1px solid coral;
+      border-radius: .5rem;
+      margin-bottom: .5rem;
+
+      .row {
+        margin-bottom: 0;
+        border-radius: .5rem .5rem 0 0;
+      }
+
+      .sub-row {
+        display: flex;
+        border-top: 1px solid #EEE;
+        border-radius: 0;
+
+        &:last-of-type {
+          border-radius: 0 0 .5rem .5rem;
+        }
+      }
     }
   }
 
-  li {
-    /*체크박스*/
-    &:nth-of-type(1) {
-      width: 5%;
-    }
-
-    /*확진번호*/
-    &:nth-of-type(2) {
-      width: 5%;
-    }
-
-    /*성별*/
-    &:nth-of-type(3) {
-      width: 5%;
-    }
-
-    /*나이*/
-    &:nth-of-type(4) {
-      width: 5%;
-    }
-
-    /*확진일자*/
-    &:nth-of-type(5) {
-      width: 8%;
-    }
-
-    /*병원*/
-    &:nth-of-type(6) {
-      width: 10%;
-    }
-
-    /*중증도*/
-    &:nth-of-type(7) {
-      width: 5%;
-    }
-
-    /*중증도 측정일*/
-    &:nth-of-type(8) {
-      width: 8%;
-    }
-
-    /*입원일수*/
-    &:nth-of-type(9) {
-      width: 5%;
-    }
+  .table .row {
+    padding-right: 1.5rem;
+    user-select: none;
 
     /*기저질환*/
-    &:nth-of-type(10) {
-      width: 16%;
+    &.th li:nth-of-type(10) {
+      display: flex;
+      flex-direction: column;
 
-      &th ul {
-        display: flex;
-        flex-direction: column;
-      }
-
-      li, span {
-        flex: 0 0 30px;
-        margin: 0
+      ul {
+        justify-content: center;
       }
     }
 
-    /*상태*/
-    &:nth-of-type(11) {
-      width: 10%;
-    }
+    li {
+      /*체크박스*/
+      &:nth-of-type(1) {
+        width: 5%;
+      }
 
-    /*퇴원(사망)일자*/
-    &:nth-of-type(12) {
-      width: 8%;
-    }
+      /*확진번호*/
+      &:nth-of-type(2) {
+        width: 5%;
+      }
 
-    /*버튼들*/
-    &:nth-of-type(13) {
-      width: 10%;
-      margin: 0 -.25rem;
-      padding: 0 .25rem;
+      /*성별*/
+      &:nth-of-type(3) {
+        width: 5%;
+      }
+
+      /*나이*/
+      &:nth-of-type(4) {
+        width: 5%;
+      }
+
+      /*확진일자*/
+      &:nth-of-type(5) {
+        width: 8%;
+      }
+
+      /*병원*/
+      &:nth-of-type(6) {
+        width: 8%;
+      }
+
+      /*중증도*/
+      &:nth-of-type(7) {
+        width: 5%;
+      }
+
+      /*중증도 측정일*/
+      &:nth-of-type(8) {
+        width: 8%;
+      }
+
+      /*입원일수*/
+      &:nth-of-type(9) {
+        width: 5%;
+      }
+
+      /*기저질환*/
+      &:nth-of-type(10) {
+        width: 16%;
+
+        li, span {
+          flex: 0 0 30px;
+          margin: 0
+        }
+      }
+
+      /*상태*/
+      &:nth-of-type(11) {
+        width: 10%;
+      }
+
+      /*퇴원(사망)일자*/
+      &:nth-of-type(12) {
+        width: 8%;
+      }
+
+      /*버튼들*/
+      &:nth-of-type(13) {
+        width: 12%;
+        margin: 0 -.25rem;
+        padding: 0 .25rem;
+      }
     }
   }
 }
@@ -571,6 +612,7 @@ section {
     flex-direction: row;
     align-items: center;
   }
+
   section {
     display: flex;
   }
@@ -581,11 +623,10 @@ section {
 }
 
 
-
-  /* ============================================================
-     Clinical Trial Patient List
-     ============================================================ */
-.clinical-trials {
+/* ============================================================
+   Clinical Trial Patient List
+   ============================================================ */
+.clinical-trials-list {
   margin-bottom: 1rem;
   padding-bottom: 0;
 
