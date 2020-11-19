@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const init = (n) => {
     sections.forEach((section) => {
-      section.classList.remove("active")
+      section.style.display = "none"
       subMenus.forEach((subMenu) => {
         subMenu.classList.remove("active")
       })
     })
-    sections[n].classList.add("active")
+    sections[n].style.display = "flex"
     subMenus[n].classList.add("active")
   }
 
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     subMenu.addEventListener("click", () => {
       init(index)
     })
+    init(0)
   })
 
 
