@@ -31,16 +31,6 @@ option {
   &.row-type-1 {
 
     .column:first-of-type {
-      flex: 1 1 auto
-    }
-    .column:last-of-type {
-      flex: 0 0 auto
-    }
-  }
-
-  &.row-type-2 {
-
-    .column:first-of-type {
       flex: 0 0 auto;
 
       input {
@@ -83,12 +73,12 @@ option {
   }
 
   .column {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
 
     &:first-of-type {
-      flex: 0 0 auto;
+      flex: 1 1 auto;
 
       .input-title {
         flex: 0 0 120px !important;
@@ -947,13 +937,6 @@ section {
   }
 
   .row {
-
-    &.row-alternate {
-
-      .input-select {
-        flex-wrap: nowrap;
-      }
-    }
 
     &.row-standard {
 
