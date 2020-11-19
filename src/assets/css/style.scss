@@ -206,6 +206,10 @@ main {
   header {
     padding: 1.3rem 1rem 1rem;
     flex-direction: column;
+
+    h3 {
+      line-height: 36px;
+    }
   }
 }
 
@@ -236,7 +240,7 @@ main {
 
 section {
   opacity: 0;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   flex: 1 1 auto;
   align-items: center;
   overflow-x: hidden;
@@ -307,7 +311,6 @@ section {
    Main
    ============================================================ */
 main {
-
   &[class*="dashboard"] {
 
 
@@ -406,11 +409,12 @@ section {
    Patient List
    ============================================================ */
 .filters {
+  flex: 0 0 auto;
   display: flex;
   background-color: #4870ac;
   border-radius: .3rem;
   padding: .5rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 
   ul {
     flex: 1 1 auto;
