@@ -168,7 +168,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 small {
-  font-family: Comfortaa;
+  font-family: 'Comfortaa', 'NanumSquare', sans-serif;
   line-height: 1.2;
 }
 
@@ -683,7 +683,6 @@ input[type="radio"] + label:empty:before {
   background: white;
   border-radius: .5rem;
   position: relative;
-  cursor: pointer;
   animation: fadeInOpacity .8s forwards;
 }
 

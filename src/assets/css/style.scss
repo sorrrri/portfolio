@@ -21,11 +21,58 @@ option {
   background-color: white;
   margin-bottom: .5rem;
   border-radius: .5rem;
+  text-transform: capitalize;
+  position: relative;
+
+  &.row-title input {
+    width: 100%;
+  }
+
+  &.row-date .selectbox {
+    flex: 0 0 80px;
+  }
+
+  &.row-group {
+    .column {
+      &:first-of-type {
+        flex: 0 0 360px
+      }
+
+      &:last-of-type {
+        flex: 1 1 auto;
+
+        input {
+          width: 100%
+        }
+      }
+    }
+
+    button {
+      margin-left: .5rem;
+      white-space: nowrap;
+      background-color: lightsteelblue;
+    }
+  }
 
   .column {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
+
+    &:first-of-type {
+      .input-title {
+        flex: 0 0 120px !important;
+        margin-right: 0;
+      }
+    }
+
+    &:not(:first-of-type) {
+      flex: 0 0 auto;
+
+      .input-title {
+        max-width: 130px;
+      }
+    }
 
     &:not(:last-of-type) {
       margin-right: 1rem;
@@ -35,10 +82,19 @@ option {
       flex: 0 0 auto !important;
       margin-right: .5rem;
     }
+  }
 
-    input[type="text"] {
-      min-width: 80px;
-      max-width: 160px;
+  .input-title {
+    flex: 0 0 120px;
+  }
+
+  input[type="text"] {
+    min-width: 80px;
+    max-width: 160px;
+
+    &+ *,
+    .selectbox + .selectbox {
+      margin-left: .5rem;
     }
   }
 }
@@ -209,6 +265,13 @@ main {
 
     h3 {
       line-height: 36px;
+
+      small {
+        border: 1px solid #ddd;
+        padding: .3rem .6rem;
+        border-radius: .3rem;
+        margin-left: .5rem;
+      }
     }
   }
 }
@@ -773,6 +836,48 @@ section {
 
 
 /* ============================================================
+   Clinical Trial Patient Add
+   ============================================================ */
+.clinical-trial-patient-add {
+
+  section {
+    h3 {
+      margin: 3rem 0 .5rem;
+      color: slategray;
+    }
+  }
+
+  .row {
+
+    .btn-plus {
+      padding: 0;
+      background: transparent;
+      position: absolute;
+      right: 1rem;
+      transition: background-color .2s;
+
+      &:hover {
+        background-color: #EEE
+      }
+
+      svg {
+        fill: slategray;
+      }
+    }
+
+    .column {
+      flex: 0 0 50%;
+
+      .input-title {
+        flex: 0 0 120px !important;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+
+/* ============================================================
    Clinical Trial Research List
    ============================================================ */
 .clinical-trial-research-list {
@@ -814,59 +919,19 @@ section {
    ============================================================ */
 .clinical-trial-research-add {
 
-  section{
+  section {
     h3 {
       margin: 3rem 0 .5rem;
       color: slategray;
     }
   }
+
   .row {
-    text-transform: capitalize;
-
-    &.row-title input {
-      width: 100%;
-    }
-
-    &.row-date .selectbox {
-      flex: 0 0 80px;
-    }
 
     &.row-alternate {
 
       .input-select {
         flex-wrap: nowrap;
-      }
-    }
-
-    &.row-group {
-      .column {
-        &:first-of-type {
-          flex: 0 0 360px
-        }
-
-        &:last-of-type {
-          flex: 1 1 auto;
-
-          input {
-            width: 100%
-          }
-        }
-      }
-
-      button {
-        margin-left: .5rem;
-        white-space: nowrap;
-        background-color: lightsteelblue;
-      }
-    }
-
-    .column {
-      &:not(:first-of-type) {
-        flex: 0 0 auto;
-
-        .input-title {
-          max-width: 130px;
-        }
       }
     }
 
@@ -877,10 +942,6 @@ section {
 
     .input-title {
       flex: 0 0 150px;
-    }
-
-    input[type="text"] + * {
-      margin-left: .5rem;
     }
 
     select {
