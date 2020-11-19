@@ -407,7 +407,8 @@ main {
     }
   }
 
-  &[class*="add"] {
+  &[class*="add"],
+  &[class*="edit"] {
     header {
       flex-direction: row;
       align-items: center;
@@ -1045,6 +1046,11 @@ section {
 .admin {
   background: #333;
   color: white !important;
+
+  main[class*="add"] input[type="text"],
+  main[class*="edit"] input[type="text"] {
+    border: 0;
+  }
 
   a {
     color: rgba(255, 255, 255, .7);
