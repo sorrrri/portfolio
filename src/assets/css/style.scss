@@ -28,8 +28,17 @@ option {
     width: 100%;
   }
 
-  &.row-date .selectbox {
-    flex: 0 0 80px;
+  &.row-date {
+
+    .column {
+      &:first-of-type {
+        flex: 0 0 420px
+      }
+    }
+
+    .selectbox {
+      flex: 0 0 80px;
+    }
   }
 
   &.row-group {
@@ -45,12 +54,6 @@ option {
           width: 100%;
         }
       }
-    }
-
-    button {
-      margin-left: .5rem;
-      white-space: nowrap;
-      background-color: lightsteelblue;
     }
   }
 
@@ -938,15 +941,6 @@ section {
       .input-select {
         flex-wrap: nowrap;
       }
-    }
-
-    .column:first-of-type .input-title {
-      flex: 0 0 150px !important;
-      margin-right: 0;
-    }
-
-    .input-title {
-      flex: 0 0 150px;
     }
 
     select {
