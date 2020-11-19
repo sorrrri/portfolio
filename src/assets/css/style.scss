@@ -42,7 +42,7 @@ option {
         flex: 1 1 auto;
 
         input {
-          width: 100%
+          width: 100%;
         }
       }
     }
@@ -51,6 +51,19 @@ option {
       margin-left: .5rem;
       white-space: nowrap;
       background-color: lightsteelblue;
+    }
+  }
+
+  .input-title {
+    flex: 0 0 120px;
+  }
+
+  input[type="text"] {
+    min-width: 80px;
+
+    & + *,
+    .selectbox + .selectbox {
+      margin-left: .5rem;
     }
   }
 
@@ -81,20 +94,6 @@ option {
     .input-title {
       flex: 0 0 auto !important;
       margin-right: .5rem;
-    }
-  }
-
-  .input-title {
-    flex: 0 0 120px;
-  }
-
-  input[type="text"] {
-    min-width: 80px;
-    max-width: 160px;
-
-    &+ *,
-    .selectbox + .selectbox {
-      margin-left: .5rem;
     }
   }
 }
@@ -408,6 +407,24 @@ main {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .row {
+      .btn-plus {
+        padding: 0;
+        background: transparent;
+        position: absolute;
+        right: 1rem;
+        transition: background-color .2s;
+
+        &:hover {
+          background-color: #EEE
+        }
+
+        svg {
+          fill: slategray;
+        }
+      }
     }
 
     .input-title {
@@ -849,20 +866,8 @@ section {
 
   .row {
 
-    .btn-plus {
-      padding: 0;
-      background: transparent;
-      position: absolute;
-      right: 1rem;
-      transition: background-color .2s;
-
-      &:hover {
-        background-color: #EEE
-      }
-
-      svg {
-        fill: slategray;
-      }
+    input[type="text"] {
+      max-width: 160px;
     }
 
     .column {
