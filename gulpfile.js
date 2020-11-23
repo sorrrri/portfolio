@@ -84,6 +84,7 @@ gulp.task('html', () => {
       path: ['./src/templates']
     }))
     .pipe(gulp.dest(DEST_PATH.HTML))
+    .pipe(browserSync.reload({stream: true}))
 })
 
 gulp.task('clean', () => {

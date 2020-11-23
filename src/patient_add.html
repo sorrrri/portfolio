@@ -10,7 +10,7 @@
 </aside>
 <main class="patient_add">
     <header>
-        <h3>확진환자 신규등록</h3>
+        <h3>확진환자 생성</h3>
         <button>등록</button>
     </header>
     <section>
@@ -79,10 +79,12 @@
         <div class="row">
             <div class="input-title">확진일자</div>
             <input class="datepicker" type="text" id="confirmationDate">
+            <input type="time" value="00:00:00">
         </div>
         <div class="row">
             <div class="input-title">퇴원(사망)일자</div>
             <input class="datepicker" type="text" id="dischargeDate">
+            <input type="time" value="00:00:00">
         </div>
         <div class="row">
             <div class="input-title">
@@ -114,6 +116,7 @@
         <div class="row">
             <div class="input-title">중증도 측정일</div>
             <input class="datepicker" type="text" id="severityDate">
+            <input type="time" value="00:00:00">
         </div>
         <div class="row">
             <div class="input-title">상태</div>
