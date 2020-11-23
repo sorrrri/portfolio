@@ -8,6 +8,10 @@ option {
   color: #333;
 }
 
+button {
+  font: 13px/1 'Nanumsquare'
+}
+
 .container {
   background-size: 200%;
   background: rgb(49, 59, 75);
@@ -64,6 +68,15 @@ option {
 
   .input-title {
     flex: 0 0 120px;
+    position: relative;
+
+    &.required::before {
+      content: "\002A";
+      color: orangered;
+      position: absolute;
+      left: -.6rem;
+      font-size: 1.2rem
+    }
   }
 
   input[type="text"] {
@@ -490,7 +503,7 @@ section {
 
     button {
       margin: 0 .2rem;
-      background-color: #333;
+      background-color: $primary-color;
 
       svg {
         fill: white
@@ -509,7 +522,7 @@ section {
   background-color: #4870ac;
   border-radius: .3rem;
   padding: .5rem;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem 1rem;
 
   ul {
     flex: 1 1 auto;
@@ -528,13 +541,12 @@ section {
       }
 
       input[type="text"] {
-        background-color: rgba(0, 0, 0, .2);
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, .2);
         color: white
       }
 
       .selectbox {
-        background-color: rgba(0, 0, 0, .2);
-        border-width: 0;
 
         &::before {
           border-color: white
@@ -543,7 +555,8 @@ section {
         select {
           background-color: transparent;
           color: white;
-          border: 0
+          border: 1px solid rgba(255, 255, 255, .2);
+          height: 34px;
         }
       }
     }
@@ -554,6 +567,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(255, 255, 255, .2);
 
     svg {
       fill: white
@@ -728,6 +742,10 @@ section {
     .row {
 
       li {
+        &.col-check {
+          fill: orangered
+        }
+
         &.col-check.active svg {
           fill: lightseagreen;
         }
@@ -786,6 +804,15 @@ section {
           width: 10%;
         }
       }
+    }
+  }
+
+  .modal {
+    max-width: 500px;
+    max-height: 200px;
+
+    & > button {
+      align-self: flex-end
     }
   }
 }
@@ -888,10 +915,33 @@ section {
     .column {
       flex: 0 0 50%;
 
+      &.col-confirmation-number {
+
+      }
+
       .input-title {
         flex: 0 0 120px !important;
         margin-right: 0;
+        position: relative;
       }
+    }
+  }
+
+  .modal {
+    max-width: 450px;
+
+    .search {
+      display: flex;
+      margin: 1rem 0;
+
+      input {
+        flex: 1 1 auto;
+        margin-right: .5rem
+      }
+    }
+
+    .row li {
+      flex: 1 1 25%
     }
   }
 }

@@ -16,7 +16,7 @@
     <section>
         <div class="row">
             <div class="column">
-                <div class="input-title">연구 ID</div>
+                <div class="input-title required">연구 ID</div>
                 <input type="text">
             </div>
             <div class="column">
@@ -37,7 +37,7 @@
             <input type="text">
         </div>
         <div class="row">
-            <div class="input-title">연구유형</div>
+            <div class="input-title required">연구유형</div>
             <div class="input-select">
                 <div>
                     <input type="radio" name="select-research-type" id="interventional">
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-title">타시스템 등록번호</div>
+            <div class="input-title required">타등록 시스템 등록번호</div>
             <input type="text">
             <div class="selectbox">
                 <select>
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-title">연구모집현황</div>
+            <div class="input-title required">연구모집현황</div>
             <div class="input-select">
                 <div>
                     <input type="radio" name="select-research-status" id="not-yet">
@@ -250,7 +250,7 @@
         </div>
         <div class="row row-type-1">
             <div class="column">
-                <div class="input-title">IRB승인번호</div>
+                <div class="input-title required">IRB승인번호</div>
                 <input type="text">
             </div>
             <div class="column">
@@ -731,7 +731,6 @@
         </div>
     </section>
 </main>
-</div>
 <script>
   $(function () {
     $("#startDate, #endDate, #dischargeDate").datepicker({

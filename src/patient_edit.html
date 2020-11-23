@@ -18,16 +18,13 @@
     </header>
     <section>
         <div class="row">
-            <div class="input-title">성명</div>
-            <input type="text" value="홍길동">
-        </div>
-        <div class="row">
             <div class="input-title">확진번호</div>
             <input type="text" value="AA0011">
         </div>
         <div class="row">
-            <div class="input-title">생년월일</div>
-            <input class="datepicker" type="text" id="birthDate" value="2010-11-01">
+            <div class="input-title">나이</div>
+            <input type="text" value="20">
+            <small>* 확진 당시 나이</small>
         </div>
         <div class="row">
             <div class="input-title">성별</div>
@@ -150,10 +147,9 @@
         </div>
     </section>
 </main>
-</div>
 <script>
   $(function () {
-    $("#confirmationDate, #birthDate, #dischargeDate, #severityDate").datepicker({
+    $("#confirmationDate, #dischargeDate, #severityDate").datepicker({
       changeMonth: true,
       changeYear: true,
       dateFormat: 'yy-mm-dd'

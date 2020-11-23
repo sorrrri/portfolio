@@ -185,7 +185,7 @@ input {
   height: auto;
   border: 0;
   padding: .5rem;
-  font: 15px/1 'NanumSquare';
+  font: 14px/1 'NanumSquare';
   background-color: white;
   outline: 0;
   box-sizing: border-box;
@@ -216,6 +216,7 @@ button {
   border-radius: .3rem;
   padding: .5rem 1rem;
   cursor: pointer;
+  user-select: none
 
   svg + span {
     margin-left: .2rem;
@@ -246,6 +247,10 @@ button {
   width: 2rem;
   height: 2rem;
   padding: 0;
+}
+
+.btn-download {
+  background-color: lightslategray !important
 }
 
 textarea {
@@ -635,9 +640,9 @@ input[type="radio"] + label:empty:before {
     flex: 1 1 auto;
     width: 100%;
     -webkit-appearance: none;
-    padding: .3rem 2rem .3rem .5rem;
+    padding: .5rem 2rem .5rem .5rem;
     height: auto;
-    font: 15px/1.5 'NanumSquare';
+    font: 14px/1 'NanumSquare';
     background-color: white;
     outline: 0;
     box-sizing: border-box;

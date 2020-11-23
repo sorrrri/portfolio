@@ -10,12 +10,12 @@
 </aside>
 <main class="clinical-trial-patient-add">
     <header>
-        <h3>임상시험 대상환자 상세정보 추가<small>환자 ID: 6544513</small></h3>
+        <h3>임상시험 참여자 상세정보 추가<small>환자 ID: 6544513</small></h3>
         <button>등록</button>
     </header>
     <section>
         <div class="row">
-            <div class="input-title">병원</div>
+            <div class="input-title required">병원</div>
             <div class="input-select">
                 <div>
                     <input type="radio" name="select-hospital" id="suwon">
@@ -54,7 +54,7 @@
                 <input type="time" value="00:00:00">
             </div>
             <div class="column">
-                <div class="input-title">연구 ID</div>
+                <div class="input-title required">연구 ID</div>
                 <div class="selectbox">
                     <select>
                         <option value="1">1</option>
@@ -78,8 +78,8 @@
                     </select>
                 </div>
             </div>
-            <div class="column">
-                <div class="input-title">확진번호</div>
+            <div class="column col-confirmation-number">
+                <div class="input-title required">확진번호</div>
                 <input type="text">
             </div>
         </div>
@@ -168,8 +168,29 @@
             </div>
         </div>
     </section>
+    <div class="modal modal-confirmation-number">
+        <h3>환자검색</h3>
+        <div class="search">
+            <input type="text">
+            <button>검색</button>
+        </div>
+        <div class="table">
+            <ul class="row th">
+                <li>확진번호</li>
+                <li>나이</li>
+                <li>확진일자</li>
+                <li>병원</li>
+            </ul>
+            <ul class="row">
+                <li>5</li>
+                <li>20</li>
+                <li>2020-12-01</li>
+                <li>수원</li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay"></div>
 </main>
-</div>
 <script>
   $(function () {
     $("#investigationDate, #contactInfectedDate, #sideEffectDate, #bodyMeasurementDate").datepicker({

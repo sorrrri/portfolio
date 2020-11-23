@@ -109,8 +109,37 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+  // 임상시험대상환자 상세정보 추가
+  const overlay = document.querySelector('.overlay')
+  const modal = document.querySelector('.modal')
+
+  const modalConfirmationNumber = document.querySelector('.modal-confirmation-number')
+  const confirmationNumber = document.querySelector('.col-confirmation-number input')
+
+  if(confirmationNumber) {
+    confirmationNumber.addEventListener('click', () => {
+      modalConfirmationNumber.classList.add('active')
+      overlay.classList.add('active')
+    })
+  }
+
+  if(overlay) {
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('active')
+      modal.classList.remove('active')
+    })
+  }
 
   // 임상시험대상환자 CSV 파일 업로드
+  const csvUpload = document.querySelector('.csv-upload')
+
+  if(csvUpload) {
+    csvUpload.addEventListener('click', () => {
+      modal.classList.add('active')
+      overlay.classList.add('active')
+    })
+  }
+
   const fileAttachment = document.getElementById("FileAttachment")
 
   if(fileAttachment) {
