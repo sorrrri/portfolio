@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // 임상시험대상환자 CSV 파일 업로드
-
   const fileAttachment = document.getElementById("FileAttachment")
 
   if(fileAttachment) {

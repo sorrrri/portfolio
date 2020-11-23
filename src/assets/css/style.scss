@@ -1,3 +1,5 @@
+@import "common";
+
 body {
   overflow: hidden;
 }
@@ -169,13 +171,14 @@ aside {
     border: 1px solid rgba(255, 255, 255, .2);
     transition: background-color .2s;
 
-    &:hover {
+    &:hover,
+    &.active {
       background-color: white;
       color: #333;
     }
 
     svg {
-      fill: var(--primaryColor);
+      fill: $primary-color;
       margin-right: .2rem;
     }
 
@@ -236,7 +239,7 @@ aside {
         background-color: rgba(255, 255, 255, .1);
 
         > *:first-child {
-          fill: var(--primaryColor) !important;
+          fill: $primary-color !important;
         }
       }
 
@@ -299,7 +302,7 @@ main {
 
     &:hover,
     &.active {
-      background-color: var(--primaryColor);
+      background-color: $primary-color;
       color: white;
     }
   }
@@ -830,7 +833,7 @@ section {
 
 .btn-file {
   position: relative;
-  background-color: var(--secondaryColor);
+  background-color: $secondary-color;
   margin-right: .5rem;
 
   &::after {
@@ -1044,12 +1047,16 @@ section {
    ============================================================ */
 
 .admin {
-  background: #333;
   color: white !important;
+  background: rgb(65, 75, 91);
 
-  main[class*="add"] input[type="text"],
-  main[class*="edit"] input[type="text"] {
-    border: 0;
+  header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    border: 0 !important;
   }
 
   a {
@@ -1069,16 +1076,8 @@ section {
     fill: white;
   }
 
-  main {
-    background: rgb(65, 75, 91);
-
-    header {
-      flex-direction: row;
-      align-items: center;
-    }
-  }
-
   .row {
+    cursor: pointer;
     background-color: rgba(255, 255, 255, .1);
   }
 

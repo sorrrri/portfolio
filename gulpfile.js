@@ -1,11 +1,13 @@
 const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync')
+const babel = require('gulp-babel')
 const scss = require('gulp-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const sourcemaps = require('gulp-sourcemaps')
 const del = require('del')
 const ghPages = require('gulp-gh-pages')
+const nunjucks = require('gulp-nunjucks-render')
 
 const PATH = {
   HTML: './src',
@@ -66,6 +68,11 @@ gulp.task('scss:compile', () => {
 
 gulp.task('script', () => {
   return gulp.src(PATH.ASSETS.SCRIPT + '/*.js')
+    .pipe(babel({
+      "presets": [
+        "@babel/preset-env"
+      ]
+    }))
     .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
     .pipe(browserSync.reload({stream: true}))
 })
@@ -73,6 +80,9 @@ gulp.task('script', () => {
 gulp.task('html', () => {
   return gulp
     .src(PATH.HTML + '/*.html')
+    .pipe(nunjucks({
+      path: ['./src/templates']
+    }))
     .pipe(gulp.dest(DEST_PATH.HTML))
 })
 
