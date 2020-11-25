@@ -1,15 +1,15 @@
 const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync')
+const nunjucks =require('gulp-nunjucks-render')
 const del = require('del')
 const autoprefixer = require('gulp-autoprefixer')
+const scss = require('gulp-sass')
+const sourcemaps = require('gulp-sourcemaps')
 const ghPages = require('gulp-gh-pages')
 
 const PATH = {
-  HTML: {
-    BASE: './src',
-    ADMIN: './src/admin'
-  },
+  HTML:  './src',
   ASSETS: {
     STYLE: './src/assets/css',
     FONTS: './src/assets/fonts',
@@ -20,10 +20,7 @@ const PATH = {
 }
 
 const DEST_PATH = {
-  HTML: {
-    BASE: './dist',
-    ADMIN: './dist/admin'
-  },
+  HTML: './dist',
   ASSETS: {
     STYLE: './dist/assets/css',
     FONTS: './dist/assets/fonts',
@@ -35,30 +32,35 @@ const DEST_PATH = {
 
 gulp.task('clean', () => {
   return new Promise(resolve => {
-    del.sync(DEST_PATH.HTML.BASE)
-    del.sync(DEST_PATH.HTML.ADMIN)
+    del.sync(DEST_PATH.HTML)
     resolve()
   })
 })
 
 gulp.task('html', () => {
   return gulp
-    .src(PATH.HTML.BASE + '/*.html')
-    .pipe(gulp.dest(DEST_PATH.HTML.BASE))
+    .src(PATH.HTML + '/**/*.html')
+    .pipe(nunjucks({
+      path: ['./src/templates']
+    }))
+    .pipe(gulp.dest(DEST_PATH.HTML))
     .pipe(browserSync.reload({stream: true}))
 })
 
-gulp.task('admin', () => {
+gulp.task('scss:compile', () => {
+  const options = {
+    outputStyle: 'nested',
+    indentType: 'space',
+    indentWidth: 4,
+    precision: 8,
+    sourceComments: true
+  }
   return gulp
-    .src(PATH.HTML.ADMIN + '/*.html')
-    .pipe(gulp.dest(DEST_PATH.HTML.ADMIN))
-    .pipe(browserSync.reload({stream: true}))
-})
-
-gulp.task('css', () => {
-  return gulp
-    .src(PATH.ASSETS.STYLE + '/*.*')
+    .src(PATH.ASSETS.STYLE + '/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(scss(options))
     .pipe(autoprefixer({cascade: false}))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
     .pipe(browserSync.reload({stream: true}))
 })
@@ -109,7 +111,7 @@ gulp.task('browserSync', () => {
 
 gulp.task('watch', () => {
   return new Promise(resolve => {
-    gulp.watch(PATH.ASSETS.STYLE + "/**/*.css", gulp.series(['css']))
+    gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['scss:compile']))
     gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script']))
     gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']))
     resolve()
@@ -125,8 +127,7 @@ gulp.task('deploy', () => {
 const series = gulp.series([
   'clean',
   'html',
-  'admin',
-  'css',
+  'scss:compile',
   'fonts',
   'images',
   'script',

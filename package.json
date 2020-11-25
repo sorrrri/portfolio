@@ -29,8 +29,13 @@
     "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-nodemon": "^2.5.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
     "gulp-watch": "^5.0.1"
   }
 }
