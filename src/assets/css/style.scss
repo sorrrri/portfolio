@@ -161,7 +161,7 @@ aside {
   background: rgb(49, 59, 75);
 
   button {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
   }
 
   .btn-login {
@@ -228,7 +228,7 @@ aside {
     small {
       color: #a5ccdc;
       padding: .3rem .8rem;
-      font-family: 'NanumSquare';
+      font-family: 'NanumSquare', sans-serif;
       font-size: 13px;
     }
 
@@ -1010,7 +1010,7 @@ section {
     }
 
     select {
-      font-family: "Poppins";
+      font-family: "Poppins", sans-serif;
     }
   }
 }
@@ -1049,7 +1049,7 @@ section {
 
   h1 {
     color: white;
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     margin-bottom: .5em;
     text-align: center;
     text-transform: uppercase;
@@ -1074,7 +1074,7 @@ section {
   }
 
   input {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     color: white;
     text-indent: 1.3rem;
     padding: .7rem 1rem;
@@ -1088,7 +1088,7 @@ section {
     border-radius: 50px;
     width: 100%;
     justify-content: center;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     font-size: 18px;
     transition: background-color .2s;
 

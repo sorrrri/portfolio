@@ -32,6 +32,9 @@
 
 $primary-color: #07babd;
 $secondary-color: #3b9cff;
+$dark-primary-color: #27292d;
+$dark-secondary-color: #373a46;
+$dark-tertiary-color: #85899a;
 
 
 body {
@@ -54,7 +57,7 @@ body {
 }
 
 svg {
-  fill: var(--darkmodePrimaryColor);
+  fill: $dark-primary-color;
 }
 
 canvas {
@@ -152,7 +155,6 @@ img {
 .add-input {
   width: 100%;
   margin: 0 auto;
-  fill: var(--brightPurple) !important;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -194,7 +196,7 @@ input {
 }
 
 input[type="password"] {
-  font-family: "Comfortaa";
+  font-family: "Comfortaa", sans-serif;
 }
 
 input:focus, select:focus, button:focus {
@@ -836,7 +838,6 @@ input[type="radio"] + label:empty:before {
 }
 
 .modal {
-  color: var(--modal-color-text);
   width: 50vw;
   height: 50vh;
   max-height: 60%;
@@ -1015,7 +1016,7 @@ input[type="radio"] + label:empty:before {
    ===================================================== */
 .dark-mode,
 .dark-mode main {
-  background-color: var(--darkmodePrimaryColor) !important;
+  background-color: $dark-primary-color !important;
   color: white;
 }
 
@@ -1024,7 +1025,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .button-cancel {
-  background-color: var(--darkmodeTertiaryColor);
+  background-color: $dark-tertiary-color;
   color: white;
 }
 
@@ -1043,15 +1044,15 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode header {
-  border-color: var(--darkmodeSecondaryColor) !important;
+  border-color: $dark-secondary-color !important;
 }
 
 .dark-mode aside {
-  background-color: var(--darkmodePrimaryColor) !important;
+  background-color: $dark-primary-color !important;
 }
 
 .dark-mode .menu {
-  background-color: var(--darkmodePrimaryColor);
+  background-color: $dark-primary-color;
   color: white;
   border-color: #393b40;
 }
@@ -1062,7 +1063,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .content {
-  background: var(--darkmodeSecondaryColor) !important
+  background: $dark-secondary-color !important
 }
 
 .dark-mode .content .title h1 {
@@ -1073,7 +1074,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode .table .row {
-  background-color: var(--darkmodeSecondaryColor);
+  background-color: $dark-secondary-color;
 }
 
 .dark-mode .table .row span {
@@ -1082,9 +1083,9 @@ input[type="radio"] + label:empty:before {
 
 .dark-mode input[type="radio"] + label:before {
   background-color: #373a46;
-  border-color: var(--darkmodePrimaryColor);
+  border-color: $dark-primary-color;
 }
 
 .dark-mode input[type="radio"]:hover + label:before, .dark-mode input[type="radio"]:checked + label:before {
-  box-shadow: inset 0 0 0 2px var(--darkmodePrimaryColor);
+  box-shadow: inset 0 0 0 2px $dark-primary-color;
 }
