@@ -9,13 +9,18 @@ option {
 }
 
 button {
-  font: 13px/1 'Nanumsquare'
+  font: 14px/1 'Nanumsquare'
 }
 
 .container {
   background-size: 200%;
   background: rgb(49, 59, 75);
   transition: 600ms ease;
+}
+
+input[type="time"],
+.selectbox select {
+  height: 34px;
 }
 
 .row {
@@ -30,17 +35,17 @@ button {
   text-transform: capitalize;
   position: relative;
 
-  &.row-title input {
-    width: 100%;
+  &.row-type-1 input {
+    width: 100% !important;
   }
 
-  &.row-type-1 {
+  &.row-type-2 {
 
     .column:first-of-type {
-      flex: 0 0 auto;
+      flex: 0 0 320px;
 
       input {
-        width: 240px
+        width: 180px
       }
     }
 
@@ -49,6 +54,22 @@ button {
 
       input {
         width: 100%
+      }
+    }
+  }
+
+  &.row-type-3 {
+    .column {
+      flex: 1 1 33.333% !important;
+    }
+  }
+
+  &.row-type-4 {
+    .column {
+      flex: 1 1 25% !important;
+
+      .input-select {
+        flex-wrap: nowrap;
       }
     }
   }
@@ -81,6 +102,7 @@ button {
 
   input[type="text"] {
     min-width: 80px;
+    width: 180px;
 
     & + * {
       margin-left: .5rem;
@@ -108,7 +130,7 @@ button {
 
     &:not(:first-of-type) {
       .input-title {
-        max-width: 130px;
+        //max-width: 130px;
       }
     }
 
@@ -137,7 +159,8 @@ button {
     border-radius: 50%;
   }
 
-  .btn-edit {
+  .btn-edit,
+  .btn-plus {
     background-color: #EEEEEE;
     width: 1.5rem;
     height: 1.5rem;
@@ -286,7 +309,6 @@ main {
 
   header {
     padding: 1.3rem 1rem 1rem;
-    flex-direction: column;
 
     h3 {
       line-height: 36px;
@@ -486,6 +508,13 @@ main {
     input[type="radio"]:checked + label {
       background-color: #437ef1 !important;
       color: white;
+      user-select: none;
+    }
+  }
+
+  header {
+    svg {
+      fill: white
     }
   }
 }
@@ -534,6 +563,7 @@ section {
       display: flex;
       flex-direction: column;
       margin: 0 .25rem;
+      color: white;
 
       label {
         font-size: 12px;
@@ -543,7 +573,13 @@ section {
       input[type="text"] {
         background-color: transparent;
         border: 1px solid rgba(255, 255, 255, .2);
-        color: white
+        color: white;
+        max-width: 100px;
+      }
+
+
+      .input-select {
+        display: flex;
       }
 
       .selectbox {
@@ -714,10 +750,6 @@ section {
    Clinical Trial Patient Dashboard
    ============================================================ */
 .clinical-trial-patient-dashboard {
-  header {
-    flex-direction: row;
-    align-items: center;
-  }
 
   section {
     display: flex;
@@ -742,7 +774,7 @@ section {
     .row {
 
       li {
-        &.col-check {
+        &.col-check svg {
           fill: orangered
         }
 
@@ -759,47 +791,47 @@ section {
           width: 10%;
         }
 
-        /*성별*/
+        /*환자ID*/
         &:nth-of-type(2) {
           width: 10%;
         }
 
-        /*나이*/
+        /*성별*/
         &:nth-of-type(3) {
-          width: 10%;
+          width: 5%;
+        }
+
+        /*나이*/
+        &:nth-of-type(4) {
+          width: 5%;
         }
 
         /*확진일자*/
-        &:nth-of-type(4) {
+        &:nth-of-type(5) {
           width: 15%;
         }
 
         /*병원*/
-        &:nth-of-type(5) {
-          width: 10%;
+        &:nth-of-type(6) {
+          width: 15%;
         }
 
         /*중증도*/
-        &:nth-of-type(6) {
+        &:nth-of-type(7) {
           width: 5%;
         }
 
         /*중증도 측정일*/
-        &:nth-of-type(7) {
+        &:nth-of-type(8) {
           width: 15%;
         }
 
         /*참여연구*/
-        &:nth-of-type(8) {
+        &:nth-of-type(9) {
           width: 10%;
         }
 
         /*상세정보 입력여부*/
-        &:nth-of-type(9) {
-          width: 5%;
-        }
-
-        /*버튼*/
         &:nth-of-type(10) {
           width: 10%;
         }
@@ -951,6 +983,7 @@ section {
    Clinical Trial Research List
    ============================================================ */
 .clinical-trial-research-list {
+
   .table {
     li:nth-of-type(1) {
       width: auto;

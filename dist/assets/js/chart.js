@@ -22,8 +22,8 @@ function drawAgeChart() {
       color: '#333'
     },
     pieHole: 0.4,
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -47,8 +47,8 @@ function drawGenderChart() {
       color: '#333'
     },
     pieHole: 0.4,
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -56,10 +56,6 @@ function drawGenderChart() {
       easing: 'out',
       startup: true
     }
-    /*chartArea: {width: '90%',}
-    legend: 'none',
-    pieSliceText: 'label',*/
-
   };
   var chart = new google.visualization.PieChart(document.getElementById('chart-gender'));
   chart.draw(data, options);
@@ -75,8 +71,8 @@ function drawSeverityChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -99,8 +95,8 @@ function drawTreatmentChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -123,8 +119,8 @@ function drawDischargeChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {

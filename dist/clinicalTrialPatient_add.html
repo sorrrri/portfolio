@@ -140,18 +140,6 @@
                 <input type="time" value="00:00:00">
             </div>
             <div class="column">
-                <div class="input-title required">연구 ID</div>
-                <div class="selectbox">
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
                 <div class="input-title">감염추정지역</div>
                 <div class="selectbox">
                     <select>
@@ -164,12 +152,9 @@
                     </select>
                 </div>
             </div>
-            <div class="column col-confirmation-number">
-                <div class="input-title required">확진번호</div>
-                <input type="text">
-            </div>
         </div>
         <div class="row">
+            <div class="column">
             <div class="input-title">감염자 접촉여부</div>
             <div class="input-select">
                 <div>
@@ -181,22 +166,39 @@
                     <label for="contactInfected-no">no</label>
                 </div>
             </div>
+            </div>
+            <div class="column">
+                <div class="input-title">감염자 접촉일시</div>
+                <input class="datepicker" type="text" id="contactInfectedDate">
+                <input type="time" value="00:00:00">
+            </div>
         </div>
-        <div class="row">
-            <div class="input-title">감염자 접촉일시</div>
-            <input class="datepicker" type="text" id="contactInfectedDate">
-            <input type="time" value="00:00:00">
-        </div>
-        <div class="row">
-            <div class="input-title">의료종사자 여부</div>
-            <div class="input-select">
-                <div>
-                    <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-yes">
-                    <label for="healthcareWorkers-yes">yes</label>
+        <div class="row row-type-3">
+            <div class="column">
+                <div class="input-title">의료종사자 여부</div>
+                <div class="input-select">
+                    <div>
+                        <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-yes">
+                        <label for="healthcareWorkers-yes">yes</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-no">
+                        <label for="healthcareWorkers-no">no</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" name="select-healthcareWorkers" id="healthcareWorkers-no">
-                    <label for="healthcareWorkers-no">no</label>
+            </div>
+            <div class="column col-confirmation-number">
+                <div class="input-title required">확진번호</div>
+                <input type="text">
+            </div>
+            <div class="column">
+                <div class="input-title required">연구 ID</div>
+                <div class="selectbox">
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
                 </div>
             </div>
         </div>

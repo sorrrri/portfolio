@@ -29,8 +29,8 @@ function drawAgeChart() {
       fontName:'Nanumsquare',
       color:'#333'
     },
+    chartArea: {width: '90%',},
     pieHole: 0.4,
-    legend: {position: 'bottom',},
     backgroundColor: 'transparent',
     animation: {
       duration: 1000,
@@ -58,17 +58,14 @@ function drawGenderChart() {
       fontName:'Nanumsquare',
       color:'#333'
     },
+    chartArea: {width: '90%',},
     pieHole: 0.4,
-    legend: {position: 'bottom',},
     backgroundColor: 'transparent',
     animation: {
       duration: 1200,
       easing: 'out',
       startup: true
     },
-    /*chartArea: {width: '90%',}
-    legend: 'none',
-    pieSliceText: 'label',*/
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('chart-gender'));
@@ -93,7 +90,7 @@ function drawSeverityChart() {
       fontName:'Nanumsquare',
       color:'#333'
     },
-    legend: {position: 'bottom',},
+    chartArea: {width: '90%',},
     backgroundColor: 'transparent',
     animation: {
       duration: 1400,
@@ -122,7 +119,7 @@ function drawTreatmentChart() {
       fontName:'Nanumsquare',
       color:'#333'
     },
-    legend: {position: 'bottom',},
+    chartArea: {width: '90%',},
     backgroundColor: 'transparent',
     animation: {
       duration: 1600,
@@ -142,7 +139,7 @@ function drawHospitalChart() {
     ['파주', 51],
     ['포천', 51],
     ['의정부', 49],
-    ['안', 49],
+    ['안성', 49],
     ['이천', 49],
   ]);
 
@@ -154,7 +151,7 @@ function drawHospitalChart() {
       fontName:'Nanumsquare',
       color:'#333'
     },
-    legend: {position: 'bottom',},
+    chartArea: {width: '90%',},
     backgroundColor: 'transparent',
     animation: {
       duration: 1600,

@@ -21,10 +21,10 @@ function drawAgeChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    pieHole: 0.4,
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
+    pieHole: 0.4,
     backgroundColor: 'transparent',
     animation: {
       duration: 1000,
@@ -46,20 +46,16 @@ function drawGenderChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    pieHole: 0.4,
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
+    pieHole: 0.4,
     backgroundColor: 'transparent',
     animation: {
       duration: 1200,
       easing: 'out',
       startup: true
     }
-    /*chartArea: {width: '90%',}
-    legend: 'none',
-    pieSliceText: 'label',*/
-
   };
   var chart = new google.visualization.PieChart(document.getElementById('chart-gender'));
   chart.draw(data, options);
@@ -75,8 +71,8 @@ function drawSeverityChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -99,8 +95,8 @@ function drawTreatmentChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
@@ -114,7 +110,7 @@ function drawTreatmentChart() {
 }
 
 function drawHospitalChart() {
-  var data = google.visualization.arrayToDataTable([['Hospital', 'Count'], ['수원', 51], ['파주', 51], ['포천', 51], ['의정부', 49], ['안', 49], ['이천', 49]]);
+  var data = google.visualization.arrayToDataTable([['Hospital', 'Count'], ['수원', 51], ['파주', 51], ['포천', 51], ['의정부', 49], ['안성', 49], ['이천', 49]]);
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '병원 현황',
@@ -123,8 +119,8 @@ function drawHospitalChart() {
       fontName: 'Nanumsquare',
       color: '#333'
     },
-    legend: {
-      position: 'bottom'
+    chartArea: {
+      width: '90%'
     },
     backgroundColor: 'transparent',
     animation: {
