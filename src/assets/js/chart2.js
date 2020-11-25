@@ -24,6 +24,11 @@ function drawAgeChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '나이분포',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     pieHole: 0.4,
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
@@ -48,6 +53,11 @@ function drawGenderChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '성별분포',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     pieHole: 0.4,
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
@@ -78,6 +88,11 @@ function drawSeverityChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '중증도 비율',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
     animation: {
@@ -102,6 +117,11 @@ function drawTreatmentChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '치료 현황',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
     animation: {
@@ -129,6 +149,11 @@ function drawHospitalChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '병원 현황',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     legend: {position: 'bottom',},
     backgroundColor: 'transparent',
     animation: {
@@ -160,6 +185,11 @@ function drawDaysChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '일별 확진/퇴원 환자 통계',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     hAxis: {
       titleTextStyle: {color: '#333'},
       format: 'yyyy.MM.dd',
@@ -197,6 +227,11 @@ function drawTotalChart() {
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
     title: '총 누적 임상시험 환자 ',
+    titleTextStyle: {
+      fontSize:14,
+      fontName:'Nanumsquare',
+      color:'#333'
+    },
     hAxis: {
       titleTextStyle: {color: '#333'},
       format: 'yyyy.MM.dd',
