@@ -43,6 +43,16 @@ body {
   font: 14px/1.5 'Poppins', 'NanumSquare';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  .hide {
+    display: none;
+  }
+
+  .tilde {
+    display: flex;
+    align-items: center;
+    margin: 0 .25rem
+  }
 }
 
 
@@ -52,15 +62,6 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-span {
-
-  &.tilde {
-    display: flex;
-    align-items: center;
-    margin: 0 .25rem
-  }
 }
 
 svg {
@@ -847,10 +848,6 @@ input[type="radio"] + label:empty:before {
   height: 50vh;
   max-height: 60%;
   overflow-y: auto;
-
-  &.hide {
-    display: none;
-  }
 
   .close {
     display: flex;
