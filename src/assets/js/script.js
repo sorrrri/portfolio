@@ -39,23 +39,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // 환자조회: 내역조회
-  const iconMore = document.querySelector('.ico-more');
 
-  function activeSubRow(e) {
-    var elems = document.querySelectorAll(".active-sub-row");
+  const moreButton = document.querySelectorAll('.btn-more')
+  const rows = document.querySelectorAll('.rows')
 
-    Array.from(elems).forEach(el => {
-      el.classList.remove('active-sub-row');
-    });
-
-    const row = e.target.parentNode
-    console.log(row)
-    row.classList.add("active-sub-row");
+  const initRow = (n) => {
+    rows.forEach((row) => {
+      row.classList.remove('active');
+    })
+    rows[n].classList.add('active');
   }
 
-  if (iconMore) {
-    iconMore.addEventListener('click', activeSubRow)
-  }
+  moreButton.forEach((row, index) => {
+    row.addEventListener('click', () => {
+      initRow(index)
+    })
+  })
 
 
 
@@ -82,31 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
     btnCheckAll.onclick = checkAll;
   }
 
-
-
-  // 임상시험 대상환자 조회: 환자상세정보 열기
-  const clinicalTrialPatientList = document.querySelector('.clinical-trials');
-  const patientDetail = document.querySelector('.clinical-trials-detail');
-
-  // 임상시험 대상환자 조회: 환자상세정보
-  const patientDetailMenu = document.querySelector('.clinical-trials-detail-menu');
-
-  function activeClass2(e) {
-    const menus = document.querySelectorAll('.active-patient-menu');
-
-    Array.from(menus).forEach(menu => {
-      menu.classList.remove('active-patient-menu')
-    });
-    e.target.classList.add('active-patient-menu')
-  }
-
-  if (clinicalTrialPatientList) {
-    clinicalTrialPatientList.addEventListener('click', () => {
-      patientDetail.classList.add('active');
-      window.location.hash='visited'
-    })
-    patientDetailMenu.addEventListener('click', activeClass2)
-  }
 
 
   // 임상시험대상환자 상세정보 추가

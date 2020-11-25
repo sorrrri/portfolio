@@ -28,7 +28,7 @@ input[type="time"],
   width: 100%;
   flex: 1 1 auto;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: .4rem .8rem;
   background-color: white;
   margin-bottom: .5rem;
   border-radius: .5rem;
@@ -160,8 +160,9 @@ input[type="time"],
   }
 
   .btn-edit,
-  .btn-plus {
-    background-color: #EEEEEE;
+  .btn-plus,
+  .btn-more {
+    background-color: transparent;
     width: 1.5rem;
     height: 1.5rem;
     padding: 0;
@@ -169,6 +170,15 @@ input[type="time"],
     justify-content: center;
     align-items: center;
     border-radius: .2rem;
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: #EEE;
+
+      svg {
+        fill: $primary-color;
+      }
+    }
 
     svg {
       fill: #566d80;
@@ -616,20 +626,12 @@ section {
   .table .rows {
     position: relative;
 
-    .ico-more {
-      width: 1rem;
-      cursor: pointer;
-      position: absolute;
-      top: 14px;
-      right: 1rem;
-      z-index: 1;
-    }
-
     .sub-row {
       display: none;
     }
 
-    &.active-sub-row {
+    &.active {
+      flex-direction: column;
       border: 1px solid coral;
       border-radius: .5rem;
       margin-bottom: .5rem;
@@ -652,7 +654,6 @@ section {
   }
 
   .table .row {
-    padding-right: 1.5rem;
     user-select: none;
 
     /*기저질환*/
@@ -713,7 +714,7 @@ section {
 
       /*기저질환*/
       &:nth-of-type(10) {
-        width: 16%;
+        width: 20%;
 
         li, span {
           flex: 0 0 30px;
@@ -723,7 +724,7 @@ section {
 
       /*상태*/
       &:nth-of-type(11) {
-        width: 10%;
+        width: 8%;
       }
 
       /*퇴원(사망)일자*/
@@ -733,7 +734,7 @@ section {
 
       /*버튼들*/
       &:nth-of-type(13) {
-        width: 12%;
+        width: 10%;
         margin: 0 -.25rem;
         padding: 0 .25rem;
       }
@@ -776,14 +777,6 @@ section {
       li {
         &.col-check svg {
           fill: orangered
-        }
-
-        &.col-check.active svg {
-          fill: lightseagreen;
-        }
-
-        &.col-buttons svg {
-          fill: slategray;
         }
 
         /*확진번호*/
