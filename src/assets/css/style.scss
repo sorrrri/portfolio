@@ -250,6 +250,10 @@ aside {
       width: 4rem;
       height: 4rem;
     }
+
+    .id {
+      color: #EEE;
+    }
   }
 
   .menu {
@@ -506,7 +510,7 @@ main {
       margin-bottom: .5rem;
       border-radius: .3rem;
       background-color: #F3F6F9;
-      padding: .4rem 1rem;
+      padding: .3rem .6rem;
       transition: background-color .2s;
 
       &::before {
@@ -1162,6 +1166,12 @@ section {
   .row {
     cursor: pointer;
     background-color: rgba(255, 255, 255, .1);
+
+    &.th li,
+    .input-title {
+      color: #CCC
+    }
+
   }
 
   label {
