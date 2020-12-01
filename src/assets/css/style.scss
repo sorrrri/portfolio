@@ -507,7 +507,8 @@ main {
       margin-bottom: -.5rem;
     }
 
-    input[type="radio"] + label {
+    input[type="radio"] + label,
+    .select-checkbox input[type="checkbox"] + label {
       min-width: 36px;
       display: flex;
       justify-content: center;
@@ -516,6 +517,7 @@ main {
       border-radius: .3rem;
       background-color: #F3F6F9;
       padding: .3rem .6rem;
+      cursor: pointer;
       transition: background-color .2s;
 
       &::before {
@@ -524,10 +526,17 @@ main {
     }
 
     input[type="radio"] + label:hover,
-    input[type="radio"]:checked + label {
+    input[type="radio"]:checked + label,
+    .select-checkbox input[type="checkbox"] + label:hover,
+    .select-checkbox input[type="checkbox"]:checked + label {
       background-color: #437ef1 !important;
       color: white;
       user-select: none;
+    }
+
+    .select-checkbox input {
+      position: absolute;
+      opacity: 0;
     }
   }
 
