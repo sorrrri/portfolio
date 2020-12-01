@@ -633,6 +633,7 @@ section {
 
   .table .rows {
     position: relative;
+    margin-bottom: .5rem;
 
     .sub-row {
       display: none;
@@ -642,11 +643,11 @@ section {
       flex-direction: column;
       border: 1px solid coral;
       border-radius: .5rem;
-      margin-bottom: .5rem;
 
       .row {
         margin-bottom: 0;
         border-radius: .5rem .5rem 0 0;
+        margin-bottom: 0;
       }
 
       .sub-row {
