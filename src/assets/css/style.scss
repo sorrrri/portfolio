@@ -494,6 +494,10 @@ main {
       border: 1px solid #EEE
     }
 
+    input[type="time"] {
+      min-width: 142px;
+    }
+
     .input-select {
       flex: 1 1 auto;
       display: flex;
