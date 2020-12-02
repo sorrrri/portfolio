@@ -593,6 +593,16 @@ section {
       margin: 0 .25rem;
       color: white;
 
+      &.filter-age {
+        div {
+          display: flex;
+
+          input {
+            width: 50px
+          }
+        }
+      }
+
       label {
         font-size: 12px;
         color: #ddd;
