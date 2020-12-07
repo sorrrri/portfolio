@@ -76,6 +76,11 @@
             <input type="time" value="00:00:00" step="1">
         </div>
         <div class="row">
+            <div class="input-title">입원일자</div>
+            <input class="datepicker" type="text" id="admissionnDate" placeholder="YYYY-mm-dd">
+            <input type="time" value="00:00:00" step="1">
+        </div>
+        <div class="row">
             <div class="input-title">퇴원(사망)일자</div>
             <input class="datepicker" type="text" id="dischargeDate" placeholder="YYYY-mm-dd">
             <input type="time" value="00:00:00" step="1">
@@ -198,7 +203,7 @@
 </main>
 <script>
   $(function () {
-    $("#birthDate, #confirmationDate, #dischargeDate, #severityDate").datepicker({
+    $("#birthDate, #confirmationDate, #admissionDate, #dischargeDate, #severityDate").datepicker({
       changeMonth: true,
       changeYear: true,
       dateFormat: 'yy-mm-dd'

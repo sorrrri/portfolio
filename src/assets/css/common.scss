@@ -201,6 +201,10 @@ input {
   box-sizing: border-box;
   border-radius: .3rem;
   position: relative;
+
+  &:disabled {
+    background-color: rgba(0,0,0,.1);
+  }
 }
 
 input[type="password"] {
@@ -233,18 +237,9 @@ button {
   }
 }
 
-
-.btn-container {
-  display: flex;
-  margin: 0 -.2rem;
-
-  button {
-    margin: 0 .2rem
-  }
-}
-
 .btn-submit {
-  background-color: $primary-color;
+  background-color: $primary-color !important;
+  border: 0 !important;
 }
 
 .btn-cancel {
@@ -356,10 +351,6 @@ aside {
   justify-content: space-between;
   align-items: center;
 
-  .button-container button {
-    padding: .6rem 1.6rem
-  }
-
   h1 {
     font: normal 2rem/1 'Nanumsquare';
     flex: 1 1 auto;
@@ -420,15 +411,13 @@ aside {
   }
 }
 
-.button-container {
+.buttons {
   display: flex;
-  flex-direction: row-reverse;
-}
 
-.button-container button {
-  margin-left: .5rem;
+  button {
+    margin-left: .5rem;
+  }
 }
-
 /* Progress */
 
 .progress-wrap {

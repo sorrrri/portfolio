@@ -1162,6 +1162,13 @@ section {
   color: white !important;
   background: rgb(65, 75, 91);
 
+  &[class*="list"] {
+    .buttons button {
+      background-color: transparent;
+      border: 1px solid rgba(255,255,255,.3);
+    }
+  }
+
   header {
     flex-direction: row;
     align-items: center;
