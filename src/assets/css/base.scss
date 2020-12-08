@@ -128,6 +128,16 @@ label {
 }
 
 button {
+  border: 0;
+  background: var(--primaryColor);
+  color: white;
+  border-radius: .2rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   &-submit {
     background-color: var(--primaryColor);
   }
@@ -145,15 +155,9 @@ button {
     padding: 0;
   }
 
-  border: 0;
-  background: var(--primaryColor);
-  color: white;
-  border-radius: .2rem;
-  padding: .5rem 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  svg {
+    fill: white;
+  }
 }
 
 textarea {
