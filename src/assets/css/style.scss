@@ -1242,6 +1242,20 @@ section {
     fill: white;
   }
 
+  .table {
+    .btn-edit:hover,
+    .btn-plus:hover,
+    .btn-more:hover {
+      background-color: rgba(255, 255, 255, .2)
+    }
+
+    .btn-edit svg,
+    .btn-plus svg,
+    .btn-more svg {
+      fill: rgba(255, 255, 255, .7)
+    }
+  }
+
   .row {
     cursor: pointer;
     background-color: rgba(255, 255, 255, .1);
