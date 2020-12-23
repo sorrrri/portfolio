@@ -203,13 +203,26 @@ input {
   position: relative;
 
   &:disabled {
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, .1);
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  &[type="password"] {
+    font-family: "Comfortaa", sans-serif;
   }
 }
 
-input[type="password"] {
-  font-family: "Comfortaa", sans-serif;
-}
 
 input:focus, select:focus, button:focus {
   outline: 0;
@@ -418,6 +431,7 @@ aside {
     margin-left: .5rem;
   }
 }
+
 /* Progress */
 
 .progress-wrap {
@@ -639,7 +653,7 @@ input[type="radio"] + label:empty:before {
     flex: 1 1 auto;
     width: 100%;
     -webkit-appearance: none;
-    padding: .5rem 2rem .5rem .5rem;
+    padding: .5rem 1.5rem .5rem .5rem;
     height: auto;
     font: 14px/1 'NanumSquare';
     background-color: white;

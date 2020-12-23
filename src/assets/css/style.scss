@@ -100,7 +100,8 @@ input[type="time"],
     }
   }
 
-  input[type="text"] {
+  input[type="text"],
+  input[type="password"] {
     min-width: 80px;
     width: 180px;
 
@@ -456,6 +457,11 @@ main {
 
   &[class*="list"] {
 
+
+    .btn-plus-text {
+      padding: 0.25rem;
+      color: #333
+    }
   }
 
   &[class*="add"],
@@ -491,6 +497,7 @@ main {
     }
 
     input[type="text"],
+    input[type="number"],
     input[type="time"] {
       border: 1px solid #EEE
     }
@@ -505,6 +512,16 @@ main {
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: -.5rem;
+
+
+      input[type="radio"]:disabled + label:hover {
+        background-color: #F3F6F9 !important;
+        color: slategray;
+      }
+
+      input[type="radio"]:disabled:checked + label {
+        background-color: #A3A6A9 !important;
+      }
     }
 
     input[type="radio"] + label,
@@ -598,7 +615,7 @@ section {
           display: flex;
 
           input {
-            width: 50px
+            width: 30px
           }
         }
       }
@@ -817,47 +834,47 @@ section {
           fill: orangered
         }
 
-        /*확진번호*/
+        /*환자ID*/
         &:nth-of-type(1) {
           width: 10%;
         }
 
-        /*환자ID*/
-        &:nth-of-type(2) {
-          width: 10%;
-        }
-
         /*성별*/
-        &:nth-of-type(3) {
+        &:nth-of-type(2) {
           width: 5%;
         }
 
         /*나이*/
-        &:nth-of-type(4) {
+        &:nth-of-type(3) {
           width: 5%;
         }
 
         /*확진일자*/
-        &:nth-of-type(5) {
+        &:nth-of-type(4) {
           width: 15%;
         }
 
         /*병원*/
-        &:nth-of-type(6) {
+        &:nth-of-type(5) {
           width: 15%;
         }
 
         /*중증도*/
-        &:nth-of-type(7) {
+        &:nth-of-type(6) {
           width: 5%;
         }
 
         /*중증도 측정일*/
-        &:nth-of-type(8) {
+        &:nth-of-type(7) {
           width: 15%;
         }
 
         /*참여연구*/
+        &:nth-of-type(8) {
+          width: 10%;
+        }
+
+        /*업데이트날짜*/
         &:nth-of-type(9) {
           width: 10%;
         }
@@ -986,6 +1003,16 @@ section {
         flex: 0 0 120px !important;
         margin-right: 0;
         position: relative;
+      }
+    }
+  }
+
+  .table {
+    .row {
+      background-color: white;
+
+      li {
+        flex: 1 1 25%
       }
     }
   }
@@ -1174,7 +1201,7 @@ section {
   &[class*="list"] {
     .buttons button {
       background-color: transparent;
-      border: 1px solid rgba(255,255,255,.3);
+      border: 1px solid rgba(255, 255, 255, .3);
     }
   }
 
@@ -1183,8 +1210,19 @@ section {
     align-items: center;
   }
 
-  input[type="text"] {
-    border: 0 !important;
+  input {
+    background-color: rgba(255, 255, 255, .1);
+    color: white;
+
+    &[type="text"],
+    &[type="time"] {
+      border: 0 !important;
+    }
+  }
+
+  .selectbox select {
+    background-color: rgba(255, 255, 255, .5);
+    border: 0;
   }
 
   a {
@@ -1217,11 +1255,6 @@ section {
 
   label {
     background-color: rgba(255, 255, 255, .1) !important;
-  }
-
-  input {
-    background-color: rgba(255, 255, 255, .1);
-    color: white;
   }
 
   .input-title,
