@@ -6,14 +6,17 @@
         <button class="btn-login" onclick="location.href='login.html'">login</button>
     </header>
     {% import 'macros/nav-macro.nunjucks' as nav %}
-    {{nav.active('clinicalTrialResearch_list')}}
+    {{nav.active('admin')}}
 </aside>
-<main class="clinical-trial-research-list">
+<main class="clinical-trial-research-list admin">
     <header>
         <h3>임상시험 조회</h3>
-        <button onclick="location.href='clinicalTrialResearch_add.html'">
-            <span>임상시험 생성</span>
-        </button>
+        <div class="buttons">
+            <button onclick="location.href='user_list.html'">사용자 관리</button>
+            <button onclick="location.href='hospital_list.html'">병원 관리</button>
+            <button onclick="location.href='disease_list.html'">기저질환명 관리</button>
+            <button class="btn-submit" onclick="location.href='clinicalTrialResearch_add.html'">생성</button>
+        </div>
     </header>
     <section>
         <div class="table">

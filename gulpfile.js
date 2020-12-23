@@ -79,7 +79,7 @@ gulp.task('script', () => {
 
 gulp.task('html', () => {
   return gulp
-    .src(PATH.HTML + '/*.html')
+    .src(PATH.HTML + '/**/*.html')
     .pipe(nunjucks({
       path: ['./src/templates']
     }))
