@@ -718,7 +718,7 @@ section {
     li {
       /*체크박스*/
       &:nth-of-type(1) {
-        width: 5%;
+        width: 3%;
         flex: 0 0 auto
       }
 
@@ -782,9 +782,14 @@ section {
         width: 8%;
       }
 
-      /*버튼들*/
+      /*퇴원(사망)일자*/
       &:nth-of-type(13) {
-        width: 10%;
+        width: 8%;
+      }
+
+      /*버튼들*/
+      &:nth-of-type(14) {
+        width: 4%;
         margin: 0 -.25rem;
         padding: 0 .25rem;
       }
