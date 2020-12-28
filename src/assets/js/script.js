@@ -84,16 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 임상시험대상환자 상세정보 입력 - 팝업창
   const overlay = document.querySelector('.overlay')
+  const closes = document.querySelectorAll('.close')
   const modals = document.querySelectorAll('.modal')
-
-  const inputLocationID = document.querySelector('.input-locationID')
-  const modalLocationID = document.querySelector('.modal-locationID')
-  if(inputLocationID) {
-    inputLocationID.addEventListener('click', () => {
-      modalLocationID.classList.add('active')
-      overlay.classList.add('active')
-    })
-  }
 
   const inputResearchID = document.querySelector('.input-researchID')
   const modalResearchID = document.querySelector('.modal-researchID')
@@ -113,14 +105,23 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 
-  if(overlay) {
-    overlay.addEventListener('click', () => {
-      overlay.classList.remove('active')
-      modals.forEach((modal) => {
-        modal.classList.remove('active')
-      })
+  const closeModal = () => {
+    overlay.classList.remove('active')
+    modals.forEach((modal) => {
+      modal.classList.remove('active')
     })
   }
+
+  if(overlay) {
+    overlay.addEventListener('click', closeModal)
+  }
+
+  if(closes) {
+    closes.forEach((close) => {
+      close.addEventListener('click', closeModal)
+    })
+  }
+
 
   // 임상시험대상환자 CSV 파일 업로드
   const csvUpload = document.querySelector('.csv-upload')

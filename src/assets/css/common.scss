@@ -859,6 +859,7 @@ input[type="radio"] + label:empty:before {
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
+    padding: 1rem 1rem 0;
   }
 
   .title {
