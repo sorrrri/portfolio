@@ -84,7 +84,7 @@ function drawSeverityChart() {
 
   var options = {
     colors: ['#5a8cd7', '#ff9c87', '#a5ccdc', '#739086', '#a4bdbe', '#D5B9B1', '#D8D8D6', '#BEBC88', '#194656'],
-    title: '중증도 비율',
+    title: '중증도',
     titleTextStyle: {
       fontSize: 14,
       fontName: 'Nanumsquare',

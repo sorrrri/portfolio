@@ -55,11 +55,7 @@
             </div>
             <div class="column">
                 <div class="input-title">감염추정지역</div>
-                <div class="selectbox">
-                    <select>
-                        <option value="">지역ID</option>
-                    </select>
-                </div>
+                <input type="text" class="input-locationID" placeholder="지역ID">
             </div>
         </div>
         <div class="row">
@@ -82,7 +78,7 @@
                 <input type="time" value="19:21:00" step="1">
             </div>
         </div>
-        <div class="row row-type-3">
+        <div class="row">
             <div class="column">
                 <div class="input-title">의료종사자 여부</div>
                 <div class="input-select">
@@ -98,13 +94,7 @@
             </div>
             <div class="column">
                 <div class="input-title required">참여연구</div>
-                <div class="selectbox">
-                    <select>
-                        <option value="1">참여연구 선택</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
+                <input type="text" class="input-researchID" placeholder="연구ID">
             </div>
         </div>
 
@@ -123,7 +113,7 @@
             </div>
             <div class="column">
                 <div class="input-title">(신체)위치코드</div>
-                <input type="text">
+                <input type="text" class="input-body-position">
             </div>
         </div>
         <div class="row">
@@ -160,12 +150,14 @@
             </ul>
         </div>
     </section>
-    <div class="modal modal-confirmation-number">
-        <h3>환자검색</h3>
-        <div class="search">
-            <input type="text">
-            <button>검색</button>
-        </div>
+    <div class="modal modal-locationID">
+        <header>
+            <h3>감염추정 지역ID</h3>
+            <div class="search">
+                <input type="text">
+                <button>검색</button>
+            </div>
+        </header>
         <div class="table">
             <ul class="row th">
                 <li>확진번호</li>
@@ -178,6 +170,56 @@
                 <li>20</li>
                 <li>2020-12-01</li>
                 <li>수원</li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal modal-researchID">
+        <header>
+            <h3>참여연구 ID</h3>
+            <div class="search">
+                <input type="text">
+                <button>검색</button>
+            </div>
+        </header>
+        <div class="table">
+            <ul class="row th">
+                <li>참여연구ID</li>
+                <li>참여연구명</li>
+            </ul>
+            <ul class="row">
+                <li>A29384</li>
+                <li>감염병 연구</li>
+            </ul>
+            <ul class="row">
+                <li>EA9293</li>
+                <li>코로나 연구</li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal modal-body-position">
+        <header>
+            <h3>신체 위치코드</h3>
+            <div class="search">
+                <input type="text">
+                <button>검색</button>
+            </div>
+        </header>
+        <div class="table">
+            <ul class="row th">
+                <li>신체ID</li>
+                <li>신체명</li>
+            </ul>
+            <ul class="row">
+                <li>ANE39</li>
+                <li>목</li>
+            </ul>
+            <ul class="row">
+                <li>OEF3234</li>
+                <li>어깨</li>
+            </ul>
+            <ul class="row">
+                <li>EOFJ10</li>
+                <li>오른쪽 팔목</li>
             </ul>
         </div>
     </div>

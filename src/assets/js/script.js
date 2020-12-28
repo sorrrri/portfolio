@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   // 환자조회: 내역조회
-
   const moreButton = document.querySelectorAll('.btn-more')
   const rows = document.querySelectorAll('.rows')
 
@@ -83,16 +82,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  // 임상시험대상환자 상세정보 추가
+  // 임상시험대상환자 상세정보 입력 - 팝업창
   const overlay = document.querySelector('.overlay')
-  const modal = document.querySelector('.modal')
+  const modals = document.querySelectorAll('.modal')
 
-  const modalConfirmationNumber = document.querySelector('.modal-confirmation-number')
-  const confirmationNumber = document.querySelector('.col-confirmation-number input')
+  const inputLocationID = document.querySelector('.input-locationID')
+  const modalLocationID = document.querySelector('.modal-locationID')
+  if(inputLocationID) {
+    inputLocationID.addEventListener('click', () => {
+      modalLocationID.classList.add('active')
+      overlay.classList.add('active')
+    })
+  }
 
-  if(confirmationNumber) {
-    confirmationNumber.addEventListener('click', () => {
-      modalConfirmationNumber.classList.add('active')
+  const inputResearchID = document.querySelector('.input-researchID')
+  const modalResearchID = document.querySelector('.modal-researchID')
+  if(inputResearchID) {
+    inputResearchID.addEventListener('click', () => {
+      modalResearchID.classList.add('active')
+      overlay.classList.add('active')
+    })
+  }
+
+  const inputBodyPosition = document.querySelector('.input-body-position')
+  const modalBodyPosition = document.querySelector('.modal-body-position')
+  if(inputBodyPosition) {
+    inputBodyPosition.addEventListener('click', () => {
+      modalBodyPosition.classList.add('active')
       overlay.classList.add('active')
     })
   }
@@ -100,7 +116,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if(overlay) {
     overlay.addEventListener('click', () => {
       overlay.classList.remove('active')
-      modal.classList.remove('active')
+      modals.forEach((modal) => {
+        modal.classList.remove('active')
+      })
     })
   }
 
@@ -109,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if(csvUpload) {
     csvUpload.addEventListener('click', () => {
-      modal.classList.add('active')
+      modals.classList.add('active')
       overlay.classList.add('active')
     })
   }
