@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if(inputResearchID) {
     inputResearchID.addEventListener('click', () => {
       modalResearchID.classList.add('active')
-      overlay.classList.add('dimmed')
+      overlay.classList.add('active')
     })
   }
 
@@ -101,12 +101,12 @@ document.addEventListener('DOMContentLoaded', function () {
   if(inputBodyPosition) {
     inputBodyPosition.addEventListener('click', () => {
       modalBodyPosition.classList.add('active')
-      overlay.classList.add('dimmed')
+      overlay.classList.add('active')
     })
   }
 
   const closeModal = () => {
-    overlay.classList.remove('dimmed')
+    overlay.classList.remove('active')
     modals.forEach((modal) => {
       modal.classList.remove('active')
     })
