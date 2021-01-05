@@ -102,8 +102,8 @@ gulp.task('nodemon:start', () => {
 gulp.task('browserSync', () => {
   return new Promise(resolve => {
     browserSync.init(null, {
-      proxy: 'http://localhost:8005',
-      port: 8006
+      proxy: 'http://localhost:8605',
+      port: 8606
     })
     resolve()
   })
