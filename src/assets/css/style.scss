@@ -1049,22 +1049,6 @@ section {
       border: 0
     }
 
-
-    & + .btn-plus {
-      background-color: slategray;
-      padding: .25rem 1.5rem;
-      margin: 0 auto;
-      transition: background-color .2s;
-
-      &:hover {
-        background-color: $secondary-color !important;
-      }
-
-      svg {
-        fill: white !important;
-      }
-    }
-
     .column:first-child {
       flex: 1 1 auto
     }
@@ -1086,6 +1070,22 @@ section {
         height: 1.8rem;
         fill: slategray;
       }
+    }
+  }
+
+
+  .add-body-measurement {
+    background-color: slategray;
+    padding: .25rem 1.5rem;
+    margin: 0 auto;
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: $secondary-color !important;
+    }
+
+    svg {
+      fill: white !important;
     }
   }
 
