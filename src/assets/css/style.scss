@@ -1301,6 +1301,11 @@ section {
       &:hover {
         background-color: $secondary-color;
       }
+
+      li:first-of-type {
+        width: 5%;
+        flex: 0 0 auto;
+      }
     }
   }
 
