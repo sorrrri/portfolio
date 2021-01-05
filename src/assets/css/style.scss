@@ -761,55 +761,50 @@ section {
     }
 
     li {
-      /*체크박스*/
-      &:nth-of-type(1) {
-        width: 3%;
-        flex: 0 0 auto
-      }
 
       /*확진번호*/
-      &:nth-of-type(2) {
+      &:nth-of-type(1) {
         width: 5%;
       }
 
       /*성별*/
-      &:nth-of-type(3) {
+      &:nth-of-type(2) {
         width: 5%;
       }
 
       /*나이*/
-      &:nth-of-type(4) {
+      &:nth-of-type(3) {
         width: 5%;
       }
 
       /*확진일자*/
-      &:nth-of-type(5) {
+      &:nth-of-type(4) {
         width: 8%;
       }
 
       /*병원*/
-      &:nth-of-type(6) {
-        width: 6%;
+      &:nth-of-type(5) {
+        width: 7%;
       }
 
       /*중증도*/
-      &:nth-of-type(7) {
+      &:nth-of-type(6) {
         width: 5%;
       }
 
       /*중증도 측정일*/
-      &:nth-of-type(8) {
+      &:nth-of-type(7) {
         width: 8%;
       }
 
       /*입원일수*/
-      &:nth-of-type(9) {
+      &:nth-of-type(8) {
         width: 5%;
       }
 
       /*기저질환*/
-      &:nth-of-type(10) {
-        width: 18%;
+      &:nth-of-type(9) {
+        width: 20%;
 
         display: block;
         overflow: hidden;
@@ -823,6 +818,11 @@ section {
       }
 
       /*상태*/
+      &:nth-of-type(10) {
+        width: 8%;
+      }
+
+      /*퇴원(사망)일자*/
       &:nth-of-type(11) {
         width: 8%;
       }
@@ -832,13 +832,8 @@ section {
         width: 8%;
       }
 
-      /*퇴원(사망)일자*/
-      &:nth-of-type(13) {
-        width: 8%;
-      }
-
       /*버튼들*/
-      &:nth-of-type(14) {
+      &:nth-of-type(13) {
         width: 8%;
         margin: 0 -.25rem;
         padding: 0 .25rem;
@@ -1081,7 +1076,7 @@ section {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2rem;
+      margin-top: 2.25rem;
       margin-left: .5rem;
       width: 1.8rem;
       height: 1.8rem;
