@@ -161,7 +161,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (csvUpload) {
         csvUpload.addEventListener('click', () => {
-            modals.classList.add('active')
+            const modal = document.querySelector('.modal')
+            modal.classList.add('active')
             overlay.classList.add('active')
         })
     }
