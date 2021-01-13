@@ -1368,6 +1368,31 @@ section {
       border: 1px solid rgba(255, 255, 255, .3);
     }
 
+    .search {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 1rem 0;
+
+      input {
+        margin: 0 .25rem;
+      }
+
+      .btn-search {
+        background-color: rgba(0, 0, 0, .3);
+        border-radius: .3rem;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+        }
+      }
+    }
+
     .row {
       cursor: pointer;
       transition: background-color .2s;
@@ -1448,7 +1473,7 @@ section {
 
   }
 
-  label {
+  input[type="radio"] + label {
     background-color: rgba(255, 255, 255, .1) !important;
   }
 
