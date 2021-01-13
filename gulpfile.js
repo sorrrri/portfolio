@@ -49,7 +49,7 @@ gulp.task('images', () => {
         .pipe(browserSync.reload({stream: true}))
 })
 
-gulp.task('scss:compile', () => {
+gulp.task('scss', () => {
     const options = {
         outputStyle: 'nested',
         indentType: 'space',
@@ -57,7 +57,7 @@ gulp.task('scss:compile', () => {
         precision: 8,
         sourceComments: true
     }
-    return gulp.src(PATH.ASSETS.STYLE + '/*.scss')
+    return gulp.src(PATH.ASSETS.STYLE + '/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(scss(options))
         .pipe(autoprefixer({cascade: false}))
@@ -94,7 +94,7 @@ gulp.task('clean', () => {
 gulp.task('nodemon', cb => {
     let started = false;
     return nodemon({
-        script: 'app.js'
+        script: 'server.js'
     }).on('start', () => {
         if (!started) {
             cb();
@@ -103,18 +103,20 @@ gulp.task('nodemon', cb => {
     });
 });
 
-gulp.task('browserSync', () => {
-    return browserSync.init(null, {
-        proxy: 'http://localhost:8005',
-        port: 8006
+gulp.task('browser-sync', gulp.series('nodemon', () => {
+        browserSync.init(null, {
+            proxy: 'http://localhost:8005',
+            port: 8006
+        });
     })
-})
+);
 
 gulp.task('watch', () => {
-    return gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']))
-    gulp.watch(PATH.ASSETS.STYLE + "/**/*.scss", gulp.series(['scss:compile']))
-    gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script']))
+    gulp.watch(PATH.HTML + '/**/*.html', gulp.series(['html']))
+    gulp.watch(PATH.ASSETS.STYLE + '/**/*.scss', gulp.series(['scss']))
+    gulp.watch(PATH.ASSETS.SCRIPT + '/**/*.js', gulp.series(['script']))
 })
+
 
 gulp.task('deploy', () => {
     return gulp
@@ -126,12 +128,12 @@ const series = gulp.series([
     'clean',
     'library',
     'images',
-    'scss:compile',
+    'scss',
     'fonts',
     'script',
     'html',
-    'nodemon',
-    'browserSync',
-    'watch'
+    gulp.parallel('browser-sync', 'watch')
 ])
+
+
 gulp.task('default', series)
