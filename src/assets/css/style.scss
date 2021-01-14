@@ -581,11 +581,11 @@ main {
       header {
         flex-direction: column;
         flex: 0 0 auto;
-        margin: 0;
-        padding: 0 1.5rem .5rem;
+        padding: 3rem 1.5rem .5rem;
 
         h3 {
-          width: 100%
+          width: 100%;
+          margin-bottom: 1rem;
         }
 
         .search {
