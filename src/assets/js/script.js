@@ -41,10 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const rows = document.querySelectorAll('.rows')
 
     const initRow = (n) => {
-        rows.forEach((row) => {
-            row.classList.remove('active');
-        })
-        rows[n].classList.add('active');
+        rows[n].classList.toggle('active');
     }
 
     moreButton.forEach((row, index) => {

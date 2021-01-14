@@ -2,7 +2,7 @@
 {% block content %}
 <aside>
     <header>
-        <div class="logo"></div>
+        <div class="logo" onclick="location.href='patient_list.html'"></div>
         <button class="btn-login" onclick="location.href='login.html'">login</button>
     </header>
     {% import 'macros/nav-macro.nunjucks' as nav %}
@@ -97,7 +97,7 @@
                 </div>
             </li>
             <li>
-                <label>확진일자</label>
+                <label>최초내원일</label>
                 <div class="input-select">
                     <input class="datepicker" type="text" id="confirmedStartDate">
                     <span class="tilde">~</span>
@@ -127,15 +127,8 @@
             </svg>
         </button>
     </div>
+    <small>※ 나이는 최초내원일 기준 나이입니다.</small>
     <section>
-        <!--<div class="buttons">
-            <button class="btn-download">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                </svg>
-                <span>CSV 다운로드</span>
-            </button>
-        </div>-->
         <div class="table">
             <ul class="row th">
                 <li>환자ID</li>
@@ -150,10 +143,9 @@
                 <li>상태</li>
                 <li>퇴원(사망)일자</li>
                 <li>업데이트 날짜</li>
-                <li>버튼</li>
             </ul>
             <div class="rows">
-                <ul class="row">
+                <ul class="row" onclick="location.href='patient_edit.html'">
                     <li>6</li>
                     <li>여성</li>
                     <li>20</li>
@@ -166,13 +158,6 @@
                     <li>입원</li>
                     <li>20201120</li>
                     <li>20201120</li>
-                    <li class="col-buttons">
-                        <button class="btn-edit" onclick="location.href='patient_edit.html'">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                            </svg>
-                        </button>
-                    </li>
                 </ul>
             </div>
         </div>
