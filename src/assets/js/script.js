@@ -36,21 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
 
-    // 환자조회: 내역조회
-    const moreButton = document.querySelectorAll('.btn-more')
-    const rows = document.querySelectorAll('.rows')
-
-    const initRow = (n) => {
-        rows[n].classList.toggle('active');
-    }
-
-    moreButton.forEach((row, index) => {
-        row.addEventListener('click', () => {
-            initRow(index)
-        })
-    })
-
-
     //환자조회: 체크박스
     function check(checked = true) {
         const cbs = document.querySelectorAll('input[name="check-patient"]');
@@ -75,7 +60,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // 임상시험대상환자 상세정보 - 팝업창
+    // 임상시험참여자 조회: 내역조회
+    const moreButton = document.querySelectorAll('.btn-more')
+    const rows = document.querySelectorAll('.rows')
+
+    const initRow = (n) => {
+        rows[n].classList.toggle('active');
+    }
+
+    moreButton.forEach((row, index) => {
+        row.addEventListener('click', () => {
+            initRow(index)
+        })
+    })
+
+    const colButtonEvent = function (e) {
+        e = e || window.event;
+        if (e.stopPropagation) {
+            e.stopPropagation()
+        } else {
+            event.cancelBubble = true
+        }
+    }
+
+    const colButtons = document.querySelectorAll('.col-buttons button')
+    colButtons.forEach(colButton => {
+        colButton.addEventListener('click', colButtonEvent)
+    })
+
+
+    // 임상시험참여자 상세정보 - 팝업창
     const overlay = document.querySelector('.overlay')
     const closes = document.querySelectorAll('.close')
     const modals = document.querySelectorAll('.modal')
@@ -112,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // 임상시험대상환자 상세정보 - 신체계측 정보 양식 추가 및 삭제
+    // 임상시험참여자 상세정보 - 신체계측 정보 양식 추가 및 삭제
     const addBodyMeasurement = document.querySelector('.add-body-measurement')
     if (addBodyMeasurement) {
         const form = document.querySelector('.form-body-measurement')
@@ -122,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const currentButton = event.target.parentNode
             const currentRow = currentButton.parentNode
 
-            if(rows.length !== 1) {
+            if (rows.length !== 1) {
                 form.removeChild(currentRow)
             }
         }
@@ -149,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // 임상시험대상환자 CSV 파일 업로드
+    // 임상시험참여자 CSV 파일 업로드
     const csvUpload = document.querySelector('.csv-upload')
 
     if (csvUpload) {
