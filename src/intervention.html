@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>EICU - APEX</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="src/css/style.css">
-    <link href="src/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="assets/css/select2.min.css" rel="stylesheet"/>
 </head>
 <body class="theme-dark">
 <div class="container">
@@ -41,7 +41,7 @@
                     </a>
                     <div class="search">
                         <select class="js-example-basic-single" name="patients">
-                            <option value="streaming">2321542</option>
+                            <option value="streaming">2526997</option>
                             <option value="1458723">1458723</option>
                             <option value="3452525">3452525</option>
                             <option value="7537332">7537332</option>
@@ -137,6 +137,50 @@
                     <input id="rewarmSlower" type="checkbox" name="intervention">
                     <label for="rewarmSlower">Rewarm slower</label>
                 </div>
+                <div class="checkbox">
+                    <input id="shiveringControl" type="checkbox" name="intervention">
+                    <label for="shiveringControl">Shivering Control</label>
+                </div>
+                <div class="checkbox">
+                    <input id="HD-CRRT" type="checkbox" name="intervention">
+                    <label for="HD-CRRT">HD CRRT</label>
+                </div>
+                <div class="checkbox">
+                    <input id="startNMB" type="checkbox" name="intervention">
+                    <label for="startNMB">Start NMB</label>
+                </div>
+                <div class="checkbox">
+                    <input id="stopNMB" type="checkbox" name="intervention">
+                    <label for="stopNMB">Stop NMB</label>
+                </div>
+                <div class="checkbox">
+                    <input id="startSedation" type="checkbox" name="intervention">
+                    <label for="startSedation">Start Sedation</label>
+                </div>
+                <div class="checkbox">
+                    <input id="stopSedation" type="checkbox" name="intervention">
+                    <label for="stopSedation">Stop Sedation</label>
+                </div>
+                <div class="checkbox">
+                    <input id="TTM-startInduction" type="checkbox" name="intervention">
+                    <label for="TTM-startInduction">TTM Start Induction</label>
+                </div>
+                <div class="checkbox">
+                    <input id="TTM-TargetTemperature" type="checkbox" name="intervention">
+                    <label for="TTM-TargetTemperature">TTM Target Temperature</label>
+                </div>
+                <div class="checkbox">
+                    <input id="TTM-startRewarming" type="checkbox" name="intervention">
+                    <label for="TTM-startRewarming">TTM Start Rewarming</label>
+                </div>
+                <div class="checkbox">
+                    <input id="TTM startNormothermia" type="checkbox" name="intervention">
+                    <label for="TTM startNormothermia">TTM Start Normothermia</label>
+                </div>
+                <div class="checkbox">
+                    <input id="TTM stop" type="checkbox" name="intervention">
+                    <label for="TTM stop">TTM Stop</label>
+                </div>
             </div>
         </div>
         <div class="record-container">
@@ -147,9 +191,9 @@
     </section>
 </div>
 
-<script src="src/js/jquery-3.5.1.min.js"></script>
-<script src="src/js/select2.min.js"></script>
-<script src="src/js/index.js"></script>
+<script src="assets/js/jquery-3.5.1.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
+<script src="src/assets/jsndex.js"></script>
 <script>
   // Set the Current Time
   var date = new Date();
