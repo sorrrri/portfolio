@@ -862,6 +862,11 @@ input[type="radio"] + label:empty:before {
     cursor: pointer;
   }
 
+  header {
+    flex: 0 0 auto;
+    flex-direction: column !important;
+  }
+
   .title {
     padding: 1rem;
     display: flex;

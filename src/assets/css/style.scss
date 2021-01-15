@@ -12,15 +12,80 @@ button {
   font: 14px/1 'Nanumsquare'
 }
 
+input[type="time"],
+.selectbox select {
+  height: 34px;
+}
+
+.modal {
+  max-width: 450px;
+  padding: 2rem 1rem 1rem;
+
+  header {
+    align-items: normal !important;
+
+    .search {
+      margin: 1rem 0;
+      display: flex;
+
+      input {
+        flex: 1 1 auto;
+        margin-right: .5rem
+      }
+    }
+  }
+
+  .table {
+    overflow-y: auto;
+
+    .row {
+      padding: .25rem 0;
+      margin: 0;
+      border-radius: .25rem;
+      transition: background-color .2s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #EEE;
+      }
+
+      li {
+        padding: .25rem 0
+      }
+    }
+  }
+
+  &.modal-csv-upload {
+    justify-content: space-between;
+    max-height: 200px;
+
+    & > button {
+      align-self: flex-end
+    }
+  }
+
+  &.modal-researchID {
+
+    .search {
+      display: flex;
+
+      input {
+        border: 1px solid #EEE;
+        flex: 1 1 auto;
+        margin-right: .5rem
+      }
+    }
+
+    .row li {
+      flex: 1 1 25%
+    }
+  }
+}
+
 .container {
   background-size: 200%;
   background: rgb(49, 59, 75);
   transition: 600ms ease;
-}
-
-input[type="time"],
-.selectbox select {
-  height: 34px;
 }
 
 .row {
@@ -479,58 +544,6 @@ main {
     .row {
       cursor: pointer;
     }
-
-    .modal {
-
-      max-width: 450px;
-
-      &.modal-csv-upload {
-        padding: 1rem;
-        justify-content: space-between;
-        max-width: 500px;
-        max-height: 200px;
-
-        & > button {
-          align-self: flex-end
-        }
-
-        header {
-          padding: 1rem 0;
-        }
-      }
-
-      header {
-        flex-direction: column;
-        flex: 0 0 auto;
-        padding: 3rem 1.5rem .5rem;
-
-        h3 {
-          width: 100%;
-          margin-bottom: 1rem;
-        }
-
-        .search {
-          width: 100%;
-          margin: 0
-        }
-      }
-
-      .table {
-        overflow-y: auto;
-
-        .row {
-          padding: .25rem 0;
-          margin: 0;
-          border-radius: 0;
-          transition: background-color .2s;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #EEE;
-          }
-        }
-      }
-    }
   }
 
   &[class*="add"],
@@ -623,40 +636,6 @@ main {
     .select-checkbox input {
       position: absolute;
       opacity: 0;
-    }
-
-    .modal {
-      header {
-        flex-direction: column;
-        flex: 0 0 auto;
-        padding: 3rem 1.5rem .5rem;
-
-        h3 {
-          width: 100%;
-          margin-bottom: 1rem;
-        }
-
-        .search {
-          width: 100%;
-          margin: 0
-        }
-      }
-
-      .table {
-        overflow-y: auto;
-
-        .row {
-          padding: .25rem 0;
-          margin: 0;
-          border-radius: 0;
-          transition: background-color .2s;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #EEE;
-          }
-        }
-      }
     }
   }
 
@@ -901,15 +880,6 @@ section {
       }
     }
   }
-
-  .modal {
-    max-width: 500px;
-    max-height: 200px;
-
-    & > button {
-      align-self: flex-end
-    }
-  }
 }
 
 /* ============================================================
@@ -937,24 +907,6 @@ section {
    ============================================================ */
 
 .clinical-trials-list {
-
-  .modal.modal-researchID {
-    max-width: 450px;
-
-    .search {
-      display: flex;
-
-      input {
-        border: 1px solid #EEE;
-        flex: 1 1 auto;
-        margin-right: .5rem
-      }
-    }
-
-    .row li {
-      flex: 1 1 25%
-    }
-  }
 
   .table {
 
@@ -1259,23 +1211,6 @@ section {
       li {
         flex: 1 1 25%
       }
-    }
-  }
-
-  .modal {
-    max-width: 450px;
-
-    .search {
-      display: flex;
-
-      input {
-        flex: 1 1 auto;
-        margin-right: .5rem
-      }
-    }
-
-    .row li {
-      flex: 1 1 25%
     }
   }
 }
