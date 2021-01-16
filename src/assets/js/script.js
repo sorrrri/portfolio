@@ -113,7 +113,7 @@ function drawCOxChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -138,40 +138,37 @@ function drawCOxMAPChart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
-    data.addColumn('number', 'average');
+    data.addColumn('number', 'Average');
 
-    for (let i in dataValue) {
-        for (let j in dataValue[13]) {
-            let timestamp = String(dataValue[13][j]);
+    for (let j in dataValue[13]) {
+        let timestamp = String(dataValue[13][j]);
 
-            let year = timestamp.substring(0,4);
-            let month = timestamp.substring(4,6);
-            let day = timestamp.substring(6,8);
-            let hours = timestamp.substring(8,10);
-            let minutes = timestamp.substring(10,12);
-            let seconds = timestamp.substring(12,14);
+        let year = timestamp.substring(0, 4);
+        let month = timestamp.substring(4, 6) - 1;
+        let day = timestamp.substring(6, 8);
+        let hours = timestamp.substring(8, 10);
+        let minutes = timestamp.substring(10, 12);
+        let seconds = timestamp.substring(12, 14);
 
-            timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
 
-            data.addRow([
-                timestamp,
-                parseFloat(dataValue[14][j]),
-                parseFloat(dataValue[15][j]),
-                parseFloat(dataValue[16][j]),
-            ]);
-        }
-
+        data.addRow([
+            timestamp,
+            parseFloat(dataValue[14][j]),
+            parseFloat(dataValue[15][j]),
+            parseFloat(dataValue[16][j]),
+        ]);
     }
 
-    var options = {
+    const options = {
         colors: ['#FAA7B8', '#6096FD', 'darkseagreen'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: "none",
+        legend: {position: 'top'},
         fontSize: 15,
-        pointSize: 1,
-        lineWidth: 1,
+        pointSize: 1.5,
+        lineWidth: 1.5,
         series: {2: {lineWidth: 1}},
         intervals: {
             color: "yellow"
@@ -202,7 +199,7 @@ function drawCOxMAPChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -213,45 +210,42 @@ function drawCOxMAPChart() {
 
 
 function drawCOxETCO2Chart() {
-    var data = new google.visualization.DataTable(jsonData);
+    const data = new google.visualization.DataTable(jsonData);
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
-    data.addColumn('number', 'average');
+    data.addColumn('number', 'Average');
 
-    for (var i in dataValue) {
-        for (var j in dataValue[13]) {
-            var timestamp = String(dataValue[13][j]);
+    for (let j in dataValue[13]) {
+        let timestamp = String(dataValue[13][j]);
 
-            var year = timestamp.substring(0,4);
-            var month = timestamp.substring(4,6);
-            var day = timestamp.substring(6,8);
-            var hours = timestamp.substring(8,10);
-            var minutes = timestamp.substring(10,12);
-            var seconds = timestamp.substring(12,14);
+        let year = timestamp.substring(0, 4);
+        let month = timestamp.substring(4, 6) - 1;
+        let day = timestamp.substring(6, 8);
+        let hours = timestamp.substring(8, 10);
+        let minutes = timestamp.substring(10, 12);
+        let seconds = timestamp.substring(12, 14);
 
-            timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
 
-            data.addRow([
-                timestamp,
-                parseFloat(dataValue[17][j]),
-                parseFloat(dataValue[18][j]),
-                parseFloat(dataValue[19][j]),
-            ]);
-        }
-
+        data.addRow([
+            timestamp,
+            parseFloat(dataValue[17][j]),
+            parseFloat(dataValue[18][j]),
+            parseFloat(dataValue[19][j]),
+        ]);
     }
 
-    var options = {
+    const options = {
         colors: ['#FAA7B8', '#6096FD', 'darkseagreen'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: "none",
+        legend: {position: 'top'},
         fontSize: 15,
-        pointSize: 1,
-        lineWidth: 1,
+        pointSize: 1.5,
+        lineWidth: 1.5,
         intervals: {
             color: "yellow"
         },
@@ -281,7 +275,7 @@ function drawCOxETCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -290,51 +284,41 @@ function drawCOxETCO2Chart() {
     chart_COxETCO2.draw(data, options);
 }
 
-
-
-console.log(dataValue[1].length)
-console.log(dataValue[2].length)
-console.log(dataValue[4].length)
-console.log(dataValue[19].length)
-
 function drawRSO2Chart() {
-    var data = new google.visualization.DataTable(jsonData);
+    const data = new google.visualization.DataTable(jsonData);
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
 
-    for (var i in dataValue) {
-        for (var j in dataValue[4]) {
-            var timestamp = String(dataValue[4][j]);
+    for (let j in dataValue[4]) {
+        let timestamp = String(dataValue[4][j]);
 
-            var year = timestamp.substring(0,4);
-            var month = timestamp.substring(4,6);
-            var day = timestamp.substring(6,8);
-            var hours = timestamp.substring(8,10);
-            var minutes = timestamp.substring(10,12);
-            var seconds = timestamp.substring(12,14);
+        let year = timestamp.substring(0, 4);
+        let month = timestamp.substring(4, 6) - 1;
+        let day = timestamp.substring(6, 8);
+        let hours = timestamp.substring(8, 10);
+        let minutes = timestamp.substring(10, 12);
+        let seconds = timestamp.substring(12, 14);
 
-            timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
 
-            data.addRow([
-                timestamp,
-                parseFloat(dataValue[1][j]),
-                parseFloat(dataValue[2][j]),
-            ]);
-        }
-
+        data.addRow([
+            timestamp,
+            parseFloat(dataValue[1][j]),
+            parseFloat(dataValue[2][j]),
+        ]);
     }
 
-    var options = {
+    const options = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: "none",
+        legend: {position: 'top'},
         fontSize: 15,
-        pointSize: 1,
-        lineWidth: 1,
+        pointSize: 1.5,
+        lineWidth: 1.5,
         intervals: {
             color: "yellow"
         },
@@ -364,7 +348,7 @@ function drawRSO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -469,7 +453,7 @@ function drawMAPChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
         seriesType: 'candlesticks',
@@ -586,7 +570,7 @@ function drawETCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
         seriesType: 'candlesticks',
@@ -698,7 +682,7 @@ function drawSJVO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -798,7 +782,7 @@ function drawADJLChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -898,7 +882,7 @@ function drawLOIChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -998,7 +982,7 @@ function drawAVDO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1100,7 +1084,7 @@ function drawCEO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1199,7 +1183,7 @@ function drawAJglcChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1301,7 +1285,7 @@ function drawAJCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1400,7 +1384,7 @@ function drawRQChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1502,7 +1486,7 @@ function drawNPIChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1603,7 +1587,7 @@ function drawPupilChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1723,7 +1707,7 @@ function drawRSO2MAPChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
         chartArea: {

@@ -10,7 +10,6 @@ document.documentElement.addEventListener('touchstart', function (event) {
   }
 }, false)
 
-
 const select2Selectbox = document.querySelector('.js-example-basic-single')
 if (select2Selectbox) {
   $('.js-example-basic-single').select2();
