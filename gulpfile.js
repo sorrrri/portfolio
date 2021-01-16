@@ -34,6 +34,12 @@ gulp.task('clean', () => {
     })
 })
 
+gulp.task('data', () => {
+    return gulp
+        .src('./src/data' + '/*.*')
+        .pipe(gulp.dest('./dist/data'))
+})
+
 gulp.task('html', () => {
     return gulp
         .src(PATH.HTML + '/*.html')
@@ -63,7 +69,7 @@ gulp.task('images', () => {
 
 gulp.task('script', () => {
     return gulp
-        .src(PATH.ASSETS.SCRIPT + '/*.*')
+        .src(PATH.ASSETS.SCRIPT + '/**/*.*')
         .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
         .pipe(browserSync.reload({stream: true}))
 })
@@ -111,6 +117,7 @@ gulp.task('deploy', () => {
 
 const series = gulp.series([
     'clean',
+    'data',
     'html',
     'css',
     'fonts',

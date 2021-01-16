@@ -88,7 +88,7 @@ function drawCOxChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -123,79 +123,62 @@ function drawCOxChart() {
 }
 
 
-function drawCOxMAPChart() {
-    var data_COxMAP = new google.visualization.DataTable();
-    data_COxMAP.addColumn('date', 'Time of Day');
-    data_COxMAP.addColumn('number', 'Left');
-    data_COxMAP.addColumn('number', 'Right');
-    data_COxMAP.addColumn('number', 'average');
-    data_COxMAP.addColumn({'type': 'number', 'role': 'interval'});
-    data_COxMAP.addColumn({'type': 'number', 'role': 'interval'});
-    data_COxMAP.addColumn({'type': 'string', 'role': 'annotation'});
-    data_COxMAP.addRows([
-        [new Date(2020, 4, 20, 13), 0, 0, 0, null, null, null],
-        [new Date(2020, 4, 20, 14), 0, 0, 0, null, null, null],
-        [new Date(2020, 4, 20, 15), 0, 0, 0, null, null, null],
-        [new Date(2020, 4, 20, 16), 0, 0, 0, null, null, null],
-        [new Date(2020, 4, 20, 17), 0, 0, 0, null, null, null],
-        [new Date(2020, 4, 20, 18), 0.846, 0.71, 0.778, null, null, null],
-        [new Date(2020, 4, 20, 19), 0.796, 0.717, 0.756, null, null, null],
-        [new Date(2020, 4, 20, 20), 0.868, 0.881, 0.874, null, null, null],
-        [new Date(2020, 4, 20, 21), 0.56, 0.343, 0.452, null, null, null],
-        [new Date(2020, 4, 20, 22), -0.377, -0.637, -0.507, -1, 1, 'Fluid Infusion'],
-        [new Date(2020, 4, 20, 23), -0.385, -0.516, -0.45, null, null, null],
-        [new Date(2020, 4, 20, 24), -0.347, -0.438, -0.392, null, null, null],
-        [new Date(2020, 4, 21, 1), -0.705, -0.677, -0.691, null, null, null],
-        [new Date(2020, 4, 21, 2), -0.829, -0.69, -0.76, null, null, null],
-        [new Date(2020, 4, 21, 3), -0.878, -0.784, -0.831, null, null, null],
-        [new Date(2020, 4, 21, 4), -0.957, -0.955, -0.956, null, null, null],
-        [new Date(2020, 4, 21, 5), -0.901, -0.926, -0.914, null, null, null],
-        [new Date(2020, 4, 21, 6), -0.445, -0.621, -0.533, null, null, null],
-        [new Date(2020, 4, 21, 7), -0.338, -0.725, -0.532, null, null, null],
-        [new Date(2020, 4, 21, 8), -0.318, -0.706, -0.512, null, null, null],
-        [new Date(2020, 4, 21, 9), -0.393, -0.238, -0.316, null, null, null],
-        [new Date(2020, 4, 21, 10), -0.477, 0.711, 0.117, null, null, null],
-        [new Date(2020, 4, 21, 11), -0.441, 0.736, 0.148, null, null, null],
-        [new Date(2020, 4, 21, 12), -0.465, 0.882, 0.208, null, null, null],
-        [new Date(2020, 4, 21, 13), -0.041, 0.237, 0.098, null, null, null],
-        [new Date(2020, 4, 21, 14), 0.04, 0.125, 0.082, null, null, null],
-        [new Date(2020, 4, 21, 15), 0.759, 0.631, 0.695, null, null, null],
-        [new Date(2020, 4, 21, 16), 0.9, 0.458, 0.679, null, null, null],
-        [new Date(2020, 4, 21, 17), 0.907, 0.657, 0.782, null, null, null],
-        [new Date(2020, 4, 21, 18), 0.885, 0.885, 0.885, null, null, null],
-        [new Date(2020, 4, 21, 19), 0.83, 0.837, 0.833, null, null, null],
-        [new Date(2020, 4, 21, 20), 0.745, 0.807, 0.776, null, null, null],
-        [new Date(2020, 4, 21, 21), -0.052, 0.212, 0.08, null, null, null],
-        [new Date(2020, 4, 21, 22), 0.635, 0.631, 0.633, null, null, null],
-        [new Date(2020, 4, 21, 23), 0.891, 0.84, 0.865, null, null, null],
-        [new Date(2020, 4, 21, 24), 0.862, 0.941, 0.902, null, null, null],
-        [new Date(2020, 4, 22, 1), 0.279, 0.752, 0.516, null, null, null],
-        [new Date(2020, 4, 22, 2), -0.004, 0.437, 0.216, null, null, null],
-        [new Date(2020, 4, 22, 3), 0.377, 0.292, 0.334, null, null, null],
-        [new Date(2020, 4, 22, 4), 0.687, 0.084, 0.386, null, null, null],
-    ]);
+let jsonData = $.ajax({
+    url: "data/data_2528767.json",
+    dataType: "json",
+    async: false
+}).responseText;
 
-    var options_COxMAP = {
+jsonData = JSON.parse(jsonData)
+const dataValue = Object.values(jsonData)
+
+function drawCOxMAPChart() {
+    const data = new google.visualization.DataTable(jsonData);
+
+    data.addColumn('date', 'Time of Day');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
+    data.addColumn('number', 'average');
+
+    for (let i in dataValue) {
+        for (let j in dataValue[13]) {
+            let timestamp = String(dataValue[13][j]);
+
+            let year = timestamp.substring(0,4);
+            let month = timestamp.substring(4,6);
+            let day = timestamp.substring(6,8);
+            let hours = timestamp.substring(8,10);
+            let minutes = timestamp.substring(10,12);
+            let seconds = timestamp.substring(12,14);
+
+            timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+
+            data.addRow([
+                timestamp,
+                parseFloat(dataValue[14][j]),
+                parseFloat(dataValue[15][j]),
+                parseFloat(dataValue[16][j]),
+            ]);
+        }
+
+    }
+
+    var options = {
         colors: ['#FAA7B8', '#6096FD', 'darkseagreen'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 5,
-        lineWidth: 1.5,
-        series: {2: {lineWidth: 3}},
-        curveType: 'function',
+        pointSize: 1,
+        lineWidth: 1,
+        series: {2: {lineWidth: 1}},
         intervals: {
             color: "yellow"
         },
         hAxis: {
-            viewWindow: {
-                min: new Date(2020, 4, 20, 13),
-                max: new Date(2020, 4, 22, 4)
-            },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -210,8 +193,8 @@ function drawCOxMAPChart() {
             }
         },
         vAxis: {
-            title: "COx MAP",
             ticks: [-1, 0, 1],
+            title: "COx MAP",
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -225,79 +208,56 @@ function drawCOxMAPChart() {
     };
 
     var chart_COxMAP = new google.visualization.LineChart(document.getElementById('chart_COxMAP'));
-    chart_COxMAP.draw(data_COxMAP, options_COxMAP);
+    chart_COxMAP.draw(data, options);
 }
 
 
 function drawCOxETCO2Chart() {
-    var data_COxETCO2 = new google.visualization.DataTable();
-    data_COxETCO2.addColumn('date', 'Time of Day');
-    data_COxETCO2.addColumn('number', 'Left');
-    data_COxETCO2.addColumn('number', 'Right');
-    data_COxETCO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_COxETCO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_COxETCO2.addRows([
-        [new Date(2020, 4, 20, 13), 0, 0, null, null],
-        [new Date(2020, 4, 20, 14), 0, 0, null, null],
-        [new Date(2020, 4, 20, 15), 0, 0, null, null],
-        [new Date(2020, 4, 20, 16), 0, 0, null, null],
-        [new Date(2020, 4, 20, 17), 0, 0, null, null],
-        [new Date(2020, 4, 20, 18), 0.615, 0.433, null, null],
-        [new Date(2020, 4, 20, 19), 0.567, 0.581, null, null],
-        [new Date(2020, 4, 20, 20), 0.636, 0.657, null, null],
-        [new Date(2020, 4, 20, 21), 0.553, 0.554, null, null],
-        [new Date(2020, 4, 20, 22), 0.533, 0.334, -1, 1],
-        [new Date(2020, 4, 20, 23), 0.375, 0.136, null, null],
-        [new Date(2020, 4, 20, 24), 0.052, -0.114, null, null],
-        [new Date(2020, 4, 21, 1), 0.203, 0.137, null, null],
-        [new Date(2020, 4, 21, 2), 0.426, 0.514, null, null],
-        [new Date(2020, 4, 21, 3), 0.642, 0.644, null, null],
-        [new Date(2020, 4, 21, 4), 0.685, 0.636, null, null],
-        [new Date(2020, 4, 21, 5), 0.663, 0.573, null, null],
-        [new Date(2020, 4, 21, 6), -0.635, -0.511, null, null],
-        [new Date(2020, 4, 21, 7), -0.617, -0.371, null, null],
-        [new Date(2020, 4, 21, 8), -0.431, -0.245, null, null],
-        [new Date(2020, 4, 21, 9), -0.502, -0.172, null, null],
-        [new Date(2020, 4, 21, 10), -0.246, -0.172, null, null],
-        [new Date(2020, 4, 21, 11), -0.254, -0.172, null, null],
-        [new Date(2020, 4, 21, 12), -0.05, 0.279, null, null],
-        [new Date(2020, 4, 21, 13), 0.057, -0.13, null, null],
-        [new Date(2020, 4, 21, 14), -0.014, -0.087, null, null],
-        [new Date(2020, 4, 21, 15), 0.385, -0.087, null, null],
-        [new Date(2020, 4, 21, 16), 0.453, -0.044, null, null],
-        [new Date(2020, 4, 21, 17), 0.355, 0.292, null, null],
-        [new Date(2020, 4, 21, 18), 0.541, 0.429, null, null],
-        [new Date(2020, 4, 21, 19), 0.353, 0.445, null, null],
-        [new Date(2020, 4, 21, 20), 0, 0.206, null, null],
-        [new Date(2020, 4, 21, 21), 0, 0.138, null, null],
-        [new Date(2020, 4, 21, 22), 0, 0, null, null],
-        [new Date(2020, 4, 21, 23), 0, 0, null, null],
-        [new Date(2020, 4, 21, 24), 0, 0, null, null],
-        [new Date(2020, 4, 22, 1), -0.195, 0, null, null],
-        [new Date(2020, 4, 22, 2), -0.481, 0, null, null],
-        [new Date(2020, 4, 22, 3), -0.559, -0.037, null, null],
-        [new Date(2020, 4, 22, 4), -0.623, -0.081, null, null],
-    ]);
+    var data = new google.visualization.DataTable(jsonData);
 
-    var options_COxETCO2 = {
-        colors: ['#FAA7B8', '#6096FD'],
+    data.addColumn('date', 'Time of Day');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
+    data.addColumn('number', 'average');
+
+    for (var i in dataValue) {
+        for (var j in dataValue[13]) {
+            var timestamp = String(dataValue[13][j]);
+
+            var year = timestamp.substring(0,4);
+            var month = timestamp.substring(4,6);
+            var day = timestamp.substring(6,8);
+            var hours = timestamp.substring(8,10);
+            var minutes = timestamp.substring(10,12);
+            var seconds = timestamp.substring(12,14);
+
+            timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+
+            data.addRow([
+                timestamp,
+                parseFloat(dataValue[17][j]),
+                parseFloat(dataValue[18][j]),
+                parseFloat(dataValue[19][j]),
+            ]);
+        }
+
+    }
+
+    var options = {
+        colors: ['#FAA7B8', '#6096FD', 'darkseagreen'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 5,
-        curveType: 'function',
+        pointSize: 1,
+        lineWidth: 1,
         intervals: {
             color: "yellow"
         },
         hAxis: {
-            viewWindow: {
-                min: new Date(2020, 4, 20, 13),
-                max: new Date(2020, 4, 22, 4)
-            },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -327,79 +287,60 @@ function drawCOxETCO2Chart() {
     };
 
     var chart_COxETCO2 = new google.visualization.LineChart(document.getElementById('chart_COxETCO2'));
-    chart_COxETCO2.draw(data_COxETCO2, options_COxETCO2);
+    chart_COxETCO2.draw(data, options);
 }
 
 
-function drawRSO2Chart() {
-    var data_RSO2 = new google.visualization.DataTable();
-    data_RSO2.addColumn('date', 'Time of Day');
-    data_RSO2.addColumn('number', 'Left');
-    data_RSO2.addColumn('number', 'Right');
-    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_RSO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_RSO2.addRows([
-        [new Date(2020, 4, 20, 13), 34.0, 38.0, null, null],
-        [new Date(2020, 4, 20, 14), 34.75, 38.25, null, null],
-        [new Date(2020, 4, 20, 15), 35.0, 38.5, null, null],
-        [new Date(2020, 4, 20, 16), 35.0, 38.5, null, null],
-        [new Date(2020, 4, 20, 17), 35.0, 38.0, null, null],
-        [new Date(2020, 4, 20, 18), 35.0, 38.0, null, null],
-        [new Date(2020, 4, 20, 19), 35.0, 38.0, null, null],
-        [new Date(2020, 4, 20, 20), 35.0, 38.0, null, null],
-        [new Date(2020, 4, 20, 21), 35.0, 38.0, null, null],
-        [new Date(2020, 4, 20, 22), 35.0, 38.0, 20, 60],
-        [new Date(2020, 4, 20, 23), 35.5, 37.75, null, null],
-        [new Date(2020, 4, 20, 24), 36.0, 38.25, null, null],
-        [new Date(2020, 4, 21, 1), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 2), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 3), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 4), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 5), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 6), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 7), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 8), 36.0, 38.5, null, null],
-        [new Date(2020, 4, 21, 9), 37.75, 40.0, null, null],
-        [new Date(2020, 4, 21, 10), 37.5, 40.0, null, null],
-        [new Date(2020, 4, 21, 11), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 12), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 13), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 14), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 15), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 16), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 17), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 18), 38.0, 40.0, null, null],
-        [new Date(2020, 4, 21, 19), 38.25, 40.75, null, null],
-        [new Date(2020, 4, 21, 20), 38.5, 40.5, null, null],
-        [new Date(2020, 4, 21, 21), 38.5, 40.75, null, null],
-        [new Date(2020, 4, 21, 22), 38.5, 41.0, null, null],
-        [new Date(2020, 4, 21, 23), 39.0, 41.0, null, null],
-        [new Date(2020, 4, 21, 24), 39.0, 41.0, null, null],
-        [new Date(2020, 4, 22, 1), 39.0, 41.0, null, null],
-        [new Date(2020, 4, 22, 2), 39.0, 41.0, null, null],
-        [new Date(2020, 4, 22, 3), 39.0, 41.0, null, null],
-        [new Date(2020, 4, 22, 4), 39.0, 41.0, null, null],
-    ]);
 
-    var options_RSO2 = {
+console.log(dataValue[1].length)
+console.log(dataValue[2].length)
+console.log(dataValue[4].length)
+console.log(dataValue[19].length)
+
+function drawRSO2Chart() {
+    var data = new google.visualization.DataTable(jsonData);
+
+    data.addColumn('date', 'Time of Day');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
+
+    for (var i in dataValue) {
+        for (var j in dataValue[4]) {
+            var timestamp = String(dataValue[4][j]);
+
+            var year = timestamp.substring(0,4);
+            var month = timestamp.substring(4,6);
+            var day = timestamp.substring(6,8);
+            var hours = timestamp.substring(8,10);
+            var minutes = timestamp.substring(10,12);
+            var seconds = timestamp.substring(12,14);
+
+            timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+
+            data.addRow([
+                timestamp,
+                parseFloat(dataValue[1][j]),
+                parseFloat(dataValue[2][j]),
+            ]);
+        }
+
+    }
+
+    var options = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 5,
-        curveType: 'function',
+        pointSize: 1,
+        lineWidth: 1,
         intervals: {
             color: "yellow"
         },
         hAxis: {
-            viewWindow: {
-                min: new Date(2020, 4, 20, 13),
-                max: new Date(2020, 4, 22, 4)
-            },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -417,7 +358,7 @@ function drawRSO2Chart() {
             title: "RSO2",
             baselineColor: '#777',
             gridlineColor: '#777',
-            ticks: [20, 30, 40, 50, 60],
+            //ticks: [20, 30, 40, 50, 60],
             minorGridlines: {
                 color: '#333',
             }
@@ -429,9 +370,8 @@ function drawRSO2Chart() {
     };
 
     var chart_RSO2 = new google.visualization.LineChart(document.getElementById('chart_RSO2'));
-    chart_RSO2.draw(data_RSO2, options_RSO2);
+    chart_RSO2.draw(data, options);
 }
-
 
 
 function drawMAPChart() {
@@ -505,7 +445,7 @@ function drawMAPChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -539,17 +479,16 @@ function drawMAPChart() {
                 color: 'darkseagreen'
             },
         },
-        bar: { groupWidth: '20%' },
+        bar: {groupWidth: '20%'},
         candlestick: {
-            fallingColor: { strokeWidth: 0, fill: '#FAA7B8' },
-            risingColor: { strokeWidth: 0, fill: '#FAA7B8' }
+            fallingColor: {strokeWidth: 0, fill: '#FAA7B8'},
+            risingColor: {strokeWidth: 0, fill: '#FAA7B8'}
         }
     };
 
     var chart_MAP = new google.visualization.ComboChart(document.getElementById('chart_MAP'));
     chart_MAP.draw(data_MAP, options_MAP);
 }
-
 
 
 function drawETCO2Chart() {
@@ -623,7 +562,7 @@ function drawETCO2Chart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -657,10 +596,10 @@ function drawETCO2Chart() {
                 color: 'darkseagreen'
             },
         },
-        bar: { groupWidth: '20%' },
+        bar: {groupWidth: '20%'},
         candlestick: {
-            fallingColor: { strokeWidth: 0, fill: '#FAA7B8' },
-            risingColor: { strokeWidth: 0, fill: '#FAA7B8' }
+            fallingColor: {strokeWidth: 0, fill: '#FAA7B8'},
+            risingColor: {strokeWidth: 0, fill: '#FAA7B8'}
         }
     };
 
@@ -735,7 +674,7 @@ function drawSJVO2Chart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -836,7 +775,7 @@ function drawADJLChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -936,7 +875,7 @@ function drawLOIChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1036,7 +975,7 @@ function drawAVDO2Chart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1137,7 +1076,7 @@ function drawCEO2Chart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1237,7 +1176,7 @@ function drawAJglcChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1338,7 +1277,7 @@ function drawAJCO2Chart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1438,7 +1377,7 @@ function drawRQChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1539,7 +1478,7 @@ function drawNPIChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
@@ -1640,7 +1579,7 @@ function drawPupilChart() {
                 max: new Date(2020, 4, 22, 4)
             },
             gridlines: {
-                color:'#777',
+                color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
                     hours: {format: ['HH:mm', 'ha']},
