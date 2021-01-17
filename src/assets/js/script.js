@@ -132,63 +132,6 @@ let jsonData = $.ajax({
 jsonData = JSON.parse(jsonData)
 const dataValue = Object.values(jsonData)
 
-
-
-let nullArray = []
-
-for (let i in dataValue[13]) {
-    nullArray.push(null)
-}
-
-dataValue[22] = [...nullArray]
-dataValue[23] = [...nullArray]
-dataValue[24] = [...nullArray]
-
-dataValue[22][30] = -1
-dataValue[23][30] = 1
-dataValue[24][30] = "shivering control"
-
-dataValue[22][40] = -1
-dataValue[23][40] = 1
-dataValue[24][40] = "increase sedation"
-
-dataValue[22][67] = -1
-dataValue[23][67] = 1
-dataValue[24][67] = "fluid infusion"
-
-dataValue[22][89] = -1
-dataValue[23][89] = 1
-dataValue[24][89] = "adjust ventilation"
-
-dataValue[22][101] = -1
-dataValue[23][101] = 1
-dataValue[24][101] = "increase sedation"
-
-dataValue[22][105] = -1
-dataValue[23][105] = 1
-dataValue[24][105] = "start NMB"
-
-dataValue[22][107] = -1
-dataValue[23][107] = 1
-dataValue[24][107] = "TTM Target temperature"
-
-dataValue[22][130] = -1
-dataValue[23][130] = 1
-dataValue[24][130] = "adjust ventilation"
-
-dataValue[22][146] = -1
-dataValue[23][146] = 1
-dataValue[24][146] = "vasopressor increase"
-
-dataValue[22][150] = -1
-dataValue[23][150] = 1
-dataValue[24][150] = "vasopressor increase"
-
-dataValue[22][180] = -1
-dataValue[23][180] = 1
-dataValue[24][180] = "increase sedation"
-
-
 function drawCOxMAPChart() {
     const data = new google.visualization.DataTable(jsonData);
 
@@ -196,12 +139,9 @@ function drawCOxMAPChart() {
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
     data.addColumn('number', 'Average');
-    data.addColumn({'type': 'number', 'role': 'interval'});
-    data.addColumn({'type': 'number', 'role': 'interval'});
-    data.addColumn({'type': 'string', 'role': 'annotation'});
 
-    for (let i in dataValue[13]) {
-        let timestamp = String(dataValue[13][i]);
+    for (let j in dataValue[13]) {
+        let timestamp = String(dataValue[13][j]);
 
         let year = timestamp.substring(0, 4);
         let month = timestamp.substring(4, 6) - 1;
@@ -214,12 +154,9 @@ function drawCOxMAPChart() {
 
         data.addRow([
             timestamp,
-            parseFloat(dataValue[14][i]),
-            parseFloat(dataValue[15][i]),
-            parseFloat(dataValue[16][i]),
-            parseInt(dataValue[22][i]),
-            parseInt(dataValue[23][i]),
-            dataValue[24][i],
+            parseFloat(dataValue[14][j]),
+            parseFloat(dataValue[15][j]),
+            parseFloat(dataValue[16][j]),
         ]);
     }
 
@@ -280,8 +217,8 @@ function drawCOxETCO2Chart() {
     data.addColumn('number', 'Right');
     data.addColumn('number', 'Average');
 
-    for (let i in dataValue[13]) {
-        let timestamp = String(dataValue[13][i]);
+    for (let j in dataValue[13]) {
+        let timestamp = String(dataValue[13][j]);
 
         let year = timestamp.substring(0, 4);
         let month = timestamp.substring(4, 6) - 1;
@@ -294,9 +231,9 @@ function drawCOxETCO2Chart() {
 
         data.addRow([
             timestamp,
-            parseFloat(dataValue[17][i]),
-            parseFloat(dataValue[18][i]),
-            parseFloat(dataValue[19][i]),
+            parseFloat(dataValue[17][j]),
+            parseFloat(dataValue[18][j]),
+            parseFloat(dataValue[19][j]),
         ]);
     }
 
@@ -354,8 +291,8 @@ function drawRSO2Chart() {
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
 
-    for (let i in dataValue[4]) {
-        let timestamp = String(dataValue[4][i]);
+    for (let j in dataValue[4]) {
+        let timestamp = String(dataValue[4][j]);
 
         let year = timestamp.substring(0, 4);
         let month = timestamp.substring(4, 6) - 1;
@@ -368,8 +305,8 @@ function drawRSO2Chart() {
 
         data.addRow([
             timestamp,
-            parseFloat(dataValue[1][i]),
-            parseFloat(dataValue[2][i]),
+            parseFloat(dataValue[1][j]),
+            parseFloat(dataValue[2][j]),
         ]);
     }
 
@@ -380,7 +317,7 @@ function drawRSO2Chart() {
         height: "100%",
         legend: {position: 'top'},
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 1.5,
         lineWidth: 1.5,
         intervals: {
             color: "yellow"
@@ -419,51 +356,78 @@ function drawRSO2Chart() {
     var chart_RSO2 = new google.visualization.LineChart(document.getElementById('chart_RSO2'));
     chart_RSO2.draw(data, options);
 }
+
+
 function drawMAPChart() {
-    var data = new google.visualization.DataTable();
+    var data_MAP = new google.visualization.DataTable();
+    data_MAP.addColumn('date', 'Time of Day');
+    data_MAP.addColumn('number', 'OP_BP_min1');
+    data_MAP.addColumn('number', 'OP_BP_min2');
+    data_MAP.addColumn('number', 'OP_BP_max1');
+    data_MAP.addColumn('number', 'OP_BP_max2');
+    data_MAP.addColumn('number', 'MAP');
+    data_MAP.addColumn({'type': 'number', 'role': 'interval'});
+    data_MAP.addColumn({'type': 'number', 'role': 'interval'});
+    data_MAP.addRows([
+        [new Date(2020, 4, 20, 13), 80, 80, 85, 85, 56.7, null, null],
+        [new Date(2020, 4, 20, 14), 80, 80, 85, 85, 55.72, null, null],
+        [new Date(2020, 4, 20, 15), 80, 80, 85, 85, 56.03, null, null],
+        [new Date(2020, 4, 20, 16), 80, 80, 85, 85, 56.72, null, null],
+        [new Date(2020, 4, 20, 17), 80, 80, 85, 85, 57.46, null, null],
+        [new Date(2020, 4, 20, 18), 80, 80, 85, 85, 57.7, null, null],
+        [new Date(2020, 4, 20, 19), 81, 81, 90, 90, 57.91, null, null],
+        [new Date(2020, 4, 20, 20), 81, 81, 90, 90, 58.05, null, null],
+        [new Date(2020, 4, 20, 21), 81, 81, 90, 90, 58.34, null, null],
+        [new Date(2020, 4, 20, 22), 81, 81, 90, 90, 59.95, 0, 150],
+        [new Date(2020, 4, 20, 23), 81, 81, 90, 90, 86.67, null, null],
+        [new Date(2020, 4, 20, 24), 81, 81, 90, 90, 89.41, null, null],
+        [new Date(2020, 4, 21, 1), 75, 75, 80, 80, 90.2, null, null],
+        [new Date(2020, 4, 21, 2), 75, 75, 80, 80, 90.6, null, null],
+        [new Date(2020, 4, 21, 3), 75, 75, 80, 80, 90.94, null, null],
+        [new Date(2020, 4, 21, 4), 75, 75, 80, 80, 92.27, null, null],
+        [new Date(2020, 4, 21, 5), 75, 75, 80, 80, 93.99, null, null],
+        [new Date(2020, 4, 21, 6), 75, 75, 80, 80, 94.72, null, null],
+        [new Date(2020, 4, 21, 7), 75, 75, 80, 80, 95.18, null, null],
+        [new Date(2020, 4, 21, 8), 75, 75, 80, 80, 96.02, null, null],
+        [new Date(2020, 4, 21, 9), 75, 75, 80, 80, 96.86, null, null],
+        [new Date(2020, 4, 21, 10), 78, 78, 83, 83, 97.02, null, null],
+        [new Date(2020, 4, 21, 11), 78, 78, 83, 83, 98.35, null, null],
+        [new Date(2020, 4, 21, 12), 78, 78, 83, 83, 99.17, null, null],
+        [new Date(2020, 4, 21, 13), 78, 78, 83, 83, 99.11, null, null],
+        [new Date(2020, 4, 21, 14), 78, 78, 83, 83, 98.54, null, null],
+        [new Date(2020, 4, 21, 15), 78, 78, 83, 83, 98.38, null, null],
+        [new Date(2020, 4, 21, 16), 78, 78, 83, 83, 99.08, null, null],
+        [new Date(2020, 4, 21, 17), 78, 78, 83, 83, 99.08, null, null],
+        [new Date(2020, 4, 21, 18), 78, 78, 83, 83, 99.11, null, null],
+        [new Date(2020, 4, 21, 19), 78, 78, 83, 83, 102.45, null, null],
+        [new Date(2020, 4, 21, 20), 78, 78, 83, 83, 102.28, null, null],
+        [new Date(2020, 4, 21, 21), 78, 78, 83, 83, 101.22, null, null],
+        [new Date(2020, 4, 21, 22), 78, 78, 83, 83, 99.86, null, null],
+        [new Date(2020, 4, 21, 23), 78, 78, 83, 83, 99.05, null, null],
+        [new Date(2020, 4, 21, 24), 78, 78, 83, 83, 99.35, null, null],
+        [new Date(2020, 4, 22, 1), 80, 80, 85, 85, 99.26, null, null],
+        [new Date(2020, 4, 22, 2), 80, 80, 85, 85, 98.99, null, null],
+        [new Date(2020, 4, 22, 3), 80, 80, 85, 85, 99.1, null, null],
+        [new Date(2020, 4, 22, 4), 80, 80, 85, 85, 99.25, null, null],
+    ]);
 
-    data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'OP_BP_min1');
-    data.addColumn('number', 'OP_BP_min2');
-    data.addColumn('number', 'OP_BP_max1');
-    data.addColumn('number', 'OP_BP_max2');
-    data.addColumn('number', 'MAP');
-
-    for (let i in dataValue[4]) {
-        let timestamp = String(dataValue[4][i]);
-
-        let year = timestamp.substring(0, 4);
-        let month = timestamp.substring(4, 6) - 1;
-        let day = timestamp.substring(6, 8);
-        let hours = timestamp.substring(8, 10);
-        let minutes = timestamp.substring(10, 12);
-        let seconds = timestamp.substring(12, 14);
-
-        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
-
-        data.addRow([
-            timestamp,
-            parseInt(dataValue[20].min[i]),
-            parseInt(dataValue[20].max[i]),
-            parseInt(dataValue[20].min[i]),
-            parseInt(dataValue[20].max[i]),
-            parseFloat(dataValue[0][i]),
-        ]);
-    }
-
-    var options = {
+    var options_MAP = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 0,
-        lineWidth: 1.5,
+        pointSize: 5,
+        curveType: 'function',
         intervals: {
             color: "yellow"
         },
         hAxis: {
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
             gridlines: {
                 color: '#777',
                 units: {
@@ -499,7 +463,7 @@ function drawMAPChart() {
                 color: 'darkseagreen'
             },
         },
-        bar: {groupWidth: '200%'},
+        bar: {groupWidth: '20%'},
         candlestick: {
             fallingColor: {strokeWidth: 0, fill: '#FAA7B8'},
             risingColor: {strokeWidth: 0, fill: '#FAA7B8'}
@@ -507,55 +471,80 @@ function drawMAPChart() {
     };
 
     var chart_MAP = new google.visualization.ComboChart(document.getElementById('chart_MAP'));
-    chart_MAP.draw(data, options);
+    chart_MAP.draw(data_MAP, options_MAP);
 }
 
 
 function drawETCO2Chart() {
-    var data = new google.visualization.DataTable();
+    var data_ETCO2 = new google.visualization.DataTable();
+    data_ETCO2.addColumn('date', 'Time of Day');
+    data_ETCO2.addColumn('number', 'OP_BP_min1');
+    data_ETCO2.addColumn('number', 'OP_BP_min2');
+    data_ETCO2.addColumn('number', 'OP_BP_max1');
+    data_ETCO2.addColumn('number', 'OP_BP_max2');
+    data_ETCO2.addColumn('number', 'ETCO2');
+    data_ETCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_ETCO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_ETCO2.addRows([
+        [new Date(2020, 4, 20, 13), 45, 45, 50, 50, 46.7, null, null],
+        [new Date(2020, 4, 20, 14), 45, 45, 50, 50, 45.72, null, null],
+        [new Date(2020, 4, 20, 15), 45, 45, 50, 50, 46.03, null, null],
+        [new Date(2020, 4, 20, 16), 45, 45, 50, 50, 46.72, null, null],
+        [new Date(2020, 4, 20, 17), 45, 45, 50, 50, 47.46, null, null],
+        [new Date(2020, 4, 20, 18), 45, 45, 50, 50, 47.7, null, null],
+        [new Date(2020, 4, 20, 19), 45, 45, 50, 50, 47.91, null, null],
+        [new Date(2020, 4, 20, 20), 45, 45, 50, 50, 48.05, null, null],
+        [new Date(2020, 4, 20, 21), 45, 45, 50, 50, 48.34, null, null],
+        [new Date(2020, 4, 20, 22), 45, 45, 50, 50, 49.95, 0, 60],
+        [new Date(2020, 4, 20, 23), 45, 45, 50, 50, 46.67, null, null],
+        [new Date(2020, 4, 20, 24), 45, 45, 50, 50, 49.41, null, null],
+        [new Date(2020, 4, 21, 1), 38, 38, 43, 43, 50.2, null, null],
+        [new Date(2020, 4, 21, 2), 38, 38, 43, 43, 50.6, null, null],
+        [new Date(2020, 4, 21, 3), 38, 38, 43, 43, 50.94, null, null],
+        [new Date(2020, 4, 21, 4), 38, 38, 43, 43, 52.27, null, null],
+        [new Date(2020, 4, 21, 5), 38, 38, 43, 43, 53.99, null, null],
+        [new Date(2020, 4, 21, 6), 38, 38, 43, 43, 54.72, null, null],
+        [new Date(2020, 4, 21, 7), 38, 38, 43, 43, 55.18, null, null],
+        [new Date(2020, 4, 21, 8), 38, 38, 43, 43, 56.02, null, null],
+        [new Date(2020, 4, 21, 9), 38, 38, 43, 43, 56.86, null, null],
+        [new Date(2020, 4, 21, 10), 42, 42, 47, 47, 47.02, null, null],
+        [new Date(2020, 4, 21, 11), 42, 42, 47, 47, 48.35, null, null],
+        [new Date(2020, 4, 21, 12), 42, 42, 47, 47, 49.17, null, null],
+        [new Date(2020, 4, 21, 13), 42, 42, 47, 47, 49.11, null, null],
+        [new Date(2020, 4, 21, 14), 42, 42, 47, 47, 48.54, null, null],
+        [new Date(2020, 4, 21, 15), 42, 42, 47, 47, 48.38, null, null],
+        [new Date(2020, 4, 21, 16), 42, 42, 47, 47, 49.08, null, null],
+        [new Date(2020, 4, 21, 17), 42, 42, 47, 47, 49.08, null, null],
+        [new Date(2020, 4, 21, 18), 42, 42, 47, 47, 49.11, null, null],
+        [new Date(2020, 4, 21, 19), 42, 42, 47, 47, 52.45, null, null],
+        [new Date(2020, 4, 21, 20), 42, 42, 47, 47, 52.28, null, null],
+        [new Date(2020, 4, 21, 21), 42, 42, 47, 47, 51.22, null, null],
+        [new Date(2020, 4, 21, 22), 42, 42, 47, 47, 49.86, null, null],
+        [new Date(2020, 4, 21, 23), 42, 42, 47, 47, 49.05, null, null],
+        [new Date(2020, 4, 21, 24), 42, 42, 47, 47, 49.35, null, null],
+        [new Date(2020, 4, 22, 1), 40, 40, 45, 45, 49.26, null, null],
+        [new Date(2020, 4, 22, 2), 40, 40, 45, 45, 48.99, null, null],
+        [new Date(2020, 4, 22, 3), 40, 40, 45, 45, 49.1, null, null],
+        [new Date(2020, 4, 22, 4), 40, 40, 45, 45, 49.25, null, null],
+    ]);
 
-    data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'OP_BP_min1');
-    data.addColumn('number', 'OP_BP_min2');
-    data.addColumn('number', 'OP_BP_max1');
-    data.addColumn('number', 'OP_BP_max2');
-    data.addColumn('number', 'ETCO2');
-
-    for (let i in dataValue[4]) {
-        let timestamp = String(dataValue[4][i]);
-
-        let year = timestamp.substring(0, 4);
-        let month = timestamp.substring(4, 6) - 1;
-        let day = timestamp.substring(6, 8);
-        let hours = timestamp.substring(8, 10);
-        let minutes = timestamp.substring(10, 12);
-        let seconds = timestamp.substring(12, 14);
-
-        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
-
-        data.addRow([
-            timestamp,
-            parseFloat(dataValue[21].min[i]),
-            parseFloat(dataValue[21].max[i]),
-            parseFloat(dataValue[21].min[i]),
-            parseFloat(dataValue[21].max[i]),
-            parseFloat(dataValue[3][i]),
-        ]);
-    }
-
-    var options = {
+    var options_ETCO2 = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 0,
-        lineWidth: 1.5,
+        pointSize: 5,
+        curveType: 'function',
         intervals: {
             color: "yellow"
         },
         hAxis: {
+            viewWindow: {
+                min: new Date(2020, 4, 20, 13),
+                max: new Date(2020, 4, 22, 4)
+            },
             gridlines: {
                 color: '#777',
                 units: {
@@ -599,7 +588,7 @@ function drawETCO2Chart() {
     };
 
     var chart_ETCO2 = new google.visualization.ComboChart(document.getElementById('chart_ETCO2'));
-    chart_ETCO2.draw(data, options);
+    chart_ETCO2.draw(data_ETCO2, options_ETCO2);
 }
 
 
