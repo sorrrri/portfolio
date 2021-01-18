@@ -387,7 +387,7 @@ header .change-theme small {
 }
 
 .content.list .record-container {
-    padding: .7rem;
+    padding: .5rem;
     cursor: pointer;
     transition: background-color .3s;
 }
@@ -418,11 +418,15 @@ header .change-theme small {
 .content.list.intervention .record-container {
     flex-direction: row;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.content.list.intervention .record-container > div {
-    flex: 1 1 auto
+.content.list.intervention .record-container div:last-of-type {
+    flex: 0 0 160px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .content.list.intervention .record-container .delete {
@@ -445,11 +449,7 @@ header .change-theme small {
 }
 
 .content.list.intervention .comment {
-    justify-content: flex-start;
-    background: rgba(255, 255, 255, .1);
-    padding: .5rem;
-    border-radius: .5rem;
-    margin-top: .5rem;
+    color: rgba(255, 255, 255, .4)
 }
 
 .content.list .record-container {
@@ -460,12 +460,6 @@ header .change-theme small {
 
 .content.list .record-container:hover {
     background-color: darkslategray;
-}
-
-.content.list .record.comment span {
-    font-weight: normal;
-    text-align: left;
-    color: rgba(255, 255, 255, .4)
 }
 
 .scroll-handler {

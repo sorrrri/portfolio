@@ -132,10 +132,7 @@ let jsonData = $.ajax({
 jsonData = JSON.parse(jsonData)
 const dataValue = Object.values(jsonData)
 
-
-
 let nullArray = []
-
 for (let i in dataValue[13]) {
     nullArray.push(null)
 }
