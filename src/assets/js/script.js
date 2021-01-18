@@ -14,10 +14,14 @@ google.charts.setOnLoadCallback(drawAJCO2Chart);
 google.charts.setOnLoadCallback(drawRQChart);
 google.charts.setOnLoadCallback(drawNPIChart);
 google.charts.setOnLoadCallback(drawPupilChart);
-google.charts.setOnLoadCallback(drawModalCOxMAPChart);
-google.charts.setOnLoadCallback(drawRSO2MAPChart);
-google.charts.setOnLoadCallback(drawCO2xETCO2Chart);
-google.charts.setOnLoadCallback(drawRSO2ETCO2Chart);
+google.charts.setOnLoadCallback(drawModalMAPLeftChart);
+google.charts.setOnLoadCallback(drawModalMAPRightChart);
+google.charts.setOnLoadCallback(drawModalMAPMeanChart);
+google.charts.setOnLoadCallback(drawMAPRSO2Chart);
+google.charts.setOnLoadCallback(drawModalETCO2LeftChart);
+google.charts.setOnLoadCallback(drawModalETCO2RightChart);
+google.charts.setOnLoadCallback(drawModalETCO2MeanChart);
+google.charts.setOnLoadCallback(drawETCO2RSO2Chart);
 
 
 function drawCOxChart() {
@@ -1605,29 +1609,19 @@ function drawPupilChart() {
 }
 
 
-function drawModalCOxMAPChart() {
-    var data_ModalCOxMAP = new google.visualization.DataTable();
-    data_ModalCOxMAP.addColumn('number', 'MAP');
-    data_ModalCOxMAP.addColumn('number', 'COx');
-    data_ModalCOxMAP.addRows([
-        [60, 1],
-        [70, 0.47],
-        [80, 0.8],
-        [90, 0.67],
-        [100, 0.3],
-        [110, -0.3],
-        [120, -0.4],
-        [130, -0.16],
-        [140, 0.12],
-        [150, 0.4],
-        [160, 0.34],
-        [170, 0.67],
-        [180, 0.3],
-        [190, -0.3],
-        [200, -0.3],
-    ]);
+function drawModalMAPLeftChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'MAP');
+    data.addColumn('number', 'COx Left');
 
-    var options_ModalCOxMAP = {
+    for (let i in dataValue[5]) {
+        data.addRow([
+            parseFloat(dataValue[5][i]),
+            parseFloat(dataValue[6][i]),
+        ])
+    }
+
+    var options = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -1635,7 +1629,6 @@ function drawModalCOxMAPChart() {
         fontSize: 15,
         title: "Time under MAPopt : --hr--min",
         legend: "none",
-        curveType: 'function',
         hAxis: {
             title: "MAP",
             gridlines: {
@@ -1646,7 +1639,7 @@ function drawModalCOxMAPChart() {
             }
         },
         vAxis: {
-            title: "COx",
+            title: "Left",
             ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
@@ -1660,42 +1653,129 @@ function drawModalCOxMAPChart() {
         }
     };
 
-    var chart_ModalCOxMAP = new google.visualization.ColumnChart(document.getElementById("chart_ModalCOxMAP"));
-    chart_ModalCOxMAP.draw(data_ModalCOxMAP, options_ModalCOxMAP);
+    var chart_ModalMAPLeft = new google.visualization.ColumnChart(document.getElementById("chart_ModalMAPLeft"));
+    chart_ModalMAPLeft.draw(data, options);
+}
+
+function drawModalMAPRightChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'MAP');
+    data.addColumn('number', 'COx Right');
+
+    for (let i in dataValue[5]) {
+        data.addRow([
+            parseFloat(dataValue[5][i]),
+            parseFloat(dataValue[7][i]),
+        ])
+    }
+
+    var options = {
+        colors: ["#47CACC"],
+        tooltip: {isHtml: true},
+        backgroundColor: 'transparent',
+        height: "100%",
+        fontSize: 15,
+        title: "Time under MAPopt : --hr--min",
+        legend: "none",
+        hAxis: {
+            title: "MAP",
+            gridlines: {
+                color: '#777',
+            },
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        vAxis: {
+            title: "Right",
+            ticks: [-1, -0.5, 0, 0.5, 1],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        chartArea: {
+            width: '80%',
+            height: '80%'
+        }
+    };
+
+    var chart_ModalMAPRight = new google.visualization.ColumnChart(document.getElementById("chart_ModalMAPRight"));
+    chart_ModalMAPRight.draw(data, options);
+}
+
+function drawModalMAPMeanChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'MAP');
+    data.addColumn('number', 'COx Avg');
+
+    for (let i in dataValue[5]) {
+        data.addRow([
+            parseFloat(dataValue[5][i]),
+            parseFloat(dataValue[8][i]),
+        ])
+    }
+
+    var options = {
+        colors: ["#47CACC"],
+        tooltip: {isHtml: true},
+        backgroundColor: 'transparent',
+        height: "100%",
+        fontSize: 15,
+        title: "Time under MAPopt : --hr--min",
+        legend: "none",
+        hAxis: {
+            title: "MAP",
+            gridlines: {
+                color: '#777',
+            },
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        vAxis: {
+            title: "COxMEAN",
+            ticks: [-1, -0.5, 0, 0.5, 1],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        chartArea: {
+            width: '80%',
+            height: '80%'
+        }
+    };
+
+    var chart_ModalMAPMean = new google.visualization.ColumnChart(document.getElementById("chart_ModalMAPMean"));
+    chart_ModalMAPMean.draw(data, options);
 }
 
 
-function drawRSO2MAPChart() {
-    var data_RSO2MAP = new google.visualization.DataTable();
-    data_RSO2MAP.addColumn('number', 'MAP');
-    data_RSO2MAP.addColumn('number', 'RSO2');
-    data_RSO2MAP.addRows([
-        [60, 1],
-        [70, 0.47],
-        [80, 0.8],
-        [90, 0.67],
-        [100, 0.3],
-        [110, -0.3],
-        [120, -0.4],
-        [130, -0.16],
-        [140, 0.12],
-        [150, 0.4],
-        [160, 0.34],
-        [170, 0.67],
-        [180, 0.3],
-        [190, -0.3],
-        [200, -0.3],
-    ]);
+function drawMAPRSO2Chart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'MAP');
+    data.addColumn('number', 'RSO2 Left');
+    data.addColumn('number', 'RSO2 Right');
 
-    var options_RSO2MAP = {
+    for (let i in dataValue[0]) {
+        data.addRow([
+            parseFloat(dataValue[0][i]),
+            parseFloat(dataValue[1][i]),
+            parseFloat(dataValue[2][i])
+        ])
+    }
+
+    var options = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
+        pointSize: 1,
         fontSize: 15,
-        curveType: 'function',
         hAxis: {
             title: "MAP",
             gridlines: {
@@ -1707,7 +1787,6 @@ function drawRSO2MAPChart() {
         },
         vAxis: {
             title: "RSO2",
-            ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -1724,41 +1803,43 @@ function drawRSO2MAPChart() {
         }
     };
 
-    var chart_RSO2MAP = new google.visualization.ScatterChart(document.getElementById('chart_RSO2MAP'));
+    var chart_MAPRSO2 = new google.visualization.ScatterChart(document.getElementById('chart_MAPRSO2'));
 
-    chart_RSO2MAP.draw(data_RSO2MAP, options_RSO2MAP);
+    chart_MAPRSO2.draw(data, options);
 }
 
 
-function drawCO2xETCO2Chart() {
-    var data_CO2xETCO2 = new google.visualization.DataTable();
-    data_CO2xETCO2.addColumn('number', 'CO2x');
-    data_CO2xETCO2.addColumn('number', 'ETCO2');
-    data_CO2xETCO2.addRows([
-        [10, 1],
-        [20, 0.47],
-        [30, 0.8],
-        [40, 0.67],
-    ]);
+function drawModalETCO2LeftChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'ETCO2');
+    data.addColumn('number', 'COx Left');
 
-    var options_CO2xETCO2 = {
+    for (let i in dataValue[9]) {
+        data.addRow([
+            parseFloat(dataValue[9][i]),
+            parseFloat(dataValue[10][i]),
+        ])
+    }
+
+    var options = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        title: "Time under ETCO2opt : --hr--min",
-        legend: "none",
         fontSize: 15,
-        curveType: 'function',
+        title: "Time under MAPopt : --hr--min",
+        legend: "none",
         hAxis: {
             title: "ETCO2",
-            gridlineColor: '#777',
+            gridlines: {
+                color: '#777',
+            },
             minorGridlines: {
                 color: '#333',
             }
         },
         vAxis: {
-            title: "CO2x",
+            title: "Left",
             ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
@@ -1772,31 +1853,129 @@ function drawCO2xETCO2Chart() {
         }
     };
 
-    var chart_CO2xETCO2 = new google.visualization.ColumnChart(document.getElementById("chart_CO2xETCO2"));
-    chart_CO2xETCO2.draw(data_CO2xETCO2, options_CO2xETCO2);
+    var chart_ModalETCO2Left = new google.visualization.ColumnChart(document.getElementById("chart_ModalETCO2Left"));
+    chart_ModalETCO2Left.draw(data, options);
+}
+
+function drawModalETCO2RightChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'ETCO2');
+    data.addColumn('number', 'COx Right');
+
+    for (let i in dataValue[9]) {
+        data.addRow([
+            parseFloat(dataValue[9][i]),
+            parseFloat(dataValue[11][i]),
+        ])
+    }
+
+    var options = {
+        colors: ["#47CACC"],
+        tooltip: {isHtml: true},
+        backgroundColor: 'transparent',
+        height: "100%",
+        fontSize: 15,
+        title: "Time under MAPopt : --hr--min",
+        legend: "none",
+        hAxis: {
+            title: "ETCO2",
+            gridlines: {
+                color: '#777',
+            },
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        vAxis: {
+            title: "Right",
+            ticks: [-1, -0.5, 0, 0.5, 1],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        chartArea: {
+            width: '80%',
+            height: '80%'
+        }
+    };
+
+    var chart_ModalETCO2Right = new google.visualization.ColumnChart(document.getElementById("chart_ModalETCO2Right"));
+    chart_ModalETCO2Right.draw(data, options);
+}
+
+function drawModalETCO2MeanChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'ETCO2');
+    data.addColumn('number', 'COx Avg');
+
+    for (let i in dataValue[9]) {
+        data.addRow([
+            parseFloat(dataValue[9][i]),
+            parseFloat(dataValue[12][i]),
+        ])
+    }
+
+    var options = {
+        colors: ["#47CACC"],
+        tooltip: {isHtml: true},
+        backgroundColor: 'transparent',
+        height: "100%",
+        fontSize: 15,
+        title: "Time under MAPopt : --hr--min",
+        legend: "none",
+        hAxis: {
+            title: "ETCO2",
+            gridlines: {
+                color: '#777',
+            },
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        vAxis: {
+            title: "COxMEAN",
+            ticks: [-1, -0.5, 0, 0.5, 1],
+            baselineColor: '#777',
+            gridlineColor: '#777',
+            minorGridlines: {
+                color: '#333',
+            }
+        },
+        chartArea: {
+            width: '80%',
+            height: '80%'
+        }
+    };
+
+    var chart_ModalETCO2Mean = new google.visualization.ColumnChart(document.getElementById("chart_ModalETCO2Mean"));
+    chart_ModalETCO2Mean.draw(data, options);
 }
 
 
-function drawRSO2ETCO2Chart() {
-    var data_RSO2ETCO2 = new google.visualization.DataTable();
-    data_RSO2ETCO2.addColumn('number', 'RSO2');
-    data_RSO2ETCO2.addColumn('number', 'ETCO2');
-    data_RSO2ETCO2.addRows([
-        [10, 1],
-        [20, 0.47],
-        [30, 0.8],
-        [40, 0.67],
-    ]);
+function drawETCO2RSO2Chart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'ETCO2');
+    data.addColumn('number', 'RSO2 Left');
+    data.addColumn('number', 'RSO2 Right');
 
-    var options_RSO2ETCO2 = {
+    for (let i in dataValue[0]) {
+        data.addRow([
+            parseFloat(dataValue[3][i]),
+            parseFloat(dataValue[1][i]),
+            parseFloat(dataValue[2][i])
+        ])
+    }
+
+    var options = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
-        pointSize: 7,
+        pointSize: 1,
         fontSize: 15,
-        curveType: 'function',
         hAxis: {
             title: "ETCO2",
             gridlines: {
@@ -1808,7 +1987,6 @@ function drawRSO2ETCO2Chart() {
         },
         vAxis: {
             title: "RSO2",
-            ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -1816,12 +1994,16 @@ function drawRSO2ETCO2Chart() {
             }
         },
         chartArea: {
+            width: '98%',
+            height: '73%'
+        },
+        chartArea: {
             width: '80%',
             height: '80%'
         }
     };
 
-    var chart_RSO2ETCO2 = new google.visualization.ScatterChart(document.getElementById('chart_RSO2ETCO2'));
+    var chart_ETCO2RSO2 = new google.visualization.ScatterChart(document.getElementById('chart_ETCO2RSO2'));
 
-    chart_RSO2ETCO2.draw(data_RSO2ETCO2, options_RSO2ETCO2);
+    chart_ETCO2RSO2.draw(data, options);
 }
