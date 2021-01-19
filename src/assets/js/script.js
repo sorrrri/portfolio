@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     const colButtonEvent = function (e) {
+        e.preventDefault()
         e = e || window.event;
         if (e.stopPropagation) {
             e.stopPropagation()
