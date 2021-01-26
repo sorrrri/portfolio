@@ -128,7 +128,7 @@ function drawCOxChart() {
 
 
 let jsonData = $.ajax({
-    url: "data/data_2528767.json",
+    url: "/data/data_2528767.json",
     dataType: "json",
     async: false
 }).responseText;

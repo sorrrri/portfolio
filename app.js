@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-app.set('views', `${__dirname}/dist/`)
+app.set('views', `${__dirname}/dist/html`)
 app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html')
 

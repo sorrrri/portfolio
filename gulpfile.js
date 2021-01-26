@@ -43,7 +43,7 @@ gulp.task('data', () => {
 
 gulp.task('html', () => {
     return gulp
-        .src(PATH.HTML + '/*.html')
+        .src(PATH.HTML + '/**/*.html')
         .pipe(gulp.dest(DEST_PATH.HTML))
         .pipe(browserSync.reload({stream: true}))
 })
