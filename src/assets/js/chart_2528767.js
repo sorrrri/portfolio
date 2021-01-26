@@ -199,7 +199,7 @@ function drawCOxMAPChart() {
     data.addColumn('number', 'Average');
     data.addColumn({'type': 'number', 'role': 'interval'});
     data.addColumn({'type': 'number', 'role': 'interval'});
-    data.addColumn({'type': 'string', 'role': 'annotation'});
+    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue[13]) {
         let timestamp = String(dataValue[13][i]);
