@@ -2,13 +2,14 @@ const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
 const browserSync = require('browser-sync')
 const del = require('del')
+const scss = require('gulp-sass')
+const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const ghPages = require('gulp-gh-pages')
 
 const PATH = {
     HTML: './src',
     ASSETS: {
-        STYLE: './src/assets/css',
         FONTS: './src/assets/fonts',
         IMAGES: './src/assets/images',
         SCRIPT: './src/assets/js',
@@ -47,11 +48,20 @@ gulp.task('html', () => {
         .pipe(browserSync.reload({stream: true}))
 })
 
-gulp.task('css', () => {
-    return gulp
-        .src(PATH.ASSETS.STYLE + '/*.*')
+gulp.task('scss', () => {
+    const options = {
+        outputStyle: 'nested',
+        indentType: 'space',
+        indentWidth: 4,
+        precision: 8,
+        sourceComments: true
+    }
+    return gulp.src('./src/assets/scss' + '/*.*')
+        .pipe(sourcemaps.init())
+        .pipe(scss(options))
         .pipe(autoprefixer({cascade: false}))
-        .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/assets/css'))
         .pipe(browserSync.reload({stream: true}))
 })
 
@@ -102,7 +112,7 @@ gulp.task('browserSync', () => {
 
 gulp.task('watch', () => {
     return new Promise(resolve => {
-        gulp.watch(PATH.ASSETS.STYLE + "/**/*.css", gulp.series(['css']))
+        gulp.watch('./src/assets/scss' + "/**/*.scss", gulp.series(['scss']))
         gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(['script']))
         gulp.watch(PATH.HTML + "/**/*.html", gulp.series(['html']))
         resolve()
@@ -119,7 +129,7 @@ const series = gulp.series([
     'clean',
     'data',
     'html',
-    'css',
+    'scss',
     'fonts',
     'images',
     'script',

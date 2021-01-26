@@ -1735,7 +1735,7 @@ function drawModalMAPMeanChart() {
             }
         },
         vAxis: {
-            title: "COxMEAN",
+            title: "COx Avg",
             ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
@@ -1935,7 +1935,7 @@ function drawModalETCO2MeanChart() {
             }
         },
         vAxis: {
-            title: "COxMEAN",
+            title: "COx Avg",
             ticks: [-1, -0.5, 0, 0.5, 1],
             baselineColor: '#777',
             gridlineColor: '#777',
