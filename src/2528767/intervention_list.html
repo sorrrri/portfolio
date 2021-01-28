@@ -40,7 +40,7 @@
                     <div class="search">
                         <select class="js-example-basic-single" name="patients" onchange="location.href=this.value">
                             <option value="./../index.html">2526997</option>
-                            <option value="./../2528767/chart.html">2528767</option>
+                            <option value="./../2528767/chart.html" selected>2528767</option>
                             <option value="./../2594069/chart.html">2594069</option>
                         </select>
                     </div>
@@ -55,7 +55,7 @@
     </header>
     <div class="title">
         <h3>Intervention Data List</h3>
-        <button class="btn-save" onclick="location.href='intervention.html'">
+        <button class="btn-save" onclick="location.href='intervention_add.html'">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
             </svg>
@@ -64,7 +64,7 @@
     </div>
 
     <!-- Health Record -->
-    <section class="content list intervention">
+    <section class="content list intervention" onclick="location.href='intervention_edit.html'">
         <div class="record-container">
             <div>
                 <ul class="record">
@@ -248,7 +248,7 @@
                 </svg>
             </div>
         </div>
-        <div class="record-container" onclick="location.href='intervention/20200315_1430.html'">
+        <div class="record-container">
         <div>
                 <ul class="record">
                     <li>shivering control</li>

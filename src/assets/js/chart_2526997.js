@@ -145,49 +145,121 @@ dataValue[22] = [...nullArray]
 dataValue[23] = [...nullArray]
 dataValue[24] = [...nullArray]
 
-dataValue[22][30] = -1
-dataValue[23][30] = 1
-dataValue[24][30] = "shivering control"
+// 9/19 16:10
+dataValue[22][22] = -1
+dataValue[23][22] = 1
+dataValue[24][22] = "increase sedation"
 
-dataValue[22][40] = -1
-dataValue[23][40] = 1
-dataValue[24][40] = "increase sedation"
+// 9/19 17:00
+dataValue[22][32] = -1
+dataValue[23][32] = 1
+dataValue[24][32] = "TTM Target temperature"
 
-dataValue[22][67] = -1
-dataValue[23][67] = 1
-dataValue[24][67] = "fluid infusion"
+// 9/19 19:30
+dataValue[22][62] = -1
+dataValue[23][62] = 1
+dataValue[24][62] = "adjust ventilation"
 
-dataValue[22][89] = -1
-dataValue[23][89] = 1
-dataValue[24][89] = "adjust ventilation"
+// 9/19 21:40
+dataValue[22][88] = -1
+dataValue[23][88] = 1
+dataValue[24][88] = "adjust ventilation"
 
-dataValue[22][101] = -1
-dataValue[23][101] = 1
-dataValue[24][101] = "increase sedation"
+// 9/19 04:40
+dataValue[22][172] = -1
+dataValue[23][172] = 1
+dataValue[24][172] = "vasopressor increase"
 
-dataValue[22][105] = -1
-dataValue[23][105] = 1
-dataValue[24][105] = "start NMB"
+// 9/19 10:20
+dataValue[22][240] = -1
+dataValue[23][240] = 1
+dataValue[24][240] = "fluid infusion"
 
-dataValue[22][107] = -1
-dataValue[23][107] = 1
-dataValue[24][107] = "TTM Target temperature"
+// 9/19 10:50
+dataValue[22][246] = -1
+dataValue[23][246] = 1
+dataValue[24][246] = "increase sedation"
 
-dataValue[22][130] = -1
-dataValue[23][130] = 1
-dataValue[24][130] = "adjust ventilation"
+// 9/19 12:05
+dataValue[22][261] = -1
+dataValue[23][261] = 1
+dataValue[24][261] = "increase sedation"
 
-dataValue[22][146] = -1
-dataValue[23][146] = 1
-dataValue[24][146] = "vasopressor increase"
+// 9/19 13:30
+dataValue[22][278] = -1
+dataValue[23][278] = 1
+dataValue[24][278] = "TTM start rewarming"
 
-dataValue[22][150] = -1
-dataValue[23][150] = 1
-dataValue[24][150] = "vasopressor increase"
+// 9/19 13:35 * 2
+dataValue[22][279] = -1
+dataValue[23][279] = 1
+dataValue[24][279] = "increase sedation"
 
-dataValue[22][180] = -1
-dataValue[23][180] = 1
-dataValue[24][180] = "increase sedation"
+// 9/19 13:55 Non-intervention
+dataValue[22][283] = -1
+dataValue[23][283] = 1
+dataValue[24][283] = " "
+
+// 9/19 20:00
+dataValue[22][283] = -1
+dataValue[23][283] = 1
+dataValue[24][283] = "TTM start normothermia"
+
+// 9/19 21:05
+dataValue[22][356] = -1
+dataValue[23][356] = 1
+dataValue[24][356] = "increase sedation"
+
+// 9/19 21:45
+dataValue[22][369] = -1
+dataValue[23][369] = 1
+dataValue[24][369] = "increase sedation"
+
+// 9/19 23:22
+dataValue[22][377] = -1
+dataValue[23][377] = 1
+dataValue[24][377] = "vasopressor increase"
+
+// 9/19 03:27
+dataValue[22][396] = -1
+dataValue[23][396] = 1
+dataValue[24][396] = "increase sedation"
+
+// 9/20 04:49
+dataValue[22][445] = -1
+dataValue[23][445] = 1
+dataValue[24][445] = "vasopressor increase"
+
+// 9/20 05:03
+dataValue[22][462] = -1
+dataValue[23][462] = 1
+dataValue[24][462] = "vasopressor increase"
+
+// 9/20 05:15
+dataValue[22][465] = -1
+dataValue[23][465] = 1
+dataValue[24][465] = "vasopressor increase"
+
+// 9/20 05:27
+dataValue[22][469] = -1
+dataValue[23][469] = 1
+dataValue[24][469] = "vasopressor increase"
+
+// 9/20 06:00
+dataValue[22][476] = -1
+dataValue[23][476] = 1
+dataValue[24][476] = "stop sedation"
+
+// 9/20  08:43 Non-intervention
+dataValue[22][509] = -1
+dataValue[23][509] = 1
+dataValue[24][509] = " "
+
+// 9/20 09:37
+dataValue[22][520] = -1
+dataValue[23][520] = 1
+dataValue[24][520] = "TTM stop"
+
 
 
 function drawCOxMAPChart() {
