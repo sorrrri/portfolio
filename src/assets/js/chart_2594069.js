@@ -145,49 +145,75 @@ dataValue[22] = [...nullArray]
 dataValue[23] = [...nullArray]
 dataValue[24] = [...nullArray]
 
-dataValue[22][30] = -1
-dataValue[23][30] = 1
-dataValue[24][30] = "shivering control"
+// 2020/5/5 16:12
+dataValue[22][82] = -1
+dataValue[23][82] = 1
+dataValue[24][82] = "vasopressor increase"
 
-dataValue[22][40] = -1
-dataValue[23][40] = 1
-dataValue[24][40] = "increase sedation"
+// 2020/5/5 21:16
+dataValue[22][143] = -1
+dataValue[23][143] = 1
+dataValue[24][143] = "vasopressor increase"
 
-dataValue[22][67] = -1
-dataValue[23][67] = 1
-dataValue[24][67] = "fluid infusion"
+// 2020/5/6 04:00
+dataValue[22][224] = -1
+dataValue[23][224] = 1
+dataValue[24][224] = "TTM start normothermia"
 
-dataValue[22][89] = -1
-dataValue[23][89] = 1
-dataValue[24][89] = "adjust ventilation"
+// 2020/5/6 09:27
+dataValue[22][289] = -1
+dataValue[23][289] = 1
+dataValue[24][289] = "stop NMB"
 
-dataValue[22][101] = -1
-dataValue[23][101] = 1
-dataValue[24][101] = "increase sedation"
+// 2020/5/6 12:04
+dataValue[22][321] = -1
+dataValue[23][321] = 1
+dataValue[24][321] = "vasopressor increase"
 
-dataValue[22][105] = -1
-dataValue[23][105] = 1
-dataValue[24][105] = "start NMB"
+// 2020/5/6 16:45
+dataValue[22][377] = -1
+dataValue[23][377] = 1
+dataValue[24][377] = "transfusion"
 
-dataValue[22][107] = -1
-dataValue[23][107] = 1
-dataValue[24][107] = "TTM Target temperature"
+// 2020/5/6 19:02
+dataValue[22][404] = -1
+dataValue[23][404] = 1
+dataValue[24][404] = "transfusion"
 
-dataValue[22][130] = -1
-dataValue[23][130] = 1
-dataValue[24][130] = "adjust ventilation"
+// 2020/5/7 06:00
+dataValue[22][536] = -1
+dataValue[23][536] = 1
+dataValue[24][536] = "stop sedation"
 
-dataValue[22][146] = -1
-dataValue[23][146] = 1
-dataValue[24][146] = "vasopressor increase"
+// 2020/5/7 07:00
+dataValue[22][548] = -1
+dataValue[23][548] = 1
+dataValue[24][548] = "adjust oxygenation"
 
-dataValue[22][150] = -1
-dataValue[23][150] = 1
-dataValue[24][150] = "vasopressor increase"
+// 2020/5/7 07:45
+dataValue[22][557] = -1
+dataValue[23][557] = 1
+dataValue[24][557] = "adjust ventilation"
 
-dataValue[22][180] = -1
-dataValue[23][180] = 1
-dataValue[24][180] = "increase sedation"
+// 2020/5/7 08:42
+dataValue[22][568] = -1
+dataValue[23][568] = 1
+dataValue[24][568] = "TTM stop"
+
+// 2020/5/7 09:00
+dataValue[22][572] = -1
+dataValue[23][572] = 1
+dataValue[24][572] = "adjust oxygenation"
+
+// 2020/5/7 10:10
+dataValue[22][586] = -1
+dataValue[23][586] = 1
+dataValue[24][586] = "increase sedation"
+
+// 2020/5/7 10:31    No Intervention
+dataValue[22][590] = -1
+dataValue[23][590] = 1
+dataValue[24][590] = " "
 
 
 function drawCOxMAPChart() {
