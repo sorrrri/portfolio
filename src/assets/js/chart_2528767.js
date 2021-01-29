@@ -1,17 +1,17 @@
 google.charts.load("current", {'packages': ['corechart', 'bar', 'scatter']});
 google.charts.setOnLoadCallback(drawCOxMAPChart);
-google.charts.setOnLoadCallback(drawCOxETCO2Chart);
+// google.charts.setOnLoadCallback(drawCOxETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2Chart);
 google.charts.setOnLoadCallback(drawMAPChart);
-google.charts.setOnLoadCallback(drawETCO2Chart);
+// google.charts.setOnLoadCallback(drawETCO2Chart);
 google.charts.setOnLoadCallback(drawSJVO2Chart);
-google.charts.setOnLoadCallback(drawADJLChart);
-google.charts.setOnLoadCallback(drawLOIChart);
+// google.charts.setOnLoadCallback(drawAJDLChart);
+// google.charts.setOnLoadCallback(drawLOIChart);
 google.charts.setOnLoadCallback(drawAVDO2Chart);
 google.charts.setOnLoadCallback(drawCEO2Chart);
-google.charts.setOnLoadCallback(drawAJglcChart);
-google.charts.setOnLoadCallback(drawAJCO2Chart);
-google.charts.setOnLoadCallback(drawRQChart);
+// google.charts.setOnLoadCallback(drawAJglcChart);
+// google.charts.setOnLoadCallback(drawAJCO2Chart);
+// google.charts.setOnLoadCallback(drawRQChart);
 google.charts.setOnLoadCallback(drawNPIChart);
 google.charts.setOnLoadCallback(drawPupilChart);
 google.charts.setOnLoadCallback(drawModalMAPLeftChart);
@@ -145,50 +145,206 @@ dataValue[22] = [...nullArray]
 dataValue[23] = [...nullArray]
 dataValue[24] = [...nullArray]
 
-dataValue[22][30] = -1
+
+// 2020/3/4  14:59
+dataValue[23][6] = 1
+dataValue[22][6] = -1
+dataValue[24][6] = "shivering control"
+
+// 2020/3/4 15:46
+dataValue[23][15] = 1
+dataValue[22][15] = -1
+dataValue[24][15] = "increase sedation"
+
+// 2020/3/4 15:57
+dataValue[23][17] = 1
+dataValue[22][17] = -1
+dataValue[24][17] = "fluid infusion"
+
+// 2020/3/4 16:00
+dataValue[23][18] = 1
+dataValue[22][18] = -1
+dataValue[24][18] = "adjust ventilation"
+
+// 2020/3/4 16:01
+dataValue[23][19] = 1
+dataValue[22][19] = -1
+dataValue[24][19] = "increase sedation"
+
+// 2020/3/4 16:30
+dataValue[23][24] = 1
+dataValue[22][24] = -1
+dataValue[24][24] = "start NMB"
+
+// 2020/3/4 17:00
 dataValue[23][30] = 1
-dataValue[24][30] = "shivering control"
+dataValue[22][30] = -1
+dataValue[24][30] = "TTM Target temperature"
 
-dataValue[22][40] = -1
-dataValue[23][40] = 1
-dataValue[24][40] = "increase sedation"
+// 2020/3/4 19:00
+dataValue[23][54] = 1
+dataValue[22][54] = -1
+dataValue[24][54] = "adjust ventilation"
 
-dataValue[22][67] = -1
-dataValue[23][67] = 1
-dataValue[24][67] = "fluid infusion"
+// 2020/3/5 02:27
+dataValue[23][144] = 1
+dataValue[22][144] = -1
+dataValue[24][144] = "vasopressor increase"
 
-dataValue[22][89] = -1
-dataValue[23][89] = 1
-dataValue[24][89] = "adjust ventilation"
+// 2020/3/5 04:12
+dataValue[23][164] = 1
+dataValue[22][164] = -1
+dataValue[24][164] = "vasopressor increase"
 
-dataValue[22][101] = -1
-dataValue[23][101] = 1
-dataValue[24][101] = "increase sedation"
+// 2020/3/5 06:00
+dataValue[23][186] = 1
+dataValue[22][186] = -1
+dataValue[24][186] = "increase sedation"
 
-dataValue[22][105] = -1
-dataValue[23][105] = 1
-dataValue[24][105] = "start NMB"
+// 2020/3/5 07:40
+dataValue[23][206] = 1
+dataValue[22][206] = -1
+dataValue[24][206] = "vasopressor increase"
 
-dataValue[22][107] = -1
-dataValue[23][107] = 1
-dataValue[24][107] = "TTM Target temperature"
+// 2020/3/5 09:00
+dataValue[23][222] = 1
+dataValue[22][222] = -1
+dataValue[24][222] = "adjust ventilation"
 
-dataValue[22][130] = -1
-dataValue[23][130] = 1
-dataValue[24][130] = "adjust ventilation"
+// 2020/3/5 09:20
+dataValue[23][226] = 1
+dataValue[22][226] = -1
+dataValue[24][226] = "vasopressor increase"
 
-dataValue[22][146] = -1
-dataValue[23][146] = 1
-dataValue[24][146] = "vasopressor increase"
+// 2020/3/5 09:56 * 3
+dataValue[23][233] = 1
+dataValue[22][233] = -1
+dataValue[24][233] = "increase sedation, stop NMB, fluid infusion"
 
-dataValue[22][150] = -1
-dataValue[23][150] = 1
-dataValue[24][150] = "vasopressor increase"
+// 2020/3/5 10:22
+dataValue[23][238] = 1
+dataValue[22][238] = -1
+dataValue[24][238] = "fluid infusion"
 
-dataValue[22][180] = -1
-dataValue[23][180] = 1
-dataValue[24][180] = "increase sedation"
+// 2020/3/5 11:01
+dataValue[23][246] = 1
+dataValue[22][246] = -1
+dataValue[24][246] = "fluid infusion"
 
+// 2020/3/5 12:02
+dataValue[23][258] = 1
+dataValue[22][258] = -1
+dataValue[24][258] = "fluid infusion"
+
+// 2020/3/5 12:27
+dataValue[23][264] = 1
+dataValue[22][264] = -1
+dataValue[24][264] = "increase sedation"
+
+// 2020/3/5 13:10
+dataValue[23][272] = 1
+dataValue[22][272] = -1
+dataValue[24][272] = "start sedation"
+
+// 2020/3/5 13:14
+dataValue[23][273] = 1
+dataValue[22][273] = -1
+dataValue[24][273] = "vasopressor increase"
+
+// 2020/3/5 13:30 * 2
+dataValue[23][276] = 1
+dataValue[22][276] = -1
+dataValue[24][276] = "fluid infusion, increase sedation"
+
+// 2020/3/5 13:36
+dataValue[23][277] = 1
+dataValue[22][277] = -1
+dataValue[24][277] = "shivering control"
+
+// 2020/3/5 14:00
+dataValue[23][282] = 1
+dataValue[22][282] = -1
+dataValue[24][282] = "adjust ventilation"
+
+// 2020/3/5 14:02
+dataValue[23][283] = 1
+dataValue[22][283] = -1
+dataValue[24][283] = "fluid infusion"
+
+// 2020/3/5 14:20
+dataValue[23][286] = 1
+dataValue[22][286] = -1
+dataValue[24][286] = "shivering control"
+
+// 2020/3/5 14:30
+dataValue[23][288] = 1
+dataValue[22][288] = -1
+dataValue[24][288] = "shivering control"
+
+// 2020/3/5 17:00
+dataValue[23][318] = 1
+dataValue[22][318] = -1
+dataValue[24][318] = "TTM start rewarming"
+
+// 2020/3/5 20:01
+dataValue[23][354] = 1
+dataValue[22][354] = -1
+dataValue[24][354] = "adjust ventilation"
+
+// 2020/3/6 16:00
+dataValue[23][594] = 1
+dataValue[22][594] = -1
+dataValue[24][594] = "TTM start normothermia"
+
+// 2020/3/6 18:00
+dataValue[23][618] = 1
+dataValue[22][618] = -1
+dataValue[24][618] = "increase sedation"
+
+// 2020/3/6 19:47
+dataValue[23][639] = 1
+dataValue[22][639] = -1
+dataValue[24][639] = "increase sedation"
+
+// 2020/3/6 20:11
+dataValue[23][644] = 1
+dataValue[22][644] = -1
+dataValue[24][644] = "increase sedation"
+
+// 2020/3/6 21:10
+dataValue[23][656] = 1
+dataValue[22][656] = -1
+dataValue[24][656] = "increase sedation"
+
+// 2020/3/6 21:56
+dataValue[23][665] = 1
+dataValue[22][665] = -1
+dataValue[24][665] = "increase sedation"
+
+// 2020/3/6 22:25
+dataValue[23][671] = 1
+dataValue[22][671] = -1
+dataValue[24][671] = "dextrose infusion"
+
+// 2020/3/6 23:33
+dataValue[23][685] = 1
+dataValue[22][685] = -1
+dataValue[24][685] = "shivering control"
+
+// 2020/3/7 02:43
+dataValue[23][723] = 1
+dataValue[22][723] = -1
+dataValue[24][723] = "adjust ventilation"
+
+// 2020/3/7 03:50
+dataValue[23][736] = 1
+dataValue[22][736] = -1
+dataValue[24][736] = "adjust ventilation"
+
+// 2020/3/7 06:30
+dataValue[23][768] = 1
+dataValue[22][768] = -1
+dataValue[24][768] = "TTM stop"
 
 function drawCOxMAPChart() {
     const data = new google.visualization.DataTable(jsonData);
@@ -705,13 +861,13 @@ function drawSJVO2Chart() {
 }
 
 
-function drawADJLChart() {
-    var data_ADJL = new google.visualization.DataTable();
-    data_ADJL.addColumn('date', 'Time of Day');
-    data_ADJL.addColumn('number', 'ADJL');
-    data_ADJL.addColumn({'type': 'number', 'role': 'interval'});
-    data_ADJL.addColumn({'type': 'number', 'role': 'interval'});
-    data_ADJL.addRows([
+function drawAJDLChart() {
+    var data_AJDL = new google.visualization.DataTable();
+    data_AJDL.addColumn('date', 'Time of Day');
+    data_AJDL.addColumn('number', 'AJDL');
+    data_AJDL.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJDL.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJDL.addRows([
         [new Date(2020, 4, 20, 13), 0, null, null],
         [new Date(2020, 4, 20, 14), 1, null, null],
         [new Date(2020, 4, 20, 15), 3, null, null],
@@ -754,7 +910,7 @@ function drawADJLChart() {
         [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
-    var options_ADJL = {
+    var options_AJDL = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -786,7 +942,7 @@ function drawADJLChart() {
             }
         },
         vAxis: {
-            title: "ADJL",
+            title: "AJDL",
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -799,9 +955,9 @@ function drawADJLChart() {
         }
     };
 
-    var chart_ADJL = new google.visualization.ScatterChart(document.getElementById('chart_ADJL'));
+    var chart_AJDL = new google.visualization.ScatterChart(document.getElementById('chart_AJDL'));
 
-    chart_ADJL.draw(data_ADJL, options_ADJL);
+    chart_AJDL.draw(data_AJDL, options_AJDL);
 }
 
 

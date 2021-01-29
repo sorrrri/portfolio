@@ -1,17 +1,17 @@
 google.charts.load("current", {'packages': ['corechart', 'bar', 'scatter']});
 google.charts.setOnLoadCallback(drawCOxMAPChart);
-google.charts.setOnLoadCallback(drawCOxETCO2Chart);
+// google.charts.setOnLoadCallback(drawCOxETCO2Chart);
 google.charts.setOnLoadCallback(drawRSO2Chart);
 google.charts.setOnLoadCallback(drawMAPChart);
-google.charts.setOnLoadCallback(drawETCO2Chart);
+// google.charts.setOnLoadCallback(drawETCO2Chart);
 google.charts.setOnLoadCallback(drawSJVO2Chart);
-google.charts.setOnLoadCallback(drawADJLChart);
-google.charts.setOnLoadCallback(drawLOIChart);
+// google.charts.setOnLoadCallback(drawAJDLChart);
+// google.charts.setOnLoadCallback(drawLOIChart);
 google.charts.setOnLoadCallback(drawAVDO2Chart);
 google.charts.setOnLoadCallback(drawCEO2Chart);
-google.charts.setOnLoadCallback(drawAJglcChart);
-google.charts.setOnLoadCallback(drawAJCO2Chart);
-google.charts.setOnLoadCallback(drawRQChart);
+// google.charts.setOnLoadCallback(drawAJglcChart);
+// google.charts.setOnLoadCallback(drawAJCO2Chart);
+// google.charts.setOnLoadCallback(drawRQChart);
 google.charts.setOnLoadCallback(drawNPIChart);
 google.charts.setOnLoadCallback(drawPupilChart);
 google.charts.setOnLoadCallback(drawModalMAPLeftChart);
@@ -731,13 +731,13 @@ function drawSJVO2Chart() {
 }
 
 
-function drawADJLChart() {
-    var data_ADJL = new google.visualization.DataTable();
-    data_ADJL.addColumn('date', 'Time of Day');
-    data_ADJL.addColumn('number', 'ADJL');
-    data_ADJL.addColumn({'type': 'number', 'role': 'interval'});
-    data_ADJL.addColumn({'type': 'number', 'role': 'interval'});
-    data_ADJL.addRows([
+function drawAJDLChart() {
+    var data_AJDL = new google.visualization.DataTable();
+    data_AJDL.addColumn('date', 'Time of Day');
+    data_AJDL.addColumn('number', 'AJDL');
+    data_AJDL.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJDL.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJDL.addRows([
         [new Date(2020, 4, 20, 13), 0, null, null],
         [new Date(2020, 4, 20, 14), 1, null, null],
         [new Date(2020, 4, 20, 15), 3, null, null],
@@ -780,7 +780,7 @@ function drawADJLChart() {
         [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
-    var options_ADJL = {
+    var options_AJDL = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -812,7 +812,7 @@ function drawADJLChart() {
             }
         },
         vAxis: {
-            title: "ADJL",
+            title: "AJDL",
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -825,9 +825,9 @@ function drawADJLChart() {
         }
     };
 
-    var chart_ADJL = new google.visualization.ScatterChart(document.getElementById('chart_ADJL'));
+    var chart_AJDL = new google.visualization.ScatterChart(document.getElementById('chart_AJDL'));
 
-    chart_ADJL.draw(data_ADJL, options_ADJL);
+    chart_AJDL.draw(data_AJDL, options_AJDL);
 }
 
 
