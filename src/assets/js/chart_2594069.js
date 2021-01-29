@@ -84,7 +84,7 @@ function drawCOxChart() {
         pointSize: 5,
         curveType: 'function',
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             viewWindow: {
@@ -261,7 +261,7 @@ function drawCOxMAPChart() {
         lineWidth: 1.5,
         series: {2: {lineWidth: 1}},
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             gridlines: {
@@ -337,7 +337,7 @@ function drawCOxETCO2Chart() {
         pointSize: 1.5,
         lineWidth: 1.5,
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             gridlines: {
@@ -410,7 +410,7 @@ function drawRSO2Chart() {
         pointSize: 0,
         lineWidth: 1.5,
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             gridlines: {
@@ -488,7 +488,7 @@ function drawMAPChart() {
         pointSize: 0,
         lineWidth: 1.5,
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             gridlines: {
@@ -580,7 +580,7 @@ function drawETCO2Chart() {
         pointSize: 0,
         lineWidth: 1.5,
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             gridlines: {
@@ -688,7 +688,7 @@ function drawSJVO2Chart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: "yellow"
+            color: "bisque"
         },
         hAxis: {
             viewWindow: {
