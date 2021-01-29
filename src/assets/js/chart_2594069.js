@@ -1529,7 +1529,7 @@ function drawNPIChart() {
         }
     };
 
-    var chart_NPI = new google.visualization.LineChart(document.getElementById('chart_NPI'));
+    var chart_NPI = new google.visualization.ScatterChart(document.getElementById('chart_NPI'));
     chart_NPI.draw(data_NPI, options_NPI);
 }
 
@@ -1630,7 +1630,7 @@ function drawPupilChart() {
         }
     };
 
-    var chart_pupil = new google.visualization.LineChart(document.getElementById('chart_pupil'));
+    var chart_pupil = new google.visualization.ScatterChart(document.getElementById('chart_pupil'));
     chart_pupil.draw(data_pupil, options_pupil);
 }
 
