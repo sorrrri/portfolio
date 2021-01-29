@@ -7,7 +7,7 @@ google.charts.setOnLoadCallback(drawMAPChart);
 google.charts.setOnLoadCallback(drawSJVO2Chart);
 // google.charts.setOnLoadCallback(drawAJDLChart);
 // google.charts.setOnLoadCallback(drawLOIChart);
-google.charts.setOnLoadCallback(drawAVDO2Chart);
+google.charts.setOnLoadCallback(drawAJDO2Chart);
 google.charts.setOnLoadCallback(drawCEO2Chart);
 // google.charts.setOnLoadCallback(drawAJglcChart);
 // google.charts.setOnLoadCallback(drawAJCO2Chart);
@@ -977,13 +977,13 @@ function drawLOIChart() {
 }
 
 
-function drawAVDO2Chart() {
-    var data_AVDO2 = new google.visualization.DataTable();
-    data_AVDO2.addColumn('date', 'Time of Day');
-    data_AVDO2.addColumn('number', 'AVDO2');
-    data_AVDO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_AVDO2.addColumn({'type': 'number', 'role': 'interval'});
-    data_AVDO2.addRows([
+function drawAJDO2Chart() {
+    var data_AJDO2 = new google.visualization.DataTable();
+    data_AJDO2.addColumn('date', 'Time of Day');
+    data_AJDO2.addColumn('number', 'AJDO2');
+    data_AJDO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJDO2.addColumn({'type': 'number', 'role': 'interval'});
+    data_AJDO2.addRows([
         [new Date(2020, 4, 20, 13), 0, null, null],
         [new Date(2020, 4, 20, 14), 1, null, null],
         [new Date(2020, 4, 20, 15), 3, null, null],
@@ -1026,7 +1026,7 @@ function drawAVDO2Chart() {
         [new Date(2020, 4, 22, 4), 2, null, null],
     ]);
 
-    var options_AVDO2 = {
+    var options_AJDO2 = {
         colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -1058,7 +1058,7 @@ function drawAVDO2Chart() {
             }
         },
         vAxis: {
-            title: "AVDO2",
+            title: "AJDO2",
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -1071,9 +1071,9 @@ function drawAVDO2Chart() {
         }
     };
 
-    var chart_AVDO2 = new google.visualization.ScatterChart(document.getElementById('chart_AVDO2'));
+    var chart_AJDO2 = new google.visualization.ScatterChart(document.getElementById('chart_AJDO2'));
 
-    chart_AVDO2.draw(data_AVDO2, options_AVDO2);
+    chart_AJDO2.draw(data_AJDO2, options_AJDO2);
 }
 
 
@@ -1173,7 +1173,7 @@ function drawCEO2Chart() {
         }
     };
 
-    var chart_CEO2 = new google.visualization.AreaChart(document.getElementById("chart_CEO2"));
+    var chart_CEO2 = new google.visualization.ScatterChart(document.getElementById("chart_CEO2"));
     chart_CEO2.draw(data_CEO2, options_CEO2);
 }
 
