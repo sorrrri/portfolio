@@ -60,6 +60,44 @@ if (filterCharts) {
 
     countdown("countdown", 10, 0);
 
+// Change Chart Width
+    const chartPlus = document.querySelector('.chart-plus')
+    const chartMinus = document.querySelector('.chart-minus')
+    const charts = document.querySelectorAll('.chart-container')
+
+    const currentWidth = 5000
+
+    const zoomOutChart = () => {
+        charts.forEach(chart => {
+            chart.style.width = (currentWidth/2) + 'px'
+        })
+        drawMAPChart()
+        drawRSO2Chart()
+        drawCOxMAPChart()
+        drawNPIChart()
+        drawPupilChart()
+        drawSJVO2Chart()
+        drawAJDO2Chart()
+        drawCEO2Chart()
+    }
+
+    const zoomInChart = () => {
+        charts.forEach(chart => {
+            chart.style.width = (currentWidth*2) + 'px'
+        })
+        drawMAPChart()
+        drawRSO2Chart()
+        drawCOxMAPChart()
+        drawNPIChart()
+        drawPupilChart()
+        drawSJVO2Chart()
+        drawAJDO2Chart()
+        drawCEO2Chart()
+    }
+
+
+
+
 }
 
 

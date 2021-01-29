@@ -268,8 +268,11 @@ header {
     fill: #D3D6D9;
   }
 
-  .refresh svg {
-    margin-right: 0;
+  .refresh {
+
+    svg {
+      margin-right: 0;
+    }
   }
 
   button {
@@ -278,10 +281,9 @@ header {
     height: 1.8rem;
     background-color: rgba(255, 255, 255, .1);
 
-  }
-
-  .refresh button:hover {
-    background-color: lightseagreen;
+    &:hover {
+      background-color: lightseagreen;
+    }
   }
 }
 
@@ -308,12 +310,15 @@ header {
           background-color: #333;
         }*/
   }
+
+  svg {
+    margin-right: .2rem;
+  }
 }
 
 
 header svg {
   fill: white;
-  margin-right: .2rem;
 }
 
 header .search {
@@ -378,6 +383,11 @@ header .change-theme {
       font-size: 13px;
       color: rgba(255, 255, 255, .3);
     }
+  }
+
+  button {
+    padding: 0;
+    width: 1.8rem;
   }
 
 }
@@ -588,7 +598,6 @@ header .change-theme {
   margin: -.25rem -.5rem 0;
   box-sizing: border-box;
 }
-
 .chart-container {
   opacity: 0;
   background-color: white;
@@ -596,7 +605,7 @@ header .change-theme {
   padding: .2rem;
   margin: .5rem;
   display: flex;
-  width: 6000px;
+  width: 3000px;
   height: 180px;
   position: relative;
   overflow: hidden;

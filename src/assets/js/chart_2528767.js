@@ -95,15 +95,14 @@ function drawCOxChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -117,7 +116,7 @@ function drawCOxChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -147,58 +146,58 @@ dataValue[24] = [...nullArray]
 
 
 // 2020/3/4  14:59
-dataValue[23][6] = 1
 dataValue[22][6] = -1
+dataValue[23][6] = 1
 dataValue[24][6] = "shivering control"
 
 // 2020/3/4 15:46
-dataValue[23][15] = 1
 dataValue[22][15] = -1
+dataValue[23][15] = 1
 dataValue[24][15] = "increase sedation"
 
 // 2020/3/4 15:57
-dataValue[23][17] = 1
 dataValue[22][17] = -1
+dataValue[23][17] = 1
 dataValue[24][17] = "fluid infusion"
 
 // 2020/3/4 16:00
-dataValue[23][18] = 1
 dataValue[22][18] = -1
+dataValue[23][18] = 1
 dataValue[24][18] = "adjust ventilation"
 
 // 2020/3/4 16:01
-dataValue[23][19] = 1
 dataValue[22][19] = -1
+dataValue[23][19] = 1
 dataValue[24][19] = "increase sedation"
 
 // 2020/3/4 16:30
-dataValue[23][24] = 1
 dataValue[22][24] = -1
+dataValue[23][24] = 1
 dataValue[24][24] = "start NMB"
 
 // 2020/3/4 17:00
-dataValue[23][30] = 1
 dataValue[22][30] = -1
+dataValue[23][30] = 1
 dataValue[24][30] = "TTM Target temperature"
 
 // 2020/3/4 19:00
-dataValue[23][54] = 1
 dataValue[22][54] = -1
+dataValue[23][54] = 1
 dataValue[24][54] = "adjust ventilation"
 
 // 2020/3/5 02:27
-dataValue[23][144] = 1
 dataValue[22][144] = -1
+dataValue[23][144] = 1
 dataValue[24][144] = "vasopressor increase"
 
 // 2020/3/5 04:12
-dataValue[23][164] = 1
 dataValue[22][164] = -1
+dataValue[23][164] = 1
 dataValue[24][164] = "vasopressor increase"
 
 // 2020/3/5 06:00
-dataValue[23][186] = 1
 dataValue[22][186] = -1
+dataValue[23][186] = 1
 dataValue[24][186] = "increase sedation"
 
 // 2020/3/5 07:40
@@ -212,138 +211,138 @@ dataValue[22][222] = -1
 dataValue[24][222] = "adjust ventilation"
 
 // 2020/3/5 09:20
-dataValue[23][226] = 1
 dataValue[22][226] = -1
+dataValue[23][226] = 1
 dataValue[24][226] = "vasopressor increase"
 
 // 2020/3/5 09:56 * 3
-dataValue[23][233] = 1
 dataValue[22][233] = -1
+dataValue[23][233] = 1
 dataValue[24][233] = "increase sedation, stop NMB, fluid infusion"
 
 // 2020/3/5 10:22
-dataValue[23][238] = 1
 dataValue[22][238] = -1
+dataValue[23][238] = 1
 dataValue[24][238] = "fluid infusion"
 
 // 2020/3/5 11:01
-dataValue[23][246] = 1
 dataValue[22][246] = -1
+dataValue[23][246] = 1
 dataValue[24][246] = "fluid infusion"
 
 // 2020/3/5 12:02
-dataValue[23][258] = 1
 dataValue[22][258] = -1
+dataValue[23][258] = 1
 dataValue[24][258] = "fluid infusion"
 
 // 2020/3/5 12:27
-dataValue[23][264] = 1
 dataValue[22][264] = -1
+dataValue[23][264] = 1
 dataValue[24][264] = "increase sedation"
 
 // 2020/3/5 13:10
-dataValue[23][272] = 1
 dataValue[22][272] = -1
+dataValue[23][272] = 1
 dataValue[24][272] = "start sedation"
 
 // 2020/3/5 13:14
-dataValue[23][273] = 1
 dataValue[22][273] = -1
+dataValue[23][273] = 1
 dataValue[24][273] = "vasopressor increase"
 
 // 2020/3/5 13:30 * 2
-dataValue[23][276] = 1
 dataValue[22][276] = -1
+dataValue[23][276] = 1
 dataValue[24][276] = "fluid infusion, increase sedation"
 
 // 2020/3/5 13:36
-dataValue[23][277] = 1
 dataValue[22][277] = -1
+dataValue[23][277] = 1
 dataValue[24][277] = "shivering control"
 
 // 2020/3/5 14:00
-dataValue[23][282] = 1
 dataValue[22][282] = -1
+dataValue[23][282] = 1
 dataValue[24][282] = "adjust ventilation"
 
 // 2020/3/5 14:02
-dataValue[23][283] = 1
 dataValue[22][283] = -1
+dataValue[23][283] = 1
 dataValue[24][283] = "fluid infusion"
 
 // 2020/3/5 14:20
-dataValue[23][286] = 1
 dataValue[22][286] = -1
+dataValue[23][286] = 1
 dataValue[24][286] = "shivering control"
 
 // 2020/3/5 14:30
-dataValue[23][288] = 1
 dataValue[22][288] = -1
+dataValue[23][288] = 1
 dataValue[24][288] = "shivering control"
 
 // 2020/3/5 17:00
-dataValue[23][318] = 1
 dataValue[22][318] = -1
+dataValue[23][318] = 1
 dataValue[24][318] = "TTM start rewarming"
 
 // 2020/3/5 20:01
-dataValue[23][354] = 1
 dataValue[22][354] = -1
+dataValue[23][354] = 1
 dataValue[24][354] = "adjust ventilation"
 
 // 2020/3/6 16:00
-dataValue[23][594] = 1
 dataValue[22][594] = -1
+dataValue[23][594] = 1
 dataValue[24][594] = "TTM start normothermia"
 
 // 2020/3/6 18:00
-dataValue[23][618] = 1
 dataValue[22][618] = -1
+dataValue[23][618] = 1
 dataValue[24][618] = "increase sedation"
 
 // 2020/3/6 19:47
-dataValue[23][639] = 1
 dataValue[22][639] = -1
+dataValue[23][639] = 1
 dataValue[24][639] = "increase sedation"
 
 // 2020/3/6 20:11
-dataValue[23][644] = 1
 dataValue[22][644] = -1
+dataValue[23][644] = 1
 dataValue[24][644] = "increase sedation"
 
 // 2020/3/6 21:10
-dataValue[23][656] = 1
 dataValue[22][656] = -1
+dataValue[23][656] = 1
 dataValue[24][656] = "increase sedation"
 
 // 2020/3/6 21:56
-dataValue[23][665] = 1
 dataValue[22][665] = -1
+dataValue[23][665] = 1
 dataValue[24][665] = "increase sedation"
 
 // 2020/3/6 22:25
-dataValue[23][671] = 1
 dataValue[22][671] = -1
+dataValue[23][671] = 1
 dataValue[24][671] = "dextrose infusion"
 
 // 2020/3/6 23:33
-dataValue[23][685] = 1
 dataValue[22][685] = -1
+dataValue[23][685] = 1
 dataValue[24][685] = "shivering control"
 
 // 2020/3/7 02:43
-dataValue[23][723] = 1
 dataValue[22][723] = -1
+dataValue[23][723] = 1
 dataValue[24][723] = "adjust ventilation"
 
 // 2020/3/7 03:50
-dataValue[23][736] = 1
 dataValue[22][736] = -1
+dataValue[23][736] = 1
 dataValue[24][736] = "adjust ventilation"
 
 // 2020/3/7 06:30
-dataValue[23][768] = 1
 dataValue[22][768] = -1
+dataValue[23][768] = 1
 dataValue[24][768] = "TTM stop"
 
 function drawCOxMAPChart() {
@@ -353,8 +352,10 @@ function drawCOxMAPChart() {
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
     data.addColumn('number', 'Average');
-    data.addColumn({'type': 'number', 'role': 'interval'});
-    data.addColumn({'type': 'number', 'role': 'interval'});
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
     data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue[13]) {
@@ -375,51 +376,55 @@ function drawCOxMAPChart() {
             parseFloat(dataValue[15][i]),
             parseFloat(dataValue[16][i]),
             parseInt(dataValue[22][i]),
+            parseInt(dataValue[22][i]),
+            parseInt(dataValue[23][i]),
             parseInt(dataValue[23][i]),
             dataValue[24][i],
         ]);
     }
 
     const options = {
-        colors: ['#FAA7B8', '#6096FD', 'darkseagreen'],
+        colors: ['#FAA7B8', '#6096FD', 'darkseagreen', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: {position: 'top'},
         fontSize: 15,
-        pointSize: 1.5,
+        pointSize: 0,
         lineWidth: 1.5,
-        series: {2: {lineWidth: 1}},
-        intervals: {
-            color: "bisque"
+        seriesType: 'line',
+        series: {
+            3: {
+                type:'candlesticks',
+            },
+        },
+        candlestick: {
+            fallingColor: { strokeWidth: 0, fill: 'transparent' },
+            risingColor: { strokeWidth: 0, fill: 'transparent' },
         },
         hAxis: {
             gridlines: {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
-                }
+                },
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
-            ticks: [-1, 0, 1],
+            baseline: 0.3,
+            baselineColor: 'green',
+            ticks: [-1, 0, 0.3, 1],
             title: "COx MAP",
-            baselineColor: '#777',
             gridlineColor: '#777',
-            minorGridlines: {
-                color: '#333',
-            }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -474,15 +479,14 @@ function drawCOxETCO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -495,7 +499,7 @@ function drawCOxETCO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -506,6 +510,8 @@ function drawCOxETCO2Chart() {
 
 function drawRSO2Chart() {
     const data = new google.visualization.DataTable(jsonData);
+    minInterval = -50
+    maxInterval = 100
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -547,15 +553,14 @@ function drawRSO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -568,7 +573,7 @@ function drawRSO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -576,8 +581,11 @@ function drawRSO2Chart() {
     var chart_RSO2 = new google.visualization.LineChart(document.getElementById('chart_RSO2'));
     chart_RSO2.draw(data, options);
 }
+
 function drawMAPChart() {
     var data = new google.visualization.DataTable();
+    minInterval = 0
+    maxInterval = 150
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
@@ -625,15 +633,13 @@ function drawMAPChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -641,12 +647,9 @@ function drawMAPChart() {
             ticks: [0, 50, 100, 150],
             baselineColor: '#777',
             gridlineColor: '#777',
-            minorGridlines: {
-                color: '#333',
-            }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         },
         seriesType: 'candlesticks',
@@ -717,15 +720,14 @@ function drawETCO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -733,12 +735,9 @@ function drawETCO2Chart() {
             ticks: [0, 10, 20, 30, 40, 50, 60],
             baselineColor: '#777',
             gridlineColor: '#777',
-            minorGridlines: {
-                color: '#333',
-            }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         },
         seriesType: 'candlesticks',
@@ -829,15 +828,14 @@ function drawSJVO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -850,7 +848,7 @@ function drawSJVO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -919,7 +917,7 @@ function drawAJDLChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -930,15 +928,14 @@ function drawAJDLChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -950,7 +947,7 @@ function drawAJDLChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1019,7 +1016,7 @@ function drawLOIChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1030,15 +1027,14 @@ function drawLOIChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1050,7 +1046,7 @@ function drawLOIChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1119,7 +1115,7 @@ function drawAJDO2Chart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1130,15 +1126,14 @@ function drawAJDO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1150,7 +1145,7 @@ function drawAJDO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1220,7 +1215,7 @@ function drawCEO2Chart() {
         pointSize: 5,
         curveType: 'function',
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1231,15 +1226,14 @@ function drawCEO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1252,7 +1246,7 @@ function drawCEO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1320,7 +1314,7 @@ function drawAJglcChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1331,15 +1325,14 @@ function drawAJglcChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1351,7 +1344,7 @@ function drawAJglcChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1421,7 +1414,7 @@ function drawAJCO2Chart() {
         pointSize: 5,
         curveType: 'function',
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1432,15 +1425,14 @@ function drawAJCO2Chart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1453,7 +1445,7 @@ function drawAJCO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1521,7 +1513,7 @@ function drawRQChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1532,15 +1524,14 @@ function drawRQChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1552,7 +1543,7 @@ function drawRQChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1622,7 +1613,7 @@ function drawNPIChart() {
         pointSize: 5,
         curveType: 'function',
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1633,15 +1624,14 @@ function drawNPIChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1654,7 +1644,7 @@ function drawNPIChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1723,7 +1713,7 @@ function drawPupilChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'yellow'
+            color: 'bisque'
         },
         hAxis: {
             viewWindow: {
@@ -1734,15 +1724,14 @@ function drawPupilChart() {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['HH:mm', 'ha']},
+                    hours: {format: ['HH:mm']},
                 }
             },
             minorGridlines: {
                 color: '#333',
                 units: {
-                    hours: {format: ['hh:mm:ss a', 'ha']},
-                    minutes: {format: ['HH:mm a Z', ':mm']}
-                }
+                    hours: {format: ['HH:mm']},
+                },
             }
         },
         vAxis: {
@@ -1755,7 +1744,7 @@ function drawPupilChart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         }
     };
@@ -1950,7 +1939,7 @@ function drawMAPRSO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         },
         chartArea: {
@@ -2150,7 +2139,7 @@ function drawETCO2RSO2Chart() {
             }
         },
         chartArea: {
-            width: '98%',
+            width: '96%',
             height: '73%'
         },
         chartArea: {
