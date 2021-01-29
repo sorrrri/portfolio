@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>EICU - APEX</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./../assets/css/style.css">
 </head>
 <body class="theme-dark">
 <div class="container">
@@ -17,9 +17,9 @@
         </section>
         <section class="apex-header">
             <div>
-                <div class="logo"><a href="index.html">EICU-APEX</a></div>
+                <div class="logo"><a href="./../index.html">EICU-APEX</a></div>
                 <nav class="navigation nav_tabs">
-                    <a href="/index.html">
+                    <a href="./../index.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path d="M16 1H2c-.55 0-1 .45-1 1v14c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM7 13H5V8h2v5zm3 0H8V5h2v8zm3 0h-2V9h2v4z"/>
                         </svg>
@@ -39,9 +39,9 @@
                     </a>
                     <div class="search">
                         <select class="js-example-basic-single" name="patients" onchange="location.href=this.value">
-                            <option value="/index.html">2526997</option>
-                            <option value="/patient_2/chart.html">patient_2</option>
-                            <option value="/patient_3/chart.html">patient_3</option>
+                            <option value="./../index.html">1</option>
+                            <option value="./../patient_2/chart.html">2</option>
+                            <option value="./../patient_3/chart.html">3</option>
                         </select>
                     </div>
                 </nav>
@@ -64,125 +64,105 @@
     <!-- Health Record -->
     <section id="record" class="content content-input">
         <div class="record-container">
-            <div class="record">
-                <label for="search-time">time</label>
-                <input id="search-time" type="datetime-local"/>
-            </div>
             <div class="records">
                 <div class="record-container">
                     <div class="record-title">Arterial BGA</div>
                     <div class="record">
                         <label for="arterial-ph">PH</label>
-                        <input id="arterial-ph" type="number"/>
+                        <input id="arterial-ph" type="number" value="7.328"/>
                     </div>
                     <div class="record">
                         <label for="arterial-sao2">SaO2</label>
-                        <input id="arterial-sao2" type="number"/>
+                        <input id="arterial-sao2" type="number" value="99.6"/>
                     </div>
                     <div class="record">
                         <label for="arterial-co2">CO2</label>
-                        <input id="arterial-co2" type="number"/>
+                        <input id="arterial-co2" type="number" value="30.3"/>
                     </div>
                     <div class="record">
                         <label for="arterial-hco3">HCO3</label>
-                        <input id="arterial-hco3" type="number"/>
+                        <input id="arterial-hco3" type="number" value="16.1"/>
                     </div>
                     <div class="record">
                         <label for="arterial-be">BE</label>
-                        <input id="arterial-be" type="number"/>
+                        <input id="arterial-be" type="number" value="-8"/>
                     </div>
                 </div>
                 <div class="record-container">
                     <div class="record-title">Jugular BGA</div>
                     <div class="record">
                         <label for="jugular-ph">PH</label>
-                        <input id="jugular-ph" type="number"/>
+                        <input id="jugular-ph" type="number" value="7.248"/>
                     </div>
                     <div class="record">
                         <label for="jugular-sao2">SaO2</label>
-                        <input id="jugular-sao2" type="number"/>
+                        <input id="jugular-sao2" type="number" value="70.2"/>
                     </div>
                     <div class="record">
                         <label for="jugular-co2">CO2</label>
-                        <input id="jugular-co2" type="number"/>
+                        <input id="jugular-co2" type="number" value="47.9"/>
                     </div>
                     <div class="record">
                         <label for="jugular-hco3">HCO3</label>
-                        <input id="jugular-hco3" type="number"/>
+                        <input id="jugular-hco3" type="number" value="21.1"/>
                     </div>
                     <div class="record">
                         <label for="jugular-be">BE</label>
-                        <input id="jugular-be" type="number"/>
+                        <input id="jugular-be" type="number" value="-5.6"/>
                     </div>
                 </div>
             </div>
         </div>
         <div class="record-container">
-            <div class="record">
-                <label for="time-lactate">time</label>
-                <input id="time-lactate" type="datetime-local"/>
-            </div>
             <div class="records">
                 <div class="record-container">
                     <div class="record">
                         <label for="arterial-lactate">Arterial Lactate</label>
-                        <input id="arterial-lactate" type="number"/>
+                        <input id="arterial-lactate" type="number" value="3.62"/>
                     </div>
                 </div>
                 <div class="record-container">
                     <div class="record">
                         <label for="jugular-lactate">Jugular Lactate</label>
-                        <input id="jugular-lactate" type="number"/>
+                        <input id="jugular-lactate" type="number" value="3.66"/>
                     </div>
                 </div>
             </div>
         </div>
         <div class="record-container">
-            <div class="record">
-                <label for="time-glucose">time</label>
-                <input id="time-glucose" type="datetime-local"/>
-            </div>
             <div class="records">
                 <div class="record-container">
                     <div class="record">
                         <label for="arterial-glucose">Arterial Glucose</label>
-                        <input id="arterial-glucose" type="number"/>
+                        <input id="arterial-glucose" type="number" value="161"/>
                     </div>
                 </div>
                 <div class="record-container">
                     <div class="record">
                         <label for="jugular-glucose">Jugular Glucose</label>
-                        <input id="jugular-glucose" type="number"/>
+                        <input id="jugular-glucose" type="number" value="154"/>
                     </div>
                 </div>
             </div>
         </div>
         <div class="record-container">
             <div class="record">
-                <label for="time-hgb">time</label>
-                <input id="time-hgb" type="datetime-local"/>
-            </div>
-            <div class="record">
                 <label for="hgb">Hgb</label>
-                <input id="hgb" type="text"/>
+                <input id="hgb" type="text" value="16.6"/>
             </div>
         </div>
         <div class="record-container">
             <div class="record">
-                <label for="time-onsd">time</label>
-                <input id="time-onsd" type="datetime-local"/>
-            </div>
-            <div class="record">
                 <label for="onsd">ONSD</label>
-                <input id="onsd" type="text"/>
+                <input id="onsd" type="text" value="."/>
             </div>
         </div>
     </section>
 </div>
 
-<script src="/assets/js/jquery-3.5.1.min.js"></script>
-<script src="/assets/js/select2.min.js"></script>
-<script src="/assets/js/index.js"></script>
+<script src="./../assets/js/jquery-3.5.1.min.js"></script>
+<script src="./../assets/js/select2.min.js"></script>
+<script src="./../assets/js/index.js"></script>
 <script>
   // Set the Current Time
   var date = new Date();
