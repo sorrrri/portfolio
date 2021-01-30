@@ -48,7 +48,7 @@ for (let i in dataValue[4]) {
 let minInterval = -1
 let maxInterval = 1
 
-dataValue[22] = [...nullArray_CoxTime]
+arrayCoxTime_1 = [...nullArray_CoxTime]
 dataValue[23] = [...nullArray_CoxTime]
 dataValue[24] = [...nullArray_CoxTime]
 
@@ -174,120 +174,120 @@ const interventionCoxTime = (minInterval, maxInterval) => {
 }
 
 const interventionTimestamp = (minInterval, maxInterval) => {
-// 9/19 16:10
-    dataValue[25][25] = minInterval
-    dataValue[26][25] = maxInterval
-    dataValue[27][25] = "increase sedation"
+// 9/18 16:10
+    dataValue[25][110] = minInterval
+    dataValue[26][110] = maxInterval
+    dataValue[27][110] = "increase sedation"
 
-// 9/19 17:00
-    dataValue[25][32] = minInterval
-    dataValue[26][32] = maxInterval
-    dataValue[27][32] = "TTM Target temperature"
+// 9/18 17:00
+    dataValue[25][160] = minInterval
+    dataValue[26][160] = maxInterval
+    dataValue[27][160] = "TTM Target temperature"
 
-// 9/19 19:30
-    dataValue[25][62] = minInterval
-    dataValue[26][62] = maxInterval
-    dataValue[27][62] = "adjust ventilation"
+// 9/18 19:30
+    dataValue[25][310] = minInterval
+    dataValue[26][310] = maxInterval
+    dataValue[27][310] = "adjust ventilation"
 
-// 9/19 21:40
-    dataValue[25][88] = minInterval
-    dataValue[26][88] = maxInterval
-    dataValue[27][88] = "adjust ventilation"
+// 9/18 21:40
+    dataValue[25][440] = minInterval
+    dataValue[26][440] = maxInterval
+    dataValue[27][440] = "adjust ventilation"
 
 // 9/19 04:40
-    dataValue[25][172] = minInterval
-    dataValue[26][172] = maxInterval
-    dataValue[27][172] = "vasopressor increase"
+    dataValue[25][860] = minInterval
+    dataValue[26][860] = maxInterval
+    dataValue[27][860] = "vasopressor increase"
 
 // 9/19 10:20
-    dataValue[25][240] = minInterval
-    dataValue[26][240] = maxInterval
-    dataValue[27][240] = "fluid infusion"
+    dataValue[25][1200] = minInterval
+    dataValue[26][1200] = maxInterval
+    dataValue[27][1200] = "fluid infusion"
 
 // 9/19 10:50
-    dataValue[25][246] = minInterval
-    dataValue[26][246] = maxInterval
-    dataValue[27][246] = "increase sedation"
+    dataValue[25][1230] = minInterval
+    dataValue[26][1230] = 1
+    dataValue[27][1230] = "increase sedation"
 
 // 9/19 12:05
-    dataValue[25][261] = minInterval
-    dataValue[26][261] = maxInterval
-    dataValue[27][261] = "increase sedation"
+    dataValue[25][1305] = minInterval
+    dataValue[26][1305] = maxInterval
+    dataValue[27][1305] = "increase sedation"
 
 // 9/19 13:30
-    dataValue[25][278] = minInterval
-    dataValue[26][278] = maxInterval
-    dataValue[27][278] = "TTM start rewarming"
+    dataValue[25][1390] = minInterval
+    dataValue[26][1390] = maxInterval
+    dataValue[27][1390] = "TTM start rewarming"
 
 // 9/19 13:35 * 2
-    dataValue[25][279] = minInterval
-    dataValue[26][279] = maxInterval
-    dataValue[27][279] = "increase sedation"
+    dataValue[25][1395] = minInterval
+    dataValue[26][1395] = maxInterval
+    dataValue[27][1395] = "increase sedation"
 
 // 9/19 13:55 Non-intervention
-    dataValue[25][283] = minInterval
-    dataValue[26][283] = maxInterval
-    dataValue[27][283] = " "
+    dataValue[25][1415] = minInterval
+    dataValue[26][1415] = maxInterval
+    dataValue[27][1415] = " "
 
 // 9/19 20:00
-    dataValue[25][283] = minInterval
-    dataValue[26][283] = maxInterval
-    dataValue[27][283] = "TTM start normothermia"
+    dataValue[25][1780] = minInterval
+    dataValue[26][1780] = maxInterval
+    dataValue[27][1780] = "TTM start normothermia"
 
 // 9/19 21:05
-    dataValue[25][356] = minInterval
-    dataValue[26][356] = maxInterval
-    dataValue[27][356] = "increase sedation"
+    dataValue[25][1845] = minInterval
+    dataValue[26][1845] = maxInterval
+    dataValue[27][1845] = "increase sedation"
 
 // 9/19 21:45
-    dataValue[25][369] = minInterval
-    dataValue[26][369] = maxInterval
-    dataValue[27][369] = "increase sedation"
+    dataValue[25][1885] = minInterval
+    dataValue[26][1885] = maxInterval
+    dataValue[27][1885] = "increase sedation"
 
-// 9/19 26:25
-    dataValue[25][377] = minInterval
-    dataValue[26][377] = maxInterval
-    dataValue[27][377] = "vasopressor increase"
+// 9/19 23:25
+    dataValue[25][1985] = minInterval
+    dataValue[26][1985] = maxInterval
+    dataValue[27][1985] = "vasopressor increase"
 
-// 9/19 03:27
-    dataValue[25][396] = minInterval
-    dataValue[26][396] = maxInterval
-    dataValue[27][396] = "increase sedation"
+// 9/20 03:27
+    dataValue[25][2230] = minInterval
+    dataValue[26][2230] = maxInterval
+    dataValue[27][2230] = "increase sedation"
 
 // 9/20 04:49
-    dataValue[25][445] = minInterval
-    dataValue[26][445] = maxInterval
-    dataValue[27][445] = "vasopressor increase"
+    dataValue[25][2310] = minInterval
+    dataValue[26][2310] = maxInterval
+    dataValue[27][2310] = "vasopressor increase"
 
 // 9/20 05:03
-    dataValue[25][462] = minInterval
-    dataValue[26][462] = maxInterval
-    dataValue[27][462] = "vasopressor increase"
+    dataValue[25][2325] = minInterval
+    dataValue[26][2325] = maxInterval
+    dataValue[27][2325] = "vasopressor increase"
 
 // 9/20 05:15
-    dataValue[25][465] = minInterval
-    dataValue[26][465] = maxInterval
-    dataValue[27][465] = "vasopressor increase"
+    dataValue[25][2335] = minInterval
+    dataValue[26][2335] = maxInterval
+    dataValue[27][2335] = "vasopressor increase"
 
 // 9/20 05:27
-    dataValue[25][469] = minInterval
-    dataValue[26][469] = maxInterval
-    dataValue[27][469] = "vasopressor increase"
+    dataValue[25][2350] = minInterval
+    dataValue[26][2350] = maxInterval
+    dataValue[27][2350] = "vasopressor increase"
 
 // 9/20 06:00
-    dataValue[25][476] = minInterval
-    dataValue[26][476] = maxInterval
-    dataValue[27][476] = "stop sedation"
+    dataValue[25][2380] = minInterval
+    dataValue[26][2380] = maxInterval
+    dataValue[27][2380] = "stop sedation"
 
 // 9/20  08:43 Non-intervention
-    dataValue[25][509] = minInterval
-    dataValue[26][509] = maxInterval
-    dataValue[27][509] = " "
+    dataValue[25][2545] = minInterval
+    dataValue[26][2545] = maxInterval
+    dataValue[27][2545] = " "
 
 // 9/20 09:37
-    dataValue[25][520] = minInterval
-    dataValue[26][520] = maxInterval
-    dataValue[27][520] = "TTM stop"
+    dataValue[25][2600] = minInterval
+    dataValue[26][2600] = maxInterval
+    dataValue[27][2600] = "TTM stop"
 }
 
 
@@ -296,9 +296,10 @@ function drawCOxMAPChart() {
     interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'Left');
-    data.addColumn('number', 'Right');
-    data.addColumn('number', 'Average');
+    data.addColumn('number', 'abnormal')
+    data.addColumn('number', 'left');
+    data.addColumn('number', 'right');
+    data.addColumn('number', 'average');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -319,6 +320,7 @@ function drawCOxMAPChart() {
 
         data.addRow([
             timestamp,
+            0.3,
             parseFloat(dataValue[14][i]),
             parseFloat(dataValue[15][i]),
             parseFloat(dataValue[16][i]),
@@ -331,7 +333,7 @@ function drawCOxMAPChart() {
     }
 
     const options = {
-        colors: ['#FAA7B8', '#6096FD', 'darkseagreen', 'bisque'],
+        colors: ['orangered', '#FAA7B8', '#6096FD', 'darkseagreen', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -341,7 +343,10 @@ function drawCOxMAPChart() {
         lineWidth: 1.5,
         seriesType: 'line',
         series: {
-            3: {
+            0: {
+                type: 'area'
+            },
+            4: {
                 type: 'candlesticks',
             },
         },
@@ -366,8 +371,7 @@ function drawCOxMAPChart() {
         vAxis: {
             title: "COx MAP",
             ticks: [-1, 0, 0.3, 1],
-            baseline: 0.3,
-            baselineColor: 'green',
+            baseline: 1,
             gridlineColor: '#777',
         },
         chartArea: {
