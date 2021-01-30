@@ -460,16 +460,18 @@ function drawCOxETCO2Chart() {
 
 function drawRSO2Chart() {
     const data = new google.visualization.DataTable(jsonData);
-    interventionTimestamp(-50, 100)
+    interventionTimestamp(0, 100)
 
     data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'Left');
-    data.addColumn('number', 'Right');
+    data.addColumn('number', 'left');
+    data.addColumn('number', 'right');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
     data.addColumn({'type': 'string', 'role': 'tooltip'});
+    data.addColumn('number', 'left normal');
+    data.addColumn('number', 'right normal');
 
     for (let i in dataValue[4]) {
         let timestamp = String(dataValue[4][i]);
@@ -492,15 +494,17 @@ function drawRSO2Chart() {
             parseInt(dataValue[26][i]),
             parseInt(dataValue[26][i]),
             dataValue[27][i],
+            79.39,
+            88
         ]);
     }
 
     const options = {
-        colors: ['#FAA7B8', '#6096FD', 'bisque'],
+        colors: ['#FAA7B8', '#6096FD', 'bisque','#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
-        height: "100%",
-        legend: {position: 'top'},
+        height: '100%',
+        legend: 'none',
         fontSize: 15,
         pointSize: 0,
         lineWidth: 1.5,
@@ -509,6 +513,12 @@ function drawRSO2Chart() {
             2: {
                 type: 'candlesticks',
             },
+            3: {
+                lineWidth: 1
+            },
+            4: {
+                lineWidth: 1
+            }
         },
         candlestick: {
             fallingColor: {strokeWidth: 0, fill: 'transparent'},
@@ -1115,6 +1125,7 @@ function drawAJDO2Chart() {
     interventionInput(0, 8)
 
     data.addColumn('date', 'Time of Day');
+    data.addColumn('number', 'abnormal');
     data.addColumn('number', 'AJDO2');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -1138,6 +1149,7 @@ function drawAJDO2Chart() {
 
         data.addRow([
             timestamp,
+            4,
             parseFloat(dataValue_input[2][i]),
             parseInt(dataValue_input[4][i]),
             parseInt(dataValue_input[4][i]),
@@ -1148,7 +1160,7 @@ function drawAJDO2Chart() {
     }
 
     var options = {
-        colors: ["#47CACC", 'bisque'],
+        colors: ['orangered', '#47CACC', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1157,7 +1169,11 @@ function drawAJDO2Chart() {
         pointSize: 5,
         seriesType: 'line',
         series: {
-            1: {
+            0: {
+                type: 'area',
+                pointSize: 0
+            },
+            2: {
                 type: 'candlesticks',
             },
         },
@@ -1182,6 +1198,7 @@ function drawAJDO2Chart() {
         vAxis: {
             title: "AJDO2",
             ticks: [0, 2, 4, 6, 8],
+            baseline: 0,
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
