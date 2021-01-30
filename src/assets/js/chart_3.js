@@ -976,7 +976,7 @@ function drawLOIChart() {
 
 function drawAJDO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-    interventionInput(0, 6)
+    interventionInput(0, 8)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'AJDO2');
@@ -1045,6 +1045,7 @@ function drawAJDO2Chart() {
         },
         vAxis: {
             title: "AJDO2",
+            ticks: [0, 2, 4, 6, 8],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
