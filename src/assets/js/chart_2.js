@@ -33,9 +33,16 @@ let jsonData = $.ajax({
 jsonData = JSON.parse(jsonData)
 const dataValue = Object.values(jsonData)
 
+// 5분 단위로 CoxMAP, CoxETCO2 등이 찍히는 시간표
 let nullArray_CoxTime = []
 for (let i in dataValue[13]) {
     nullArray_CoxTime.push(null)
+}
+
+// 1분 단위로 MAP, RSO2 등이 찍히는 시간표
+let nullArray_timestamp = []
+for (let i in dataValue[4]) {
+    nullArray_timestamp.push(null)
 }
 
 let minInterval = -1
@@ -45,219 +52,213 @@ dataValue[22] = [...nullArray_CoxTime]
 dataValue[23] = [...nullArray_CoxTime]
 dataValue[24] = [...nullArray_CoxTime]
 
-
-// 2020/3/4  14:59
-dataValue[22][6] = minInterval
-dataValue[23][6] = maxInterval
-dataValue[24][6] = "shivering control"
-
-// 2020/3/4 15:46
-dataValue[22][15] = minInterval
-dataValue[23][15] = maxInterval
-dataValue[24][15] = "increase sedation"
-
-// 2020/3/4 15:57
-dataValue[22][17] = minInterval
-dataValue[23][17] = maxInterval
-dataValue[24][17] = "fluid infusion"
-
-// 2020/3/4 16:00
-dataValue[22][18] = minInterval
-dataValue[23][18] = maxInterval
-dataValue[24][18] = "adjust ventilation"
-
-// 2020/3/4 16:01
-dataValue[22][19] = minInterval
-dataValue[23][19] = maxInterval
-dataValue[24][19] = "increase sedation"
-
-// 2020/3/4 16:30
-dataValue[22][24] = minInterval
-dataValue[23][24] = maxInterval
-dataValue[24][24] = "start NMB"
-
-// 2020/3/4 17:00
-dataValue[22][30] = minInterval
-dataValue[23][30] = maxInterval
-dataValue[24][30] = "TTM Target temperature"
-
-// 2020/3/4 19:00
-dataValue[22][54] = minInterval
-dataValue[23][54] = maxInterval
-dataValue[24][54] = "adjust ventilation"
-
-// 2020/3/5 02:27
-dataValue[22][144] = minInterval
-dataValue[23][144] = maxInterval
-dataValue[24][144] = "vasopressor increase"
-
-// 2020/3/5 04:12
-dataValue[22][164] = minInterval
-dataValue[23][164] = maxInterval
-dataValue[24][164] = "vasopressor increase"
-
-// 2020/3/5 06:00
-dataValue[22][186] = minInterval
-dataValue[23][186] = maxInterval
-dataValue[24][186] = "increase sedation"
-
-// 2020/3/5 07:40
-dataValue[22][206] = minInterval
-dataValue[23][206] = maxInterval
-dataValue[24][206] = "vasopressor increase"
-
-// 2020/3/5 09:00
-dataValue[22][222] = minInterval
-dataValue[23][222] = maxInterval
-dataValue[24][222] = "adjust ventilation"
-
-// 2020/3/5 09:20
-dataValue[22][226] = minInterval
-dataValue[23][226] = maxInterval
-dataValue[24][226] = "vasopressor increase"
-
-// 2020/3/5 09:56 * 3
-dataValue[22][233] = minInterval
-dataValue[23][233] = maxInterval
-dataValue[24][233] = "increase sedation, stop NMB, fluid infusion"
-
-// 2020/3/5 10:22
-dataValue[22][238] = minInterval
-dataValue[23][238] = maxInterval
-dataValue[24][238] = "fluid infusion"
-
-// 2020/3/5 11:01
-dataValue[22][246] = minInterval
-dataValue[23][246] = maxInterval
-dataValue[24][246] = "fluid infusion"
-
-// 2020/3/5 12:02
-dataValue[22][258] = minInterval
-dataValue[23][258] = maxInterval
-dataValue[24][258] = "fluid infusion"
-
-// 2020/3/5 12:27
-dataValue[22][264] = minInterval
-dataValue[23][264] = maxInterval
-dataValue[24][264] = "increase sedation"
-
-// 2020/3/5 13:10
-dataValue[22][272] = minInterval
-dataValue[23][272] = maxInterval
-dataValue[24][272] = "start sedation"
-
-// 2020/3/5 13:14
-dataValue[22][273] = minInterval
-dataValue[23][273] = maxInterval
-dataValue[24][273] = "vasopressor increase"
-
-// 2020/3/5 13:30 * 2
-dataValue[22][276] = minInterval
-dataValue[23][276] = maxInterval
-dataValue[24][276] = "fluid infusion, increase sedation"
-
-// 2020/3/5 13:36
-dataValue[22][277] = minInterval
-dataValue[23][277] = maxInterval
-dataValue[24][277] = "shivering control"
-
-// 2020/3/5 14:00
-dataValue[22][282] = minInterval
-dataValue[23][282] = maxInterval
-dataValue[24][282] = "adjust ventilation"
-
-// 2020/3/5 14:02
-dataValue[22][283] = minInterval
-dataValue[23][283] = maxInterval
-dataValue[24][283] = "fluid infusion"
-
-// 2020/3/5 14:20
-dataValue[22][286] = minInterval
-dataValue[23][286] = maxInterval
-dataValue[24][286] = "shivering control"
-
-// 2020/3/5 14:30
-dataValue[22][288] = minInterval
-dataValue[23][288] = maxInterval
-dataValue[24][288] = "shivering control"
-
-// 2020/3/5 17:00
-dataValue[22][318] = minInterval
-dataValue[23][318] = maxInterval
-dataValue[24][318] = "TTM start rewarming"
-
-// 2020/3/5 20:01
-dataValue[22][354] = minInterval
-dataValue[23][354] = maxInterval
-dataValue[24][354] = "adjust ventilation"
-
-// 2020/3/6 16:00
-dataValue[22][594] = minInterval
-dataValue[23][594] = maxInterval
-dataValue[24][594] = "TTM start normothermia"
-
-// 2020/3/6 18:00
-dataValue[22][618] = minInterval
-dataValue[23][618] = maxInterval
-dataValue[24][618] = "increase sedation"
-
-// 2020/3/6 19:47
-dataValue[22][639] = minInterval
-dataValue[23][639] = maxInterval
-dataValue[24][639] = "increase sedation"
-
-// 2020/3/6 20:11
-dataValue[22][644] = minInterval
-dataValue[23][644] = maxInterval
-dataValue[24][644] = "increase sedation"
-
-// 2020/3/6 21:10
-dataValue[22][656] = minInterval
-dataValue[23][656] = maxInterval
-dataValue[24][656] = "increase sedation"
-
-// 2020/3/6 21:56
-dataValue[22][665] = minInterval
-dataValue[23][665] = maxInterval
-dataValue[24][665] = "increase sedation"
-
-// 2020/3/6 22:25
-dataValue[22][671] = minInterval
-dataValue[23][671] = maxInterval
-dataValue[24][671] = "dextrose infusion"
-
-// 2020/3/6 23:33
-dataValue[22][685] = minInterval
-dataValue[23][685] = maxInterval
-dataValue[24][685] = "shivering control"
-
-// 2020/3/7 02:43
-dataValue[22][723] = minInterval
-dataValue[23][723] = maxInterval
-dataValue[24][723] = "adjust ventilation"
-
-// 2020/3/7 03:50
-dataValue[22][736] = minInterval
-dataValue[23][736] = maxInterval
-dataValue[24][736] = "adjust ventilation"
-
-// 2020/3/7 06:30
-dataValue[22][768] = minInterval
-dataValue[23][768] = maxInterval
-dataValue[24][768] = "TTM stop"
-
-
-let nullArray_timestamp = []
-for (let i in dataValue[4]) {
-    nullArray_timestamp.push(null)
-}
-
 dataValue[25] = [...nullArray_timestamp]
 dataValue[26] = [...nullArray_timestamp]
 dataValue[27] = [...nullArray_timestamp]
 
-const timestampIntervention = () => {
+const interventionCoxTime = (minInterval, maxInterval) => {
+// 2020/3/4  14:59
+    dataValue[22][6] = minInterval
+    dataValue[23][6] = maxInterval
+    dataValue[24][6] = "shivering control"
 
+// 2020/3/4 15:46
+    dataValue[22][15] = minInterval
+    dataValue[23][15] = maxInterval
+    dataValue[24][15] = "increase sedation"
+
+// 2020/3/4 15:57
+    dataValue[22][17] = minInterval
+    dataValue[23][17] = maxInterval
+    dataValue[24][17] = "fluid infusion"
+
+// 2020/3/4 16:00
+    dataValue[22][18] = minInterval
+    dataValue[23][18] = maxInterval
+    dataValue[24][18] = "adjust ventilation"
+
+// 2020/3/4 16:01
+    dataValue[22][19] = minInterval
+    dataValue[23][19] = maxInterval
+    dataValue[24][19] = "increase sedation"
+
+// 2020/3/4 16:30
+    dataValue[22][24] = minInterval
+    dataValue[23][24] = maxInterval
+    dataValue[24][24] = "start NMB"
+
+// 2020/3/4 17:00
+    dataValue[22][30] = minInterval
+    dataValue[23][30] = maxInterval
+    dataValue[24][30] = "TTM Target temperature"
+
+// 2020/3/4 19:00
+    dataValue[22][54] = minInterval
+    dataValue[23][54] = maxInterval
+    dataValue[24][54] = "adjust ventilation"
+
+// 2020/3/5 02:27
+    dataValue[22][144] = minInterval
+    dataValue[23][144] = maxInterval
+    dataValue[24][144] = "vasopressor increase"
+
+// 2020/3/5 04:12
+    dataValue[22][164] = minInterval
+    dataValue[23][164] = maxInterval
+    dataValue[24][164] = "vasopressor increase"
+
+// 2020/3/5 06:00
+    dataValue[22][186] = minInterval
+    dataValue[23][186] = maxInterval
+    dataValue[24][186] = "increase sedation"
+
+// 2020/3/5 07:40
+    dataValue[22][206] = minInterval
+    dataValue[23][206] = maxInterval
+    dataValue[24][206] = "vasopressor increase"
+
+// 2020/3/5 09:00
+    dataValue[22][222] = minInterval
+    dataValue[23][222] = maxInterval
+    dataValue[24][222] = "adjust ventilation"
+
+// 2020/3/5 09:20
+    dataValue[22][226] = minInterval
+    dataValue[23][226] = maxInterval
+    dataValue[24][226] = "vasopressor increase"
+
+// 2020/3/5 09:56 * 3
+    dataValue[22][233] = minInterval
+    dataValue[23][233] = maxInterval
+    dataValue[24][233] = "increase sedation, stop NMB, fluid infusion"
+
+// 2020/3/5 10:22
+    dataValue[22][238] = minInterval
+    dataValue[23][238] = maxInterval
+    dataValue[24][238] = "fluid infusion"
+
+// 2020/3/5 11:01
+    dataValue[22][246] = minInterval
+    dataValue[23][246] = maxInterval
+    dataValue[24][246] = "fluid infusion"
+
+// 2020/3/5 12:02
+    dataValue[22][258] = minInterval
+    dataValue[23][258] = maxInterval
+    dataValue[24][258] = "fluid infusion"
+
+// 2020/3/5 12:27
+    dataValue[22][264] = minInterval
+    dataValue[23][264] = maxInterval
+    dataValue[24][264] = "increase sedation"
+
+// 2020/3/5 13:10
+    dataValue[22][272] = minInterval
+    dataValue[23][272] = maxInterval
+    dataValue[24][272] = "start sedation"
+
+// 2020/3/5 13:14
+    dataValue[22][273] = minInterval
+    dataValue[23][273] = maxInterval
+    dataValue[24][273] = "vasopressor increase"
+
+// 2020/3/5 13:30 * 2
+    dataValue[22][276] = minInterval
+    dataValue[23][276] = maxInterval
+    dataValue[24][276] = "fluid infusion, increase sedation"
+
+// 2020/3/5 13:36
+    dataValue[22][277] = minInterval
+    dataValue[23][277] = maxInterval
+    dataValue[24][277] = "shivering control"
+
+// 2020/3/5 14:00
+    dataValue[22][282] = minInterval
+    dataValue[23][282] = maxInterval
+    dataValue[24][282] = "adjust ventilation"
+
+// 2020/3/5 14:02
+    dataValue[22][283] = minInterval
+    dataValue[23][283] = maxInterval
+    dataValue[24][283] = "fluid infusion"
+
+// 2020/3/5 14:20
+    dataValue[22][286] = minInterval
+    dataValue[23][286] = maxInterval
+    dataValue[24][286] = "shivering control"
+
+// 2020/3/5 14:30
+    dataValue[22][288] = minInterval
+    dataValue[23][288] = maxInterval
+    dataValue[24][288] = "shivering control"
+
+// 2020/3/5 17:00
+    dataValue[22][318] = minInterval
+    dataValue[23][318] = maxInterval
+    dataValue[24][318] = "TTM start rewarming"
+
+// 2020/3/5 20:01
+    dataValue[22][354] = minInterval
+    dataValue[23][354] = maxInterval
+    dataValue[24][354] = "adjust ventilation"
+
+// 2020/3/6 16:00
+    dataValue[22][594] = minInterval
+    dataValue[23][594] = maxInterval
+    dataValue[24][594] = "TTM start normothermia"
+
+// 2020/3/6 18:00
+    dataValue[22][618] = minInterval
+    dataValue[23][618] = maxInterval
+    dataValue[24][618] = "increase sedation"
+
+// 2020/3/6 19:47
+    dataValue[22][639] = minInterval
+    dataValue[23][639] = maxInterval
+    dataValue[24][639] = "increase sedation"
+
+// 2020/3/6 20:11
+    dataValue[22][644] = minInterval
+    dataValue[23][644] = maxInterval
+    dataValue[24][644] = "increase sedation"
+
+// 2020/3/6 21:10
+    dataValue[22][656] = minInterval
+    dataValue[23][656] = maxInterval
+    dataValue[24][656] = "increase sedation"
+
+// 2020/3/6 21:56
+    dataValue[22][665] = minInterval
+    dataValue[23][665] = maxInterval
+    dataValue[24][665] = "increase sedation"
+
+// 2020/3/6 22:25
+    dataValue[22][671] = minInterval
+    dataValue[23][671] = maxInterval
+    dataValue[24][671] = "dextrose infusion"
+
+// 2020/3/6 23:33
+    dataValue[22][685] = minInterval
+    dataValue[23][685] = maxInterval
+    dataValue[24][685] = "shivering control"
+
+// 2020/3/7 02:43
+    dataValue[22][723] = minInterval
+    dataValue[23][723] = maxInterval
+    dataValue[24][723] = "adjust ventilation"
+
+// 2020/3/7 03:50
+    dataValue[22][736] = minInterval
+    dataValue[23][736] = maxInterval
+    dataValue[24][736] = "adjust ventilation"
+
+// 2020/3/7 06:30
+    dataValue[22][768] = minInterval
+    dataValue[23][768] = maxInterval
+    dataValue[24][768] = "TTM stop"
+}
+
+const interventionTimestamp = (minInterval, maxInterval) => {
 // 9/19 16:10
     dataValue[25][25] = minInterval
     dataValue[26][25] = maxInterval
@@ -345,7 +346,7 @@ const timestampIntervention = () => {
 
 // 9/20 05:03
     dataValue[25][462] = minInterval
-    dataValue[26][462] = 1
+    dataValue[26][462] = maxInterval
     dataValue[27][462] = "vasopressor increase"
 
 // 9/20 05:15
@@ -374,8 +375,10 @@ const timestampIntervention = () => {
     dataValue[27][520] = "TTM stop"
 }
 
+
 function drawCOxMAPChart() {
     const data = new google.visualization.DataTable(jsonData);
+    interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -462,9 +465,9 @@ function drawCOxMAPChart() {
     chart_COxMAP.draw(data, options);
 }
 
-
 function drawCOxETCO2Chart() {
     const data = new google.visualization.DataTable(jsonData);
+    interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -536,12 +539,9 @@ function drawCOxETCO2Chart() {
     chart_COxETCO2.draw(data, options);
 }
 
-
 function drawRSO2Chart() {
     const data = new google.visualization.DataTable(jsonData);
-    minInterval = -50
-    maxInterval = 100
-    timestampIntervention()
+    interventionTimestamp(-50, 100)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -625,11 +625,9 @@ function drawRSO2Chart() {
     chart_RSO2.draw(data, options);
 }
 
-
 function drawMAPChart() {
     var data = new google.visualization.DataTable();
-    minInterval = 0
-    maxInterval = 150
+    interventionTimestamp(0, 150)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
@@ -637,6 +635,11 @@ function drawMAPChart() {
     data.addColumn('number', 'OP_BP_max1');
     data.addColumn('number', 'OP_BP_max2');
     data.addColumn('number', 'MAP');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue[4]) {
         let timestamp = String(dataValue[4][i]);
@@ -657,11 +660,16 @@ function drawMAPChart() {
             parseInt(dataValue[20].min[i]),
             parseInt(dataValue[20].max[i]),
             parseFloat(dataValue[0][i]),
+            parseInt(dataValue[25][i]),
+            parseInt(dataValue[25][i]),
+            parseInt(dataValue[26][i]),
+            parseInt(dataValue[26][i]),
+            dataValue[27][i],
         ]);
     }
 
     var options = {
-        colors: ['#FAA7B8', '#6096FD'],
+        colors: ['#FAA7B8', 'darkseagreen', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -669,8 +677,15 @@ function drawMAPChart() {
         fontSize: 15,
         pointSize: 0,
         lineWidth: 1.5,
-        intervals: {
-            color: "bisque"
+        seriesType: 'candlesticks',
+        series: {
+            1: {
+                type: 'line',
+            },
+        },
+        candlestick: {
+            fallingColor: {strokeWidth: 0, fill: 'transparent'},
+            risingColor: {strokeWidth: 0, fill: 'transparent'}
         },
         hAxis: {
             gridlines: {
@@ -696,27 +711,15 @@ function drawMAPChart() {
             width: '96%',
             height: '73%'
         },
-        seriesType: 'candlesticks',
-        series: {
-            1: {
-                type: 'line',
-                color: 'darkseagreen'
-            },
-        },
-        bar: {groupWidth: '200%'},
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: '#FAA7B8'},
-            risingColor: {strokeWidth: 0, fill: '#FAA7B8'}
-        }
     };
 
     var chart_MAP = new google.visualization.ComboChart(document.getElementById('chart_MAP'));
     chart_MAP.draw(data, options);
 }
 
-
 function drawETCO2Chart() {
     var data = new google.visualization.DataTable();
+    interventionTimestamp(0, 60)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
@@ -812,6 +815,7 @@ let jsonData_input = $.ajax({
 jsonData_input = JSON.parse(jsonData_input)
 const dataValue_input = Object.values(jsonData_input)
 
+// input에 의해 SJVO2, AJDO2 등이 찍히는 시간표
 let nullArray_inputChart = []
 for (let i in dataValue_input[0]) {
     nullArray_inputChart.push(null)
@@ -821,40 +825,211 @@ dataValue_input[4] = [...nullArray_inputChart]
 dataValue_input[5] = [...nullArray_inputChart]
 dataValue_input[6] = [...nullArray_inputChart]
 
+const interventionInput = (minInterval, maxInterval) => {
+// 2020/3/4  14:59
+    dataValue_input[4][6] = minInterval
+    dataValue_input[5][6] = maxInterval
+    dataValue_input[6][6] = "shivering control"
 
-const inputIntervention = () => {
-// 2019/9/18 14:20
-    dataValue_input[4][0] = minInterval
-    dataValue_input[5][0] = maxInterval
-    dataValue_input[6][0] = "Atrial_BGA(SaO2: 99.9, Jugular_BGA(SaO2: 82), Hgb: 13.1"
+// 2020/3/4 15:46
+    dataValue_input[4][15] = minInterval
+    dataValue_input[5][15] = maxInterval
+    dataValue_input[6][15] = "increase sedation"
 
-// 2019/9/18 17:00
-    dataValue_input[4][32] = minInterval
-    dataValue_input[5][32] = maxInterval
-    dataValue_input[6][32] = "Atrial_BGA(SaO2: 99.9), Jugular_BGA(SaO2: 73.5), Hgb: 13.1"
+// 2020/3/4 15:57
+    dataValue_input[4][17] = minInterval
+    dataValue_input[5][17] = maxInterval
+    dataValue_input[6][17] = "fluid infusion"
 
-// 2019/9/19 05:00
-    dataValue_input[4][176] = minInterval
-    dataValue_input[5][176] = maxInterval
-    dataValue_input[6][176] = "Atrial_BGA(SaO2: 98.4), Jugular_BGA(SaO2: 78.2), Hgb: 11.7"
+// 2020/3/4 16:00
+    dataValue_input[4][18] = minInterval
+    dataValue_input[5][18] = maxInterval
+    dataValue_input[6][18] = "adjust ventilation"
 
-// 2019/9/19 17:00
-    dataValue_input[4][320] = minInterval
-    dataValue_input[5][320] = maxInterval
-    dataValue_input[6][320] = "Atrial_BGA(SaO2: 98), Jugular_BGA(SaO2: 76.6), Hgb: 12.3"
+// 2020/3/4 16:01
+    dataValue_input[4][19] = minInterval
+    dataValue_input[5][19] = maxInterval
+    dataValue_input[6][19] = "increase sedation"
 
-// 2019/9/20 10:00
-    dataValue_input[4][524] = minInterval
-    dataValue_input[5][524] = maxInterval
-    dataValue_input[6][524] = "Atrial_BGA(SaO2: 99), Jugular_BGA(SaO2: 83.6), Hgb: 10.5"
+// 2020/3/4 16:30
+    dataValue_input[4][24] = minInterval
+    dataValue_input[5][24] = maxInterval
+    dataValue_input[6][24] = "start NMB"
+
+// 2020/3/4 17:00
+    dataValue_input[4][30] = minInterval
+    dataValue_input[5][30] = maxInterval
+    dataValue_input[6][30] = "TTM Target temperature"
+
+// 2020/3/4 19:00
+    dataValue_input[4][54] = minInterval
+    dataValue_input[5][54] = maxInterval
+    dataValue_input[6][54] = "adjust ventilation"
+
+// 2020/3/5 02:27
+    dataValue_input[4][144] = minInterval
+    dataValue_input[5][144] = maxInterval
+    dataValue_input[6][144] = "vasopressor increase"
+
+// 2020/3/5 04:12
+    dataValue_input[4][164] = minInterval
+    dataValue_input[5][164] = maxInterval
+    dataValue_input[6][164] = "vasopressor increase"
+
+// 2020/3/5 06:00
+    dataValue_input[4][186] = minInterval
+    dataValue_input[5][186] = maxInterval
+    dataValue_input[6][186] = "increase sedation"
+
+// 2020/3/5 07:40
+    dataValue_input[4][206] = minInterval
+    dataValue_input[5][206] = maxInterval
+    dataValue_input[6][206] = "vasopressor increase"
+
+// 2020/3/5 09:00
+    dataValue_input[4][222] = minInterval
+    dataValue_input[5][222] = maxInterval
+    dataValue_input[6][222] = "adjust ventilation"
+
+// 2020/3/5 09:20
+    dataValue_input[4][226] = minInterval
+    dataValue_input[5][226] = maxInterval
+    dataValue_input[6][226] = "vasopressor increase"
+
+// 2020/3/5 09:56 * 3
+    dataValue_input[4][233] = minInterval
+    dataValue_input[5][233] = maxInterval
+    dataValue_input[6][233] = "increase sedation, stop NMB, fluid infusion"
+
+// 2020/3/5 10:22
+    dataValue_input[4][238] = minInterval
+    dataValue_input[5][238] = maxInterval
+    dataValue_input[6][238] = "fluid infusion"
+
+// 2020/3/5 11:01
+    dataValue_input[4][246] = minInterval
+    dataValue_input[5][246] = maxInterval
+    dataValue_input[6][246] = "fluid infusion"
+
+// 2020/3/5 12:02
+    dataValue_input[4][258] = minInterval
+    dataValue_input[5][258] = maxInterval
+    dataValue_input[6][258] = "fluid infusion"
+
+// 2020/3/5 12:27
+    dataValue_input[4][264] = minInterval
+    dataValue_input[5][264] = maxInterval
+    dataValue_input[6][264] = "increase sedation"
+
+// 2020/3/5 13:10
+    dataValue_input[4][272] = minInterval
+    dataValue_input[5][272] = maxInterval
+    dataValue_input[6][272] = "start sedation"
+
+// 2020/3/5 13:14
+    dataValue_input[4][273] = minInterval
+    dataValue_input[5][273] = maxInterval
+    dataValue_input[6][273] = "vasopressor increase"
+
+// 2020/3/5 13:30 * 2
+    dataValue_input[4][276] = minInterval
+    dataValue_input[5][276] = maxInterval
+    dataValue_input[6][276] = "fluid infusion, increase sedation"
+
+// 2020/3/5 13:36
+    dataValue_input[4][277] = minInterval
+    dataValue_input[5][277] = maxInterval
+    dataValue_input[6][277] = "shivering control"
+
+// 2020/3/5 14:00
+    dataValue_input[4][282] = minInterval
+    dataValue_input[5][282] = maxInterval
+    dataValue_input[6][282] = "adjust ventilation"
+
+// 2020/3/5 14:02
+    dataValue_input[4][283] = minInterval
+    dataValue_input[5][283] = maxInterval
+    dataValue_input[6][283] = "fluid infusion"
+
+// 2020/3/5 14:20
+    dataValue_input[4][286] = minInterval
+    dataValue_input[5][286] = maxInterval
+    dataValue_input[6][286] = "shivering control"
+
+// 2020/3/5 14:30
+    dataValue_input[4][288] = minInterval
+    dataValue_input[5][288] = maxInterval
+    dataValue_input[6][288] = "shivering control"
+
+// 2020/3/5 17:00
+    dataValue_input[4][318] = minInterval
+    dataValue_input[5][318] = maxInterval
+    dataValue_input[6][318] = "TTM start rewarming"
+
+// 2020/3/5 20:01
+    dataValue_input[4][354] = minInterval
+    dataValue_input[5][354] = maxInterval
+    dataValue_input[6][354] = "adjust ventilation"
+
+// 2020/3/6 16:00
+    dataValue_input[4][594] = minInterval
+    dataValue_input[5][594] = maxInterval
+    dataValue_input[6][594] = "TTM start normothermia"
+
+// 2020/3/6 18:00
+    dataValue_input[4][618] = minInterval
+    dataValue_input[5][618] = maxInterval
+    dataValue_input[6][618] = "increase sedation"
+
+// 2020/3/6 19:47
+    dataValue_input[4][639] = minInterval
+    dataValue_input[5][639] = maxInterval
+    dataValue_input[6][639] = "increase sedation"
+
+// 2020/3/6 20:11
+    dataValue_input[4][644] = minInterval
+    dataValue_input[5][644] = maxInterval
+    dataValue_input[6][644] = "increase sedation"
+
+// 2020/3/6 21:10
+    dataValue_input[4][656] = minInterval
+    dataValue_input[5][656] = maxInterval
+    dataValue_input[6][656] = "increase sedation"
+
+// 2020/3/6 21:56
+    dataValue_input[4][665] = minInterval
+    dataValue_input[5][665] = maxInterval
+    dataValue_input[6][665] = "increase sedation"
+
+// 2020/3/6 22:25
+    dataValue_input[4][671] = minInterval
+    dataValue_input[5][671] = maxInterval
+    dataValue_input[6][671] = "dextrose infusion"
+
+// 2020/3/6 23:33
+    dataValue_input[4][685] = minInterval
+    dataValue_input[5][685] = maxInterval
+    dataValue_input[6][685] = "shivering control"
+
+// 2020/3/7 02:43
+    dataValue_input[4][723] = minInterval
+    dataValue_input[5][723] = maxInterval
+    dataValue_input[6][723] = "adjust ventilation"
+
+// 2020/3/7 03:50
+    dataValue_input[4][736] = minInterval
+    dataValue_input[5][736] = maxInterval
+    dataValue_input[6][736] = "adjust ventilation"
+
+// 2020/3/7 06:30
+    dataValue_input[4][768] = minInterval
+    dataValue_input[5][768] = maxInterval
+    dataValue_input[6][768] = "TTM stop"
 }
-
 
 function drawSJVO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-    minInterval = 0
-    maxInterval = 100
-    inputIntervention()
+    interventionInput(0, 100)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'SJVO2');
@@ -891,8 +1066,8 @@ function drawSJVO2Chart() {
         colors: ['#47CACC', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
-        height: "100%",
-        legend: "none",
+        height: '100%',
+        legend: 'none',
         fontSize: 15,
         pointSize: 5,
         seriesType: 'line',
@@ -921,7 +1096,7 @@ function drawSJVO2Chart() {
         },
         vAxis: {
             title: "SJVO2",
-            ticks: [20, 40, 60, 80, 100],
+            ticks: [0, 20, 40, 60, 80, 100],
             baselineColor: '#777',
             gridlineColor: '#777',
         },
@@ -934,7 +1109,6 @@ function drawSJVO2Chart() {
     var chart_SJVO2 = new google.visualization.ComboChart(document.getElementById('chart_SJVO2'));
     chart_SJVO2.draw(data, options);
 }
-
 
 function drawAJDLChart() {
     var data = new google.visualization.DataTable();
@@ -1003,7 +1177,6 @@ function drawAJDLChart() {
 
     chart_AJDL.draw(data, options);
 }
-
 
 function drawLOIChart() {
     var data_LOI = new google.visualization.DataTable();
@@ -1103,13 +1276,9 @@ function drawLOIChart() {
     chart_LOI.draw(data_LOI, options_LOI);
 }
 
-
 function drawAJDO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-
-    minInterval = 0
-    maxInterval = 6
-    inputIntervention()
+    interventionInput(0, 6)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'AJDO2');
@@ -1195,13 +1364,9 @@ function drawAJDO2Chart() {
     chart_AJDO2.draw(data, options);
 }
 
-
 function drawCEO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-
-    minInterval = 0
-    maxInterval = 60
-    inputIntervention()
+    interventionInput(0, 60)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'CEO2');
@@ -1281,7 +1446,6 @@ function drawCEO2Chart() {
     var chart_CEO2 = new google.visualization.LineChart(document.getElementById("chart_CEO2"));
     chart_CEO2.draw(data, options);
 }
-
 
 function drawAJglcChart() {
     var data_AJglc = new google.visualization.DataTable();
@@ -1381,7 +1545,6 @@ function drawAJglcChart() {
     chart_AJglc.draw(data_AJglc, options_AJglc);
 }
 
-
 function drawAJCO2Chart() {
     var data_AJCO2 = new google.visualization.DataTable();
     data_AJCO2.addColumn('date', 'Time of Day');
@@ -1439,7 +1602,6 @@ function drawAJCO2Chart() {
         legend: "none",
         fontSize: 15,
         pointSize: 5,
-        curveType: 'function',
         intervals: {
             color: 'bisque'
         },
@@ -1480,7 +1642,6 @@ function drawAJCO2Chart() {
     var chart_AJCO2 = new google.visualization.AreaChart(document.getElementById("chart_AJCO2"));
     chart_AJCO2.draw(data_AJCO2, options_AJCO2);
 }
-
 
 function drawRQChart() {
     var data_RQ = new google.visualization.DataTable();
@@ -1579,7 +1740,6 @@ function drawRQChart() {
     chart_RQ.draw(data_RQ, options_RQ);
 }
 
-
 function drawNPIChart() {
     var data_NPI = new google.visualization.DataTable();
     data_NPI.addColumn('datetime', 'Time of Day');
@@ -1638,7 +1798,6 @@ function drawNPIChart() {
         legend: "none",
         fontSize: 15,
         pointSize: 5,
-        curveType: 'function',
         intervals: {
             color: 'bisque'
         },
@@ -1679,7 +1838,6 @@ function drawNPIChart() {
     var chart_NPI = new google.visualization.ScatterChart(document.getElementById('chart_NPI'));
     chart_NPI.draw(data_NPI, options_NPI);
 }
-
 
 function drawPupilChart() {
     var data_pupil = new google.visualization.DataTable();
@@ -1779,7 +1937,6 @@ function drawPupilChart() {
     var chart_pupil = new google.visualization.ScatterChart(document.getElementById('chart_pupil'));
     chart_pupil.draw(data_pupil, options_pupil);
 }
-
 
 function drawModalMAPLeftChart() {
     var data = new google.visualization.DataTable();
@@ -1925,7 +2082,6 @@ function drawModalMAPMeanChart() {
     chart_ModalMAPMean.draw(data, options);
 }
 
-
 function drawMAPRSO2Chart() {
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'MAP');
@@ -1979,7 +2135,6 @@ function drawMAPRSO2Chart() {
 
     chart_MAPRSO2.draw(data, options);
 }
-
 
 function drawModalETCO2LeftChart() {
     var data = new google.visualization.DataTable();
@@ -2124,7 +2279,6 @@ function drawModalETCO2MeanChart() {
     var chart_ModalETCO2Mean = new google.visualization.ColumnChart(document.getElementById("chart_ModalETCO2Mean"));
     chart_ModalETCO2Mean.draw(data, options);
 }
-
 
 function drawETCO2RSO2Chart() {
     var data = new google.visualization.DataTable();

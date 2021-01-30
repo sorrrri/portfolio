@@ -774,7 +774,7 @@
 		"20200307064500"
 	],
 	"SJVO2": [
-		null,
+		0,
 		null,
 		null,
 		null,
@@ -1545,10 +1545,10 @@
 		null,
 		null,
 		null,
-		null
+		0
 	],
 	"AJDO2": [
-		null,
+		0,
 		null,
 		null,
 		null,
@@ -2319,10 +2319,10 @@
 		null,
 		null,
 		null,
-		null
+		0
 	],
 	"CEO2": [
-		null,
+		0,
 		null,
 		null,
 		null,
@@ -3093,6 +3093,6 @@
 		null,
 		null,
 		null,
-		null
+		0
 	]
 }

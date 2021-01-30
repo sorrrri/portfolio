@@ -33,9 +33,16 @@ let jsonData = $.ajax({
 jsonData = JSON.parse(jsonData)
 const dataValue = Object.values(jsonData)
 
+// 5분 단위로 CoxMAP, CoxETCO2 등이 찍히는 시간표
 let nullArray_CoxTime = []
 for (let i in dataValue[13]) {
     nullArray_CoxTime.push(null)
+}
+
+// 1분 단위로 MAP, RSO2 등이 찍히는 시간표
+let nullArray_timestamp = []
+for (let i in dataValue[4]) {
+    nullArray_timestamp.push(null)
 }
 
 let minInterval = -1
@@ -45,133 +52,128 @@ dataValue[22] = [...nullArray_CoxTime]
 dataValue[23] = [...nullArray_CoxTime]
 dataValue[24] = [...nullArray_CoxTime]
 
-// 9/19 16:10
-dataValue[22][22] = minInterval
-dataValue[23][22] = maxInterval
-dataValue[24][22] = "increase sedation"
-
-// 9/19 17:00
-dataValue[22][32] = minInterval
-dataValue[23][32] = maxInterval
-dataValue[24][32] = "TTM Target temperature"
-
-// 9/19 19:30
-dataValue[22][62] = minInterval
-dataValue[23][62] = maxInterval
-dataValue[24][62] = "adjust ventilation"
-
-// 9/19 21:40
-dataValue[22][88] = minInterval
-dataValue[23][88] = maxInterval
-dataValue[24][88] = "adjust ventilation"
-
-// 9/19 04:40
-dataValue[22][172] = minInterval
-dataValue[23][172] = maxInterval
-dataValue[24][172] = "vasopressor increase"
-
-// 9/19 10:20
-dataValue[22][240] = minInterval
-dataValue[23][240] = maxInterval
-dataValue[24][240] = "fluid infusion"
-
-// 9/19 10:50
-dataValue[22][246] = minInterval
-dataValue[23][246] = maxInterval
-dataValue[24][246] = "increase sedation"
-
-// 9/19 12:05
-dataValue[22][261] = minInterval
-dataValue[23][261] = maxInterval
-dataValue[24][261] = "increase sedation"
-
-// 9/19 13:30
-dataValue[22][278] = minInterval
-dataValue[23][278] = maxInterval
-dataValue[24][278] = "TTM start rewarming"
-
-// 9/19 13:35 * 2
-dataValue[22][279] = minInterval
-dataValue[23][279] = maxInterval
-dataValue[24][279] = "increase sedation"
-
-// 9/19 13:55 Non-intervention
-dataValue[22][283] = minInterval
-dataValue[23][283] = maxInterval
-dataValue[24][283] = " "
-
-// 9/19 20:00
-dataValue[22][283] = minInterval
-dataValue[23][283] = maxInterval
-dataValue[24][283] = "TTM start normothermia"
-
-// 9/19 21:05
-dataValue[22][356] = minInterval
-dataValue[23][356] = maxInterval
-dataValue[24][356] = "increase sedation"
-
-// 9/19 21:45
-dataValue[22][369] = minInterval
-dataValue[23][369] = maxInterval
-dataValue[24][369] = "increase sedation"
-
-// 9/19 23:22
-dataValue[22][377] = minInterval
-dataValue[23][377] = maxInterval
-dataValue[24][377] = "vasopressor increase"
-
-// 9/19 03:27
-dataValue[22][396] = minInterval
-dataValue[23][396] = maxInterval
-dataValue[24][396] = "increase sedation"
-
-// 9/20 04:49
-dataValue[22][445] = minInterval
-dataValue[23][445] = maxInterval
-dataValue[24][445] = "vasopressor increase"
-
-// 9/20 05:03
-dataValue[22][462] = minInterval
-dataValue[23][462] = maxInterval
-dataValue[24][462] = "vasopressor increase"
-
-// 9/20 05:15
-dataValue[22][465] = minInterval
-dataValue[23][465] = maxInterval
-dataValue[24][465] = "vasopressor increase"
-
-// 9/20 05:27
-dataValue[22][469] = minInterval
-dataValue[23][469] = maxInterval
-dataValue[24][469] = "vasopressor increase"
-
-// 9/20 06:00
-dataValue[22][476] = minInterval
-dataValue[23][476] = maxInterval
-dataValue[24][476] = "stop sedation"
-
-// 9/20  08:43 Non-intervention
-dataValue[22][509] = minInterval
-dataValue[23][509] = maxInterval
-dataValue[24][509] = " "
-
-// 9/20 09:37
-dataValue[22][520] = minInterval
-dataValue[23][520] = maxInterval
-dataValue[24][520] = "TTM stop"
-
-
-let nullArray_timestamp = []
-for (let i in dataValue[4]) {
-    nullArray_timestamp.push(null)
-}
-
 dataValue[25] = [...nullArray_timestamp]
 dataValue[26] = [...nullArray_timestamp]
 dataValue[27] = [...nullArray_timestamp]
 
-const timestampIntervention = () => {
+const interventionCoxTime = (minInterval, maxInterval) => {
+// 9/19 16:10
+    dataValue[22][22] = minInterval
+    dataValue[23][22] = maxInterval
+    dataValue[24][22] = "increase sedation"
 
+// 9/19 17:00
+    dataValue[22][32] = minInterval
+    dataValue[23][32] = maxInterval
+    dataValue[24][32] = "TTM Target temperature"
+
+// 9/19 19:30
+    dataValue[22][62] = minInterval
+    dataValue[23][62] = maxInterval
+    dataValue[24][62] = "adjust ventilation"
+
+// 9/19 21:40
+    dataValue[22][88] = minInterval
+    dataValue[23][88] = maxInterval
+    dataValue[24][88] = "adjust ventilation"
+
+// 9/19 04:40
+    dataValue[22][172] = minInterval
+    dataValue[23][172] = maxInterval
+    dataValue[24][172] = "vasopressor increase"
+
+// 9/19 10:20
+    dataValue[22][240] = minInterval
+    dataValue[23][240] = maxInterval
+    dataValue[24][240] = "fluid infusion"
+
+// 9/19 10:50
+    dataValue[22][246] = minInterval
+    dataValue[23][246] = maxInterval
+    dataValue[24][246] = "increase sedation"
+
+// 9/19 12:05
+    dataValue[22][261] = minInterval
+    dataValue[23][261] = maxInterval
+    dataValue[24][261] = "increase sedation"
+
+// 9/19 13:30
+    dataValue[22][278] = minInterval
+    dataValue[23][278] = maxInterval
+    dataValue[24][278] = "TTM start rewarming"
+
+// 9/19 13:35 * 2
+    dataValue[22][279] = minInterval
+    dataValue[23][279] = maxInterval
+    dataValue[24][279] = "increase sedation"
+
+// 9/19 13:55 Non-intervention
+    dataValue[22][283] = minInterval
+    dataValue[23][283] = maxInterval
+    dataValue[24][283] = " "
+
+// 9/19 20:00
+    dataValue[22][283] = minInterval
+    dataValue[23][283] = maxInterval
+    dataValue[24][283] = "TTM start normothermia"
+
+// 9/19 21:05
+    dataValue[22][356] = minInterval
+    dataValue[23][356] = maxInterval
+    dataValue[24][356] = "increase sedation"
+
+// 9/19 21:45
+    dataValue[22][369] = minInterval
+    dataValue[23][369] = maxInterval
+    dataValue[24][369] = "increase sedation"
+
+// 9/19 23:22
+    dataValue[22][377] = minInterval
+    dataValue[23][377] = maxInterval
+    dataValue[24][377] = "vasopressor increase"
+
+// 9/19 03:27
+    dataValue[22][396] = minInterval
+    dataValue[23][396] = maxInterval
+    dataValue[24][396] = "increase sedation"
+
+// 9/20 04:49
+    dataValue[22][445] = minInterval
+    dataValue[23][445] = maxInterval
+    dataValue[24][445] = "vasopressor increase"
+
+// 9/20 05:03
+    dataValue[22][462] = minInterval
+    dataValue[23][462] = maxInterval
+    dataValue[24][462] = "vasopressor increase"
+
+// 9/20 05:15
+    dataValue[22][465] = minInterval
+    dataValue[23][465] = maxInterval
+    dataValue[24][465] = "vasopressor increase"
+
+// 9/20 05:27
+    dataValue[22][469] = minInterval
+    dataValue[23][469] = maxInterval
+    dataValue[24][469] = "vasopressor increase"
+
+// 9/20 06:00
+    dataValue[22][476] = minInterval
+    dataValue[23][476] = maxInterval
+    dataValue[24][476] = "stop sedation"
+
+// 9/20  08:43 Non-intervention
+    dataValue[22][509] = minInterval
+    dataValue[23][509] = maxInterval
+    dataValue[24][509] = " "
+
+// 9/20 09:37
+    dataValue[22][520] = minInterval
+    dataValue[23][520] = maxInterval
+    dataValue[24][520] = "TTM stop"
+}
+
+const interventionTimestamp = (minInterval, maxInterval) => {
 // 9/19 16:10
     dataValue[25][25] = minInterval
     dataValue[26][25] = maxInterval
@@ -259,7 +261,7 @@ const timestampIntervention = () => {
 
 // 9/20 05:03
     dataValue[25][462] = minInterval
-    dataValue[26][462] = 1
+    dataValue[26][462] = maxInterval
     dataValue[27][462] = "vasopressor increase"
 
 // 9/20 05:15
@@ -289,9 +291,9 @@ const timestampIntervention = () => {
 }
 
 
-
 function drawCOxMAPChart() {
     const data = new google.visualization.DataTable(jsonData);
+    interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -378,9 +380,9 @@ function drawCOxMAPChart() {
     chart_COxMAP.draw(data, options);
 }
 
-
 function drawCOxETCO2Chart() {
     const data = new google.visualization.DataTable(jsonData);
+    interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -452,12 +454,9 @@ function drawCOxETCO2Chart() {
     chart_COxETCO2.draw(data, options);
 }
 
-
 function drawRSO2Chart() {
     const data = new google.visualization.DataTable(jsonData);
-    minInterval = -50
-    maxInterval = 100
-    timestampIntervention()
+    interventionTimestamp(-50, 100)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'Left');
@@ -541,11 +540,9 @@ function drawRSO2Chart() {
     chart_RSO2.draw(data, options);
 }
 
-
 function drawMAPChart() {
     var data = new google.visualization.DataTable();
-    minInterval = 0
-    maxInterval = 150
+    interventionTimestamp(0, 150)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
@@ -553,6 +550,11 @@ function drawMAPChart() {
     data.addColumn('number', 'OP_BP_max1');
     data.addColumn('number', 'OP_BP_max2');
     data.addColumn('number', 'MAP');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn('number', 'intervention');
+    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue[4]) {
         let timestamp = String(dataValue[4][i]);
@@ -573,11 +575,16 @@ function drawMAPChart() {
             parseInt(dataValue[20].min[i]),
             parseInt(dataValue[20].max[i]),
             parseFloat(dataValue[0][i]),
+            parseInt(dataValue[25][i]),
+            parseInt(dataValue[25][i]),
+            parseInt(dataValue[26][i]),
+            parseInt(dataValue[26][i]),
+            dataValue[27][i],
         ]);
     }
 
     var options = {
-        colors: ['#FAA7B8', '#6096FD'],
+        colors: ['#FAA7B8', 'darkseagreen', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -585,8 +592,15 @@ function drawMAPChart() {
         fontSize: 15,
         pointSize: 0,
         lineWidth: 1.5,
-        intervals: {
-            color: "bisque"
+        seriesType: 'candlesticks',
+        series: {
+            1: {
+                type: 'line',
+            },
+        },
+        candlestick: {
+            fallingColor: {strokeWidth: 0, fill: 'transparent'},
+            risingColor: {strokeWidth: 0, fill: 'transparent'}
         },
         hAxis: {
             gridlines: {
@@ -612,27 +626,15 @@ function drawMAPChart() {
             width: '96%',
             height: '73%'
         },
-        seriesType: 'candlesticks',
-        series: {
-            1: {
-                type: 'line',
-                color: 'darkseagreen'
-            },
-        },
-        bar: {groupWidth: '200%'},
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: '#FAA7B8'},
-            risingColor: {strokeWidth: 0, fill: '#FAA7B8'}
-        }
     };
 
     var chart_MAP = new google.visualization.ComboChart(document.getElementById('chart_MAP'));
     chart_MAP.draw(data, options);
 }
 
-
 function drawETCO2Chart() {
     var data = new google.visualization.DataTable();
+    interventionTimestamp(0, 60)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
@@ -728,6 +730,7 @@ let jsonData_input = $.ajax({
 jsonData_input = JSON.parse(jsonData_input)
 const dataValue_input = Object.values(jsonData_input)
 
+// input에 의해 SJVO2, AJDO2 등이 찍히는 시간표
 let nullArray_inputChart = []
 for (let i in dataValue_input[0]) {
     nullArray_inputChart.push(null)
@@ -737,40 +740,126 @@ dataValue_input[4] = [...nullArray_inputChart]
 dataValue_input[5] = [...nullArray_inputChart]
 dataValue_input[6] = [...nullArray_inputChart]
 
+const interventionInput = (minInterval, maxInterval) => {
+// 9/19 16:10
+    dataValue_input[4][22] = minInterval
+    dataValue_input[5][22] = maxInterval
+    dataValue_input[6][22] = "increase sedation"
 
-const inputIntervention = () => {
-// 2019/9/18 14:20
-    dataValue_input[4][0] = minInterval
-    dataValue_input[5][0] = maxInterval
-    dataValue_input[6][0] = "Atrial_BGA(SaO2: 99.9, Jugular_BGA(SaO2: 82), Hgb: 13.1"
-
-// 2019/9/18 17:00
+// 9/19 17:00
     dataValue_input[4][32] = minInterval
     dataValue_input[5][32] = maxInterval
-    dataValue_input[6][32] = "Atrial_BGA(SaO2: 99.9), Jugular_BGA(SaO2: 73.5), Hgb: 13.1"
+    dataValue_input[6][32] = "TTM Target temperature"
 
-// 2019/9/19 05:00
-    dataValue_input[4][176] = minInterval
-    dataValue_input[5][176] = maxInterval
-    dataValue_input[6][176] = "Atrial_BGA(SaO2: 98.4), Jugular_BGA(SaO2: 78.2), Hgb: 11.7"
+// 9/19 19:30
+    dataValue_input[4][62] = minInterval
+    dataValue_input[5][62] = maxInterval
+    dataValue_input[6][62] = "adjust ventilation"
 
-// 2019/9/19 17:00
-    dataValue_input[4][320] = minInterval
-    dataValue_input[5][320] = maxInterval
-    dataValue_input[6][320] = "Atrial_BGA(SaO2: 98), Jugular_BGA(SaO2: 76.6), Hgb: 12.3"
+// 9/19 21:40
+    dataValue_input[4][88] = minInterval
+    dataValue_input[5][88] = maxInterval
+    dataValue_input[6][88] = "adjust ventilation"
 
-// 2019/9/20 10:00
-    dataValue_input[4][524] = minInterval
-    dataValue_input[5][524] = maxInterval
-    dataValue_input[6][524] = "Atrial_BGA(SaO2: 99), Jugular_BGA(SaO2: 83.6), Hgb: 10.5"
+// 9/19 04:40
+    dataValue_input[4][172] = minInterval
+    dataValue_input[5][172] = maxInterval
+    dataValue_input[6][172] = "vasopressor increase"
+
+// 9/19 10:20
+    dataValue_input[4][240] = minInterval
+    dataValue_input[5][240] = maxInterval
+    dataValue_input[6][240] = "fluid infusion"
+
+// 9/19 10:50
+    dataValue_input[4][246] = minInterval
+    dataValue_input[5][246] = maxInterval
+    dataValue_input[6][246] = "increase sedation"
+
+// 9/19 12:05
+    dataValue_input[4][261] = minInterval
+    dataValue_input[5][261] = maxInterval
+    dataValue_input[6][261] = "increase sedation"
+
+// 9/19 13:30
+    dataValue_input[4][278] = minInterval
+    dataValue_input[5][278] = maxInterval
+    dataValue_input[6][278] = "TTM start rewarming"
+
+// 9/19 13:35 * 2
+    dataValue_input[4][279] = minInterval
+    dataValue_input[5][279] = maxInterval
+    dataValue_input[6][279] = "increase sedation"
+
+// 9/19 13:55 Non-intervention
+    dataValue_input[4][283] = minInterval
+    dataValue_input[5][283] = maxInterval
+    dataValue_input[6][283] = " "
+
+// 9/19 20:00
+    dataValue_input[4][283] = minInterval
+    dataValue_input[5][283] = maxInterval
+    dataValue_input[6][283] = "TTM start normothermia"
+
+// 9/19 21:05
+    dataValue_input[4][356] = minInterval
+    dataValue_input[5][356] = maxInterval
+    dataValue_input[6][356] = "increase sedation"
+
+// 9/19 21:45
+    dataValue_input[4][369] = minInterval
+    dataValue_input[5][369] = maxInterval
+    dataValue_input[6][369] = "increase sedation"
+
+// 9/19 23:22
+    dataValue_input[4][377] = minInterval
+    dataValue_input[5][377] = maxInterval
+    dataValue_input[6][377] = "vasopressor increase"
+
+// 9/19 03:27
+    dataValue_input[4][396] = minInterval
+    dataValue_input[5][396] = maxInterval
+    dataValue_input[6][396] = "increase sedation"
+
+// 9/20 04:49
+    dataValue_input[4][445] = minInterval
+    dataValue_input[5][445] = maxInterval
+    dataValue_input[6][445] = "vasopressor increase"
+
+// 9/20 05:03
+    dataValue_input[4][462] = minInterval
+    dataValue_input[5][462] = maxInterval
+    dataValue_input[6][462] = "vasopressor increase"
+
+// 9/20 05:15
+    dataValue_input[4][465] = minInterval
+    dataValue_input[5][465] = maxInterval
+    dataValue_input[6][465] = "vasopressor increase"
+
+// 9/20 05:27
+    dataValue_input[4][469] = minInterval
+    dataValue_input[5][469] = maxInterval
+    dataValue_input[6][469] = "vasopressor increase"
+
+// 9/20 06:00
+    dataValue_input[4][476] = minInterval
+    dataValue_input[5][476] = maxInterval
+    dataValue_input[6][476] = "stop sedation"
+
+// 9/20  08:43 Non-intervention
+    dataValue_input[4][509] = minInterval
+    dataValue_input[5][509] = maxInterval
+    dataValue_input[6][509] = " "
+
+// 9/20 09:37
+    dataValue_input[4][520] = minInterval
+    dataValue_input[5][520] = maxInterval
+    dataValue_input[6][520] = "TTM stop"
 }
-
 
 function drawSJVO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-    minInterval = 0
-    maxInterval = 100
-    inputIntervention()
+    interventionInput(0, 100)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'SJVO2');
@@ -807,8 +896,8 @@ function drawSJVO2Chart() {
         colors: ['#47CACC', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
-        height: "100%",
-        legend: "none",
+        height: '100%',
+        legend: 'none',
         fontSize: 15,
         pointSize: 5,
         seriesType: 'line',
@@ -837,7 +926,7 @@ function drawSJVO2Chart() {
         },
         vAxis: {
             title: "SJVO2",
-            ticks: [20, 40, 60, 80, 100],
+            ticks: [0, 20, 40, 60, 80, 100],
             baselineColor: '#777',
             gridlineColor: '#777',
         },
@@ -850,7 +939,6 @@ function drawSJVO2Chart() {
     var chart_SJVO2 = new google.visualization.ComboChart(document.getElementById('chart_SJVO2'));
     chart_SJVO2.draw(data, options);
 }
-
 
 function drawAJDLChart() {
     var data = new google.visualization.DataTable();
@@ -919,7 +1007,6 @@ function drawAJDLChart() {
 
     chart_AJDL.draw(data, options);
 }
-
 
 function drawLOIChart() {
     var data_LOI = new google.visualization.DataTable();
@@ -1021,10 +1108,7 @@ function drawLOIChart() {
 
 function drawAJDO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-
-    minInterval = 0
-    maxInterval = 6
-    inputIntervention()
+    interventionInput(0, 6)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'AJDO2');
@@ -1110,13 +1194,9 @@ function drawAJDO2Chart() {
     chart_AJDO2.draw(data, options);
 }
 
-
 function drawCEO2Chart() {
     var data = new google.visualization.DataTable(jsonData_input);
-
-    minInterval = 0
-    maxInterval = 60
-    inputIntervention()
+    interventionInput(0, 60)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'CEO2');
@@ -1196,7 +1276,6 @@ function drawCEO2Chart() {
     var chart_CEO2 = new google.visualization.LineChart(document.getElementById("chart_CEO2"));
     chart_CEO2.draw(data, options);
 }
-
 
 function drawAJglcChart() {
     var data_AJglc = new google.visualization.DataTable();
@@ -1296,7 +1375,6 @@ function drawAJglcChart() {
     chart_AJglc.draw(data_AJglc, options_AJglc);
 }
 
-
 function drawAJCO2Chart() {
     var data_AJCO2 = new google.visualization.DataTable();
     data_AJCO2.addColumn('date', 'Time of Day');
@@ -1395,7 +1473,6 @@ function drawAJCO2Chart() {
     chart_AJCO2.draw(data_AJCO2, options_AJCO2);
 }
 
-
 function drawRQChart() {
     var data_RQ = new google.visualization.DataTable();
     data_RQ.addColumn('date', 'Time of Day');
@@ -1492,7 +1569,6 @@ function drawRQChart() {
     var chart_RQ = new google.visualization.ScatterChart(document.getElementById('chart_RQ'));
     chart_RQ.draw(data_RQ, options_RQ);
 }
-
 
 function drawNPIChart() {
     var data_NPI = new google.visualization.DataTable();
@@ -1593,7 +1669,6 @@ function drawNPIChart() {
     chart_NPI.draw(data_NPI, options_NPI);
 }
 
-
 function drawPupilChart() {
     var data_pupil = new google.visualization.DataTable();
     data_pupil.addColumn('datetime', 'Time of Day');
@@ -1692,7 +1767,6 @@ function drawPupilChart() {
     var chart_pupil = new google.visualization.ScatterChart(document.getElementById('chart_pupil'));
     chart_pupil.draw(data_pupil, options_pupil);
 }
-
 
 function drawModalMAPLeftChart() {
     var data = new google.visualization.DataTable();
@@ -1838,7 +1912,6 @@ function drawModalMAPMeanChart() {
     chart_ModalMAPMean.draw(data, options);
 }
 
-
 function drawMAPRSO2Chart() {
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'MAP');
@@ -1892,7 +1965,6 @@ function drawMAPRSO2Chart() {
 
     chart_MAPRSO2.draw(data, options);
 }
-
 
 function drawModalETCO2LeftChart() {
     var data = new google.visualization.DataTable();
@@ -2037,7 +2109,6 @@ function drawModalETCO2MeanChart() {
     var chart_ModalETCO2Mean = new google.visualization.ColumnChart(document.getElementById("chart_ModalETCO2Mean"));
     chart_ModalETCO2Mean.draw(data, options);
 }
-
 
 function drawETCO2RSO2Chart() {
     var data = new google.visualization.DataTable();
