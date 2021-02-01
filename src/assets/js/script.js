@@ -14,7 +14,7 @@ document.documentElement.addEventListener('touchstart', function (event) {
 document.addEventListener('DOMContentLoaded', function () {
 
     // 환자현황: 선택한 병원 대시보드 화면 띄우기
-    const subMenus = document.querySelectorAll('.sub-menu li')
+/*    const subMenus = document.querySelectorAll('.sub-menu li')
     const sections = document.querySelectorAll('.dashboard section')
 
     const init = (n) => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             init(index)
         })
         init(0)
-    })
+    })*/
 
 
     //환자조회: 체크박스
