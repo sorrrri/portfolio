@@ -437,9 +437,7 @@ main {
 }
 
 section {
-  display: flex;
   padding: 0 1rem 1rem 1rem;
-  flex: 1 1 auto;
   align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
@@ -511,6 +509,11 @@ section {
 main {
   &[class*="dashboard"] {
 
+    section {
+      display: flex;
+      flex: 1 1 auto;
+    }
+
 
     .row {
       background-color: transparent;
@@ -576,7 +579,7 @@ main {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-    }
+    }ㅎ
 
     .row {
       .btn-plus {
@@ -915,10 +918,6 @@ section {
    Clinical Trial Patient Dashboard
    ============================================================ */
 .clinical-trial-patient-dashboard {
-
-  section {
-    display: flex;
-  }
 
   select {
     min-width: 100px;
