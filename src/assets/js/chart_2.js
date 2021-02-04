@@ -546,7 +546,7 @@ function drawCOxMAPChart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -620,7 +620,7 @@ function drawCOxETCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -716,7 +716,7 @@ function drawRSO2Chart() {
             //ticks: [20, 30, 40, 50, 60],
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -808,7 +808,7 @@ function drawMAPChart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
     };
@@ -884,7 +884,7 @@ function drawETCO2Chart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
         seriesType: 'candlesticks',
@@ -1207,7 +1207,7 @@ function drawSJVO2Chart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1274,7 +1274,7 @@ function drawAJDLChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1372,7 +1372,7 @@ function drawLOIChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1468,7 +1468,7 @@ function drawAJDO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1557,7 +1557,7 @@ function drawCEO2Chart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1654,7 +1654,7 @@ function drawAJglcChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1753,7 +1753,7 @@ function drawAJCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1850,7 +1850,7 @@ function drawRQChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -1949,7 +1949,7 @@ function drawNPIChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -2048,7 +2048,7 @@ function drawPupilChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         }
     };
@@ -2241,7 +2241,7 @@ function drawMAPRSO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
         chartArea: {
@@ -2439,7 +2439,7 @@ function drawETCO2RSO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '98%',
             height: '73%'
         },
         chartArea: {

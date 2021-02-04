@@ -549,7 +549,7 @@ header .change-theme {
   }
 
   &.chart-3 .chart-container {
-    width: 2500px;
+    width: 3500px;
   }
 }
 
@@ -613,7 +613,7 @@ header .change-theme {
   padding: .2rem;
   margin: .5rem;
   display: flex;
-  width: 3300px;
+  width: 3200px;
   height: 180px;
   position: relative;
   overflow: hidden;
@@ -640,19 +640,19 @@ header .change-theme {
 
 
 .filter-COxMAP {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>COx MAP</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>COx MAP</text></svg>");
 }
 
 .filter-COxETCO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>COx ETCO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>COx ETCO2</text></svg>");
 }
 
 .filter-RSO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>RSO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>RSO2</text></svg>");
 }
 
 .filter-MAP {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>MAP</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>MAP</text></svg>");
   position: relative;
 
   &::before {
@@ -669,7 +669,7 @@ header .change-theme {
 
 
 .filter-ETCO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>ETCO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>ETCO2</text></svg>");
 
   &::before {
     content: '';
@@ -684,43 +684,43 @@ header .change-theme {
 }
 
 .filter-SJVO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>SJVO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>SJVO2</text></svg>");
 }
 
 .filter-AJDL {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>AJDL</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>AJDL</text></svg>");
 }
 
 .filter-LOI {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>LOI</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>LOI</text></svg>");
 }
 
 .filter-AJDO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>AJDO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>AJDO2</text></svg>");
 }
 
 .filter-CEO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>CEO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>CEO2</text></svg>");
 }
 
 .filter-AJglc {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>AJglc</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>AJglc</text></svg>");
 }
 
 .filter-AJCO2 {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>AJCO2</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>AJCO2</text></svg>");
 }
 
 .filter-RQ {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>RQ</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>RQ</text></svg>");
 }
 
 .filter-NPI {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>NPI</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>NPI</text></svg>");
 }
 
 .filter-pupil {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1500px'><text x='0' y='15' fill='gray' font-size='20'>Pupil Size</text></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='1200px'><text x='0' y='15' fill='gray' font-size='20'>Pupil Size</text></svg>");
 }
 
 
