@@ -242,7 +242,7 @@ function drawCOxMAPChart() {
     }
 
     const options = {
-        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', '#AB916F'],
+        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -339,7 +339,7 @@ function drawCOxETCO2Chart() {
         pointSize: 1.5,
         lineWidth: 1.5,
         intervals: {
-            color: "#AB916F"
+            color: "#a29380"
         },
         hAxis: {
             gridlines: {
@@ -416,7 +416,7 @@ function drawRSO2Chart() {
     }
 
     const options = {
-        colors: ['#FAA7B8', '#6096FD', '#AB916F', '#FAA7B8', '#6096FD'],
+        colors: ['#FAA7B8', '#6096FD', '#a29380', '#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
@@ -514,7 +514,7 @@ function drawMAPChart() {
     }
 
     var options = {
-        colors: ['#FAA7B8', 'darkseagreen', '#AB916F'],
+        colors: ['#FAA7B8', 'darkseagreen', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -605,7 +605,7 @@ function drawETCO2Chart() {
         pointSize: 0,
         lineWidth: 1.5,
         intervals: {
-            color: "#AB916F"
+            color: "#a29380"
         },
         hAxis: {
             gridlines: {
@@ -780,7 +780,7 @@ function drawSJVO2Chart() {
     }
 
     var options = {
-        colors: ['green', '#47CACC', '#AB916F'],
+        colors: ['green', '#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
@@ -863,7 +863,7 @@ function drawAJDLChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             gridlines: {
@@ -957,7 +957,7 @@ function drawLOIChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             viewWindow: {
@@ -1037,7 +1037,7 @@ function drawAJDO2Chart() {
     }
 
     var options = {
-        colors: ['green', '#47CACC', '#AB916F'],
+        colors: ['green', '#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1131,7 +1131,7 @@ function drawCEO2Chart() {
     }
 
     var options = {
-        colors: ['green','#47CACC', '#AB916F'],
+        colors: ['green','#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1240,7 +1240,7 @@ function drawAJglcChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             viewWindow: {
@@ -1338,7 +1338,7 @@ function drawAJCO2Chart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             viewWindow: {
@@ -1436,7 +1436,7 @@ function drawRQChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             viewWindow: {
@@ -1534,7 +1534,7 @@ function drawNPIChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             viewWindow: {
@@ -1633,7 +1633,7 @@ function drawPupilChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: '#AB916F'
+            color: '#a29380'
         },
         hAxis: {
             viewWindow: {
