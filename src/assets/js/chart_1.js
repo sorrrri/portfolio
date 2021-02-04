@@ -296,7 +296,7 @@ function drawCOxMAPChart() {
     interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'normal')
+    data.addColumn('number', 'normal range');
     data.addColumn('number', 'left');
     data.addColumn('number', 'right');
     data.addColumn('number', 'average');
@@ -333,7 +333,7 @@ function drawCOxMAPChart() {
     }
 
     const options = {
-        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', 'bisque'],
+        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', '#AB916F'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -344,7 +344,7 @@ function drawCOxMAPChart() {
         seriesType: 'line',
         series: {
             0: {
-                type: 'area'
+                type: 'area',
             },
             4: {
                 type: 'candlesticks',
@@ -380,7 +380,7 @@ function drawCOxMAPChart() {
         }
     };
 
-    var chart_COxMAP = new google.visualization.LineChart(document.getElementById('chart_COxMAP'));
+    var chart_COxMAP = new google.visualization.ComboChart(document.getElementById('chart_COxMAP'));
     chart_COxMAP.draw(data, options);
 }
 
@@ -423,7 +423,7 @@ function drawCOxETCO2Chart() {
         pointSize: 1.5,
         lineWidth: 1.5,
         intervals: {
-            color: "bisque"
+            color: "#AB916F"
         },
         hAxis: {
             gridlines: {
@@ -494,13 +494,13 @@ function drawRSO2Chart() {
             parseInt(dataValue[26][i]),
             parseInt(dataValue[26][i]),
             dataValue[27][i],
-            79.39,
-            88
+            15.88,
+            17.6
         ]);
     }
 
     const options = {
-        colors: ['#FAA7B8', '#6096FD', 'bisque','#FAA7B8', '#6096FD'],
+        colors: ['#FAA7B8', '#6096FD', '#AB916F','#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
@@ -598,7 +598,7 @@ function drawMAPChart() {
     }
 
     var options = {
-        colors: ['#FAA7B8', 'darkseagreen', 'bisque'],
+        colors: ['#FAA7B8', 'darkseagreen', '#AB916F'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -689,7 +689,7 @@ function drawETCO2Chart() {
         pointSize: 0,
         lineWidth: 1.5,
         intervals: {
-            color: "bisque"
+            color: "#AB916F"
         },
         hAxis: {
             gridlines: {
@@ -876,6 +876,7 @@ function drawSJVO2Chart() {
     interventionInput(0, 100)
 
     data.addColumn('date', 'Time of Day');
+    data.addColumn('number', 'normal range')
     data.addColumn('number', 'SJVO2');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -897,6 +898,7 @@ function drawSJVO2Chart() {
 
         data.addRow([
             timestamp,
+            70,
             parseFloat(dataValue_input[1][i]),
             parseInt(dataValue_input[4][i]),
             parseInt(dataValue_input[4][i]),
@@ -907,16 +909,19 @@ function drawSJVO2Chart() {
     }
 
     var options = {
-        colors: ['#47CACC', 'bisque'],
+        colors: ['green', '#47CACC', '#AB916F'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
         legend: 'none',
         fontSize: 15,
-        pointSize: 5,
+        pointSize: 0,
         seriesType: 'line',
         series: {
-            1: {
+            0: {
+                type: 'area'
+            },
+            2: {
                 type: 'candlesticks',
             },
         },
@@ -941,6 +946,7 @@ function drawSJVO2Chart() {
         vAxis: {
             title: "SJVO2",
             ticks: [0, 20, 40, 60, 80, 100],
+            baseline: 50,
             baselineColor: '#777',
             gridlineColor: '#777',
         },
@@ -986,7 +992,7 @@ function drawAJDLChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             gridlines: {
@@ -1080,7 +1086,7 @@ function drawLOIChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             viewWindow: {
@@ -1125,7 +1131,7 @@ function drawAJDO2Chart() {
     interventionInput(0, 8)
 
     data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'normal');
+    data.addColumn('number', 'normal range');
     data.addColumn('number', 'AJDO2');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -1149,7 +1155,7 @@ function drawAJDO2Chart() {
 
         data.addRow([
             timestamp,
-            4,
+            8,
             parseFloat(dataValue_input[2][i]),
             parseInt(dataValue_input[4][i]),
             parseInt(dataValue_input[4][i]),
@@ -1160,7 +1166,7 @@ function drawAJDO2Chart() {
     }
 
     var options = {
-        colors: ['orangered', '#47CACC', 'bisque'],
+        colors: ['green', '#47CACC', '#AB916F'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1171,7 +1177,7 @@ function drawAJDO2Chart() {
         series: {
             0: {
                 type: 'area',
-                pointSize: 0
+                pointSize: 0,
             },
             2: {
                 type: 'candlesticks',
@@ -1198,7 +1204,7 @@ function drawAJDO2Chart() {
         vAxis: {
             title: "AJDO2",
             ticks: [0, 2, 4, 6, 8],
-            baseline: 0,
+            baseline: 4,
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -1221,6 +1227,7 @@ function drawCEO2Chart() {
     interventionInput(0, 60)
 
     data.addColumn('date', 'Time of Day');
+    data.addColumn('number', 'normal range');
     data.addColumn('number', 'CEO2');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -1242,6 +1249,7 @@ function drawCEO2Chart() {
 
         data.addRow([
             timestamp,
+            40,
             parseFloat(dataValue_input[3][i]),
             parseInt(dataValue_input[4][i]),
             parseInt(dataValue_input[4][i]),
@@ -1252,16 +1260,19 @@ function drawCEO2Chart() {
     }
 
     var options = {
-        colors: ["#47CACC", 'bisque'],
+        colors: ['green','#47CACC', '#AB916F'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 5,
+        pointSize: 0,
         seriesType: 'line',
         series: {
-            1: {
+            0: {
+                type: 'area'
+            },
+            2: {
                 type: 'candlesticks',
             },
         },
@@ -1286,6 +1297,7 @@ function drawCEO2Chart() {
         vAxis: {
             title: "CEO2",
             ticks: [0, 10, 20, 30, 40, 50, 60],
+            baseline: 20,
             baselineColor: '#777',
             gridlineColor: '#777',
         },
@@ -1357,7 +1369,7 @@ function drawAJglcChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             viewWindow: {
@@ -1455,7 +1467,7 @@ function drawAJCO2Chart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             viewWindow: {
@@ -1553,7 +1565,7 @@ function drawRQChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             viewWindow: {
@@ -1651,7 +1663,7 @@ function drawNPIChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             viewWindow: {
@@ -1750,7 +1762,7 @@ function drawPupilChart() {
         fontSize: 15,
         pointSize: 5,
         intervals: {
-            color: 'bisque'
+            color: '#AB916F'
         },
         hAxis: {
             viewWindow: {
