@@ -467,7 +467,7 @@ function drawCOxMAPChart() {
     interventionCoxTime(-1, 1)
 
     data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'abnormal');
+    data.addColumn('number', 'normal');
     data.addColumn('number', 'left');
     data.addColumn('number', 'right');
     data.addColumn('number', 'average');
@@ -504,7 +504,7 @@ function drawCOxMAPChart() {
     }
 
     const options = {
-        colors: ['orangered', '#FAA7B8', '#6096FD', 'darkseagreen', 'bisque'],
+        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', 'bisque'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -542,7 +542,7 @@ function drawCOxMAPChart() {
         vAxis: {
             title: "COx MAP",
             ticks: [-1, 0, 0.3, 1],
-            baseline: 1,
+            baseline: -1,
             gridlineColor: '#777',
         },
         chartArea: {
@@ -1381,7 +1381,7 @@ function drawAJDO2Chart() {
     interventionInput(0, 8)
 
     data.addColumn('date', 'Time of Day');
-    data.addColumn('number', 'abnormal');
+    data.addColumn('number', 'normal');
     data.addColumn('number', 'AJDO2');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
