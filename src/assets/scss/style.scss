@@ -543,6 +543,14 @@ header .change-theme {
 .content-chart {
   flex-direction: column;
   flex: 1 1 100%;
+
+  &.chart-2 .chart-container {
+    width: 4500px;
+  }
+
+  &.chart-3 .chart-container {
+    width: 2500px;
+  }
 }
 
 
@@ -605,7 +613,7 @@ header .change-theme {
   padding: .2rem;
   margin: .5rem;
   display: flex;
-  width: 3000px;
+  width: 3300px;
   height: 180px;
   position: relative;
   overflow: hidden;
