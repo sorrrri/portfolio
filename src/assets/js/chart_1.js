@@ -556,7 +556,7 @@ function drawRSO2Chart() {
 
 function drawMAPChart() {
     var data = new google.visualization.DataTable();
-    interventionTimestamp(0, 150)
+    interventionTimestamp(0, 250)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
@@ -632,7 +632,7 @@ function drawMAPChart() {
         },
         vAxis: {
             title: "MAP",
-            ticks: [0, 50, 100, 150],
+            ticks: [0, 50, 100, 150, 200, 250],
             baselineColor: '#777',
             gridlineColor: '#777',
         },
@@ -899,7 +899,7 @@ function drawSJVO2Chart() {
     }
 
     var options = {
-        colors: ['darkseagreen', '#47CACC', '#a29380'],
+        colors: ['darkseagreen', 'lightyellow', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
@@ -1140,7 +1140,7 @@ function drawAJDO2Chart() {
     }
 
     var options = {
-        colors: ['darkseagreen', '#47CACC', '#a29380'],
+        colors: ['darkseagreen', 'lightyellow', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1217,13 +1217,13 @@ function drawCEO2Chart() {
     }
 
     var options = {
-        colors: ['darkseagreen','#47CACC', '#a29380'],
+        colors: ['darkseagreen','lightyellow', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 5,
         seriesType: 'line',
         series: {
             0: {
