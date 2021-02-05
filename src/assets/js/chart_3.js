@@ -242,11 +242,11 @@ function drawCOxMAPChart() {
     }
 
     const options = {
-        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', '#a29380'],
+        colors: ['darkseagreen', '#FAA7B8', '#6096FD', 'darkseagreen', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: {position: 'top'},
+        legend: 'none',
         fontSize: 15,
         pointSize: 0,
         lineWidth: 1.5,
@@ -291,7 +291,7 @@ function drawCOxMAPChart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -334,7 +334,7 @@ function drawCOxETCO2Chart() {
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: {position: 'top'},
+        legend: 'none',
         fontSize: 15,
         pointSize: 1.5,
         lineWidth: 1.5,
@@ -365,7 +365,7 @@ function drawCOxETCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -458,10 +458,10 @@ function drawRSO2Chart() {
             title: "RSO2",
             baselineColor: '#777',
             gridlineColor: '#777',
-            //ticks: [20, 30, 40, 50, 60],
+            ticks: [0, 50, 100],
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -553,7 +553,7 @@ function drawMAPChart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         },
     };
@@ -629,7 +629,7 @@ function drawETCO2Chart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         },
         seriesType: 'candlesticks',
@@ -749,11 +749,6 @@ function drawSJVO2Chart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range')
     data.addColumn('number', 'SJVO2');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue_input[0]) {
         let timestamp = String(dataValue_input[0][i]);
@@ -769,36 +764,25 @@ function drawSJVO2Chart() {
 
         data.addRow([
             timestamp,
-            70,
+            80,
             parseFloat(dataValue_input[1][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[5][i]),
-            parseInt(dataValue_input[5][i]),
-            dataValue_input[6][i],
         ]);
     }
 
     var options = {
-        colors: ['green', '#47CACC', '#a29380'],
+        colors: ['darkseagreen', '#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
         legend: 'none',
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 5,
         seriesType: 'line',
         series: {
             0: {
-                type: 'area'
+                type: 'area',
+                pointSize: 0,
             },
-            2: {
-                type: 'candlesticks',
-            },
-        },
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: 'transparent'},
-            risingColor: {strokeWidth: 0, fill: 'transparent'},
         },
         hAxis: {
             gridlines: {
@@ -822,7 +806,7 @@ function drawSJVO2Chart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -889,7 +873,7 @@ function drawAJDLChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -987,7 +971,7 @@ function drawLOIChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1004,11 +988,6 @@ function drawAJDO2Chart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range');
     data.addColumn('number', 'AJDO2');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue_input[0]) {
         minInterval = 0
@@ -1028,16 +1007,11 @@ function drawAJDO2Chart() {
             timestamp,
             8,
             parseFloat(dataValue_input[2][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[5][i]),
-            parseInt(dataValue_input[5][i]),
-            dataValue_input[6][i],
         ]);
     }
 
     var options = {
-        colors: ['green', '#47CACC', '#a29380'],
+        colors: ['darkseagreen', '#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1050,13 +1024,6 @@ function drawAJDO2Chart() {
                 type: 'area',
                 pointSize: 0,
             },
-            2: {
-                type: 'candlesticks',
-            },
-        },
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: 'transparent'},
-            risingColor: {strokeWidth: 0, fill: 'transparent'},
         },
         hAxis: {
             gridlines: {
@@ -1083,7 +1050,7 @@ function drawAJDO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1100,11 +1067,6 @@ function drawCEO2Chart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range');
     data.addColumn('number', 'CEO2');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue_input[0]) {
         let timestamp = String(dataValue_input[0][i]);
@@ -1122,34 +1084,23 @@ function drawCEO2Chart() {
             timestamp,
             40,
             parseFloat(dataValue_input[3][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[5][i]),
-            parseInt(dataValue_input[5][i]),
-            dataValue_input[6][i],
         ]);
     }
 
     var options = {
-        colors: ['green','#47CACC', '#a29380'],
+        colors: ['darkseagreen','#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 5,
         seriesType: 'line',
         series: {
             0: {
-                type: 'area'
+                type: 'area',
+                pointSize: 0,
             },
-            2: {
-                type: 'candlesticks',
-            },
-        },
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: 'transparent'},
-            risingColor: {strokeWidth: 0, fill: 'transparent'},
         },
         hAxis: {
             gridlines: {
@@ -1173,7 +1124,7 @@ function drawCEO2Chart() {
             gridlineColor: '#777',
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1270,7 +1221,7 @@ function drawAJglcChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1369,7 +1320,7 @@ function drawAJCO2Chart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1466,7 +1417,7 @@ function drawRQChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1565,7 +1516,7 @@ function drawNPIChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1664,7 +1615,7 @@ function drawPupilChart() {
             }
         },
         chartArea: {
-            width: '96%',
+            width: '97%',
             height: '73%'
         }
     };
@@ -1855,10 +1806,6 @@ function drawMAPRSO2Chart() {
             minorGridlines: {
                 color: '#333',
             }
-        },
-        chartArea: {
-            width: '96%',
-            height: '73%'
         },
         chartArea: {
             width: '80%',
@@ -2053,10 +2000,6 @@ function drawETCO2RSO2Chart() {
             minorGridlines: {
                 color: '#333',
             }
-        },
-        chartArea: {
-            width: '96%',
-            height: '73%'
         },
         chartArea: {
             width: '80%',

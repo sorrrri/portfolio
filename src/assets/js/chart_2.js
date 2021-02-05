@@ -504,11 +504,11 @@ function drawCOxMAPChart() {
     }
 
     const options = {
-        colors: ['green', '#FAA7B8', '#6096FD', 'darkseagreen', '#a29380'],
+        colors: ['darkseagreen', '#FAA7B8', '#6096FD', 'darkseagreen', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: {position: 'top'},
+        legend: 'none',
         fontSize: 15,
         pointSize: 0,
         lineWidth: 1.5,
@@ -589,7 +589,7 @@ function drawCOxETCO2Chart() {
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
-        legend: {position: 'top'},
+        legend: 'none',
         fontSize: 15,
         pointSize: 1.5,
         lineWidth: 1.5,
@@ -713,7 +713,7 @@ function drawRSO2Chart() {
             title: "RSO2",
             baselineColor: '#777',
             gridlineColor: '#777',
-            //ticks: [20, 30, 40, 50, 60],
+            ticks: [0, 50, 100],
         },
         chartArea: {
             width: '97%',
@@ -1134,11 +1134,6 @@ function drawSJVO2Chart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range')
     data.addColumn('number', 'SJVO2');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue_input[0]) {
         let timestamp = String(dataValue_input[0][i]);
@@ -1154,36 +1149,25 @@ function drawSJVO2Chart() {
 
         data.addRow([
             timestamp,
-            70,
+            80,
             parseFloat(dataValue_input[1][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[5][i]),
-            parseInt(dataValue_input[5][i]),
-            dataValue_input[6][i],
         ]);
     }
 
     var options = {
-        colors: ['green', '#47CACC', '#a29380'],
+        colors: ['darkseagreen', '#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: '100%',
         legend: 'none',
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 5,
         seriesType: 'line',
         series: {
             0: {
-                type: 'area'
+                type: 'area',
+                pointSize: 0,
             },
-            2: {
-                type: 'candlesticks',
-            },
-        },
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: 'transparent'},
-            risingColor: {strokeWidth: 0, fill: 'transparent'},
         },
         hAxis: {
             gridlines: {
@@ -1389,11 +1373,6 @@ function drawAJDO2Chart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range');
     data.addColumn('number', 'AJDO2');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue_input[0]) {
         minInterval = 0
@@ -1413,16 +1392,11 @@ function drawAJDO2Chart() {
             timestamp,
             8,
             parseFloat(dataValue_input[2][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[5][i]),
-            parseInt(dataValue_input[5][i]),
-            dataValue_input[6][i],
         ]);
     }
 
     var options = {
-        colors: ['green', '#47CACC', '#a29380'],
+        colors: ['darkseagreen', '#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1435,13 +1409,6 @@ function drawAJDO2Chart() {
                 type: 'area',
                 pointSize: 0,
             },
-            2: {
-                type: 'candlesticks',
-            },
-        },
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: 'transparent'},
-            risingColor: {strokeWidth: 0, fill: 'transparent'},
         },
         hAxis: {
             gridlines: {
@@ -1485,11 +1452,6 @@ function drawCEO2Chart() {
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range');
     data.addColumn('number', 'CEO2');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn('number', 'intervention');
-    data.addColumn({'type': 'string', 'role': 'tooltip'});
 
     for (let i in dataValue_input[0]) {
         let timestamp = String(dataValue_input[0][i]);
@@ -1507,34 +1469,23 @@ function drawCEO2Chart() {
             timestamp,
             40,
             parseFloat(dataValue_input[3][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[4][i]),
-            parseInt(dataValue_input[5][i]),
-            parseInt(dataValue_input[5][i]),
-            dataValue_input[6][i],
         ]);
     }
 
     var options = {
-        colors: ['green','#47CACC', '#a29380'],
+        colors: ['darkseagreen','#47CACC', '#a29380'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 5,
         seriesType: 'line',
         series: {
             0: {
-                type: 'area'
+                type: 'area',
+                pointSize: 0,
             },
-            2: {
-                type: 'candlesticks',
-            },
-        },
-        candlestick: {
-            fallingColor: {strokeWidth: 0, fill: 'transparent'},
-            risingColor: {strokeWidth: 0, fill: 'transparent'},
         },
         hAxis: {
             gridlines: {
@@ -1553,6 +1504,7 @@ function drawCEO2Chart() {
         vAxis: {
             title: "CEO2",
             ticks: [0, 10, 20, 30, 40, 50, 60],
+            baseline: 20,
             baselineColor: '#777',
             gridlineColor: '#777',
         },
@@ -1860,13 +1812,13 @@ function drawRQChart() {
 }
 
 function drawNPIChart() {
-    var data_NPI = new google.visualization.DataTable();
-    data_NPI.addColumn('datetime', 'Time of Day');
-    data_NPI.addColumn('number', 'Left');
-    data_NPI.addColumn('number', 'Right');
-    data_NPI.addColumn({'type': 'number', 'role': 'interval'});
-    data_NPI.addColumn({'type': 'number', 'role': 'interval'});
-    data_NPI.addRows([
+    var data = new google.visualization.DataTable();
+    data.addColumn('datetime', 'Time of Day');
+    data.addColumn('number', 'left');
+    data.addColumn('number', 'right');
+    data.addColumn({'type': 'number', 'role': 'interval'});
+    data.addColumn({'type': 'number', 'role': 'interval'});
+    data.addRows([
         [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
         [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
         [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
@@ -1909,7 +1861,7 @@ function drawNPIChart() {
         [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
     ]);
 
-    var options_NPI = {
+    var options = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -1955,7 +1907,7 @@ function drawNPIChart() {
     };
 
     var chart_NPI = new google.visualization.ScatterChart(document.getElementById('chart_NPI'));
-    chart_NPI.draw(data_NPI, options_NPI);
+    chart_NPI.draw(data, options);
 }
 
 function drawPupilChart() {
