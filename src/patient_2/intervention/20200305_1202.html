@@ -54,7 +54,7 @@
         </section>
     </header>
     <div class="title">
-        <div></div>
+        <h3>2020-03-05 12:02</h3>
         <button class="btn-save">
             <i class="fas fa-check"></i>
             <span>save</span>
@@ -64,10 +64,6 @@
     <!-- Health Record -->
     <section id="record" class="content content-input">
         <div class="record-container">
-            <div class="record">
-                <label for="search-time">time</label>
-                <input id="search-time" type="datetime-local"/>
-            </div>
             <div class="record-title">Intervention</div>
             <div class="records records-checkbox">
                 <div class="checkbox">
@@ -83,7 +79,7 @@
                     <label for="vasopressorIncrease">Vasopressor increase</label>
                 </div>
                 <div class="checkbox">
-                    <input id="fluidInfusion" type="checkbox" name="intervention">
+                    <input id="fluidInfusion" type="checkbox" name="intervention" checked>
                     <label for="fluidInfusion">Fluid infusion</label>
                 </div>
                 <div class="checkbox">
@@ -155,6 +151,10 @@
                     <label for="stopSedation">Stop Sedation</label>
                 </div>
                 <div class="checkbox">
+                    <input id="Dextros-infusion" type="checkbox" name="intervention">
+                    <label for="Dextros-infusion"><strong>Dextros infusion</strong></label>
+                </div>
+                <div class="checkbox">
                     <input id="TTM-startInduction" type="checkbox" name="intervention">
                     <label for="TTM-startInduction"><strong>TTM Start Induction</strong></label>
                 </div>
@@ -178,7 +178,7 @@
         </div>
         <div class="record-container">
             <div class="record">
-                <textarea name="comment" id="" cols="30" rows="10" placeholder="comment"></textarea>
+                <textarea name="comment" id="" cols="30" rows="10" placeholder="comment">0.9% N/S 200ml loading</textarea>
             </div>
         </div>
     </section>

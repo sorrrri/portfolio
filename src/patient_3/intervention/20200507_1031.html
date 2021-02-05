@@ -19,7 +19,7 @@
             <div>
                 <div class="logo"><a href="./../../index.html">EICU-APEX</a></div>
                 <nav class="navigation nav_tabs">
-                    <a href="./../../index.html">
+                    <a href="./../chart.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                             <path d="M16 1H2c-.55 0-1 .45-1 1v14c0 .55.45 1 1 1h14c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1zM7 13H5V8h2v5zm3 0H8V5h2v8zm3 0h-2V9h2v4z"/>
                         </svg>
@@ -39,9 +39,9 @@
                     </a>
                     <div class="search">
                         <select class="js-example-basic-single" name="patients" onchange="location.href=this.value">
-                            <option value="./../../index.html" selected>1</option>
+                            <option value="./../../index.html">1</option>
                             <option value="./../../patient_2/chart.html">2</option>
-                            <option value="./../../patient_3/chart.html">3</option>
+                            <option value="./../../patient_3/chart.html" selected>3</option>
                         </select>
                     </div>
                 </nav>
@@ -54,7 +54,7 @@
         </section>
     </header>
     <div class="title">
-        <h3>Data: 2019-09-18 14:20</h3>
+        <h3>2020-05-07 10:31</h3>
         <button class="btn-save">
             <i class="fas fa-check"></i>
             <span>save</span>
@@ -71,7 +71,7 @@
                     <label for="adjustOxygenation">Adjust Oxygenation (O2)</label>
                 </div>
                 <div class="checkbox">
-                    <input id="adjustVentilation" type="checkbox" name="intervention" checked>
+                    <input id="adjustVentilation" type="checkbox" name="intervention">
                     <label for="adjustVentilation">Adjust Ventilation (CO2)</label>
                 </div>
                 <div class="checkbox">
@@ -151,6 +151,10 @@
                     <label for="stopSedation">Stop Sedation</label>
                 </div>
                 <div class="checkbox">
+                    <input id="Dextros-infusion" type="checkbox" name="intervention">
+                    <label for="Dextros-infusion"><strong>Dextros infusion</strong></label>
+                </div>
+                <div class="checkbox">
                     <input id="TTM-startInduction" type="checkbox" name="intervention">
                     <label for="TTM-startInduction"><strong>TTM Start Induction</strong></label>
                 </div>
@@ -174,15 +178,15 @@
         </div>
         <div class="record-container">
             <div class="record">
-                <textarea name="comment" id="" cols="30" rows="10" placeholder="comment">Intubation, ASV(FIO2 0.7, PEEP 6, MV 100)</textarea>
+                <textarea name="comment" id="" cols="30" rows="10" placeholder="comment">cerebral oximeter, eeg 종료</textarea>
             </div>
         </div>
     </section>
 </div>
 
-<script src="./../assets/js/jquery-3.5.1.min.js"></script>
-<script src="./../assets/js/select2.min.js"></script>
-<script src="./../assets/js/index.js"></script>
+<script src="./../../assets/js/jquery-3.5.1.min.js"></script>
+<script src="./../../assets/js/select2.min.js"></script>
+<script src="./../../assets/js/index.js"></script>
 <script>
   // Set the Current Time
   var date = new Date();
