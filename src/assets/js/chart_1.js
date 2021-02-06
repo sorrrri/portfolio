@@ -1519,7 +1519,6 @@ function drawNPIChart() {
 function drawPupilChart() {
     var data = new google.visualization.DataTable(jsonData_others);
     data.addColumn('datetime', 'Time of Day');
-    data.addColumn('number', 'normal range');
     data.addColumn('number', 'Left');
     data.addColumn('number', 'Right');
 
@@ -1537,7 +1536,6 @@ function drawPupilChart() {
 
         data.addRow([
             timestamp,
-            0,
             parseFloat(dataValue_others[3][i]),
             parseFloat(dataValue_others[4][i]),
         ]);
@@ -1550,7 +1548,7 @@ function drawPupilChart() {
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 5,
+        pointSize: 0,
         seriesType: 'scatter',
         series: {
             0: {
