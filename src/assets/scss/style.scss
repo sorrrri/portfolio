@@ -245,6 +245,7 @@ header {
         text-indent: 1rem;
         display: flex;
         align-content: center;
+        text-transform: capitalize;
       }
       li::before {
         content: '';

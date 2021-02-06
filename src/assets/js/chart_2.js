@@ -48,417 +48,417 @@ for (let i in dataValue[5]) {
 let minInterval = -1
 let maxInterval = 1
 
-dataValue[23] = [...nullArray_CoxTime]
-dataValue[24] = [...nullArray_CoxTime]
-dataValue[25] = [...nullArray_CoxTime]
+arrayCoxTime_1 = [...nullArray_CoxTime]
+arrayCoxTime_2 = [...nullArray_CoxTime]
+arrayCoxTime_3 = [...nullArray_CoxTime]
 
-dataValue[26] = [...nullArray_timestamp]
-dataValue[27] = [...nullArray_timestamp]
-dataValue[28] = [...nullArray_timestamp]
+arrayTimestamp_1 = [...nullArray_timestamp]
+arrayTimestamp_2 = [...nullArray_timestamp]
+arrayTimestamp_3 = [...nullArray_timestamp]
 
 const interventionCoxTime = (minInterval, maxInterval) => {
 // 2020/3/4  14:59
-    dataValue[23][6] = minInterval
-    dataValue[24][6] = maxInterval
-    dataValue[25][6] = "shivering control"
+    arrayCoxTime_1[6] = minInterval
+    arrayCoxTime_2[6] = maxInterval
+    arrayCoxTime_3[6] = "shivering control"
 
 // 2020/3/4 15:46
-    dataValue[23][15] = minInterval
-    dataValue[24][15] = maxInterval
-    dataValue[25][15] = "increase sedation"
+    arrayCoxTime_1[15] = minInterval
+    arrayCoxTime_2[15] = maxInterval
+    arrayCoxTime_3[15] = "increase sedation"
 
 // 2020/3/4 15:57
-    dataValue[23][17] = minInterval
-    dataValue[24][17] = maxInterval
-    dataValue[25][17] = "fluid infusion"
+    arrayCoxTime_1[17] = minInterval
+    arrayCoxTime_2[17] = maxInterval
+    arrayCoxTime_3[17] = "fluid infusion"
 
 // 2020/3/4 16:00
-    dataValue[23][18] = minInterval
-    dataValue[24][18] = maxInterval
-    dataValue[25][18] = "adjust ventilation"
+    arrayCoxTime_1[18] = minInterval
+    arrayCoxTime_2[18] = maxInterval
+    arrayCoxTime_3[18] = "adjust ventilation"
 
 // 2020/3/4 16:01
-    dataValue[23][19] = minInterval
-    dataValue[24][19] = maxInterval
-    dataValue[25][19] = "increase sedation"
+    arrayCoxTime_1[19] = minInterval
+    arrayCoxTime_2[19] = maxInterval
+    arrayCoxTime_3[19] = "increase sedation"
 
 // 2020/3/4 16:30
-    dataValue[23][24] = minInterval
-    dataValue[24][24] = maxInterval
-    dataValue[25][24] = "start NMB"
+    arrayCoxTime_1[24] = minInterval
+    arrayCoxTime_2[24] = maxInterval
+    arrayCoxTime_3[24] = "start NMB"
 
 // 2020/3/4 17:00
-    dataValue[23][30] = minInterval
-    dataValue[24][30] = maxInterval
-    dataValue[25][30] = "TTM Target temperature"
+    arrayCoxTime_1[30] = minInterval
+    arrayCoxTime_2[30] = maxInterval
+    arrayCoxTime_3[30] = "TTM Target temperature"
 
 // 2020/3/4 19:00
-    dataValue[23][54] = minInterval
-    dataValue[24][54] = maxInterval
-    dataValue[25][54] = "adjust ventilation"
+    arrayCoxTime_1[54] = minInterval
+    arrayCoxTime_2[54] = maxInterval
+    arrayCoxTime_3[54] = "adjust ventilation"
 
 // 2020/3/5 02:27
-    dataValue[23][144] = minInterval
-    dataValue[24][144] = maxInterval
-    dataValue[25][144] = "vasopressor increase"
+    arrayCoxTime_1[144] = minInterval
+    arrayCoxTime_2[144] = maxInterval
+    arrayCoxTime_3[144] = "vasopressor increase"
 
 // 2020/3/5 04:12
-    dataValue[23][164] = minInterval
-    dataValue[24][164] = maxInterval
-    dataValue[25][164] = "vasopressor increase"
+    arrayCoxTime_1[164] = minInterval
+    arrayCoxTime_2[164] = maxInterval
+    arrayCoxTime_3[164] = "vasopressor increase"
 
 // 2020/3/5 06:00
-    dataValue[23][186] = minInterval
-    dataValue[24][186] = maxInterval
-    dataValue[25][186] = "increase sedation"
+    arrayCoxTime_1[186] = minInterval
+    arrayCoxTime_2[186] = maxInterval
+    arrayCoxTime_3[186] = "increase sedation"
 
 // 2020/3/5 07:40
-    dataValue[23][206] = minInterval
-    dataValue[24][206] = maxInterval
-    dataValue[25][206] = "vasopressor increase"
+    arrayCoxTime_1[206] = minInterval
+    arrayCoxTime_2[206] = maxInterval
+    arrayCoxTime_3[206] = "vasopressor increase"
 
 // 2020/3/5 09:00
-    dataValue[23][222] = minInterval
-    dataValue[24][222] = maxInterval
-    dataValue[25][222] = "adjust ventilation"
+    arrayCoxTime_1[222] = minInterval
+    arrayCoxTime_2[222] = maxInterval
+    arrayCoxTime_3[222] = "adjust ventilation"
 
 // 2020/3/5 09:20
-    dataValue[23][226] = minInterval
-    dataValue[24][226] = maxInterval
-    dataValue[25][226] = "vasopressor increase"
+    arrayCoxTime_1[226] = minInterval
+    arrayCoxTime_2[226] = maxInterval
+    arrayCoxTime_3[226] = "vasopressor increase"
 
 // 2020/3/5 09:56 * 3
-    dataValue[23][233] = minInterval
-    dataValue[24][233] = maxInterval
-    dataValue[25][233] = "increase sedation, stop NMB, fluid infusion"
+    arrayCoxTime_1[233] = minInterval
+    arrayCoxTime_2[233] = maxInterval
+    arrayCoxTime_3[233] = "increase sedation, stop NMB, fluid infusion"
 
 // 2020/3/5 10:22
-    dataValue[23][238] = minInterval
-    dataValue[24][238] = maxInterval
-    dataValue[25][238] = "fluid infusion"
+    arrayCoxTime_1[238] = minInterval
+    arrayCoxTime_2[238] = maxInterval
+    arrayCoxTime_3[238] = "fluid infusion"
 
 // 2020/3/5 11:01
-    dataValue[23][246] = minInterval
-    dataValue[24][246] = maxInterval
-    dataValue[25][246] = "fluid infusion"
+    arrayCoxTime_1[246] = minInterval
+    arrayCoxTime_2[246] = maxInterval
+    arrayCoxTime_3[246] = "fluid infusion"
 
 // 2020/3/5 12:02
-    dataValue[23][258] = minInterval
-    dataValue[24][258] = maxInterval
-    dataValue[25][258] = "fluid infusion"
+    arrayCoxTime_1[258] = minInterval
+    arrayCoxTime_2[258] = maxInterval
+    arrayCoxTime_3[258] = "fluid infusion"
 
 // 2020/3/5 12:27
-    dataValue[23][264] = minInterval
-    dataValue[24][264] = maxInterval
-    dataValue[25][264] = "increase sedation"
+    arrayCoxTime_1[264] = minInterval
+    arrayCoxTime_2[264] = maxInterval
+    arrayCoxTime_3[264] = "increase sedation"
 
 // 2020/3/5 13:10
-    dataValue[23][272] = minInterval
-    dataValue[24][272] = maxInterval
-    dataValue[25][272] = "start sedation"
+    arrayCoxTime_1[272] = minInterval
+    arrayCoxTime_2[272] = maxInterval
+    arrayCoxTime_3[272] = "start sedation"
 
 // 2020/3/5 13:14
-    dataValue[23][273] = minInterval
-    dataValue[24][273] = maxInterval
-    dataValue[25][273] = "vasopressor increase"
+    arrayCoxTime_1[273] = minInterval
+    arrayCoxTime_2[273] = maxInterval
+    arrayCoxTime_3[273] = "vasopressor increase"
 
 // 2020/3/5 13:30 * 2
-    dataValue[23][276] = minInterval
-    dataValue[24][276] = maxInterval
-    dataValue[25][276] = "fluid infusion, increase sedation"
+    arrayCoxTime_1[276] = minInterval
+    arrayCoxTime_2[276] = maxInterval
+    arrayCoxTime_3[276] = "fluid infusion, increase sedation"
 
 // 2020/3/5 13:36
-    dataValue[23][277] = minInterval
-    dataValue[24][277] = maxInterval
-    dataValue[25][277] = "shivering control"
+    arrayCoxTime_1[277] = minInterval
+    arrayCoxTime_2[277] = maxInterval
+    arrayCoxTime_3[277] = "shivering control"
 
 // 2020/3/5 14:00
-    dataValue[23][282] = minInterval
-    dataValue[24][282] = maxInterval
-    dataValue[25][282] = "adjust ventilation"
+    arrayCoxTime_1[282] = minInterval
+    arrayCoxTime_2[282] = maxInterval
+    arrayCoxTime_3[282] = "adjust ventilation"
 
 // 2020/3/5 14:02
-    dataValue[23][283] = minInterval
-    dataValue[24][283] = maxInterval
-    dataValue[25][283] = "fluid infusion"
+    arrayCoxTime_1[283] = minInterval
+    arrayCoxTime_2[283] = maxInterval
+    arrayCoxTime_3[283] = "fluid infusion"
 
 // 2020/3/5 14:20
-    dataValue[23][286] = minInterval
-    dataValue[24][286] = maxInterval
-    dataValue[25][286] = "shivering control"
+    arrayCoxTime_1[286] = minInterval
+    arrayCoxTime_2[286] = maxInterval
+    arrayCoxTime_3[286] = "shivering control"
 
 // 2020/3/5 14:30
-    dataValue[23][288] = minInterval
-    dataValue[24][288] = maxInterval
-    dataValue[25][288] = "shivering control"
+    arrayCoxTime_1[288] = minInterval
+    arrayCoxTime_2[288] = maxInterval
+    arrayCoxTime_3[288] = "shivering control"
 
 // 2020/3/5 17:00
-    dataValue[23][318] = minInterval
-    dataValue[24][318] = maxInterval
-    dataValue[25][318] = "TTM start rewarming"
+    arrayCoxTime_1[318] = minInterval
+    arrayCoxTime_2[318] = maxInterval
+    arrayCoxTime_3[318] = "TTM start rewarming"
 
 // 2020/3/5 20:01
-    dataValue[23][354] = minInterval
-    dataValue[24][354] = maxInterval
-    dataValue[25][354] = "adjust ventilation"
+    arrayCoxTime_1[354] = minInterval
+    arrayCoxTime_2[354] = maxInterval
+    arrayCoxTime_3[354] = "adjust ventilation"
 
 // 2020/3/6 16:00
-    dataValue[23][594] = minInterval
-    dataValue[24][594] = maxInterval
-    dataValue[25][594] = "TTM start normothermia"
+    arrayCoxTime_1[594] = minInterval
+    arrayCoxTime_2[594] = maxInterval
+    arrayCoxTime_3[594] = "TTM start normothermia"
 
 // 2020/3/6 18:00
-    dataValue[23][618] = minInterval
-    dataValue[24][618] = maxInterval
-    dataValue[25][618] = "increase sedation"
+    arrayCoxTime_1[618] = minInterval
+    arrayCoxTime_2[618] = maxInterval
+    arrayCoxTime_3[618] = "increase sedation"
 
 // 2020/3/6 19:47
-    dataValue[23][639] = minInterval
-    dataValue[24][639] = maxInterval
-    dataValue[25][639] = "increase sedation"
+    arrayCoxTime_1[639] = minInterval
+    arrayCoxTime_2[639] = maxInterval
+    arrayCoxTime_3[639] = "increase sedation"
 
 // 2020/3/6 20:11
-    dataValue[23][644] = minInterval
-    dataValue[24][644] = maxInterval
-    dataValue[25][644] = "increase sedation"
+    arrayCoxTime_1[644] = minInterval
+    arrayCoxTime_2[644] = maxInterval
+    arrayCoxTime_3[644] = "increase sedation"
 
 // 2020/3/6 21:10
-    dataValue[23][656] = minInterval
-    dataValue[24][656] = maxInterval
-    dataValue[25][656] = "increase sedation"
+    arrayCoxTime_1[656] = minInterval
+    arrayCoxTime_2[656] = maxInterval
+    arrayCoxTime_3[656] = "increase sedation"
 
 // 2020/3/6 21:56
-    dataValue[23][665] = minInterval
-    dataValue[24][665] = maxInterval
-    dataValue[25][665] = "increase sedation"
+    arrayCoxTime_1[665] = minInterval
+    arrayCoxTime_2[665] = maxInterval
+    arrayCoxTime_3[665] = "increase sedation"
 
 // 2020/3/6 22:25
-    dataValue[23][671] = minInterval
-    dataValue[24][671] = maxInterval
-    dataValue[25][671] = "dextrose infusion"
+    arrayCoxTime_1[671] = minInterval
+    arrayCoxTime_2[671] = maxInterval
+    arrayCoxTime_3[671] = "dextrose infusion"
 
 // 2020/3/6 23:33
-    dataValue[23][685] = minInterval
-    dataValue[24][685] = maxInterval
-    dataValue[25][685] = "shivering control"
+    arrayCoxTime_1[685] = minInterval
+    arrayCoxTime_2[685] = maxInterval
+    arrayCoxTime_3[685] = "shivering control"
 
 // 2020/3/7 02:43
-    dataValue[23][723] = minInterval
-    dataValue[24][723] = maxInterval
-    dataValue[25][723] = "adjust ventilation"
+    arrayCoxTime_1[723] = minInterval
+    arrayCoxTime_2[723] = maxInterval
+    arrayCoxTime_3[723] = "adjust ventilation"
 
 // 2020/3/7 03:50
-    dataValue[23][736] = minInterval
-    dataValue[24][736] = maxInterval
-    dataValue[25][736] = "adjust ventilation"
+    arrayCoxTime_1[736] = minInterval
+    arrayCoxTime_2[736] = maxInterval
+    arrayCoxTime_3[736] = "adjust ventilation"
 
 // 2020/3/7 06:30
-    dataValue[23][768] = minInterval
-    dataValue[24][768] = maxInterval
-    dataValue[25][768] = "TTM stop"
+    arrayCoxTime_1[768] = minInterval
+    arrayCoxTime_2[768] = maxInterval
+    arrayCoxTime_3[768] = "TTM stop"
 }
 
 const interventionTimestamp = (minInterval, maxInterval) => {
 
 // 2020/3/4  14:59
-    dataValue[26][30] = minInterval
-    dataValue[27][30] = maxInterval
-    dataValue[28][30] = "shivering control"
+    arrayTimestamp_1[30] = minInterval
+    arrayTimestamp_2[30] = maxInterval
+    arrayTimestamp_3[30] = "shivering control"
 
 // 2020/3/4 15:46
-    dataValue[26][75] = minInterval
-    dataValue[27][75] = maxInterval
-    dataValue[28][75] = "increase sedation"
+    arrayTimestamp_1[75] = minInterval
+    arrayTimestamp_2[75] = maxInterval
+    arrayTimestamp_3[75] = "increase sedation"
 
 // 2020/3/4 15:57
-    dataValue[26][85] = minInterval
-    dataValue[27][85] = maxInterval
-    dataValue[28][85] = "fluid infusion"
+    arrayTimestamp_1[85] = minInterval
+    arrayTimestamp_2[85] = maxInterval
+    arrayTimestamp_3[85] = "fluid infusion"
 
 // 2020/3/4 16:00
-    dataValue[26][90] = minInterval
-    dataValue[27][90] = maxInterval
-    dataValue[28][90] = "adjust ventilation"
+    arrayTimestamp_1[90] = minInterval
+    arrayTimestamp_2[90] = maxInterval
+    arrayTimestamp_3[90] = "adjust ventilation"
 
 // 2020/3/4 16:01
-    dataValue[26][95] = minInterval
-    dataValue[27][95] = maxInterval
-    dataValue[28][95] = "increase sedation"
+    arrayTimestamp_1[95] = minInterval
+    arrayTimestamp_2[95] = maxInterval
+    arrayTimestamp_3[95] = "increase sedation"
 
 // 2020/3/4 16:30
-    dataValue[26][120] = minInterval
-    dataValue[27][120] = maxInterval
-    dataValue[28][120] = "start NMB"
+    arrayTimestamp_1[120] = minInterval
+    arrayTimestamp_2[120] = maxInterval
+    arrayTimestamp_3[120] = "start NMB"
 
 // 2020/3/4 17:00
-    dataValue[26][150] = minInterval
-    dataValue[27][150] = maxInterval
-    dataValue[28][150] = "TTM Target temperature"
+    arrayTimestamp_1[150] = minInterval
+    arrayTimestamp_2[150] = maxInterval
+    arrayTimestamp_3[150] = "TTM Target temperature"
 
 // 2020/3/4 19:00
-    dataValue[26][270] = minInterval
-    dataValue[27][270] = maxInterval
-    dataValue[28][270] = "adjust ventilation"
+    arrayTimestamp_1[270] = minInterval
+    arrayTimestamp_2[270] = maxInterval
+    arrayTimestamp_3[270] = "adjust ventilation"
 
 // 2020/3/5 02:27
-    dataValue[26][720] = minInterval
-    dataValue[27][720] = maxInterval
-    dataValue[28][720] = "vasopressor increase"
+    arrayTimestamp_1[720] = minInterval
+    arrayTimestamp_2[720] = maxInterval
+    arrayTimestamp_3[720] = "vasopressor increase"
 
 // 2020/3/5 04:12
-    dataValue[26][820] = minInterval
-    dataValue[27][820] = maxInterval
-    dataValue[28][820] = "vasopressor increase"
+    arrayTimestamp_1[820] = minInterval
+    arrayTimestamp_2[820] = maxInterval
+    arrayTimestamp_3[820] = "vasopressor increase"
 
 // 2020/3/5 06:00
-    dataValue[26][930] = minInterval
-    dataValue[27][930] = maxInterval
-    dataValue[28][930] = "increase sedation"
+    arrayTimestamp_1[930] = minInterval
+    arrayTimestamp_2[930] = maxInterval
+    arrayTimestamp_3[930] = "increase sedation"
 
 // 2020/3/5 07:40
-    dataValue[26][1030] = minInterval
-    dataValue[27][1030] = maxInterval
-    dataValue[28][1030] = "vasopressor increase"
+    arrayTimestamp_1[1030] = minInterval
+    arrayTimestamp_2[1030] = maxInterval
+    arrayTimestamp_3[1030] = "vasopressor increase"
 
 // 2020/3/5 09:00
-    dataValue[26][1110] = minInterval
-    dataValue[27][1110] = maxInterval
-    dataValue[28][1110] = "adjust ventilation"
+    arrayTimestamp_1[1110] = minInterval
+    arrayTimestamp_2[1110] = maxInterval
+    arrayTimestamp_3[1110] = "adjust ventilation"
 
 // 2020/3/5 09:20
-    dataValue[26][1130] = minInterval
-    dataValue[27][1130] = maxInterval
-    dataValue[28][1130] = "vasopressor increase"
+    arrayTimestamp_1[1130] = minInterval
+    arrayTimestamp_2[1130] = maxInterval
+    arrayTimestamp_3[1130] = "vasopressor increase"
 
 // 2020/3/5 09:56 * 3
-    dataValue[26][1170] = minInterval
-    dataValue[27][1170] = maxInterval
-    dataValue[28][1170] = "increase sedation, stop NMB, fluid infusion"
+    arrayTimestamp_1[1170] = minInterval
+    arrayTimestamp_2[1170] = maxInterval
+    arrayTimestamp_3[1170] = "increase sedation, stop NMB, fluid infusion"
 
 // 2020/3/5 10:22
-    dataValue[26][1190] = minInterval
-    dataValue[27][1190] = maxInterval
-    dataValue[28][1190] = "fluid infusion"
+    arrayTimestamp_1[1190] = minInterval
+    arrayTimestamp_2[1190] = maxInterval
+    arrayTimestamp_3[1190] = "fluid infusion"
 
 // 2020/3/5 11:01
-    dataValue[26][1230] = minInterval
-    dataValue[27][1230] = maxInterval
-    dataValue[28][1230] = "fluid infusion"
+    arrayTimestamp_1[1230] = minInterval
+    arrayTimestamp_2[1230] = maxInterval
+    arrayTimestamp_3[1230] = "fluid infusion"
 
 // 2020/3/5 12:02
-    dataValue[26][1290] = minInterval
-    dataValue[27][1290] = maxInterval
-    dataValue[28][1290] = "fluid infusion"
+    arrayTimestamp_1[1290] = minInterval
+    arrayTimestamp_2[1290] = maxInterval
+    arrayTimestamp_3[1290] = "fluid infusion"
 
 // 2020/3/5 12:27
-    dataValue[26][1320] = minInterval
-    dataValue[27][1320] = maxInterval
-    dataValue[28][1320] = "increase sedation"
+    arrayTimestamp_1[1320] = minInterval
+    arrayTimestamp_2[1320] = maxInterval
+    arrayTimestamp_3[1320] = "increase sedation"
 
 // 2020/3/5 13:10
-    dataValue[26][1360] = minInterval
-    dataValue[27][1360] = maxInterval
-    dataValue[28][1360] = "start sedation"
+    arrayTimestamp_1[1360] = minInterval
+    arrayTimestamp_2[1360] = maxInterval
+    arrayTimestamp_3[1360] = "start sedation"
 
 // 2020/3/5 13:14
-    dataValue[26][1365] = minInterval
-    dataValue[27][1365] = maxInterval
-    dataValue[28][1365] = "vasopressor increase"
+    arrayTimestamp_1[1365] = minInterval
+    arrayTimestamp_2[1365] = maxInterval
+    arrayTimestamp_3[1365] = "vasopressor increase"
 
 // 2020/3/5 13:30 * 2
-    dataValue[26][1380] = minInterval
-    dataValue[27][1380] = maxInterval
-    dataValue[28][1380] = "fluid infusion, increase sedation"
+    arrayTimestamp_1[1380] = minInterval
+    arrayTimestamp_2[1380] = maxInterval
+    arrayTimestamp_3[1380] = "fluid infusion, increase sedation"
 
 // 2020/3/5 13:36
-    dataValue[26][1385] = minInterval
-    dataValue[27][1385] = maxInterval
-    dataValue[28][1385] = "shivering control"
+    arrayTimestamp_1[1385] = minInterval
+    arrayTimestamp_2[1385] = maxInterval
+    arrayTimestamp_3[1385] = "shivering control"
 
 // 2020/3/5 14:00
-    dataValue[26][1410] = minInterval
-    dataValue[27][1410] = maxInterval
-    dataValue[28][1410] = "adjust ventilation"
+    arrayTimestamp_1[1410] = minInterval
+    arrayTimestamp_2[1410] = maxInterval
+    arrayTimestamp_3[1410] = "adjust ventilation"
 
 // 2020/3/5 14:02
-    dataValue[26][1415] = minInterval
-    dataValue[27][1415] = maxInterval
-    dataValue[28][1415] = "fluid infusion"
+    arrayTimestamp_1[1415] = minInterval
+    arrayTimestamp_2[1415] = maxInterval
+    arrayTimestamp_3[1415] = "fluid infusion"
 
 // 2020/3/5 14:20
-    dataValue[26][1430] = minInterval
-    dataValue[27][1430] = maxInterval
-    dataValue[28][1430] = "shivering control"
+    arrayTimestamp_1[1430] = minInterval
+    arrayTimestamp_2[1430] = maxInterval
+    arrayTimestamp_3[1430] = "shivering control"
 
 // 2020/3/5 14:30
-    dataValue[26][1440] = minInterval
-    dataValue[27][1440] = maxInterval
-    dataValue[28][1440] = "shivering control"
+    arrayTimestamp_1[1440] = minInterval
+    arrayTimestamp_2[1440] = maxInterval
+    arrayTimestamp_3[1440] = "shivering control"
 
 // 2020/3/5 17:00
-    dataValue[26][1590] = minInterval
-    dataValue[27][1590] = maxInterval
-    dataValue[28][1590] = "TTM start rewarming"
+    arrayTimestamp_1[1590] = minInterval
+    arrayTimestamp_2[1590] = maxInterval
+    arrayTimestamp_3[1590] = "TTM start rewarming"
 
 // 2020/3/5 20:01
-    dataValue[26][1770] = minInterval
-    dataValue[27][1770] = maxInterval
-    dataValue[28][1770] = "adjust ventilation"
+    arrayTimestamp_1[1770] = minInterval
+    arrayTimestamp_2[1770] = maxInterval
+    arrayTimestamp_3[1770] = "adjust ventilation"
 
 // 2020/3/6 16:00
-    dataValue[26][2970] = minInterval
-    dataValue[27][2970] = maxInterval
-    dataValue[28][2970] = "TTM start normothermia"
+    arrayTimestamp_1[2970] = minInterval
+    arrayTimestamp_2[2970] = maxInterval
+    arrayTimestamp_3[2970] = "TTM start normothermia"
 
 // 2020/3/6 18:00
-    dataValue[26][3090] = minInterval
-    dataValue[27][3090] = maxInterval
-    dataValue[28][3090] = "increase sedation"
+    arrayTimestamp_1[3090] = minInterval
+    arrayTimestamp_2[3090] = maxInterval
+    arrayTimestamp_3[3090] = "increase sedation"
 
 // 2020/3/6 19:47
-    dataValue[26][3200] = minInterval
-    dataValue[27][3200] = maxInterval
-    dataValue[28][3200] = "increase sedation"
+    arrayTimestamp_1[3200] = minInterval
+    arrayTimestamp_2[3200] = maxInterval
+    arrayTimestamp_3[3200] = "increase sedation"
 
 // 2020/3/6 20:11
-    dataValue[26][3220] = minInterval
-    dataValue[27][3220] = maxInterval
-    dataValue[28][3220] = "increase sedation"
+    arrayTimestamp_1[3220] = minInterval
+    arrayTimestamp_2[3220] = maxInterval
+    arrayTimestamp_3[3220] = "increase sedation"
 
 // 2020/3/6 21:10
-    dataValue[26][3280] = minInterval
-    dataValue[27][3280] = maxInterval
-    dataValue[28][3280] = "increase sedation"
+    arrayTimestamp_1[3280] = minInterval
+    arrayTimestamp_2[3280] = maxInterval
+    arrayTimestamp_3[3280] = "increase sedation"
 
 // 2020/3/6 21:56
-    dataValue[26][3325] = minInterval
-    dataValue[27][3325] = maxInterval
-    dataValue[28][3325] = "increase sedation"
+    arrayTimestamp_1[3325] = minInterval
+    arrayTimestamp_2[3325] = maxInterval
+    arrayTimestamp_3[3325] = "increase sedation"
 
 // 2020/3/6 22:25
-    dataValue[26][3355] = minInterval
-    dataValue[27][3355] = maxInterval
-    dataValue[28][3355] = "dextrose infusion"
+    arrayTimestamp_1[3355] = minInterval
+    arrayTimestamp_2[3355] = maxInterval
+    arrayTimestamp_3[3355] = "dextrose infusion"
 
 // 2020/3/6 23:33
-    dataValue[26][3425] = minInterval
-    dataValue[27][3425] = maxInterval
-    dataValue[28][3425] = "shivering control"
+    arrayTimestamp_1[3425] = minInterval
+    arrayTimestamp_2[3425] = maxInterval
+    arrayTimestamp_3[3425] = "shivering control"
 
 // 2020/3/7 02:43
-    dataValue[26][3615] = minInterval
-    dataValue[27][3615] = maxInterval
-    dataValue[28][3615] = "adjust ventilation"
+    arrayTimestamp_1[3615] = minInterval
+    arrayTimestamp_2[3615] = maxInterval
+    arrayTimestamp_3[3615] = "adjust ventilation"
 
 // 2020/3/7 03:50
-    dataValue[26][3680] = minInterval
-    dataValue[27][3680] = maxInterval
-    dataValue[28][3680] = "adjust ventilation"
+    arrayTimestamp_1[3680] = minInterval
+    arrayTimestamp_2[3680] = maxInterval
+    arrayTimestamp_3[3680] = "adjust ventilation"
 
 // 2020/3/7 06:30
-    dataValue[26][3840] = minInterval
-    dataValue[27][3840] = maxInterval
-    dataValue[28][3840] = "TTM stop"
+    arrayTimestamp_1[3840] = minInterval
+    arrayTimestamp_2[3840] = maxInterval
+    arrayTimestamp_3[3840] = "TTM stop"
 }
 
 
@@ -468,8 +468,8 @@ function drawCOxMAPChart() {
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range');
-    data.addColumn('number', 'left');
-    data.addColumn('number', 'right');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
     data.addColumn('number', 'average');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -495,11 +495,11 @@ function drawCOxMAPChart() {
             parseFloat(dataValue[15][i]),
             parseFloat(dataValue[16][i]),
             parseFloat(dataValue[17][i]),
-            parseInt(dataValue[23][i]),
-            parseInt(dataValue[23][i]),
-            parseInt(dataValue[24][i]),
-            parseInt(dataValue[24][i]),
-            dataValue[25][i],
+            parseInt(arrayCoxTime_1[i]),
+            parseInt(arrayCoxTime_1[i]),
+            parseInt(arrayCoxTime_2[i]),
+            parseInt(arrayCoxTime_2[i]),
+            arrayCoxTime_3[i],
         ]);
     }
 
@@ -511,11 +511,14 @@ function drawCOxMAPChart() {
         legend: 'none',
         fontSize: 15,
         pointSize: 0,
-        lineWidth: 1.5,
+        lineWidth: 0.5,
         seriesType: 'line',
         series: {
             0: {
                 type: 'area',
+            },
+            3: {
+                lineWidth: 2
             },
             4: {
                 type: 'candlesticks',
@@ -592,7 +595,7 @@ function drawCOxETCO2Chart() {
         legend: 'none',
         fontSize: 15,
         pointSize: 1.5,
-        lineWidth: 1.5,
+        lineWidth: 2,
         intervals: {
             color: "#a29380"
         },
@@ -635,8 +638,8 @@ function drawRSO2Chart() {
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'normal range')
-    data.addColumn('number', 'left');
-    data.addColumn('number', 'right');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
     data.addColumn('number', 'average');
     data.addColumn('number', 'intervention');
     data.addColumn('number', 'intervention');
@@ -658,15 +661,15 @@ function drawRSO2Chart() {
 
         data.addRow([
             timestamp,
-            14.75,
+            58.99,
             parseFloat(dataValue[1][i]),
             parseFloat(dataValue[2][i]),
             parseFloat(dataValue[3][i]),
-            parseInt(dataValue[26][i]),
-            parseInt(dataValue[26][i]),
-            parseInt(dataValue[27][i]),
-            parseInt(dataValue[27][i]),
-            dataValue[28][i],
+            parseInt(arrayTimestamp_1[i]),
+            parseInt(arrayTimestamp_1[i]),
+            parseInt(arrayTimestamp_2[i]),
+            parseInt(arrayTimestamp_2[i]),
+            arrayTimestamp_3[i],
         ]);
     }
 
@@ -678,11 +681,14 @@ function drawRSO2Chart() {
         legend: 'none',
         fontSize: 15,
         pointSize: 0,
-        lineWidth: 1.5,
+        lineWidth: 0.5,
         seriesType: 'line',
         series: {
             0: {
                 type: 'area',
+            },
+            3: {
+                lineWidth: 2
             },
             4: {
                 type: 'candlesticks',
@@ -708,7 +714,7 @@ function drawRSO2Chart() {
         },
         vAxis: {
             title: "RSO2",
-            baseline: '0',
+            baseline: 100,
             baselineColor: '#777',
             gridlineColor: '#777',
             ticks: [0, 50, 100],
@@ -758,11 +764,11 @@ function drawMAPChart() {
             parseInt(dataValue[21].min[i]),
             parseInt(dataValue[21].max[i]),
             parseFloat(dataValue[0][i]),
-            parseInt(dataValue[26][i]),
-            parseInt(dataValue[26][i]),
-            parseInt(dataValue[27][i]),
-            parseInt(dataValue[27][i]),
-            dataValue[28][i],
+            parseInt(arrayTimestamp_1[i]),
+            parseInt(arrayTimestamp_1[i]),
+            parseInt(arrayTimestamp_2[i]),
+            parseInt(arrayTimestamp_2[i]),
+            arrayTimestamp_3[i],
         ]);
     }
 
@@ -774,7 +780,7 @@ function drawMAPChart() {
         legend: "none",
         fontSize: 15,
         pointSize: 0,
-        lineWidth: 1.5,
+        lineWidth: 2,
         seriesType: 'candlesticks',
         series: {
             1: {
@@ -856,7 +862,7 @@ function drawETCO2Chart() {
         legend: "none",
         fontSize: 15,
         pointSize: 0,
-        lineWidth: 1.5,
+        lineWidth: 2,
         intervals: {
             color: "#a29380"
         },
@@ -1809,77 +1815,64 @@ function drawRQChart() {
     chart_RQ.draw(data_RQ, options_RQ);
 }
 
+
+let jsonData_others = $.ajax({
+    url: "./../data/2_others.json",
+    dataType: "json",
+    async: false
+}).responseText;
+
+jsonData_others = JSON.parse(jsonData_others)
+const dataValue_others = Object.values(jsonData_others)
+
 function drawNPIChart() {
-    var data = new google.visualization.DataTable();
+    var data = new google.visualization.DataTable(jsonData_others);
+
     data.addColumn('datetime', 'Time of Day');
-    data.addColumn('number', 'left');
-    data.addColumn('number', 'right');
-    data.addColumn({'type': 'number', 'role': 'interval'});
-    data.addColumn({'type': 'number', 'role': 'interval'});
-    data.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
-        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
-    ]);
+    data.addColumn('number', 'normal range');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
+
+    for (let i in dataValue_others[0]) {
+        let timestamp = String(dataValue_others[0][i]);
+
+        let year = timestamp.substring(0, 4);
+        let month = timestamp.substring(4, 6) - 1;
+        let day = timestamp.substring(6, 8);
+        let hours = timestamp.substring(8, 10);
+        let minutes = timestamp.substring(10, 12);
+        let seconds = timestamp.substring(12, 14);
+
+        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+
+        data.addRow([
+            timestamp,
+            3,
+            parseFloat(dataValue_others[1][i]),
+            parseFloat(dataValue_others[2][i]),
+        ]);
+    }
 
     var options = {
-        colors: ['#FAA7B8', '#6096FD'],
+        colors: ['darkslategray', '#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
         pointSize: 5,
-        intervals: {
-            color: '#a29380'
+        seriesType: 'scatter',
+        series: {
+            0: {
+                type: 'area',
+                pointSize: 0,
+            },
         },
         hAxis: {
-            viewWindow: {
-                min: new Date(2020, 4, 20, 13),
-                max: new Date(2020, 4, 22, 4)
-            },
             gridlines: {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['ha']},
                 }
             },
             minorGridlines: {
@@ -1892,6 +1885,7 @@ function drawNPIChart() {
         vAxis: {
             title: "NPI",
             ticks: [0, 1, 2, 3, 4, 5],
+            baseline: 5,
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -1904,61 +1898,36 @@ function drawNPIChart() {
         }
     };
 
-    var chart_NPI = new google.visualization.ScatterChart(document.getElementById('chart_NPI'));
+    var chart_NPI = new google.visualization.ComboChart(document.getElementById('chart_NPI'));
     chart_NPI.draw(data, options);
 }
 
 function drawPupilChart() {
-    var data_pupil = new google.visualization.DataTable();
-    data_pupil.addColumn('datetime', 'Time of Day');
-    data_pupil.addColumn('number', 'Left');
-    data_pupil.addColumn('number', 'Right');
-    data_pupil.addColumn({'type': 'number', 'role': 'interval'});
-    data_pupil.addColumn({'type': 'number', 'role': 'interval'});
-    data_pupil.addRows([
-        [new Date(2020, 4, 20, 13), 3.92, 4.12, null, null],
-        [new Date(2020, 4, 20, 14), 4.21, 4.21, null, null],
-        [new Date(2020, 4, 20, 15), 3.24, 3.57, null, null],
-        [new Date(2020, 4, 20, 16), 3.54, 3.94, null, null],
-        [new Date(2020, 4, 20, 17), 3.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 18), 3.9, 4.53, null, null],
-        [new Date(2020, 4, 20, 19), 3.57, 4.18, null, null],
-        [new Date(2020, 4, 20, 20), 4.5, 4.23, null, null],
-        [new Date(2020, 4, 20, 21), 4.21, 3.75, null, null],
-        [new Date(2020, 4, 20, 22), 4.38, 3.95, 0, 5],
-        [new Date(2020, 4, 20, 23), 4.18, 3.64, null, null],
-        [new Date(2020, 4, 20, 24), 3.97, 3.71, null, null],
-        [new Date(2020, 4, 21, 1), 3.12, 3.41, null, null],
-        [new Date(2020, 4, 21, 2), 3.37, 3.97, null, null],
-        [new Date(2020, 4, 21, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 4), 3.57, 4.31, null, null],
-        [new Date(2020, 4, 21, 5), 3.74, 4.12, null, null],
-        [new Date(2020, 4, 21, 6), 4.32, 4.64, null, null],
-        [new Date(2020, 4, 21, 7), 4.12, 4.32, null, null],
-        [new Date(2020, 4, 21, 8), 4.02, 3.75, null, null],
-        [new Date(2020, 4, 21, 9), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 10), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 11), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 12), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 13), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 14), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 15), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 16), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 17), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 18), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 19), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 20), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 21), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 22), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 23), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 21, 24), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 1), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 2), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 3), 3.94, 3.74, null, null],
-        [new Date(2020, 4, 22, 4), 3.94, 3.74, null, null],
-    ]);
+    var data = new google.visualization.DataTable(jsonData_others);
+    data.addColumn('datetime', 'Time of Day');
+    data.addColumn('number', 'Left');
+    data.addColumn('number', 'Right');
 
-    var options_pupil = {
+    for (let i in dataValue_others[0]) {
+        let timestamp = String(dataValue_others[0][i]);
+
+        let year = timestamp.substring(0, 4);
+        let month = timestamp.substring(4, 6) - 1;
+        let day = timestamp.substring(6, 8);
+        let hours = timestamp.substring(8, 10);
+        let minutes = timestamp.substring(10, 12);
+        let seconds = timestamp.substring(12, 14);
+
+        timestamp = new Date(parseInt(year), parseInt(month), parseInt(day), parseInt(hours), parseInt(minutes), parseInt(seconds))
+
+        data.addRow([
+            timestamp,
+            parseFloat(dataValue_others[3][i]),
+            parseFloat(dataValue_others[4][i]),
+        ]);
+    }
+
+    var options = {
         colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
@@ -1966,19 +1935,12 @@ function drawPupilChart() {
         legend: "none",
         fontSize: 15,
         pointSize: 5,
-        intervals: {
-            color: '#a29380'
-        },
+        seriesType: 'scatter',
         hAxis: {
-            viewWindow: {
-                min: new Date(2020, 4, 20, 13),
-                max: new Date(2020, 4, 22, 4)
-            },
             gridlines: {
                 color: '#777',
                 units: {
                     days: {format: ['MM/dd']},
-                    hours: {format: ['ha']},
                 }
             },
             minorGridlines: {
@@ -1990,7 +1952,7 @@ function drawPupilChart() {
         },
         vAxis: {
             title: "Pupil Size",
-            ticks: [0, 1, 2, 3, 4, 5],
+            ticks: [0, 2, 4, 6],
             baselineColor: '#777',
             gridlineColor: '#777',
             minorGridlines: {
@@ -2003,8 +1965,8 @@ function drawPupilChart() {
         }
     };
 
-    var chart_pupil = new google.visualization.ScatterChart(document.getElementById('chart_pupil'));
-    chart_pupil.draw(data_pupil, options_pupil);
+    var chart_pupil = new google.visualization.ComboChart(document.getElementById('chart_pupil'));
+    chart_pupil.draw(data, options);
 }
 
 function drawModalMAPLeftChart() {
