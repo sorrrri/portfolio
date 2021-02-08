@@ -254,6 +254,7 @@ function drawCOxMAPChart() {
         series: {
             0: {
                 type: 'area',
+                areaOpacity: 0.6
             },
             3: {
                 lineWidth: 2
@@ -424,6 +425,7 @@ function drawRSO2Chart() {
         series: {
             0: {
                 type: 'area',
+                areaOpacity: 0.6
             },
             3:  {
                 lineWidth: 2
@@ -778,6 +780,7 @@ function drawSJVO2Chart() {
             0: {
                 type: 'area',
                 pointSize: 0,
+                areaOpacity: 0.6
             },
         },
         hAxis: {
@@ -1019,6 +1022,7 @@ function drawAJDO2Chart() {
             0: {
                 type: 'area',
                 pointSize: 0,
+                areaOpacity: 0.6
             },
         },
         hAxis: {
@@ -1096,6 +1100,7 @@ function drawCEO2Chart() {
             0: {
                 type: 'area',
                 pointSize: 0,
+                areaOpacity: 0.6
             },
         },
         hAxis: {
@@ -1473,6 +1478,7 @@ function drawNPIChart() {
             0: {
                 type: 'area',
                 pointSize: 0,
+                areaOpacity: 0.6
             },
         },
         hAxis: {
