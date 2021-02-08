@@ -547,7 +547,7 @@ function drawMAPChart() {
         },
         vAxis: {
             title: "MAP",
-            ticks: [0, 50, 100, 150, 200, 250],
+            ticks: [0, 50, 100, 150, 200],
             baselineColor: '#777',
             gridlineColor: '#777',
         },
