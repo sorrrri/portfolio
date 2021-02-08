@@ -1542,20 +1542,14 @@ function drawPupilChart() {
     }
 
     var options = {
-        colors: ['darkslategray', '#FAA7B8', '#6096FD'],
+        colors: ['#FAA7B8', '#6096FD'],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
         legend: "none",
         fontSize: 15,
-        pointSize: 0,
+        pointSize: 5,
         seriesType: 'scatter',
-        series: {
-            0: {
-                type: 'area',
-                pointSize: 0,
-            },
-        },
         hAxis: {
             gridlines: {
                 color: '#777',
