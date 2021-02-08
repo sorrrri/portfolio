@@ -471,7 +471,7 @@ function drawRSO2Chart() {
 
 function drawMAPChart() {
     var data = new google.visualization.DataTable();
-    interventionTimestamp(0, 250)
+    interventionTimestamp(0, 200)
 
     data.addColumn('date', 'Time of Day');
     data.addColumn('number', 'OP_BP_min1');
