@@ -847,7 +847,7 @@ function drawAJDLChart() {
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -941,7 +941,7 @@ function drawLOIChart() {
     ]);
 
     var options_LOI = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1191,7 +1191,7 @@ function drawAJglcChart() {
     ]);
 
     var options_AJglc = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1289,7 +1289,7 @@ function drawAJCO2Chart() {
     ]);
 
     var options_AJCO2 = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1387,7 +1387,7 @@ function drawRQChart() {
     ]);
 
     var options_RQ = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1596,13 +1596,13 @@ function drawModalMAPLeftChart() {
 
     for (let i in dataValue[5]) {
         data.addRow([
-            parseFloat(dataValue[5][i]),
             parseFloat(dataValue[6][i]),
+            parseFloat(dataValue[7][i]),
         ])
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1629,7 +1629,7 @@ function drawModalMAPLeftChart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1644,13 +1644,13 @@ function drawModalMAPRightChart() {
 
     for (let i in dataValue[5]) {
         data.addRow([
-            parseFloat(dataValue[5][i]),
-            parseFloat(dataValue[7][i]),
+            parseFloat(dataValue[6][i]),
+            parseFloat(dataValue[8][i]),
         ])
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1677,7 +1677,7 @@ function drawModalMAPRightChart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1692,13 +1692,13 @@ function drawModalMAPMeanChart() {
 
     for (let i in dataValue[5]) {
         data.addRow([
-            parseFloat(dataValue[5][i]),
-            parseFloat(dataValue[8][i]),
+            parseFloat(dataValue[6][i]),
+            parseFloat(dataValue[9][i]),
         ])
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1725,7 +1725,7 @@ function drawModalMAPMeanChart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1748,7 +1748,7 @@ function drawMAPRSO2Chart() {
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1774,7 +1774,7 @@ function drawMAPRSO2Chart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1788,15 +1788,15 @@ function drawModalETCO2LeftChart() {
     data.addColumn('number', 'ETCO2');
     data.addColumn('number', 'COx Left');
 
-    for (let i in dataValue[9]) {
+    for (let i in dataValue[10]) {
         data.addRow([
-            parseFloat(dataValue[9][i]),
             parseFloat(dataValue[10][i]),
+            parseFloat(dataValue[12][i]),
         ])
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1823,7 +1823,7 @@ function drawModalETCO2LeftChart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1836,15 +1836,15 @@ function drawModalETCO2RightChart() {
     data.addColumn('number', 'ETCO2');
     data.addColumn('number', 'COx Right');
 
-    for (let i in dataValue[9]) {
+    for (let i in dataValue[10]) {
         data.addRow([
-            parseFloat(dataValue[9][i]),
-            parseFloat(dataValue[11][i]),
+            parseFloat(dataValue[10][i]),
+            parseFloat(dataValue[12][i]),
         ])
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1871,7 +1871,7 @@ function drawModalETCO2RightChart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1884,15 +1884,15 @@ function drawModalETCO2MeanChart() {
     data.addColumn('number', 'ETCO2');
     data.addColumn('number', 'COx Avg');
 
-    for (let i in dataValue[9]) {
+    for (let i in dataValue[10]) {
         data.addRow([
-            parseFloat(dataValue[9][i]),
-            parseFloat(dataValue[12][i]),
+            parseFloat(dataValue[10][i]),
+            parseFloat(dataValue[13][i]),
         ])
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1919,7 +1919,7 @@ function drawModalETCO2MeanChart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
@@ -1942,7 +1942,7 @@ function drawETCO2RSO2Chart() {
     }
 
     var options = {
-        colors: ["bisque"],
+        colors: ["#47CACC"],
         tooltip: {isHtml: true},
         backgroundColor: 'transparent',
         height: "100%",
@@ -1968,7 +1968,7 @@ function drawETCO2RSO2Chart() {
         },
         chartArea: {
             width: '80%',
-            height: '80%'
+            height: '70%'
         }
     };
 
