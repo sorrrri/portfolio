@@ -6,6 +6,11 @@
     <title>JM-Soft</title>
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script
+		src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+		crossorigin="anonymous">
+    </script>
     <script>
         document.documentElement.className = "js";
         var supportsCssVars = function () {
@@ -238,58 +243,59 @@
             </div>
         </section>
         <section class="wrapper">
-            <form action="https://script.google.com/macros/s/AKfycbxrrMLbCFsTLBZAfG8jN1tQ9mfTXYa6VBsTro9ENGFDgQGBq2eCdPhFjjw-Um0Jy_bJ/exec" class="gform">
+            <!-- <form action="https://script.google.com/macros/s/AKfycbxrrMLbCFsTLBZAfG8jN1tQ9mfTXYa6VBsTro9ENGFDgQGBq2eCdPhFjjw-Um0Jy_bJ/exec" class="gform"> -->
+			<form id="supportForm">
                 <div class="inputs">
                     <ul>
                         <li>이름</li>
                         <li>
-                            <input type="text">
+                            <input type="text" id="name">
                         </li>
                     </ul>
                     <ul>
                         <li>소속</li>
                         <li>
-                            <input type="text">
+                            <input type="text" id="company">
                         </li>
                     </ul>
                     <ul class="phone">
                         <li>전화번호</li>
                         <li>
-                            <input type="number">
+                            <input type="number" id="phone1">
                             <span>-</span>
-                            <input type="number">
+                            <input type="number" id="phone2">
                             <span>-</span>
-                            <input type="number">
+                            <input type="number" id="phone3">
                         </li>
                     </ul>
                     <ul class="email">
                         <li>이메일</li>
                         <li>
-                            <input type="email">
+                            <input type="text" id="email1">
                             <span>@</span>
-                            <input type="email">
+                            <input type="text" id="email2">
                         </li>
                     </ul>
                     <ul class="type">
                         <li>문의사항</li>
                         <li>
-                            <input type="radio" id="partnership" name="category">
+                            <input type="radio" id="partnership" name="category" value="제휴/제안">
                             <label for="partnership">제휴/제안</label>
 
-                            <input type="radio" id="solution" name="category">
+                            <input type="radio" id="solution" name="category" value="솔루션문의">
                             <label for="solution">솔루션문의</label>
 
-                            <input type="radio" id="etc" name="category">
+                            <input type="radio" id="etc" name="category" value="기타문의">
                             <label for="etc">기타문의</label>
                         </li>
                     </ul>
                     <ul class="textarea">
                         <li>문의내용</li>
                         <li>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea id="message" cols="30" rows="10"></textarea>
                         </li>
                     </ul>
-                    <ul class="file">
+                    <!-- <ul class="file">
                         <li>첨부파일</li>
                         <li>
                             <input id="upload" type="file">
@@ -300,7 +306,7 @@
                                 <span> Choose a file&hellip;</span>
                             </label>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <button type="submit">문의하기</button>
             </form>
@@ -352,5 +358,106 @@
 </main>
 <script src='assets/js/imagesloaded.pkgd.min.js'></script>
 <script src="assets/js/script.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_IzLAzqjQUSCTkYxiqRpvy");
+})();
+
+$('#supportForm').submit(function(event){ 
+	const objAgree = $('#agree');
+	const agree = objAgree.is(':checked');
+	if (!agree) {
+		alert('먼저 개인정보 수집 이용에 동의해야 합니다.')
+		event.preventDefault();
+		return;
+	}
+
+	const data = {
+		name: $('#name').val(),
+		nameErrMsg: '이름은 필수 입력 항목 입니다.',
+		company: $('#company').val(),
+		companyErrMsg: '소속은 필수 입력 항목 입니다.',
+		phone1: $('#phone1').val(),
+		phone1ErrMsg: '전화번호 앞자리는 필수 입력 항목 입니다.',
+		phone2: $('#phone2').val(),
+		phone2ErrMsg: '전화번호 중간자리는 필수 입력 항목 입니다.',
+		phone3: $('#phone3').val(),
+		phone3ErrMsg: '전화번호 뒷자리는 필수 입력 항목 입니다.',
+		email1: $('#email1').val(),
+		email1ErrMsg: '이메일은 필수 입력 항목 입니다.',
+		email2: $('#email2').val(),
+		email2ErrMsg: '이메일 도메인은 필수 입력 항목 입니다.',
+		category: $('input[name="category"]:checked').val(),
+		categoryErrMsg: '문의사항은 필수 입력 항목 입니다.',
+		message: $('#message').val(),
+		messageErrMsg: '문의내용은 필수 입력 항목 입니다.',
+	};
+
+	const validationCheckItems = [
+		'name',
+		'company',
+		'phone1',
+		'phone2', 
+		'phone3', 
+		'email1', 
+		'email2', 
+		'category',
+		'message'
+	];
+
+	const validation = validationCheckItems.every(item => {
+		if (!data[item] || data[item].trim() === '') {
+			alert(data[`${item}ErrMsg`]);
+			return false;
+		}
+
+		return true
+	});
+
+	if (!validation) {
+		event.preventDefault();
+		return;
+	}
+
+	const {
+		name,
+		company,
+		phone1,
+		phone2, 
+		phone3, 
+		email1, 
+		email2, 
+		category,
+		message,
+	} = data
+
+	const serviceId = 'service_ycv43cb';
+	const templateId = 'template_nfn0zfg';
+	const params = {
+		name,
+		company,
+		phone: `${phone1}-${phone2}-${phone3}`,
+		email: `${email1}@${email2}`,
+		category,
+		message
+	};
+
+	console.log(params);
+	emailjs
+		.send(serviceId, templateId, params)
+		.then(function(response) {
+			console.log('SUCCESS!', response.status, response.text);
+			alert('문의하신 내용을 전송하였습니다. 최대한 빠른 답변을 드릴수 있도록 노력하겠습니다.');
+			location.reload();
+		}, function(error) {
+			console.log('FAILED...', error);
+			alert('문의하신 내용을 전송하는데 실패하였습니다. 관리자에게 문의 바랍니다.');
+		});
+
+	event.preventDefault();
+});
+
+</script>
 </body>
 </html>
