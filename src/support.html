@@ -382,6 +382,12 @@ $('#supportForm').submit(function(event){
 		return;
 	}
 
+	if (isBot) {
+		alert('먼저 로봇여부를 체크해 주세요.')
+		event.preventDefault();
+		return;
+	}
+
 	const data = {
 		name: $('#name').val(),
 		nameErrMsg: '이름은 필수 입력 항목 입니다.',
