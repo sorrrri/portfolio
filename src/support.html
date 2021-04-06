@@ -11,6 +11,7 @@
 		integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
 		crossorigin="anonymous">
     </script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onLoadCallback&render=explicit" async defer></script>
     <script>
         document.documentElement.className = "js";
         var supportsCssVars = function () {
@@ -295,18 +296,12 @@
                             <textarea id="message" cols="30" rows="10"></textarea>
                         </li>
                     </ul>
-                    <!-- <ul class="file">
-                        <li>첨부파일</li>
+					<ul class="file">
+                        <li>Captcha</li>
                         <li>
-                            <input id="upload" type="file">
-                            <label for="upload">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-                                </svg>
-                                <span> Choose a file&hellip;</span>
-                            </label>
+                            <div id="captcha"></div>
                         </li>
-                    </ul> -->
+                    </ul>
                 </div>
                 <button type="submit">문의하기</button>
             </form>
@@ -363,6 +358,20 @@
 (function() {
 emailjs.init("user_IzLAzqjQUSCTkYxiqRpvy");
 })();
+
+
+let isBot = true;
+let captcha;
+
+function onLoadCallback() {
+	captcha = grecaptcha.render('captcha', {
+		'sitekey' : '6LeVAJ4aAAAAABZQNpNsmYidkQrB2cyDm-TfaDbo',
+		'callback' : (response) => {
+			isBot = false;
+		},
+		'theme' : 'light'
+	});
+}
 
 $('#supportForm').submit(function(event){ 
 	const objAgree = $('#agree');
