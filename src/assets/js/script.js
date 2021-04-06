@@ -323,19 +323,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.addEventListener('scroll', () => {
             sections.forEach(section => {
-                if (document.documentElement.scrollTop >= section.offsetTop - 600) {
+                if (document.documentElement.scrollTop >= section.offsetTop - 800) {
                     section.style.opacity = '1'
                 }
             })
 
-            if (document.documentElement.scrollTop >= footer.offsetTop - 600) {
+            if (document.documentElement.scrollTop >= footer.offsetTop - 800) {
                 footer.style.opacity = '1'
             }
 
         })
 
         sections.forEach(section => {
-            if (document.documentElement.scrollTop >= section.offsetTop - 600) {
+            if (document.documentElement.scrollTop >= section.offsetTop - 800) {
                 section.style.opacity = '1'
             }
 

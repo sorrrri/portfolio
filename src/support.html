@@ -296,19 +296,7 @@
                             <textarea id="message" cols="30" rows="10"></textarea>
                         </li>
                     </ul>
-                    <!-- <ul class="file">
-                        <li>첨부파일</li>
-                        <li>
-                            <input id="upload" type="file">
-                            <label for="upload">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                                    <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
-                                </svg>
-                                <span> Choose a file&hellip;</span>
-                            </label>
-                        </li>
-                    </ul> -->
-                    <ul class="file">
+					<ul class="file">
                         <li>Captcha</li>
                         <li>
                             <div id="captcha"></div>
@@ -386,12 +374,6 @@ function onLoadCallback() {
 }
 
 $('#supportForm').submit(function(event){ 
-	if (isBot) {
-		alert('먼저 로봇여부를 체크해 주세요.')
-		event.preventDefault();
-		return;
-	}
-
 	const objAgree = $('#agree');
 	const agree = objAgree.is(':checked');
 	if (!agree) {
