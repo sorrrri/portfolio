@@ -49,6 +49,12 @@ gulp.task('images', () => {
         .pipe(browserSync.reload({stream: true}))
 })
 
+gulp.task('favicon', () => {
+    return gulp.src('src/assets/favicon' + '/**/*.*')
+        .pipe(gulp.dest('dist/assets/favicon'))
+        .pipe(browserSync.reload({stream: true}))
+})
+
 gulp.task('scss', () => {
     const options = {
         outputStyle: 'nested',
@@ -127,6 +133,7 @@ gulp.task('deploy', () => {
 
 const series = gulp.series([
     'clean',
+    'favicon',
     'library',
     'images',
     'scss',
