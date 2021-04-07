@@ -26,7 +26,7 @@ main {
 
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -1656,6 +1656,8 @@ footer {
 
       .menu {
         opacity: 1;
+        width:100%;
+        margin-top: 5rem;
 
         li {
           transform: scale(1) translateY(0px);
@@ -1700,7 +1702,7 @@ footer {
 
   #slider {
 
-    height: 100vh;
+    height: 80vh;
 
     .text-slider {
       .title {
@@ -1985,7 +1987,7 @@ footer {
               }
 
               &:not(:last-of-type) {
-                padding-botttom: 1rem
+                padding-bottom: 1rem
               }
             }
           }
@@ -2038,8 +2040,7 @@ footer {
         }
 
         &:nth-of-type(1),
-        &:nth-of-type(2
-        ), {
+        &:nth-of-type(2) {
           margin-bottom: 2rem;
         }
 

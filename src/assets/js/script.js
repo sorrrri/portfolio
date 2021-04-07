@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /* =====================================================
        SmoothScroll
        ===================================================== */
-  const smoothScroll = document.querySelector("div[data-scroll]");
+  let smoothScroll = document.querySelector("div[data-scroll]");
 
   if (smoothScroll) {
     class SmoothScroll {
@@ -385,7 +385,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let windowHeight = window.innerHeight; // 스크린 창
       let fullHeight = document.body.scrollHeight; //  margin 값은 포함 x
 
-      const media = window.matchMedia("(min-width: 768px)");
 
       if (matchMedia("(min-width: 768px)").matches) {
         if (scrollLocation + windowHeight >= fullHeight - 100) {
