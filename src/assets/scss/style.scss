@@ -974,8 +974,7 @@ footer {
       left: 0;
       top: -1.5rem;
       width: 30vw;
-      height: 30vh;
-      max-height: 200px;
+      height: 120%;
       z-index: -1;
     }
 
@@ -1839,6 +1838,7 @@ footer {
         .image {
           top: 0;
           width: 100vw;
+          height: 200px;
         }
 
         div {
