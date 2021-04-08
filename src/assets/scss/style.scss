@@ -981,11 +981,24 @@ footer {
     div {
       padding-left: 20rem;
 
-      .ceo {
-        font-weight: bold;
-        font-size: 16px;
-        text-align: right;
-        margin-top: 1rem
+      p {
+
+        &.impact {
+          color:#261d6f;
+          font-size: 1.115rem;
+          font-weight: bold;
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
+        }
+
+        &.ceo {
+          font-weight: bold;
+          font-size: 16px;
+          text-align: right;
+          margin-top: 1rem
+        }
       }
     }
   }
