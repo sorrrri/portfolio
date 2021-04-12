@@ -26,7 +26,7 @@ main {
 
   &::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -75,11 +75,11 @@ main {
 
 header {
   flex: 0 0 60px;
+  align-content: center;
+  height: 60px;
   position: fixed;
   display: flex;
   justify-content: space-between;
-  align-content: center;
-  height: 60px;
   width: 100%;
   z-index: 90;
   transition: .4s;
@@ -106,10 +106,6 @@ header {
   }
 
   .menu {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 60px;
 
     li {
       a {
@@ -117,6 +113,18 @@ header {
         padding: 0 2rem;
         text-transform: capitalize;
         transition: .4s;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    header {
+
+      .menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 60px;
       }
     }
   }
@@ -974,19 +982,31 @@ footer {
       left: 0;
       top: -1.5rem;
       width: 30vw;
-      height: 30vh;
-      max-height: 200px;
+      height: 120%;
       z-index: -1;
     }
 
     div {
       padding-left: 20rem;
 
-      .ceo {
-        font-weight: bold;
-        font-size: 16px;
-        text-align: right;
-        margin-top: 1rem
+      p {
+
+        &.impact {
+          color:#261d6f;
+          font-size: 1.115rem;
+          font-weight: bold;
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
+        }
+
+        &.ceo {
+          font-weight: bold;
+          font-size: 16px;
+          text-align: right;
+          margin-top: 1rem
+        }
       }
     }
   }
@@ -1158,6 +1178,12 @@ footer {
 }
 
 .smart-factory-automation {
+  .tabs {
+    li:nth-of-type(3),
+    li:nth-of-type(4) {
+      display: none;
+    }
+  }
 
   .rtms {
 
@@ -1488,6 +1514,9 @@ footer {
 
 @media (max-width: 767px) {
 
+  div[data-scroll] {
+    -webkit-overflow-scrolling: touch;
+  }
   h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -1560,7 +1589,7 @@ footer {
   }
 
   header {
-    transition: all 0.5s ease-out, background 1s ease-out;
+    transition: all .3s ease-out, background 1s ease-out;
     transition-delay: 0.2s;
     justify-content: flex-start;
     flex-direction: column;
@@ -1572,7 +1601,6 @@ footer {
     }
 
     &.scroll {
-      height: 60px;
       backdrop-filter: blur(10px);
 
       .logo {
@@ -1647,6 +1675,7 @@ footer {
 
       .menu {
         opacity: 1;
+        width:100%;
 
         li {
           transform: scale(1) translateY(0px);
@@ -1691,11 +1720,11 @@ footer {
 
   #slider {
 
-    height: 100vh;
+    height: 80vh;
 
     .text-slider {
       .title {
-        font-size: 3rem !important;
+        font-size: 2.8rem !important;
         line-height: 1;
       }
     }
@@ -1747,6 +1776,10 @@ footer {
 
     .services {
       flex-direction: column;
+
+      .title {
+        font-size: 2.25rem;
+      }
 
       .sc {
         margin-top: 3rem
@@ -1824,6 +1857,7 @@ footer {
         .image {
           top: 0;
           width: 100vw;
+          height: 200px;
         }
 
         div {
@@ -1972,7 +2006,7 @@ footer {
               }
 
               &:not(:last-of-type) {
-                padding-botttom: 1rem
+                padding-bottom: 1rem
               }
             }
           }
@@ -2025,8 +2059,7 @@ footer {
         }
 
         &:nth-of-type(1),
-        &:nth-of-type(2
-        ), {
+        &:nth-of-type(2) {
           margin-bottom: 2rem;
         }
 
@@ -2042,6 +2075,11 @@ footer {
     .rules {
       margin: 1rem 0 !important;
       padding: 1rem;
+    }
+
+    .agreement {
+      flex-direction: column;
+      align-items: center;
     }
 
     input {
