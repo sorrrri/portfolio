@@ -367,7 +367,12 @@ function onLoadCallback() {
 	captcha = grecaptcha.render('captcha', {
 		'sitekey' : '6LeVAJ4aAAAAABZQNpNsmYidkQrB2cyDm-TfaDbo',
 		'callback' : (response) => {
+      console.log(response);
 			isBot = false;
+		},
+    'expired-callback' : () => {
+      console.log('expired');
+			isBot = true;
 		},
 		'theme' : 'light'
 	});
