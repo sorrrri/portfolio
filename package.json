@@ -8,7 +8,7 @@
     "build": "webpack --config ./webpack.config",
     "start": "npx webpack serve --config ./webpack.config",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
@@ -39,8 +39,10 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react-google-chart": "^0.1.2",
+    "react-images-loaded": "^2.0.0",
     "react-router-dom": "^5.2.0",
     "react-slick": "^0.28.1",
+    "react-smooth-scrolling": "^1.0.2",
     "react-tabs": "^3.2.2",
     "slick-carousel": "^1.8.1",
     "url-loader": "^4.1.1"

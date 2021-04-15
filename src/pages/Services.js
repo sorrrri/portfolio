@@ -1,9 +1,38 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Slider from "react-slick"
 
 const Services = () => {
   const [index, setIndex] = useState(0);
+
+  const sliderSettings = {    
+    lazyLoad: 'ondemand',
+    autoplay: true,
+    centerMode: true,
+    centerPadding: '60px',
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
+  }
 
   return (
     <div class="content services sub">
@@ -79,7 +108,7 @@ const Services = () => {
               </div>
             </section>
             <section>
-              <div class="services-slider">
+              <Slider className="services-slider" {...sliderSettings}>
                 <div>
                   <img
                     src={require("../assets/images/services/02.png")}
@@ -92,7 +121,7 @@ const Services = () => {
                     alt=""
                   />
                 </div>
-              </div>
+              </Slider>
             </section>
           </TabPanel>
           <TabPanel className="system-consulting">
@@ -154,7 +183,7 @@ const Services = () => {
               </div>
             </section>
             <section>
-              <div class="services-slider">
+              <Slider className="services-slider" {...sliderSettings}>
                 <div>
                   <img
                     src={require("../assets/images/services/02.png")}
@@ -167,7 +196,7 @@ const Services = () => {
                     alt=""
                   />
                 </div>
-              </div>
+              </Slider>
             </section>
           </TabPanel>
         </Tabs>

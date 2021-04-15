@@ -407,7 +407,7 @@ const Solutions = () => {
             </ul>
           </section>
         </TabPanel>
-        <TabPanel className="fa">
+        <TabPanel className="smart-factory-automation">
           <Tabs>
             <TabList className="tabs">
               <Tab>RTMS</Tab>
