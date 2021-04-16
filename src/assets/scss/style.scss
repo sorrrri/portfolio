@@ -1168,7 +1168,6 @@ footer {
 
 .smart-factory-automation {
   .tabs {
-    li:nth-of-type(3),
     li:nth-of-type(4) {
       display: none;
     }
@@ -1247,6 +1246,15 @@ footer {
     }
   }
 
+  .cim {
+    .advantages {
+      li {
+        &:before {
+          content:none
+        }
+      }
+    }
+  }
 }
 
 .digital-transformation {
