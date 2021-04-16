@@ -1,8 +1,6 @@
 @charset "UTF-8";
 @import url("https://use.typekit.net/euz1eqv.css");
 
-p {
-}
 
 h1 {
   font-size: 4rem;
@@ -15,9 +13,6 @@ main {
   flex-direction: column;
   transition: background-color .4s;
   overflow-x: hidden;
-
-  > * {
-  }
 }
 
 .main {
@@ -347,10 +342,6 @@ header {
         transform: rotate(135deg);
         margin-left: -3px;
       }
-    }
-
-    .slick-next {
-
     }
   }
 }
@@ -912,8 +903,6 @@ footer {
    about
    ====================================== */
 .about {
-  .title {
-  }
 
   div[data-scroll] {
     width: 100%;
@@ -2085,12 +2074,6 @@ footer {
     input {
       width: 100%;
       flex: 1 1 auto
-    }
-
-    .phone {
-
-      input {
-      }
     }
   }
 
