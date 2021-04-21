@@ -851,6 +851,7 @@ footer {
 
   img {
     max-width: 800px;
+    max-height: 170px;
     margin: 0 auto;
     border-radius: .5rem;
     background-color: white;
@@ -858,7 +859,7 @@ footer {
 
 
   section {
-    margin-bottom: 5rem !important;
+    margin-bottom: 3rem !important;
 
 
     .slick-slider {
@@ -1173,6 +1174,53 @@ footer {
     }
   }
 
+  .process {
+    border-radius: .5rem;
+
+    ul {
+      display: flex;
+      margin: 0 -.5rem;
+      flex-wrap: wrap;
+      counter-reset: li;
+
+      li {
+        flex: 1 1 20%;
+        border-radius: .5rem;
+        padding: 1rem;
+        margin: .5rem;
+        background-color: #EEE;
+        position: relative;
+
+        &::before {
+          counter-increment: li;
+          content: "0" counter(li);
+          color: #3b9cff;
+          display: block;
+        }
+
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -.65rem;
+          width: 0;
+          height: 0;
+          margin-top: -6px;
+          border: solid slategray;
+          border-width: 0 2px 2px 0;
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(-45deg);
+        }
+
+        &:last-of-type::after {
+          content: none;
+        }
+      }
+    }
+  }
+
   .rtms {
 
     img {
@@ -1195,54 +1243,6 @@ footer {
 
     .interface {
       margin-bottom: 3rem !important;
-    }
-
-    .process {
-      padding: 1rem;
-      border-radius: .5rem;
-
-      ul {
-        display: flex;
-        margin: 0 -.5rem;
-        flex-wrap: wrap;
-        counter-reset: li;
-
-        li {
-          flex: 1 1 20%;
-          border-radius: .5rem;
-          padding: 1rem;
-          margin: .5rem;
-          background-color: #EEE;
-          position: relative;
-
-          &::before {
-            counter-increment: li;
-            content: "0" counter(li);
-            color: #3b9cff;
-            display: block;
-          }
-
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: -.65rem;
-            width: 0;
-            height: 0;
-            margin-top: -6px;
-            border: solid slategray;
-            border-width: 0 2px 2px 0;
-            display: inline-block;
-            padding: 3px;
-            transform: rotate(-45deg);
-          }
-
-          &:last-of-type::after {
-            content: none;
-          }
-        }
-      }
     }
   }
 
