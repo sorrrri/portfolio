@@ -851,7 +851,6 @@ footer {
 
   img {
     max-width: 800px;
-    max-height: 170px;
     margin: 0 auto;
     border-radius: .5rem;
     background-color: white;
@@ -867,6 +866,7 @@ footer {
 
       img {
         padding: .5rem;
+        max-height: 170px;
       }
     }
   }
