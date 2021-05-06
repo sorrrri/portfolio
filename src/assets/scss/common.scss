@@ -24,6 +24,11 @@
 }
 
 @font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Regular.ttf');
+}
+
+@font-face {
   font-family: 'Blinker';
   src: url('../fonts/Blinker-Regular.ttf');
 }
@@ -125,7 +130,7 @@ svg {
 }
 
 a {
-  font-family: 'Poppins-Regular', sans-serif;
+  font-family: 'Poppins-Regular', 'Nanumsquare-Regular', sans-serif;
   text-decoration: none;
   color: #444;
   outline: none;
