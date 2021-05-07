@@ -985,6 +985,12 @@ footer {
    Support
    ====================================== */
 .support {
+
+  .sub-title {
+    margin-bottom: 0;
+    padding-bottom: 0
+  }
+  
   .faq {
     ul {
       border-top: 2px solid slategray;
