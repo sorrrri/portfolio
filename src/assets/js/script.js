@@ -1,24 +1,29 @@
 /* =====================================================
    Scroll Menu
    ===================================================== */
-let header;
-let logo = document.querySelector("header .logo");
-let hamburgerMenu = document.querySelectorAll(".hamburger-menu path");
-
-function init() {
-  header = document.querySelector("header");
-  document.addEventListener("scroll", scrollMenu, false);
-}
-
-function scrollMenu() {
-  if (document.documentElement.scrollTop > 50) {
-    header.classList.add("scroll");
-  } else {
-    header.classList.remove("scroll");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", init, false);
+   let header = document.querySelector("header");
+   let logo = document.querySelector("header .logo");
+   let hamburgerMenu = document.querySelectorAll(".hamburger-menu path");
+   const btnScrolltoTop = document.querySelector(".scroll-to-top")
+   
+   
+   function scrollMenu() {
+     if (document.documentElement.scrollTop > 50) {
+       header.classList.add("scroll")
+       btnScrolltoTop.classList.add("active")
+     } else {
+       header.classList.remove("scroll")
+       btnScrolltoTop.classList.remove("active")
+     }
+   }
+   
+   document.addEventListener("scroll", scrollMenu);
+   btnScrolltoTop.addEventListener("click", () => {
+     window.scrollTo({
+       top: 0,
+       behavior: "smooth"
+     })
+   })
 
 document.addEventListener("DOMContentLoaded", function () {
   // helper functions
@@ -361,6 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
   const footer = document.querySelector("footer");
 
+
   if (main) {
     document.addEventListener("scroll", () => {
       sections.forEach((section) => {
@@ -433,6 +439,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+
+
+  /* =====================================================
+       About - Sub Menus
+       ===================================================== */
+  const about = document.querySelector(".about")
+
+  if(about) {
+    const navigation = document.querySelector("nav")
+    const subMenus = navigation.querySelectorAll("a")
+    const sections = document.querySelectorAll("section")
+
+    subMenus.forEach(subMenu => {
+      subMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        let menuIndex = [...subMenus].indexOf(e.target);
+        let currentSection = [...sections][menuIndex];
+
+        window.scrollTo({
+          top: currentSection.offsetTop
+        })
+
+        console.log(menuIndex)
+        console.log(currentSection)
+        console.log([...sections][1].offsetTop)
+        
+      })
+    })    
+  }
 
 
   /* =====================================================

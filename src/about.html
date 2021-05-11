@@ -43,11 +43,20 @@
         </svg>
       </div>
     </header>
+    <nav class="wrapper">
+      <ul>
+        <li><a href="#introduction">introduction</a></li>
+        <li><a href="#greetings">greetings</a></li>
+        <li><a href="#history">history</a></li>
+        <li><a href="#certification">certification</a></li>
+        <li><a href="#location">location</a></li>
+      </ul>
+    </nav>
     <div class="content" data-scroll>
       <div class="title">
         <h1 class="wrapper">About</h1>
       </div>
-      <section class="introduction wrapper">
+      <section id="introduction" class="introduction wrapper">
         <div class="sub-title">
           <h2>Introduction</h2>
           <p>통신 프로토콜 기술 및 VoIP 기술분야의 전문가들에 의해 개발된 국내 개발 소프트웨어<br />
@@ -64,7 +73,7 @@
           <p>03. 모든 TDM 기반의 서비스 시스템을 IP 망에서 구현 및 각 부가시스템을 손쉽고 경제적으로 통합 구현 가능</p>
         </div>
       </section>
-      <section class="greetings wrapper">
+      <section id="greetings" class="greetings wrapper">
         <h2>CEO Greetings</h2>
         <p>안녕하세요. 아이디엠네트웍스를 찾아주셔서 감사합니다.<br />
           아이디엠네트웍스는 2000년도 국내 Volp기술이 도입되고, 초고속인터넷서비스가 도입되는 초창기부터 초고속인터넷 접속서비스 시스템과 Volp 시스템
@@ -222,7 +231,7 @@
           </div>
         </div>
       </section>
-      <section class="certification wrapper">
+      <section id="certification" class="certification wrapper">
         <h2>Certification</h2>
         <div class="certification-slider">
           <div><img src="assets/images/sub/certification_01.png" alt=""></div>
@@ -292,30 +301,17 @@
       </footer>
     </div>
   </main>
+  <button class="scroll-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
+    </svg>
+  </button>
   <script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="assets/js/slick.min.js"></script>
   <script src='assets/js/imagesloaded.pkgd.min.js'></script>
   <script src="assets/js/script.js"></script>
   <script>
-    $('.main-slider').slick({
-      infinite: true,
-      speed: 500,
-      fade: true,
-      autoplay: true,
-      arrows: true,
-      dots: true,
-      cssEase: 'linear',
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            dots: false
-          }
-        },
-      ]
-    });
     $('.certification-slider').slick({
       lazyLoad: 'ondemand',
       autoplay: true,
