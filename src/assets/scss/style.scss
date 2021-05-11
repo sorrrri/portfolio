@@ -1,6 +1,32 @@
 @charset "UTF-8";
 @import url("https://use.typekit.net/euz1eqv.css");
 
+.scroll-to-top {
+  opacity: 0;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  transform: translateY(6rem);
+  background: #372a9f;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3rem;
+  z-index: 10;
+  transition: .4s ease-in-out;
+  z-index: 10;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  svg {
+    fill: white
+  }
+}
 
 h1 {
   font-size: 4rem;
@@ -763,12 +789,12 @@ footer {
 
     &:first-of-type:hover,
     &:first-of-type.active {
-      border-radius: .25rem 0 0 .25rem;
+      border-radius: .25rem .25rem 0 0;
     }
 
     &:last-of-type:hover,
     &:last-of-type.active {
-      border-radius: 0 .25rem .25rem 0;
+      border-radius: 0 0 .25rem .25rem;
     }
 
 
@@ -1440,7 +1466,7 @@ footer {
   button {
     font-size: 18px;
     font-family: 'NanumSquare-Regular', sans-serif;
-    background: #372a9f;
+    background: lightseagreen;
     padding: 1.5rem 3rem;
     width: 300px;
     margin: 0 auto;
@@ -1534,6 +1560,15 @@ footer {
   div[data-scroll] {
     -webkit-overflow-scrolling: touch;
   }
+
+  .scroll-to-top {
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    
+  }
+
   h1 {
     font-size: 3rem;
     margin-bottom: 1rem;

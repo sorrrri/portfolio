@@ -1,24 +1,30 @@
 /* =====================================================
    Scroll Menu
    ===================================================== */
-let header;
-let logo = document.querySelector("header .logo");
-let hamburgerMenu = document.querySelectorAll(".hamburger-menu path");
+   let header = document.querySelector("header");
+   let logo = document.querySelector("header .logo");
+   let hamburgerMenu = document.querySelectorAll(".hamburger-menu path");
+   const btnScrolltoTop = document.querySelector(".scroll-to-top")
+   
+   
+   function scrollMenu() {
+     if (document.documentElement.scrollTop > 50) {
+       header.classList.add("scroll")
+       btnScrolltoTop.classList.add("active")
+     } else {
+       header.classList.remove("scroll")
+       btnScrolltoTop.classList.remove("active")
+     }
+   }
+   
+   document.addEventListener("scroll", scrollMenu);
+   btnScrolltoTop.addEventListener("click", () => {
+     window.scrollTo({
+       top: 0,
+       behavior: "smooth"
+     })
+   })
 
-function init() {
-  header = document.querySelector("header");
-  document.addEventListener("scroll", scrollMenu, false);
-}
-
-function scrollMenu() {
-  if (document.documentElement.scrollTop > 50) {
-    header.classList.add("scroll");
-  } else {
-    header.classList.remove("scroll");
-  }
-}
-
-document.addEventListener("DOMContentLoaded", init, false);
 
 document.addEventListener("DOMContentLoaded", function () {
   // helper functions
