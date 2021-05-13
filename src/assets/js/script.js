@@ -1,30 +1,28 @@
 /* =====================================================
    Scroll Menu
    ===================================================== */
-   let header = document.querySelector("header");
-   let logo = document.querySelector("header .logo");
-   let hamburgerMenu = document.querySelectorAll(".hamburger-menu path");
-   const btnScrolltoTop = document.querySelector(".scroll-to-top")
-   
-   
-   function scrollMenu() {
-     if (document.documentElement.scrollTop > 50) {
-       header.classList.add("scroll")
-       btnScrolltoTop.classList.add("active")
-     } else {
-       header.classList.remove("scroll")
-       btnScrolltoTop.classList.remove("active")
-     }
-   }
-   
-   document.addEventListener("scroll", scrollMenu);
-   btnScrolltoTop.addEventListener("click", () => {
-     window.scrollTo({
-       top: 0,
-       behavior: "smooth"
-     })
-   })
+let header = document.querySelector("header");
+let logo = document.querySelector("header .logo");
+let hamburgerMenu = document.querySelectorAll(".hamburger-menu path");
+const btnScrolltoTop = document.querySelector(".scroll-to-top");
 
+function scrollMenu() {
+  if (document.documentElement.scrollTop > 50) {
+    header.classList.add("scroll");
+    btnScrolltoTop.classList.add("active");
+  } else {
+    header.classList.remove("scroll");
+    btnScrolltoTop.classList.remove("active");
+  }
+}
+
+document.addEventListener("scroll", scrollMenu);
+btnScrolltoTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   // helper functions
@@ -133,9 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
     update() {
       // sets the initial value (no interpolation)
       for (const key in this.renderedStyles) {
-        this.renderedStyles[key].current = this.renderedStyles[
-          key
-        ].previous = this.renderedStyles[key].setValue();
+        this.renderedStyles[key].current = this.renderedStyles[key].previous =
+          this.renderedStyles[key].setValue();
       }
       // apply changes/styles
       this.layout();
@@ -200,9 +197,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // the items on the page
         this.items = [];
         this.DOM.content = this.DOM.main.querySelector(".content");
-        [
-          ...this.DOM.content.querySelectorAll(".image-wrapper"),
-        ].forEach((item) => this.items.push(new Item(item)));
+        [...this.DOM.content.querySelectorAll(".image-wrapper")].forEach(
+          (item) => this.items.push(new Item(item))
+        );
         // here we define which property will change as we scroll the page
         // in this case we will be translating on the y-axis
         // we interpolate between the previous and current value to achieve the smooth scrolling effect
@@ -234,9 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
       update() {
         // sets the initial value (no interpolation) - translate the scroll value
         for (const key in this.renderedStyles) {
-          this.renderedStyles[key].current = this.renderedStyles[
-            key
-          ].previous = this.renderedStyles[key].setValue();
+          this.renderedStyles[key].current = this.renderedStyles[key].previous =
+            this.renderedStyles[key].setValue();
         }
         // translate the scrollable element
         this.layout();
@@ -276,9 +272,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // update the current and interpolated values
         for (const key in this.renderedStyles) {
-          this.renderedStyles[key].current = this.renderedStyles[
-            key
-          ].setValue();
+          this.renderedStyles[key].current =
+            this.renderedStyles[key].setValue();
           this.renderedStyles[key].previous = MathUtils.lerp(
             this.renderedStyles[key].previous,
             this.renderedStyles[key].current,
@@ -365,6 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
        ===================================================== */
   const main = document.querySelector(".main");
   const sections = document.querySelectorAll("section");
+  const customers = document.querySelector("#customers")
   const footer = document.querySelector("footer");
 
   if (main) {
@@ -372,11 +368,24 @@ document.addEventListener("DOMContentLoaded", function () {
       sections.forEach((section) => {
         if (document.documentElement.scrollTop >= section.offsetTop - 800) {
           section.style.opacity = "1";
+          section.classList.add("active");
         }
       });
 
       if (document.documentElement.scrollTop >= footer.offsetTop - 800) {
         footer.style.opacity = "1";
+      }
+
+      
+      let scrollLocation = document.documentElement.scrollTop; // 현재 스크롤바 위치
+      let windowHeight = window.innerHeight; // 스크린 창
+      let fullHeight = document.body.scrollHeight; //  margin 값은 포함 x
+
+      if (matchMedia("(min-width: 768px)").matches) {
+        if (scrollLocation + windowHeight >= fullHeight - 100) {
+          let footer = document.querySelector("footer");
+          footer.style.opacity = "1";
+        }
       }
     });
 
@@ -386,19 +395,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    window.addEventListener("scroll", () => {
-      let scrollLocation = document.documentElement.scrollTop; // 현재 스크롤바 위치
-      let windowHeight = window.innerHeight; // 스크린 창
-      let fullHeight = document.body.scrollHeight; //  margin 값은 포함 x
-
-
-      if (matchMedia("(min-width: 768px)").matches) {
-        if (scrollLocation + windowHeight >= fullHeight - 100) {
-          let footer = document.querySelector("footer");
-          footer.style.opacity = "1";
-        }
-      }
-    });
   }
 
   /* =====================================================
@@ -433,9 +429,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if(matchMedia("screen and (max-width: 767px").matches) {
-    if(smoothScroll) {
-      smoothScroll.removeAttribute('data-scroll')
+  if (matchMedia("screen and (max-width: 767px").matches) {
+    if (smoothScroll) {
+      smoothScroll.removeAttribute("data-scroll");
     }
   }
 });
