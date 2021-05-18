@@ -1,36 +1,6 @@
 @font-face {
-  font-family: 'Poppins-Regular';
-  src: url('../fonts/Poppins-Regular.ttf');
-}
-
-@font-face {
   font-family: 'Poppins-Semibold';
   src: url('../fonts/Poppins-SemiBold.ttf');
-}
-
-@font-face {
-  font-family: 'Montserrat-ExtraLight';
-  src: url('../fonts/Montserrat-ExtraLight.ttf');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-SemiBold.ttf');
-}
-
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('../fonts/Comfortaa-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Libre Baskerville';
-  src: url('../fonts/LibreBaskerville-Regular.ttf');
 }
 
 @font-face {
@@ -48,7 +18,7 @@
 
 
 $primary-color: #2f2586;
-$secondary-color: #3b9cff;
+$secondary-color: orangered;
 $dark-primary-color: #27292d;
 $dark-secondary-color: #373a46;
 $dark-tertiary-color: #85899a;
@@ -85,6 +55,10 @@ body {
 
 svg {
   fill: $dark-primary-color;
+}
+
+address {
+  font-style: normal;
 }
 
 
@@ -125,7 +99,7 @@ svg {
 }
 
 a {
-  font-family: 'Poppins-Regular', sans-serif;
+  font-family: 'Poppins-Regular', 'NanumSquare-Regular', sans-serif;
   text-decoration: none;
   color: #444;
   outline: none;
@@ -135,7 +109,6 @@ a {
 a:hover,
 a:focus,
 a.active {
-  color: $secondary-color;
   outline: none;
   text-decoration: none;
 }
@@ -149,6 +122,9 @@ a.active {
   opacity: 0;
 }
 
+.row {
+  display: flex;
+}
 
 .container {
   padding: 0; /* bootstrap */
@@ -170,7 +146,6 @@ ul {
 
 img {
   display: block;
-  width: 100%;
 }
 
 .add-input {
@@ -184,7 +159,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 small {
-  font-family: 'Comfortaa', 'NanumSquare', sans-serif;
+  font-family: 'NanumSquare', sans-serif;
   line-height: 1.2;
 }
 
@@ -406,7 +381,6 @@ aside {
   width: 1200px;
   max-width: 1600px;
   display: flex;
-  flex-direction: column;
   box-sizing: border-box;
   position: relative;
 }
