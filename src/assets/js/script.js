@@ -38,12 +38,30 @@ document.addEventListener("DOMContentLoaded", () => {
     linkButton.addEventListener("click", (e) => {
       e.stopPropagation();
       if (notice.classList.contains("active")) {
-        window.location = "http://www.naver.com";
+        window.location = "notice.html";
       } else if (downloads.classList.contains("active")) {
-        window.location = "http://www.daum.net";
+        window.location = "downloads.html";
       } else if (errata.classList.contains("active")) {
-        window.location = "http://www.google.com";
+        window.location = "errata.html";
       }
     });
+  }
+
+  const admin = document.querySelector(".admin")
+
+  if(admin) {
+    
+    const mainMenus = document.querySelectorAll('.main-menu')
+
+    mainMenus.forEach((mainMenu) => {
+        const subMenu = mainMenu.nextElementSibling
+
+        if(subMenu) {
+            mainMenu.addEventListener('click', () => {
+                mainMenu.classList.toggle('active')
+                subMenu.classList.toggle('active')
+            })
+        }
+    })
   }
 });
