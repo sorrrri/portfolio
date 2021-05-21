@@ -19,133 +19,132 @@
 </head>
 
 <body>
-  <div class="container">  <header>
-    <nav class="global-menu">
-      <a href="">로그인</a>
-      <a href="">회원가입</a>
-      <a href="">고객센터</a>
-    </nav>
-    <div class="wrapper">
-      <a href="index.html" class="logo"></a>
-      <div class="search">
-        <input name="" type="search" placeholder="도서명을 입력하세요." />
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
-          <path
-            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
-        </svg>
-      </div>
-      <div class="quick-links">
-        <a class="shopping-bag" href="#">
-          <span>장바구니</span>
-        </a>
-        <a class="shipping" href="#">
-          <span>주문배송조회</span>
-        </a>
-        <a class="mypage" href="#">
-          <span>마이페이지</span>
-        </a>
-      </div>
-    </div>
-    <nav class="categories">
+  <div class="container">
+    <header>
+      <nav class="global-menu">
+        <a href="">로그인</a>
+        <a href="">회원가입</a>
+        <a href="notice.html">고객센터</a>
+      </nav>
       <div class="wrapper">
-        <a href="#">전문교재</a>
-        <a href="#">자격수험서</a>
-        <a href="#">컴퓨터</a>
-        <a href="#">단행본</a>
-      </div>
-      <div class="sub wrapper">
-        <ul>
-          <li>
-            <a href="#">피부계열</a>
-          </li>
-          <li>
-            <a href="#">헤어계열</a>
-          </li>
-          <li>
-            <a href="#">메이크업계열</a>
-          </li>
-          <li>
-            <a href="#">네일아트계열</a>
-          </li>
-          <li>
-            <a href="#">보건계열</a>
-          </li>
-          <li>
-            <a href="#">공학계열</a>
-          </li>
-          <li>
-            <a href="#">영상계열</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="#">기능사</a>
-          </li>
-          <li>
-            <a href="#">기사/산업기사</a>
-          </li>
-          <li>
-            <a href="#">기술사/기능장</a>
-          </li>
-          <li>
-            <a href="#">그 외 자격증</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="#">프로그래밍</a>
-          </li>
-          <li>
-            <a href="#">그래픽/영상</a>
-          </li>
-          <li>
-            <a href="#">e-비즈니스</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="#">단행본</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-    <div class="content">
-      {% block content %}
-      {% endblock %}
-      <footer>
-        <ul class="sitemap">
-          <li><a href="">회사소개</a></li>
-          <li><a href="">이용약관</a></li>
-          <li><a href="">정보안내</a></li>
-          <li><a href="">구매정보</a></li>
-          <li><a href="">고객센터</a></li>
-          <li><a href="">도서정보목록</a></li>
-        </ul>
-        <div class="wrapper">
-          <ul class="information">
-            <li>
-              <address>
-                (07293) 서울 영등포구 문래북로 116, 604~605호(문래동 3가,
-                트리플렉스)
-              </address>
-            </li>
-            <li>전화번호: 02-701-7421~2</li>
-            <li>팩스번호: 02-3723-9642</li>
-            <li>사업자등록번호: 101-98-52093</li>
-            <li>통신판매신고번호: 제2014-서울영등포-0492호</li>
-            <li>대표이사: 조규백</li>
-            <li>
-              대표이메일:
-              <a href="mailto:kuhminsa@kuhminsa.co.kr">kuhminsa@kuhminsa.co.kr</a>
-            </li>
-            <li>호스팅제공자: (주)아이티칸</li>
-            <li>도서출판 구민사 CopyrightⓒKuhminsa all right Reserved.</li>
-          </ul>
-          <div class="logo"></div>
+        <a href="index.html" class="logo"></a>
+        <div class="search">
+          <input name="" type="search" placeholder="도서명을 입력하세요." />
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
         </div>
-      </footer>
-    </div>
+        <div class="quick-links">
+          <a class="shopping-bag" href="shoppingbag.html">
+            <span>장바구니</span>
+          </a>
+          <a class="shipping" href="order_list.html">
+            <span>주문배송조회</span>
+          </a>
+          <a class="mypage" href="mypage.html">
+            <span>마이페이지</span>
+          </a>
+        </div>
+      </div>
+      <nav class="categories" onclick="location.href='list.html'">
+        <div class="wrapper">
+          <a href="#">전문교재</a>
+          <a href="#">자격수험서</a>
+          <a href="#">컴퓨터</a>
+          <a href="#">단행본</a>
+        </div>
+        <div class="sub wrapper">
+          <ul>
+            <li>
+              <a href="#">피부계열</a>
+            </li>
+            <li>
+              <a href="#">헤어계열</a>
+            </li>
+            <li>
+              <a href="#">메이크업계열</a>
+            </li>
+            <li>
+              <a href="#">네일아트계열</a>
+            </li>
+            <li>
+              <a href="#">보건계열</a>
+            </li>
+            <li>
+              <a href="#">공학계열</a>
+            </li>
+            <li>
+              <a href="#">영상계열</a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#">기능사</a>
+            </li>
+            <li>
+              <a href="#">기사/산업기사</a>
+            </li>
+            <li>
+              <a href="#">기술사/기능장</a>
+            </li>
+            <li>
+              <a href="#">그 외 자격증</a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#">프로그래밍</a>
+            </li>
+            <li>
+              <a href="#">그래픽/영상</a>
+            </li>
+            <li>
+              <a href="#">e-비즈니스</a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#">단행본</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+      <ul class="sitemap">
+        <li><a href="">회사소개</a></li>
+        <li><a href="">이용약관</a></li>
+        <li><a href="">정보안내</a></li>
+        <li><a href="">구매정보</a></li>
+        <li><a href="notice.html">고객센터</a></li>
+        <li><a href="">도서정보목록</a></li>
+      </ul>
+      <div class="wrapper">
+        <ul class="information">
+          <li>
+            <address>
+              (07293) 서울 영등포구 문래북로 116, 604~605호(문래동 3가,
+              트리플렉스)
+            </address>
+          </li>
+          <li>전화번호: 02-701-7421~2</li>
+          <li>팩스번호: 02-3723-9642</li>
+          <li>사업자등록번호: 101-98-52093</li>
+          <li>통신판매신고번호: 제2014-서울영등포-0492호</li>
+          <li>대표이사: 조규백</li>
+          <li>
+            대표이메일:
+            <a href="mailto:kuhminsa@kuhminsa.co.kr">kuhminsa@kuhminsa.co.kr</a>
+          </li>
+          <li>호스팅제공자: (주)아이티칸</li>
+          <li>도서출판 구민사 CopyrightⓒKuhminsa all right Reserved.</li>
+        </ul>
+        <div class="logo"></div>
+      </div>
+    </footer>
     <nav class="mobile-navigation">
       <ul>
         <li>

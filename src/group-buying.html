@@ -1,0 +1,87 @@
+{% extends "base.html" %} {% block content %}
+<main class="sub board-02 wrapper">
+  <aside>
+    <h3>고객센터</h3>
+    <a href="notice.html">공지사항</a>
+    <a href="qna.html">질의응답</a>
+    <a href="errata.html">정오표</a>
+    <a href="downloads.html">자료실</a>
+    <a href="publish.html">출판문의</a>
+    <a href="group-buying.html">공동구매</a>
+  </aside>
+  <div class="content">
+    <div class="breadscrumb">
+      <a href="">Home</a>
+      <a href="">고객센터</a>
+      <a href="">자료실</a>
+    </div>
+    <div class="title">
+      <h2>공동구매</h2>
+      <p>공동구매 요청정보를 입력하세요.</p>
+    </div>
+    <section>
+      <ul class="inputs">
+        <li>
+          <span class="required">대학명</span>
+          <input type="text" value="" />
+        </li>
+        <li>
+          <span class="required">학과</span>
+          <input type="text" value="" />
+        </li>
+        <li>
+          <span class="required">학년</span>
+          <input type="text" value="" />
+        </li>
+        <li>
+          <span class="required">강의 교수님</span>
+          <input type="text" value="" />
+        </li>
+        <li>
+          <span class="required">주문자 성명</span>
+          <input type="text" value="홍길동" readonly="readonly" />
+        </li>
+        <li>
+          <span class="required">이메일</span>
+          <input type="email" value="hong@naver.com" />
+        </li>
+        <li>
+          <span class="required">ID</span>
+          <input type="text" value="test" readonly="readonly" />
+        </li>
+        <li class="phone">
+          <span class="required">전화번호</span>
+          <div>
+            <input type="number" />
+            <span>-</span>
+            <input type="number" />
+            <span>-</span>
+            <input type="number" />
+          </div>
+        </li>
+        <li class="phone">
+          <span class="required">휴대폰</span>
+          <div>
+            <input type="number" />
+            <span>-</span>
+            <input type="number" />
+            <span>-</span>
+            <input type="number" />
+          </div>
+        </li>
+        <li class="address">
+          <span class="required">주소</span>
+          <input type="text" />
+        </li>
+        <li>
+          <span class="required">구매도서</span>
+          <button>도서등록</button>
+        </li>
+      </ul>
+    </section>
+    <div class="buttons">
+      <button class="btn-main">신청하기</button>
+    </div>
+  </div>
+</main>
+{% endblock %}
