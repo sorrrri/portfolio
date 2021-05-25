@@ -1,0 +1,78 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="group-buying-update wrapper">
+  <div class="title">
+    <h1>공동구매 상세수정</h1>
+    <div class="buttons">
+      <button class="btn-sub">삭제</button>
+      <button>수정</button>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="inputs">
+      <li>
+        <span>주문번호</span>
+        <span class="full">H20160822093653</span>
+      </li>
+      <li>
+        <span>ISBN</span>
+        <span class="full">979-11-5813-782-3</span>
+      </li>
+      <li>
+        <span>도서명</span>
+        <span class="full">2021 수질환경기사 산업기사 실기</span>
+      </li>
+      <li>
+        <span>상태</span>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">견적요청</option>
+            <option value="">결제완료</option>
+            <option value="">출고준비</option>
+            <option value="">출고완료</option>
+          </select>
+        </div>
+      </li>
+      <li>
+        <span>견적유효일</span>
+        <input type="number" value="3" />
+        <span>일</span>
+      </li>
+      <li>
+        <span>승인완료일</span>
+        <span class="full">2016-08-22 09:37:40</span>
+      </li>
+      <li>
+        <span>정가</span>
+        <span>30,000</span>
+        <span>원</span>
+      </li>
+      <li>
+        <span>권당 할인율</span>
+        <input type="number" />
+        <span>원</span>
+        <button>계산</button>
+      </li>
+      <li>
+        <span>권당 예상금액</span>
+        <input type="number" value="29700" />
+        <span>원</span>
+      </li>
+      <li>
+        <span>권당 최종금액</span>
+        <input type="number" value="29700" />
+        <span>원</span>
+        <button>계산</button>
+      </li>
+      <li>
+        <span>주문수량</span>
+        <span>35</span>
+      </li>
+      <li>
+        <span>최종금액</span>
+        <input type="number" value="1085000" />
+        <span>원</span>
+      </li>
+    </ul>
+  </div>
+</main>
+{% endblock %}
