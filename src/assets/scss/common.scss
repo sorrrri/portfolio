@@ -1,21 +1,20 @@
 @font-face {
-  font-family: 'Poppins-Semibold';
-  src: url('../fonts/Poppins-SemiBold.ttf');
+  font-family: "Poppins-Semibold";
+  src: url("../fonts/Poppins-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: 'NanumSquare-Regular';
+  font-family: "NanumSquare-Regular";
   src: url(../fonts/NanumSquareR.otf),
-  url(../fonts/NanumSquareR.ttf) format('truetype');
+    url(../fonts/NanumSquareR.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'NanumSquare';
+  font-family: "NanumSquare";
   font-weight: 300;
   src: url(../fonts/NanumSquareL.otf),
-  url(../fonts/NanumSquareL.ttf) format('truetype');
+    url(../fonts/NanumSquareL.ttf) format("truetype");
 }
-
 
 $primary-color: #2f2586;
 $secondary-color: orangered;
@@ -23,13 +22,12 @@ $dark-primary-color: #27292d;
 $dark-secondary-color: #373a46;
 $dark-tertiary-color: #85899a;
 
-
 body {
   color: #333;
   width: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
-  font: 15px/1.5 'Poppins-Regular', 'NanumSquare-Regular';
+  font: 15px/1.5 "Poppins-Regular", "NanumSquare-Regular";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -40,10 +38,9 @@ body {
   .tilde {
     display: flex;
     align-items: center;
-    margin: 0 .25rem
+    margin: 0 0.25rem;
   }
 }
-
 
 *,
 *::after,
@@ -61,11 +58,10 @@ address {
   font-style: normal;
 }
 
-
 /* Page Loader */
 .js .loading::before,
 .js .loading::after {
-  content: '';
+  content: "";
   position: fixed;
   z-index: 1000;
 }
@@ -88,7 +84,6 @@ address {
   opacity: 0.4;
   background: $primary-color;
   animation: loaderAnim 0.7s linear infinite alternate forwards;
-
 }
 
 @keyframes loaderAnim {
@@ -99,11 +94,11 @@ address {
 }
 
 a {
-  font-family: 'Poppins-Regular', 'NanumSquare-Regular', sans-serif;
+  font-family: "Poppins-Regular", "NanumSquare-Regular", sans-serif;
   text-decoration: none;
   color: #444;
   outline: none;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 a:hover,
@@ -135,7 +130,7 @@ a.active {
 }
 
 section {
-  position: relative
+  position: relative;
 }
 
 ul {
@@ -153,13 +148,18 @@ img {
   margin: 0 auto;
 }
 
-h1, h2, h3, h4, h5, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   margin: 0;
   line-height: 1.2;
 }
 
 small {
-  font-family: 'NanumSquare-Regular', sans-serif;
+  font-family: "NanumSquare-Regular", sans-serif;
   line-height: 1.2;
 }
 
@@ -170,8 +170,8 @@ small {
 }
 
 fieldset {
-  border-radius: .5rem;
-  border: 1px solid #DDD;
+  border-radius: 0.5rem;
+  border: 1px solid #ddd;
 }
 
 legend {
@@ -180,13 +180,13 @@ legend {
 input {
   -webkit-appearance: none;
   height: auto;
-  border: 1px solid #DDD;
-  padding: .5rem .25rem;
-  font: 15px/1 'NanumSquare-Regular';
+  border: 1px solid #ddd;
+  padding: 0.5rem 0.25rem;
+  font: 15px/1 "NanumSquare-Regular";
   background-color: white;
   outline: 0;
   box-sizing: border-box;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   position: relative;
 
   &:focus {
@@ -194,7 +194,7 @@ input {
   }
 
   &:disabled {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, 0.1);
   }
 
   /* Chrome, Safari, Edge, Opera */
@@ -205,7 +205,7 @@ input {
   }
 
   /* Firefox */
-  &[type=number] {
+  &[type="number"] {
     -moz-appearance: textfield;
   }
 
@@ -214,8 +214,9 @@ input {
   }
 }
 
-
-input:focus, select:focus, button:focus {
+input:focus,
+select:focus,
+button:focus {
   outline: 0;
 }
 
@@ -225,19 +226,19 @@ label {
 }
 
 button {
-  font: 15px/1 'NanumSquare-Regular';
+  font: 15px/1 "NanumSquare";
   display: flex;
   align-items: center;
   border: 0;
-  background: #333;
+  background: #7f8898;
   color: white;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   padding: 0;
   cursor: pointer;
   user-select: none;
 
   svg + span {
-    margin-left: .2rem;
+    margin-left: 0.2rem;
   }
 }
 
@@ -247,7 +248,7 @@ button {
 }
 
 .btn-cancel {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .btn-modify {
@@ -259,19 +260,20 @@ button {
 }
 
 .btn-download {
-  background-color: lightslategray !important
+  background-color: lightslategray !important;
 }
 
 textarea {
+  font: 15px/1 "Nanumsquare-Regular";
   flex: 1 1 auto;
   background-color: white;
-  border: 1px solid #DDD;
-  border-radius: .25rem;
-  padding: .5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
   resize: none;
 
   &:focus {
-    outline: 0
+    outline: 0;
   }
 }
 
@@ -301,7 +303,7 @@ header {
   }
 
   button {
-    padding: .5rem 2rem;
+    padding: 0.5rem 2rem;
   }
 }
 
@@ -318,7 +320,7 @@ aside {
   flex-grow: 0;
   flex-shrink: 0;
   flex-direction: column;
-  transition: .0s;
+  transition: 0s;
 
   ul {
     flex-direction: column;
@@ -338,8 +340,8 @@ aside {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  animation: fadeInOpacity .4s forwards;
-  transition: .2s border-color;
+  animation: fadeInOpacity 0.4s forwards;
+  transition: 0.2s border-color;
 }
 
 .content-title {
@@ -352,7 +354,7 @@ aside {
   align-items: center;
 
   h1 {
-    font: normal 2rem/1 'Nanumsquare-regular';
+    font: normal 2rem/1 "Nanumsquare-regular";
     flex: 1 1 auto;
   }
 }
@@ -398,7 +400,7 @@ aside {
   }
 
   input {
-    flex: 1 1 auto
+    flex: 1 1 auto;
   }
 
   div {
@@ -415,7 +417,7 @@ aside {
   display: flex;
 
   button {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 }
 
@@ -460,12 +462,10 @@ aside {
   align-self: center;
 }
 
-
 /* Pagination */
 
 .pagination {
-  margin: 2rem auto
-
+  margin: 2rem auto;
 }
 
 .pagination ul {
@@ -488,10 +488,10 @@ aside {
   fill: slategray;
 }
 
-
 /* ,Checkbox */
 .checkbox {
   position: relative;
+  user-select: none;
 
   input {
     position: absolute;
@@ -499,7 +499,7 @@ aside {
 
     &:checked + label::before {
       background: $secondary-color;
-      border-color: $secondary-color
+      border-color: $secondary-color;
     }
   }
 
@@ -510,23 +510,27 @@ aside {
     position: relative;
     cursor: pointer;
     padding: 0;
-    transition: .2s color;
+    transition: 0.2s color;
 
     &::before {
       border-radius: 2px;
-      transition: .2s;
-      content: '';
+      transition: 0.2s;
+      content: "";
       margin-right: 3px;
       width: 16px;
       height: 16px;
-      border: 1px solid #CCC;
+      border: 1px solid #ccc;
       background-color: white;
     }
+  }
+
+  + .checkbox {
+    margin-left: 1rem;
   }
 }
 
 .checkbox input:checked + label:after {
-  content: '';
+  content: "";
   width: 10px;
   height: 6px;
   position: absolute;
@@ -541,36 +545,36 @@ aside {
   transform: rotate(-45deg);
 }
 
-
 /* Radio Button */
 input[type="radio"] {
   position: absolute;
-  opacity: 0
+  opacity: 0;
 }
 
 input[type="radio"] + label {
   cursor: pointer;
-  margin-right: 1rem
+  margin-right: 1rem;
 }
 
 input[type="radio"] + label:before {
-  content: '';
-  background: #F3F6F9;
+  content: "";
+  background: #f3f6f9;
   border-radius: 100%;
-  border: 1px solid #E3E6E9;
+  border: 1px solid #e3e6e9;
   display: inline-block;
   width: 12px;
   height: 12px;
   position: relative;
   margin-right: 3px;
   vertical-align: middle;
-  transition: all .2s ease
+  transition: all 0.2s ease;
 }
 
-input[type="radio"]:hover + label:before, input[type="radio"]:checked + label:before {
+input[type="radio"]:hover + label:before,
+input[type="radio"]:checked + label:before {
   border-color: $secondary-color !important;
   background-color: $secondary-color !important;
-  box-shadow: inset 0 0 0 2px #DDD;
+  box-shadow: inset 0 0 0 2px #ddd;
 }
 
 input[type="radio"]:focus + label:before {
@@ -578,71 +582,68 @@ input[type="radio"]:focus + label:before {
 }
 
 input[type="radio"]:disabled + label {
-  cursor: auto
+  cursor: auto;
 }
 
 input[type="radio"]:disabled:checked + label:before {
   box-shadow: inset 0 0 0 2px #f4f4f4;
   border-color: #b4b4b4;
-  background: #b4b4b4
+  background: #b4b4b4;
 }
 
 input[type="radio"]:disabled + label:before {
   border-color: #b4b4b4;
-  background: #f4f4f4
+  background: #f4f4f4;
 }
 
 input[type="radio"] + label:empty:before {
-  margin-right: 0
+  margin-right: 0;
 }
 
 .input-comment {
   flex: 1 1 100% !important;
 }
 
-
 /* Input File */
+.input-file-container {
+  position: relative;
 
-[type="file"] {
-  height: 0.1px; width: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-
-  + label {
-    background-color: #EEE;
+  .input-file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    padding: 0.5rem 0;
     cursor: pointer;
-    overflow: hidden;
-    padding: .5rem 1rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    transition: .4s;
-    border-radius: .25rem;
-    display: flex;
-    align-items: center;
-
-    svg {
-      transition: .4s;
-    }
-
-    &:hover {
-      background-color: $secondary-color;
-      color: white;
-
-      svg {
-        fill: white
-      }
-    }
   }
 
-  &:focus + label {
-    background-color: $secondary-color;
-    outline: 1px dotted #000;
+  .input-file-trigger {
+    display: block;
+    font: normal 13px/1 "NanumSquare";
+    padding: 0.5rem;
+    background: #7f8898;
+    border-radius: 0.25rem;
+    color: #fff;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+
+  .input-file:hover + .input-file-trigger,
+  .input-file:focus + .input-file-trigger,
+  .input-file-trigger:hover,
+  .input-file-trigger:focus {
+    opacity: .7;
   }
 }
 
+.file-return {
 
+  &:not(:empty) {
+    &::before {
+      content: "Selected file: ";
+    }
+  }
+}
 
 /*selectbox*/
 .selectbox {
@@ -659,7 +660,7 @@ input[type="radio"] + label:empty:before {
     content: "";
     position: absolute;
     top: 50%;
-    right: .7rem;
+    right: 0.7rem;
     width: 0;
     height: 0;
     margin-top: -6px;
@@ -673,23 +674,27 @@ input[type="radio"] + label:empty:before {
 
   label {
     white-space: nowrap;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   select {
-    border: 1px solid #DDD;
-    border-radius: .3rem;
+    border: 1px solid #ddd;
+    border-radius: 0.3rem;
     display: flex;
     flex: 1 1 auto;
     width: 100%;
     -webkit-appearance: none;
-    padding: .5rem 1.5rem .5rem .25rem;
+    padding: 0.5rem 1.5rem 0.5rem 0.25rem;
     height: auto;
-    font: 15px/1 'NanumSquare-Regular';
+    font: 15px/1 "NanumSquare-Regular";
     background-color: white;
     outline: 0;
     box-sizing: border-box;
     cursor: pointer;
+  }
+
+  + .selectbox {
+    margin-left: .5rem;
   }
 }
 
@@ -698,13 +703,12 @@ input[type="radio"] + label:empty:before {
   display: flex;
 
   li {
-
-    transition: .4s;
+    transition: 0.4s;
     cursor: pointer;
 
     &:hover,
     &.active {
-      color: $secondary-color
+      color: $secondary-color;
     }
   }
 }
@@ -727,7 +731,6 @@ input[type="radio"] + label:empty:before {
   }
 }
 
-
 /*table*/
 .table {
   width: 100%;
@@ -739,11 +742,11 @@ input[type="radio"] + label:empty:before {
   justify-content: center;
   align-items: center;
   border: 0;
-  background: #EEE;
+  background: #eee;
   color: white;
-  border-radius: .2rem;
-  padding: .25rem .5rem;
-  margin: 0 .25rem;
+  border-radius: 0.2rem;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
   cursor: pointer;
 }
 
@@ -752,16 +755,16 @@ input[type="radio"] + label:empty:before {
   display: flex;
   align-items: center;
   text-align: center;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   position: relative;
-  animation: fadeInOpacity .8s forwards;
+  animation: fadeInOpacity 0.8s forwards;
 }
 
 .table .row li {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
 }
 
 .table .row span {
@@ -772,13 +775,13 @@ input[type="radio"] + label:empty:before {
 }
 
 .table .title {
-  font: 13px/1.2 'Poppins-Regular', 'Nanumsquare-Regular';
-  margin: .5rem auto 0 !important;
+  font: 13px/1.2 "Poppins-Regular", "Nanumsquare-Regular";
+  margin: 0.5rem auto 0 !important;
   color: slategray !important;
   word-break: keep-all;
   border-radius: 0;
   background: transparent !important;
-  padding: 0 0 .5rem;
+  padding: 0 0 0.5rem;
   cursor: default;
 }
 
@@ -790,6 +793,35 @@ input[type="radio"] + label:empty:before {
   overflow-y: auto;
 }
 
+
+.table-footer {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.pagenation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  a {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    &.active {
+      color: orangered;
+    }
+
+    svg + svg {
+      margin-left: -1rem;
+    }
+  }
+}
 
 /* =====================================================
    Toggle buttons
@@ -806,10 +838,10 @@ input[type="radio"] + label:empty:before {
 
 .toggle-button {
   display: block;
-  background-color: #E3E6E9;
+  background-color: #e3e6e9;
   margin: 0 auto;
   font-size: 1.4em;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .toggle-button:hover {
@@ -830,7 +862,7 @@ input[type="radio"] + label:empty:before {
   left: 3px;
   fill: white;
   border-radius: 50%;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .toggle .toggle-checkbox:checked + .toggle-button {
@@ -858,7 +890,7 @@ input[type="radio"] + label:empty:before {
 
 .toggle-activation label {
   flex: 0 0 auto !important;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .toggle-activation .toggle-button {
@@ -885,7 +917,6 @@ input[type="radio"] + label:empty:before {
   left: 16px;
 }
 
-
 /* =====================================================
    Modal Effect
    ===================================================== */
@@ -898,12 +929,12 @@ input[type="radio"] + label:empty:before {
   transform: translate(-50%, -50%);
   background: white;
   flex-direction: column;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
   cursor: default;
-  transition: .25s;
+  transition: 0.25s;
   z-index: 10;
 }
 
@@ -959,7 +990,7 @@ input[type="radio"] + label:empty:before {
   visibility: hidden;
   opacity: 0;
   z-index: 5;
-  transition: opacity .4s;
+  transition: opacity 0.4s;
 }
 
 @media screen and (max-width: 768px) {
@@ -984,104 +1015,17 @@ input[type="radio"] + label:empty:before {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #a3a6a9;
 }
 
-
 @keyframes fadeInOpacity {
   0% {
-    opacity: 0
+    opacity: 0;
   }
   100% {
-    opacity: 1
+    opacity: 1;
   }
-}
-
-
-/* ============================================================
-   Date Picker
-   ============================================================ */
-.ui-datepicker {
-  background-color: white;
-  padding: 1rem;
-  box-shadow: 0 0 14px rgba(0, 0, 0, .1);
-  border-radius: .5rem;
-}
-
-.ui-icon {
-  display: none;
-}
-
-.ui-datepicker-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: .5rem;
-}
-
-.ui-datepicker .ui-datepicker-title {
-  display: flex;
-}
-
-.ui-datepicker .ui-datepicker-title select {
-  min-width: 80px;
-  margin: 0 .25rem;
-  appearance: auto;
-  padding-right: 0;
-}
-
-.ui-datepicker .ui-datepicker-prev,
-.ui-datepicker .ui-datepicker-next {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1rem;
-  height: 1rem;
-  border-radius: .2rem;
-  transition: background-color .2s;
-  cursor: pointer;
-}
-
-.ui-datepicker .ui-datepicker-prev {
-  left: 1rem;
-}
-
-.ui-datepicker .ui-datepicker-prev::before {
-  content: "<";
-  line-height: 10px;
-}
-
-.ui-datepicker .ui-datepicker-next {
-  right: 1rem;
-}
-
-.ui-datepicker .ui-datepicker-next::before {
-  content: ">";
-  line-height: 10px;
-}
-
-.ui-state-default {
-  border: 0 !important;
-  background-color: transparent;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color .2s;
-}
-
-.ui-state-active {
-  background-color: $primary-color;
-  color: white !important;
-}
-
-.ui-state-hover {
-  background-color: $secondary-color;
-  color: white !important;
 }
 
 
@@ -1095,7 +1039,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .dark-mode a {
-  color: white
+  color: white;
 }
 
 .dark-mode .button-cancel {
@@ -1103,11 +1047,13 @@ input[type="radio"] + label:empty:before {
   color: white;
 }
 
-.dark-mode p, .dark-mode label {
+.dark-mode p,
+.dark-mode label {
   color: #d0d3dc !important;
 }
 
-.dark-mode input, .dark-mode select {
+.dark-mode input,
+.dark-mode select {
   background-color: #484c5a !important;
   color: white;
 }
@@ -1133,18 +1079,18 @@ input[type="radio"] + label:empty:before {
 
 .dark-mode .menu a {
   color: #ccc;
-  transition: .2s color;
+  transition: 0.2s color;
 }
 
 .dark-mode .content {
-  background: $dark-secondary-color !important
+  background: $dark-secondary-color !important;
 }
 
 .dark-mode .content .title h1 {
 }
 
 .dark-mode svg {
-  fill: rgba(255, 255, 255, .3)
+  fill: rgba(255, 255, 255, 0.3);
 }
 
 .dark-mode .table .row {
@@ -1160,6 +1106,7 @@ input[type="radio"] + label:empty:before {
   border-color: $dark-primary-color;
 }
 
-.dark-mode input[type="radio"]:hover + label:before, .dark-mode input[type="radio"]:checked + label:before {
+.dark-mode input[type="radio"]:hover + label:before,
+.dark-mode input[type="radio"]:checked + label:before {
   box-shadow: inset 0 0 0 2px $dark-primary-color;
 }

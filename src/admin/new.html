@@ -1,0 +1,230 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="new wrapper">
+  <div class="title">
+    <h1>
+      신규 도서 등록
+    </h1>
+    <div class="buttons">
+      <button>저장</button>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="inputs">
+      <li>
+        <span>카테고리</span>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="01">자격수험서</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+          </select>
+        </div>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="01">기술사/기능장</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+          </select>
+        </div>
+      </li>
+      <li class="col-3">
+        <div class="col">
+          <span>카테고리 코드</span>
+          <input type="number" readonly value="32" />
+        </div>
+        <div class="col">
+          <span>도서 코드</span>
+          <input type="number" readonly value="09538" />
+        </div>
+      </li>
+      <li>
+        <span>도서명</span>
+        <input class="full" type="text" value="" />
+      </li>
+      <li>
+        <span>정가</span>
+        <input type="number" value="" placeholder="숫자만 입력하세요." />원
+      </li>
+      <li>
+        <span>회원가격</span>
+        <input type="number" value="" placeholder="숫자만 입력하세요." />원
+        <small>※ (대학교재는 할인단가)</small>
+      </li>
+      <li>
+        <span>비회원가격</span>
+        <input type="number" value="" placeholder="숫자만 입력하세요." />원
+      </li>
+      <li>
+        <span>구매포인트</span>
+        <input type="number" value="" placeholder="숫자만 입력하세요." />P
+      </li>
+      <li>
+        <span>구분</span>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">단행본</option>
+            <option value="">SET(질)</option>
+            <option value="">일간지</option>
+            <option value="">주간지</option>
+            <option value="">월간지</option>
+            <option value="">기타</option>
+          </select>
+        </div>
+      </li>
+      <li>
+        <span>출간구분</span>
+        <input id="publish01" type="radio" name="publish" checked="checked" />
+        <label for="publish01">초판</label>
+        <input id="publish02" type="radio" name="publish" />
+        <label for="publish02">재판</label>
+      </li>
+      <li>
+        <span>판형</span>
+        <input type="text" />
+      </li>
+      <li>
+        <span>컬러</span>
+        <input id="noColor" type="radio" name="color" checked="checked" />
+        <label for="noColor">없음</label>
+        <input id="yesColor" type="radio" name="color" />
+        <label for="yesColor">있음</label>
+      </li>
+      <li>
+        <span>CD</span>
+        <input id="noCD" type="radio" name="CD" checked="checked" />
+        <label for="noCD">없음</label>
+        <input id="yesCD" type="radio" name="CD" />
+        <label for="yesCD">있음</label>
+      </li>
+      <li>
+        <span>동영상</span>
+        <input id="noVideo" type="radio" name="video" checked="checked" />
+        <label for="noVideo">없음</label>
+        <input id="yesVideo" type="radio" name="video" />
+        <label for="yesVideo">있음</label>
+      </li>
+      <li>
+        <span>대학명</span>
+        <input type="text" />
+        <small>※ 대학교재일 때에는 대학배너의 대학명과 반드시 동일하게 적어주세요.</small>
+      </li>
+      <li>
+        <span>발간일</span>
+        <input type="text" />
+        <small>※ 형식: 2021-06-25</small>
+      </li>
+      <li>
+        <span>수량</span>
+        <input type="number" />
+        <small>※ 품절일 경우 "0"으로 입력해주세요.</small>
+      </li>
+      <li>
+        <span>페이지수</span>
+        <input type="number" />
+      </li>
+      <li>
+        <span>출판사</span>
+        <input type="text" value="도서출판 구민사" />
+      </li>
+      <li>
+        <span>동영상</span>
+        <input type="url" />
+        <small>※ 동영상 강의가 있을 시, 강의사이트를 입력하세요.</small>
+      </li>
+      <li>
+        <span>Youtube</span>
+        <input type="url" />
+      </li>
+      <li>
+        <span>Blog</span>
+        <input type="url" />
+      </li>
+      <li>
+        <span class="required">ISBN</span>
+        <input type="number" />
+        <small>※ 형식: 9788970746193의 13자리의 숫자만</small>
+      </li>
+      <li>
+        <span>도서소개 및 특징</span>
+        <textarea rows="10"></textarea>
+      </li>
+      <li>
+        <span>목차</span>
+        <textarea rows="10"></textarea>
+      </li>
+      <li>
+        <span>저자이름</span>
+        <input type="text" />
+      </li>
+      <li>
+        <span>저자소개</span>
+        <textarea rows="10"></textarea>
+      </li>
+      <li>
+        <span>작은이미지 (100x120)</span>
+        <div class="input-file-container">
+          <input class="input-file" id="file01" type="file" />
+          <label tabindex="0" for="file01" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <span>중간이미지 (247x315)</span>
+        <div class="input-file-container">
+          <input class="input-file" id="file02" type="file" />
+          <label tabindex="0" for="file02" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <span>신간도서 이미지 (350x430)</span>
+        <div class="input-file-container">
+          <input class="input-file" id="file03" type="file" />
+          <label tabindex="0" for="file03" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <span>상세내용 이미지 (가로사이즈: 610px)</span>
+        <div class="input-file-container">
+          <input class="input-file" id="file04" type="file" />
+          <label tabindex="0" for="file04" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <span>도서출력</span>
+        <div class="checkbox">
+          <input id="bookType01" type="checkbox" />
+          <label for="bookType01">메인도서</label>
+        </div>
+        <div class="checkbox">
+          <input id="bookType02" type="checkbox" />
+          <label for="bookType02">BEST 도서</label>
+        </div>
+        <div class="checkbox">
+          <input id="bookType03" type="checkbox" />
+          <label for="bookType03">신간도서</label>
+        </div>
+        <div class="checkbox">
+          <input id="bookType04" type="checkbox" />
+          <label for="bookType04">서브추천도서</label>
+        </div>
+        <div class="checkbox">
+          <input id="bookType05" type="checkbox" />
+          <label for="bookType05">도서디스플레이</label>
+        </div>
+      </li>
+      <li>
+        <span>관련도서</span>
+        <div>
+          <button>관련도서등록</button>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</main>
+{% endblock %}

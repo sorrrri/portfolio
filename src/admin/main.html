@@ -1,4 +1,83 @@
-{% extends "base_admin.html" %} 
-{% block content %}
-test
+{% extends "base_admin.html" %} {% block content %}
+<main class="dashboard wrapper">
+  <section class="streaming">
+    <ul>
+      <li>
+        <span>일반가입자</span>
+        <span>1</span>
+      </li>
+      <li>
+        <span>교수가입자</span>
+        <span>0</span>
+      </li>
+      <li>
+        <span>교수 승인 대기</span>
+        <span>0</span>
+      </li>
+      <li>
+        <span>견본요청</span>
+        <span>0</span>
+      </li>
+      <li>
+        <span>출판문의</span>
+        <span>0</span>
+      </li>
+      <li>
+        <span>질의응답</span>
+        <span>1</span>
+      </li>
+      <li>
+        <span>주문현황</span>
+        <span>0</span>
+      </li>
+      <li>
+        <span>입금대기</span>
+        <span>0</span>
+      </li>
+      <li>
+        <span>출고완료</span>
+        <span>0</span>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <div>
+      <h3>주문처리</h3>
+      <ul>
+        <li>
+          <span>입금대기</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>입금확인중</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>입금완료</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>결제완료</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>출고준비</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>출고완료</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>환불</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>주문취소</span>
+          <span>0</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
 {% endblock %}

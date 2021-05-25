@@ -1,0 +1,97 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="ad-images wrapper">
+  <div class="title">
+    <h1>광고 관리</h1>
+    <div class="buttons">
+      <button onclick="location.href='ad_images_add.html'">등록하기</button>
+    </div>
+  </div>
+  <div class="content">
+    <section>
+      <div class="table">
+        <ul class="row title">
+          <li>
+            <div class="checkbox">
+              <input id="checkAll" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li>순서</li>
+          <li>이미지</li>
+          <li>URL</li>
+        </ul>
+        <a href="ad_images_update.html">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check01" type="checkbox" name="books" />
+                <label for="check01"></label>
+              </div>
+            </li>
+            <li>0</li>
+            <li><img src="../assets/images/banner/main_01.jpg" alt=""></li>
+            <li>http://cafe.naver.com/sanpanjeon</li>
+          </ul>
+        </a>
+        <a href="images_update.html">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check01" type="checkbox" name="books" />
+                <label for="check01"></label>
+              </div>
+            </li>
+            <li>0</li>
+            <li><img src="../assets/images/banner/main_01.jpg" alt=""></li>
+            <li>http://cafe.naver.com/sanpanjeon</li>
+          </ul>
+        </a>
+        <a href="images_update.html">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check01" type="checkbox" name="books" />
+                <label for="check01"></label>
+              </div>
+            </li>
+            <li>0</li>
+            <li><img src="../assets/images/banner/main_01.jpg" alt=""></li>
+            <li>http://cafe.naver.com/sanpanjeon</li>
+          </ul>
+        </a>
+        <a href="images_update.html">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check01" type="checkbox" name="books" />
+                <label for="check01"></label>
+              </div>
+            </li>
+            <li>0</li>
+            <li><img src="../assets/images/banner/main_01.jpg" alt=""></li>
+            <li>http://cafe.naver.com/sanpanjeon</li>
+          </ul>
+        </a>
+        <a href="images_update.html">
+          <ul class="row">
+            <li>
+              <div class="checkbox">
+                <input id="check01" type="checkbox" name="books" />
+                <label for="check01"></label>
+              </div>
+            </li>
+            <li>0</li>
+            <li><img src="../assets/images/banner/main_01.jpg" alt=""></li>
+            <li>http://cafe.naver.com/sanpanjeon</li>
+          </ul>
+        </a>
+      </div>
+      <div class="table-footer">
+        <div class="buttons">
+          <button>삭제</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
