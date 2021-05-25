@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도서출판 구민사 Admin</title>
+
+  <link rel="stylesheet" href="../assets/css/common.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <script src="../assets/js/script.js"></script>
+</head>
+
+<body>
+  <div class="container admin">
+    <aside>
+      <div class="logo">
+        <a href="/admin/main.html"></a>
+      </div>
+      <ul class="menu">
+        <li>
+          <div class="main-menu">
+            <span>도서관리</span>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+            </svg>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="/admin/list.html">도서 조회/수정</a></li>
+            <li><a href="/admin/categories.html">카테고리 설정</a></li>
+            <li><a href="/admin/new.html">신규 도서 등록</a></li>
+            <li><a href="/admin/shipping.html">배송정보 관리</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="main-menu">
+            <span>판매관리</span>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+            </svg>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="/admin/order_list.html">주문 조회</a></li>
+            <li><a href="group_buying.html">공동구매 현황</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="main-menu">
+            <span>회원관리</span>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+            </svg>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="/admin/user.html">일반 회원 현황</a></li>
+            <li><a href="/admin/user.html">교수 회원 현황</a></li>
+            <li><a href="/admin/user.html">저자 회원 현황</a></li>
+            <li><a href="/admin/user.html">관리자 현황</a></li>
+            <li><a href="/admin/user.html">전체 회원 현황</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="main-menu">
+            <span>게시판관리</span>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+            </svg>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="/admin/notice.html">공지사항</a></li>
+            <li><a href="/admin/errata.html">정오표</a></li>
+            <li><a href="/admin/professor_downloads.html">강의자료실</a></li>
+            <li><a href="/admin/downloads.html">일반자료실</a></li>
+            <li><a href="/admin/sample_book.html">견본도서요청</a></li>
+            <li><a href="/admin/publish.html">출판문의</a></li>
+            <li><a href="/admin/qna.html">질의응답</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="main-menu">
+            <span>기타</span>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+            </svg>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="images.html">로고/배너 관리</a></li>
+            <li><a href="ad_images.html">광고등록/수정</a></li>
+            <li><a href="privacy.html">개인정보 수집 약관</a></li>
+            <li><a href="group_order.html">단체주문안내</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="main-menu">
+            <span>통계관리</span>
+            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+            </svg>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="books_statistics.html">도서별 판매통계</a></li>
+            <li><a href="user_statistics.html">회원별 판매통계</a></li>
+          </ul>
+        </li>
+      </ul>
+    </aside>
+    
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    var dateFormat = "yy/mm/dd",
+      from = $("#from")
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on("change", function () {
+          to.datepicker("option", "minDate", getDate(this));
+        }),
+      to = $("#to").datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+        .on("change", function () {
+          from.datepicker("option", "maxDate", getDate(this));
+        });
+
+    function getDate(element) {
+      var date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+
+      return date;
+    }
+  });
+</script>
+<main class="list-group-buying wrapper">
+  <div class="title">
+    <h1>공동구매 현황</h1>
+  </div>
+  <div class="content">
+    <section>
+    <div class="table-header">
+      <div class="search">
+        <label for="from">기간검색</label>
+        <input type="text" id="from" name="from" />
+        <input type="text" id="to" name="to" />
+
+        <span>대학교</span>
+        <input type="text" />
+        <span>이름</span>
+        <input type="text" />
+        <span>학과</span>
+        <input type="text" />
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="table">
+      <ul class="row title">
+        <li>주문번호</li>
+        <li>주문자</li>
+        <li>대학교</li>
+        <li>학과</li>
+        <li>학년</li>
+        <li>주문일</li>
+        <li>견적 유효일</li>
+        <li>최종금액</li>
+        <li>승인완료일</li>
+        <li>상태</li>
+        <li>버튼</li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>구민사</li>
+        <li>대구보건대</li>
+        <li>보건환경과</li>
+        <li>1</li>
+        <li>2016-08-22 09:36:53</li>
+        <li><input type="number" /></li>
+        <li>4,795,000</li>
+        <li>2016-08-22 09:37:40</li>
+        <li>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="">견적승인</option>
+              <option value="">견적요청</option>
+              <option value="">결제완료</option>
+              <option value="">출고준비</option>
+              <option value="">출고완료</option>
+            </select>
+          </div>
+          <button>변경</button>
+        </li>
+        <li>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+              <path
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="table-footer">
+      <div class="pagenation">
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </a>
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </a>
+        <a class="active" href="">1</a>
+        <a href="">2</a>
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+          </svg>
+        </a>
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    </section>
+    <section>
+      
+    <div class="table inside">
+      <ul class="row title">
+        <li>주문번호</li>
+        <li>ISBN</li>
+        <li>도서명</li>
+        <li>정가</li>
+        <li>권당 할인율</li>
+        <li>권당 예상금액</li>
+        <li>권당 최종금액</li>
+        <li>주문수량</li>
+        <li>최종금액</li>
+      </ul>
+      <ul class="row">
+        <li>H20160822093653</li>
+        <li>979-11-5813-782-3</li>
+        <li>2021 수질환경기사 산업기사 실기</li>
+        <li>30,000</li>
+        <li>
+          <input type="number" />
+          <button>계산</button>
+        </li>
+        <li>
+          <input type="number" value="29700" />
+        </li>
+        <li>
+          <input type="number" value="29700" />
+          <button>계산</button>
+        </li>
+        <li>35</li>
+        <li><input type="number" value="1085000"></li>
+      </ul>
+      <button class="btn-save">저장</button>
+    </div>
+    </section>
+  </div>
+</main>
+
+  </div>
+</body>
+
+</html>
