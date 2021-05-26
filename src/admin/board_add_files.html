@@ -1,0 +1,58 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="board-add wrapper">
+  <div class="title">
+    <h1>글 작성</h1>
+    <div class="buttons">
+      <button class="btn-sub" onclick="history.back()">취소</button>
+      <button>등록</button>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="inputs">
+      <li>
+        <span>제목</span>
+        <input class="full" type="text" />
+      </li>
+      <li>
+        <span>작성자</span>
+        <input type="text" />
+      </li>
+      <li>
+        <span>팝업설정</span>
+        <div class="checkbox">
+          <input id="checkPopup" type="checkbox" />
+          <label for="checkPopup">메인팝업 띄우기</label>
+        </div>
+      </li>
+      <li>
+        <span>비밀번호</span>
+        <input type="password" />
+      </li>
+      <li>
+        <span>이메일</span>
+        <input type="email" />
+      </li>
+      <li>
+        <span>파일첨부</span>        
+        <div class="input-file-container">
+          <input class="input-file" id="file01" type="file" />
+          <label tabindex="0" for="file01" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <span>파일첨부</span>        
+        <div class="input-file-container">
+          <input class="input-file" id="file02" type="file" />
+          <label tabindex="0" for="file02" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <textarea name="" id="" rows="10"></textarea>
+      </li>
+    </ul>
+  </div>
+</main>
+
+{% endblock %}

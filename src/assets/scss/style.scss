@@ -15,6 +15,47 @@
   }
 }
 
+.modal {
+  padding: 1rem;
+
+  .address-search {
+    display: flex;
+    
+    input {
+      flex: 1 1 auto
+    }
+
+    button {
+      margin-left: .5rem;
+      padding: .5rem 1rem;
+    }
+  }
+
+  .address-results {
+
+    .row:not(.title) {
+
+      li:last-of-type {
+        text-align: left;
+      }
+    }
+
+    li {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: .5rem 0;
+
+      &:first-of-type {
+        flex: 0 0 150px
+      }
+
+      &:last-of-type {
+        flex: 1 1 auto;
+      }
+    }
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -268,7 +309,7 @@ nav {
 
   input {
     &:read-only {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(220, 220, 220, 0.5);
     }
 
     + span {
@@ -669,6 +710,8 @@ nav {
 
     .boards {
       flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
 
       .title {
         display: flex;
@@ -719,6 +762,7 @@ nav {
       }
 
       .tab-content {
+        flex: 1 1 auto;
         padding: 1rem;
         border: 1px solid #ddd;
 
@@ -727,7 +771,7 @@ nav {
           flex-direction: column;
           margin: 0;
 
-          > div {
+          > a {
             line-height: 2.5;
             border-bottom: 1px solid #ddd;
             display: flex;
@@ -766,7 +810,7 @@ nav {
     a {
       word-break: keep-all;
       flex: 1 1 25%;
-      padding: 4.5rem 1rem 1rem;
+      padding: 4.5rem 1rem 0;
       color: white;
       text-align: center;
       background-repeat: no-repeat;
