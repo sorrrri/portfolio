@@ -18,23 +18,21 @@
 .modal {
   padding: 1rem;
 
-  .address-search {
+  .search {
     display: flex;
-    
+
     input {
-      flex: 1 1 auto
+      flex: 1 1 auto;
     }
 
     button {
-      margin-left: .5rem;
-      padding: .5rem 1rem;
+      margin-left: 0.5rem;
+      padding: 0.5rem 1rem;
     }
   }
 
   .address-results {
-
     .row:not(.title) {
-
       li:last-of-type {
         text-align: left;
       }
@@ -43,14 +41,64 @@
     li {
       flex-direction: column;
       justify-content: flex-start;
-      padding: .5rem 0;
+      padding: 0.5rem 0;
 
       &:first-of-type {
-        flex: 0 0 150px
+        flex: 0 0 150px;
       }
 
       &:last-of-type {
         flex: 1 1 auto;
+      }
+    }
+  }
+
+  &.modal-books {
+    min-width: 800px;
+    .books-results {
+      li {
+        padding: 0.5rem 0;
+
+        &:nth-of-type(1) {
+          width: 10%;
+
+          img {
+            height: 100px;
+          }
+        }
+
+        &:nth-of-type(2) {
+          width: 70%;
+          flex-direction: column;
+
+          div {
+            display: flex;
+
+            span {
+              &:first-of-type {
+                flex: 0 0 100px;
+                justify-content: flex-end;
+                padding-right: 1rem;
+
+                &::after {
+                  content: ":";
+                }
+              }
+            }
+          }
+        }
+
+        &:nth-of-type(3) {
+          width: 10%;
+
+          input {
+            width: 100%;
+          }
+        }
+
+        &:nth-of-type(4) {
+          width: 10%;
+        }
       }
     }
   }
@@ -59,11 +107,11 @@
 .container {
   display: flex;
   flex-direction: column;
-}
 
-.content {
-  flex: 1 1 auto;
-  word-break: keep-all;
+  .content {
+    flex: 1 1 auto;
+    word-break: keep-all;
+  }
 }
 
 header {
@@ -154,7 +202,7 @@ header {
       display: block;
       flex: 0 0 200px;
       height: 80px;
-      background: url(../images/logo.gif) no-repeat center right;
+      background: url(../images/logo.png) no-repeat center right;
       background-size: contain;
     }
 
@@ -303,14 +351,8 @@ nav {
 }
 
 .inputs {
-  margin-top: 0.5rem;
-  border-top: 2px solid #122850;
-  border-bottom: 2px solid #122850;
 
   input {
-    &:read-only {
-      background-color: rgba(220, 220, 220, 0.5);
-    }
 
     + span {
       margin-left: 0.5rem;
@@ -395,6 +437,11 @@ nav {
 }
 
 .table {
+
+  .title {
+    background-color: rgba(213, 219, 224,.3) !important;
+  }
+
   ul {
     border-bottom: 1px solid #ddd;
   }
@@ -406,7 +453,7 @@ nav {
   }
 
   section {
-    margin: 1rem 0 3rem;
+    margin-bottom: 6rem !important;
     display: flex;
     flex-direction: column;
   }
@@ -860,7 +907,8 @@ nav {
 
     h4 {
       padding: 0.75rem;
-      background-color: #eee;
+      background-color: rgba(213, 219, 224, 0.3) !important;
+      border-bottom: 1px solid #DDD;
     }
 
     a {
@@ -1379,11 +1427,68 @@ nav {
       margin-top: 1rem;
     }
   }
+  
+
+  .choose-books {
+
+    > div {
+      flex-direction: column;
+      flex: 1 1 auto;
+      align-items: flex-start;
+    }
+
+    .result {
+      margin-left: 1rem;
+    }
+
+    .table {
+      display: block;
+      margin-top: .5rem;
+
+      ul {
+        li {
+          border-bottom: 0;
+  
+          &:nth-of-type(1) {
+            width: 10%;
+          }
+  
+          &:nth-of-type(2) {
+            width: 10%
+          }
+  
+          &:nth-of-type(3) {
+            width: 10%;
+            
+            img {
+              height: 100px;
+            }
+          }
+  
+          &:nth-of-type(4) {
+            width: 40%
+          }
+  
+          &:nth-of-type(5) {
+            width: 10%
+          }
+  
+          &:nth-of-type(6) {
+            width: 10%
+          }
+  
+          &:nth-of-type(7) {
+            width: 10%
+          }
+        }
+      }
+    }
+  }
 }
 
 .admin {
   flex-direction: row;
-  background-color: #eee;
+  background-color: #49536b;
   overflow: hidden;
 
   .buttons {
@@ -1412,14 +1517,13 @@ nav {
   }
 
   .checkbox input:checked + label:after {
-    top: 3px;
   }
 
   aside {
     font-size: 14px;
     font-family: "Nanumsquare";
     flex: 0 0 200px;
-    background-color: #414a5a;
+    background-color: #49536b;
     color: white;
     overflow-y: auto;
     user-select: none;
@@ -1430,9 +1534,8 @@ nav {
 
       a {
         display: flex;
-        background: url(../images/logo.gif) no-repeat center;
+        background: url(../images/logo.png) no-repeat center;
         background-size: 100px;
-        background-color: white;
         height: 60px;
         border-radius: 0.5rem;
       }
@@ -1491,6 +1594,9 @@ nav {
 
   main {
     flex-direction: column;
+    max-width: none;
+    background-color: #EEE;
+    border-radius: 1rem 0 0 1rem;
 
     > .title {
       padding: 1rem 2rem;
@@ -1505,7 +1611,7 @@ nav {
 
       button {
         padding: 0.75rem 2rem;
-        background-color: lightseagreen;
+        background-color: #6f82af;
       }
     }
 
@@ -1516,11 +1622,10 @@ nav {
   }
 
   .dashboard {
-
     .streaming {
       flex: 0 0 80px;
       width: 100%;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
 
       ul {
         display: flex;
@@ -1555,22 +1660,22 @@ nav {
     .boards {
       flex: 0 0 40vh;
       flex-direction: row;
-      margin: 0 -.25rem;
+      margin: 0 -0.25rem;
 
       > div {
         flex: 1 1 auto;
         background-color: white;
-        border: 1px solid #DDD;
-        margin: .5rem .25rem;
+        border: 1px solid #ddd;
+        margin: 0.5rem 0.25rem;
 
         h3 {
           padding: 1rem;
-          background-color: #FEFEFE;
-          border-bottom: 1px solid #DDD;
+          background-color: #fefefe;
+          border-bottom: 1px solid #ddd;
 
           small {
-            margin-left: .5rem;
-            color: #AAA
+            margin-left: 0.5rem;
+            color: #aaa;
           }
         }
 
@@ -1589,17 +1694,17 @@ nav {
     .charts {
       flex: 1 1 auto;
       flex-direction: row;
-      margin: 0 -.25rem;
-      padding-bottom:1rem;
+      margin: 0 -0.25rem;
+      padding-bottom: 1rem;
 
       > div {
         flex: 1 1 100%;
         width: 100%;
         height: 100%;
-        margin: 0 .25rem;
+        margin: 0 0.25rem;
 
-        &:last-of-type{ 
-          flex: 0 0 40vw
+        &:last-of-type {
+          flex: 0 0 40vw;
         }
       }
     }

@@ -9,12 +9,6 @@
 
   <link rel="stylesheet" href="assets/css/common.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/slick.css" />
-  <link rel="stylesheet" href="assets/css/slick-theme.css" />
-
-  <script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="assets/js/slick.min.js"></script>
   <script src="assets/js/script.js"></script>
 </head>
 
@@ -136,9 +130,10 @@
     </div>
     <section>
       <ul class="inputs">
-        <li>
-          <span class="required">도서이름</span>
-          <input type="text" value="" readonly="readonly" onclick="" />
+        <li class="choose-books">
+          <span class="required">신청도서</span>
+          <button>도서등록</button>
+          <span class="result">NCS기반 교육과정에 따른 바디경락마사지</span>
         </li>
         <li>
           <span class="required">저자</span>
@@ -203,6 +198,151 @@
     </section>
   </div>
 </main>
+
+
+<div class="modal modal-books">
+  <header>
+    <div class="title">
+      <h3>견본요청 도서 선택</h3>
+      <svg class="close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 18 18">
+        <path
+          d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+      </svg>
+    </div>
+    <section class="search">
+      <input type="text" placeholder="도서명을 입력하세요." />
+      <button>검색</button>
+    </section>
+  </header>
+  <div class="modal-content">
+    <section class="books-results">
+      <div class="table">
+        <ul class="row title">
+          <li>사진</li>
+          <li>정보</li>
+          <li>수량</li>
+          <li>버튼</li>
+        </ul>
+        <ul class="row">
+          <li><img src="assets/images/thumbnails/01.jpg" alt=""></li>
+          <li>
+            <div>
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div>
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div>
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li>
+            <input type="number" value="1">
+          </li>
+          <li>
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li><img src="assets/images/thumbnails/01.jpg" alt=""></li>
+          <li>
+            <div>
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div>
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div>
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li>
+            <input type="number" value="1">
+          </li>
+          <li>
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li><img src="assets/images/thumbnails/01.jpg" alt=""></li>
+          <li>
+            <div>
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div>
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div>
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li>
+            <input type="number" value="1">
+          </li>
+          <li>
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li><img src="assets/images/thumbnails/01.jpg" alt=""></li>
+          <li>
+            <div>
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div>
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div>
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li>
+            <input type="number" value="1">
+          </li>
+          <li>
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li><img src="assets/images/thumbnails/01.jpg" alt=""></li>
+          <li>
+            <div>
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div>
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div>
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li>
+            <input type="number" value="1">
+          </li>
+          <li>
+            <button>선택</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="overlay"></div>
 
     <footer>
       <ul class="sitemap">

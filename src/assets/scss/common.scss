@@ -22,6 +22,26 @@ $dark-primary-color: #27292d;
 $dark-secondary-color: #373a46;
 $dark-tertiary-color: #85899a;
 
+// Modno Bright
+$levis-clear-purple: #dcdfe4;
+$auro-peppermint: #d5dbe0;
+$berger-clear-to-see: #d0dade;
+$sherwin-williams-wishful-blue: #d8dde6;
+$delta-drizzle-grey: #d1d3d4;
+
+
+// Mono Medium
+$california-paints-baby-seal: #a1a5a8;
+$trumatch-29-g7: #a0a6aa;
+$kelly-moore-camp-muir: #5e6469;
+
+// Mono Dark
+$ecos-paints-quiet-peace: #49536b;
+
+// Blue tone
+$clark-kensington-stowe-mountain: #717593;
+
+
 body {
   color: #333;
   width: 100%;
@@ -189,6 +209,10 @@ input {
   border-radius: 0.25rem;
   position: relative;
 
+  &:read-only {
+    background-color: rgba($sherwin-williams-wishful-blue, .5);
+  }
+
   &:focus {
     box-shadow: 0 0 1px 1px $secondary-color;
   }
@@ -229,7 +253,7 @@ button {
   display: flex;
   align-items: center;
   border: 0;
-  background: #7f8898;
+  background: $clark-kensington-stowe-mountain;
   color: white;
   border-radius: 0.3rem;
   padding: 0;
@@ -259,7 +283,7 @@ button {
 }
 
 .btn-download {
-  background-color: lightslategray !important;
+  background-color: $delta-drizzle-grey !important;
 }
 
 textarea {
@@ -473,7 +497,7 @@ aside {
 
 .pagination li {
   margin: 0 1rem;
-  color: slategray;
+  color: $kelly-moore-camp-muir;
   display: flex;
   align-items: center;
 }
@@ -484,7 +508,7 @@ aside {
 }
 
 .pagination svg {
-  fill: slategray;
+  fill: $delta-drizzle-grey;
 }
 
 /* ,Checkbox */
@@ -620,7 +644,7 @@ input[type="radio"] + label:empty:before {
     display: block;
     font: normal 13px/1 "NanumSquare";
     padding: 0.5rem;
-    background: #7f8898;
+    background: $clark-kensington-stowe-mountain;
     border-radius: 0.25rem;
     color: #fff;
     transition: all 0.4s;
@@ -733,62 +757,55 @@ input[type="radio"] + label:empty:before {
 .table {
   width: 100%;
   margin: 0 auto 1rem;
-}
+  border-top: 2px solid $auro-peppermint;
 
-.table button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 0;
-  background: #eee;
-  color: white;
-  border-radius: 0.2rem;
-  padding: 0.25rem 0.5rem;
-  margin: 0 0.25rem;
-  cursor: pointer;
-}
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background: $california-paints-baby-seal;
+    color: white;
+    border-radius: 0.2rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.25rem;
+    cursor: pointer;
+  }
 
-.table .row {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  padding: 0.5rem 0;
-  position: relative;
-  animation: fadeInOpacity 0.8s forwards;
-}
+  .title {
+    font: 14px/1 "Poppins-Regular", "Nanumsquare-Regular";
+    color: $kelly-moore-camp-muir !important;
+    word-break: keep-all;
+    border-radius: 0;
+    background-color: transparent !important;
+    border-bottom: 1px solid $auro-peppermint;
+    padding: .75rem 0 !important;
+    cursor: default;
+  }
 
-.table .row li {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  padding: 0 0.25rem;
-}
-
-.table .row span {
-  color: #5e5c67;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.table .title {
-  font: 13px/1.2 "Poppins-Regular", "Nanumsquare-Regular";
-  margin: 0.5rem auto 0 !important;
-  color: slategray !important;
-  word-break: keep-all;
-  border-radius: 0;
-  background: transparent !important;
-  padding: 0 0 0.5rem;
-  cursor: default;
-}
-
-.table .th span {
-}
-
-.table .list {
-  height: 100%;
-  overflow-y: auto;
+  .row {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: relative;
+    animation: fadeInOpacity 0.8s forwards;
+  
+    li {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      padding: 0 0.25rem;
+    }
+  
+    span {
+      color: #5e5c67;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }  
+  }
 }
 
 .table-footer {
@@ -819,6 +836,8 @@ input[type="radio"] + label:empty:before {
     }
   }
 }
+
+
 
 /* =====================================================
    Toggle buttons
@@ -945,9 +964,6 @@ input[type="radio"] + label:empty:before {
   overflow-y: auto;
 
   .close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
     cursor: pointer;
   }
 

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // Tab Menu
   const main = document.querySelector(".main");
 
@@ -84,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   // Checkbox All
   function check() {
     var checked =
@@ -111,21 +109,17 @@ document.addEventListener("DOMContentLoaded", () => {
     btnCheckAll.addEventListener("click", handleCheckAll);
   }
 
-
-
-
   // Admin: Logo File Upload
-  const inputFile = document.querySelector("input[type='file']")
-  if(inputFile) {
-
+  const inputFile = document.querySelector("input[type='file']");
+  if (inputFile) {
     function ekUpload() {
       function Init() {
         var fileSelect = document.getElementById("file-upload"),
           fileDrag = document.getElementById("file-drag"),
           submitButton = document.getElementById("submit-button");
-  
+
         fileSelect.addEventListener("change", fileSelectHandler, false);
-  
+
         // Is XHR2 available?
         var xhr = new XMLHttpRequest();
         if (xhr.upload) {
@@ -135,45 +129,45 @@ document.addEventListener("DOMContentLoaded", () => {
           fileDrag.addEventListener("drop", fileSelectHandler, false);
         }
       }
-  
+
       function fileDragHover(e) {
         var fileDrag = document.getElementById("file-drag");
-  
+
         e.stopPropagation();
         e.preventDefault();
-  
+
         fileDrag.className =
           e.type === "dragover" ? "hover" : "modal-body file-upload";
       }
-  
+
       function fileSelectHandler(e) {
         // Fetch FileList object
         var files = e.target.files || e.dataTransfer.files;
-  
+
         // Cancel event and hover styling
         fileDragHover(e);
-  
+
         // Process all File objects
         for (var i = 0, f; (f = files[i]); i++) {
           parseFile(f);
           uploadFile(f);
         }
       }
-  
+
       // Output
       function output(msg) {
         // Response
         var m = document.getElementById("messages");
         m.innerHTML = msg;
       }
-  
+
       function parseFile(file) {
         output("<strong>" + encodeURI(file.name) + "</strong>");
-  
+
         // var fileType = file.type;
         // console.log(fileType);
         var imageName = file.name;
-  
+
         var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
         if (isGood) {
           document.getElementById("start").classList.add("hidden");
@@ -200,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (file.size <= fileSizeLimit * 1024 * 1024) {
             // Progress bar
             pBar.style.display = "inline";
-  
+
             // File received / failed
             xhr.onreadystatechange = function (e) {
               if (xhr.readyState == 4) {
@@ -209,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // document.location.reload(true);
               }
             };
-  
+
             // Start upload
             xhr.open(
               "POST",
@@ -221,11 +215,13 @@ document.addEventListener("DOMContentLoaded", () => {
             xhr.setRequestHeader("Content-Type", "multipart/form-data");
             xhr.send(file);
           } else {
-            output("Please upload a smaller file (< " + fileSizeLimit + " MB).");
+            output(
+              "Please upload a smaller file (< " + fileSizeLimit + " MB)."
+            );
           }
         }
       }
-  
+
       // Check for the various File API support.
       if (window.File && window.FileList && window.FileReader) {
         Init();
@@ -233,34 +229,53 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("file-drag").style.display = "none";
       }
     }
-    ekUpload();  
+    ekUpload();
   }
 
-  // Checkbox All
+
+  
+  // Modal
   const modals = document.querySelectorAll(".modal")
-  const overlay = document.querySelector(".overlay")
-  const closeButton = document.querySelector(".close")
+  const overlay = document.querySelector(".overlay");
+  const closeButtons = document.querySelectorAll(".close");
 
-  const openModal = () => {
-    modals.forEach(modal => {
-      modal.classList.add("active")
-      overlay.classList.add("active")
+  const visibleOverlay = () => {
+    overlay.classList.add("active");
+  };
+
+  const hiddenOverlay = () => {
+    overlay.classList.remove("active");
+    modals.forEach(modal => modal.classList.remove("active"))
+  };
+
+  if (overlay) {
+    overlay.addEventListener("click", hiddenOverlay);
+    closeButtons.forEach(close => {
+      close.addEventListener("click", hiddenOverlay);
     })
   }
 
-  const closeModal = () => {
-    modals.forEach(modal => {
-      modal.classList.remove("active")
-      overlay.classList.remove("active")
-    })
+  const address = document.querySelector(".address");
+  const inputAddress = address.querySelector("input");
+  const modalAddress = document.querySelector(".modal-address");
+
+  if (address) {
+    inputAddress.addEventListener("click", () => {
+      modalAddress.classList.add("active")
+      visibleOverlay()
+    });
   }
 
-  overlay.addEventListener("click", closeModal)
-  closeButton.addEventListener("click", closeModal)
 
-  const address = document.querySelector(".address")
-  const inputAddress = address.querySelector("input")
-  inputAddress.addEventListener("click", openModal)
+  const chooseBooks = document.querySelector(".choose-books");
+  const buttonChooseBooks = chooseBooks.querySelector("button");
+  const modalBooks = document.querySelector(".modal-books");
 
+  if (chooseBooks) {
+    buttonChooseBooks.addEventListener("click", () => {
+      modalBooks.classList.add("active")
+      visibleOverlay()
+    });
+  }
 
 });
