@@ -122,7 +122,7 @@ button {
   &.modal-get-id {
     max-width: 400px;
     max-height: 300px;
-    
+
     .result {
       display: flex;
       flex-direction: column;
@@ -438,7 +438,7 @@ nav {
       font: normal 13px/1 "NanumSquare";
     }
   }
-  
+
   .input-professor {
     display: none;
   }
@@ -475,7 +475,7 @@ nav {
   }
 
   .login-content {
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
     padding: 2rem;
 
     > * {
@@ -506,17 +506,16 @@ nav {
 }
 
 .signup {
-
   section {
-
     .terms {
       height: 30vh;
       overflow-y: auto;
       border: 1px solid #ddd;
       padding: 1rem;
-      background-color: #EEE;
+      background-color: #eee;
 
-      p, ul {
+      p,
+      ul {
         margin-bottom: 1rem;
       }
     }
@@ -525,7 +524,7 @@ nav {
       align-items: flex-end;
 
       button {
-        margin-top: .5rem;
+        margin-top: 0.5rem;
       }
     }
   }
@@ -786,7 +785,7 @@ nav {
         section {
           display: none;
           flex-direction: column;
-          margin: 0;
+          margin: 0 !important;
 
           > a {
             line-height: 2.5;
@@ -1285,9 +1284,6 @@ nav {
           border-bottom: 1px solid #ddd;
         }
 
-        &.title {
-        }
-
         &.total {
           align-items: center;
           margin-top: 1rem;
@@ -1404,17 +1400,26 @@ nav {
     .links {
       display: flex;
       flex-wrap: wrap;
+      margin: 0 -0.5rem;
 
       a {
-        flex: 0 0 20%;
+        flex: 1 1 20%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0;
+        padding: 1rem 0.5rem;
+        text-align: center;
 
-        img {
+        .image {
+          width: 100%;
           border: 1px solid #ddd;
           margin-bottom: 0.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        img {
         }
       }
     }
@@ -1451,16 +1456,23 @@ nav {
       padding: 1rem;
       border: 1px solid #ddd;
       margin: 0.5rem auto;
-      line-height: 2;
+      width: 100%;
 
       li {
         position: relative;
+        padding-left: 2rem;
 
         &::before {
           counter-increment: li;
           content: "0" counter(li);
           color: orangered;
-          margin-right: 0.5rem;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 1rem;
         }
       }
     }
@@ -1490,6 +1502,10 @@ nav {
         margin-right: 1rem;
         line-height: 2;
       }
+    }
+
+    address {
+      margin-top: .5rem;
     }
   }
 
@@ -1666,6 +1682,7 @@ nav {
     max-width: none;
     background-color: #eee;
     border-radius: 1rem 0 0 1rem;
+    padding: 1rem;
 
     > .title {
       padding: 1rem 2rem;
@@ -1691,17 +1708,20 @@ nav {
   }
 
   .dashboard {
+    section {
+      margin-bottom: 0rem !important;
+    }
+
     .streaming {
-      flex: 0 0 80px;
+      flex: 0 0 auto;
       width: 100%;
-      margin-bottom: 0.5rem;
 
       ul {
         display: flex;
         margin: 0 -0.25rem;
 
         li {
-          margin: 0.25rem;
+          margin: 0 .25rem;
           padding: 0.5rem;
           flex: 1 1 11.111%;
           background-color: white;
@@ -1803,24 +1823,6 @@ nav {
           margin-right: 1rem;
         }
       }
-
-      // span {
-      //   &:first-of-type {
-      //     &::after {
-      //       content: ":";
-      //       margin-right: 0.5rem;
-      //     }
-      //   }
-
-      //   &:last-of-type {
-      //     font-weight: bold;
-
-      //     &::after {
-      //       font-weight: normal;
-      //       content: "권";
-      //     }
-      //   }
-      // }
 
       .search {
         display: flex;
@@ -2193,6 +2195,10 @@ nav {
       .row {
         flex-wrap: wrap;
         border: 0;
+
+        &.title {
+          background-color: transparent !important;
+        }
 
         &:not(.title) {
           border: 1px solid #ddd;

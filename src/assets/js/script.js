@@ -62,6 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     });
+
+    
+    const aside = document.querySelector('aside')
+    const toggleMenu = document.querySelector(".toggle-menu");
+
+    toggleMenu.addEventListener("click", (e) => {
+      e.stopPropagation();
+      aside.classList.toggle("active");
+      toggleMenu.classList.toggle("active");
+    });
   }
 
   const fileInput = document.querySelector(".input-file"),
@@ -232,10 +242,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ekUpload();
   }
 
-
-  
   // Modal
-  const modals = document.querySelectorAll(".modal")
+  const modals = document.querySelectorAll(".modal");
   const overlay = document.querySelector(".overlay");
   const closeButtons = document.querySelectorAll(".close");
 
@@ -245,14 +253,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const hiddenOverlay = () => {
     overlay.classList.remove("active");
-    modals.forEach(modal => modal.classList.remove("active"))
+    modals.forEach((modal) => modal.classList.remove("active"));
   };
 
   if (overlay) {
     overlay.addEventListener("click", hiddenOverlay);
-    closeButtons.forEach(close => {
+    closeButtons.forEach((close) => {
       close.addEventListener("click", hiddenOverlay);
-    })
+    });
   }
 
   const address = document.querySelector(".address");
@@ -260,13 +268,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (address) {
     const inputAddress = address.querySelector("input");
     const modalAddress = document.querySelector(".modal-address");
-    
+
     inputAddress.addEventListener("click", () => {
-      modalAddress.classList.add("active")
-      visibleOverlay()
+      modalAddress.classList.add("active");
+      visibleOverlay();
     });
   }
-
 
   const chooseBooks = document.querySelector(".choose-books");
 
@@ -275,11 +282,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalBooks = document.querySelector(".modal-books");
 
     buttonChooseBooks.addEventListener("click", () => {
-      modalBooks.classList.add("active")
-      visibleOverlay()
+      modalBooks.classList.add("active");
+      visibleOverlay();
     });
   }
-
 
   const getID = document.querySelector(".get-id");
 
@@ -288,9 +294,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalGetID = document.querySelector(".modal-get-id");
 
     inputGetID.addEventListener("click", () => {
-      modalGetID.classList.add("active")
-      visibleOverlay()
+      modalGetID.classList.add("active");
+      visibleOverlay();
     });
   }
-
 });

@@ -2,12 +2,20 @@
   body {
     font-size: 14px;
 
+    .wrapper {
+      width: 100%;
+    }
+
     .breadscrumb {
       display: none;
     }
 
     h1 {
       font-size: 1.2rem;
+    }
+
+    textarea {
+      width: 100%;
     }
 
     .modal {
@@ -85,10 +93,6 @@
       flex: 1 1 auto;
       overflow-y: auto;
       overflow-x: hidden;
-    }
-
-    main {
-      overflow-y: auto;
     }
 
     .mobile-navigation {
@@ -457,6 +461,10 @@
         flex: 1 1 auto;
       }
     }
+
+    section {
+      margin-bottom: 3rem !important;
+    }
   }
 
   .board-01 .table ul li {
@@ -511,35 +519,36 @@
     .table ul {
       flex-direction: column;
       align-items: flex-start;
-      
+
       li {
         width: auto !important;
-  
+        flex-direction: row;
+
         &:nth-of-type(1),
         &:nth-of-type(2),
         &:nth-of-type(3) {
           display: none;
         }
-  
+
         &:nth-of-type(4) {
           flex: 1 1 auto !important;
           justify-content: flex-start;
           text-align: left;
           display: flex;
-        } 
+        }
         &:nth-of-type(5) {
           display: flex;
           white-space: nowrap;
-  
+
           &::after {
-            content: "권"
+            content: "권";
           }
         }
         &:nth-of-type(6) {
           display: flex;
         }
       }
-    } 
+    }
   }
 
   .shoppingbag {
@@ -585,6 +594,195 @@
 
       li {
         margin: 0 !important;
+      }
+    }
+  }
+
+  .bookstore {
+    .links {
+      a {
+        padding: 0.5rem !important;
+
+        .image {
+          height: 70px;
+
+          img {
+            width: 40vw;
+          }
+        }
+      }
+    }
+  }
+
+  .about {
+    ul {
+      flex-direction: column;
+    }
+  }
+
+  .admin {
+
+    aside {
+      flex: 0 0 64px;
+
+      &.active {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        .menu {
+          display: flex;
+        }
+      }
+
+      .logo {
+        padding: 0;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .toggle-menu {
+        position: absolute;
+        top: .75rem;
+        right: .75rem;
+      }
+    }
+
+    main {
+      border-radius: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 0;
+
+      > .title {
+        padding: .75rem 1rem ;
+  
+        h1 {
+          font-size: 18px !important;
+        }
+
+        button {
+          padding: .5rem 1rem
+        }
+      }
+
+      .content {
+        padding: 1rem;
+        overflow-x: hidden;
+      }
+    }
+
+    .dashboard {
+      padding: 1rem;
+
+      .streaming {
+        ul {
+          flex-wrap: wrap;
+
+          li {
+            flex: 1 1 45%;
+            flex-direction: row;
+            margin-bottom: 0.5rem;
+            justify-content: space-between;
+          }
+        }
+      }
+
+      .boards {
+        flex-direction: column;
+      }
+
+      .charts {
+        flex-direction: column;
+        margin: 0;
+
+        > div {
+          margin: 0 0 .5rem;
+        }
+      }
+    }
+
+    [class*="list"] {
+
+      .table-header {
+
+        .search {
+          width: 100%;
+
+          input {
+            flex: 1 1 auto
+          }
+
+          button {
+            padding: 0
+          }
+        }
+      }
+    }
+
+    .list-user {
+
+      .table {
+
+        ul {
+          flex-direction: column;
+          width: 100%;
+
+          li {
+            width: 100% !important;
+            justify-content: flex-start;
+
+            &:nth-of-type(1),
+            &:nth-of-type(3),
+            &:nth-of-type(4),
+            &:nth-of-type(7) {
+              display: none;
+            }
+
+            &:nth-of-type(2) {
+              font-size: 15px;
+              font-weight: bold;
+              line-height: 2;
+            }
+
+            &:nth-of-type(9) {
+              padding-top: 0;
+            }
+
+            &:nth-of-type(10) {
+              padding-top: 0;
+              
+              button {
+                flex: 1 1 auto;
+                padding: .5rem
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .board-sample-book {
+
+      .table {
+
+        .row {
+          flex-direction: column;
+
+          li {
+            width: 100% !important;
+
+            &:nth-of-type(1),
+            &:nth-of-type(5) {
+              display: none;
+            }
+          }
+        }
       }
     }
   }
