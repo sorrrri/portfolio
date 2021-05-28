@@ -773,13 +773,55 @@
 
         .row {
           flex-direction: column;
+          padding: 1rem;
 
           li {
             width: 100% !important;
+            justify-content: flex-start;
 
             &:nth-of-type(1),
+            &:nth-of-type(4),
             &:nth-of-type(5) {
               display: none;
+            }
+
+            &:nth-of-type(2) {
+              font-size: 13px;
+              font-weight: bold;
+            }
+
+            &:nth-of-type(3) {
+              padding-top: .5rem;
+              font-size: 16px;
+            }
+
+            &:nth-of-type(6) {
+
+              &::after {
+                content: "권";
+              }
+            }
+
+            &:nth-of-type(7) {
+              font-size: 13px;
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+              justify-content: flex-end;
+            }
+
+            &:nth-of-type(9),
+            &:nth-of-type(10),
+            &:nth-of-type(11) {
+              padding-top: 0;
+            }
+
+            &:nth-of-type(12) {
+              text-align: left;
+            }
+
+            &:last-of-type {
+              justify-content: flex-end;
             }
           }
         }
