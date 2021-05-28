@@ -234,6 +234,7 @@ input {
   }
 
   &[type="password"] {
+    font-family: initial;
   }
 }
 
@@ -1012,13 +1013,6 @@ input[type="radio"] + label:empty:before {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .modal {
-    padding: 1rem;
-    width: 90vw;
-  }
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -1127,4 +1121,18 @@ input[type="radio"] + label:empty:before {
 .dark-mode input[type="radio"]:hover + label:before,
 .dark-mode input[type="radio"]:checked + label:before {
   box-shadow: inset 0 0 0 2px $dark-primary-color;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: auto;
+    max-width: none;
+  }
+
+  .modal {
+    padding: 0 !important;
+    width: 90vw;
+  }
 }

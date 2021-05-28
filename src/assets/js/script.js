@@ -256,10 +256,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const address = document.querySelector(".address");
-  const inputAddress = address.querySelector("input");
-  const modalAddress = document.querySelector(".modal-address");
 
   if (address) {
+    const inputAddress = address.querySelector("input");
+    const modalAddress = document.querySelector(".modal-address");
+    
     inputAddress.addEventListener("click", () => {
       modalAddress.classList.add("active")
       visibleOverlay()
@@ -268,12 +269,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const chooseBooks = document.querySelector(".choose-books");
-  const buttonChooseBooks = chooseBooks.querySelector("button");
-  const modalBooks = document.querySelector(".modal-books");
 
   if (chooseBooks) {
+    const buttonChooseBooks = chooseBooks.querySelector("button");
+    const modalBooks = document.querySelector(".modal-books");
+
     buttonChooseBooks.addEventListener("click", () => {
       modalBooks.classList.add("active")
+      visibleOverlay()
+    });
+  }
+
+
+  const getID = document.querySelector(".get-id");
+
+  if (getID) {
+    const inputGetID = getID.querySelector("input");
+    const modalGetID = document.querySelector(".modal-get-id");
+
+    inputGetID.addEventListener("click", () => {
+      modalGetID.classList.add("active")
       visibleOverlay()
     });
   }
