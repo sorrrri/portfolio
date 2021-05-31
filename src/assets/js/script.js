@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Admin: Logo File Upload
-  const inputFile = document.querySelector("input[type='file']");
-  if (inputFile) {
+  const adminImagesPage = document.querySelector("main.images");
+  if (adminImagesPage) {
     function ekUpload() {
       function Init() {
         var fileSelect = document.getElementById("file-upload"),

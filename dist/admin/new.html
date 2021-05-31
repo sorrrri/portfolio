@@ -124,26 +124,28 @@
   </div>
   <div class="content">
     <ul class="inputs">
-      <li>
+      <li class="book-categories">
         <span>카테고리</span>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="01">자격수험서</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-          </select>
-        </div>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="01">기술사/기능장</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-          </select>
+        <div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="01">자격수험서</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+            </select>
+          </div>
+          <div class="selectbox">
+            <select name="" id="">
+              <option value="01">기술사/기능장</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+            </select>
+          </div>
         </div>
       </li>
-      <li class="col-3">
+      <li class="col-3 book-codes">
         <div class="col">
           <span>카테고리 코드</span>
           <input type="number" readonly value="32" />
@@ -153,28 +155,28 @@
           <input type="number" readonly value="09538" />
         </div>
       </li>
-      <li>
+      <li class="book-title">
         <span>도서명</span>
         <input class="full" type="text" value="" />
       </li>
-      <li>
+      <li class="price">
         <span>정가</span>
-        <input type="number" value="" placeholder="숫자만 입력하세요." />원
+        <input type="number" value="" placeholder="숫자만 입력하세요." />
       </li>
-      <li>
+      <li class="price">
         <span>회원가격</span>
-        <input type="number" value="" placeholder="숫자만 입력하세요." />원
+        <input type="number" value="" placeholder="숫자만 입력하세요." />
         <small>※ (대학교재는 할인단가)</small>
       </li>
-      <li>
+      <li class="price">
         <span>비회원가격</span>
-        <input type="number" value="" placeholder="숫자만 입력하세요." />원
+        <input type="number" value="" placeholder="숫자만 입력하세요." />
       </li>
-      <li>
+      <li class="mileage">
         <span>구매포인트</span>
-        <input type="number" value="" placeholder="숫자만 입력하세요." />P
+        <input type="number" value="" placeholder="숫자만 입력하세요." />
       </li>
-      <li>
+      <li class="input">
         <span>구분</span>
         <div class="selectbox">
           <select name="" id="">
@@ -187,32 +189,32 @@
           </select>
         </div>
       </li>
-      <li>
+      <li class="input">
         <span>출간구분</span>
         <input id="publish01" type="radio" name="publish" checked="checked" />
         <label for="publish01">초판</label>
         <input id="publish02" type="radio" name="publish" />
         <label for="publish02">재판</label>
       </li>
-      <li>
+      <li class="input">
         <span>판형</span>
         <input type="text" />
       </li>
-      <li>
+      <li class="input">
         <span>컬러</span>
         <input id="noColor" type="radio" name="color" checked="checked" />
         <label for="noColor">없음</label>
         <input id="yesColor" type="radio" name="color" />
         <label for="yesColor">있음</label>
       </li>
-      <li>
+      <li class="input">
         <span>CD</span>
         <input id="noCD" type="radio" name="CD" checked="checked" />
         <label for="noCD">없음</label>
         <input id="yesCD" type="radio" name="CD" />
         <label for="yesCD">있음</label>
       </li>
-      <li>
+      <li class="input">
         <span>동영상</span>
         <input id="noVideo" type="radio" name="video" checked="checked" />
         <label for="noVideo">없음</label>
@@ -234,11 +236,11 @@
         <input type="number" />
         <small>※ 품절일 경우 "0"으로 입력해주세요.</small>
       </li>
-      <li>
+      <li class="input">
         <span>페이지수</span>
         <input type="number" />
       </li>
-      <li>
+      <li class="input">
         <span>출판사</span>
         <input type="text" value="도서출판 구민사" />
       </li>
@@ -310,37 +312,223 @@
       </li>
       <li>
         <span>도서출력</span>
-        <div class="checkbox">
-          <input id="bookType01" type="checkbox" />
-          <label for="bookType01">메인도서</label>
-        </div>
-        <div class="checkbox">
-          <input id="bookType02" type="checkbox" />
-          <label for="bookType02">BEST 도서</label>
-        </div>
-        <div class="checkbox">
-          <input id="bookType03" type="checkbox" />
-          <label for="bookType03">신간도서</label>
-        </div>
-        <div class="checkbox">
-          <input id="bookType04" type="checkbox" />
-          <label for="bookType04">서브추천도서</label>
-        </div>
-        <div class="checkbox">
-          <input id="bookType05" type="checkbox" />
-          <label for="bookType05">도서디스플레이</label>
+        <div class="checkboxes">
+          <div class="checkbox">
+            <input id="bookType01" type="checkbox" />
+            <label for="bookType01">메인도서</label>
+          </div>
+          <div class="checkbox">
+            <input id="bookType02" type="checkbox" />
+            <label for="bookType02">BEST 도서</label>
+          </div>
+          <div class="checkbox">
+            <input id="bookType03" type="checkbox" />
+            <label for="bookType03">신간도서</label>
+          </div>
+          <div class="checkbox">
+            <input id="bookType04" type="checkbox" />
+            <label for="bookType04">서브추천도서</label>
+          </div>
+          <div class="checkbox">
+            <input id="bookType05" type="checkbox" />
+            <label for="bookType05">도서디스플레이</label>
+          </div>
         </div>
       </li>
-      <li>
+      <li class="choose-books">
         <span>관련도서</span>
         <div>
           <button>관련도서등록</button>
-
         </div>
       </li>
     </ul>
   </div>
 </main>
+
+
+<div class="modal modal-books">
+  <header>
+    <div class="title">
+      <h3>관련도서 선택</h3>
+      <svg class="close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 18 18">
+        <path
+          d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+      </svg>
+    </div>
+    <section class="search">
+      <input type="text" placeholder="도서명을 입력하세요." />
+      <button>검색</button>
+    </section>
+  </header>
+  <div class="modal-content">
+    <section class="books-results">
+      <div class="table">
+        <ul class="row title">
+          <li class="book-image">사진</li>
+          <li class="book-information">정보</li>
+          <li class="buttons">버튼</li>
+        </ul>
+        <ul class="row">
+          <li class="book-image">
+            <img src="../assets/images/thumbnails/01.jpg" alt="">
+          </li>
+          <li class="book-information">
+            <div class="isbn">
+              <span>ISBN</span>
+              <span>9791158131494</span>
+            </div>
+            <div class="book-title">
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div class="book-writer">
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div class="price">
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li class="buttons">
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="book-image">
+            <img src="../assets/images/thumbnails/01.jpg" alt="">
+          </li>
+          <li class="book-information">
+            <div class="isbn">
+              <span>ISBN</span>
+              <span>9791158131494</span>
+            </div>
+            <div class="book-title">
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div class="book-writer">
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div class="price">
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li class="buttons">
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="book-image">
+            <img src="../assets/images/thumbnails/01.jpg" alt="">
+          </li>
+          <li class="book-information">
+            <div class="isbn">
+              <span>ISBN</span>
+              <span>9791158131494</span>
+            </div>
+            <div class="book-title">
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div class="book-writer">
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div class="price">
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li class="buttons">
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="book-image">
+            <img src="../assets/images/thumbnails/01.jpg" alt="">
+          </li>
+          <li class="book-information">
+            <div class="isbn">
+              <span>ISBN</span>
+              <span>9791158131494</span>
+            </div>
+            <div class="book-title">
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div class="book-writer">
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div class="price">
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li class="buttons">
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="book-image">
+            <img src="../assets/images/thumbnails/01.jpg" alt="">
+          </li>
+          <li class="book-information">
+            <div class="isbn">
+              <span>ISBN</span>
+              <span>9791158131494</span>
+            </div>
+            <div class="book-title">
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div class="book-writer">
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div class="price">
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li class="buttons">
+            <button>선택</button>
+          </li>
+        </ul>
+        <ul class="row">
+          <li class="book-image">
+            <img src="../assets/images/thumbnails/01.jpg" alt="">
+          </li>
+          <li class="book-information">
+            <div class="isbn">
+              <span>ISBN</span>
+              <span>9791158131494</span>
+            </div>
+            <div class="book-title">
+              <span>상품명</span>
+              <span>NCS기반 교육과정에 따른 바디경락마사지</span>
+            </div>
+            <div class="book-writer">
+              <span>저자</span>
+              <span>오지민</span>
+            </div>
+            <div class="price">
+              <span>단가</span>
+              <span>13,000</span>
+            </div>
+          </li>
+          <li class="buttons">
+            <button>선택</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="overlay"></div>
 
   </div>
 </body>
