@@ -1814,6 +1814,7 @@ nav {
     }
 
     .boards {
+      display: flex;
       flex: 0 0 40vh;
       flex-direction: row;
       margin: 0 -0.25rem;
@@ -1848,6 +1849,7 @@ nav {
     }
 
     .charts {
+      display: flex;
       flex: 1 1 auto;
       flex-direction: row;
       margin: 0 -0.25rem;
