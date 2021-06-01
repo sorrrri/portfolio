@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="../assets/css/common.css" />
   <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/mobile.css" />
+  <link rel="stylesheet" href="../assets/css/mobile.css" media="screen and (max-width: 768px)" />
 
   <script src="../assets/js/script.js"></script>
 </head>
@@ -34,10 +34,9 @@
             </svg>
           </div>
           <ul class="sub-menu">
+            <li><a href="/admin/new.html">신규 도서 등록</a></li>
             <li><a href="/admin/list.html">도서 조회/수정</a></li>
             <li><a href="/admin/categories.html">카테고리 설정</a></li>
-            <li><a href="/admin/new.html">신규 도서 등록</a></li>
-            <li><a href="/admin/shipping.html">배송정보 관리</a></li>
           </ul>
         </li>
         <li>
@@ -49,7 +48,8 @@
           </div>
           <ul class="sub-menu">
             <li><a href="/admin/order_list.html">주문 조회</a></li>
-            <li><a href="group_buying.html">공동구매 현황</a></li>
+            <li><a href="/admin/group_buying.html">공동구매 현황</a></li>
+            <li><a href="/admin/shipping.html">배송정보 관리</a></li>
           </ul>
         </li>
         <li>
@@ -77,7 +77,7 @@
           <ul class="sub-menu">
             <li><a href="/admin/notice.html">공지사항</a></li>
             <li><a href="/admin/errata.html">정오표</a></li>
-            <li><a href="/admin/professor_downloads.html">강의자료실</a></li>
+            <li><a href="/admin/lecture_material.html">강의자료실</a></li>
             <li><a href="/admin/downloads.html">일반자료실</a></li>
             <li><a href="/admin/sample_book.html">견본도서요청</a></li>
             <li><a href="/admin/publish.html">출판문의</a></li>
@@ -113,7 +113,7 @@
       </ul>
     </aside>
     
-<main class="wrapper board-sample-book">
+<main class="wrapper sample-book">
   <div class="title">
     <h1>견본도서 신청현황</h1>
   </div>
@@ -135,13 +135,13 @@
     </div>
     <div class="table">
       <ul class="row title">
-        <li>번호</li>
-        <li>ISBN</li>
-        <li>도서명</li>
-        <li>저자</li>
-        <li>출판일</li>
-        <li>수량</li>
-        <li>요청일</li>
+        <li class="counter">번호</li>
+        <li class="isbn">ISBN</li>
+        <li class="book-title">도서명</li>
+        <li class="author">저자</li>
+        <li class="published">출판일</li>
+        <li class="quantity">수량</li>
+        <li class="date">요청일</li>
         <!-- <li>이름</li>
         <li>연락처</li>
         <li>대학명/학과명</li>
@@ -150,190 +150,190 @@
         <li>상태</li> -->
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>
         </li>
       </ul>
       <ul class="row">
-        <li>1</li>
-        <li>9791158132514</li>
-        <li>가스 기능장 필기(최신판)</li>
-        <li>주종율</li>
-        <li>2016-05-01</li>
-        <li>1</li>
-        <li>2021-05-17 21:46:51</li>
-        <li>한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
-        <li>송승훈</li>
-        <li>061-450-7271 / 010-2768-0208</li>
-        <li>ssh1@kopo.ac.kr</li>
-        <li>[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
-        <li>
+        <li class="counter">1</li>
+        <li class="isbn">9791158132514</li>
+        <li class="book-title">가스 기능장 필기(최신판)</li>
+        <li class="author">주종율</li>
+        <li class="published">2016-05-01</li>
+        <li class="quantity">1</li>
+        <li class="date">2021-05-17 21:46:51</li>
+        <li class="education">한국폴리텍대학 목포캠퍼스 / 산업설비과</li>
+        <li class="user-name">송승훈</li>
+        <li class="phone">061-450-7271 / 010-2768-0208</li>
+        <li class="email">ssh1@kopo.ac.kr</li>
+        <li class="address">[534-703] 전라남도 무안군 청계면 한국폴리텍대학 목포캠퍼스 산업설비과</li>
+        <li class="buttons">
           <span>OK</span>
           <button>취소</button>
           <button>삭제</button>

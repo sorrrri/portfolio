@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<main class="sub board-01 wrapper">
+<main class="sub list wrapper">
   <aside>
     <h3>고객센터</h3>
     <a href="notice.html">공지사항</a>
@@ -32,7 +32,7 @@
         보답하겠습니다.
       </p>
     </div>
-    <section>
+    <div class="table-header">
       <div class="search">
         <div class="selectbox">
           <select name="" id="">
@@ -48,68 +48,85 @@
             d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
         </svg>
       </div>
+    </div>
       <div class="table">
         <ul class="row title">
-          <li>번호</li>
-          <li>제목</li>
-          <li>작성자</li>
-          <li>작성일</li>
-          <li>조회수</li>
+          <li class="counter">번호</li>
+          <li class="book-title">제목</li>
+          <li class="writer">작성자</li>
+          <li class="date">작성일</li>
+          <li class="views">조회수</li>
         </ul>
-        <a href="#">
-          <ul class="row">
-            <li>1597</li>
-            <li>산안산기 실기 책 배송</li>
-            <li>홍길동</li>
-            <li>2021-05-20</li>
-            <li>5</li>
-          </ul>
-        </a>
-        <a href="#">
-          <ul class="row">
-            <li>1596</li>
-            <li class="reply">답변드립니다.</li>
-            <li>구민사</li>
-            <li>2021-05-20</li>
-            <li>0</li>
-          </ul>
-        </a>
-        <a href="#">
-          <ul class="row">
-            <li>1597</li>
-            <li>산안산기 실기 책 배송</li>
-            <li>홍길동</li>
-            <li>2021-05-20</li>
-            <li>5</li>
-          </ul>
-        </a>
-        <a href="#">
-          <ul class="row">
-            <li>1597</li>
-            <li>산안산기 실기 책 배송</li>
-            <li>홍길동</li>
-            <li>2021-05-20</li>
-            <li>5</li>
-          </ul>
-        </a>
-        <a href="#">
-          <ul class="row">
-            <li>1597</li>
-            <li>산안산기 실기 책 배송</li>
-            <li>홍길동</li>
-            <li>2021-05-20</li>
-            <li>5</li>
-          </ul>
-        </a>
-        <a href="#">
-          <ul class="row">
-            <li>1597</li>
-            <li>산안산기 실기 책 배송</li>
-            <li>홍길동</li>
-            <li>2021-05-20</li>
-            <li>5</li>
-          </ul>
-        </a>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1596</li>
+          <li class="book-title reply">답변드립니다.</li>
+          <li class="writer">구민사</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">0</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
+        <ul class="row">
+          <li class="counter">1597</li>
+          <li class="book-title">산안산기 실기 책 배송</li>
+          <li class="writer">홍길동</li>
+          <li class="date">2021-05-20</li>
+          <li class="views">5</li>
+        </ul>
       </div>
       <div class="table-footer">
         <div class="pagenation">
@@ -143,7 +160,6 @@
           </a>
         </div>
       </div>
-    </section>
   </div>
 </main>
 {% endblock %}
