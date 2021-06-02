@@ -214,7 +214,7 @@ input {
   }
 
   &:focus {
-    box-shadow: 0 0 1px 1px $secondary-color;
+    box-shadow: 0 0 1px 1px $clark-kensington-stowe-mountain;
   }
 
   &:disabled {
@@ -243,7 +243,7 @@ input {
     width: 0;
     height: 0;
   }
-  
+
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,
@@ -264,7 +264,7 @@ label {
 }
 
 button {
-  font: 15px/1 "NanumSquare";
+  font: 15px/1 "NanumSquare-Regular";
   display: flex;
   align-items: center;
   border: 0;
@@ -315,15 +315,12 @@ textarea {
   }
 }
 
-.toggle-menu {
-  border-radius: 0.5rem;
-  width: 4rem;
-  height: 4rem;
-  -webkit-tap-highlight-color: transparent;
+[class*="menu"] {
   user-select: none;
-  transition: all 0.2s;
   cursor: pointer;
+}
 
+.toggle-menu {
   &.active {
     transform: rotate(45deg);
 
@@ -334,6 +331,16 @@ textarea {
     path:nth-of-type(3) {
       stroke-dashoffset: -138px;
     }
+  }
+
+  svg {
+    border-radius: 0.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    transition: all 0.2s;
+    cursor: pointer;
   }
 
   path {
@@ -590,14 +597,14 @@ aside {
     transition: 0.2s color;
 
     &::before {
-      border-radius: 2px;
-      transition: 0.2s;
       content: "";
+      border-radius: 2px;
       margin-right: 3px;
       width: 16px;
       height: 16px;
       border: 1px solid #ccc;
       background-color: white;
+      transition: 0.2s;
     }
   }
 
@@ -1188,7 +1195,6 @@ input[type="radio"] + label:empty:before {
   }
 
   .buttons {
-
     button {
       margin-left: 0;
     }

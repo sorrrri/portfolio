@@ -50,7 +50,7 @@
           </ul>
         </li>
         <li>
-          <div class="main-menu" onclick="">
+          <div class="main-menu" onclick="location.href='cctv.html'">
             <div>
               <span>CCTV</span>
             </div>
@@ -106,10 +106,8 @@
         </li>
       </ul>
     </aside>
-    <div class="content">
-      {% block content %}
-      {% endblock %}
-    </div>
+    {% block content %}
+    {% endblock %}
     <div class="overlay"></div>
   </div>
 </body>

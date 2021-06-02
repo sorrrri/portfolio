@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content cctv">
+  <header>
+    <div class="toggle-menu">
+      <svg viewBox="0 0 100 100" width="80">
+        <path
+          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+        <path d="m 30,50 h 40" />
+        <path
+          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+      </svg>
+    </div>
+    <input type="text" placeholder="주소, 좌표, CCTV 검색">
+    <div class="search">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+      </svg>
+    </div>
+  </header>
+  <main>
+
+    <!-- 지도영역 -->
+    <div class="maps">
+    </div>
+
+    <!-- 마커를 누르면 details 출력 -->
+    <svg onclick="activeDetails()" style="position: absolute; top: 50%; left: 50%; cursor:pointer"
+      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path
+        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+    </svg>
+    <div class="marker-details">
+      <div class="arrow"></div>
+      <section class="navigation">
+        <address>
+          충청남도 천안시 서북구 백석동 895
+        </address>
+        <button onclick="openModalNavigation()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path
+              d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z" />
+          </svg>
+          <span>내비게이션</span>
+        </button>
+      </section>
+      <section class="cctv-locations">
+        <div class="row">
+          <ul>
+            <li class="title" onclick="location.href='cctv_details.html'">
+              W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+            </li>
+            <li class="tags">
+              <span>산불감시</span>
+              <span>CCTV</span>
+              <span>PTZ</span>
+            </li>
+            <li class="information">
+              <span>방향</span>
+              <span>270˚</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18">
+                <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" />
+              </svg>
+            </li>
+            <li class="information">
+              <span>가시거리</span>
+              <span>20m</span>
+            </li>
+          </ul>
+          <div class="more" onclick="location.href='cctv_details.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+              <path
+                d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+          <ul>
+            <li class="title">
+              W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+            </li>
+            <li class="tags">
+              <span>산불감시</span>
+              <span>CCTV</span>
+              <span>PTZ</span>
+            </li>
+            <li class="information">
+              <span>방향</span>
+              <span>270˚</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18">
+                <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" />
+              </svg>
+            </li>
+            <li class="information">
+              <span>가시거리</span>
+              <span>20m</span>
+            </li>
+          </ul>
+          <div class="more">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+              <path
+                d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+          <ul>
+            <li class="title">
+              W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+            </li>
+            <li class="tags">
+              <span>산불감시</span>
+              <span>CCTV</span>
+              <span>PTZ</span>
+            </li>
+            <li class="information">
+              <span>방향</span>
+              <span>270˚</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18">
+                <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" />
+              </svg>
+            </li>
+            <li class="information">
+              <span>가시거리</span>
+              <span>20m</span>
+            </li>
+          </ul>
+          <div class="more">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+              <path
+                d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+          <ul>
+            <li class="title">
+              W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+            </li>
+            <li class="tags">
+              <span>산불감시</span>
+              <span>CCTV</span>
+              <span>PTZ</span>
+            </li>
+            <li class="information">
+              <span>방향</span>
+              <span>270˚</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18">
+                <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" />
+              </svg>
+            </li>
+            <li class="information">
+              <span>가시거리</span>
+              <span>20m</span>
+            </li>
+          </ul>
+          <div class="more">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+              <path
+                d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+            </svg>
+          </div>
+        </div>
+        <div class="row">
+          <ul>
+            <li class="title">
+              W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+            </li>
+            <li class="tags">
+              <span>산불감시</span>
+              <span>CCTV</span>
+              <span>PTZ</span>
+            </li>
+            <li class="information">
+              <span>방향</span>
+              <span>270˚</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 18 18">
+                <path d="M15 8.25H5.87l4.19-4.19L9 3 3 9l6 6 1.06-1.06-4.19-4.19H15v-1.5z" />
+              </svg>
+            </li>
+            <li class="information">
+              <span>가시거리</span>
+              <span>20m</span>
+            </li>
+          </ul>
+          <div class="more">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+              <path
+                d="M9 5.5c.83 0 1.5-.67 1.5-1.5S9.83 2.5 9 2.5 7.5 3.17 7.5 4 8.17 5.5 9 5.5zm0 2c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5zm0 5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+            </svg>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <ul class="footer-menu">
+      <li class="active">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+          <path
+            d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+        </svg>
+        <span>CCTV</span>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+          <path
+            d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 15h-2v-2h2v2zm0-4h-2V8h2v6zm-1-9c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
+        </svg>
+        <span>장애관리</span>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+          <path
+            d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+        </svg>
+        <span>자산관리</span>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+          <path
+            d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z" />
+        </svg>
+        <span>업무관리</span>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 24 24">
+          <path
+            d="M22 3H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2zM8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1zm3.85-4h1.64L21 16l-1.99 1.99c-1.31-.98-2.28-2.38-2.73-3.99-.18-.64-.28-1.31-.28-2s.1-1.36.28-2c.45-1.62 1.42-3.01 2.73-3.99L21 8l-1.51 2h-1.64c-.22.63-.35 1.3-.35 2s.13 1.37.35 2z" />
+        </svg>
+        <span>민원관리</span>
+      </li>
+    </ul>
+  </footer>
+</div>
+<div class="modal modal-navigation">
+
+</div>
+<script>
+  const markerDetails = document.querySelector(".marker-details")
+  const arrow = markerDetails.querySelector(".arrow")
+
+  const activeDetails = () => {
+    markerDetails.classList.add("active")
+  }
+
+  arrow.addEventListener("click", () => {
+    markerDetails.classList.remove("active")
+  })
+</script>
+{% endblock %}

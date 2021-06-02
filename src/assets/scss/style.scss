@@ -1,14 +1,17 @@
 body {
   overflow: hidden;
 
-  input {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: none;
-    color: white;
+  svg {
+    fill: white;
   }
 
   .container {
     z-index: -5;
+    overflow: hidden;
+
+    main {
+      position: relative;
+    }
 
     &::before {
       content: "";
@@ -28,6 +31,16 @@ body {
     transition: background-color 0.2s;
   }
 
+  .buttons {
+    button {
+      padding: 0.5rem 0.75rem;
+
+      &:not(:last-of-type) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
   button {
     &.btn-signin {
       background-image: linear-gradient(to right, #6fdb9e, #56c6ee);
@@ -37,9 +50,10 @@ body {
 
 aside {
   position: fixed;
+  width: 180px;
   left: -180px;
-  top:0;
-  bottom:0;
+  top: 0;
+  bottom: 0;
   transition: 0.4s;
   z-index: 10;
 
@@ -73,10 +87,6 @@ aside {
   }
 
   .menu {
-    svg {
-      fill: white;
-    }
-
     > li {
       display: flex;
       flex-direction: column;
@@ -117,13 +127,56 @@ header {
   .search {
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
 
     svg {
       width: 2rem;
       height: 2rem;
 
       fill: white;
+    }
+  }
+}
+
+footer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  .footer-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 600px;
+
+    li {
+      flex: 1 1 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      svg {
+        fill: slategray;
+      }
+
+      &.active {
+        color: royalblue;
+
+        svg {
+          fill: royalblue;
+        }
+      }
+
+      &:not(:last-of-type) {
+        border-right: 1px solid #ddd;
+      }
+
+      span {
+        margin-top: 0.25rem;
+      }
     }
   }
 }
@@ -147,6 +200,9 @@ header {
       position: relative;
 
       input {
+        background-color: rgba(0, 0, 0, 0.3);
+        border: none;
+        color: white;
         height: 50px;
         width: 90vw;
         max-width: 360px;
@@ -190,4 +246,225 @@ header {
       max-width: 360px;
     }
   }
+}
+
+.cctv {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #333;
+    background-color: white;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    height: 45px;
+
+    .toggle-menu {
+      padding-top: 6px;
+    }
+
+    .search {
+      flex: 0 0 auto;
+    }
+
+    svg {
+      transform: scale(0.8);
+
+      fill: #333;
+
+      path {
+        stroke: #333;
+      }
+    }
+
+    input {
+      flex: 1 1 auto;
+      border: 0;
+      width: 100%;
+    }
+  }
+
+  footer {
+    background-color: white;
+    color: #333;
+    border-top: 1px solid #ddd;
+
+    svg {
+      fill: #333;
+    }
+  }
+
+  .marker-details {
+    height: 40vh;
+    position: absolute;
+    background-color: white;
+    color: #333;
+    left: 0;
+    right: 0;
+    bottom: calc(-40vh - 1.5rem);
+    justify-content: center;
+    transition: 0.4s;
+
+    flex-direction: column;
+
+    &.active {
+      bottom: 0;
+    }
+
+    svg {
+      fill: #333;
+    }
+
+    .arrow {
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4rem;
+      height: 1.5rem;
+      border-radius: 0.25rem 0.25rem 0 0;
+      background: white;
+      border: 1px solid #ddd;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 2px solid black;
+        border-top: none;
+        border-right: none;
+        background: transparent;
+        -webkit-transform: rotate(-45deg);
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+
+    .navigation {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem;
+      border-bottom: 1px solid #ddd;
+
+      button {
+        background-color: transparent;
+        border: 1px solid #ddd;
+        padding: 0.25rem;
+        display: flex;
+        flex-direction: column;
+
+        svg {
+          fill: #333;
+        }
+
+        span {
+          color: #333;
+          font-size: 12px;
+          margin-top: 0.25rem;
+        }
+      }
+    }
+
+    .cctv-locations {
+      flex: 1 1 auto;
+      overflow-y: auto;
+
+      .row {
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #ddd;
+        }
+      }
+
+      ul {
+        flex: 1 1 auto;
+        width: 95%;
+
+        li {
+          &.title {
+            font-weight: bold;
+            font-size: 16px;
+            color: royalblue;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+          }
+          &.tags {
+            padding: 0.5rem 0;
+            span {
+              font-size: 13px;
+              background-color: seagreen;
+              padding: 0.25rem 0.75rem;
+              color: white;
+              border-radius: 0.25rem;
+            }
+          }
+
+          &.information {
+            display: flex;
+            align-items: center;
+
+            span {
+              &:first-of-type {
+                flex: 0 0 70px;
+
+                &::after {
+                  content: ":";
+                }
+              }
+            }
+
+            svg {
+              border-radius: 50%;
+              border: 1px solid #333;
+            }
+          }
+        }
+      }
+
+      .more {
+        flex: 0 0 auto;
+      }
+    }
+  }
+}
+
+.cctv-user {
+  footer {
+    padding: 0.5rem 0;
+    height: auto;
+
+    .request {
+      color: slateblue;
+      background-color: #eee;
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+
+      svg {
+        fill: slateblue;
+      }
+    }
+
+    .footer-menu {
+      li:not(:last-of-type) {
+        border: none;
+      }
+    }
+  }
+}
+
+.maps {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
