@@ -43,7 +43,7 @@ $clark-kensington-stowe-mountain: #717593;
 
 body {
   background-color: $farrownball-drawing-room-blue;
-  color: white;
+  color: #333;
   width: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -198,7 +198,6 @@ legend {
 }
 
 input {
-
   &:not([type="radio"]) {
     -webkit-appearance: none;
     height: auto;
@@ -1023,15 +1022,18 @@ input[type="radio"] + label:empty:before {
   overflow-y: auto;
 
   .close {
+    background-color: transparent;
     cursor: pointer;
   }
 
-  header {
+  .modal-header {
     flex: 0 0 auto;
     flex-direction: column !important;
+    border-bottom: 1px solid #DDD;
   }
 
   .title {
+    width: 100%;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -1062,7 +1064,7 @@ input[type="radio"] + label:empty:before {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   opacity: 0;
   z-index: -1;
   transition: opacity 0.2s;
@@ -1180,6 +1182,14 @@ input[type="radio"] + label:empty:before {
 .dark-mode input[type="radio"]:hover + label:before,
 .dark-mode input[type="radio"]:checked + label:before {
   box-shadow: inset 0 0 0 2px $dark-primary-color;
+}
+
+.dark-theme {
+  color: white;
+  
+  svg {
+    fill: white;
+  }
 }
 
 @media screen and (max-width: 768px) {

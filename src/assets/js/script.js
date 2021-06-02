@@ -289,39 +289,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const address = document.querySelector(".address");
+  const btnNavigation = document.querySelector(".btn-navigation")
+  const modalNavigation = document.querySelector(".modal-navigation")
 
-  if (address) {
-    const inputAddress = address.querySelector("input");
-    const modalAddress = document.querySelector(".modal-address");
-
-    inputAddress.addEventListener("click", () => {
-      modalAddress.classList.add("active");
-      visibleOverlay();
-    });
-  }
-
-  const chooseBooks = document.querySelector(".choose-books");
-
-  if (chooseBooks) {
-    const buttonChooseBooks = chooseBooks.querySelector("button");
-    const modalBooks = document.querySelector(".modal-books");
-
-    buttonChooseBooks.addEventListener("click", () => {
-      modalBooks.classList.add("active");
-      visibleOverlay();
-    });
-  }
-
-  const getID = document.querySelector(".get-id");
-
-  if (getID) {
-    const inputGetID = getID.querySelector("input");
-    const modalGetID = document.querySelector(".modal-get-id");
-
-    inputGetID.addEventListener("click", () => {
-      modalGetID.classList.add("active");
-      visibleOverlay();
-    });
+  if(btnNavigation) {
+    btnNavigation.addEventListener("click", () => {
+      modalNavigation.classList.add("active")
+      visibleOverlay()
+    })
   }
 });
