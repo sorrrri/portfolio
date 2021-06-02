@@ -36,13 +36,15 @@ body {
 }
 
 aside {
-  margin-left: -180px;
-  flex: 0 0 180px;
+  position: fixed;
+  left: -180px;
+  top:0;
+  bottom:0;
   transition: 0.4s;
   z-index: 10;
 
   &.active {
-    margin-left: 0;
+    left: 0;
   }
 
   .profile {

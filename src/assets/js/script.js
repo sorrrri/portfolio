@@ -22,15 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const aside = document.querySelector("aside");
   const toggleMenu = document.querySelector(".toggle-menu");
-  const content = document.querySelector(".content");
+  const overlay = document.querySelector(".overlay");
 
   toggleMenu.addEventListener("click", (e) => {
     e.stopPropagation();
     aside.classList.toggle("active");
-    toggleMenu.classList.toggle("active");
+    overlay.classList.add("active");
   });
 
-  content.addEventListener("click", () => {
+  overlay.addEventListener("click", () => {
     toggleMenu.classList.toggle("active");
     aside.classList.remove("active");
   });
@@ -258,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Modal
   const modals = document.querySelectorAll(".modal");
-  const overlay = document.querySelector(".overlay");
   const closeButtons = document.querySelectorAll(".close");
 
   const visibleOverlay = () => {
