@@ -20,19 +20,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const aside = document.querySelector("aside");
+  const globalNavigationMenu = document.querySelector(".global-navigation-menu");
+  const localNavigationMenu = document.querySelector(".local-navigation-menu");
   const toggleMenu = document.querySelector(".toggle-menu");
+  const localToggleMenu = document.querySelector(".local-toggle-menu");
   const overlay = document.querySelector(".overlay");
+  
+
+  if(localToggleMenu) {
+    localToggleMenu.addEventListener("click", (e) => {
+      e.stopPropagation();
+      localNavigationMenu.classList.add("active");
+      overlay.classList.add("active");
+    });
+  }
 
   toggleMenu.addEventListener("click", (e) => {
     e.stopPropagation();
-    aside.classList.toggle("active");
+    globalNavigationMenu.classList.add("active");
     overlay.classList.add("active");
   });
 
   overlay.addEventListener("click", () => {
-    toggleMenu.classList.toggle("active");
-    aside.classList.remove("active");
+    toggleMenu.classList.remove("active");
+    localToggleMenu.classList.remove("active");
+    globalNavigationMenu.classList.remove("active");
+    localNavigationMenu.classList.remove("active");
   });
 
   // Tab Menu
