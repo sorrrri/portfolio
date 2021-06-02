@@ -1,45 +1,191 @@
-button {
-  &.btn-signin {
-    background-image: linear-gradient(to right, #6fdb9e, #56c6ee);
+body {
+  overflow: hidden;
+
+  input {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    color: white;
+  }
+
+  .container {
+    z-index: -5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url(../images/bg_multi.jpg) center no-repeat;
+      background-size: cover;
+      opacity: 0.2;
+      z-index: -10;
+    }
+  }
+
+  .content {
+    transition: background-color 0.2s;
+  }
+
+  button {
+    &.btn-signin {
+      background-image: linear-gradient(to right, #6fdb9e, #56c6ee);
+    }
+  }
+}
+
+aside {
+  margin-left: -180px;
+  flex: 0 0 180px;
+  transition: 0.4s;
+  z-index: 10;
+
+  &.active {
+    margin-left: 0;
+  }
+
+  .profile {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+
+    .image {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .user-information {
+      font-size: 12px;
+
+      .user-type {
+      }
+    }
+  }
+
+  .menu {
+    svg {
+      fill: white;
+    }
+
+    > li {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem;
+
+      .arrow {
+        transition: transform 0.2s;
+      }
+
+      &.active {
+        .arrow {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .sub-menu {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.1);
+
+      li {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
+
+header {
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  .search {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+
+      fill: white;
+    }
   }
 }
 
 .login {
   flex-direction: column;
+  height: 100vh;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   h2 {
-    margin-bottom: 3rem;
+    font-family: "NanumSquare-Regular";
+    margin-bottom: 2rem;
   }
 
   .inputs {
     margin-bottom: 2rem;
     .input {
       margin-bottom: 1rem;
+      position: relative;
 
       input {
-        width: 80vw;
-        max-width: 240px;
+        height: 50px;
+        width: 90vw;
+        max-width: 360px;
+        text-indent: 2 rem;
+      }
+
+      svg {
+        position: absolute;
+        top: 0.85rem;
+        left: 0.5rem;
+        fill: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .buttons {
+      justify-content: space-between;
+
+      button {
+        background-color: transparent;
       }
     }
   }
 
-  .buttons {
+  .main-buttons {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 
     button {
       font: 15px/1 "NanumSquare-Regular";
-      width: 80vw;
-      max-width: 240px;
+      width: 90vw;
+      max-width: 360px;
+      height: 50px;
+      align-items: center;
       justify-content: center;
-      padding: 0.75rem 0.25rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     small {
-      width: 80vw;
-      max-width: 240px;
+      width: 90vw;
+      max-width: 360px;
     }
   }
 }

@@ -1,4 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+  window.addEventListener("resize", () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  });
+
+  const mainMenus = document.querySelectorAll(".main-menu");
+
+  mainMenus.forEach((mainMenu) => {
+    const subMenu = mainMenu.nextElementSibling;
+
+    if (subMenu) {
+      mainMenu.addEventListener("click", () => {
+        mainMenu.classList.toggle("active");
+        subMenu.classList.toggle("active");
+      });
+    }
+  });
+
+  const aside = document.querySelector("aside");
+  const toggleMenu = document.querySelector(".toggle-menu");
+  const content = document.querySelector(".content");
+
+  toggleMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+    aside.classList.toggle("active");
+    toggleMenu.classList.toggle("active");
+  });
+
+  content.addEventListener("click", () => {
+    toggleMenu.classList.toggle("active");
+    aside.classList.remove("active");
+  });
+
   // Tab Menu
   const main = document.querySelector(".main");
 
@@ -50,28 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const admin = document.querySelector(".admin");
 
   if (admin) {
-    const mainMenus = document.querySelectorAll(".main-menu");
-
-    mainMenus.forEach((mainMenu) => {
-      const subMenu = mainMenu.nextElementSibling;
-
-      if (subMenu) {
-        mainMenu.addEventListener("click", () => {
-          mainMenu.classList.toggle("active");
-          subMenu.classList.toggle("active");
-        });
-      }
-    });
-
-    
-    const aside = document.querySelector('aside')
-    const toggleMenu = document.querySelector(".toggle-menu");
-
-    toggleMenu.addEventListener("click", (e) => {
-      e.stopPropagation();
-      aside.classList.toggle("active");
-      toggleMenu.classList.toggle("active");
-    });
   }
 
   const fileInput = document.querySelector(".input-file"),
