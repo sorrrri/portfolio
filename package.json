@@ -30,5 +30,8 @@
     "chrome > 0",
     "ie >= 8",
     "firefox > 0"
-  ]
+  ],
+  "scripts": {
+    "cp": "cp -r ./dist/assets/* ../mobile-frontend/public/assets/"
+  }
 }
