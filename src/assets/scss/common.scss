@@ -271,9 +271,8 @@ button {
   display: flex;
   align-items: center;
   border: 0;
-  background: $clark-kensington-stowe-mountain;
-  color: white;
-  border-radius: 0.3rem;
+  background: transparent;
+  border-radius: 0.25rem;
   padding: 0;
   cursor: pointer;
   user-select: none;
@@ -385,13 +384,6 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
-
-    a {
-    }
-  }
-
-  button {
-    padding: 0.5rem 2rem;
   }
 }
 

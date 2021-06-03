@@ -31,18 +31,18 @@ body {
     }
 
     &.btn-navigation {
-      background-color: transparent;
-      border: 1px solid #ddd;
-      padding: 0.25rem;
+      background-color: #EEE;
+      border: 1px solid #DDD;
+      padding: 0.5rem;
       display: flex;
       flex-direction: column;
 
       svg {
-        fill: #333;
+        fill: royalblue;
       }
 
       span {
-        color: #333;
+        color: royalblue;
         font-size: 12px;
         margin-top: 0.25rem;
       }
@@ -60,6 +60,16 @@ aside {
 
   button {
     color: #333;
+  }
+
+  .menu {
+    &:not(:last-of-type) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
   }
 }
 
@@ -150,15 +160,28 @@ aside {
 
     button {
       position: relative;
-      padding: 0.75rem 0;
-      width: 100%;
-      align-items: center;
       background-color: transparent;
+      width: 100%;
+      margin-bottom: .5rem;
+      
+      input[type="radio"] + label {
+        border:1px solid #DDD;
+        border-radius: .25rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0;
+
+        &::before{
+          content: none;
+        }
+      }
 
       input[type="radio"]:hover + label,
       input[type="radio"]:checked + label,
       input[type="checkbox"]:checked + label {
         color: royalblue;
+        border: 1px solid royalblue;
 
         svg {
           fill: royalblue;
@@ -168,6 +191,7 @@ aside {
       label {
         display: flex;
         align-items: center;
+        padding: 0.5rem 0;
 
         &::before,
         &::after {
@@ -205,8 +229,6 @@ header {
     svg {
       width: 2rem;
       height: 2rem;
-
-      fill: white;
     }
   }
 }
@@ -284,6 +306,10 @@ footer {
     margin-bottom: 2rem;
   }
 
+  button {
+    color: white;
+  }
+
   .inputs {
     margin-bottom: 2rem;
     .input {
@@ -310,10 +336,6 @@ footer {
 
     .buttons {
       justify-content: space-between;
-
-      button {
-        background-color: transparent;
-      }
     }
   }
 
@@ -324,6 +346,7 @@ footer {
 
     button {
       font: 15px/1 "NanumSquare-Regular";
+      background-color: #49536b;
       width: 90vw;
       max-width: 360px;
       height: 50px;
@@ -390,10 +413,6 @@ footer {
     box-shadow: 1px 2px 4px #ddd;
     z-index: 1;
 
-    .toggle-menu {
-      padding-top: 6px;
-    }
-
     .search {
       flex: 1 1 auto;
 
@@ -417,6 +436,10 @@ footer {
       border: 0;
       width: 100%;
     }
+  }
+
+  main {
+    overflow-y: hidden !important;
   }
 
   .local-toggle-menu {
@@ -456,36 +479,16 @@ footer {
       bottom: 0;
     }
 
-    svg {
-      fill: #333;
-    }
-
     .arrow {
       position: absolute;
-      top: -1.5rem;
+      top: 0.75rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 4rem;
-      height: 1.5rem;
-      border-radius: 0.25rem 0.25rem 0 0;
-      background: white;
-      border: 1px solid #ddd;
+      width: 2.5rem;
+      height: 4px;
+      border-radius: 4px;
+      background: #333;
       z-index: 1;
-
-      &::before {
-        content: "";
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        border: 2px solid black;
-        border-top: none;
-        border-right: none;
-        background: transparent;
-        -webkit-transform: rotate(-45deg);
-        transform: translate(-50%, -50%) rotate(-45deg);
-      }
     }
 
     .navigation {
@@ -493,7 +496,7 @@ footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem;
+      padding: 1.5rem 0.75rem 0.75rem;
       border-bottom: 1px solid #ddd;
     }
 
@@ -591,14 +594,14 @@ footer {
 .cctv-details {
   section {
     &:not(.view) {
-      padding: 1rem .75rem;
+      padding: 1rem 0.75rem;
     }
 
     &.title {
       text-align: center;
 
       .btn-navigation {
-        margin: .5rem auto 0
+        margin: 0.5rem auto 0;
       }
     }
 
@@ -607,36 +610,63 @@ footer {
       max-height: 270px;
       overflow: hidden;
 
-
       .btn-refresh {
         font-size: 13px;
         background-color: royalblue;
-        padding: .25rem .5rem;
+        color: white;
+        padding: 0.25rem 0.5rem;
         position: absolute;
-        right: .75rem;
-        bottom: .75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
 
         svg {
-          fill: white
+          fill: white;
         }
       }
     }
 
     &.information {
-
       .row {
-
         span {
-
           &:first-of-type {
             flex: 0 0 70px;
 
             &::after {
-              content : ":"
+              content: ":";
             }
           }
         }
       }
     }
+  }
+}
+
+.notice {
+  .row {
+    flex-direction: column;
+    border: 1px solid #ddd;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .tag {
+    font-size: 13px;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+
+    &.bg-blue {
+      background-color: royalblue;
+    }
+
+    &.bg-red {
+      background-color: orangered;
+    }
+  }
+
+  .date {
+    color: slategray;
+    margin-top: 0.5rem;
   }
 }
