@@ -26,26 +26,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const localToggleMenu = document.querySelector(".local-toggle-menu");
   const overlay = document.querySelector(".overlay");
   
+  if(toggleMenu) {
 
-  if(localToggleMenu) {
-    localToggleMenu.addEventListener("click", (e) => {
+    if(localToggleMenu) {
+      localToggleMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        localNavigationMenu.classList.add("active");
+        overlay.classList.add("active");
+      });
+  
+      overlay.addEventListener("click", () => {
+        localToggleMenu.classList.remove("active");
+        localNavigationMenu.classList.remove("active");
+      });
+    }
+  
+    toggleMenu.addEventListener("click", (e) => {
       e.stopPropagation();
-      localNavigationMenu.classList.add("active");
+      globalNavigationMenu.classList.add("active");
       overlay.classList.add("active");
     });
   }
 
-  toggleMenu.addEventListener("click", (e) => {
-    e.stopPropagation();
-    globalNavigationMenu.classList.add("active");
-    overlay.classList.add("active");
-  });
-
   overlay.addEventListener("click", () => {
     toggleMenu.classList.remove("active");
-    localToggleMenu.classList.remove("active");
     globalNavigationMenu.classList.remove("active");
-    localNavigationMenu.classList.remove("active");
   });
 
   // Tab Menu
