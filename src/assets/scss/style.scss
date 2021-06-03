@@ -3,16 +3,13 @@ body {
 
   .container {
     z-index: -5;
+    flex-direction: column;
     overflow: hidden;
 
     main {
       position: relative;
       overflow-y: auto;
     }
-  }
-
-  .content {
-    transition: background-color 0.2s;
   }
 
   .buttons {
@@ -50,18 +47,28 @@ body {
 
   .tags {
     span {
-      font-size: 12px;
+      font-size: 13px;
       padding: 0.25rem 0.5rem;
       color: white;
       border-radius: 0.25rem;
+      margin-right: 0.25rem;
+    }
+
+    .tag {
+      &.bg-blue {
+        background-color: rgba(65, 105, 225, 0.1);
+        color: rgb(65, 105, 225);
+      }
+
+      &.bg-red {
+        background-color: rgba(255, 69, 0, 0.1);
+        color: rgb(255, 69, 0);
+      }
     }
   }
 }
 
-
 .filters {
-  
-
   button {
     position: relative;
     background-color: transparent;
@@ -123,13 +130,13 @@ aside {
     color: #333;
   }
 
+  small {
+    text-transform: uppercase;
+  }
+
   .menu {
     &:not(:last-of-type) {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
       margin-bottom: 1rem;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
     }
   }
 }
@@ -138,19 +145,20 @@ aside {
   width: 180px;
   left: -180px;
   border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0 1rem;
 
   &.active {
     left: 0;
   }
 
   .profile {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     display: flex;
     align-items: center;
 
     .image {
-      width: 54px;
-      height: 54px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       margin-right: 0.5rem;
       overflow: hidden;
@@ -162,8 +170,21 @@ aside {
 
     .user-information {
       font-size: 12px;
+      line-height: 1.25;
+
+      .user-name {
+        margin: 0.25rem 0;
+        font-size: 14px;
+        font-weight: bold;
+      }
     }
   }
+
+  small {
+    font-family: "Poppins-Semibold";
+    margin-top: 0.5rem;
+  }
+
   .menu {
     > li {
       display: flex;
@@ -174,7 +195,7 @@ aside {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem;
+      padding: 0.5rem 0;
 
       .arrow {
         transition: transform 0.2s;
@@ -206,6 +227,15 @@ aside {
   &.active {
     right: 0;
   }
+
+  .filters {
+    padding: 1rem;
+
+    h4 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 header {
@@ -222,18 +252,36 @@ header {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+
+    + .btn-search {
+      margin-right: 0.75rem;
+    }
   }
 
-  button {
+  .toggle-menu {
+    display: flex;
+    align-items: center;
 
-    &:last-of-type {
-      display: flex;
-      align-items: center;
-      padding: 0.5rem;
-  
-      svg {
-        width: 2rem;
-        height: 2rem;
+    svg {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  .search {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: #ccc;
+      width: 24px;
+      height: 24px;
+    }
+
+    input {
+      &:focus {
+        box-shadow: 0 0 0 0;
       }
     }
   }
@@ -371,6 +419,8 @@ footer {
 }
 
 .cctv {
+  overflow-y: hidden !important;
+
   header {
     position: fixed;
     top: 0;
@@ -387,20 +437,6 @@ footer {
 
     .search {
       flex: 1 1 auto;
-
-      svg {
-        transform: scale(0.6);
-      }
-    }
-
-    svg {
-      transform: scale(0.8);
-
-      fill: #333;
-
-      path {
-        stroke: #333;
-      }
     }
 
     input {
@@ -424,7 +460,7 @@ footer {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 4.5rem;
+    top: 1rem;
     right: 1rem;
     box-shadow: 1px 2px 4px #ddd;
 
@@ -586,9 +622,7 @@ footer {
 }
 
 .notice {
-  main {
-    background-color: #f3f6f9;
-  }
+  background-color: #f3f6f9;
 
   .row {
     background-color: white;
@@ -621,7 +655,7 @@ footer {
       flex: 1 1 auto;
 
       .title {
-        margin: .5rem 0
+        margin: 0.5rem 0;
       }
 
       .date {
@@ -632,16 +666,6 @@ footer {
     .arrow {
       flex: 0 0 24px;
       transition: 0.4s;
-    }
-  }
-
-  .tag {
-    &.bg-blue {
-      background-color: royalblue;
-    }
-
-    &.bg-red {
-      background-color: orangered;
     }
   }
 }
@@ -663,7 +687,6 @@ footer {
     }
   }
 }
-
 
 .modal-navigation {
   max-width: 360px;
@@ -707,23 +730,22 @@ footer {
 
   .filters {
     display: flex;
-    margin: 0 -.25rem;
+    margin: 0 -0.25rem;
 
     button {
-      margin: 0 .25rem
+      margin: 0 0.25rem;
     }
 
     &.calendar {
-
       .input {
-        margin: .5rem .25rem;
+        margin: 0.5rem 0.25rem;
         position: relative;
 
         svg {
           position: absolute;
           top: 50%;
-          right: .5rem;
-          transform: translateY(-50%)
+          right: 0.5rem;
+          transform: translateY(-50%);
         }
       }
 
@@ -743,7 +765,7 @@ footer {
       justify-content: center;
 
       &.btn-cancel {
-        flex: 0 0 30vw
+        flex: 0 0 30vw;
       }
     }
     .btn-search {
