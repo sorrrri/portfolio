@@ -222,20 +222,27 @@ header {
   border-bottom: 1px solid #ddd;
 
   .title {
+    text-align: center;
+    width: 80%;
+    flex: 1 1 auto;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
-  .search {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
 
-    svg {
-      width: 2rem;
-      height: 2rem;
+  button {
+
+    &:last-of-type {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+  
+      svg {
+        width: 2rem;
+        height: 2rem;
+      }
     }
   }
 }
@@ -566,30 +573,6 @@ footer {
   }
 }
 
-.cctv-user {
-  footer {
-    padding: 0.5rem 0;
-    height: auto;
-
-    .request {
-      color: slateblue;
-      background-color: #eee;
-      border-radius: 0.5rem;
-      padding: 0.25rem 0.5rem;
-
-      svg {
-        fill: slateblue;
-      }
-    }
-
-    .footer-menu {
-      li:not(:last-of-type) {
-        border: none;
-      }
-    }
-  }
-}
-
 .cctv-details {
   section {
     &:not(.view) {
@@ -642,37 +625,13 @@ footer {
 
 .notice {
   main {
-    padding: 1rem;
+    background-color: #f3f6f9;
   }
 
   .row {
+    background-color: white;
     flex-direction: column;
-    border: 1px solid #ddd;
-    margin-bottom: 0.5rem;
-    border-radius: 0.5rem;
-
-    .row-title {
-      display: flex;
-      align-items: center;
-      padding: 0.75rem;
-
-      ul {
-        flex: 1 1 auto;
-
-        .title {
-          line-height: 2;
-        }
-
-        .date {
-          color: slategray;
-        }
-      }
-
-      .arrow {
-        flex: 0 0 24px;
-        transition: 0.4s;
-      }
-    }
+    margin-top: 0.75rem;
 
     &.active {
       .arrow {
@@ -687,7 +646,30 @@ footer {
 
     .details {
       display: none;
-      padding: .75rem;
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  .row-title {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+
+    ul {
+      flex: 1 1 auto;
+
+      .title {
+        line-height: 2;
+      }
+
+      .date {
+        color: slategray;
+      }
+    }
+
+    .arrow {
+      flex: 0 0 24px;
+      transition: 0.4s;
     }
   }
 
@@ -698,6 +680,24 @@ footer {
 
     &.bg-red {
       background-color: orangered;
+    }
+  }
+}
+
+.user {
+  footer {
+    padding: 0.5rem 0;
+    height: auto;
+
+    .request {
+      color: slateblue;
+      background-color: #eee;
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+
+      svg {
+        fill: slateblue;
+      }
     }
   }
 }
