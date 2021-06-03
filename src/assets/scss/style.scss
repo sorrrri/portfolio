@@ -58,6 +58,59 @@ body {
   }
 }
 
+
+.filters {
+  
+
+  button {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    margin-bottom: 0.5rem;
+
+    input[type="radio"] + label {
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0;
+
+      &::before {
+        content: none;
+      }
+    }
+
+    input[type="radio"]:hover + label,
+    input[type="radio"]:checked + label {
+      color: royalblue;
+      border: 1px solid royalblue;
+
+      svg {
+        fill: royalblue;
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+
+      &::before,
+      &::after {
+        position: absolute;
+        right: 0;
+      }
+
+      &::after {
+        top: 12px;
+        left: auto;
+        right: 6px;
+      }
+    }
+  }
+}
+
 aside {
   position: fixed;
   top: 0;
@@ -152,67 +205,6 @@ aside {
 
   &.active {
     right: 0;
-  }
-
-  .filters {
-    padding: 1rem;
-
-    &:not(:last-of-type) {
-      border-bottom: 1px solid #ddd;
-    }
-
-    h4 {
-      text-align: center;
-      margin-bottom: 0.5rem;
-    }
-
-    button {
-      position: relative;
-      background-color: transparent;
-      width: 100%;
-      margin-bottom: 0.5rem;
-
-      input[type="radio"] + label {
-        border: 1px solid #ddd;
-        border-radius: 0.25rem;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin-right: 0;
-
-        &::before {
-          content: none;
-        }
-      }
-
-      input[type="radio"]:hover + label,
-      input[type="radio"]:checked + label {
-        color: royalblue;
-        border: 1px solid royalblue;
-
-        svg {
-          fill: royalblue;
-        }
-      }
-
-      label {
-        display: flex;
-        align-items: center;
-        padding: 0.5rem 0;
-
-        &::before,
-        &::after {
-          position: absolute;
-          right: 0;
-        }
-
-        &::after {
-          top: 12px;
-          left: auto;
-          right: 6px;
-        }
-      }
-    }
   }
 }
 
@@ -376,36 +368,6 @@ footer {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-
-.modal-navigation {
-  max-width: 360px;
-  max-height: 200px;
-
-  .modal-content {
-    flex: 1 1 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .navigations {
-    display: flex;
-
-    li {
-      padding: 0 0.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    img {
-      width: 64px;
-      border: 1px solid #e3e6e9;
-      border-radius: 0.5rem;
-      margin-bottom: 0.25rem;
-    }
-  }
 }
 
 .cctv {
@@ -659,7 +621,7 @@ footer {
       flex: 1 1 auto;
 
       .title {
-        line-height: 2;
+        margin: .5rem 0
       }
 
       .date {
@@ -698,6 +660,96 @@ footer {
       svg {
         fill: slateblue;
       }
+    }
+  }
+}
+
+
+.modal-navigation {
+  max-width: 360px;
+  max-height: 200px;
+
+  .modal-content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navigations {
+    display: flex;
+
+    li {
+      padding: 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      width: 64px;
+      border: 1px solid #e3e6e9;
+      border-radius: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+.modal-search {
+  height: auto;
+  max-height: none;
+
+  .keywords {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filters {
+    display: flex;
+    margin: 0 -.25rem;
+
+    button {
+      margin: 0 .25rem
+    }
+
+    &.calendar {
+
+      .input {
+        margin: .5rem .25rem;
+        position: relative;
+
+        svg {
+          position: absolute;
+          top: 50%;
+          right: .5rem;
+          transform: translateY(-50%)
+        }
+      }
+
+      input {
+        flex: 1 1 auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .modal-footer {
+    flex: 0 0 54px;
+    display: flex;
+
+    button {
+      border-radius: 0;
+      justify-content: center;
+
+      &.btn-cancel {
+        flex: 0 0 30vw
+      }
+    }
+    .btn-search {
+      flex: 1 1 auto;
+      background-color: royalblue;
+      color: white;
     }
   }
 }

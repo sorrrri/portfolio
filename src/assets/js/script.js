@@ -53,6 +53,8 @@ document.addEventListener("DOMContentLoaded", () => {
     globalNavigationMenu.classList.remove("active");
   });
 
+
+
   // Tab Menu
   const main = document.querySelector(".main");
 
@@ -101,15 +103,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  // Notice
   const rows = document.querySelectorAll(".notice .row")
   
-  rows.forEach(row => {
-    
+  rows.forEach(row => {    
     row.addEventListener("click", () => {
       row.classList.toggle("active")
     })
   })
 
+
+
+  // Modal
+  const modals = document.querySelectorAll(".modal");
+  const closeButtons = document.querySelectorAll(".close");
+
+  const visibleOverlay = () => {
+    overlay.classList.add("active");
+  };
+
+  const hiddenOverlay = () => {
+    overlay.classList.remove("active");
+    modals.forEach((modal) => modal.classList.remove("active"));
+  };
+
+  if (overlay) {
+    overlay.addEventListener("click", hiddenOverlay);
+    closeButtons.forEach((close) => {
+      close.addEventListener("click", hiddenOverlay);
+    });
+  }
+
+  const btnNavigation = document.querySelector(".btn-navigation")
+  const modalNavigation = document.querySelector(".modal-navigation")
+
+  if(btnNavigation) {
+    btnNavigation.addEventListener("click", () => {
+      modalNavigation.classList.add("active")
+      visibleOverlay()
+    })
+  }
+
+  const btnSearch = document.querySelector(".btn-search")
+  const modalSearch = document.querySelector(".modal-search")
+
+  if(btnSearch) {
+    btnSearch.addEventListener("click", () => {
+      modalSearch.classList.add("active")
+      visibleOverlay()
+    })
+  }
+
+
+
+  // File Input
   const fileInput = document.querySelector(".input-file"),
     fileButton = document.querySelector(".input-file-trigger"),
     the_return = document.querySelector(".file-return");
@@ -276,35 +324,5 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     ekUpload();
-  }
-
-  // Modal
-  const modals = document.querySelectorAll(".modal");
-  const closeButtons = document.querySelectorAll(".close");
-
-  const visibleOverlay = () => {
-    overlay.classList.add("active");
-  };
-
-  const hiddenOverlay = () => {
-    overlay.classList.remove("active");
-    modals.forEach((modal) => modal.classList.remove("active"));
-  };
-
-  if (overlay) {
-    overlay.addEventListener("click", hiddenOverlay);
-    closeButtons.forEach((close) => {
-      close.addEventListener("click", hiddenOverlay);
-    });
-  }
-
-  const btnNavigation = document.querySelector(".btn-navigation")
-  const modalNavigation = document.querySelector(".modal-navigation")
-
-  if(btnNavigation) {
-    btnNavigation.addEventListener("click", () => {
-      modalNavigation.classList.add("active")
-      visibleOverlay()
-    })
   }
 });
