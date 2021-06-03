@@ -31,8 +31,7 @@ body {
     }
 
     &.btn-navigation {
-      background-color: #EEE;
-      border: 1px solid #DDD;
+      background-color: #eff3f7;
       padding: 0.5rem;
       display: flex;
       flex-direction: column;
@@ -46,6 +45,15 @@ body {
         font-size: 12px;
         margin-top: 0.25rem;
       }
+    }
+  }
+
+  .tags {
+    span {
+      font-size: 12px;
+      padding: 0.25rem 0.5rem;
+      color: white;
+      border-radius: 0.25rem;
     }
   }
 }
@@ -162,24 +170,23 @@ aside {
       position: relative;
       background-color: transparent;
       width: 100%;
-      margin-bottom: .5rem;
-      
+      margin-bottom: 0.5rem;
+
       input[type="radio"] + label {
-        border:1px solid #DDD;
-        border-radius: .25rem;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
         width: 100%;
         justify-content: center;
         align-items: center;
         margin-right: 0;
 
-        &::before{
+        &::before {
           content: none;
         }
       }
 
       input[type="radio"]:hover + label,
-      input[type="radio"]:checked + label,
-      input[type="checkbox"]:checked + label {
+      input[type="radio"]:checked + label {
         color: royalblue;
         border: 1px solid royalblue;
 
@@ -200,7 +207,7 @@ aside {
         }
 
         &::after {
-          top: 4px;
+          top: 12px;
           left: auto;
           right: 6px;
         }
@@ -266,10 +273,6 @@ footer {
         svg {
           fill: royalblue;
         }
-      }
-
-      &:not(:last-of-type) {
-        border-right: 1px solid #ddd;
       }
 
       span {
@@ -390,8 +393,8 @@ footer {
     }
 
     img {
-      width: 50px;
-      border: 1px solid #ddd;
+      width: 64px;
+      border: 1px solid #e3e6e9;
       border-radius: 0.5rem;
       margin-bottom: 0.25rem;
     }
@@ -530,11 +533,7 @@ footer {
           &.tags {
             padding: 0.5rem 0;
             span {
-              font-size: 13px;
               background-color: seagreen;
-              padding: 0.25rem 0.75rem;
-              color: white;
-              border-radius: 0.25rem;
             }
           }
 
@@ -642,20 +641,57 @@ footer {
 }
 
 .notice {
+  main {
+    padding: 1rem;
+  }
+
   .row {
     flex-direction: column;
     border: 1px solid #ddd;
-    margin: 1rem;
-    padding: 1rem;
+    margin-bottom: 0.5rem;
     border-radius: 0.5rem;
+
+    .row-title {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem;
+
+      ul {
+        flex: 1 1 auto;
+
+        .title {
+          line-height: 2;
+        }
+
+        .date {
+          color: slategray;
+        }
+      }
+
+      .arrow {
+        flex: 0 0 24px;
+        transition: 0.4s;
+      }
+    }
+
+    &.active {
+      .arrow {
+        transform: rotate(-180deg);
+      }
+
+      .details {
+        display: flex;
+        border-top: 1px solid #ddd;
+      }
+    }
+
+    .details {
+      display: none;
+      padding: .75rem;
+    }
   }
 
   .tag {
-    font-size: 13px;
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-
     &.bg-blue {
       background-color: royalblue;
     }
@@ -663,10 +699,5 @@ footer {
     &.bg-red {
       background-color: orangered;
     }
-  }
-
-  .date {
-    color: slategray;
-    margin-top: 0.5rem;
   }
 }

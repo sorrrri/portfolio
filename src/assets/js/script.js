@@ -101,10 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const admin = document.querySelector(".admin");
-
-  if (admin) {
-  }
+  const rows = document.querySelectorAll(".notice .row")
+  
+  rows.forEach(row => {
+    
+    row.addEventListener("click", () => {
+      row.classList.toggle("active")
+    })
+  })
 
   const fileInput = document.querySelector(".input-file"),
     fileButton = document.querySelector(".input-file-trigger"),
