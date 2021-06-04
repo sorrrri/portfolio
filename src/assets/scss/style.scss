@@ -28,17 +28,18 @@ body {
     }
 
     &.btn-navigation {
-      background-color: #eff3f7;
+      background-color: royalblue;
       padding: 0.5rem;
       display: flex;
       flex-direction: column;
+      border-radius: 0.5rem;
 
       svg {
-        fill: royalblue;
+        fill: white;
       }
 
       span {
-        color: royalblue;
+        color: white;
         font-size: 12px;
         margin-top: 0.25rem;
       }
@@ -110,8 +111,8 @@ body {
       }
 
       &::after {
-        top: 12px;
-        left: auto;
+        top: 12px !important;
+        left: auto !important;
         right: 6px;
       }
     }
@@ -241,7 +242,17 @@ aside {
 header {
   flex: 0 0 54px;
   align-items: center;
-  border-bottom: 1px solid #ddd;
+  padding-right: 0.75rem;
+
+  .toggle-menu {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 45px;
+      height: 45px;
+    }
+  }
 
   .title {
     text-align: center;
@@ -252,20 +263,6 @@ header {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-
-    + .btn-search {
-      margin-right: 0.75rem;
-    }
-  }
-
-  .toggle-menu {
-    display: flex;
-    align-items: center;
-
-    svg {
-      width: 45px;
-      height: 45px;
-    }
   }
 
   .search {
@@ -285,6 +282,13 @@ header {
       }
     }
   }
+
+  .btn-close {
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
 }
 
 footer {
@@ -293,8 +297,8 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: white;
-  color: #333;
   border-top: 1px solid #ddd;
+  color: #333;
   z-index: 3;
 
   .footer-menu {
@@ -311,7 +315,7 @@ footer {
       align-items: center;
 
       svg {
-        fill: slategray;
+        fill: #a7aabc;
       }
 
       &.active {
@@ -325,6 +329,22 @@ footer {
       span {
         font-size: 13px;
         margin-top: 0.25rem;
+      }
+    }
+  }
+
+  &.user {
+    padding: 0.5rem 0;
+    height: auto;
+
+    .request {
+      color: slateblue;
+      background-color: #eee;
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.5rem;
+
+      svg {
+        fill: slateblue;
       }
     }
   }
@@ -422,27 +442,24 @@ footer {
   overflow-y: hidden !important;
 
   header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 45px;
-    margin: 1rem;
     color: #333;
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 0.5rem;
     box-shadow: 1px 2px 4px #ddd;
     z-index: 1;
 
     .search {
       flex: 1 1 auto;
+      background: #eff1f7;
+      border-radius: 0.5rem;
+      padding: 0 0.5rem;
     }
 
     input {
       flex: 1 1 auto;
       border: 0;
       width: 100%;
+      background-color: transparent;
     }
   }
 
@@ -460,7 +477,7 @@ footer {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 1rem;
+    top: 4.5rem;
     right: 1rem;
     box-shadow: 1px 2px 4px #ddd;
 
@@ -470,14 +487,15 @@ footer {
   }
 
   .marker-details {
-    height: 40vh;
     position: absolute;
-    background-color: white;
-    border-top: 1px solid #ddd;
-    color: #333;
     left: 0;
     right: 0;
     bottom: calc(-40vh - 1.5rem);
+    height: 40vh;
+    background-color: white;
+    color: #333;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
     justify-content: center;
     transition: 0.4s;
 
@@ -492,10 +510,10 @@ footer {
       top: 0.75rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 2.5rem;
+      width: 3rem;
       height: 4px;
       border-radius: 4px;
-      background: #333;
+      background: #ddd;
       z-index: 1;
     }
 
@@ -505,7 +523,6 @@ footer {
       align-items: center;
       justify-content: space-between;
       padding: 1.5rem 0.75rem 0.75rem;
-      border-bottom: 1px solid #ddd;
     }
 
     .cctv-locations {
@@ -513,13 +530,12 @@ footer {
       overflow-y: auto;
 
       .row {
+        margin: 0.5rem;
         padding: 0.75rem 1rem;
         display: flex;
         align-items: center;
-
-        &:not(:last-of-type) {
-          border-bottom: 1px solid #ddd;
-        }
+        background-color: #eff1f7;
+        border-radius: 0.5rem;
       }
 
       ul {
@@ -528,17 +544,15 @@ footer {
 
         li {
           &.title {
-            font-weight: bold;
-            font-size: 16px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 100%;
           }
+
           &.tags {
-            padding: 0.5rem 0;
+            padding: 0.25rem 0;
             span {
-              background-color: seagreen;
+              padding: 3px 6px;
+              color: royalblue;
+              border: 1px solid royalblue;
+              border-radius: 3rem;
             }
           }
 
@@ -587,7 +601,7 @@ footer {
 
     &.view {
       flex: 0 0 40vh;
-      max-height: 270px;
+      max-height: 240px;
       overflow: hidden;
 
       .btn-refresh {
@@ -606,6 +620,10 @@ footer {
     }
 
     &.information {
+      background: white;
+      margin: 1rem;
+      border-radius: 0.5rem;
+
       .row {
         span {
           &:first-of-type {
@@ -621,68 +639,190 @@ footer {
   }
 }
 
-.notice {
-  background-color: #f3f6f9;
+.list {
+  padding: 0 0.5rem;
+
+  .date {
+    color: slategray;
+  }
 
   .row {
     background-color: white;
-    flex-direction: column;
-    margin-top: 0.75rem;
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-radius: 0.5rem;
 
-    &.active {
-      .arrow {
-        transform: rotate(-180deg);
-      }
-
-      .details {
-        display: flex;
-        border-top: 1px solid #ddd;
-      }
-    }
-
-    .details {
-      display: none;
-      padding: 1rem 1.5rem;
+    &:not(:last-of-type) {
+      margin-bottom: 0.5rem;
     }
   }
 
-  .row-title {
-    display: flex;
-    align-items: center;
-    padding: 1rem 1.5rem;
+  &.notice {
+    .row {
+      flex-direction: column;
+      padding: 0;
+      transition: border 0.2s;
 
-    ul {
-      flex: 1 1 auto;
+      &.active {
+        border: 1px solid royalblue;
 
-      .title {
-        margin: 0.5rem 0;
+        .arrow {
+          transform: rotate(-180deg);
+        }
+
+        .details {
+          display: flex;
+          border-top: 1px solid #ddd;
+        }
       }
 
-      .date {
-        color: slategray;
+      .details {
+        display: none;
+        padding: 1rem 1.5rem;
       }
     }
 
-    .arrow {
-      flex: 0 0 24px;
-      transition: 0.4s;
+    .row-title {
+      display: flex;
+      align-items: center;
+      padding: 1rem 1rem 1rem 1.5rem;
+
+      ul {
+        flex: 1 1 auto;
+
+        .title {
+          margin: 0.5rem 0;
+        }
+      }
+
+      .arrow {
+        flex: 0 0 24px;
+        transition: 0.4s;
+      }
+    }
+  }
+
+  &.complaints {
+    .row {
+      padding: 0.75rem;
+      align-items: center;
+    }
+
+    .type {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+
+      &::after {
+        margin-top: 0.25rem;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .icon {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      svg {
+        fill: white;
+      }
+
+      &.request {
+        .icon {
+          background-color: orangered;
+        }
+
+        &::after {
+          content: "신청";
+        }
+      }
+
+      &.receipt {
+        .icon {
+          background-color: orange;
+        }
+
+        &::after {
+          content: "접수";
+        }
+      }
+
+      &.proceed {
+        .icon {
+          background-color: royalblue;
+        }
+
+        &::after {
+          content: "진행중";
+        }
+      }
+
+      &.done {
+        .icon {
+          background-color: seagreen;
+        }
+
+        &::after {
+          content: "완료";
+        }
+      }
+
+      &.reject {
+        .icon {
+          background-color: slategray;
+        }
+
+        &::after {
+          content: "반려";
+        }
+      }
     }
   }
 }
 
-.user {
-  footer {
-    padding: 0.5rem 0;
-    height: auto;
+.settings {
+  padding: 0 1rem;
 
-    .request {
-      color: slateblue;
-      background-color: #eee;
-      border-radius: 0.5rem;
-      padding: 0.25rem 0.5rem;
+  h4 {
+    margin-bottom: 0.5rem;
+  }
 
-      svg {
-        fill: slateblue;
+  .row {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+    &.filters {
+      flex-wrap: wrap;
+
+      button {
+        flex: 0 0 47%;
+        margin: 0.25rem;
+      }
+    }
+  }
+
+  .rows {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+
+      &:not(:last-of-type) {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
       }
     }
   }

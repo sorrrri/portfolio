@@ -125,123 +125,59 @@
       <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
     </svg>
   </button>
-  <div class="title">CCTV 상세정보</div>
+  <div class="title">환경설정</div>
 </header>
-<main class="content cctv-details">
-  <section class="title">
-    <strong>W2P002-14_1_백석동 911(51호공원)_PTZ</strong>
-    <p>충청남도 천안시 서북구 백석동 911</p>
-    <button class="btn-navigation" type="button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-        <path
-          d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z" />
-      </svg>
-      <span>내비게이션</span>
+<main class="content settings">
+  <h4>GIS 배경 지도</h4>
+  <div class="row filters">
+    <button type="button">
+      <input type="radio" id="kakaomap" name="filter-maps" checked="checked" />
+      <label for="kakaomap">
+        <span>카카오맵</span>
+      </label>
     </button>
-  </section>
-  <section class="view">
-
-    <!-- 뷰 영역 -->
-    <div class="view-detail">
-      <img style="width: 100%"
-        src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-        alt="">
-    </div>
-
-    <button class="btn-refresh">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-        <path
-          d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
-      </svg>
-      <span>새로고침</span>
+    <button type="button">
+      <input type="radio" id="googleMaps" name="filter-maps" />
+      <label for="googleMaps">
+        <span>구글맵스</span>
+      </label>
     </button>
-  </section>
-  <section class="information">
-    <div class="row">
-      <span>식별번호</span>
-      <span>W2P002-14_1</span>
+    <button type="button">
+      <input type="radio" id="vworldMap" name="filter-maps" />
+      <label for="vworldMap">
+        <span>vworld맵</span>
+      </label>
+    </button>
+    <button type="button">
+      <input type="radio" id="offlineMap" name="filter-maps" />
+      <label for="offlineMap">
+        <span>오프라인맵</span>
+      </label>
+    </button>
+  </div>
+
+  <h4>장애 알림</h4>
+  <div class="rows">
+    <div>
+      <span>장애 알림 사용</span>
+      <span class="toggle">
+        <input type="checkbox" id="toggle-obstacle" checked />
+        <label for="toggle-obstacle">
+          <span class="toggle-feature"></span>
+        </label>
+      </span>
     </div>
-    <div class="row">
-      <span>지역코드</span>
-      <span>CHEONAN</span>
+    <div>
+      <span>스케쥴</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+      </svg>
     </div>
-    <div class="row">
-      <span>모델명</span>
-      <span>기타</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-    <div class="row">
-      <span>자산이름</span>
-      <span>W2P002-14_1_백석동 911(51호공원)_PTZ</span>
-    </div>
-  </section>
+  </div>
 </main>
 <footer>
   <ul class="footer-menu">
-    <li class="active">
+    <li onclick="location.href='cctv.html'">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
         <path
           d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
@@ -278,6 +214,91 @@
     </li>
   </ul>
 </footer>
+<div class="modal modal-search">
+  <div class="modal-header">
+    <div class="title">
+      <h3>상세 검색</h3>
+      <button class="close" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+          <path
+            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-content">
+    <section class="keywords">
+      <span>키워드</span>
+      <input type="search" placeholder="키워드를 입력하세요" />
+    </section>
+    <section>
+      <span>조회기간</span>
+      <div class="filters">
+        <button type="button" type="button">
+          <input type="radio" id="input-a-month" name="filter-term" checked="checked" />
+          <label for="input-a-month">
+            <span>1개월</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-3-months" name="filter-term" />
+          <label for="input-3-months">
+            <span>3개월</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-6-months" name="filter-term" />
+          <label for="input-6-months">
+            <span>1개월</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-a-year" name="filter-term" />
+          <label for="input-a-year">
+            <span>1개월</span>
+          </label>
+        </button>
+      </div>
+      <div class="filters calendar">
+        <div class="input">
+          <input type="text" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+            <path
+              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+          </svg>
+        </div>
+        <div class="input">
+          <input type="text" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+            <path
+              d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section>
+      <span>공지유형</span>
+      <div class="filters">
+        <button type="button" type="button">
+          <input type="radio" id="inputAll" name="filter-type" checked="checked" />
+          <label for="inputAll">
+            <span>전체공지</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="inputImportant" name="filter-type" />
+          <label for="inputImportant">
+            <span>중요게시물</span>
+          </label>
+        </button>
+      </div>
+    </section>
+  </div>
+  <div class="modal-footer">
+    <button class="btn-cancel" type="button">취소</button>
+    <button class="btn-search" type="button">검색</button>
+  </div>
+</div>
 
   </div>
 </body>
