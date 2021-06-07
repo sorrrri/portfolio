@@ -733,8 +733,10 @@ footer {
 
   &.complaints {
     .row {
-      padding: 0.75rem 0.75rem 0.75rem 0;
+      padding: 0.75rem 0.75rem 0.75rem 2rem;
       align-items: center;
+      position: relative;
+      margin-left: 1.5rem;
     }
 
     .type {
@@ -743,20 +745,23 @@ footer {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      &::after {
-        margin-top: 0.25rem;
-        font-size: 12px;
-        font-weight: bold;
-      }
+      position: absolute;
+      left: -1rem;
 
       .icon {
-        width: 1.6rem;
-        height: 1.6rem;
-        border-radius: 1.6rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: .5rem;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &::after {
+          font-size: 10px;
+          color: white;
+          font-weight: bold;
+        }
       }
 
       svg {
@@ -766,50 +771,50 @@ footer {
       &.request {
         .icon {
           background-color: royalblue;
-        }
 
-        &::after {
-          content: "신청";
+          &::after {
+            content: "신청";
+          }
         }
       }
 
       &.receipt {
         .icon {
           background-color: orange;
-        }
 
-        &::after {
-          content: "접수";
+          &::after {
+            content: "접수";
+          }
         }
       }
 
       &.proceed {
         .icon {
           background-color: seagreen;
-        }
 
-        &::after {
-          content: "진행중";
+          &::after {
+            content: "진행중";
+          }
         }
       }
 
       &.done {
         .icon {
-          background-color: #ddd;
-        }
+          background-color: #CCC;
 
-        &::after {
-          content: "완료";
+          &::after {
+            content: "완료";
+          }
         }
       }
 
       &.reject {
         .icon {
           background-color: orangered;
-        }
 
-        &::after {
-          content: "반려";
+          &::after {
+            content: "반려";
+          }
         }
       }
     }
