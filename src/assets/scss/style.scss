@@ -11,7 +11,7 @@ body {
       overflow-y: auto;
     }
   }
-  
+
   .date {
     font-size: 14px;
   }
@@ -81,6 +81,7 @@ body {
     margin-bottom: 0.5rem;
 
     input[type="radio"] + label {
+      background-color: #eee;
       border-radius: 0.25rem;
       width: 100%;
       justify-content: center;
@@ -94,7 +95,6 @@ body {
 
     input[type="radio"]:hover + label,
     input[type="radio"]:checked + label {
-      min-height: 36px;
       background-color: #333;
       color: white;
 
@@ -104,6 +104,7 @@ body {
     }
 
     label {
+      min-height: 36px;
       display: flex;
       align-items: center;
       padding: 0.5rem 0;
@@ -113,11 +114,23 @@ body {
         position: absolute;
         right: 0;
       }
+    }
+  }
+
+  .checkbox {
+    label {
+      &::before {
+        width: 24px;
+        height: 24px;
+        border-radius: 24px;
+      }
 
       &::after {
+        width: 12px !important;
+        height: 8px !important;
         top: 12px !important;
         left: auto !important;
-        right: 6px;
+        right: 9px;
       }
     }
   }
@@ -147,17 +160,17 @@ aside {
 }
 
 .global-navigation-menu {
-  width: 180px;
-  left: -180px;
+  width: 60vw;
+  left: -60vw;
   border-radius: 0 0.5rem 0.5rem 0;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 
   &.active {
     left: 0;
   }
 
   .profile {
-    padding: 1rem 0.5rem;
+    padding: 1.5rem 0;
     display: flex;
     align-items: center;
 
@@ -185,15 +198,23 @@ aside {
     }
   }
 
-  small {
-    font-family: "Poppins-Semibold";
-    margin-top: 0.5rem;
-  }
-
   .menu {
+    font-size: 18px;
+
+    .arrow {
+      display: none;
+    }
+
     > li {
       display: flex;
       flex-direction: column;
+    }
+
+    &.menu-settings {
+      padding-top: 1rem;
+      border-top: 1px solid #ddd;
+      font-size: 14px;
+      color: slategray;
     }
 
     .main-menu {
@@ -225,8 +246,8 @@ aside {
 }
 
 .local-navigation-menu {
-  width: 200px;
-  right: -200px;
+  width: 70vw;
+  right: -70vw;
   border-radius: 0.5rem 0 0 0.5rem;
 
   &.active {
@@ -239,6 +260,11 @@ aside {
     h4 {
       text-align: center;
       margin-bottom: 0.5rem;
+    }
+
+    button input[type="radio"]:hover + label,
+    button input[type="radio"]:checked + label {
+      background-color: royalblue;
     }
   }
 }
@@ -870,7 +896,7 @@ footer {
   transform: translate(-50%, 0);
   width: 100vw;
   border-radius: 1rem 1rem 0 0;
-  transition: .4s;
+  transition: 0.4s;
 
   &.active {
     bottom: 0;
@@ -887,7 +913,7 @@ footer {
     margin: 0 -0.25rem;
 
     button {
-      background-color: #EEE;
+      background-color: #eee;
       margin: 0 0.25rem;
     }
 
@@ -912,20 +938,20 @@ footer {
   }
 
   .modal-content {
-    flex: 1 1 auto
+    flex: 1 1 auto;
   }
 
   .modal-footer {
     padding: 1rem;
     flex: 0 0 80px;
     display: flex;
-    margin: 0 -.25rem;
+    margin: 0 -0.25rem;
 
     button {
-      margin: 0 .25rem;
+      margin: 0 0.25rem;
       border-radius: 0;
       justify-content: center;
-      border-radius: .5rem;
+      border-radius: 0.5rem;
 
       &.btn-cancel {
         flex: 0 0 30vw;
