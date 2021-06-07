@@ -11,6 +11,10 @@ body {
       overflow-y: auto;
     }
   }
+  
+  .date {
+    font-size: 14px;
+  }
 
   .buttons {
     button {
@@ -77,7 +81,6 @@ body {
     margin-bottom: 0.5rem;
 
     input[type="radio"] + label {
-      border: 1px solid #ddd;
       border-radius: 0.25rem;
       width: 100%;
       justify-content: center;
@@ -91,8 +94,9 @@ body {
 
     input[type="radio"]:hover + label,
     input[type="radio"]:checked + label {
-      color: royalblue;
-      border: 1px solid royalblue;
+      min-height: 36px;
+      background-color: #333;
+      color: white;
 
       svg {
         fill: royalblue;
@@ -703,16 +707,16 @@ footer {
 
   &.complaints {
     .row {
-      padding: 0.75rem;
+      padding: 0.75rem 0.75rem 0.75rem 0;
       align-items: center;
     }
 
     .type {
+      flex: 0 0 60px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-right: 1rem;
 
       &::after {
         margin-top: 0.25rem;
@@ -721,9 +725,9 @@ footer {
       }
 
       .icon {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 2rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 1.6rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -735,7 +739,7 @@ footer {
 
       &.request {
         .icon {
-          background-color: orangered;
+          background-color: royalblue;
         }
 
         &::after {
@@ -755,7 +759,7 @@ footer {
 
       &.proceed {
         .icon {
-          background-color: royalblue;
+          background-color: seagreen;
         }
 
         &::after {
@@ -765,7 +769,7 @@ footer {
 
       &.done {
         .icon {
-          background-color: seagreen;
+          background-color: #ddd;
         }
 
         &::after {
@@ -775,7 +779,7 @@ footer {
 
       &.reject {
         .icon {
-          background-color: slategray;
+          background-color: orangered;
         }
 
         &::after {
@@ -859,8 +863,18 @@ footer {
 }
 
 .modal-search {
-  height: auto;
+  height: 450px;
   max-height: none;
+  top: auto;
+  bottom: -450px;
+  transform: translate(-50%, 0);
+  width: 100vw;
+  border-radius: 1rem 1rem 0 0;
+  transition: .4s;
+
+  &.active {
+    bottom: 0;
+  }
 
   .keywords {
     padding-top: 1rem;
@@ -873,6 +887,7 @@ footer {
     margin: 0 -0.25rem;
 
     button {
+      background-color: #EEE;
       margin: 0 0.25rem;
     }
 
@@ -896,16 +911,27 @@ footer {
     }
   }
 
+  .modal-content {
+    flex: 1 1 auto
+  }
+
   .modal-footer {
-    flex: 0 0 54px;
+    padding: 1rem;
+    flex: 0 0 80px;
     display: flex;
+    margin: 0 -.25rem;
 
     button {
+      margin: 0 .25rem;
       border-radius: 0;
       justify-content: center;
+      border-radius: .5rem;
 
       &.btn-cancel {
         flex: 0 0 30vw;
+        background-color: transparent;
+        color: royalblue;
+        border: 1px solid royalblue;
       }
     }
     .btn-search {
