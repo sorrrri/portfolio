@@ -80,14 +80,14 @@ gulp.task("scss", () => {
 gulp.task("script", () => {
   return gulp
     .src(PATH.ASSETS.SCRIPT + "/*.js")
-    .pipe(
-      babel({
-        presets: ["@babel/preset-env"],
-      })
-    )
-    .pipe(uglify({
-        mangle: false
-    }))
+    // .pipe(
+    //   babel({
+    //     presets: ["@babel/preset-env"],
+    //   })
+    // )
+    // .pipe(uglify({
+    //     mangle: false
+    // }))
     .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
     .pipe(browserSync.reload({ stream: true }));
 });

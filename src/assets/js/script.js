@@ -8,8 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const mainMenus = document.querySelectorAll(".main-menu");
+  const globalNavigationMenu = document.querySelector(".global-navigation-menu");
+  const overlay = document.querySelector(".overlay");
 
   mainMenus.forEach((mainMenu) => {
+    mainMenu.addEventListener("click", () => {
+      globalNavigationMenu.classList.remove("active")
+      overlay.classList.remove("active");
+    })
     const subMenu = mainMenu.nextElementSibling;
 
     if (subMenu) {
@@ -20,11 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const globalNavigationMenu = document.querySelector(".global-navigation-menu");
   const localNavigationMenu = document.querySelector(".local-navigation-menu");
   const toggleMenu = document.querySelector(".toggle-menu");
   const localToggleMenu = document.querySelector(".local-toggle-menu");
-  const overlay = document.querySelector(".overlay");
   
   if(toggleMenu) {
 
