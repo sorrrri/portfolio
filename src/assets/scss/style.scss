@@ -1191,14 +1191,24 @@ footer {
     text-align: center;
     line-height: 3 i !important;
 
-    img {
-      width: auto;
-      max-height: 600px;
-    }
+    .images {
+      display: flex;
+      justify-content: center;
+      margin: 0 -1rem;
 
-    figure {
-      text-align: center;
-      margin: 1rem 0;
+      .image {
+        margin: 0 1rem;
+      }
+
+      img {
+        width: auto;
+        max-height: 600px;
+      }
+
+      figure {
+        text-align: center;
+        margin: 1rem 0;
+      }
     }
   }
 
@@ -2051,6 +2061,16 @@ footer {
           .google-visualization-orgchart-node {
           padding: 0.5rem;
           font-size: 11px;
+        }
+      }
+
+      &.certification {
+        .images {
+          flex-direction: column;
+
+          img {
+            max-width: 100%;
+          }
         }
       }
 
