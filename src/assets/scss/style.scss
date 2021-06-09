@@ -554,14 +554,14 @@ footer {
 
     .arrow {
       position: absolute;
-      top: 0.75rem;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 3rem;
-      height: 4px;
-      border-radius: 4px;
-      background: #ddd;
       z-index: 1;
+
+      svg {
+        fill: #A3A6A9;
+      }
     }
 
     .navigation {
@@ -578,7 +578,7 @@ footer {
 
       .row {
         margin: 0.5rem;
-        padding: 0.75rem 1rem;
+        padding: 0.75rem 0.5rem 0.75rem 1rem;
         display: flex;
         align-items: center;
         background-color: #eff1f7;
@@ -708,7 +708,7 @@ footer {
         }
       }
 
-      .user-name{
+      .user-name {
         font-size: 17px;
       }
 
@@ -723,17 +723,17 @@ footer {
         top: 1rem;
         color: seagreen;
         background-color: rgba(46, 139, 87, 0.1);
-        padding: .25rem .5rem;
-        border-radius: .25rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
       }
     }
 
     .filters {
       display: flex;
-      margin: 0 .75rem;
+      margin: 0 0.75rem;
 
       button {
-        margin: 0 .25rem;
+        margin: 0 0.25rem;
       }
     }
   }
