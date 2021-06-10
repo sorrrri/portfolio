@@ -10,16 +10,24 @@ body {
       position: relative;
       overflow-y: auto;
 
-      &.user {
-        .toggle-menu {
-          display: none;
+      section {
+
+        &:last-of-type {
+          margin-bottom: 1rem;
         }
+      }
+    }
+
+    .user {
+      .toggle-menu {
+        visibility: hidden;
       }
     }
   }
 
   .date {
     font-size: 14px;
+    color: slategray;
   }
 
   .buttons {
@@ -549,6 +557,14 @@ footer {
   overflow: hidden;
 }
 
+.map {
+  height: 30vh;
+
+  iframe {
+    height: 100%;
+  }
+}
+
 .cctv {
   overflow-y: hidden !important;
 
@@ -680,7 +696,6 @@ footer {
   }
 
   &.user {
-
     .target {
       position: absolute;
       top: 50%;
@@ -701,7 +716,7 @@ footer {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: .75rem;
+      padding: 0.75rem;
       transition: 0.4s;
 
       address {
@@ -711,6 +726,9 @@ footer {
       }
 
       button {
+        align-self: center;
+        width: 100%;
+        max-width: 360px;
         background-color: royalblue;
         color: white;
         display: flex;
@@ -724,7 +742,7 @@ footer {
 .cctv-details {
   section {
     &:not(.view) {
-      padding: 1rem 0.75rem;
+      padding: 0.75rem;
     }
 
     &.title {
@@ -757,7 +775,7 @@ footer {
 
     &.information {
       background: white;
-      margin: 1rem;
+      margin: 0 1rem 0.5rem;
       border-radius: 0.5rem;
 
       .row {
@@ -780,20 +798,19 @@ footer {
     &.information {
       padding: 1rem 0.75rem;
       background: white;
-      margin: 0 1rem 1rem;
+      margin: 0 1rem 0.5rem;
       border-radius: 0.5rem;
       display: flex;
       flex-direction: column;
 
       .row {
-        span {
-          &:first-of-type {
-            flex: 0 0 70px;
+        align-items: center;
 
-            &::after {
-              content: ":";
-            }
-          }
+        svg {
+          margin-right: 0.5rem;
+          fill: slategray;
+        }
+        span {
         }
       }
 
@@ -814,6 +831,14 @@ footer {
         background-color: rgba(46, 139, 87, 0.1);
         padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
+      }
+
+      .request {
+        background-color: rgba(100, 149, 237, 0.1);
+        color: royalblue;
+        padding: 0.5rem 0.75rem;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
       }
     }
 

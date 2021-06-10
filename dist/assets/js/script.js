@@ -30,32 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleMenu = document.querySelector(".toggle-menu");
   const localToggleMenu = document.querySelector(".local-toggle-menu");
   
-  if(toggleMenu) {
-
-    if(localToggleMenu) {
-      localToggleMenu.addEventListener("click", (e) => {
-        e.stopPropagation();
-        localNavigationMenu.classList.add("active");
-        overlay.classList.add("active");
-      });
-  
-      overlay.addEventListener("click", () => {
-        localToggleMenu.classList.remove("active");
-        localNavigationMenu.classList.remove("active");
-      });
-    }
-  
+  if(toggleMenu) {  
     toggleMenu.addEventListener("click", (e) => {
       e.stopPropagation();
       globalNavigationMenu.classList.add("active");
       overlay.classList.add("active");
     });
+
+    overlay.addEventListener("click", () => {
+      toggleMenu.classList.remove("active");
+      globalNavigationMenu.classList.remove("active");
+    });
   }
 
-  overlay.addEventListener("click", () => {
-    toggleMenu.classList.remove("active");
-    globalNavigationMenu.classList.remove("active");
-  });
+  if(localToggleMenu) {
+    localToggleMenu.addEventListener("click", (e) => {
+      e.stopPropagation();
+      localNavigationMenu.classList.add("active");
+      overlay.classList.add("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      localToggleMenu.classList.remove("active");
+      localNavigationMenu.classList.remove("active");
+    });
+  }
 
 
 
