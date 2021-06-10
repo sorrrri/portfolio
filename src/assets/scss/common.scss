@@ -202,7 +202,9 @@ input {
   &[type="text"],
   &[type="password"],
   &[type="search"],
-  &[type="number"] {
+  &[type="number"],
+  &[type="tel"],
+  &[type="email"] {
     -webkit-appearance: none;
     height: auto;
     border: 1px solid #ddd;
@@ -468,6 +470,22 @@ aside {
   display: flex;
   box-sizing: border-box;
   position: relative;
+}
+
+.inputs {
+
+  .row {
+    align-items: center;
+
+    input {
+      flex: 1 1 auto;
+      width: 100%
+    }
+    
+    &:not(:last-of-type) {
+      margin-bottom: .5rem;
+    }
+  }
 }
 
 .input-container {
