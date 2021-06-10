@@ -27,10 +27,6 @@ body {
   }
 
   button {
-    &.btn-signin {
-      background-image: linear-gradient(to right, #6fdb9e, #56c6ee);
-    }
-
     &.btn-navigation {
       background-color: royalblue;
       padding: 0.5rem;
@@ -76,7 +72,6 @@ body {
 .filters {
   button {
     position: relative;
-    background-color: transparent;
     width: 100%;
     margin-bottom: 0.5rem;
 
@@ -137,6 +132,7 @@ body {
 }
 
 aside {
+  max-width: 300px;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -294,6 +290,27 @@ header {
   align-items: center;
   padding-right: 0.75rem;
 
+  &.filters {
+    flex-basis: 48px;
+    padding: 0 0.35rem;
+    background: white;
+    margin: 0 1rem .5rem;
+    border-radius: .5rem;
+
+    button {
+      margin-bottom: 0;
+    }
+
+    input[type="radio"] + label {
+      background-color: transparent;
+    }
+
+    input[type="radio"]:hover + label,
+    input[type="radio"]:checked + label {
+      background-color: royalblue;
+    }
+  }
+
   .toggle-menu {
     display: flex;
     align-items: center;
@@ -342,21 +359,33 @@ header {
 }
 
 footer {
-  flex: 0 0 64px;
+  flex: 0 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  border-top: 1px solid #ddd;
+  flex-direction: column;
   color: #333;
   z-index: 3;
 
+  .btn-footer {
+    font-size: 17px;
+    height: 64px;
+    background-color: royalblue;
+    color: white;
+    border-radius: 0;
+    justify-content: center;
+
+    + .footer-menu {
+      display: none;
+    }
+  }
+
   .footer-menu {
+    height: 64px;
+    background-color: white;
+    border-top: 1px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    max-width: 600px;
 
     li {
       flex: 1 1 20%;
@@ -417,7 +446,7 @@ footer {
 }
 
 .login {
-  background-color: #2e3548;
+  background-color: #202532;
   flex-direction: column;
   height: 100vh;
   align-items: center;
@@ -454,7 +483,7 @@ footer {
       position: relative;
 
       input {
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: #2e3445;
         border: none;
         color: white;
         height: 50px;
@@ -467,7 +496,8 @@ footer {
         position: absolute;
         top: 0.85rem;
         left: 0.5rem;
-        fill: rgba(255, 255, 255, 0.5);
+        fill: rgba(255, 255, 255, 0.1);
+        z-index: 1;
       }
     }
 
@@ -482,14 +512,19 @@ footer {
     align-items: center;
 
     button {
-      font: 15px/1 "NanumSquare-Regular";
+      font: 17px/1 "NanumSquare-Regular";
       background-color: #49536b;
       width: 90vw;
       max-width: 360px;
-      height: 50px;
+      height: 60px;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+
+      &.btn-signin {
+        border-radius: 0.5rem;
+        background-image: linear-gradient(to right, darkslateblue, royalblue);
+      }
     }
 
     small {
@@ -561,7 +596,7 @@ footer {
       z-index: 1;
 
       svg {
-        fill: #A3A6A9;
+        fill: #a3a6a9;
       }
     }
 
@@ -628,6 +663,12 @@ footer {
 
       .more {
         flex: 0 0 auto;
+
+        svg {
+          width: 1.8rem;
+          height: 1.8rem;
+          fill: rgba(0, 0, 0, 0.15);
+        }
       }
     }
   }
@@ -649,7 +690,7 @@ footer {
 
     &.view {
       flex: 0 0 40vh;
-      max-height: 240px;
+      max-height: 400px;
       overflow: hidden;
 
       .btn-refresh {
@@ -908,8 +949,9 @@ footer {
       flex-wrap: wrap;
 
       button {
-        flex: 0 0 47%;
-        margin: 0.25rem;
+        flex: 0 0 50%;
+        padding: 0.25rem;
+        margin-bottom: 0;
       }
     }
   }
