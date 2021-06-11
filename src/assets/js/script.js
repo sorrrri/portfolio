@@ -8,14 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const mainMenus = document.querySelectorAll(".main-menu");
-  const globalNavigationMenu = document.querySelector(".global-navigation-menu");
+  const globalNavigationMenu = document.querySelector(
+    ".global-navigation-menu"
+  );
   const overlay = document.querySelector(".overlay");
 
   mainMenus.forEach((mainMenu) => {
     mainMenu.addEventListener("click", () => {
-      globalNavigationMenu.classList.remove("active")
+      globalNavigationMenu.classList.remove("active");
       overlay.classList.remove("active");
-    })
+    });
     const subMenu = mainMenu.nextElementSibling;
 
     if (subMenu) {
@@ -29,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const localNavigationMenu = document.querySelector(".local-navigation-menu");
   const toggleMenu = document.querySelector(".toggle-menu");
   const localToggleMenu = document.querySelector(".local-toggle-menu");
-  
-  if(toggleMenu) {  
+
+  if (toggleMenu) {
     toggleMenu.addEventListener("click", (e) => {
       e.stopPropagation();
       globalNavigationMenu.classList.add("active");
@@ -43,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if(localToggleMenu) {
+  if (localToggleMenu) {
     localToggleMenu.addEventListener("click", (e) => {
       e.stopPropagation();
       localNavigationMenu.classList.add("active");
@@ -55,8 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
       localNavigationMenu.classList.remove("active");
     });
   }
-
-
 
   // Tab Menu
   const main = document.querySelector(".main");
@@ -106,17 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   // Notice
-  const rows = document.querySelectorAll(".notice .row")
-  
-  rows.forEach(row => {    
+  const rows = document.querySelectorAll(".notice .row");
+
+  rows.forEach((row) => {
     row.addEventListener("click", () => {
-      row.classList.toggle("active")
-    })
-  })
-
-
+      row.classList.toggle("active");
+    });
+  });
 
   // Modal
   const modals = document.querySelectorAll(".modal");
@@ -138,194 +135,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const btnNavigation = document.querySelector(".btn-navigation")
-  const modalNavigation = document.querySelector(".modal-navigation")
+  const btnNavigation = document.querySelector(".btn-navigation");
+  const modalNavigation = document.querySelector(".modal-navigation");
 
-  if(btnNavigation) {
+  if (btnNavigation) {
     btnNavigation.addEventListener("click", () => {
-      modalNavigation.classList.add("active")
-      visibleOverlay()
-    })
+      modalNavigation.classList.add("active");
+      visibleOverlay();
+    });
   }
 
-  const btnSearch = document.querySelector(".btn-search")
-  const modalSearch = document.querySelector(".modal-search")
+  const btnSearch = document.querySelector(".btn-search");
+  const modalSearch = document.querySelector(".modal-search");
 
-  if(btnSearch) {
+  if (btnSearch) {
     btnSearch.addEventListener("click", () => {
-      modalSearch.classList.add("active")
-      visibleOverlay()
-    })
-  }
-
-  
-
-  // File Input
-  const fileInput = document.querySelector(".input-file"),
-    fileButton = document.querySelector(".input-file-trigger"),
-    the_return = document.querySelector(".file-return");
-
-  if (fileInput) {
-    fileButton.addEventListener("keydown", function (event) {
-      if (event.keyCode == 13 || event.keyCode == 32) {
-        fileInput.focus();
-      }
-    });
-    fileButton.addEventListener("click", function (event) {
-      fileInput.focus();
-      return false;
-    });
-    fileInput.addEventListener("change", function (event) {
-      the_return.innerHTML = this.files[0].name;
+      modalSearch.classList.add("active");
+      visibleOverlay();
     });
   }
 
-  // Checkbox All
-  function check() {
-    var checked =
-      arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-    var cbs = document.querySelectorAll('input[name="books"]');
-    cbs.forEach(function (cb) {
-      cb.checked = checked;
+  // Modal Move Down
+
+  const markerDetails = document.querySelector(".marker-details");
+  const moveDown = markerDetails.querySelector(".move-down");
+
+  if (moveDown) {
+    let clientY, deltaY;
+
+    moveDown.addEventListener(
+      "touchstart",
+      (e) => {
+        clientY = parseInt(e.touches[0].clientY);
+      },
+      false
+    );
+
+    moveDown.addEventListener(
+      "touchmove",
+      (e) => {
+        deltaY = parseInt(e.changedTouches[0].clientY) - clientY;
+
+        markerDetails.style.bottom = `${-deltaY}px`;
+        if (parseInt(markerDetails.style.bottom) > 0) {
+          markerDetails.removeAttribute("style");
+        }
+      },
+      false
+    );
+
+    moveDown.addEventListener("touchend", () => {
+      if (deltaY > 100) {
+        markerDetails.removeAttribute("style");
+        markerDetails.classList.remove("active");
+      }
     });
   }
 
-  function handleCheckAll() {
-    check();
-    this.onclick = handleUncheckAll;
-  }
+  const marker = document.querySelector(".marker");
 
-  function handleUncheckAll() {
-    check(false);
-    this.onclick = handleCheckAll;
-  }
-
-  const btnCheckAll = document.querySelector("#checkAll");
-
-  if (btnCheckAll) {
-    btnCheckAll.addEventListener("click", handleCheckAll);
-  }
-
-  // Admin: Logo File Upload
-  const adminImagesPage = document.querySelector("main.images");
-  if (adminImagesPage) {
-    function ekUpload() {
-      function Init() {
-        var fileSelect = document.getElementById("file-upload"),
-          fileDrag = document.getElementById("file-drag"),
-          submitButton = document.getElementById("submit-button");
-
-        fileSelect.addEventListener("change", fileSelectHandler, false);
-
-        // Is XHR2 available?
-        var xhr = new XMLHttpRequest();
-        if (xhr.upload) {
-          // File Drop
-          fileDrag.addEventListener("dragover", fileDragHover, false);
-          fileDrag.addEventListener("dragleave", fileDragHover, false);
-          fileDrag.addEventListener("drop", fileSelectHandler, false);
-        }
-      }
-
-      function fileDragHover(e) {
-        var fileDrag = document.getElementById("file-drag");
-
-        e.stopPropagation();
-        e.preventDefault();
-
-        fileDrag.className =
-          e.type === "dragover" ? "hover" : "modal-body file-upload";
-      }
-
-      function fileSelectHandler(e) {
-        // Fetch FileList object
-        var files = e.target.files || e.dataTransfer.files;
-
-        // Cancel event and hover styling
-        fileDragHover(e);
-
-        // Process all File objects
-        for (var i = 0, f; (f = files[i]); i++) {
-          parseFile(f);
-          uploadFile(f);
-        }
-      }
-
-      // Output
-      function output(msg) {
-        // Response
-        var m = document.getElementById("messages");
-        m.innerHTML = msg;
-      }
-
-      function parseFile(file) {
-        output("<strong>" + encodeURI(file.name) + "</strong>");
-
-        // var fileType = file.type;
-        // console.log(fileType);
-        var imageName = file.name;
-
-        var isGood = /\.(?=gif|jpg|png|jpeg)/gi.test(imageName);
-        if (isGood) {
-          document.getElementById("start").classList.add("hidden");
-          document.getElementById("response").classList.remove("hidden");
-          document.getElementById("notimage").classList.add("hidden");
-          // Thumbnail Preview
-          document.getElementById("file-image").classList.remove("hidden");
-          document.getElementById("file-image").src = URL.createObjectURL(file);
-        } else {
-          document.getElementById("file-image").classList.add("hidden");
-          document.getElementById("notimage").classList.remove("hidden");
-          document.getElementById("start").classList.remove("hidden");
-          document.getElementById("response").classList.add("hidden");
-          document.getElementById("file-upload-form").reset();
-        }
-      }
-      function uploadFile(file) {
-        var xhr = new XMLHttpRequest(),
-          fileInput = document.getElementById("class-roster-file"),
-          pBar = document.getElementById("file-progress"),
-          fileSizeLimit = 1024; // In MB
-        if (xhr.upload) {
-          // Check if file is less than x MB
-          if (file.size <= fileSizeLimit * 1024 * 1024) {
-            // Progress bar
-            pBar.style.display = "inline";
-
-            // File received / failed
-            xhr.onreadystatechange = function (e) {
-              if (xhr.readyState == 4) {
-                // Everything is good!
-                // progress.className = (xhr.status == 200 ? "success" : "failure");
-                // document.location.reload(true);
-              }
-            };
-
-            // Start upload
-            xhr.open(
-              "POST",
-              document.getElementById("file-upload-form").action,
-              true
-            );
-            xhr.setRequestHeader("X-File-Name", file.name);
-            xhr.setRequestHeader("X-File-Size", file.size);
-            xhr.setRequestHeader("Content-Type", "multipart/form-data");
-            xhr.send(file);
-          } else {
-            output(
-              "Please upload a smaller file (< " + fileSizeLimit + " MB)."
-            );
-          }
-        }
-      }
-
-      // Check for the various File API support.
-      if (window.File && window.FileList && window.FileReader) {
-        Init();
-      } else {
-        document.getElementById("file-drag").style.display = "none";
-      }
-    }
-    ekUpload();
+  if (marker) {
+    marker.addEventListener("click", () => {
+      markerDetails.classList.add("active");
+    });
   }
 });

@@ -167,18 +167,16 @@
   <div class="maps">
   </div>
 
-  <!-- 마커를 누르면 details 출력 -->
-  <svg onclick="activeDetails()" style="position: absolute; top: 50%; left: 50%; cursor:pointer"
+  <!-- class:marker인 마커를 누르면 details 출력 -->
+  <svg class="marker" style="position: absolute; top: 50%; left: 50%; cursor:pointer"
     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <path
       d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
   </svg>
   <div class="marker-details">
-    <div class="arrow">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-      </svg>
-    </div>
+    <section class="move-down">
+      <div class="arrow"></div>
+    </section>
     <section class="cctv-locations">
       <div class="row" onclick="location.href='cctv_details.html'">
         <ul>
@@ -188,7 +186,7 @@
             <span>PTZ</span>
           </li>
           <li class="address">
-              충청남도 천안시 서북구 백석동 895
+            충청남도 천안시 서북구 백석동 895
           </li>
           <li class="title">
             W29C097-17_5 두정동 1246(두정중학교동남측사거리)
@@ -222,7 +220,7 @@
             <span>PTZ</span>
           </li>
           <li class="address">
-              충청남도 천안시 서북구 백석동 895
+            충청남도 천안시 서북구 백석동 895
           </li>
           <li class="title">
             W29C097-17_5 두정동 1246(두정중학교동남측사거리)
@@ -256,7 +254,7 @@
             <span>PTZ</span>
           </li>
           <li class="address">
-              충청남도 천안시 서북구 백석동 895
+            충청남도 천안시 서북구 백석동 895
           </li>
           <li class="title">
             W29C097-17_5 두정동 1246(두정중학교동남측사거리)
@@ -353,16 +351,4 @@
     </ul>
   </div>
 </div>
-<script>
-  const markerDetails = document.querySelector(".marker-details")
-  const arrow = markerDetails.querySelector(".arrow")
-
-  const activeDetails = () => {
-    markerDetails.classList.add("active")
-  }
-
-  arrow.addEventListener("click", () => {
-    markerDetails.classList.remove("active")
-  })
-</script>
 {% endblock %}
