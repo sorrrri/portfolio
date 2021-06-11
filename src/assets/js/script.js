@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Modal Move Down
 
   const markerDetails = document.querySelector(".marker-details");
-  const moveDown = markerDetails.querySelector(".move-down");
+  const moveDown = document.querySelector(".move-down");
 
   if (moveDown) {
     let clientY, deltaY;
