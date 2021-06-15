@@ -271,7 +271,7 @@
         <path
           d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
       </svg>
-      <input type="text" placeholder="주소, 좌표, CCTV 검색">
+      <input class="input-search-full" type="text" placeholder="주소, 좌표, CCTV 검색">
     </div>
   </header>
   <button class="local-toggle-menu">
@@ -285,14 +285,18 @@
   </div>
 
   <!-- class:marker인 마커를 누르면 details 출력 -->
-  <svg class="marker" style="position: absolute; top: 50%; left: 50%; cursor:pointer"
-    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <svg class="marker" style="position: absolute; top: 50%; left: 50%; cursor:pointer" xmlns="http://www.w3.org/2000/svg"
+    width="24" height="24" viewBox="0 0 24 24">
     <path
       d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
   </svg>
   <div class="marker-details">
     <section class="move-down">
-      <div class="arrow"></div>
+      <div class="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+          <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+        </svg>
+      </div>
     </section>
     <section class="cctv-locations">
       <div class="row" onclick="location.href='cctv_details.html'">
@@ -439,6 +443,124 @@
     </li>
   </ul>
 </footer>
+<div class="modal modal-search-full">
+  <header class="filters">
+    <button type="button">
+      <input id="selectAddress" type="radio" name="searchFilter" checked="checked" />
+      <label for="selectAddress">주소검색</label>
+    </button>
+    <button type="button">
+      <input id="selectLocation" type="radio" name="searchFilter" />
+      <label for="selectLocation">좌표검색</label>
+    </button>
+    <button type="button">
+      <input id="selectCCTV" type="radio" name="searchFilter" />
+      <label for="selectCCTV">CCTV검색</label>
+    </button>
+  </header>
+  <section>
+    <div class="row">
+      <ul>
+        <li class="tags">
+          <span>산불감시</span>
+          <span>CCTV</span>
+          <span>PTZ</span>
+        </li>
+        <li class="address">
+          충청남도 천안시 서북구 백석동 895
+        </li>
+        <li class="title">
+          W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+        </li>
+      </ul>
+      <div class="more">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+        </svg>
+      </div>
+    </div>
+    <div class="row">
+      <ul>
+        <li class="tags">
+          <span>산불감시</span>
+          <span>CCTV</span>
+          <span>PTZ</span>
+        </li>
+        <li class="address">
+          충청남도 천안시 서북구 백석동 895
+        </li>
+        <li class="title">
+          W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+        </li>
+      </ul>
+      <div class="more">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+        </svg>
+      </div>
+    </div>
+    <div class="row">
+      <ul>
+        <li class="tags">
+          <span>산불감시</span>
+          <span>CCTV</span>
+          <span>PTZ</span>
+        </li>
+        <li class="address">
+          충청남도 천안시 서북구 백석동 895
+        </li>
+        <li class="title">
+          W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+        </li>
+      </ul>
+      <div class="more">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+        </svg>
+      </div>
+    </div>
+    <div class="row">
+      <ul>
+        <li class="tags">
+          <span>산불감시</span>
+          <span>CCTV</span>
+          <span>PTZ</span>
+        </li>
+        <li class="address">
+          충청남도 천안시 서북구 백석동 895
+        </li>
+        <li class="title">
+          W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+        </li>
+      </ul>
+      <div class="more">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+        </svg>
+      </div>
+    </div>
+    <div class="row">
+      <ul>
+        <li class="tags">
+          <span>산불감시</span>
+          <span>CCTV</span>
+          <span>PTZ</span>
+        </li>
+        <li class="address">
+          충청남도 천안시 서북구 백석동 895
+        </li>
+        <li class="title">
+          W29C097-17_5 두정동 1246(두정중학교동남측사거리)
+        </li>
+      </ul>
+      <div class="more">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+        </svg>
+      </div>
+    </div>
+  </section>
+</div>
 
   </div>
 </body>

@@ -29,8 +29,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const localNavigationMenu = document.querySelector(".local-navigation-menu");
-  const toggleMenu = document.querySelector(".toggle-menu");
+  let toggleMenu = document.querySelector(".toggle-menu");
   const localToggleMenu = document.querySelector(".local-toggle-menu");
+
+  const inputSearchFull = document.querySelector(".input-search-full");
+  const modalSearchFull = document.querySelector(".modal-search-full");
+  
+  if (inputSearchFull) {
+    
+    const handleActiveSearchFull = () => {
+      if (modalSearchFull.classList.contains("active") === false) {
+        let button = document.createElement("button");
+        modalSearchFull.classList.add("active");
+        const header = document.querySelector("header");
+        header.replaceChild(button, toggleMenu);
+        const buttonBack = button;
+        buttonBack.classList.add("btn-back");
+
+        buttonBack.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
+      </svg>`;
+
+        buttonBack.addEventListener("click", () => {
+          button = document.createElement("button");
+          modalSearchFull.classList.remove("active");
+          header.replaceChild(button, buttonBack);
+          toggleMenu = button;
+          toggleMenu.classList.add("toggle-menu");
+
+          toggleMenu.innerHTML = `<svg viewBox="0 0 100 100" width="80">
+              <path
+                d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+              <path d="m 30,50 h 40" />
+              <path
+                d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+            </svg>`;
+          button.addEventListener("click", () => {
+            globalNavigationMenu.classList.add("active");
+            overlay.classList.add("active");
+          });
+        });
+      }
+    };
+
+    inputSearchFull.addEventListener("click", handleActiveSearchFull);
+  }
 
   if (toggleMenu) {
     toggleMenu.addEventListener("click", (e) => {
@@ -161,35 +204,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const moveDown = document.querySelector(".move-down");
 
   if (moveDown) {
-    let clientY, deltaY;
+    moveDown.addEventListener("click", () => {
+      markerDetails.classList.remove("active")
+    })
+    // let clientY, deltaY;
 
-    moveDown.addEventListener(
-      "touchstart",
-      (e) => {
-        clientY = parseInt(e.touches[0].clientY);
-      },
-      false
-    );
+    // moveDown.addEventListener(
+    //   "touchstart",
+    //   (e) => {
+    //     clientY = parseInt(e.touches[0].clientY);
+    //   },
+    //   false
+    // );
 
-    moveDown.addEventListener(
-      "touchmove",
-      (e) => {
-        deltaY = parseInt(e.changedTouches[0].clientY) - clientY;
+    // moveDown.addEventListener(
+    //   "touchmove",
+    //   (e) => {
+    //     deltaY = parseInt(e.changedTouches[0].clientY) - clientY;
 
-        markerDetails.style.bottom = `${-deltaY}px`;
-        if (parseInt(markerDetails.style.bottom) > 0) {
-          markerDetails.removeAttribute("style");
-        }
-      },
-      false
-    );
+    //     markerDetails.style.bottom = `${-deltaY}px`;
+    //     if (parseInt(markerDetails.style.bottom) > 0) {
+    //       markerDetails.removeAttribute("style");
+    //     }
+    //   },
+    //   false
+    // );
 
-    moveDown.addEventListener("touchend", () => {
-      if (deltaY > 100) {
-        markerDetails.removeAttribute("style");
-        markerDetails.classList.remove("active");
-      }
-    });
+    // moveDown.addEventListener("touchend", () => {
+    //   if (deltaY > 100) {
+    //     markerDetails.removeAttribute("style");
+    //     markerDetails.classList.remove("active");
+    //   }
+    // });
   }
 
   const marker = document.querySelector(".marker");
