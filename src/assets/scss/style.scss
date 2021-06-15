@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  touch-action: manipulation;
 
   .container {
     z-index: -5;
@@ -60,7 +61,8 @@ body {
     }
 
     &.btn-back {
-      width: 45px
+      width: 45px;
+      justify-content: center;
     }
   }
 
@@ -1229,8 +1231,9 @@ footer {
     flex: 0 0 auto;
     display: flex;
     margin: 0 -.25rem;
+    border-radius: 0;
     flex: none;
-    padding: .5rem;
+    padding: .5rem .75rem;
     border-bottom: 1px solid #DDD;
     
     button {
@@ -1239,7 +1242,7 @@ footer {
   }
 
   section {
-    padding: 0;
+    padding: 0 0 100px 0;
 
     .row {
       padding: 1rem;
