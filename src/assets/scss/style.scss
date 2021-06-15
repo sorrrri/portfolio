@@ -753,7 +753,7 @@ footer {
       transition: 0.4s;
 
       address {
-        padding-bottom: 1rem;
+        padding-bottom: .75rem;
         border-bottom: 1px solid #ddd;
         margin-bottom: 1rem;
       }
@@ -791,6 +791,10 @@ footer {
       max-height: 400px;
       overflow: hidden;
 
+      img {
+        height: 100%;
+      }
+
       .btn-refresh {
         font-size: 13px;
         background-color: royalblue;
@@ -808,18 +812,24 @@ footer {
 
     &.information {
       background: white;
-      margin: 0.5rem 1rem;
+      margin: 1rem 1rem .5rem;
       border-radius: 0.5rem;
 
       .row {
         span {
           &:first-of-type {
-            flex: 0 0 70px;
+            flex: 0 0 80px;
+            text-align: right;
+            padding-right: .5rem;
 
             &::after {
               content: ":";
             }
           }
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: .5rem;
         }
       }
     }
@@ -906,10 +916,14 @@ footer {
     .row {
       flex-direction: column;
       padding: 0;
-      transition: border 0.2s;
+
+      .details {
+        display: none;
+        padding: 1rem 1.5rem;
+      }
 
       &.active {
-        border: 1px solid royalblue;
+        border: 1px solid lightsteelblue;
 
         .arrow {
           transform: rotate(-180deg);
@@ -919,11 +933,6 @@ footer {
           display: flex;
           border-top: 1px solid #ddd;
         }
-      }
-
-      .details {
-        display: none;
-        padding: 1rem 1.5rem;
       }
     }
 
@@ -1111,7 +1120,7 @@ footer {
 }
 
 .modal-search {
-  height: 450px;
+  height: fit-content;
   max-height: none;
   top: auto;
   bottom: -450px;
