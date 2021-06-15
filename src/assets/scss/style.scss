@@ -814,21 +814,28 @@ footer {
       background: white;
       margin: 1rem 1rem .5rem;
       border-radius: 0.5rem;
+      align-items: center;
 
       .row {
         span {
           &:first-of-type {
-            flex: 0 0 80px;
-            text-align: right;
+            flex: 0 0 70px;
             padding-right: .5rem;
+            font-weight: bold;
+            font-size: 13px;
+            color: lightslategrey
 
-            &::after {
-              content: ":";
-            }
+          }
+
+          &:last-of-type {
+            flex: 1 1 auto;
+            text-align: right;
           }
         }
 
         &:not(:last-of-type) {
+          border-bottom: 1px solid #EEE;
+          padding-bottom: .5rem;
           margin-bottom: .5rem;
         }
       }
