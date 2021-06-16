@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 기기 높이 맞추기
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty("--vh", `${vh}px`);
 
@@ -7,31 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
-  const header = document.querySelector("header");
+  // Dropdown Menu
   const mainMenus = document.querySelectorAll(".main-menu");
-  const globalNavigationMenu = document.querySelector(
-    ".global-navigation-menu"
-  );
   const overlay = document.querySelector(".overlay");
 
   mainMenus.forEach((mainMenu) => {
     mainMenu.addEventListener("click", () => {
-      globalNavigationMenu.classList.remove("active");
+      const aside = mainMenu.closest("aside");
+      aside.classList.remove("active");
       overlay.classList.remove("active");
     });
-    const subMenu = mainMenu.nextElementSibling;
-
-    if (subMenu) {
-      mainMenu.addEventListener("click", () => {
-        mainMenu.classList.toggle("active");
-        subMenu.classList.toggle("active");
-      });
-    }
   });
 
-  const localNavigationMenu = document.querySelector(".local-navigation-menu");
+
+  // CCTV 상세검색
+  const header = document.querySelector("header");
   let toggleMenu = document.querySelector(".toggle-menu");
+  const globalNavigationMenu = document.querySelector(
+    ".global-navigation-menu"
+  );
   const localToggleMenu = document.querySelector(".local-toggle-menu");
+  const localNavigationMenu = document.querySelector(".local-navigation-menu");
 
   const inputSearchFull = document.querySelector(".input-search-full");
   const modalSearchFull = document.querySelector(".modal-search-full");
@@ -39,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (inputSearchFull) {
     const handleActiveSearchFull = () => {
       if (modalSearchFull.classList.contains("active") === false) {
-        let button = document.createElement("button");
+        const button = document.createElement("button");
         modalSearchFull.classList.add("active");
         header.replaceChild(button, toggleMenu);
 
@@ -58,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     inputSearchFull.addEventListener("click", handleActiveSearchFull);
   }
-
 
   // Toggle Menu
   if (toggleMenu) {
@@ -91,107 +87,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
-
-  // Tab Menu
-  const main = document.querySelector(".main");
-
-  if (main) {
-    const tabMenus = document.querySelectorAll(".tab-menu li");
-    const linkButton = document.querySelector(".tab-menu button");
-    const tabContents = document.querySelectorAll(".tab-content section");
-
-    const activeSection = (e) => {
-      e.stopPropagation();
-      let menuIndex = [...tabMenus].indexOf(e.target);
-
-      tabMenus.forEach((menu) => {
-        [...tabMenus].indexOf(menu) === menuIndex
-          ? menu.classList.add("active")
-          : menu.classList.remove("active");
-      });
-
-      tabContents.forEach((content) => {
-        [...tabContents].indexOf(content) === menuIndex
-          ? content.classList.add("active")
-          : content.classList.remove("active");
-      });
-    };
-
-    [...tabMenus][0].classList.add("active");
-    [...tabContents][0].classList.add("active");
-
-    tabMenus.forEach((menu) => {
-      menu.addEventListener("click", activeSection);
-    });
-
-    const notice = document.querySelector(".notice");
-    const downloads = document.querySelector(".downloads");
-    const errata = document.querySelector(".errata");
-
-    linkButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (notice.classList.contains("active")) {
-        window.location = "notice.html";
-      } else if (downloads.classList.contains("active")) {
-        window.location = "downloads.html";
-      } else if (errata.classList.contains("active")) {
-        window.location = "errata.html";
-      }
-    });
-  }
-
   // Notice
   const rows = document.querySelectorAll(".notice .row");
 
   rows.forEach((row) => {
-    row.addEventListener("click", () => {
-      row.classList.toggle("active");
-    });
+    row.addEventListener("click", () => row.classList.toggle("active"));
   });
 
   // Modal
   const modals = document.querySelectorAll(".modal");
   const closeButtons = document.querySelectorAll(".close");
 
-  const visibleOverlay = () => {
+  const visibleOverlay = (modal) => {
     overlay.classList.add("active");
+    modal.classList.add("active");
   };
 
   const hiddenOverlay = () => {
     overlay.classList.remove("active");
-    modals.forEach((modal) => modal.classList.remove("active"));
   };
 
-  if (overlay) {
-    overlay.addEventListener("click", hiddenOverlay);
-    closeButtons.forEach((close) => {
-      close.addEventListener("click", hiddenOverlay);
-    });
+  overlay.addEventListener("click", () => {
+    hiddenOverlay();
+
+    if (modals) {
+      modals.forEach((modal) => modal.classList.remove("active"));
+    }
+  });
+
+  if (closeButtons) {
+    closeButtons.forEach((close) =>
+      close.addEventListener("click", hiddenOverlay)
+    );
   }
 
   const btnNavigation = document.querySelector(".btn-navigation");
   const modalNavigation = document.querySelector(".modal-navigation");
-
   if (btnNavigation) {
     btnNavigation.addEventListener("click", () => {
-      modalNavigation.classList.add("active");
-      visibleOverlay();
+      visibleOverlay(modalNavigation);
     });
   }
 
   const btnSearch = document.querySelector(".btn-search");
   const modalSearch = document.querySelector(".modal-search");
-
   if (btnSearch) {
     btnSearch.addEventListener("click", () => {
-      modalSearch.classList.add("active");
-      visibleOverlay();
+      visibleOverlay(modalSearch);
     });
   }
 
-  // Modal Move Down
-
+  // 마커 상세
   const markerDetails = document.querySelector(".marker-details");
   const moveDown = document.querySelector(".move-down");
 
