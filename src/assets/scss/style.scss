@@ -790,10 +790,10 @@ footer {
         display: flex;
         font-size: 13px;
         color: royalblue;
-        max-width: 80vw;
+        max-width: 70vw;
         text-align: center;
         justify-content: center;
-        margin: .5rem auto;
+        margin: .25rem auto;
       }
     }
 
@@ -801,7 +801,7 @@ footer {
       display: flex;
       align-items: center;
       flex: 1 1 auto;
-      padding: .5rem 0 0;
+      margin-top: 1rem;
 
       p {
         flex: 1 1 auto
@@ -811,8 +811,8 @@ footer {
     .btn-navigation {
       flex: 0 0 auto;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       margin-left: .5rem;
 
       span {
