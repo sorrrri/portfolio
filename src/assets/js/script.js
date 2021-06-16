@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     };
-
     inputSearchFull.addEventListener("click", handleActiveSearchFull);
   }
 
@@ -145,35 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
     moveDown.addEventListener("click", () => {
       markerDetails.classList.remove("active");
     });
-    // let clientY, deltaY;
-
-    // moveDown.addEventListener(
-    //   "touchstart",
-    //   (e) => {
-    //     clientY = parseInt(e.touches[0].clientY);
-    //   },
-    //   false
-    // );
-
-    // moveDown.addEventListener(
-    //   "touchmove",
-    //   (e) => {
-    //     deltaY = parseInt(e.changedTouches[0].clientY) - clientY;
-
-    //     markerDetails.style.bottom = `${-deltaY}px`;
-    //     if (parseInt(markerDetails.style.bottom) > 0) {
-    //       markerDetails.removeAttribute("style");
-    //     }
-    //   },
-    //   false
-    // );
-
-    // moveDown.addEventListener("touchend", () => {
-    //   if (deltaY > 100) {
-    //     markerDetails.removeAttribute("style");
-    //     markerDetails.classList.remove("active");
-    //   }
-    // });
   }
 
   const marker = document.querySelector(".marker");
