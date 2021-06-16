@@ -948,8 +948,15 @@ footer {
       padding: 0;
 
       .details {
-        display: none;
-        padding: 1rem 1.5rem;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition:  opacity .2s, max-height .4s;
+        will-change: opacity, max-height;
+
+        p {
+          padding: 1rem 1.5rem;
+        }
       }
 
       &.active {
@@ -962,6 +969,8 @@ footer {
         .details {
           display: flex;
           border-top: 1px solid #ddd;
+          opacity: 1;
+          max-height: 10rem;
         }
       }
     }
@@ -969,7 +978,7 @@ footer {
     .row-title {
       display: flex;
       align-items: center;
-      padding: 1rem 1rem 1rem 1.5rem;
+      padding: .75rem .75rem .5rem 1rem;
 
       ul {
         flex: 1 1 auto;

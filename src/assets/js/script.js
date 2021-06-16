@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // CCTV 상세검색
   const header = document.querySelector("header");
-  let toggleMenu = document.querySelector(".toggle-menu");
+  const toggleMenu = document.querySelector(".toggle-menu");
   const globalNavigationMenu = document.querySelector(
     ".global-navigation-menu"
   );
