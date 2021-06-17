@@ -499,32 +499,34 @@ footer {
 
   .inputs {
     margin-bottom: 3rem;
-    .input {
-      margin-bottom: 1rem;
-      position: relative;
+  }
 
-      input {
-        background-color: #2e3445;
-        border: none;
-        color: white;
-        height: 50px;
-        width: 90vw;
-        max-width: 360px;
-        text-indent: 2rem;
-      }
+  .input {
+    margin-bottom: 1rem;
+    position: relative;
+  }
 
-      svg {
-        position: absolute;
-        top: 0.85rem;
-        left: 0.5rem;
-        fill: rgba(255, 255, 255, 0.1);
-        z-index: 1;
-      }
-    }
+  input,
+  select {
+    background-color: #2e3445;
+    border: none;
+    color: white;
+    height: 50px;
+    width: 90vw;
+    max-width: 360px;
+    text-indent: 2rem;
+  }
 
-    .buttons {
-      justify-content: space-between;
-    }
+  svg {
+    position: absolute;
+    top: 0.85rem;
+    left: 0.5rem;
+    fill: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+  }
+
+  .buttons {
+    justify-content: space-between;
   }
 
   .main-buttons {
@@ -552,6 +554,103 @@ footer {
       width: 90vw;
       max-width: 360px;
     }
+  }
+}
+
+.find-your-account {
+  justify-content: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 0;
+
+  .tabs {
+    li {
+      margin: 1rem 1rem 2rem;
+      font-size: 17px;
+      
+
+      &.active {
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -0.25rem;
+          width: 100%;
+          height: 2px;
+          background-color: royalblue;
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+    flex-direction: column;
+  }
+
+  .inputs {
+    margin-bottom: 1rem;
+  }
+  .input {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: lightslategray
+    }
+
+    &.required {
+      span {
+        &::before {
+          content: "*";
+          color: salmon;
+          margin-right: 0.25rem;
+          padding-top: 0.5rem;
+        }
+      }
+    }
+
+    &.phone {
+      div {
+        display: flex;
+
+        input {
+          flex: 1 1 auto;
+          width: 200px;
+          margin-right: 0.5rem;
+        }
+
+        button {
+          font-size: 13px;
+          white-space: nowrap;
+          padding: 0 0.5rem;
+          background-color: darkslateblue;
+        }
+      }
+    }
+  }
+
+  input,
+  select {
+    text-indent: .5rem;
+    height: 45px;
+  }
+
+  .selectbox {
+    &::before {
+      border-color: white;
+      margin-top: -8px;
+      border-width: 0 2px 2px 0;
+      padding: 5px;
+      right: 1rem;
+    }
+  }
+}
+
+
+.found-your-account {
+  input {
+    text-indent: .5rem;
   }
 }
 
@@ -784,7 +883,7 @@ footer {
     margin: 0 1rem 1rem;
 
     .title {
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
 
       strong {
         display: flex;
@@ -793,7 +892,7 @@ footer {
         max-width: 70vw;
         text-align: center;
         justify-content: center;
-        margin: .25rem auto;
+        margin: 0.25rem auto;
       }
     }
 
@@ -804,7 +903,7 @@ footer {
       margin-top: 1rem;
 
       p {
-        flex: 1 1 auto
+        flex: 1 1 auto;
       }
     }
 
@@ -813,7 +912,7 @@ footer {
       justify-content: center;
       width: 36px;
       height: 36px;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
 
       span {
         display: none;
@@ -823,7 +922,7 @@ footer {
     .view {
       flex: 0 0 40vh;
       max-height: 400px;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
       position: relative;
       overflow: hidden;
 
@@ -838,8 +937,8 @@ footer {
         color: white;
         padding: 0.25rem 0.5rem;
         position: absolute;
-        top: .5rem;
-        right: .5rem;
+        top: 0.5rem;
+        right: 0.5rem;
 
         svg {
           fill: white;
@@ -965,7 +1064,7 @@ footer {
         opacity: 0;
         max-height: 0;
         overflow: hidden;
-        transition:  opacity .2s, max-height .4s;
+        transition: opacity 0.2s, max-height 0.4s;
         will-change: opacity, max-height;
 
         p {
@@ -992,7 +1091,7 @@ footer {
     .row-title {
       display: flex;
       align-items: center;
-      padding: .75rem .75rem .5rem 1rem;
+      padding: 0.75rem 0.75rem 0.5rem 1rem;
 
       ul {
         flex: 1 1 auto;
@@ -1367,8 +1466,7 @@ footer {
   }
 }
 
-
-@media screen and (min-width:769px) {
+@media screen and (min-width: 769px) {
   .btn-navigation {
     width: auto !important;
 

@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
-  // Dropdown Menu
+  /* =====================================================
+       Dropdown Menu
+  ===================================================== */
   const mainMenus = document.querySelectorAll(".main-menu");
   const overlay = document.querySelector(".overlay");
 
@@ -20,6 +22,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* =====================================================
+       Tab Menu
+  ===================================================== */
+  const tabs = document.querySelectorAll(".tabs li");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  const activeSection = (e) => {
+    e.stopPropagation();
+
+    let menuIndex = [...tabs].indexOf(e.target);
+
+    tabs.forEach(tab => {
+      [...tabs].indexOf(tab) === menuIndex
+        ? tab.classList.add("active")
+        : tab.classList.remove("active");
+    });
+
+    tabContents.forEach(content => {
+      [...tabContents].indexOf(content) === menuIndex
+        ? content.classList.add("active")
+        : content.classList.remove("active");
+    });
+  };
+
+  if (tabs) {
+    tabs.forEach(tab => {
+      [...tabs][0].classList.add("active");
+      [...tabContents][0].classList.add("active");
+      tab.addEventListener("click", activeSection);
+
+    });
+  }
 
   // CCTV 상세검색
   const header = document.querySelector("header");
@@ -55,7 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     inputSearchFull.addEventListener("click", handleActiveSearchFull);
   }
 
-  // Toggle Menu
+  /* =====================================================
+       Toggle Menu
+  ===================================================== */
   if (toggleMenu) {
     const openNavigationMenu = (menu) => {
       menu.classList.add("active");
@@ -93,7 +129,9 @@ document.addEventListener("DOMContentLoaded", () => {
     row.addEventListener("click", () => row.classList.toggle("active"));
   });
 
-  // Modal
+  /* =====================================================
+       Modal
+  ===================================================== */
   const modals = document.querySelectorAll(".modal");
   const closeButtons = document.querySelectorAll(".close");
 
