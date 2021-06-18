@@ -673,7 +673,8 @@ footer {
       margin: 0 .25rem;
 
       &.btn-signin {
-        flex: 1 1 auto
+        flex: 1 1 auto;
+        background-image: linear-gradient(to right, darkslateblue, darkslategray);
       }
     }
   }
