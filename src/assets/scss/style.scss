@@ -535,6 +535,7 @@ footer {
     align-items: center;
 
     button {
+      border-radius: 0.5rem;
       font: 17px/1 "NanumSquare-Regular";
       background-color: #49536b;
       width: 90vw;
@@ -545,7 +546,6 @@ footer {
       margin-bottom: 1rem;
 
       &.btn-signin {
-        border-radius: 0.5rem;
         background-image: linear-gradient(to right, darkslateblue, royalblue);
       }
     }
