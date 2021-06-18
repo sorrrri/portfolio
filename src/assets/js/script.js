@@ -33,13 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let menuIndex = [...tabs].indexOf(e.target);
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       [...tabs].indexOf(tab) === menuIndex
         ? tab.classList.add("active")
         : tab.classList.remove("active");
     });
 
-    tabContents.forEach(content => {
+    tabContents.forEach((content) => {
       [...tabContents].indexOf(content) === menuIndex
         ? content.classList.add("active")
         : content.classList.remove("active");
@@ -47,11 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (tabs) {
-    tabs.forEach(tab => {
+    tabs.forEach((tab) => {
       [...tabs][0].classList.add("active");
       [...tabContents][0].classList.add("active");
       tab.addEventListener("click", activeSection);
-
     });
   }
 
@@ -154,7 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (closeButtons) {
     closeButtons.forEach((close) =>
-      close.addEventListener("click", hiddenOverlay)
+      close.addEventListener("click", () => {
+        hiddenOverlay();
+        modals.forEach((modal) => modal.classList.remove("active"));
+      })
     );
   }
 
