@@ -193,4 +193,12 @@ document.addEventListener("DOMContentLoaded", () => {
       markerDetails.classList.add("active");
     });
   }
+
+  /* =====================================================
+       Loader
+  ===================================================== */
+  const loader = document.querySelector(".loader");
+  if (loader) {
+    
+  }
 });
