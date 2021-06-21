@@ -599,17 +599,16 @@ footer {
   .tab-content {
     display: none;
     flex-direction: column;
-    align-items: center;
     flex: 1 1 auto;
     width: 100%;
     overflow: hidden;
   }
 
   .inputs {
-    margin-bottom: 1rem;
     flex: 1 1 auto;
     overflow-y: auto;
     padding: .5rem 1rem;
+    margin-bottom: 0;
   }
   .input {
     display: flex;
