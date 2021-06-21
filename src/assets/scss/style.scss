@@ -663,6 +663,7 @@ footer {
   .main-buttons {
     flex: 0 0 auto;
     flex-direction: row-reverse;
+    justify-content: center;
     width: 100%;
     margin: 0 -.25rem;
     margin-bottom: 0 !important;
