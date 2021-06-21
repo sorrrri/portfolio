@@ -784,6 +784,10 @@ input[type="radio"] + label:empty:before {
     outline: 0;
     box-sizing: border-box;
     cursor: pointer;
+
+    &:focus {
+      box-shadow: 0 0 1px 1px royalblue;
+    }
   }
 
   + .selectbox {
@@ -1099,10 +1103,10 @@ input[type="radio"] + label:empty:before {
     width: 100vw;
     height: 100vh;
     z-index: 100;
-  
+
     svg path,
     svg rect {
-      fill: orangered
+      fill: orangered;
     }
   }
 }

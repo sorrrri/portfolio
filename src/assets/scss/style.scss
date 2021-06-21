@@ -325,7 +325,7 @@ header {
     input[type="radio"]:hover + label,
     input[type="radio"]:checked + label {
       background-color: white;
-      color: #333
+      color: #333;
     }
   }
 
@@ -503,6 +503,7 @@ footer {
   }
 
   .input {
+    align-items: center;
     margin-bottom: 1rem;
     position: relative;
   }
@@ -516,6 +517,10 @@ footer {
     width: 90vw;
     max-width: 360px;
     text-indent: 2rem;
+
+    &:disabled {
+      background-color: #44464a;
+    }
   }
 
   .selectbox {
@@ -597,7 +602,6 @@ footer {
     align-items: center;
     flex: 1 1 auto;
     width: 100%;
-    padding: 1rem;
     overflow: hidden;
   }
 
@@ -605,6 +609,7 @@ footer {
     margin-bottom: 1rem;
     flex: 1 1 auto;
     overflow-y: auto;
+    padding: .5rem 1rem;
   }
   .input {
     display: flex;
@@ -628,10 +633,11 @@ footer {
     &.phone {
       div {
         display: flex;
+        width: 100%;
 
         input {
           flex: 1 1 auto;
-          width: 200px;
+          width: 100px;
           margin-right: 0.5rem;
         }
 
@@ -639,7 +645,8 @@ footer {
           font-size: 13px;
           white-space: nowrap;
           padding: 0 0.5rem;
-          background-color: darkslateblue;
+          background-color: #151922;
+          color: #6a779f;
         }
       }
     }
@@ -666,17 +673,18 @@ footer {
     flex-direction: row-reverse;
     justify-content: center;
     width: 100%;
-    margin: 0 -.25rem;
+    margin: 0 -0.25rem;
     margin-bottom: 0 !important;
+    padding: 1rem;
 
     button {
       width: auto;
       flex: 0 0 30%;
-      margin: 0 .25rem;
+      margin: 0 0.25rem;
 
       &.btn-signin {
         flex: 1 1 auto;
-        background-image: linear-gradient(to right, darkslateblue, darkslategray);
+        background: royalblue;
       }
     }
   }
@@ -696,7 +704,7 @@ footer {
 
 .map {
   height: 30vh;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   iframe {
     height: 100%;
@@ -1430,11 +1438,11 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;  
+        justify-content: center;
       }
 
       svg {
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
       }
     }
   }
