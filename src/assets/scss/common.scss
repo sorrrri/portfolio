@@ -923,7 +923,7 @@ input[type="radio"] + label:empty:before {
 
   label {
     display: block;
-    background-color: royalblue;
+    background-color: #CCC;
     margin: 0 auto;
     font-size: 1.4em;
 
@@ -953,9 +953,12 @@ input[type="radio"] + label:empty:before {
   input[type="checkbox"] {
     display: none;
 
-    &:checked + label span {
-      background-color: white;
-      left: 17px;
+    &:checked + label {
+      background-color: royalblue;
+
+      span {
+        left: 17px;
+      }
     }
   }
 }
