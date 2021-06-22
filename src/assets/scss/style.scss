@@ -609,7 +609,12 @@ footer {
     overflow-y: auto;
     padding: .5rem 1rem;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+
   .input {
     display: flex;
     flex-direction: column;
@@ -630,23 +635,31 @@ footer {
     }
 
     &.phone {
+      width: 90vw;
+      max-width: 360px;
+      flex-direction: row;
+      align-items: normal;
+
+
+      input {
+        flex: 1 1 auto;
+        width: 100px;
+        margin-right: 0.5rem;
+      }
+
+      button {
+        flex: 0 0 80px;
+        font-size: 13px;
+        white-space: nowrap;
+        padding: 0 0.5rem;
+        background-color: #151922;
+        color: #6a779f;
+      }
+
       div {
         display: flex;
+        justify-content: center;
         width: 100%;
-
-        input {
-          flex: 1 1 auto;
-          width: 100px;
-          margin-right: 0.5rem;
-        }
-
-        button {
-          font-size: 13px;
-          white-space: nowrap;
-          padding: 0 0.5rem;
-          background-color: #151922;
-          color: #6a779f;
-        }
       }
     }
   }
@@ -674,7 +687,7 @@ footer {
     width: 100%;
     margin: 0 -0.25rem;
     margin-bottom: 0 !important;
-    padding: 1rem;
+    padding: 3rem;
 
     button {
       width: auto;
@@ -684,6 +697,10 @@ footer {
       &.btn-signin {
         flex: 1 1 auto;
         background: royalblue;
+      }
+
+      &.btn-cancel {
+        flex: 0 0 165px;
       }
     }
   }
