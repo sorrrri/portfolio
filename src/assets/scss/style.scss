@@ -1250,6 +1250,10 @@ footer {
       align-items: center;
       position: relative;
       margin-left: 1rem;
+
+      ul {
+        width: 100%;
+      }
     }
 
     .type {
@@ -1329,6 +1333,23 @@ footer {
             content: "반려";
           }
         }
+      }
+    }
+    .title {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .request-id {
+      font-size: 13px;
+      background-color: #F3F6F9;
+      border-radius: .25rem;
+      padding: .15rem .5rem;
+
+      &::before {
+      }
+
+      &::after {
       }
     }
   }
