@@ -758,6 +758,78 @@ footer {
     }
   }
 
+  .zoom-in-out {
+    position: absolute;
+    bottom: 4rem;
+    right: -2rem;
+    display: flex;
+    transform: rotate(90deg);
+
+    button {
+      background-color: white;
+      border: 1px solid #ddd;
+      width: 32px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        transform: rotate(-90deg);
+      }
+
+      &.zoom-in {
+        border-radius: 0.25rem 0 0 0.25rem;
+      }
+
+      &.zoom-out {
+        border-radius: 0 0.25rem 0.25rem 0;
+      }
+    }
+
+    // Range Slider
+    .range-slider {
+      background-color: white;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: .5rem;
+      width: 4rem;
+      height: 36px;
+      display: flex;
+      align-items: center;
+    }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 3rem;
+      height: 0.5rem;
+      border-radius: 5px;
+      background: #d7dcdf;
+      outline: none;
+
+      // Range Handle
+      &::-webkit-slider-thumb {
+        appearance: none;
+        width: 0.75rem;
+        height: 1.25rem;
+        border-radius: 0.25rem;
+        background: #2c3e50;
+        cursor: pointer;
+        transition: background 0.15s ease-in-out;
+      }
+
+      &::-moz-range-thumb {
+        width: 0.75rem;
+        height: 1.25rem;
+        border: 0;
+        border-radius: 0.25rem;
+        background: #2c3e50;
+        cursor: pointer;
+        transition: background 0.15s ease-in-out;
+      }
+    }
+  }
+
   .marker-details {
     position: absolute;
     left: 0;
