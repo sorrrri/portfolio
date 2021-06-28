@@ -1,0 +1,152 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
+const BooksAll = () => {
+
+  return (
+    <main class="sub list-books wrapper">
+      <aside>
+        <h3>고객센터</h3>
+        <a href="notice.html">공지사항</a>
+        <a href="errata.html">정오표</a>
+        <a href="downloads.html">자료실</a>
+        <a href="books_all.html">도서목록 전체보기</a>
+        <div>
+          <h4>정보안내</h4>
+          <a href="bookstore.html">서점안내</a>
+          <a href="academy.html">학원안내</a>
+          <a href="returns.html">반품/교환안내</a>
+        </div>
+        <div>
+          <h4>요청하기</h4>
+          <a href="qna.html">질의응답</a>
+          <a href="publish.html">출판문의</a>
+          <a href="group_buying.html">공동구매</a>
+        </div>
+      </aside>
+      <div class="content">
+        <div class="breadscrumb">
+          <a href="#">Home</a>
+          <a href="#">고객센터</a>
+          <a href="#">도서목록 전체보기</a>
+        </div>
+        <div class="title">
+          <h2>도서목록 전체보기</h2>
+          <p>
+            도서출판 구민사의 도서 전체 목록입니다. 해당 도서를 선택하시면 자세한
+            정보를 볼 수 있습니다.
+          </p>
+        </div>
+        <div class="table">
+          <ul class="row title">
+            <li class="categories">위치</li>
+            <li class="book-title">도서명</li>
+            <li class="author">저자</li>
+            <li class="day">발행정보</li>
+            <li class="price">가격</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+          <ul class="row">
+            <li class="categories">전문교재 &gt; 메이크업계열</li>
+            <li class="book-title">패션과 정신분석학</li>
+            <li class="author">앨리슨 밴크로</li>
+            <li class="day">2019-09-06초판</li>
+            <li class="price">18,000</li>
+          </ul>
+        </div>
+        <div class="table-footer">
+          <div class="pagenation">
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
+            </a>
+            <a class="active" href="">1</a>
+            <a href="#">2</a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+              </svg>
+            </a>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+              </svg>
+            </a>
+          </div>
+          <div class="buttons">
+            <button class="btn-main">도서목록 다운로드</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  )
+}
+
+export default BooksAll
