@@ -1,18 +1,20 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import ImageLoaded from "react-images-loaded"
-
+import { Main, About } from "../pages";
+import ImageLoaded from "react-images-loaded";
 
 class App extends Component {
-
   render() {
     return (
-      <ImageLoaded>
+      <ImageLoaded className="container">
         <Header />
+        <Route path="/" component={Main} />
+        <Route path="/about" component={About} />
         <Footer />
       </ImageLoaded>
-    )
+    );
   }
 }
 
