@@ -1,23 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideAbout } from "../components/AsideAbout";
 
 const Policy = () => {
 
   return (
-    <main class="sub policy wrapper">
-      <aside>
-        <h3>회사소개</h3>
-        <a href="about.html">회사소개</a>
-        <a href="policy.html">이용약관</a>
-        <a href="privacy.html">개인정보취급방침</a>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub policy wrapper">
+      <AsideAbout />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">회사소개</a>
           <a href="#">이용약관</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>이용약관</h2>
           <p>
             도서출판 구민사의 홈페이지의 이용약관입니다.
@@ -32,7 +27,7 @@ const Policy = () => {
           <h4>제3조 (약관의 변경)</h4>
           <p>본 사이트가 약관을 변경하고자 할 경우, 본 사이트는 변경된 내용을 시행예정 30일전까지 회원에게 통지함과 동시에 홈페이지 (www.kuhminsa.co.kr) 내의 공지 페이지에 공지하여야 하며
             회원이 적용 예정일까지 이의를 제기하지 않을 경우에는 변경된 약관을 승인한 것으로 봅니다.</p>
-          <P>회원이 이의를 제기한 때에는 본 사이트에 대하여 탈퇴의사를 밝힌 것으로 봅니다.</P>
+          <p>회원이 이의를 제기한 때에는 본 사이트에 대하여 탈퇴의사를 밝힌 것으로 봅니다.</p>
           <h4>제4조 (본 약관에서 정하지 아니한 사항)</h4>
           <p>본 약관에서 정하지 아니한 사항과 본 약관의 해석에 관하여는 관계법령 또는 상관례에 따릅니다.</p>
         </section>

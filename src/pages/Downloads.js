@@ -1,29 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideCS } from "../components/AsideCS"
 
 const Downloads = () => {
 
   return (
     <main class="sub list wrapper">
-      <aside>
-        <h3>고객센터</h3>
-        <a href="notice.html">공지사항</a>
-        <a href="errata.html">정오표</a>
-        <a href="downloads.html">자료실</a>
-        <a href="books_all.html">도서목록 전체보기</a>
-        <div>
-          <h4>정보안내</h4>
-          <a href="bookstore.html">서점안내</a>
-          <a href="academy.html">학원안내</a>
-          <a href="returns.html">반품/교환안내</a>
-        </div>
-        <div>
-          <h4>요청하기</h4>
-          <a href="qna.html">질의응답</a>
-          <a href="publish.html">출판문의</a>
-          <a href="group_buying.html">공동구매</a>
-        </div>
-      </aside>
+      <AsideCS />
       <div class="content">
         <div class="breadscrumb">
           <a href="#">Home</a>

@@ -108,6 +108,13 @@ input {
           }
         }
 
+        &.quantity {
+
+          &::after {
+            content: "권"
+          }
+        }
+
         &.buttons {
           width: 15%;
         }

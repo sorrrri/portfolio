@@ -1,62 +1,58 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {AsideProfessor} from "../components/AsideProfessor"
 
 const SampleBooks = () => {
 
   return (
-    <main class="sub board-02 wrapper">
-      <aside>
-        <h3>교수님 전용</h3>
-        <a href="lecture_material.html">강의자료실</a>
-        <a href="sample_book.html">견본도서요청</a>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub board-02 wrapper">
+      <AsideProfessor />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">교수님 전용</a>
           <a href="#">견본도서요청</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>견본도서요청</h2>
           <p>도서출판 구민사는 교수님들을 위한 견본도서를 지원하고 있습니다. 견본도서를 요청하여 주십시오.</p>
         </div>
         <section>
-          <ul class="inputs">
-            <li class="choose-books">
-              <span class="required">신청도서</span>
+          <ul className="inputs">
+            <li className="choose-books">
+              <span className="required">신청도서</span>
               <button>도서등록</button>
-              <span class="result">NCS기반 교육과정에 따른 바디경락마사지</span>
+              <span className="result">NCS기반 교육과정에 따른 바디경락마사지</span>
             </li>
             <li>
-              <span class="required">저자</span>
-              <input type="text" value="" readonly="readonly" />
+              <span className="required">저자</span>
+              <input type="text" defaultValue="" readOnly />
             </li>
             <li>
-              <span class="required">판권날짜</span>
-              <input type="text" value="" readonly="readonly" />
+              <span className="required">판권날짜</span>
+              <input type="text" defaultValue="" readOnly />
             </li>
             <li>
-              <span class="required">수량</span>
-              <input type="number" value="" />
+              <span className="required">수량</span>
+              <input type="number" defaultValue="" />
             </li>
             <li>
-              <span class="required">이름</span>
-              <input type="text" value="홍길동" readonly="readonly" />
+              <span className="required">이름</span>
+              <input type="text" defaultValue="홍길동" readOnly />
             </li>
             <li>
-              <span class="required">대학명</span>
-              <input type="text" value="" readonly="readonly" />
+              <span className="required">대학명</span>
+              <input type="text" defaultValue="" readOnly />
             </li>
             <li>
-              <span class="required">학과</span>
-              <input type="text" value="" readonly="readonly" />
+              <span className="required">학과</span>
+              <input type="text" defaultValue="" readOnly />
             </li>
             <li>
-              <span class="required">이메일</span>
-              <input type="email" value="hong@naver.com" />
+              <span className="required">이메일</span>
+              <input type="email" defaultValue="hong@naver.com" />
             </li>
-            <li class="phone">
-              <span class="required">전화번호</span>
+            <li className="phone">
+              <span className="required">전화번호</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -65,8 +61,8 @@ const SampleBooks = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="phone">
-              <span class="required">휴대폰</span>
+            <li className="phone">
+              <span className="required">휴대폰</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -75,17 +71,17 @@ const SampleBooks = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="address">
-              <span class="required">주소</span>
+            <li className="address">
+              <span className="required">주소</span>
               <input type="text" />
             </li>
             <li>
-              <span class="required">내용</span>
+              <span className="required">내용</span>
               <textarea rows="10"></textarea>
             </li>
           </ul>
-          <div class="buttons">
-            <button class="btn-main">신청하기</button>
+          <div className="buttons">
+            <button className="btn-main">신청하기</button>
           </div>
         </section>
       </div>

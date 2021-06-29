@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 
 export const Footer = () => {
@@ -6,11 +7,11 @@ export const Footer = () => {
   return (
     <footer>
       <ul className="sitemap">
-        <li><a href="about.html">회사소개</a></li>
-        <li><a href="policy.html">이용약관</a></li>
-        <li><a href="bookstore.html">서점안내</a></li>
-        <li><a href="notice.html">고객센터</a></li>
-        <li><a href="books_all.html">도서정보목록</a></li>
+        <li><Link to="/about">회사소개</Link></li>
+        <li><Link to="/policy">이용약관</Link></li>
+        <li><Link to="/bookstore">서점안내</Link></li>
+        <li><Link to="/notice">고객센터</Link></li>
+        <li><Link to="/books_all">도서정보목록</Link></li>
       </ul>
       <div className="wrapper">
         <ul className="information">
@@ -27,7 +28,7 @@ export const Footer = () => {
           <li>대표이사: 조규백</li>
           <li>
             대표이메일:
-            <a href="mailto:kuhminsa@kuhminsa.co.kr">kuhminsa@kuhminsa.co.kr</a>
+            <Link to="mailto:kuhminsa@kuhminsa.co.kr">kuhminsa@kuhminsa.co.kr</Link>
           </li>
           <li>호스팅제공자: (주)아이티칸</li>
           <li>도서출판 구민사 CopyrightⓒKuhminsa all right Reserved.</li>

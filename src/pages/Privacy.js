@@ -1,23 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideAbout } from "../components/AsideAbout";
 
 const Privacy = () => {
 
   return (
-    <main class="sub policy wrapper">
-      <aside>
-        <h3>회사소개</h3>
-        <a href="about.html">회사소개</a>
-        <a href="policy.html">이용약관</a>
-        <a href="privacy.html">개인정보취급방침</a>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub policy wrapper">
+      <AsideAbout />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">회사소개</a>
           <a href="#">개인정보취급방침</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>개인정보취급방침</h2>
           <p>
             도서출판 구민사의 홈페이지의 개인정보취급방침입니다.

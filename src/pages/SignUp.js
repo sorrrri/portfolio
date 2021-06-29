@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
 
   return (
-    <main class="sub signup wrapper">
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub signup wrapper">
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">회원가입</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>회원가입</h2>
           <p>도서출판 구민사는 오랫동안 사랑받아온 신기술서적 출판사입니다.</p>
         </div>
         <section>
           <h3>개인정보취급방침</h3>
-          <div class="terms">
+          <div className="terms">
             <h4>::::: 개인정보취급방침:::::</h4>
     
             <p>구민사는 이용자들의 개인정보를 소중히 다루고 있습니다.</p>
@@ -366,7 +366,7 @@ const SignUp = () => {
         </section>
         <section>
           <h3>쇼핑몰 소비자 이용약관</h3>
-          <div class="terms">
+          <div className="terms">
             <h4>:::::쇼핑몰 소비자 이용약관:::::</h4>
     
             <h4>※ 제 1 장 총 칙 ※</h4>
@@ -463,12 +463,14 @@ const SignUp = () => {
             <p>본 약관은 2013년 11월 05일 부터 시행 합니다.</p>
           </div>
         </section>
-        <section class="agree">
-          <div class="checkbox">
+        <section className="agree">
+          <div className="checkbox">
             <input id="checkSignupAgree" type="checkbox" />
-            <label for="checkSignupAgree">동의합니다</label>
+            <label htmlFor="checkSignupAgree">동의합니다</label>
           </div>
-          <button class="btn-main" onclick="location.href='signup_02.html'">회원가입</button>
+          <Link to="/sign-up-02">
+          <button className="btn-main">회원가입</button>
+          </Link>
         </section>
       </div>
     </main>

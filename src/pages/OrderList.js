@@ -1,29 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideAccounts } from "../components/AsideAccounts";
 
 const OrderList = () => {
 
   return (
-    <main class="sub board-03 wrapper">
-      <aside>
-        <h3>회원정보</h3>
-        <a href="shoppingbag.html">장바구니</a>
-        <a href="order_list.html">주문배송조회</a>
-        <a href="mypage.html">마이페이지</a>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub board-03 wrapper">
+      <AsideAccounts />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">구매정보</a>
           <a href="#">주문배송조회</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>주문배송조회</h2>
           <p>고객님의 주문 및 배송 내역을 조회하실 수 있습니다.</p>
         </div>
         <section>
-          <div class="table">
-            <ul class="row title">
+          <div className="table">
+            <ul className="row title">
               <li>번호</li>
               <li>주문번호</li>
               <li>상품평</li>
@@ -32,7 +27,7 @@ const OrderList = () => {
               <li>주문/배송상태</li>
               <li>비고</li>
             </ul>
-            <ul class="row">
+            <ul className="row">
               <li>1</li>
               <li>H2021051305118</li>
               <li>유니그래픽스-NX7 3D모델링 프로젝트</li>
@@ -41,7 +36,7 @@ const OrderList = () => {
               <li>주문취소</li>
               <li></li>
             </ul>
-            <ul class="row">
+            <ul className="row">
               <li>1</li>
               <li>H2021051305118</li>
               <li>유니그래픽스-NX7 3D모델링 프로젝트</li>
@@ -50,7 +45,7 @@ const OrderList = () => {
               <li>주문취소</li>
               <li></li>
             </ul>
-            <ul class="row">
+            <ul className="row">
               <li>1</li>
               <li>H2021051305118</li>
               <li>유니그래픽스-NX7 3D모델링 프로젝트</li>
@@ -59,7 +54,7 @@ const OrderList = () => {
               <li>주문취소</li>
               <li></li>
             </ul>
-            <ul class="row">
+            <ul className="row">
               <li>1</li>
               <li>H2021051305118</li>
               <li>유니그래픽스-NX7 3D모델링 프로젝트</li>
@@ -69,8 +64,8 @@ const OrderList = () => {
               <li></li>
             </ul>
           </div>
-          <div class="table-footer">
-            <div class="pagenation">
+          <div className="table-footer">
+            <div className="pagenation">
               <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
@@ -84,7 +79,7 @@ const OrderList = () => {
                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                 </svg>
               </a>
-              <a class="active" href="">1</a>
+              <a className="active" href="">1</a>
               <a href="#">2</a>
               <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">

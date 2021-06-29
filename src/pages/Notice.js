@@ -1,42 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AsideCS } from "../components/AsideCS";
 
 const Notice = () => {
 
   return (
-    <main class="sub list wrapper">
-      <aside>
-        <h3>고객센터</h3>
-        <a href="notice.html">공지사항</a>
-        <a href="errata.html">정오표</a>
-        <a href="downloads.html">자료실</a>
-        <a href="books_all.html">도서목록 전체보기</a>
-        <div>
-          <h4>정보안내</h4>
-          <a href="bookstore.html">서점안내</a>
-          <a href="academy.html">학원안내</a>
-          <a href="returns.html">반품/교환안내</a>
-        </div>
-        <div>
-          <h4>요청하기</h4>
-          <a href="qna.html">질의응답</a>
-          <a href="publish.html">출판문의</a>
-          <a href="group_buying.html">공동구매</a>
-        </div>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub list wrapper">
+      <AsideCS />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">고객센터</a>
           <a href="#">공지사항</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>공지사항</h2>
           <p>도서출판 구민사가 전해드리는 공지사항입니다.</p>
         </div>
-        <div class="table-header">
-          <div class="search">
-            <div class="selectbox">
+        <div className="table-header">
+          <div className="search">
+            <div className="selectbox">
               <select name="" id="">
                 <option value="">제목</option>
                 <option value="">작성자</option>
@@ -57,87 +40,87 @@ const Notice = () => {
             </svg>
           </div>
         </div>
-          <div class="table" onclick="location.href='board_view.html'">
-            <ul class="row title">
-              <li class="counter">번호</li>
-              <li class="book-title">제목</li>
-              <li class="writer">작성자</li>
-              <li class="date">작성일</li>
-              <li class="views">조회수</li>
+          <div className="table">
+            <ul className="row title">
+              <li className="counter">번호</li>
+              <li className="book-title">제목</li>
+              <li className="writer">작성자</li>
+              <li className="date">작성일</li>
+              <li className="views">조회수</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
-            <ul class="row">
-              <li class="counter">17</li>
-              <li class="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
-              <li class="writer">구민사</li>
-              <li class="date">2021-04-26</li>
-              <li class="views">11</li>
+            <ul className="row">
+              <li className="counter">17</li>
+              <li className="book-title">도서출판 미전사인언스 및 도서출판 미광 출고</li>
+              <li className="writer">구민사</li>
+              <li className="date">2021-04-26</li>
+              <li className="views">11</li>
             </ul>
           </div>
-          <div class="table-footer">
-            <div class="pagenation">
+          <div className="table-footer">
+            <div className="pagenation">
               <a href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +149,7 @@ const Notice = () => {
                   <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                 </svg>
               </a>
-              <a class="active" href="">1</a>
+              <a className="active" href="">1</a>
               <a href="#">2</a>
               <a href="#">
                 <svg

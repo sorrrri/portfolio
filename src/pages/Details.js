@@ -1,64 +1,36 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AsideBooks } from "../components/AsideBooks";
 
 const Details = () => {
 
   return (
-    <main class="sub wrapper">
-      <aside>
-        <h3>도서목록</h3>
-        <div>
-          <h4>전문교재</h4>
-          <a href="#">피부계열</a>
-          <a href="#">헤어계열</a>
-          <a href="#">메이크업계열</a>
-          <a href="#">네일아트계열</a>
-          <a href="#">보건계열</a>
-          <a href="#">공학계열</a>
-          <a href="#">영상계열</a>
-        </div>
-        <div>
-          <h4>자격수험서</h4>
-          <a href="#">기능사</a>
-          <a href="#">기사/산업기사</a>
-          <a href="#">기술사/기능장</a>
-          <a href="#">그 외 자격증</a>
-        </div>
-        <div>
-          <h4>컴퓨터</h4>
-          <a href="#">프로그래밍</a>
-          <a href="#">그래픽/영상</a>
-          <a href="#">e-비즈니스</a>
-        </div>
-        <div>
-          <h4>단행본</h4>
-          <a href="#">단행본</a>
-        </div>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub wrapper">
+      <AsideBooks />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">전문교재</a>
           <a href="#">피부계열</a>
         </div>
-        <div class="details">
+        <div className="details">
           <div>
-            <img src="assets/images/thumbnails/01.jpg" alt="책제목" />
+            <img src={require("../assets/images/thumbnails/01.jpg")} alt="책제목" />
           </div>
           <ul>
-            <li class="title">
+            <li className="title">
               <h2>뷰티 트렌드</h2>
               <div>
                 <span>홍수남, 권오혁</span>
                 <span>2021-04-15</span>
               </div>
-              <div class="links">
+              <div className="links">
                 <a href="#" target="_blank">
-                  <img src="assets/images/ico_youtube.jpg" alt="youtube 바로가기" />
+                  <img src={require("../assets/images/ico_youtube.jpg")} alt="youtube 바로가기" />
                 </a>
                 <a href="#" target="_blank">
                   <img
-                    src="assets/images/ico_blog.jpg"
+                    src={require("../assets/images/ico_blog.jpg")}
                     alt="네이버 블로그 바로가기"
                   />
                 </a>
@@ -84,29 +56,29 @@ const Details = () => {
               <span>동영상강좌 유무</span>
               <span>-</span>
             </li>
-            <li class="price">
+            <li className="price">
               <span>정가</span>
               <span>16,000</span>
             </li>
-            <li class="price">
+            <li className="price">
               <span>판매가</span>
               <span>16,000</span>
             </li>
-            <li class="mileage">
+            <li className="mileage">
               <span>적립금</span>
               <span>0</span>
             </li>
-            <li class="quantity">
+            <li className="quantity">
               <span>주문수량</span>
               <span><input type="number" /></span>
             </li>
-            <li class="buttons">
+            <li className="buttons">
               <a href="order.html">바로구매</a>
               <a href="#">장바구니</a>
             </li>
           </ul>
         </div>
-        <div class="description">
+        <div className="description">
           <section>
             <h3>책 소개</h3>
             <p>
@@ -205,9 +177,9 @@ const Details = () => {
           </section>
           <section>
             <h3>관련 서적</h3>
-            <div class="items">
+            <div className="items">
               <a href="details.html">
-                <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+                <img src={require("../assets/images/thumbnails/01.jpg")} alt="샘플이미지" />
                 <ul>
                   <li>뷰티 트렌드</li>
                   <li>홍수남 권오혁</li>
@@ -215,7 +187,7 @@ const Details = () => {
                 </ul>
               </a>
               <a href="details.html">
-                <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+                <img src={require("../assets/images/thumbnails/01.jpg")} alt="샘플이미지" />
                 <ul>
                   <li>뷰티 트렌드</li>
                   <li>홍수남 권오혁</li>
@@ -223,7 +195,7 @@ const Details = () => {
                 </ul>
               </a>
               <a href="details.html">
-                <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+                <img src={require("../assets/images/thumbnails/01.jpg")} alt="샘플이미지" />
                 <ul>
                   <li>뷰티 트렌드</li>
                   <li>홍수남 권오혁</li>
@@ -231,7 +203,7 @@ const Details = () => {
                 </ul>
               </a>
               <a href="details.html">
-                <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+                <img src={require("../assets/images/thumbnails/01.jpg")} alt="샘플이미지" />
                 <ul>
                   <li>뷰티 트렌드</li>
                   <li>홍수남 권오혁</li>
@@ -239,7 +211,7 @@ const Details = () => {
                 </ul>
               </a>
               <a href="details.html">
-                <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+                <img src={require("../assets/images/thumbnails/01.jpg")} alt="샘플이미지" />
                 <ul>
                   <li>뷰티 트렌드</li>
                   <li>홍수남 권오혁</li>

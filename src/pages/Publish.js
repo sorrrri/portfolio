@@ -1,50 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideCS } from "../components/AsideCS";
 
 const Publish = () => {
 
   return (
-    <main class="sub board-02 wrapper">
-      <aside>
-        <h3>고객센터</h3>
-        <a href="notice.html">공지사항</a>
-        <a href="errata.html">정오표</a>
-        <a href="downloads.html">자료실</a>
-        <a href="books_all.html">도서목록 전체보기</a>
-        <div>
-          <h4>정보안내</h4>
-          <a href="bookstore.html">서점안내</a>
-          <a href="academy.html">학원안내</a>
-          <a href="returns.html">반품/교환안내</a>
-        </div>
-        <div>
-          <h4>요청하기</h4>
-          <a href="qna.html">질의응답</a>
-          <a href="publish.html">출판문의</a>
-          <a href="group_buying.html">공동구매</a>
-        </div>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub board-02 wrapper">
+      <AsideCS />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">고객센터</a>
           <a href="#">출판문의</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>출판문의</h2>
           <p>도서출판 구민사는 저자의 출판계획과 관련된 문의를 기다립니다.</p>
         </div>
         <section>
-          <ul class="inputs">
+          <ul className="inputs">
             <li>
               <span>이름</span>
-              <input type="text" value="" />
+              <input type="text" defaultValue="" />
             </li>
             <li>
               <span>이메일</span>
-              <input type="email" value="" />
+              <input type="email" defaultValue="" />
             </li>
-            <li class="phone">
+            <li className="phone">
               <span>전화번호</span>
               <div>
                 <input type="number" />
@@ -54,7 +36,7 @@ const Publish = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="phone">
+            <li className="phone">
               <span>휴대폰</span>
               <div>
                 <input type="number" />
@@ -69,8 +51,8 @@ const Publish = () => {
               <textarea name="" id="" rows="10"></textarea>
             </li>
           </ul>
-          <div class="buttons">
-            <button class="btn-main">신청하기</button>
+          <div className="buttons">
+            <button className="btn-main">신청하기</button>
           </div>
         </section>
       </div>

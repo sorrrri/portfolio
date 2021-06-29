@@ -1,36 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideAccounts } from "../components/AsideAccounts";
 
 const Order = () => {
 
   return (
-    <main class="sub order wrapper">
-      <aside>
-        <h3>구매정보</h3>
-        <a href="shoppingbag.html">장바구니</a>
-        <a href="order_list.html">주문배송조회</a>
-        <a href="mypage.html">마이페이지</a>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub order wrapper">
+      <AsideAccounts />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">구매정보</a>
           <a href="#">주문하기</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>주문하기</h2>
           <p>주문하신 분의 정보와 배송받으실 곳의 정보를 입력해주시기 바랍니다.</p>
         </div>
         <section>
-          <div class="table">
-            <ul class="row">
-              <li><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+          <div className="table">
+            <ul className="row">
+              <li><img src={require("../assets/images/thumbnails/01.jpg")} alt="" /></li>
               <li>뷰티 트렌드</li>
               <li>16,000원</li>
               <li>1</li>
               <li>16,000원</li>
             </ul>
-            <ul class="total">
+            <ul className="total">
               <li>
                 <span>총 상품금액</span>
                 <span>16,000</span>
@@ -68,17 +63,17 @@ const Order = () => {
         </section>
         <section>
           <h3>주문하신 분 정보확인</h3>
-          <ul class="inputs">
+          <ul className="inputs">
             <li>
-              <span class="required">구매자명</span>
-              <input type="text" value="홍길동" />
+              <span className="required">구매자명</span>
+              <input type="text" defaultValue="홍길동" />
             </li>
             <li>
-              <span class="required">이메일</span>
-              <input type="email" value="hong@naver.com" />
+              <span className="required">이메일</span>
+              <input type="email" defaultValue="hong@naver.com" />
             </li>
-            <li class="phone">
-              <span class="required">전화번호</span>
+            <li className="phone">
+              <span className="required">전화번호</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -87,8 +82,8 @@ const Order = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="phone">
-              <span class="required">휴대폰</span>
+            <li className="phone">
+              <span className="required">휴대폰</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -98,28 +93,28 @@ const Order = () => {
               </div>
             </li>
             <li>
-              <span class="required">주소</span>
+              <span className="required">주소</span>
               <input type="text" />
             </li>
           </ul>
         </section>
         <section>
           <h3>받으시는 분 정보확인</h3>
-          <div class="checkbox">
+          <div className="checkbox">
             <input id="ch" type="checkbox" />
-            <label for="ch">구매자 정보와 일치하면 체크하세요.</label>
+            <label htmlFor="ch">구매자 정보와 일치하면 체크하세요.</label>
           </div>
-          <ul class="inputs">
+          <ul className="inputs">
             <li>
-              <span class="required">받으시는 분</span>
-              <input type="text" value="홍길동" />
+              <span className="required">받으시는 분</span>
+              <input type="text" defaultValue="홍길동" />
             </li>
             <li>
-              <span class="required">이메일</span>
-              <input type="email" value="hong@naver.com" />
+              <span className="required">이메일</span>
+              <input type="email" defaultValue="hong@naver.com" />
             </li>
-            <li class="phone">
-              <span class="required">전화번호</span>
+            <li className="phone">
+              <span className="required">전화번호</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -128,8 +123,8 @@ const Order = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="phone">
-              <span class="required">휴대폰</span>
+            <li className="phone">
+              <span className="required">휴대폰</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -138,47 +133,47 @@ const Order = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="address">
-              <span class="required">주소</span>
+            <li className="address">
+              <span className="required">주소</span>
               <input type="text" />
             </li>
             <li>
-              <span class="required">요청사항</span>
+              <span className="required">요청사항</span>
               <input type="text" />
             </li>
             <li>
-              <span class="required">결제방법</span>
-              <input id="a" type="radio" checked="checked" />
-              <label for="a">무통장 결제</label>
+              <span className="required">결제방법</span>
+              <input id="a" type="radio" defaultChecked />
+              <label htmlFor="a">무통장 결제</label>
             </li>
           </ul>
         </section>
         <section>
           <div>
             <span>입금예정일</span>
-            <div class="selectbox">
+            <div className="selectbox">
               <select name="" id="">
-                <option value="2021">2021</option>
+                <option defaultValue="2021">2021</option>
               </select>
             </div>
-            <div class="selectbox">
+            <div className="selectbox">
               <select name="" id="">
-                <option value="06">06</option>
+                <option defaultValue="06">06</option>
               </select>
             </div>
-            <div class="selectbox">
+            <div className="selectbox">
               <select name="" id="">
-                <option value="01">01</option>
+                <option defaultValue="01">01</option>
               </select>
             </div>
             <div>
               <span>입금자명</span>
-              <input type="text" value="홍길동" />
+              <input type="text" defaultValue="홍길동" />
             </div>
           </div>
           <strong>계좌번호: 국민은행 054901-04-133407 (조규백)</strong>
-          <div class="buttons">
-            <button class="btn-main">결제하기</button>
+          <div className="buttons">
+            <button className="btn-main">결제하기</button>
           </div>
         </section>
       </div>

@@ -40,6 +40,11 @@ input {
 .modal {
   padding: 1rem;
 
+  section {
+    flex-direction: row !important;
+    margin: 0 !important;
+  }
+
   .search {
     display: flex;
 
@@ -105,6 +110,16 @@ input {
                 content: ":";
               }
             }
+          }
+        }
+
+        &.book-quantity {
+          display: flex;
+          align-items: center;
+
+          &::after {
+            content: "권";
+            margin-left: .25rem;
           }
         }
 

@@ -1,75 +1,88 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { AsideAccounts } from "../components/AsideAccounts";
 
 const Mypage = () => {
+  useEffect(() => {
+    const common = document.getElementById("userCommon");
+    const professor = document.getElementById("userProfessor");
+    const inputProfessor = document.querySelectorAll(".input-professor");
+
+    common.addEventListener("change", () => {
+      inputProfessor.forEach((input) => {
+        input.classList.remove("active");
+      });
+    });
+
+    professor.addEventListener("change", () => {
+      inputProfessor.forEach((input) => {
+        input.classList.add("active");
+      });
+    });
+  });
+
   return (
-    <main class="sub mypage wrapper">
-      <aside>
-        <h3>회원정보</h3>
-        <a href="shoppingbag.html">장바구니</a>
-        <a href="order_list.html">주문배송조회</a>
-        <a href="mypage.html">마이페이지</a>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub mypage wrapper">
+      <AsideAccounts />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">회원정보</a>
           <a href="#">마이페이지</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>마이페이지</h2>
           <p>회원님의 정보를 확인 및 수정하는 페이지입니다.</p>
         </div>
         <section>
-          <ul class="inputs">
+          <ul className="inputs">
             <li>
-              <span class="required">구분</span>
+              <span className="required">구분</span>
               <div>
                 <input
                   type="radio"
                   id="userCommon"
                   name="userType"
-                  checked="checked"
+                  defaultChecked
                 />
-                <label for="userCommon">일반</label>
+                <label htmlFor="userCommon">일반</label>
                 <input type="radio" id="userProfessor" name="userType" />
-                <label for="userProfessor">교수</label>
+                <label htmlFor="userProfessor">교수</label>
               </div>
             </li>
-            <li class="input-professor">
-              <span class="required">대학명</span>
+            <li className="input-professor">
+              <span className="required">대학명</span>
               <input type="text" />
             </li>
-            <li class="input-professor">
-              <span class="required">학과</span>
+            <li className="input-professor">
+              <span className="required">학과</span>
               <input type="text" />
             </li>
             <li>
-              <span class="required">이름</span>
-              <input type="text" value="홍길동" readonly="readonly" />
+              <span className="required">이름</span>
+              <input type="text" defaultValue="홍길동" readOnly />
             </li>
             <li>
-              <span class="required">ID</span>
-              <input type="text" value="test" readonly="readonly" />
+              <span className="required">ID</span>
+              <input type="text" defaultValue="test" readOnly />
             </li>
             <li>
-              <span class="required">현재 비밀번호</span>
-              <input type="password" value="" />
+              <span className="required">현재 비밀번호</span>
+              <input type="password" defaultValue="" />
             </li>
             <li>
-              <span class="required">신규 비밀번호</span>
-              <input type="password" value="" />
+              <span className="required">신규 비밀번호</span>
+              <input type="password" defaultValue="" />
               <small>
                 ※ 영문과 숫자를 혼용하여 6~12자리로 하며, 특수문자는 사용하지
                 않습니다.
               </small>
             </li>
             <li>
-              <span class="required">이메일</span>
-              <input type="email" value="hong@naver.com" />
+              <span className="required">이메일</span>
+              <input type="email" defaultValue="hong@naver.com" />
             </li>
-            <li class="phone">
-              <span class="required">전화번호</span>
+            <li className="phone">
+              <span className="required">전화번호</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -78,8 +91,8 @@ const Mypage = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="phone">
-              <span class="required">휴대폰</span>
+            <li className="phone">
+              <span className="required">휴대폰</span>
               <div>
                 <input type="number" />
                 <span>-</span>
@@ -88,8 +101,8 @@ const Mypage = () => {
                 <input type="number" />
               </div>
             </li>
-            <li class="address">
-              <span class="required">주소</span>
+            <li className="address">
+              <span className="required">주소</span>
               <input type="text" />
             </li>
             <li>
@@ -97,9 +110,9 @@ const Mypage = () => {
               <button>회원탈퇴</button>
             </li>
           </ul>
-          <div class="buttons">
-            <button class="btn-sub">취소</button>
-            <button class="btn-main">정보수정</button>
+          <div className="buttons">
+            <button className="btn-sub">취소</button>
+            <button className="btn-main">정보수정</button>
           </div>
         </section>
       </div>

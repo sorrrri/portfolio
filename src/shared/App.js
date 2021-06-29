@@ -34,6 +34,7 @@ class App extends Component {
         <Route path="/returns" component={Returns} />
         <Route path="/sample-books" component={SampleBooks} />
         <Route path="/shopping-bag" component={ShoppingBag} />
+        <Route path="/signup" component={SignUp} />
         <Footer />
       </ImageLoaded>
     );

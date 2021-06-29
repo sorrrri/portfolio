@@ -1,42 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { AsideCS } from "../components/AsideCS";
 
 const Returns = () => {
 
   return (
-    <main class="sub returns wrapper">
-      <aside>
-        <h3>고객센터</h3>
-        <a href="notice.html">공지사항</a>
-        <a href="errata.html">정오표</a>
-        <a href="downloads.html">자료실</a>
-        <a href="books_all.html">도서목록 전체보기</a>
-        <div>
-          <h4>정보안내</h4>
-          <a href="bookstore.html">서점안내</a>
-          <a href="academy.html">학원안내</a>
-          <a href="returns.html">반품/교환안내</a>
-        </div>
-        <div>
-          <h4>요청하기</h4>
-          <a href="qna.html">질의응답</a>
-          <a href="publish.html">출판문의</a>
-          <a href="group_buying.html">공동구매</a>
-        </div>
-      </aside>
-      <div class="content">
-        <div class="breadscrumb">
+    <main className="sub returns wrapper">
+      <AsideCS />
+      <div className="content">
+        <div className="breadscrumb">
           <a href="#">Home</a>
           <a href="#">고객센터</a>
           <a href="#">반품/교환안내</a>
         </div>
-        <div class="title">
+        <div className="title">
           <h2>반품/교환안내</h2>
           <p>도서출판 구민사의 반품 및 교환 방법을 안내해드립니다.</p>
         </div>
         <section>
           <h3>교환안내</h3>
-          <ul class="guide">
+          <ul className="guide">
             <li>전화(02-701-7421)를 통해 교환접수를 합니다.</li>
             <li>구민사 물류센터로 받으신 책을 반송하여 주세요.</li>
             <li>교환하고자 하는 책이 반송하려는 책보다 가격이 높은 경우 → 차액을 저희 은행계좌로 입금해주세요.</li>
@@ -47,7 +29,7 @@ const Returns = () => {
         </section>
         <section>
           <h3>반품안내</h3>
-          <ul class="guide">
+          <ul className="guide">
             <li>전화(02-701-7421)를 통해 교환접수를합니다.</li>
             <li>구민사 물류센터로 받으신 책을 반송하여 주세요.</li>
             <li>저희 회사의 실수로 인한 경우 저희가 배송비를 부담합니다. 그러나 발송 이후의 본인의 요청에 의한 반품일 경우에는 이용고객님이 배송비를 직접 부담하셔야 합니다.</li>
