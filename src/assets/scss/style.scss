@@ -1202,10 +1202,6 @@ footer {
         overflow: hidden;
         transition: opacity 0.2s, max-height 0.4s;
         will-change: opacity, max-height;
-
-        p {
-          padding: 1rem 1.5rem;
-        }
       }
 
       &.active {
@@ -1221,6 +1217,7 @@ footer {
           border-top: 1px solid #ddd;
           opacity: 1;
           max-height: 100rem;
+          padding: 1rem 1.5rem;
 
           img {
             max-width: 100%;
