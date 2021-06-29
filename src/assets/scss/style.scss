@@ -1217,9 +1217,14 @@ footer {
 
         .details {
           display: flex;
+          flex-direction: column;
           border-top: 1px solid #ddd;
           opacity: 1;
-          max-height: 10rem;
+          max-height: 100rem;
+
+          img {
+            max-width: 100%;
+          }
         }
       }
     }
