@@ -228,8 +228,8 @@ input {
     .logo {
       display: block;
       flex: 0 0 200px;
-      height: 80px;
-      background: url(../images/logo.png) no-repeat center right;
+      height: 50px;
+      background: url(../images/logo.png) no-repeat center;
       background-size: contain;
     }
 
@@ -337,9 +337,9 @@ footer {
   .logo {
     display: block;
     flex: 0 0 100px;
-    height: 50px;
-    background: url(../images/logo.gif) no-repeat center right;
-    background-size: cover;
+    height: 40px;
+    background: url(../images/logo.png) no-repeat center right;
+    background-size: contain;
   }
 }
 
