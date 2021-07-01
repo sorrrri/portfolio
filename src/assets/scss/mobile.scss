@@ -362,7 +362,6 @@ footer {
 
       .tab-content {
         margin-bottom: 2rem;
-        padding: 0.5rem;
 
         section {
           margin-bottom: 0 !important;
@@ -370,8 +369,8 @@ footer {
           > a {
             flex-direction: column;
             line-height: 1;
-            padding: 0.5rem 0;
             align-items: flex-start;
+            padding: 0.75rem;
           }
         }
       }

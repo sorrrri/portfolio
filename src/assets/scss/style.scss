@@ -240,10 +240,7 @@ input {
       margin: 0 3rem;
       border: 3px solid orangered;
       border-radius: 3rem;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50%;
+      position: relative;
 
       input {
         border: 0;
@@ -579,6 +576,8 @@ nav {
 
       input {
         width: 100%;
+        background-color: #e3e6e9;
+        border: 0;
       }
     }
 
@@ -589,6 +588,20 @@ nav {
       align-items: center;
       justify-content: center;
     }
+  }
+
+  .btn-signup {
+    background: transparent;
+    color: #333;
+    border: 1px solid #ddd;
+    font-family: "NanumSquare-Regular";
+  }
+
+  .find-account {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0 0;
   }
 }
 
@@ -681,6 +694,7 @@ nav {
           background-color: transparent;
           flex: 0 0 60px;
           justify-content: center;
+          padding: 0 0.5rem;
           transition: transform 0.2s;
 
           &:hover {
@@ -691,7 +705,6 @@ nav {
 
       .tab-content {
         flex: 1 1 auto;
-        padding: 1rem;
         border: 1px solid #ddd;
 
         section {
@@ -705,6 +718,7 @@ nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0.25rem 0.5rem;
 
             small {
               font-family: "Poppins-Semibold";
@@ -727,7 +741,7 @@ nav {
       background: darkslateblue;
       border-radius: 0.5rem;
       margin-left: 1rem;
-      padding: 2rem;
+      padding: 1.5rem;
 
       a {
         word-break: keep-all;
@@ -969,7 +983,7 @@ nav {
 
   .buttons {
     button {
-      padding: 0.75rem 2rem;
+      padding: 1rem 2.5rem;
     }
   }
 
@@ -1504,21 +1518,20 @@ nav {
 
     .view-header {
       padding-bottom: 1rem;
-      border-bottom: 1px solid #DDD;
+      border-bottom: 1px solid #ddd;
     }
 
     .view-title {
       font-size: 18px;
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
     }
-
 
     .writer {
       font-weight: bold;
     }
 
     .description {
-      padding: 1rem 0 0
+      padding: 1rem 0 0;
     }
 
     ul {
@@ -1529,10 +1542,9 @@ nav {
       }
 
       .views {
-
         &::before {
           content: "조회";
-          margin-right: .5rem;
+          margin-right: 0.5rem;
         }
       }
     }
@@ -1556,36 +1568,37 @@ nav {
     }
 
     li {
-      &.check {
-        width: 5%;
+      &.check,
+      &.counter,
+      &.views,
+      &.files {
+        flex: 0 0 5%;
       }
 
-      &.counter {
-        width: 5%;
+      &.writer,
+      &.author,
+      &.price,
+      &.quantity {
+        flex: 1 1 10%;
       }
 
-      &.categories {
-        width: 20%;
+      &.date,
+      &.status {
+        flex: 1 1 15%;
+      }
+
+      &.categories,
+      &.order-id {
+        flex: 1 1 20%;
       }
 
       &.book-title {
-        width: 40%;
+        flex: 1 1 40%;
+        justify-content: flex-start;
 
         &.reply {
           text-indent: 1rem;
         }
-      }
-
-      &:nth-of-type(5) {
-        width: 10%;
-      }
-
-      &.price {
-        width: 10%;
-      }
-
-      &.quantity {
-        width: 10%;
       }
 
       &.categories,
@@ -1620,60 +1633,76 @@ nav {
       &.quantity::after {
         content: "권";
       }
-
-      &.counter {
-        width: 10%;
-      }
-
-      &.book-title {
-        width: 50%;
-        justify-content: flex-start;
-      }
-
-      &.writer {
-        width: 10%;
-      }
-
-      &.date {
-        width: 15%;
-      }
-
-      &.views {
-        width: 10%;
-      }
-
-      &.files {
-        width: 5%;
-      }
     }
   }
 }
 
-.list-books {
-  .table {
-    ul {
-      li {
-        &:nth-of-type(1) {
-          width: 20%;
-        }
 
-        &:nth-of-type(2) {
-          width: 40%;
-        }
+.find-account {
+  .flex-container {
+    margin: 0 -.25rem;
+  }
 
-        &:nth-of-type(3) {
-          width: 12.5%;
-        }
+  section {
+    flex: 1 1 50%;
+    margin: 1rem 0.25rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
 
-        &:nth-of-type(4) {
-          width: 15%;
-        }
-
-        &:nth-of-type(5) {
-          width: 12.5%;
-        }
+    > div {
+      margin: 1rem 0;
+      
+      small {
+        display: block;
+        line-height: 2;
       }
     }
+  }
+
+  input[type="radio"]:checked ~ .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputs {
+    display: none;
+
+    li {
+      border-bottom: 0;
+
+      &.phone,
+      &.email {
+
+        > div {
+          flex-direction: column;
+          align-items: flex-start;
+
+          div {
+            margin-bottom: .5rem;
+          }
+        }
+
+        input  {
+          width: 200px !important
+        }
+
+        button {
+          margin-left: .5rem;
+        }
+      }
+
+      > span:first-of-type {
+        flex-basis: 100px;
+      }
+
+      input {
+        width: 200px;
+      }
+    }
+  }
+
+  .buttons {
+    align-self: center;
   }
 }
 

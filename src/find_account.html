@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block content %}
+<main class="sub find-account wrapper">
+  <div class="content">
+    <div class="breadscrumb">
+      <a href="#">Home</a>
+      <a href="#">아이디/비밀번호 찾기</a>
+    </div>
+    <div class="title">
+      <h2>아이디/비밀번호 찾기</h2>
+      <p></p>
+    </div>
+    <div class="flex-container">
+      <section>
+        <h3>아이디 찾기</h3>
+        <div>
+          <input type="radio" id="byPhoneNumber" name="getYourAccount" />
+          <label for="byPhoneNumber">회원정보에 등록한 휴대전화로 인증</label>
+          <small>회원정보에 등록한 휴대전화 번호와 입력한 휴대전화 번호가 같아야, 인증번호를 받을 수 있습니다. </small>
+          <ul class="inputs">
+            <li>
+              <span>이름</span>
+              <input type="text" />
+            </li>
+            <li class="phone">
+              <span>휴대전화</span>
+              <div>
+                <div>
+                  <input type="number" />
+                  <button type="button">인증번호 받기</button>
+                </div>
+                <input type="number" placeholder="인증번호 6자리 숫자 입력" />
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <input type="radio" id="byEmail" name="getYourAccount" />
+          <label for="byEmail">본인확인 이메일로 인증</label>
+          <small>본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다. </small>
+          <ul class="inputs">
+            <li>
+              <span>이름</span>
+              <input type="text" />
+            </li>
+            <li class="email">
+              <span>이메일 주소</span>
+              <div>
+                <div>
+                  <input type="number" />
+                  <button type="button">인증번호 받기</button>
+                </div>
+                <input type="number" placeholder="인증번호 6자리 숫자 입력" />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h3>비밀번호 찾기</h3>
+        <input type="radio" id="byID" name="getYourAccount" />
+        <label for="byID">아이디로 비밀번호 찾기</label>
+        <small>비밀번호를 찾고자 하는 아이디를 입력해 주세요</small>
+        <ul class="inputs">
+          <li>
+            <span>아이디</span>
+            <input type="text" placeholder="구민사 아이디를 입력해주세요.">
+          </li>
+          <li>
+            <span>이름</span>
+            <input type="text" />
+          </li>
+          <li class="phone">
+            <span>휴대전화</span>
+            <div>
+              <div>
+                <input type="number" />
+                <button type="button">인증번호 받기</button>
+              </div>
+              <input type="number" placeholder="인증번호 6자리 숫자 입력" />
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <div class="buttons">
+      <button class="btn-sub" onclick="history.back()">취소</button>
+      <button class="btn-main">계정 찾기</button>
+    </div>
+  </div>
+</main>
+{% endblock %}
