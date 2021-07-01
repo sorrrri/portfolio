@@ -305,4 +305,26 @@ document.addEventListener("DOMContentLoaded", () => {
       visibleOverlay();
     });
   }
+
+  // 출판문의, 공동구매 Alert창
+  const linkPublish = document.querySelector(".link-to-publish")
+  const linkGroupBuying = document.querySelector(".link-to-group-buying")
+
+  const msgPublish = `출판문의는 당사 메일 kuhminsa@kuhminsa.co.kr로 목차 및 원고 일부를 전송해주시기 바랍니다. 원고 확인 후 담당자가 회신 메일을 보내드리도록 하겠습니다.`
+  const msgGroupBuying = `공동구매를 원하시는 고객님은 당사 02)701-7421로 연락바랍니다.`
+   
+  if(linkPublish) {
+    linkPublish.addEventListener("click", (e) => {
+      e.stopPropagation
+      e.target.removeAttribute("href")
+      alert(msgPublish)
+    })
+  }
+  if(linkGroupBuying) {
+    linkGroupBuying.addEventListener("click", (e) => {
+      e.stopPropagation
+      e.target.removeAttribute("href")
+      alert(msgGroupBuying)
+    })
+  }
 });
