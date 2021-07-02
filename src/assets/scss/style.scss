@@ -1522,6 +1522,7 @@ nav {
         flex: 0 0 5%;
       }
 
+      &.code,
       &.writer,
       &.author,
       &.price,
@@ -1579,6 +1580,10 @@ nav {
 
       &.quantity::after {
         content: "권";
+      }
+
+      &.percentage::after {
+        content: "%";
       }
     }
   }
@@ -1706,7 +1711,7 @@ nav {
       a {
         display: flex;
         background: url(../images/logo_wh.png) no-repeat center;
-        background-size: 100px;
+        background-size: 60px;
         height: 60px;
         border-radius: 0.5rem;
       }
@@ -2304,57 +2309,6 @@ nav {
             content: none !important;
           }
         }
-      }
-
-      li {
-        &:nth-of-type(1) {
-          width: 10%;
-        }
-
-        &:nth-of-type(2) {
-          width: 10%;
-        }
-
-        &:nth-of-type(3) {
-          width: 50%;
-        }
-
-        &:nth-of-type(4) {
-          width: 10%;
-
-          &::after {
-            content: "권";
-          }
-        }
-
-        &:nth-of-type(5) {
-          width: 10%;
-
-          &::after {
-            content: "원";
-          }
-        }
-
-        &:nth-of-type(6) {
-          width: 10%;
-
-          &::after {
-            content: "%";
-          }
-        }
-      }
-    }
-  }
-
-  .list-user-statistics {
-    .row {
-      border: 0;
-
-      &:not(.title) {
-        border: 1px solid #ddd;
-        background-color: white;
-        border-radius: 0.5rem;
-        margin-bottom: 0.5rem;
       }
     }
   }

@@ -11,6 +11,7 @@ const nunjucks = require("gulp-nunjucks-render");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 const browserify = require("gulp-browserify");
+const imagemin = require("gulp-imagemin")
 
 const PATH = {
   HTML: "./src",
@@ -49,6 +50,7 @@ gulp.task("fonts", () => {
 gulp.task("images", () => {
   return gulp
     .src(PATH.ASSETS.IMAGES + "/**/*.*")
+    .pipe(imagemin())
     .pipe(gulp.dest(DEST_PATH.ASSETS.IMAGES))
     .pipe(browserSync.reload({ stream: true }));
 });
@@ -71,7 +73,7 @@ gulp.task("scss", () => {
 
   return gulp
     .src([
-      "src/assets/scss/swiper-bundle.css",
+      "node_modules/swiper/swiper-bundle.css",
       "src/assets/scss/common.scss",
       "src/assets/scss/style.scss",
       "src/assets/scss/mobile.scss",

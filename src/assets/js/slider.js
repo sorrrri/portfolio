@@ -1,6 +1,7 @@
 import Swiper from "swiper/bundle";
 
 const mainSlider = new Swiper(".main-slider", {
+  loop: true,
   pagination: {
     el: ".swiper-pagination",
     type: "progressbar",
@@ -16,6 +17,7 @@ const mainSlider = new Swiper(".main-slider", {
 });
 
 const booksSlider = new Swiper(".books-slider", {
+  loop: true,
   slidesPerView: 5,
   spaceBetween: 20,
   autoplay: {
@@ -25,6 +27,7 @@ const booksSlider = new Swiper(".books-slider", {
 });
 
 const bookstoreSlider = new Swiper(".bookstore-slider", {
+  loop: true,
   slidesPerView: 5,
   spaceBetween: 20,
   autoplay: {
@@ -51,6 +54,7 @@ function isMobile() {
 if (isMobile()) {
 
   const booksSlider = new Swiper(".books-slider", {
+    loop: true,
     slidesPerView: 2,
     spaceBetween: 30,
     autoplay: {
@@ -60,6 +64,7 @@ if (isMobile()) {
   });
   
   const bookstoreSlider = new Swiper(".bookstore-slider", {
+    loop: true,
     slidesPerView: 2,
     spaceBetween: 20,
     autoplay: {
