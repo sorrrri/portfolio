@@ -196,9 +196,6 @@ fieldset {
   border: 1px solid #ddd;
 }
 
-legend {
-}
-
 input {
   -webkit-appearance: none;
   height: auto;
@@ -375,9 +372,6 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
-
-    a {
-    }
   }
 
   button {
@@ -1069,7 +1063,7 @@ input[type="radio"] + label:empty:before {
 
 /* Scrollbar */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
   background-color: #eee;
 }
@@ -1082,7 +1076,7 @@ input[type="radio"] + label:empty:before {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #a3a6a9;
 }
 
@@ -1150,9 +1144,6 @@ input[type="radio"] + label:empty:before {
 
 .dark-mode .content {
   background: $dark-secondary-color !important;
-}
-
-.dark-mode .content .title h1 {
 }
 
 .dark-mode svg {

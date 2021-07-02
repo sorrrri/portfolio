@@ -47,9 +47,6 @@
     }
   }
 
-  .table {
-  }
-
   .modal {
     min-width: auto !important;
 
@@ -118,15 +115,10 @@
 
   .table {
     ul {
-      &.row {
-      }
 
       &.title {
         display: none;
       }
-    }
-
-    + .table-footer {
     }
   }
 
