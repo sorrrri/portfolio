@@ -2131,6 +2131,10 @@ nav {
     .table {
       margin-top: 3rem;
 
+      .title {
+        background-color: transparent !important;
+      }
+
       .row {
         border: 0;
 
