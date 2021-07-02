@@ -1,108 +1,115 @@
-{% extends "base_main.html" %}
+{% extends "base.html" %}
 {% block content %}
 <main class="wrapper main">
   <section class="slider">
-    <div class="main-slider">
-      <div>
-        <img src="assets/images/banner/main_03.jpg" alt="" />
+    <div class="main-slider swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/images/banner/main_03.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/banner/main_02.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/banner/main_03.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/banner/main_04.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/images/banner/main_05.jpg" alt="" />
+        </div>
       </div>
-      <div>
-        <img src="assets/images/banner/main_02.jpg" alt="" />
-      </div>
-      <div>
-        <img src="assets/images/banner/main_03.jpg" alt="" />
-      </div>
-      <div>
-        <img src="assets/images/banner/main_04.jpg" alt="" />
-      </div>
-      <div>
-        <img src="assets/images/banner/main_05.jpg" alt="" />
-      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </section>
   <section class="books-new">
     <h1>신간도서</h1>
-    <div class="books-slider">
-      <a href="#">
-        <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
-        <ul>
-          <li>뷰티 트렌드</li>
-          <li>홍수남 권오혁</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
-        <ul>
-          <li>자동차는 인간과 더불어 진화한다</li>
-          <li>자동차인간학 연구회</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
-        <ul>
-          <li>뷰티 트렌드</li>
-          <li>홍수남 권오혁</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
-        <ul>
-          <li>자동차는 인간과 더불어 진화한다</li>
-          <li>자동차인간학 연구회</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
-        <ul>
-          <li>뷰티 트렌드</li>
-          <li>홍수남 권오혁</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
-        <ul>
-          <li>자동차는 인간과 더불어 진화한다</li>
-          <li>자동차인간학 연구회</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
-        <ul>
-          <li>뷰티 트렌드</li>
-          <li>홍수남 권오혁</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
-        <ul>
-          <li>자동차는 인간과 더불어 진화한다</li>
-          <li>자동차인간학 연구회</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
-        <ul>
-          <li>뷰티 트렌드</li>
-          <li>홍수남 권오혁</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
-      <a href="#">
-        <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
-        <ul>
-          <li>자동차는 인간과 더불어 진화한다</li>
-          <li>자동차인간학 연구회</li>
-          <li>16,000원</li>
-        </ul>
-      </a>
+    <div class="books-slider swiper-container">
+      <div class="swiper-wrapper">
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+          <ul>
+            <li>뷰티 트렌드</li>
+            <li>홍수남 권오혁</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
+          <ul>
+            <li>자동차는 인간과 더불어 진화한다</li>
+            <li>자동차인간학 연구회</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+          <ul>
+            <li>뷰티 트렌드</li>
+            <li>홍수남 권오혁</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
+          <ul>
+            <li>자동차는 인간과 더불어 진화한다</li>
+            <li>자동차인간학 연구회</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+          <ul>
+            <li>뷰티 트렌드</li>
+            <li>홍수남 권오혁</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
+          <ul>
+            <li>자동차는 인간과 더불어 진화한다</li>
+            <li>자동차인간학 연구회</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+          <ul>
+            <li>뷰티 트렌드</li>
+            <li>홍수남 권오혁</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
+          <ul>
+            <li>자동차는 인간과 더불어 진화한다</li>
+            <li>자동차인간학 연구회</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/01.jpg" alt="샘플이미지" />
+          <ul>
+            <li>뷰티 트렌드</li>
+            <li>홍수남 권오혁</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+        <a class="swiper-slide" href="#">
+          <img src="assets/images/thumbnails/02.jpg" alt="샘플이미지" />
+          <ul>
+            <li>자동차는 인간과 더불어 진화한다</li>
+            <li>자동차인간학 연구회</li>
+            <li>16,000원</li>
+          </ul>
+        </a>
+      </div>
     </div>
   </section>
   <section class="row">
@@ -200,104 +207,43 @@
     </div>
   </section>
   <section class="bookstore">
-    <div class="bookstore-slider">
-      <a href="http://www.kyobobook.co.kr">
-        <img src="assets/images/logo/kyobo.gif" alt="교보문고 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.yes24.com/home/default.asp?SID=iuEqSs">
-        <img src="assets/images/logo/yes24.gif" alt="yes24 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.interpark.com/bookPark/html/book.html">
-        <img src="assets/images/logo/interpark.gif" alt="인터파크 도서 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.aladin.co.kr/">
-        <img src="assets/images/logo/aladin.gif" alt="알라딘 홈페이지 바로가기" />
-      </a>
-      <a href="http://duck-sung.co.kr/">
-        <img src="assets/images/logo/ducksung.gif" alt="서울덕성기술학원 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.web1978.or.kr/index.php">
-        <img src="assets/images/logo/hyundai.gif" alt="현대 CAD 디자인 직업 전문학교 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.sm6000.co.kr/index.html">
-        <img src="assets/images/logo/sungmin.gif" alt="성민열관리기술학원 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.환경에듀.com/">
-        <img src="assets/images/logo/jeon.gif" alt="전쌤의 환경에듀 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.hrdkorea.or.kr">
-        <img src="assets/images/logo/hrdkorea.gif" alt="한국산업인력공단 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.dbedu.or.kr/w/main/main.do">
-        <img src="assets/images/logo/dbedu.gif" alt="서울동부기술교육원 홈페이지 바로가기" />
-      </a>
-      <a href="http://www.bukedu.or.kr/home/homeIndex.do">
-        <img src="assets/images/logo/bukedu.gif" alt="서울북부기술교육원 홈페이지 바로가기" />
-      </a>
+    <div class="bookstore-slider swiper-container">
+      <div class="swiper-wrapper">
+        <a class="swiper-slide" href="http://www.kyobobook.co.kr">
+          <img src="assets/images/logo/kyobo.gif" alt="교보문고 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.yes24.com/home/default.asp?SID=iuEqSs">
+          <img src="assets/images/logo/yes24.gif" alt="yes24 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.interpark.com/bookPark/html/book.html">
+          <img src="assets/images/logo/interpark.gif" alt="인터파크 도서 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.aladin.co.kr/">
+          <img src="assets/images/logo/aladin.gif" alt="알라딘 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://duck-sung.co.kr/">
+          <img src="assets/images/logo/ducksung.gif" alt="서울덕성기술학원 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.web1978.or.kr/index.php">
+          <img src="assets/images/logo/hyundai.gif" alt="현대 CAD 디자인 직업 전문학교 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.sm6000.co.kr/index.html">
+          <img src="assets/images/logo/sungmin.gif" alt="성민열관리기술학원 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.환경에듀.com/">
+          <img src="assets/images/logo/jeon.gif" alt="전쌤의 환경에듀 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.hrdkorea.or.kr">
+          <img src="assets/images/logo/hrdkorea.gif" alt="한국산업인력공단 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.dbedu.or.kr/w/main/main.do">
+          <img src="assets/images/logo/dbedu.gif" alt="서울동부기술교육원 홈페이지 바로가기" />
+        </a>
+        <a class="swiper-slide" href="http://www.bukedu.or.kr/home/homeIndex.do">
+          <img src="assets/images/logo/bukedu.gif" alt="서울북부기술교육원 홈페이지 바로가기" />
+        </a>
+      </div>
     </div>
   </section>
 </main>
-<script>
-  $(".main-slider").slick({
-    infinite: true,
-    speed: 500,
-    fade: true,
-    autoplay: true,
-    arrows: true,
-    dots: true,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          dots: false,
-        },
-      },
-    ],
-  });
-  $(".books-slider").slick({
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          slidesToShow: 2,
-        },
-      },
-    ],
-  });
-  $(".bookstore-slider").slick({
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-        },
-      },
-    ],
-  });
-</script>
 {% endblock %}

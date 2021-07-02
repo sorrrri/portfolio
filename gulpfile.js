@@ -10,6 +10,7 @@ const ghPages = require("gulp-gh-pages");
 const nunjucks = require("gulp-nunjucks-render");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
+const browserify = require("gulp-browserify");
 
 const PATH = {
   HTML: "./src",
@@ -67,11 +68,18 @@ gulp.task("scss", () => {
     precision: 8,
     sourceComments: true,
   };
+
   return gulp
-    .src(PATH.ASSETS.STYLE + "/**/*.scss")
+    .src([
+      "src/assets/scss/swiper-bundle.css",
+      "src/assets/scss/common.scss",
+      "src/assets/scss/style.scss",
+      "src/assets/scss/mobile.scss",
+    ])
     .pipe(sourcemaps.init())
-    .pipe(scss(options))
+    .pipe(scss({ outputStyle: "compressed" }).on("error", scss.logError))
     .pipe(autoprefixer({ cascade: false }))
+    .pipe(concat("main.css"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
     .pipe(browserSync.reload({ stream: true }));
@@ -85,9 +93,13 @@ gulp.task("script", () => {
         presets: ["@babel/preset-env"],
       })
     )
-    .pipe(uglify({
-        mangle: false
-    }))
+    .pipe(
+      uglify({
+        mangle: false,
+      })
+    )
+    .pipe(concat("main.js"))
+    .pipe(browserify())
     .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
     .pipe(browserSync.reload({ stream: true }));
 });

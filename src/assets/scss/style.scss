@@ -1,3 +1,8 @@
+:root {
+  --swiper-navigation-color: slategray;
+  --swiper-pagination-color: slateblue;
+}
+
 .scroll {
   flex: 1 1 auto;
   display: flex;
@@ -143,6 +148,7 @@ input {
   > header {
     flex-direction: column;
     width: 100%;
+    padding: 0;
 
     nav {
       &.global-menu {
@@ -150,6 +156,7 @@ input {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        padding: 0 1rem;
 
         a {
           padding-left: 1rem;
@@ -470,14 +477,6 @@ nav {
   }
 }
 
-.slick-slider {
-  .slick-slide {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
 .table-header {
   display: flex;
   justify-content: space-between;
@@ -794,63 +793,6 @@ nav {
     .main-slider {
       width: 100%;
       height: 100%;
-
-      .slick-slide {
-        height: 326px;
-      }
-
-      .slick-dots {
-        bottom: -2rem;
-      }
-
-      .slick-dots li button:before {
-        font-size: 2.5rem;
-        color: black;
-      }
-      .slick-dots li.slick-active button:before {
-        opacity: 1;
-        color: orangered;
-      }
-
-      .slick-prev,
-      .slick-next {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        right: 0rem;
-        top: 50%;
-        z-index: 3;
-        border-radius: 0;
-        width: 5rem;
-        height: 5rem;
-        transition: 0.4s;
-
-        &::before {
-          content: "";
-          border: solid black;
-          border-width: 0 3px 3px 0;
-          display: inline-block;
-          padding: 12px;
-          transform: rotate(-45deg);
-          transition: 0.4s;
-        }
-
-        &:hover {
-          opacity: 1;
-
-          &::before {
-            border-color: orangered;
-          }
-        }
-      }
-
-      .slick-prev {
-        left: 0;
-
-        &::before {
-          transform: rotate(135deg);
-        }
-      }
     }
   }
 
@@ -860,12 +802,15 @@ nav {
       padding: 1rem;
     }
 
-    .slick-slide {
+    .swiper-slide {
+      display: flex;
       flex-direction: column;
+      align-items: center;
     }
 
     img {
-      height: 200px;
+      max-width: 100%;
+      max-height: 200px;
     }
 
     ul {
@@ -898,6 +843,11 @@ nav {
   section.bookstore {
     border: 5px solid #ddd;
     padding: 1rem;
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
 
