@@ -93,13 +93,13 @@ gulp.task("script", () => {
         presets: ["@babel/preset-env"],
       })
     )
+    .pipe(concat("main.js"))
+    .pipe(browserify())
     .pipe(
       uglify({
         mangle: false,
       })
     )
-    .pipe(concat("main.js"))
-    .pipe(browserify())
     .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
     .pipe(browserSync.reload({ stream: true }));
 });
