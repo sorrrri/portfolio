@@ -678,7 +678,6 @@ nav {
             background-color: #eee;
             padding: 0.75rem 2rem;
             border-right: 1px solid #ddd;
-            font-size: 17px;
             font-weight: bold;
             transition: background-color 0.4s;
 
@@ -873,7 +872,7 @@ nav {
 
     a {
       display: block;
-      padding: 0.5rem;
+      padding: 0.5rem 0.75rem;
       border-bottom: 1px solid #ddd;
 
       &:hover,
@@ -984,6 +983,13 @@ nav {
     display: flex;
     padding: 1rem;
 
+    .book-image {
+      flex: 0 0 316px; 
+
+      img {
+        width: 100%
+      }
+    }
     img {
       border: 1px solid #ddd;
     }
@@ -1530,6 +1536,7 @@ nav {
         flex: 1 1 10%;
       }
 
+      &.day,
       &.date,
       &.status {
         flex: 1 1 15%;
@@ -1589,10 +1596,9 @@ nav {
   }
 }
 
-
 .find-account {
   .flex-container {
-    margin: 0 -.25rem;
+    margin: 0 -0.25rem;
   }
 
   section {
@@ -1603,7 +1609,7 @@ nav {
 
     > div {
       margin: 1rem 0;
-      
+
       small {
         display: block;
         line-height: 2;
@@ -1624,22 +1630,21 @@ nav {
 
       &.phone,
       &.email {
-
         > div {
           flex-direction: column;
           align-items: flex-start;
 
           div {
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
           }
         }
 
-        input  {
-          width: 200px !important
+        input {
+          width: 200px !important;
         }
 
         button {
-          margin-left: .5rem;
+          margin-left: 0.5rem;
         }
       }
 
