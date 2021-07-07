@@ -856,6 +856,7 @@ nav {
     flex: 0 0 200px;
     margin: 1rem 0;
     justify-content: flex-start;
+    height: fit-content;
 
     h3 {
       background-color: orangered;
@@ -1138,45 +1139,105 @@ nav {
   }
 
   &.order {
-    section {
-      margin-bottom: 3rem;
+    .flex-container {
+      margin-top: 1rem;
+    }
 
-      input {
-        flex: 1 1 auto;
+    .order-information {
+      flex: 1 1 auto;
+      border-top: 2px solid #333;
+      border-bottom: 2px solid #333;
+    }
+
+    .order-container {
+      flex: 0 0 300px;
+      height: fit-content;
+      margin-left: 2rem;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+
+      h3 {
+        margin-bottom: 2rem;
       }
+    }
 
-      strong {
-        margin-bottom: 1rem;
-      }
+    .total {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
 
-      &:last-of-type {
+      li {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        margin: 0.5rem 1rem;
+        width: 100%;
+        justify-content: space-between;
+
+        .price {
+          margin-left: 0.5rem;
+          font-weight: bold;
+
+          &::after {
+            content: "원";
+          }
+        }
+
+        &:last-of-type {
+          color: tomato;
+          border-top: 1px solid #ddd;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+
+    .buttons {
+      margin: 1rem auto 0;
+      justify-content: flex-end;
+
+      .btn-main {
+        width: 100%;
+        justify-content: center;
+        background-color: tomato;
+        margin-left: 0;
+        font-family: "NanumSquare-Regular";
+        font-size: 17px;
+      }
+    }
+
+    .bank {
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
 
         > div {
           display: flex;
-          align-items: center;
-          margin-bottom: 1rem;
-
-          .selectbox {
-            margin: 0 0.25rem;
-          }
-
-          div:last-of-type {
-            &::before {
-              content: "(";
-            }
-
-            &::after {
-              content: ")";
-            }
-
-            input {
-              width: 100px;
-            }
-          }
         }
+
+        strong {
+          text-align: center;
+          background: #eee;
+          border: 2px dotted #ddd;
+          padding: 1rem;
+          border-radius: 0.25rem;
+        }
+      }
+
+      label {
+        margin-right: 0;
+      }
+    }
+
+    section {
+      margin: 0 0 3rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      input {
+        flex: 1 1 auto;
       }
     }
 
@@ -1222,7 +1283,6 @@ nav {
         }
 
         li {
-          flex: 1 1 auto;
 
           img {
             width: 50px;
@@ -1239,29 +1299,13 @@ nav {
 
     .table {
       flex: 1 1 auto;
-      li {
-        &:nth-of-type(1) {
-          width: 15%;
+      border-top: 2px solid #333;
+      border-bottom: 2px solid #333;
 
-          img {
-            width: 100px;
-          }
-        }
+      .thumbnail {
 
-        &:nth-of-type(2) {
-          width: 50%;
-        }
-
-        &:nth-of-type(3) {
-          width: 10%;
-        }
-
-        &:nth-of-type(4) {
-          width: 10%;
-        }
-
-        &:nth-of-type(5) {
-          width: 5%;
+        img {
+          width: 100px
         }
       }
     }
@@ -1301,15 +1345,13 @@ nav {
 
         &:last-of-type {
           color: tomato;
-          border-top: 1px solid #DDD;
-          padding: .5rem 0
+          border-top: 1px solid #ddd;
+          padding: 0.5rem 0;
         }
       }
     }
 
     .buttons {
-      margin: 1rem auto 0;
-      justify-content: flex-end;
 
       .btn-main {
         width: 100%;
@@ -1571,7 +1613,8 @@ nav {
       &.writer,
       &.author,
       &.price,
-      &.quantity {
+      &.quantity,
+      &.thumbnail {
         flex: 1 1 10%;
       }
 

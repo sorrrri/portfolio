@@ -1,6 +1,6 @@
 @media screen and (max-width: 768px) {
   body {
-    font-size: 14px;
+    font-size: 15px;
 
     .wrapper {
       width: 100%;
@@ -124,6 +124,7 @@
   .inputs {
     input[type="text"],
     input[type="number"],
+    input[type="email"],
     input[type="password"],
     input[type="url"] {
       flex: 1 1 100%;
@@ -505,17 +506,10 @@
     &.order {
       section {
         margin-bottom: 1rem;
+      }
 
-        &:last-of-type {
-          div {
-            justify-content: center;
-            flex-wrap: wrap;
-
-            div {
-              margin-top: 0.5rem;
-            }
-          }
-        }
+      .flex-container {
+        flex-direction: column;
       }
 
       .table {
@@ -557,6 +551,72 @@
               transform: translateY(-50%);
             }
           }
+        }
+      }
+
+      .order-container {
+        margin-left: 0;
+        margin-top: 1rem;
+
+        input {
+          width: 100px;
+        }
+      }
+    }
+
+
+    &.shoppingbag {
+
+      section {
+        flex-direction: column;
+      }
+
+      .order-container {
+        margin-left: 0;
+      }
+      
+      .table {
+        .row {
+          flex-direction: column;
+          position: relative;
+          align-items: flex-start;
+          text-indent: 100px;
+  
+          li {
+            width: 100% !important;
+            justify-content: flex-start;
+  
+            &:first-of-type {
+              position: absolute;
+              left: 0;
+  
+              img {
+                max-width: 56px;
+                height: 100%;
+              }
+            }
+  
+            &:nth-of-type(4) {
+              font-weight: bold;
+            }
+  
+            &:nth-of-type(5) {
+              position: absolute;
+              right: 0;
+              top: 50%;
+              justify-content: flex-end;
+              transform: translateY(-50%);
+            }
+          }
+        }
+      }
+  
+      .total {
+        padding: 1rem;
+        flex-wrap: wrap;
+  
+        li {
+          margin: 0 !important;
         }
       }
     }
@@ -646,53 +706,6 @@
 
     .result {
       margin: 0.5rem 0 0 !important;
-    }
-  }
-
-  .shoppingbag {
-    .table {
-      .row {
-        flex-direction: column;
-        position: relative;
-        align-items: flex-start;
-        text-indent: 100px;
-
-        li {
-          width: 100% !important;
-          justify-content: flex-start;
-
-          &:first-of-type {
-            position: absolute;
-            left: 0;
-
-            img {
-              max-width: 56px;
-              height: 100%;
-            }
-          }
-
-          &:nth-of-type(4) {
-            font-weight: bold;
-          }
-
-          &:nth-of-type(5) {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            justify-content: flex-end;
-            transform: translateY(-50%);
-          }
-        }
-      }
-    }
-
-    .total {
-      padding: 1rem;
-      flex-wrap: wrap;
-
-      li {
-        margin: 0 !important;
-      }
     }
   }
   .about {

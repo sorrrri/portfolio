@@ -120,173 +120,177 @@
       <h2>주문하기</h2>
       <p>주문하신 분의 정보와 배송받으실 곳의 정보를 입력해주시기 바랍니다.</p>
     </div>
-    <section>
-      <div class="table">
-        <!-- <ul class="row title">
-          <li>사진</li>
-          <li>도서명</li>
-          <li>단가</li>
-          <li>수량</li>
-          <li>결제금액</li>
-        </ul> -->
-        <ul class="row">
-          <li><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
-          <li>뷰티 트렌드</li>
-          <li>16,000원</li>
-          <li>1</li>
-          <li>16,000원</li>
-        </ul>
+    <div class="flex-container">
+      <div class="order-information">
+        <section class="list">
+          <div class="table">
+            <!-- <ul class="row title">
+              <li>사진</li>
+              <li>도서명</li>
+              <li>단가</li>
+              <li>수량</li>
+              <li>결제금액</li>
+            </ul> -->
+            <ul class="row">
+              <li class="thumbnail"><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+              <li class="book-title">뷰티 트렌드</li>
+              <li class="quantity">1</li>
+              <li class="price">16,000</li>
+            </ul>
+            <ul class="row">
+              <li class="thumbnail"><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+              <li class="book-title">뷰티 트렌드</li>
+              <li class="quantity">1</li>
+              <li class="price">16,000</li>
+            </ul>
+            <ul class="row">
+              <li class="thumbnail"><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+              <li class="book-title">뷰티 트렌드</li>
+              <li class="quantity">1</li>
+              <li class="price">16,000</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3>주문하신 분 정보확인</h3>
+          <ul class="inputs">
+            <li>
+              <span class="required">구매자명</span>
+              <input type="text" value="홍길동" />
+            </li>
+            <li>
+              <span class="required">이메일</span>
+              <input type="email" value="hong@naver.com" />
+            </li>
+            <li class="phone">
+              <span class="required">전화번호</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li class="phone">
+              <span class="required">휴대폰</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li>
+              <span class="required">주소</span>
+              <input type="text" />
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>받으시는 분 정보확인</h3>
+          <div class="checkbox">
+            <input id="ch" type="checkbox" />
+            <label for="ch">구매자 정보와 일치하면 체크하세요.</label>
+          </div>
+          <ul class="inputs">
+            <li>
+              <span class="required">받으시는 분</span>
+              <input type="text" value="홍길동" />
+            </li>
+            <li>
+              <span class="required">이메일</span>
+              <input type="email" value="hong@naver.com" />
+            </li>
+            <li class="phone">
+              <span class="required">전화번호</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li class="phone">
+              <span class="required">휴대폰</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li class="address">
+              <span class="required">주소</span>
+              <input type="text" />
+            </li>
+            <li>
+              <span class="required">요청사항</span>
+              <input type="text" />
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="order-container">
+        <h3>전체상품: 3개</h3>
         <ul class="total">
           <li>
-            <span>총 상품금액</span>
-            <span>16,000</span>
+            <span>주문금액</span>
+            <span class="price">48,000</span>
           </li>
           <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-            </svg>
+            <span>배송비</span>
+            <span class="price">+ 2500</span>
           </li>
           <li>
-            <span>배송료</span>
-            <span>2,500</span>
-          </li>
-          <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z" />
-            </svg>
-          </li>
-          <li>
-            <span>최종 결제금액</span>
-            <span>18,500</span>
+            <span>결제예정금액</span>
+            <span class="price">50,500</span>
           </li>
         </ul>
-      </div>
-    </section>
-    <section>
-      <h3>주문하신 분 정보확인</h3>
-      <ul class="inputs">
-        <li>
-          <span class="required">구매자명</span>
-          <input type="text" value="홍길동" />
-        </li>
-        <li>
-          <span class="required">이메일</span>
-          <input type="email" value="hong@naver.com" />
-        </li>
-        <li class="phone">
-          <span class="required">전화번호</span>
-          <div>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-          </div>
-        </li>
-        <li class="phone">
-          <span class="required">휴대폰</span>
-          <div>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-          </div>
-        </li>
-        <li>
-          <span class="required">주소</span>
-          <input type="text" />
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h3>받으시는 분 정보확인</h3>
-      <div class="checkbox">
-        <input id="ch" type="checkbox" />
-        <label for="ch">구매자 정보와 일치하면 체크하세요.</label>
-      </div>
-      <ul class="inputs">
-        <li>
-          <span class="required">받으시는 분</span>
-          <input type="text" value="홍길동" />
-        </li>
-        <li>
-          <span class="required">이메일</span>
-          <input type="email" value="hong@naver.com" />
-        </li>
-        <li class="phone">
-          <span class="required">전화번호</span>
-          <div>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-          </div>
-        </li>
-        <li class="phone">
-          <span class="required">휴대폰</span>
-          <div>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-            <span>-</span>
-            <input type="number" />
-          </div>
-        </li>
-        <li class="address">
-          <span class="required">주소</span>
-          <input type="text" />
-        </li>
-        <li>
-          <span class="required">요청사항</span>
-          <input type="text" />
-        </li>
-        <li>
-          <span class="required">결제방법</span>
-          <input id="a" type="radio" checked="checked" />
-          <label for="a">무통장 결제</label>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <div>
-        <span>입금예정일</span>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="2021">2021</option>
-          </select>
-        </div>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="06">06</option>
-          </select>
-        </div>
-        <div class="selectbox">
-          <select name="" id="">
-            <option value="01">01</option>
-          </select>
-        </div>
-        <div>
-          <span>입금자명</span>
-          <input type="text" value="홍길동" />
+        <ul class="bank">
+          <li>
+            <span class="required">결제방법</span>
+            <input id="a" type="radio" checked="checked" />
+            <label for="a">무통장 결제</label>
+          </li>
+          <li>
+            <span>입금예정일</span>
+            <div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="2021">2021</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="06">06</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="01">01</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span>입금자명</span>
+            <input type="text" value="홍길동" />
+          </li>
+          <li>
+            <strong>계좌번호: 국민은행 054901-04-133407 (조규백)</strong>
+          </li>
+        </ul>
+        <div class="buttons">
+          <button class="btn-main" onclick="location.href='order.html'">
+            주문완료
+          </button>
         </div>
       </div>
-      <strong>계좌번호: 국민은행 054901-04-133407 (조규백)</strong>
-      <div class="buttons">
-        <button class="btn-main">결제하기</button>
-      </div>
-    </section>
+    </div>
   </div>
 </main>
 
@@ -456,13 +460,6 @@
           <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
         </svg>
         <small>홈</small>
-      </a>
-      <a href="order.html">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-          <path
-            d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-        </svg>
-        <small>주문배송</small>
       </a>
       <a href="mypage.html">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 18 18">
