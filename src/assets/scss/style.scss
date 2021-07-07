@@ -245,7 +245,7 @@ input {
       display: flex;
       align-items: center;
       margin: 0 3rem;
-      border: 3px solid orangered;
+      border: 2px solid orangered;
       border-radius: 3rem;
       position: relative;
 
@@ -852,9 +852,10 @@ nav {
 
 .sub {
   aside {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    background-color: #f7f8f9;
     flex: 0 0 200px;
+    margin: 1rem 0;
+    justify-content: flex-start;
 
     h3 {
       background-color: orangered;
@@ -862,18 +863,17 @@ nav {
       padding: 1rem 0.5rem;
       font-size: 16px;
       font-weight: normal;
+      border-radius: 0.25rem 0.25rem 0 0;
     }
 
     h4 {
       padding: 0.75rem;
       background-color: rgba(213, 219, 224, 0.3) !important;
-      border-bottom: 1px solid #ddd;
     }
 
     a {
       display: block;
       padding: 0.5rem 0.75rem;
-      border-bottom: 1px solid #ddd;
 
       &:hover,
       &.active {
@@ -992,7 +992,7 @@ nav {
       border: 1px solid #ddd;
 
       img {
-        width: 300px
+        width: 300px;
       }
     }
 
@@ -1083,11 +1083,11 @@ nav {
 
         &.buttons {
           margin-top: 1rem;
-          
+
           a {
             padding: 0.75rem 3rem;
             margin-right: 0.5rem;
-            border-radius: .25rem;
+            border-radius: 0.25rem;
 
             &:first-of-type {
               flex: 1 1 auto;
@@ -1099,10 +1099,11 @@ nav {
             }
 
             &:last-of-type {
-              background: url(../images/ico_shopping_bag.png) no-repeat left 2.5rem center;
+              background: url(../images/ico_shopping_bag.png) no-repeat left
+                2.5rem center;
               background-size: 20px;
               padding-left: 4rem;
-              border: 1px solid #DDD
+              border: 1px solid #ddd;
             }
           }
         }
@@ -1232,7 +1233,12 @@ nav {
   }
 
   &.shoppingbag {
+    section {
+      flex-direction: row;
+    }
+
     .table {
+      flex: 1 1 auto;
       li {
         &:nth-of-type(1) {
           width: 15%;
@@ -1260,18 +1266,29 @@ nav {
       }
     }
 
+    .order-container {
+      flex: 0 0 300px;
+      height: fit-content;
+      margin-left: 2rem;
+      padding: 1.5rem;
+      border: 1px solid #ddd;
+
+      h3 {
+        margin-bottom: 2rem;
+      }
+    }
+
     .total {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      background: #eee;
+      flex-direction: column;
 
       li {
         display: flex;
         align-items: center;
         margin: 0.5rem 1rem;
+        width: 100%;
+        justify-content: space-between;
 
         .price {
           margin-left: 0.5rem;
@@ -1281,12 +1298,25 @@ nav {
             content: "원";
           }
         }
+
+        &:last-of-type {
+          color: tomato;
+          border-top: 1px solid #DDD;
+          padding: .5rem 0
+        }
       }
     }
 
     .buttons {
       margin: 1rem auto 0;
       justify-content: flex-end;
+
+      .btn-main {
+        width: 100%;
+        justify-content: center;
+        background-color: tomato;
+        margin-left: 0;
+      }
     }
   }
 
