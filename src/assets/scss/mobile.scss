@@ -512,12 +512,16 @@
         flex-direction: column;
       }
 
+      .order-information {
+        border: 0;
+      }
+
       .table {
         .row {
           flex-direction: column;
           position: relative;
           align-items: flex-start;
-          text-indent: 100px;
+          text-indent: 70px;
 
           &.total {
             padding: 1rem;
@@ -527,11 +531,15 @@
             text-align: center;
             padding: 0;
             width: 100% !important;
-            justify-content: flex-start;
+            justify-content: flex-start !important;
+
+            &::after {
+              display: contents;
+            }
 
             &:first-of-type {
               position: absolute;
-              left: 0;
+              left: 1rem;
 
               img {
                 max-width: 56px;
@@ -576,19 +584,25 @@
       }
       
       .table {
+        border: 0;
+
         .row {
           flex-direction: column;
           position: relative;
           align-items: flex-start;
-          text-indent: 100px;
+          text-indent: 70px;
   
           li {
             width: 100% !important;
-            justify-content: flex-start;
+            justify-content: flex-start !important;
+
+            &::after {
+              display: contents;
+            }
   
             &:first-of-type {
               position: absolute;
-              left: 0;
+              left: 1rem;
   
               img {
                 max-width: 56px;
@@ -602,9 +616,9 @@
   
             &:nth-of-type(5) {
               position: absolute;
-              right: 0;
+              right: 1rem;
               top: 50%;
-              justify-content: flex-end;
+              justify-content: flex-end !important;
               transform: translateY(-50%);
             }
           }
