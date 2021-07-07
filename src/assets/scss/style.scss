@@ -174,7 +174,7 @@ input {
           font-weight: bold;
 
           a {
-            flex: 1 1 20%;
+            flex: 1 1 25%;
             padding: 0.75rem;
             display: flex;
             justify-content: center;
@@ -241,7 +241,7 @@ input {
     }
 
     .search {
-      flex: 1 1 auto;
+      flex: 0 0 30rem;
       display: flex;
       align-items: center;
       margin: 0 3rem;
@@ -984,14 +984,16 @@ nav {
     padding: 1rem;
 
     .book-image {
-      flex: 0 0 316px; 
+      flex: 0 0 50%;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ddd;
 
       img {
-        width: 100%
+        width: 300px
       }
-    }
-    img {
-      border: 1px solid #ddd;
     }
 
     ul {
@@ -1039,14 +1041,14 @@ nav {
             display: flex;
 
             a {
-              width: 30px;
-              height: 30px;
+              width: 27px;
+              height: 27px;
               margin-left: 0.5rem;
               display: block;
 
               img {
                 border-radius: 0.25rem;
-                height: 30px;
+                height: 27px;
                 border: 0;
               }
             }
@@ -1065,7 +1067,7 @@ nav {
 
           input {
             border: 1px solid #aaa;
-            width: 100px;
+            width: 80px;
           }
           span:last-of-type::after {
             margin-left: 0.5rem;
@@ -1081,19 +1083,26 @@ nav {
 
         &.buttons {
           margin-top: 1rem;
-
+          
           a {
             padding: 0.75rem 3rem;
-            color: white;
             margin-right: 0.5rem;
+            border-radius: .25rem;
 
             &:first-of-type {
+              flex: 1 1 auto;
               padding: 0.75rem 4rem;
-              background-color: darkmagenta;
+              background-color: #333;
+              color: white;
+              display: flex;
+              justify-content: center;
             }
 
             &:last-of-type {
-              background-color: mediumvioletred;
+              background: url(../images/ico_shopping_bag.png) no-repeat left 2.5rem center;
+              background-size: 20px;
+              padding-left: 4rem;
+              border: 1px solid #DDD
             }
           }
         }
@@ -1762,7 +1771,6 @@ nav {
       }
 
       .sub-menu {
-        display: none;
         background-color: rgba(0, 0, 0, 0.3);
 
         a {
