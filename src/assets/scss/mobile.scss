@@ -19,7 +19,7 @@
     }
 
     input[type="search"] {
-      width: 100%
+      width: 100%;
     }
 
     .input {
@@ -576,9 +576,7 @@
       }
     }
 
-
     &.shoppingbag {
-
       section {
         flex-direction: column;
       }
@@ -586,7 +584,7 @@
       .order-container {
         margin-left: 0;
       }
-      
+
       .table {
         border: 0;
 
@@ -595,7 +593,7 @@
           position: relative;
           align-items: flex-start;
           text-indent: 70px;
-  
+
           li {
             width: 100% !important;
             justify-content: flex-start !important;
@@ -603,21 +601,21 @@
             &::after {
               display: contents;
             }
-  
+
             &:first-of-type {
               position: absolute;
               left: 1rem;
-  
+
               img {
                 max-width: 56px;
                 height: 100%;
               }
             }
-  
+
             &:nth-of-type(4) {
               font-weight: bold;
             }
-  
+
             &:nth-of-type(5) {
               position: absolute;
               right: 1rem;
@@ -628,11 +626,11 @@
           }
         }
       }
-  
+
       .total {
         padding: 1rem;
         flex-wrap: wrap;
-  
+
         li {
           margin: 0 !important;
         }
@@ -823,6 +821,12 @@
           &.buttons {
             justify-content: flex-end;
           }
+          
+          &.code,
+          &.order-id,
+          &.isbn {
+            font-family: "Poppins-SemiBold";
+          }
         }
       }
     }
@@ -973,11 +977,10 @@
         }
       }
     }
-
     .list-user {
       .table-header {
         button {
-          margin-top: .5rem;
+          margin-top: 0.5rem;
         }
       }
       .table {
@@ -985,7 +988,6 @@
           flex-direction: column;
 
           li {
-
             &.user-type,
             &.date {
               display: none;
@@ -1004,12 +1006,12 @@
             &.buttons {
               width: auto !important;
               flex-wrap: wrap;
-              margin: -.25rem;
+              margin: -0.25rem;
 
               button {
                 flex: 0 0 auto;
                 padding: 0.5rem !important;
-                margin: .25rem;
+                margin: 0.25rem;
               }
             }
 
@@ -1038,15 +1040,14 @@
     }
 
     .sample-book {
-
       .date {
         border-bottom: 1px solid #ddd;
-        margin-bottom: .5rem;
-        padding-bottom: .5rem !important;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem !important;
 
         &::before {
           content: "요청일: ";
-          margin-right: .5rem;
+          margin-right: 0.5rem;
         }
       }
 
@@ -1061,6 +1062,5 @@
         flex-direction: column;
       }
     }
-
   }
 }
