@@ -821,7 +821,7 @@
           &.buttons {
             justify-content: flex-end;
           }
-          
+
           &.code,
           &.order-id,
           &.isbn {
@@ -1056,8 +1056,7 @@
       }
     }
 
-    .list-group-buying,
-    .list-user-statistics {
+    .list-group-buying {
       .search {
         flex-direction: column;
       }
