@@ -28,9 +28,9 @@ const DEST_PATH = {
   HTML: "./dist",
   ASSETS: {
     FONTS: "./dist/assets/fonts",
-    STYLE: "./dist/assets/css",
+    STYLE: "./dist/assets",
     IMAGES: "./dist/assets/images",
-    SCRIPT: "./dist/assets/js",
+    SCRIPT: "./dist/assets",
     LIB: "./dist/assets/lib",
   },
 };

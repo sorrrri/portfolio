@@ -1,19 +1,19 @@
 @font-face {
   font-family: "Poppins-Semibold";
-  src: url("../fonts/Poppins-SemiBold.ttf");
+  src: url("./fonts/Poppins-SemiBold.ttf");
 }
 
 @font-face {
   font-family: "NanumSquare-Regular";
-  src: url(../fonts/NanumSquareR.otf),
-    url(../fonts/NanumSquareR.ttf) format("truetype");
+  src: url(./fonts/NanumSquareR.otf),
+    url(./fonts/NanumSquareR.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "NanumSquare";
   font-weight: 300;
-  src: url(../fonts/NanumSquareL.otf),
-    url(../fonts/NanumSquareL.ttf) format("truetype");
+  src: url(./fonts/NanumSquareL.otf),
+    url(./fonts/NanumSquareL.ttf) format("truetype");
 }
 
 $primary-color: #2f2586;

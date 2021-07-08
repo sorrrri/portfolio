@@ -236,7 +236,7 @@ input {
       display: block;
       flex: 0 0 200px;
       height: 50px;
-      background: url(../images/logo.png) no-repeat center;
+      background: url(./images/logo.png) no-repeat center;
       background-size: contain;
     }
 
@@ -285,15 +285,15 @@ input {
         background-position: top center;
 
         &.shopping-bag {
-          background-image: url(../images/ico_shopping_bag.png);
+          background-image: url(./images/ico_shopping_bag.png);
         }
 
         &.shipping {
-          background-image: url(../images/ico_car.png);
+          background-image: url(./images/ico_car.png);
         }
 
         &.mypage {
-          background-image: url(../images/ico_person.png);
+          background-image: url(./images/ico_person.png);
         }
 
         span {
@@ -342,7 +342,7 @@ footer {
     display: block;
     flex: 0 0 100px;
     height: 40px;
-    background: url(../images/logo.png) no-repeat center right;
+    background: url(./images/logo.png) no-repeat center right;
     background-size: contain;
   }
 }
@@ -752,27 +752,27 @@ nav {
         background-position: top 0.5rem center;
 
         &:nth-of-type(1) {
-          background-image: url("../images/ico_book.png");
+          background-image: url("./images/ico_book.png");
         }
 
         &:nth-of-type(2) {
-          background-image: url("../images/ico_book_open.png");
+          background-image: url("./images/ico_book_open.png");
         }
 
         &:nth-of-type(3) {
-          background-image: url("../images/ico_bookmark.png");
+          background-image: url("./images/ico_bookmark.png");
         }
 
         &:nth-of-type(4) {
-          background-image: url("../images/ico_document_search.png");
+          background-image: url("./images/ico_document_search.png");
         }
 
         &:nth-of-type(5) {
-          background-image: url("../images/ico_documents.png");
+          background-image: url("./images/ico_documents.png");
         }
 
         &:nth-of-type(6) {
-          background-image: url("../images/ico_bookmark_open.png");
+          background-image: url("./images/ico_bookmark_open.png");
         }
       }
     }
@@ -1100,7 +1100,7 @@ nav {
             }
 
             &:last-of-type {
-              background: url(../images/ico_shopping_bag.png) no-repeat left
+              background: url(./images/ico_shopping_bag.png) no-repeat left
                 2.5rem center;
               background-size: 20px;
               padding-left: 4rem;
@@ -1175,7 +1175,7 @@ nav {
 
         .price {
           margin-left: 0.5rem;
-          font-weight: bold;
+          font-family: "Poppins-SemiBold";
 
           &::after {
             content: "원";
@@ -1283,7 +1283,6 @@ nav {
         }
 
         li {
-
           img {
             width: 50px;
           }
@@ -1303,9 +1302,8 @@ nav {
       border-bottom: 2px solid #333;
 
       .thumbnail {
-
         img {
-          width: 100px
+          width: 100px;
         }
       }
     }
@@ -1336,7 +1334,7 @@ nav {
 
         .price {
           margin-left: 0.5rem;
-          font-weight: bold;
+          font-family: "Poppins-SemiBold";
 
           &::after {
             content: "원";
@@ -1352,7 +1350,6 @@ nav {
     }
 
     .buttons {
-
       .btn-main {
         width: 100%;
         justify-content: center;
@@ -1797,7 +1794,7 @@ nav {
 
       a {
         display: flex;
-        background: url(../images/logo_wh.png) no-repeat center;
+        background: url(./images/logo_wh.png) no-repeat center;
         background-size: 60px;
         height: 60px;
         border-radius: 0.5rem;
