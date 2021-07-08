@@ -562,6 +562,8 @@ aside {
 
 /* ,Checkbox */
 .checkbox {
+  display: flex;
+  align-items: center;
   position: relative;
   user-select: none;
 

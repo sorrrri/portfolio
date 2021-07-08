@@ -271,11 +271,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const address = document.querySelector(".address");
+  const modalAddress = document.querySelector(".modal-address");
 
-  if (address) {
+  if (modalAddress) {
+    const address = document.querySelector(".address");
     const inputAddress = address.querySelector("input");
-    const modalAddress = document.querySelector(".modal-address");
 
     inputAddress.addEventListener("click", () => {
       modalAddress.classList.add("active");

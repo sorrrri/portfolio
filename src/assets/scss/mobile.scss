@@ -977,57 +977,6 @@
         }
       }
     }
-    .list-user {
-      .table-header {
-        button {
-          margin-top: 0.5rem;
-        }
-      }
-      .table {
-        ul {
-          flex-direction: column;
-
-          li {
-            &.user-type,
-            &.date {
-              display: none;
-            }
-
-            &.user-name {
-              font-size: 15px;
-              font-weight: bold;
-              line-height: 2;
-            }
-
-            &.education {
-              padding-top: 0;
-            }
-
-            &.buttons {
-              width: auto !important;
-              flex-wrap: wrap;
-              margin: -0.25rem;
-
-              button {
-                flex: 0 0 auto;
-                padding: 0.5rem !important;
-                margin: 0.25rem;
-              }
-            }
-
-            &.user-id {
-              font-family: "Poppins-Semibold";
-              font-size: 13px;
-              position: absolute;
-              right: 1rem;
-              text-align: right;
-              width: fit-content !important;
-              top: 1rem;
-            }
-          }
-        }
-      }
-    }
 
     .list-order {
       .phone {
@@ -1056,6 +1005,25 @@
       }
     }
 
+    .list-user {
+      .table-header {
+        button {
+          margin-top: 0.5rem;
+        }
+      }
+
+      .table {
+        li {
+          .checkbox {
+            margin-right: 0.25rem;
+          }
+
+          button {
+            margin-right: 0;
+          }
+        }
+      }
+    }
     .list-group-buying {
       .search {
         flex-direction: column;
