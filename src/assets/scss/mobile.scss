@@ -18,6 +18,10 @@
       width: 100%;
     }
 
+    input[type="search"] {
+      width: 100%
+    }
+
     .input {
       flex-direction: row !important;
       display: flex;
@@ -748,7 +752,6 @@
           display: flex;
           flex-direction: row;
           align-items: center;
-          margin-bottom: 0.5rem;
 
           label {
             flex: 0 0 30%;
@@ -814,7 +817,10 @@
           &.price,
           &.mileage,
           &.day,
-          &.percentage {
+          &.date,
+          &.writer,
+          &.percentage,
+          &.buttons {
             justify-content: flex-end;
           }
         }
@@ -928,10 +934,6 @@
         display: flex;
       }
 
-      input {
-        max-width: 120px;
-      }
-
       section {
         width: 100%;
         flex: 0 0 auto;
@@ -973,14 +975,16 @@
     }
 
     .list-user {
+      .table-header {
+        button {
+          margin-top: .5rem;
+        }
+      }
       .table {
         ul {
           flex-direction: column;
-          width: 100%;
 
           li {
-            width: 100% !important;
-            justify-content: flex-start;
 
             &.user-type,
             &.date {
@@ -998,11 +1002,14 @@
             }
 
             &.buttons {
-              padding-top: 0;
+              width: auto !important;
+              flex-wrap: wrap;
+              margin: -.25rem;
 
               button {
-                flex: 1 1 auto;
-                padding: 0.25rem;
+                flex: 0 0 auto;
+                padding: 0.5rem !important;
+                margin: .25rem;
               }
             }
 
@@ -1020,13 +1027,6 @@
       }
     }
 
-    .list-notice {
-      .writer,
-      .date {
-        justify-content: flex-end;
-      }
-    }
-
     .list-order {
       .phone {
         flex-direction: row !important;
@@ -1037,69 +1037,30 @@
       }
     }
 
+    .sample-book {
+
+      .date {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: .5rem;
+        padding-bottom: .5rem !important;
+
+        &::before {
+          content: "요청일: ";
+          margin-right: .5rem;
+        }
+      }
+
+      .buttons {
+        margin-top: 1rem;
+      }
+    }
+
     .list-group-buying,
-    .list-books-statistics,
     .list-user-statistics {
       .search {
         flex-direction: column;
       }
     }
 
-    .sample-book {
-      .table {
-        .row {
-          flex-direction: column;
-          padding: 1rem;
-
-          li {
-            width: 100% !important;
-            justify-content: flex-start;
-
-            &.counter,
-            &.author,
-            &.published {
-              display: none;
-            }
-
-            &.isbn {
-              font-size: 13px;
-              font-weight: bold;
-            }
-
-            &.book-title {
-              padding-top: 0.5rem;
-            }
-
-            &.quantity {
-              &::after {
-                content: "권";
-              }
-            }
-
-            &.date {
-              font-size: 13px;
-              position: absolute;
-              top: 1rem;
-              right: 1rem;
-              justify-content: flex-end;
-            }
-
-            &.user-name,
-            &.phone,
-            &.email {
-              padding-top: 0;
-            }
-
-            &.address {
-              text-align: left;
-            }
-
-            &.buttons {
-              justify-content: flex-end;
-            }
-          }
-        }
-      }
-    }
   }
 }

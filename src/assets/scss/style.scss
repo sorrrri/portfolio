@@ -520,6 +520,7 @@ nav {
     }
 
     button {
+      flex: 0 0 32px;
       width: 32px;
       height: 32px;
       display: flex;
@@ -542,6 +543,7 @@ nav {
 
   ul {
     border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
     cursor: pointer;
   }
 
@@ -1601,14 +1603,21 @@ nav {
     li {
       &.check,
       &.counter,
+      &.user-type,
       &.views,
       &.files {
-        flex: 0 0 5%;
+        flex: 1 1 5%;
       }
 
       &.code,
+      &.phone,
+      &.isbn,
+      &.user,
+      &.user-name,
+      &.user-id,
       &.writer,
       &.author,
+      &.published,
       &.price,
       &.quantity,
       &.thumbnail {
@@ -1617,13 +1626,18 @@ nav {
 
       &.day,
       &.date,
-      &.status {
+      &.status,
+      &.email {
         flex: 1 1 15%;
       }
 
       &.categories,
       &.order-id {
         flex: 1 1 20%;
+      }
+
+      &.address {
+        flex: 1 1 30%;
       }
 
       &.book-title {
@@ -1647,6 +1661,12 @@ nav {
             margin-right: 0.5rem;
           }
         }
+      }
+
+      &.code,
+      &.order-id,
+      &.isbn {
+        font-family: "Poppins-SemiBold";
       }
 
       &.quantity,
@@ -1757,7 +1777,7 @@ nav {
 
   .buttons {
     button {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1rem !important;
 
       &.btn-main {
         background: #333;
@@ -1878,6 +1898,11 @@ nav {
     .content {
       padding: 2rem 2rem 3rem;
       overflow-y: auto;
+
+      h3 {
+        font-size: 16px;
+        margin-bottom: 0.5rem;
+      }
     }
   }
 
@@ -1977,69 +2002,6 @@ nav {
     }
   }
 
-  .list-order {
-    .row {
-      li {
-        &.counter {
-          width: 5%;
-        }
-
-        // 신청자
-        &:nth-of-type(2) {
-          width: 5%;
-        }
-
-        &.phone {
-          width: 10%;
-          flex-direction: column;
-        }
-
-        &.order-code {
-          width: 15%;
-        }
-
-        &.book-title {
-          width: 25%;
-        }
-
-        &.quantity {
-          width: 5%;
-        }
-
-        &.price {
-          width: 5%;
-        }
-
-        // 입금인
-        &:nth-of-type(8) {
-          width: 5%;
-        }
-
-        //결제방법
-        &:nth-of-type(9) {
-          width: 5%;
-        }
-
-        //주문일
-        &.date {
-          width: 10%;
-          display: flex;
-          flex-direction: column;
-        }
-
-        //상태
-        &:nth-of-type(11) {
-          width: 10%;
-        }
-      }
-    }
-
-    .phone {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
   .categories {
     .content {
       display: flex;
@@ -2057,6 +2019,7 @@ nav {
     button {
       background-color: transparent;
       border: 1px solid #ddd;
+      flex: 0 0 35px;
       width: 35px;
       height: 35px;
       justify-content: center;
@@ -2078,6 +2041,7 @@ nav {
         margin-bottom: 1rem;
 
         input {
+          width: 100%;
           margin: 0 0.5rem;
         }
       }
@@ -2087,7 +2051,7 @@ nav {
         padding: 0.5rem 0;
         cursor: pointer;
         input {
-          flex: 1 1 auto;
+          width: 100%;
         }
 
         button {
@@ -2287,57 +2251,7 @@ nav {
         }
 
         li {
-          &.counter {
-            width: 5%;
-          }
-
-          &.isbn {
-            width: 10%;
-          }
-
-          &.book-title {
-            width: 45%;
-          }
-
-          &.author {
-            width: 10%;
-          }
-
-          &.published {
-            width: 10%;
-          }
-
-          &.quantity {
-            width: 5%;
-          }
-
-          &.date {
-            width: 15%;
-          }
-
-          &.education {
-            padding-top: 1rem;
-          }
-
-          &.user-name {
-            padding-top: 1rem;
-          }
-
-          &.phone {
-            padding-top: 1rem;
-          }
-
-          &.email {
-            padding-top: 1rem;
-          }
-
-          &.address {
-            padding-top: 1rem;
-          }
-
           &.buttons {
-            padding-top: 1rem;
-
             button:first-of-type {
               opacity: 0.5;
             }
@@ -2581,57 +2495,14 @@ nav {
 
   .list-user {
     .table {
+
+      .buttons {
+        justify-content: flex-end;
+      }
       button {
         font-size: 12px;
         background-color: #414a5a;
         padding: 0.25rem 0.5rem;
-      }
-
-      ul {
-        flex-wrap: wrap;
-
-        li {
-          &:nth-of-type(1) {
-            width: 5%;
-          }
-
-          &:nth-of-type(2) {
-            width: 5%;
-          }
-
-          &:nth-of-type(3) {
-            width: 5%;
-          }
-
-          &:nth-of-type(4) {
-            width: 10%;
-          }
-
-          &:nth-of-type(5) {
-            width: 20%;
-          }
-
-          &:nth-of-type(6) {
-            width: 15%;
-          }
-
-          &:nth-of-type(7) {
-            width: 10%;
-          }
-
-          &:nth-of-type(8) {
-            width: 30%;
-          }
-
-          &:nth-of-type(9) {
-            padding-top: 1rem;
-          }
-
-          &:nth-of-type(10) {
-            justify-content: flex-end;
-            padding-top: 1rem;
-          }
-        }
       }
     }
   }
