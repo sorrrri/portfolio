@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (subMenu) {
         mainMenu.addEventListener("click", () => {
+          console.log("clicked!")
           mainMenu.classList.toggle("active");
           subMenu.classList.toggle("active");
         });
