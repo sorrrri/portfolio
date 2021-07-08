@@ -1610,9 +1610,11 @@ nav {
         flex: 1 1 5%;
       }
 
+      &.flex-10,
       &.code,
       &.date,
       &.isbn,
+      &.bank,
       &.user,
       &.user-name,
       &.user-id,
