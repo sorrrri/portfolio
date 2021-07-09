@@ -4,7 +4,7 @@
     max-width: 1200px;
   }
 
-  .container>header .search {
+  .container > header .search {
     flex-basis: 25rem;
   }
 
@@ -598,6 +598,7 @@
 
       .order-container {
         margin-left: 0;
+        flex-basis: auto;
       }
 
       .table {
@@ -664,9 +665,11 @@
 
           .image {
             height: 70px;
+            position: relative;
 
             img {
-              width: 40vw;
+              max-width: 40vw;
+              height: 60%;
             }
           }
         }
@@ -802,11 +805,12 @@
         background: white;
         border-radius: 0.5rem;
         margin-bottom: 0.5rem;
-        border: 1px solid #ddd;
+        border: 1px solid #e3e6e9;
         padding: 1rem;
         text-align: left;
 
         li {
+          flex: 1 1 auto !important;
           padding: 0;
           width: 100% !important;
           justify-content: flex-start;
@@ -818,6 +822,7 @@
           }
 
           &.book-title {
+            flex: 1 1 auto;
             font-size: 15px;
             font-weight: bold;
           }
@@ -835,12 +840,6 @@
           &.percentage,
           &.buttons {
             justify-content: flex-end;
-          }
-
-          &.code,
-          &.order-id,
-          &.isbn {
-            font-family: "Poppins-SemiBold";
           }
         }
       }
@@ -994,12 +993,83 @@
     }
 
     .list-order {
-      .phone {
-        flex-direction: row !important;
+      .order-information {
+        span {
+          padding-left: 0;
+        }
+      }
+
+      li {
+        &::before {
+          font-weight: bold;
+          font-size: 13px;
+          margin-right: 1rem;
+          width: 100%;
+        }
+      }
+
+      .price {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem !important;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .user {
+        margin-bottom: .5rem;
+
+        &::before {
+          content: "주문자 정보";
+        }
+      }
+
+      .payment {
+
+        &::before {
+          content: "결제 방식";
+        }
+      }
+
+      .date {
+        margin-bottom: .5rem;
+
       }
 
       .book-title {
         padding-top: 1rem !important;
+      }
+
+      .date {
+        justify-content: flex-start !important;
+      }
+
+      .ship-to {
+        margin: 0;
+        max-width: none;
+        flex-wrap: wrap;
+
+        &::before {
+          margin: 0 0 0.5rem;
+          width: 100%;
+          text-align: center;
+        }
+
+        .address,
+        .user-name,
+        .phone {
+          flex: 0 0 40%;
+          width: auto !important;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-bottom: 0.5rem;
+
+          &::before {
+            margin-left: 0;
+          }
+        }
+
+        .status {
+          justify-content: flex-end;
+        }
       }
     }
 

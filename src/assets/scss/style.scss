@@ -537,11 +537,12 @@ nav {
 
 .table {
   .title {
-    background-color: rgba(213, 219, 224, 0.3) !important;
     cursor: auto !important;
+    margin-bottom: 0 !important;
   }
 
-  ul {
+  .row {
+    padding: .75rem 0;
     border-bottom: 1px solid #ddd;
     flex-wrap: wrap;
     cursor: pointer;
@@ -1593,6 +1594,8 @@ nav {
     &.title {
       li {
         justify-content: center !important;
+        color: slategray !important;
+        font-family: "Nanumsquare-Regular" !important;
       }
 
       li::after {
@@ -1604,8 +1607,11 @@ nav {
       &.check,
       &.counter,
       &.user-type,
+      &.user-name,
       &.views,
+      &.price,
       &.files,
+      &.quantity,
       &.percentage {
         flex: 1 1 5%;
       }
@@ -1614,57 +1620,57 @@ nav {
       &.code,
       &.date,
       &.isbn,
-      &.bank,
-      &.user,
-      &.user-name,
+      &.payment,
+      &.status,
       &.user-id,
       &.writer,
       &.author,
       &.published,
-      &.price,
-      &.quantity,
-      &.thumbnail {
+      &.thumbnail,
+      &.order-id,
+      &.phone {
         flex: 1 1 10%;
       }
 
       &.day,
-      &.status,
-      &.email,
-      &.order-id {
+      &.user,
+      &.order-information,
+      &.email {
         flex: 1 1 15%;
       }
 
       &.categories,
-      &.phone {
-        flex: 1 1 20%;
+      &.education {
+        flex: 1 1 21%;
       }
 
       &.address {
         flex: 1 1 30%;
-        justify-content: flex-start
+        justify-content: flex-start;
       }
 
       &.book-title {
-        flex: 1 1 40%;
+        flex: 1 1 35%;
         justify-content: flex-start;
+        text-align: left;
 
         &.reply {
           text-indent: 1rem;
         }
       }
 
-      &.categories,
-      &.phone,
       &.date {
-        flex-direction: row;
+        font-family: "Poppins-SemiBold";
+        font-size: 13px;
+      }
 
-        span {
-          &:last-of-type::before {
-            content: "/";
-            padding-left: 0.5rem;
-            margin-right: 0.5rem;
-          }
-        }
+      &.code,
+      &.order-id,
+      .order-id,
+      &.isbn {
+        font-family: "Poppins-SemiBold";
+        color: darkslateblue;
+        font-size: 14px;
       }
 
       &.quantity,
@@ -1688,6 +1694,111 @@ nav {
 
       &.percentage::after {
         content: "%";
+      }
+    }
+  }
+}
+
+.list-order {
+  .table {
+    .row {
+      justify-content: flex-end;
+    }
+  }
+
+  .order-information {
+    flex-direction: column;
+
+    span {
+      justify-content: flex-start;
+      padding-left: 1.5rem;
+    }
+  }
+
+  .user,
+  .payment {
+    flex-wrap: wrap;
+
+    span {
+      &:last-of-type {
+        &::before {
+          content: "(";
+        }
+
+        &::after {
+          content: ")";
+        }
+      }
+    }
+  }
+
+  .order-date {
+    width: 100%;
+    font-size: 13px;
+    font-family: "Poppins-SemiBold";
+  }
+
+  .ship-to {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: calc(100% - 13rem);
+    display: flex;
+    align-items: center;
+    background-color: #ebf1f8;
+    margin: 0.75rem 0.75rem 0.25rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+
+    &::before {
+      content: "수취인 정보";
+      font-size: 13px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.5);
+      margin-left: -5rem;
+      margin-right: 1rem;
+    }
+
+    li {
+      flex: 0 0 auto !important;
+      align-items: center;
+
+      &:not(.status) {
+        margin-right: 1rem;
+        &::before {
+          margin: 0 0.5rem;
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .user-name {
+      &::before {
+        content: "이름";
+      }
+    }
+
+    .phone {
+      &::before {
+        content: "연락처";
+      }
+    }
+
+    .address {
+      flex: 1 1 30% !important;
+
+      &::before {
+        content: "주소";
+      }
+    }
+
+    .status {
+      justify-content: flex-end;
+      flex: 0 0 auto !important;
+
+      select {
+        border: 0;
+        background-color: rgba(150, 150, 150, 0.1);
       }
     }
   }
@@ -1787,6 +1898,15 @@ nav {
     }
   }
 
+  .table {
+    .row {
+      padding: 1rem 0;
+      background-color: white;
+      border-radius: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+  }
+
   .inputs {
     border: 0;
   }
@@ -1873,7 +1993,7 @@ nav {
   main {
     flex-direction: column;
     max-width: none;
-    background-color: #eee;
+    background-color: #f1f2f3;
     border-radius: 1rem 0 0 1rem;
 
     > .title {

@@ -242,7 +242,7 @@ input {
     width: 0;
     height: 0;
   }
-  
+
   &::-webkit-search-decoration,
   &::-webkit-search-cancel-button,
   &::-webkit-search-results-button,
@@ -828,8 +828,6 @@ input[type="radio"] + label:empty:before {
     word-break: keep-all;
     border-radius: 0;
     background-color: transparent !important;
-    border-top: 2px solid $auro-peppermint;
-    border-bottom: 1px solid $auro-peppermint;
     padding: 0.75rem 0 !important;
     cursor: default;
   }
@@ -851,10 +849,7 @@ input[type="radio"] + label:empty:before {
     }
 
     span {
-      color: #5e5c67;
-      align-items: center;
       display: flex;
-      justify-content: center;
     }
   }
 }
