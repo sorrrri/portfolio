@@ -59,13 +59,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (admin) {
     const mainMenus = document.querySelectorAll(".main-menu");
+    const subMenus = document.querySelectorAll(".sub-menu");
 
     mainMenus.forEach((mainMenu) => {
       const subMenu = mainMenu.nextElementSibling;
 
       if (subMenu) {
+        function init() {
+          mainMenus.forEach((main) => {
+            main.classList.remove("active");
+          });
+
+          subMenus.forEach((sub) => {
+            sub.classList.remove("active");
+          });
+        }
+
         mainMenu.addEventListener("click", () => {
-          console.log("clicked!")
+          init();
+
           mainMenu.classList.toggle("active");
           subMenu.classList.toggle("active");
         });
@@ -308,24 +320,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 출판문의, 공동구매 Alert창
-  const linkPublish = document.querySelector(".link-to-publish")
-  const linkGroupBuying = document.querySelector(".link-to-group-buying")
+  const linkPublish = document.querySelector(".link-to-publish");
+  const linkGroupBuying = document.querySelector(".link-to-group-buying");
 
-  const msgPublish = `출판문의는 당사 메일 kuhminsa@kuhminsa.co.kr로 목차 및 원고 일부를 전송해주시기 바랍니다. 원고 확인 후 담당자가 회신 메일을 보내드리도록 하겠습니다.`
-  const msgGroupBuying = `공동구매를 원하시는 고객님은 당사 02)701-7421로 연락바랍니다.`
-   
-  if(linkPublish) {
+  const msgPublish = `출판문의는 당사 메일 kuhminsa@kuhminsa.co.kr로 목차 및 원고 일부를 전송해주시기 바랍니다. 원고 확인 후 담당자가 회신 메일을 보내드리도록 하겠습니다.`;
+  const msgGroupBuying = `공동구매를 원하시는 고객님은 당사 02)701-7421로 연락바랍니다.`;
+
+  if (linkPublish) {
     linkPublish.addEventListener("click", (e) => {
-      e.stopPropagation
-      e.target.removeAttribute("href")
-      alert(msgPublish)
-    })
+      e.stopPropagation;
+      e.target.removeAttribute("href");
+      alert(msgPublish);
+    });
   }
-  if(linkGroupBuying) {
+  if (linkGroupBuying) {
     linkGroupBuying.addEventListener("click", (e) => {
-      e.stopPropagation
-      e.target.removeAttribute("href")
-      alert(msgGroupBuying)
-    })
+      e.stopPropagation;
+      e.target.removeAttribute("href");
+      alert(msgGroupBuying);
+    });
   }
 });

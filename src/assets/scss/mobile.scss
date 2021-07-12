@@ -848,7 +848,7 @@
 
   .admin {
     aside {
-      flex: 0 0 64px;
+      flex: 0 0 60px;
 
       &.active {
         position: absolute;
@@ -876,6 +876,10 @@
         position: absolute;
         top: 0.75rem;
         right: 0.75rem;
+      }
+
+      .display {
+        display: none;
       }
     }
 
@@ -916,12 +920,24 @@
             margin-bottom: 0.5rem;
             justify-content: space-between;
             border-radius: 0.25rem;
+
+            &:last-of-type {
+              margin-bottom: .25rem;
+            }
           }
         }
       }
 
       .boards {
         flex-direction: column;
+
+        > div {
+          margin: .25rem;
+
+          &:last-of-type {
+            margin-bottom: .5rem;
+          }
+        }
       }
 
       .charts {
