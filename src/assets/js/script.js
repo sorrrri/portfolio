@@ -75,9 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        mainMenu.addEventListener("click", () => {
-          init();
-
+        mainMenu.addEventListener("click", (e) => {
           mainMenu.classList.toggle("active");
           subMenu.classList.toggle("active");
         });
