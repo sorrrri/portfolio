@@ -849,6 +849,8 @@
   .admin {
     aside {
       flex: 0 0 60px;
+      display: flex;
+      justify-content: center;
 
       &.active {
         position: absolute;
@@ -865,6 +867,7 @@
 
       .logo {
         padding: 0;
+        margin: 0;
       }
 
       .menu {
@@ -922,7 +925,7 @@
             border-radius: 0.25rem;
 
             &:last-of-type {
-              margin-bottom: .25rem;
+              margin-bottom: 0.25rem;
             }
           }
         }
@@ -932,10 +935,10 @@
         flex-direction: column;
 
         > div {
-          margin: .25rem;
+          margin: 0.25rem;
 
           &:last-of-type {
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
           }
         }
       }
@@ -1031,7 +1034,7 @@
       }
 
       .user {
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
 
         &::before {
           content: "주문자 정보";
@@ -1039,15 +1042,13 @@
       }
 
       .payment {
-
         &::before {
           content: "결제 방식";
         }
       }
 
       .date {
-        margin-bottom: .5rem;
-
+        margin-bottom: 0.5rem;
       }
 
       .book-title {
