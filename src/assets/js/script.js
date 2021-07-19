@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (admin) {
     const mainMenus = document.querySelectorAll(".main-menu");
     const subMenus = document.querySelectorAll(".sub-menu");
-
+    
     mainMenus.forEach((mainMenu) => {
       const subMenu = mainMenu.nextElementSibling;
 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        mainMenu.addEventListener("click", (e) => {
+        mainMenu.addEventListener("click", () => {
           mainMenu.classList.toggle("active");
           subMenu.classList.toggle("active");
         });
