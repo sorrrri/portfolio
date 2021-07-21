@@ -256,8 +256,8 @@
 
       .logo {
         display: block;
-        flex: 0 0 70px;
-        height: 36px;
+        flex: 0 0 65px;
+        height: 32px;
       }
 
       nav.categories {
@@ -281,7 +281,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.5rem;
+        padding: 0.75rem;
         width: 100%;
 
         .search {
@@ -323,8 +323,14 @@
       }
     }
 
-    nav {
-      display: flex;
+    nav.categories {
+      background: linear-gradient(45deg, #f9513e, #ff8630);
+      border: 0 !important;
+      
+      a {
+        padding: .75rem !important;
+        color: white;
+      }
     }
   }
 
@@ -462,8 +468,25 @@
         text-align: center;
 
         &.active {
-          border-color: orangered;
-          color: orangered;
+          border-color: #f9513e;
+          color: #f9513e;
+        }
+      }
+    }
+
+    .content {
+
+      .breadscrumb {
+
+        + .title {
+          border-bottom: 0;
+          padding-bottom: 0;
+          display: flex;
+          justify-content: center;
+
+          p {
+            display: none;
+          }
         }
       }
     }
@@ -802,11 +825,12 @@
     .table {
       .row {
         flex-direction: column;
+        align-items: flex-start;
         background: white;
         border-radius: 0.5rem;
         margin-bottom: 0.5rem;
         border: 1px solid #e3e6e9;
-        padding: 1rem;
+        padding: .5rem .75rem;
         text-align: left;
 
         li {
@@ -823,12 +847,16 @@
 
           &.book-title {
             flex: 1 1 auto;
-            font-size: 15px;
+            font-size: 16px;
+            max-width: 80%;
             font-weight: bold;
           }
 
           &.date {
             flex-direction: row;
+            font-family: "Poppins-SemiBold";
+            font-size: 13px;
+            color: slategray;
           }
 
           &.quantity,
@@ -839,6 +867,7 @@
           &.writer,
           &.percentage,
           &.buttons {
+            max-width: none;
             justify-content: flex-end;
           }
         }
@@ -899,6 +928,7 @@
       border-radius: 0;
       overflow: hidden;
       padding: 0;
+      margin: 0;
 
       > .title {
         padding: 0.75rem 1rem;

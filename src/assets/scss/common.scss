@@ -16,8 +16,9 @@
     url(./fonts/NanumSquareL.ttf) format("truetype");
 }
 
+$button-color: darkslateblue;
 $primary-color: #2f2586;
-$secondary-color: orangered;
+$secondary-color: #f9513e;
 $dark-primary-color: #27292d;
 $dark-secondary-color: #373a46;
 $dark-tertiary-color: #85899a;
@@ -267,7 +268,7 @@ button {
   display: flex;
   align-items: center;
   border: 0;
-  background: $clark-kensington-stowe-mountain;
+  background: $button-color;
   color: white;
   border-radius: 0.3rem;
   padding: 0;
@@ -875,7 +876,7 @@ input[type="radio"] + label:empty:before {
     align-items: center;
 
     &.active {
-      color: orangered;
+      color: #f9513e;
     }
 
     svg + svg {
@@ -958,7 +959,7 @@ input[type="radio"] + label:empty:before {
   height: 20px;
   border-radius: 30px;
   flex: 0 0 100% !important;
-  background-color: orangered;
+  background-color: #f9513e;
 }
 
 .toggle-activation .toggle-feature {

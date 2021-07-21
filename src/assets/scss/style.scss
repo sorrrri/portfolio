@@ -42,7 +42,7 @@ input {
     position: absolute;
     left: -0.5rem;
     content: "*";
-    color: orangered;
+    color: #f9513e;
   }
 }
 
@@ -187,7 +187,7 @@ input {
               bottom:0;
               width: 0px;
               height: 3px;
-              background-color: orangered;
+              background-color: #f9513e;
               transition: .4s;
             }
 
@@ -215,7 +215,6 @@ input {
           }
 
           a {
-            flex: 1 1 25%;
             padding: 0.5rem;
             display: flex;
             justify-content: center;
@@ -223,7 +222,7 @@ input {
 
             &:hover,
             &.active {
-              color: orangered;
+              color: #f9513e;
             }
           }
         }
@@ -286,7 +285,7 @@ input {
       display: flex;
       align-items: center;
       margin: 0 3rem;
-      border: 2px solid orangered;
+      border: 2px solid #f9513e;
       border-radius: 3rem;
       position: relative;
 
@@ -904,7 +903,7 @@ nav {
     height: fit-content;
 
     h3 {
-      background-color: orangered;
+      background-color: #f9513e;
       color: white;
       padding: 1rem 0.5rem;
       font-size: 16px;
@@ -923,7 +922,7 @@ nav {
 
       &:hover,
       &.active {
-        color: orangered;
+        color: #f9513e;
       }
     }
   }
@@ -1298,7 +1297,7 @@ nav {
           padding: 1rem;
           align-items: center;
           margin-top: 1rem;
-          border: 1px solid orangered;
+          border: 1px solid #f9513e;
           background-color: rgba(255, 69, 0, 0.1);
 
           li {
@@ -1309,7 +1308,7 @@ nav {
             &:last-of-type {
               span {
                 &:last-of-type {
-                  color: orangered;
+                  color: #f9513e;
                   font-size: 20px;
                 }
               }
@@ -1480,7 +1479,7 @@ nav {
         &::before {
           counter-increment: li;
           content: "0" counter(li);
-          color: orangered;
+          color: #f9513e;
           position: absolute;
           left: 0;
           top: 0;
@@ -1700,6 +1699,7 @@ nav {
       &.quantity,
       &.percentage {
         flex: 1 1 5%;
+        max-width: 64px;
       }
 
       &.flex-10,
@@ -1716,6 +1716,7 @@ nav {
       &.order-id,
       &.phone {
         flex: 1 1 10%;
+        max-width: 100px;
       }
 
       &.day,
@@ -1773,11 +1774,6 @@ nav {
             text-indent: 8rem;
           }
         }
-      }
-
-      &.date {
-        font-family: "Poppins-SemiBold";
-        font-size: 13px;
       }
 
       &.code,
@@ -2148,7 +2144,8 @@ nav {
     flex-direction: column;
     max-width: none;
     background-color: #f1f2f3;
-    border-radius: 1rem 0 0 1rem;
+    border-radius: 1rem;
+    margin: .5rem .5rem .5rem 0;
 
     > .title {
       padding: 1rem 2rem;
