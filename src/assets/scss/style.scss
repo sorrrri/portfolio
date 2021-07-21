@@ -21,7 +21,9 @@ button {
   }
 
   &.btn-sub {
-    background: #999;
+    background: transparent;
+    color: #333;
+    border: 1px solid #DDD;
   }
 }
 
