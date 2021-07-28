@@ -679,11 +679,7 @@ nav {
   flex-direction: column;
 
   section {
-    margin-top: 1rem;
-
-    &:first-of-type {
-      margin-bottom: 3rem;
-    }
+    margin-top: 2rem;
 
     &:last-of-type {
       margin-bottom: 3rem;
@@ -713,6 +709,7 @@ nav {
         justify-content: space-between;
         border: 1px solid #ddd;
         border-bottom: 0;
+        border-radius: .5rem .5rem 0 0;
         cursor: pointer;
 
         ul {
@@ -725,6 +722,10 @@ nav {
             border-right: 1px solid #ddd;
             font-weight: bold;
             transition: background-color 0.4s;
+
+            &:first-of-type {
+              border-radius: .5rem 0 0 0;
+            }
 
             &:hover,
             &.active {
@@ -749,6 +750,7 @@ nav {
       .tab-content {
         flex: 1 1 auto;
         border: 1px solid #ddd;
+        border-radius: 0 0 .5rem .5rem;
 
         section {
           display: none;
@@ -844,6 +846,7 @@ nav {
     .books-slider {
       border: 1px solid #ddd;
       padding: 1rem;
+      border-radius: .5rem;
     }
 
     .swiper-slide {
@@ -886,6 +889,7 @@ nav {
 
   section.bookstore {
     border: 5px solid #ddd;
+    border-radius: .5rem;
     padding: 1rem;
 
     .swiper-slide {
@@ -919,7 +923,7 @@ nav {
 
     a {
       display: block;
-      padding: 0.5rem 0.75rem;
+      padding: 0.75rem;
 
       &:hover,
       &.active {
@@ -1025,11 +1029,11 @@ nav {
 
     .book-image {
       flex: 0 0 50%;
-      border: 1px solid #ddd;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid #ddd;
+      border-radius: 1rem;
 
       img {
         width: 300px;
@@ -1717,11 +1721,11 @@ nav {
       &.quantity,
       &.percentage {
         flex: 1 1 5%;
-        max-width: 64px;
+        max-width: 80px;
       }
 
-      &.flex-10,
       &.code,
+      &.flex-10,
       &.date,
       &.isbn,
       &.payment,
@@ -1730,17 +1734,17 @@ nav {
       &.writer,
       &.author,
       &.published,
-      &.thumbnail,
-      &.order-id,
-      &.phone {
+      &.thumbnail {
         flex: 1 1 10%;
-        max-width: 100px;
+        max-width: 110px;
       }
-
+      
+      &.order-id,
       &.day,
       &.user,
       &.order-information,
-      &.email {
+      &.email,
+      &.phone {
         flex: 1 1 15%;
       }
 
@@ -1804,7 +1808,6 @@ nav {
       .order-id,
       &.isbn {
         font-family: "Poppins-SemiBold";
-        color: darkslateblue;
         font-size: 14px;
       }
 
@@ -2008,11 +2011,18 @@ nav {
 
 .admin {
   flex-direction: row;
-  background-image: linear-gradient(#2a2063, #2b4296);
+  background: #38375F;
   overflow: hidden;
 
+  .search {
+
+    button {
+      background-color: dodgerblue;
+      padding: 0
+    }
+  }
+  
   button {
-    padding: 0;
   }
 
   .toggle-menu {
@@ -2021,7 +2031,6 @@ nav {
 
   .buttons {
     button {
-      padding: 0.5rem 1rem !important;
 
       &.btn-main {
         background: #333;
@@ -2047,17 +2056,11 @@ nav {
     border: 0;
   }
 
-  input[type="radio"]:hover + label:before,
-  input[type="radio"]:checked + label:before,
-  .checkbox input:checked + label::before {
-    border-color: darkslateblue !important;
-    background-color: darkslateblue !important;
-  }
   aside {
     font-size: 13px;
     font-family: "Nanumsquare-Regular";
     flex: 0 0 180px;
-    background-image: linear-gradient(#2a2063, #2b4296);
+    background: #38375F;
     color: white;
     overflow-y: auto;
     position: relative;
@@ -2176,7 +2179,8 @@ nav {
     margin: 0.5rem 0.5rem 0.5rem 0;
 
     > .title {
-      padding: 1rem 2rem;
+      padding: 0 2rem;
+      flex: 0 0 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -2488,7 +2492,6 @@ nav {
     }
 
     .table {
-      margin-top: 3rem;
 
       .title {
         background-color: transparent !important;
@@ -2618,10 +2621,15 @@ nav {
     .table {
       .title {
         li {
+          
           &::after {
             content: none !important;
           }
         }
+      }
+      
+      li {
+        max-width: none !important;
       }
     }
   }
@@ -2649,6 +2657,7 @@ nav {
 
     .table {
       li {
+
         &:nth-of-type(1) {
           width: 10%;
         }
