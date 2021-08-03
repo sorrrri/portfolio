@@ -1200,8 +1200,10 @@ footer {
         opacity: 0;
         max-height: 0;
         overflow: hidden;
-        transition: opacity 0.2s, max-height 0.4s;
-        will-change: opacity, max-height;
+        display: flex;
+        flex-direction: column;
+        padding: 0 1.5rem;
+        transition: all 0.2s;
       }
 
       &.active {
@@ -1212,8 +1214,6 @@ footer {
         }
 
         .details {
-          display: flex;
-          flex-direction: column;
           border-top: 1px solid #ddd;
           opacity: 1;
           max-height: 100rem;
