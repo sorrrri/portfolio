@@ -68,10 +68,17 @@ gulp.task("scss", () => {
     sourceComments: true,
   };
   return gulp
-    .src(PATH.ASSETS.STYLE + "/**/*.scss")
+  .src([
+    "src/assets/scss/slick.scss",
+    "src/assets/scss/slick-theme.scss",
+    "src/assets/scss/base.scss",
+    "src/assets/scss/style.scss",
+  ])
     .pipe(sourcemaps.init())
+    .pipe(scss({ outputStyle: "compressed" }).on("error", scss.logError))
     .pipe(scss(options))
     .pipe(autoprefixer({ cascade: false }))
+    .pipe(concat("main.css"))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
     .pipe(browserSync.reload({ stream: true }));

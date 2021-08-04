@@ -355,6 +355,23 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize the Smooth Scrolling
   });
 
+
+  
+  /* =====================================================
+       Text Spilitting Animation
+       ===================================================== */
+  var textWrapper = document.querySelectorAll('.js-splitted-text');
+
+  textWrapper.forEach(text => {
+    text.innerHTML = text.textContent.replace(/./g, "<span>$&</span>");
+
+    const letters = text.querySelectorAll("span")
+
+    letters.forEach((letter, index) => {
+      letter.style.animationDelay = `${index * 40}ms`
+    })
+  })
+
   /* =====================================================
        Menu Trigger & Image/Text Reveal Effects
        ===================================================== */
