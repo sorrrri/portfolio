@@ -216,6 +216,7 @@ input {
           }
 
           a {
+            flex: 1 1 20%;
             padding: 0.5rem;
             display: flex;
             justify-content: center;
@@ -420,6 +421,7 @@ nav {
 
   small {
     margin-left: 0.5rem;
+    color: darkslategray;
   }
 
   li {
@@ -588,6 +590,12 @@ nav {
     border-bottom: 1px solid #ddd;
     flex-wrap: wrap;
     cursor: pointer;
+
+    li:first-of-type,
+    li:last-of-type {
+      flex-grow: 0 !important;
+      flex-shrink: 0 !important;
+    }
   }
 
   button {
@@ -709,7 +717,7 @@ nav {
         justify-content: space-between;
         border: 1px solid #ddd;
         border-bottom: 0;
-        border-radius: .5rem .5rem 0 0;
+        border-radius: 0.5rem 0.5rem 0 0;
         cursor: pointer;
 
         ul {
@@ -724,7 +732,7 @@ nav {
             transition: background-color 0.4s;
 
             &:first-of-type {
-              border-radius: .5rem 0 0 0;
+              border-radius: 0.5rem 0 0 0;
             }
 
             &:hover,
@@ -750,7 +758,7 @@ nav {
       .tab-content {
         flex: 1 1 auto;
         border: 1px solid #ddd;
-        border-radius: 0 0 .5rem .5rem;
+        border-radius: 0 0 0.5rem 0.5rem;
 
         section {
           display: none;
@@ -846,7 +854,7 @@ nav {
     .books-slider {
       border: 1px solid #ddd;
       padding: 1rem;
-      border-radius: .5rem;
+      border-radius: 0.5rem;
     }
 
     .swiper-slide {
@@ -889,7 +897,7 @@ nav {
 
   section.bookstore {
     border: 5px solid #ddd;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1rem;
 
     .swiper-slide {
@@ -1028,7 +1036,7 @@ nav {
     padding: 1rem;
 
     .book-image {
-      flex: 0 0 50%;
+      flex: 0 0 45%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1727,7 +1735,6 @@ nav {
       &.code,
       &.flex-10,
       &.date,
-      &.isbn,
       &.payment,
       &.status,
       &.user-id,
@@ -1738,19 +1745,29 @@ nav {
         flex: 1 1 10%;
         max-width: 110px;
       }
-      
-      &.order-id,
+
       &.day,
-      &.user,
-      &.order-information,
-      &.email,
+      &.isbn,
+      &.order-id,
       &.phone {
+        flex: 1 1 12.5%;
+        max-width: 160px;
+        white-space: nowrap;
+      }
+
+      &.user,
+      &.email,
+      &.order-information {
         flex: 1 1 15%;
       }
 
       &.categories,
       &.education {
-        flex: 1 1 21%;
+        flex: 1 1 20%;
+
+        span {
+          margin: 0 .25rem
+        }
       }
 
       &.book-title,
@@ -1805,8 +1822,7 @@ nav {
 
       &.code,
       &.order-id,
-      .order-id,
-      &.isbn {
+      .order-id {
         font-family: "Poppins-SemiBold";
         font-size: 14px;
       }
@@ -1879,11 +1895,11 @@ nav {
   .ship-to {
     flex: 1 1 auto;
     width: 100%;
-    max-width: calc(100% - 13rem);
+    max-width: 860px;
     display: flex;
     align-items: center;
     background-color: #ebf1f8;
-    margin: 0.75rem 0.75rem 0.25rem;
+    margin: 0.25rem 0.75rem 0;
     padding: 0.5rem;
     border-radius: 0.25rem;
 
@@ -1924,6 +1940,7 @@ nav {
 
     .address {
       flex: 1 1 30% !important;
+      max-width: none !important;
 
       &::before {
         content: "주소";
@@ -1933,6 +1950,7 @@ nav {
     .status {
       justify-content: flex-end;
       flex: 0 0 auto !important;
+      padding: 0;
 
       select {
         border: 0;
@@ -2011,17 +2029,21 @@ nav {
 
 .admin {
   flex-direction: row;
-  background: #38375F;
+  background: #38375f;
   overflow: hidden;
 
-  .search {
+  input:focus {
+    border: 1px solid slateblue;
+    box-shadow: 0 0 0 ;
+  }
 
+  .search {
     button {
-      background-color: dodgerblue;
-      padding: 0
+      background-color: #333;
+      padding: 0;
     }
   }
-  
+
   button {
   }
 
@@ -2031,24 +2053,13 @@ nav {
 
   .buttons {
     button {
-
       &.btn-main {
         background: #333;
       }
 
       &.btn-sub {
-        background: #999;
+        background: #d8dadc;
       }
-    }
-  }
-
-  .table {
-    .row {
-      padding: 0.75rem 0;
-      background-color: white;
-      border-bottom: 0;
-      border-radius: 0.25rem;
-      margin-bottom: 0.25rem;
     }
   }
 
@@ -2060,7 +2071,7 @@ nav {
     font-size: 13px;
     font-family: "Nanumsquare-Regular";
     flex: 0 0 180px;
-    background: #38375F;
+    background: #38375f;
     color: white;
     overflow-y: auto;
     position: relative;
@@ -2192,7 +2203,7 @@ nav {
 
       button {
         padding: 0.75rem 2rem;
-        background-color: dodgerblue;
+        background-color: #333;
       }
     }
 
@@ -2338,6 +2349,7 @@ nav {
       width: 35px;
       height: 35px;
       justify-content: center;
+      padding: 0;
     }
 
     section {
@@ -2380,7 +2392,7 @@ nav {
           }
 
           svg {
-            fill: darkslateblue;
+            fill: #828790;
           }
         }
       }
@@ -2491,41 +2503,6 @@ nav {
       }
     }
 
-    .table {
-
-      .title {
-        background-color: transparent !important;
-      }
-
-      .row {
-        border: 0;
-
-        &:not(.title) {
-          background-color: white;
-          border-radius: 0.5rem;
-          margin-bottom: 0.5rem;
-        }
-      }
-
-      li {
-        &:nth-of-type(1) {
-          width: 5%;
-        }
-
-        &:nth-of-type(2) {
-          width: 5%;
-        }
-
-        &:nth-of-type(3) {
-          width: 30%;
-        }
-
-        &:nth-of-type(4) {
-          width: 60%;
-        }
-      }
-    }
-
     &.ad-images {
       .table {
         li {
@@ -2541,6 +2518,37 @@ nav {
     }
   }
 
+  .table {
+    .title {
+      border-bottom: 0;
+
+      + .row {
+        border-radius: 0.5rem 0.5rem 0 0;
+        border-top: 1px solid #e5e7ef;
+      }
+    }
+
+    .row {
+      transition: background-color .25s;
+
+      &:last-of-type {
+        border-radius: 0 0 0.5rem 0.5rem;
+        border-bottom: 1px solid #e5e7ef;
+      }
+
+      &:not(.title) {
+        background-color: white;
+        border-bottom: 1px solid #e5e7ef;
+        border-left: 1px solid #e5e7ef;
+        border-right: 1px solid #e5e7ef;
+      }
+
+      &:hover {
+        background-color: #e7e9f1;
+      }
+    }
+  }
+
   .sample-book {
     button {
       font-size: 12px;
@@ -2550,66 +2558,18 @@ nav {
     .table {
       .row {
         flex-wrap: wrap;
-        border: 0;
-
-        &.title {
-          background-color: transparent !important;
-        }
-
-        &:not(.title) {
-          border: 1px solid #ddd;
-          background-color: white;
-          border-radius: 0.5rem;
-          margin-bottom: 0.5rem;
-        }
 
         li {
+          max-width: none !important;
+
           &.buttons {
             button:first-of-type {
               opacity: 0.5;
             }
           }
-        }
-      }
-    }
-  }
 
-  .board-publish {
-    .table {
-      .row {
-        flex-wrap: wrap;
-        border: 0;
-
-        &:not(.title) {
-          border: 1px solid #ddd;
-          background-color: white;
-          border-radius: 0.5rem;
-          margin-bottom: 0.5rem;
-        }
-
-        li {
-          &:nth-of-type(1) {
-            width: 10%;
-          }
-
-          &:nth-of-type(2) {
-            width: 15%;
-          }
-
-          &:nth-of-type(3) {
-            width: 30%;
-          }
-
-          &:nth-of-type(4) {
-            width: 20%;
-          }
-
-          &:nth-of-type(5) {
-            width: 25%;
-          }
-
-          &:nth-of-type(6) {
-            padding-top: 1rem;
+          &.address {
+            flex-grow: 1 !important;
           }
         }
       }
@@ -2620,74 +2580,14 @@ nav {
     .table {
       .title {
         li {
-          
           &::after {
             content: none !important;
           }
         }
       }
-      
+
       li {
         max-width: none !important;
-      }
-    }
-  }
-
-  .list-user-order-details {
-    .table-header {
-      justify-content: flex-start;
-
-      div {
-        margin-right: 1rem;
-
-        &:first-of-type {
-          span:last-of-type::after {
-            content: "원";
-          }
-        }
-
-        &:last-of-type {
-          span:last-of-type::after {
-            content: "건";
-          }
-        }
-      }
-    }
-
-    .table {
-      li {
-
-        &:nth-of-type(1) {
-          width: 10%;
-        }
-
-        &:nth-of-type(2) {
-          width: 35%;
-        }
-
-        &:nth-of-type(3) {
-          width: 15%;
-        }
-
-        &:nth-of-type(4) {
-          width: 5%;
-        }
-
-        &:nth-of-type(5) {
-          width: 10%;
-        }
-
-        &:nth-of-type(6) {
-          width: 10%;
-        }
-
-        &:nth-of-type(7) {
-          width: 15%;
-        }
-
-        &:nth-of-type(8) {
-          width: 10%;
-        }
       }
     }
   }
@@ -2696,110 +2596,6 @@ nav {
     .table-header {
       span {
         margin: 0 0.5rem 0 1rem;
-      }
-    }
-
-    .table {
-      button {
-        font-size: 12px;
-        background-color: #414a5a;
-      }
-
-      li {
-        // 주문번호
-        &:nth-of-type(1) {
-          width: 20%;
-        }
-
-        // 주문자
-        &:nth-of-type(2) {
-          width: 5%;
-        }
-
-        // 대학교
-        &:nth-of-type(3) {
-          width: 10%;
-        }
-
-        // 학과
-        &:nth-of-type(4) {
-          width: 10%;
-        }
-
-        // 학년
-        &:nth-of-type(5) {
-          width: 5%;
-        }
-
-        // 주문일
-        &:nth-of-type(6) {
-          width: 20%;
-        }
-
-        // 최종금액
-        &:nth-of-type(7) {
-          width: 10%;
-        }
-
-        // 승인완료일
-        &:nth-of-type(8) {
-          width: 20%;
-        }
-      }
-
-      &.inside {
-        input {
-          width: 100%;
-        }
-
-        li {
-          align-items: center;
-
-          &:nth-of-type(1) {
-            width: 12.5%;
-          }
-
-          &:nth-of-type(2) {
-            width: 12.5%;
-          }
-
-          &:nth-of-type(3) {
-            width: 22.5%;
-          }
-
-          &:nth-of-type(4) {
-            width: 5%;
-          }
-
-          &:nth-of-type(5) {
-            width: 10%;
-          }
-
-          &:nth-of-type(6) {
-            width: 7.5%;
-          }
-
-          &:nth-of-type(7) {
-            width: 10%;
-          }
-
-          &:nth-of-type(8) {
-            width: 5%;
-          }
-
-          &:nth-of-type(9) {
-            width: 7.5%;
-          }
-
-          &:nth-of-type(10) {
-            width: 5%;
-          }
-        }
-
-        .btn-save {
-          margin: 1rem auto;
-          padding: 0.5rem 1rem;
-        }
       }
     }
   }
@@ -2815,12 +2611,38 @@ nav {
   .list-user {
     .table {
       .buttons {
-        justify-content: flex-end;
+        flex: 1 1 100%;
+        margin-top: .5rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
       }
       button {
-        font-size: 12px;
-        background-color: #414a5a;
+        font-size: 13px;
         padding: 0.25rem 0.5rem;
+        color: #333;
+        background: transparent;
+        border: 1px solid #DDD;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .list-publish {
+
+    .table {
+
+      .row {
+
+        .message {
+          text-align: left;
+          flex-grow: 1 !important;
+          flex-shrink: 1 !important;
+          margin: 0 1rem;
+          background: #ebf1f8;
+          padding: 1rem;
+          border-radius: .5rem;
+        }
       }
     }
   }

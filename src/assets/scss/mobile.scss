@@ -1087,12 +1087,16 @@
         border-bottom: 1px solid #ddd;
       }
 
-      .user {
-        margin-bottom: 0.5rem;
+      .user-name {
+        flex-direction: column;
 
         &::before {
           content: "주문자 정보";
         }
+      }
+
+      .phone {
+        margin-bottom: 0.5rem;
       }
 
       .payment {
@@ -1124,6 +1128,12 @@
           text-align: center;
         }
 
+        .user-name {
+          &::before {
+            content: "이름";
+          }
+        }
+
         .address,
         .user-name,
         .phone {
@@ -1136,6 +1146,11 @@
           &::before {
             margin-left: 0;
           }
+        }
+
+        .payment {
+          flex-direction: row;
+          max-width: none;
         }
 
         .status {
@@ -1158,6 +1173,7 @@
 
       .buttons {
         margin-top: 1rem;
+        order: 1;
       }
     }
 
@@ -1183,6 +1199,16 @@
     .list-group-buying {
       .search {
         flex-direction: column;
+      }
+    }
+
+    .list-publish {
+      .table {
+        .row {
+          .message {
+            margin: 0;
+          }
+        }
       }
     }
   }
