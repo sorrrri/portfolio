@@ -148,24 +148,19 @@
       ['2021 대기환경기사 산업기사 실기', 10],
       ['2021 산업안전기사 실기+무료동영상+핸드북', 10],
       ['2021 공조냉동기계기능사 산업기사 실전실기 + 전과목 무료동영상', 10],
-      ['드론 초경량비행장치 무인멀티콥터 조종자격 필기·구술', 10],
-      ['2021 산업안전산업기사 과년도 + 무료동영상', 10],
-      ['베이직 업스타일 프로', 10],
     ]);
 
     var options = {
       backgroundColor: "transparent",
-      colors: ['#1f599a', '#5e8b82', '#00616b', '#82b2b3', '#536c84', '#987f89', '#9690ab', '#ccbab7'],
+      colors: ['#5b5cba', '#F46F66', '#15988f', '#a6b0ef', '#edb374', '#1DD993', '#9690ab', '#ccbab7'],
       title: '최근 2주간 도서별 판매통계',
       legend: "none",
-      animation:{
+      pieHole: .5,
+      animation: {
         duration: 1000,
         easing: 'out',
         startup: true
       },
-      chart: {
-        
-      }
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -197,8 +192,9 @@
 
     var options = {
       backgroundColor: "transparent",
-      colors: ["#1f599a"],
+      colors: ["#5b5cba"],
       title: '최근 1주일 판매금액',
+      legend: "none",
       hAxis: {
         gridlines: {
           units: {
@@ -206,7 +202,13 @@
           },
         },
       },
-      animation:{
+      bar: {
+        groupWidth: "50%"
+      },
+      chartArea: {
+        width: "85%"
+      },
+      animation: {
         duration: 1000,
         easing: 'out',
         startup: true
@@ -233,6 +235,8 @@
         <span>교수 승인 대기</span>
         <span></span>
       </li>
+    </ul>
+    <ul>
       <li>
         <span>견본요청</span>
         <span></span>
@@ -245,6 +249,8 @@
         <span>질의응답</span>
         <span>1</span>
       </li>
+    </ul>
+    <ul>
       <li>
         <span>주문현황</span>
         <span></span>

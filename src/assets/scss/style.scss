@@ -451,7 +451,7 @@ nav {
     }
 
     textarea {
-      margin-top: .75rem
+      margin-top: 0.75rem;
     }
 
     > span:first-of-type {
@@ -2259,21 +2259,37 @@ nav {
     .streaming {
       flex: 0 0 auto;
       width: 100%;
+      display: flex;
+      gap: 1rem;
 
       ul {
         display: flex;
-        margin: 0 -0.25rem;
+        flex: 1 1 33.333%;
+        padding: 0.75rem;
+        border-radius: 0.35rem;
+
+        &:nth-of-type(1) {
+          background: #5b5cba;
+        }
+
+        &:nth-of-type(2) {
+          background: #f46f66;
+        }
+
+        &:nth-of-type(3) {
+          background: #15988f;
+        }
 
         li {
-          margin: 0 0.25rem;
-          padding: 0.35rem 0.5rem;
-          flex: 1 1 11.111%;
-          background-color: white;
-          border: 1px solid #ddd;
-          border-radius: 0.35rem;
+          flex: 1 1 auto;
           display: flex;
           flex-direction: column;
           align-items: center;
+          color: white;
+
+          &:not(:last-of-type) {
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+          }
 
           span {
             &:first-of-type {
@@ -2282,18 +2298,19 @@ nav {
             &:last-of-type {
               font-weight: bold;
               font-size: 18px;
-              color: #f9513e;
+              color: white;
+              display: flex;
+              align-items: center;
 
               &:empty::before {
                 content: "0";
-                color: #333;
               }
 
               &::after {
                 content: "건";
                 font-size: 15px;
                 font-weight: normal;
-                color: #333;
+                color: white;
               }
             }
           }
@@ -2305,14 +2322,14 @@ nav {
       display: flex;
       flex: 0 0 40vh;
       flex-direction: row;
-      margin: 0 -0.35rem;
+      gap: 1rem;
+      padding: 1rem 0;
 
       > div {
-        flex: 1 1 auto;
+        flex: 1 1 33.333%;
         background-color: white;
         border: 1px solid #ddd;
-        margin: 0.5rem 0.25rem;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
 
         h3 {
           padding: 0.75rem 1rem;
@@ -2340,21 +2357,15 @@ nav {
       display: flex;
       flex: 1 1 auto;
       flex-direction: row;
-      margin: 0 -0.25rem;
+      gap: 1rem;
 
       > div {
-        flex: 1 1 100%;
-        width: 100%;
+        flex: 1 1 33.333%;
         height: 100%;
-        margin: 0 0.25rem;
         border: 1px solid #ddd;
         padding: 0.5rem;
-        border-radius: 0.35rem;
+        border-radius: 0.5rem;
         background-color: white;
-
-        &:last-of-type {
-          flex: 0 0 40vw;
-        }
       }
     }
   }
@@ -2650,7 +2661,7 @@ nav {
         fill: #aab9ca;
         width: 28px;
         height: 28px;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
       }
 
       .user-information {
@@ -2659,26 +2670,26 @@ nav {
         ul {
           width: 100%;
           margin-top: 1rem;
-  
+
           li {
             display: flex;
             align-items: center;
             justify-content: space-between;
             white-space: nowrap;
-  
+
             span {
               align-items: center;
-  
+
               &:first-of-type {
                 flex: 1 1 auto;
               }
-  
+
               &:last-of-type {
                 flex: 0 0 100px;
                 font-weight: bold;
                 display: flex;
                 justify-content: flex-end;
-    
+
                 &::after {
                   font-size: 14px;
                   font-weight: normal;
@@ -2687,18 +2698,16 @@ nav {
                 }
               }
             }
-  
+
             &.price {
-  
               span:last-of-type {
                 &::after {
                   content: "원";
                 }
               }
             }
-  
+
             &.waiting {
-              
               span:last-of-type {
                 &::after {
                   content: "건";
