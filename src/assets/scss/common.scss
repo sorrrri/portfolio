@@ -215,14 +215,22 @@ input {
 
   &:read-only {
     background-color: rgba($sherwin-williams-wishful-blue, 0.5);
+
+    &:focus {
+      border: 1px solid #ddd;
+    }
   }
 
   &:focus {
-    box-shadow: 0 0 1px 1px $secondary-color;
+    border: 1px solid slateblue;
   }
 
   &:disabled {
     background-color: rgba(0, 0, 0, 0.1);
+
+    &:focus {
+      border: 1px solid #ddd;
+    }
   }
 
   /* Chrome, Safari, Edge, Opera */
@@ -235,10 +243,6 @@ input {
   /* Firefox */
   &[type="number"] {
     -moz-appearance: textfield;
-  }
-
-  &[type="password"] {
-    font-family: initial;
   }
 
   &::-ms-clear,
