@@ -425,7 +425,7 @@ nav {
   }
 
   li {
-    padding: 0.5rem;
+    min-height: 54px;
     display: flex;
     align-items: center;
 
@@ -448,6 +448,10 @@ nav {
           }
         }
       }
+    }
+
+    textarea {
+      margin-top: .75rem
     }
 
     > span:first-of-type {
@@ -1741,7 +1745,6 @@ nav {
 
       &.day,
       &.isbn,
-      &.order-id,
       &.phone {
         flex: 1 1 12.5%;
         white-space: nowrap;
@@ -1749,6 +1752,7 @@ nav {
 
       &.user,
       &.email,
+      &.order-id,
       &.order-information {
         flex: 1 1 15%;
       }
@@ -2430,7 +2434,7 @@ nav {
     .table {
       li {
         justify-content: center !important;
-        margin: 0 auto
+        margin: 0 auto;
       }
     }
 
@@ -2629,6 +2633,84 @@ nav {
         background: transparent;
         border: 1px solid #ddd;
         margin-left: 1rem;
+      }
+    }
+  }
+
+  .list-user-order-details {
+    .card {
+      display: flex;
+      background: white;
+      width: 300px;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e5e7ef;
+
+      svg {
+        fill: #aab9ca;
+        width: 28px;
+        height: 28px;
+        margin-right: .5rem;
+      }
+
+      .user-information {
+        flex: 1 1 auto;
+
+        ul {
+          width: 100%;
+          margin-top: 1rem;
+  
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            white-space: nowrap;
+  
+            span {
+              align-items: center;
+  
+              &:first-of-type {
+                flex: 1 1 auto;
+              }
+  
+              &:last-of-type {
+                flex: 0 0 100px;
+                font-weight: bold;
+                display: flex;
+                justify-content: flex-end;
+    
+                &::after {
+                  font-size: 14px;
+                  font-weight: normal;
+                  flex: 0 0 16px;
+                  display: flex;
+                }
+              }
+            }
+  
+            &.price {
+  
+              span:last-of-type {
+                &::after {
+                  content: "원";
+                }
+              }
+            }
+  
+            &.waiting {
+              
+              span:last-of-type {
+                &::after {
+                  content: "건";
+                }
+              }
+            }
+          }
+        }
+      }
+
+      strong {
+        font-size: 18px;
       }
     }
   }

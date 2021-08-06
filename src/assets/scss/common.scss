@@ -865,6 +865,7 @@ input[type="radio"] + label:empty:before {
 }
 
 .table-footer {
+  flex: 0 0 40px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
