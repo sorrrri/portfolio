@@ -4,6 +4,7 @@
 .js-splitted-text{
   list-style: none;
   display: flex;
+  flex-direction: row;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -13,6 +14,10 @@
     min-width: 1rem;
     animation: splittedTextMoveUp .25s forwards;
   }
+}
+
+.sub .js-splitted-text {
+  margin: 0 auto
 }
 
 @keyframes splittedTextMoveUp {
