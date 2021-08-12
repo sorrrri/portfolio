@@ -1467,10 +1467,18 @@ footer {
 
     &.high {
       border-color: orangered;
+
+      .tag.bg-red {
+        display: flex;
+      }
     }
 
     &.low {
       border-color: seagreen;
+    }
+
+    .tag.bg-red {
+      display: none;
     }
 
     .title {
@@ -1515,9 +1523,27 @@ footer {
 
     .status {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
       font-size: 12px;
       margin-top: 0.5rem;
+
+      ul {
+        display: flex;
+      }
+
+      .attach {
+        width: 18px;
+        height: 18px;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          width: 100%;
+          transform: rotate(45deg);
+          stroke: #49536b
+        }
+      }
 
       .comment {
         margin-right: 1rem;
