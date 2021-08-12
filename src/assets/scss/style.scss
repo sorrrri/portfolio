@@ -57,10 +57,6 @@ body {
 
     button {
       padding: 0.5rem 0.75rem;
-
-      &:not(:last-of-type) {
-        margin-right: 0.5rem;
-      }
     }
   }
 
@@ -96,7 +92,7 @@ body {
     margin-bottom: 0.5rem;
 
     input[type="radio"] + label {
-      background-color: #eee;
+      background-color: rgba(0, 0, 0, 0.075);
       border-radius: 0.25rem;
       width: 100%;
       justify-content: center;
@@ -110,7 +106,7 @@ body {
 
     input[type="radio"]:hover + label,
     input[type="radio"]:checked + label {
-      background-color: #333;
+      background-color: royalblue;
       color: white;
 
       svg {
@@ -229,7 +225,7 @@ aside {
       background-image: url("../images/icon/grid-outline.svg");
     }
 
-    .menu-status {
+    .menu-equipments {
       background-image: url("../images/icon/videocam-outline.svg");
     }
 
@@ -307,11 +303,15 @@ header {
     align-items: center;
     justify-content: space-between;
 
+    &:first-of-type {
+      flex-basis: 60px;
+    }
+
     &.search {
       opacity: 0;
       height: 0;
-      display: flex;
-      gap: .5rem;
+      flex-direction: column;
+      gap: 0.5rem;
       z-index: -1;
 
       &.active {
@@ -321,25 +321,42 @@ header {
         z-index: 1;
       }
 
-      input {
+      > div {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      input[type="search"] {
         width: 100%;
         flex: 1 1 auto;
         border: none;
         height: 40px;
       }
-      
-      button {
+
+      .btn-search {
         flex: 0 0 auto;
-        background-color: cornflowerblue;
+        background-color: royalblue;
         color: white;
         height: 100%;
-        padding: 0 .75rem;
+        padding: 0 0.75rem;
+      }
+
+      .filters {
+        button {
+          margin-bottom: 0;
+
+          label {
+            height: 40px;
+          }
+        }
       }
     }
   }
 
   .buttons {
     margin-right: 1rem;
+    gap: 1rem;
 
     button {
       width: 20px;
@@ -1475,7 +1492,7 @@ footer {
       color: #49536b;
 
       .writer {
-        padding-right: .35rem;
+        padding-right: 0.35rem;
       }
     }
 
@@ -1483,7 +1500,7 @@ footer {
       font-size: 13px;
       border-bottom: 1px solid #eee;
       padding: 0.5rem 0;
-  
+
       p {
         max-height: 30px;
         overflow: hidden;

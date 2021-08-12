@@ -52,7 +52,7 @@
           d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
       </svg>
     </button>
-    <div class="title">Workspace</div>
+    <div class="title">장비현황</div>
     <div class="buttons">
       <button class="btn-request" type="button"></button>
       <button class="btn-warning" type="button"></button>
@@ -60,163 +60,179 @@
     </div>
   </div>
   <div class="row search">
-    <input type="search" placeholder="작업명, 작성자를 입력하세요." />
-    <button type="button">검색</button>
+    <div>
+      <input type="search" placeholder="작업명, 작성자를 입력하세요." />
+      <button class="btn-search" type="button">검색</button>
+    </div>
+    <div class="filters">
+      <button type="button" type="button">
+        <input type="radio" id="input-address" name="filter-search" checked="checked" />
+        <label for="input-address">
+          <span>주소 검색</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-cctv" name="filter-search" />
+        <label for="input-cctv">
+          <span>CCTV 검색</span>
+        </label>
+      </button>
+    </div>
   </div>
 </header>
 <main class="content list workspace">
-  <div class="row high">
+  <div class="row">
     <div class="row-title">
       <ul>
-        <li class="title">
-          <div>카메라 위치 조정 요청 건카메라 위치 조정 요청 건카메라 위치 조정 요청 건</div>
-          <div class="tags">
-            <span class="tag bg-red">긴급</span>
-            <span class="tag bg-blue">요청</span>
-          </div>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
         </li>
-        <li class="created">
-          <span class="writer">홍길동</span>
-          <span class="date">2021-08-03 12:42:32</span>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
         </li>
       </ul>
-    </div>
-    <div class="details">
-      <p>
-        모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-        모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-        모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-        모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-      </p>
-    </div>
-    <div class="status">
-      <span class="comment">3</span>
-      <span class="read">5</span>
     </div>
   </div>
   <div class="row">
     <div class="row-title">
       <ul>
-        <li class="title">
-          <div>데이터 시각화 서비스 권한 요청 건</div>
-          <div class="tags">
-            <span class="tag bg-blue">요청</span>
-          </div>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
         </li>
-        <li class="created">
-          <span class="writer">홍길동</span>
-          <span class="date">2021-08-03 12:42:32</span>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
         </li>
       </ul>
-    </div>
-    <div class="details">
-      <p>
-        데이터 시각화 사용을 위한 권한을 요청 드립니다.
-      </p>
-    </div>
-    <div class="status">
-      <span class="comment">3</span>
-      <span class="read">5</span>
     </div>
   </div>
   <div class="row">
     <div class="row-title">
       <ul>
-        <li class="title">
-          <div>데이터 시각화 서비스 권한 요청 건</div>
-          <div class="tags">
-            <span class="tag bg-blue">요청</span>
-          </div>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
         </li>
-        <li class="created">
-          <span class="writer">홍길동</span>
-          <span class="date">2021-08-03 12:42:32</span>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
         </li>
       </ul>
-    </div>
-    <div class="details">
-      <p>
-        데이터 시각화 사용을 위한 권한을 요청 드립니다.
-      </p>
-    </div>
-    <div class="status">
-      <span class="comment">3</span>
-      <span class="read">5</span>
     </div>
   </div>
   <div class="row">
     <div class="row-title">
       <ul>
-        <li class="title">
-          <div>데이터 시각화 서비스 권한 요청 건</div>
-          <div class="tags">
-            <span class="tag bg-blue">요청</span>
-          </div>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
         </li>
-        <li class="created">
-          <span class="writer">홍길동</span>
-          <span class="date">2021-08-03 12:42:32</span>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
         </li>
       </ul>
-    </div>
-    <div class="details">
-      <p>
-        데이터 시각화 사용을 위한 권한을 요청 드립니다.
-      </p>
-    </div>
-    <div class="status">
-      <span class="comment">3</span>
-      <span class="read">5</span>
     </div>
   </div>
   <div class="row">
     <div class="row-title">
       <ul>
-        <li class="title">
-          <div>데이터 시각화 서비스 권한 요청 건</div>
-          <div class="tags">
-            <span class="tag bg-blue">요청</span>
-          </div>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
         </li>
-        <li class="created">
-          <span class="writer">홍길동</span>
-          <span class="date">2021-08-03 12:42:32</span>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
         </li>
       </ul>
-    </div>
-    <div class="details">
-      <p>
-        데이터 시각화 사용을 위한 권한을 요청 드립니다.
-      </p>
-    </div>
-    <div class="status">
-      <span class="comment">3</span>
-      <span class="read">5</span>
     </div>
   </div>
   <div class="row">
     <div class="row-title">
       <ul>
-        <li class="title">
-          <div>데이터 시각화 서비스 권한 요청 건</div>
-          <div class="tags">
-            <span class="tag bg-blue">요청</span>
-          </div>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
         </li>
-        <li class="created">
-          <span class="writer">홍길동</span>
-          <span class="date">2021-08-03 12:42:32</span>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
         </li>
       </ul>
     </div>
-    <div class="details">
-      <p>
-        데이터 시각화 사용을 위한 권한을 요청 드립니다.
-      </p>
+  </div>
+  <div class="row">
+    <div class="row-title">
+      <ul>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
+        </li>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
+        </li>
+      </ul>
     </div>
-    <div class="status">
-      <span class="comment">3</span>
-      <span class="read">5</span>
+  </div>
+  <div class="row">
+    <div class="row-title">
+      <ul>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
+        </li>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-title">
+      <ul>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
+        </li>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-title">
+      <ul>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
+        </li>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-title">
+      <ul>
+        <li class="tags">
+          <span class="tag bg-blue">TMS</span>
+          <span class="tag bg-blue">CCTV</span>
+          <span class="tag bg-blue">주정차 단속</span>
+        </li>
+        <li class="title">
+          <div>2019_P_신정호_고정15_자기망</div>
+        </li>
+      </ul>
     </div>
   </div>
 </main>
