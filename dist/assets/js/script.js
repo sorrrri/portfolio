@@ -169,10 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const btnSearch = document.querySelector(".btn-search");
+  const searchArea = document.querySelector(".row.search")
   const modalSearch = document.querySelector(".modal-search");
   if (btnSearch) {
     btnSearch.addEventListener("click", () => {
-      visibleOverlay(modalSearch);
+      // visibleOverlay(modalSearch);
+      searchArea.classList.toggle("active")
     });
   }
 

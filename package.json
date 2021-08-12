@@ -24,7 +24,8 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "ionicons": "^5.5.3"
   },
   "browsersList": [
     "chrome > 0",

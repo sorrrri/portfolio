@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
-  <title>스마트시티 통합플랫폼 모바일웹</title>
+  <title>VURIX CLOUD</title>
 
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/style.css">
-
   <script src="assets/js/script.js"></script>
 </head>
 
@@ -23,98 +22,23 @@
           <img src="assets/images/profile.jpg" alt="">
         </div>
         <ul class="user-information">
-          <li class="user-name">
-            홍길동
+          <li class="user-id">
+            otter0104
           </li>
           <li class="user-type">
-            천안 관리자
+            최고관리자
           </li>
         </ul>
       </div>
-      <ul class="menu">
-        <li onclick="location.href='notice.html'">
-          <div class="main-menu">
-            <span>공지사항</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li onclick="location.href='cctv.html'">
-          <div class="main-menu" onclick="location.href='cctv.html'">
-            <span>CCTV</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu">
-            <span>장애관리</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu" onclick="">
-            <span>자산관리</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu" onclick="">
-            <span>업무관리</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu" onclick="location.href='complaints.html'">
-            <span>민원관리</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-      </ul>
-      <ul class="menu menu-settings">
-        <li onclick="location.href='settings.html'">
-          <div class="main-menu">
-            <span>환경설정</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu" onclick="location.href='cctv.html'">
-            <span>비밀번호변경</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu">
-            <span>개인정보수정</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="main-menu" onclick="">
-            <span>로그아웃</span>
-            <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
-              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
-            </svg>
-          </div>
-        </li>
-      </ul>
+      <nav class="menu">
+        <div class="menu-workspace" onclick="location.href='notice.html'">Workspace</div>
+        <div class="menu-status" onclick="location.href='cctv.html'">장비현황</div>
+      </nav>
+      <nav class="menu menu-settings">
+        <div class="menu-privacy" onclick="location.href='privacy.html'">개인정보처리방침</div>
+        <div class="menu-terms" onclick="location.href='terms.html'">약관</div>
+        <div class="menu-logout" onclick="">로그아웃</div>
+      </nav>
     </aside>
     {% block content %}
     {% endblock %}
