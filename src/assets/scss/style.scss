@@ -717,6 +717,27 @@ nav {
         border-radius: 0.5rem 0.5rem 0 0;
         cursor: pointer;
 
+        .menus {
+          flex: 1 1 auto;
+          display: flex;
+          div {
+            background-color: #eee;
+            padding: 0.75rem 2rem;
+            border-right: 1px solid #ddd;
+            font-weight: bold;
+            transition: background-color 0.4s;
+  
+            &:first-of-type {
+              border-radius: 0.5rem 0 0 0;
+            }
+  
+            &:hover,
+            &.active {
+              background-color: white;
+            }
+          }
+        }
+
         ul {
           flex: 1 1 auto;
           display: flex;
