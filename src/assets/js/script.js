@@ -126,11 +126,12 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
 
   const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
+  const subButtons = bottomStickyMenu.querySelector(".buttons");
+
   if (bottomStickyMenu) {
     const mainButton = bottomStickyMenu.querySelector(".btn-main");
     mainButton.addEventListener("click", () => {
-      const subButtons = bottomStickyMenu.querySelectorAll(".buttons button");
-      subButtons.forEach((button) => button.classList.toggle("active"));
+      subButtons.classList.toggle("active");
     });
   }
 
@@ -139,9 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
   main.addEventListener("scroll", () => {
     if (main.scrollTop > 60) {
       bottomStickyMenu.classList.add("active");
+      
     } else {
+      if(subButtons.classList.contains("active")) {
+        subButtons.classList.remove("active")
+      }
       bottomStickyMenu.classList.remove("active");
     }
+
   });
 
   // Notice
