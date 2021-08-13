@@ -121,6 +121,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* =====================================================
+       Bottom Sticky Menu
+  ===================================================== */
+
+  const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
+  if (bottomStickyMenu) {
+    const mainButton = bottomStickyMenu.querySelector(".btn-main");
+    mainButton.addEventListener("click", () => {
+      const subButtons = bottomStickyMenu.querySelectorAll(".buttons button");
+      subButtons.forEach((button) => button.classList.toggle("active"));
+    });
+  }
+
+  const main = document.querySelector("main");
+
+  main.addEventListener("scroll", () => {
+    if (main.scrollTop > 60) {
+      bottomStickyMenu.classList.add("active");
+    } else {
+      bottomStickyMenu.classList.remove("active");
+    }
+  });
+
   // Notice
   const rows = document.querySelectorAll(".notice .row");
 
@@ -161,15 +184,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // confirm type의 modal일 때, 2중 모달 띄우기
-  modals.forEach(modal => {
-    const modalButtonSubmit = modal.querySelector(".btn-submit")
-    if(modalButtonSubmit) {
+  modals.forEach((modal) => {
+    const modalButtonSubmit = modal.querySelector(".btn-submit");
+    if (modalButtonSubmit) {
       modalButtonSubmit.addEventListener("click", () => {
-        const modalDone = document.querySelector(".modal-done")
-        visibleOverlay(modalDone)
-      })
+        const modalDone = document.querySelector(".modal-done");
+        visibleOverlay(modalDone);
+      });
     }
-  })
+  });
 
   const btnNavigation = document.querySelector(".btn-navigation");
   const modalNavigation = document.querySelector(".modal-navigation");
@@ -179,14 +202,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const btnSearch = document.querySelector(".btn-search");
+  const btnSearch = document.querySelectorAll(".btn-search");
   const searchArea = document.querySelector(".row.search");
   const modalSearch = document.querySelector(".modal-search");
   if (btnSearch) {
-    btnSearch.addEventListener("click", () => {
-      // visibleOverlay(modalSearch);
-      searchArea.classList.toggle("active");
-    });
+    btnSearch.forEach(button => {
+      button.addEventListener("click", () => {
+        searchArea.classList.toggle("active")})
+      })
+    // btnSearch.addEventListener("click", () => {
+    //   // visibleOverlay(modalSearch);
+    //   searchArea.classList.toggle("active");
+    // });
   }
 
   // 마커 상세
@@ -211,13 +238,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const newComment = document.querySelector(".comments .new");
 
   if (newComment) {
-
     const button = newComment.querySelector(".btn-submit");
     const modalComment = document.querySelector(".modal-comment");
 
     button.addEventListener("click", () => {
       visibleOverlay(modalComment);
-
     });
   }
 
