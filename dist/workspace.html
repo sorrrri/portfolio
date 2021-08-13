@@ -60,11 +60,33 @@
     </div>
   </div>
   <div class="row search">
-    <input type="search" placeholder="작업명, 작성자를 입력하세요." />
-    <button type="button">검색</button>
+    <div>
+      <input type="search" placeholder="작업명, 작성자를 입력하세요." />
+      <button class="btn-search" type="button">검색</button>
+    </div>
+    <div class="filters">
+      <button type="button" type="button">
+        <input type="radio" id="input-request" name="filter-search" checked="checked" />
+        <label for="input-request">
+          <span>요청</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-undertake" name="filter-search" />
+        <label for="input-undertake">
+          <span>진행</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-done" name="filter-search" />
+        <label for="input-done">
+          <span>완료</span>
+        </label>
+      </button>
+    </div>
   </div>
 </header>
-<main class="content list workspace">
+<main class="content list workspace" onclick="location.href='workspace_details.html'">
   <div class="row high">
     <div class="row-title">
       <ul>
@@ -90,7 +112,7 @@
       </p>
     </div>
     <div class="status">
-      <div class="attach">
+      <div class="attach attach-files">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
           <path
             d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"
@@ -125,7 +147,7 @@
       </p>
     </div>
     <div class="status">
-      <div class="attach">
+      <div class="attach attach-files">
       </div>
       <div>
         <span class="comment">3</span>
@@ -155,7 +177,7 @@
       </p>
     </div>
     <div class="status">
-      <div class="attach">
+      <div class="attach attach-files">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
           <path
             d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"
@@ -190,7 +212,7 @@
       </p>
     </div>
     <div class="status">
-      <div class="attach">
+      <div class="attach attach-files">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
           <path
             d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"
@@ -225,7 +247,7 @@
       </p>
     </div>
     <div class="status">
-      <div class="attach">
+      <div class="attach attach-files">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
           <path
             d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"
@@ -260,7 +282,7 @@
       </p>
     </div>
     <div class="status">
-      <div class="attach">
+      <div class="attach attach-files">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512">
           <path
             d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"

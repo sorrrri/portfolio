@@ -16,7 +16,7 @@
     url(../fonts/NanumSquareL.ttf) format("truetype");
 }
 
-$primary-color: #2f2586;
+$primary-color: royalblue;
 $secondary-color: royalblue;
 $dark-primary-color: #27292d;
 $dark-secondary-color: #373a46;
@@ -289,8 +289,8 @@ button {
 }
 
 .btn-submit {
-  background-color: $primary-color !important;
-  border: 0 !important;
+  background-color: $primary-color;
+  color: white;
 }
 
 .btn-cancel {
@@ -310,8 +310,10 @@ button {
 }
 
 textarea {
+  -webkit-appearance: none;
   font: 15px/1 "Nanumsquare-Regular";
   flex: 1 1 auto;
+  max-width: 100%;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 0.25rem;
@@ -1062,6 +1064,30 @@ input[type="radio"] + label:empty:before {
 
   .modal-content {
     overflow-y: auto;
+    flex: 1 1 auto
+  }
+
+  .modal-footer {
+    flex: 0 0 auto;
+
+    &.buttons {
+      gap: 0;
+      position: relative;
+
+      button {
+        border-radius: 0;
+        justify-content: center;
+        height: 50px;
+      }
+
+      .btn-cancel {
+        flex: 0 0 50%
+      }
+
+      .btn-submit {
+        flex: 1 1 auto;
+      }
+    }
   }
 
   section {

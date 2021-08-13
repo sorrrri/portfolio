@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
        Modal
   ===================================================== */
   const modals = document.querySelectorAll(".modal");
-  const closeButtons = document.querySelectorAll(".close");
+  const closeButtons = document.querySelectorAll(".btn-close, .btn-cancel");
 
   const visibleOverlay = (modal) => {
     overlay.classList.add("active");
@@ -160,6 +160,17 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  // confirm type의 modal일 때, 2중 모달 띄우기
+  modals.forEach(modal => {
+    const modalButtonSubmit = modal.querySelector(".btn-submit")
+    if(modalButtonSubmit) {
+      modalButtonSubmit.addEventListener("click", () => {
+        const modalDone = document.querySelector(".modal-done")
+        visibleOverlay(modalDone)
+      })
+    }
+  })
+
   const btnNavigation = document.querySelector(".btn-navigation");
   const modalNavigation = document.querySelector(".modal-navigation");
   if (btnNavigation) {
@@ -169,12 +180,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const btnSearch = document.querySelector(".btn-search");
-  const searchArea = document.querySelector(".row.search")
+  const searchArea = document.querySelector(".row.search");
   const modalSearch = document.querySelector(".modal-search");
   if (btnSearch) {
     btnSearch.addEventListener("click", () => {
       // visibleOverlay(modalSearch);
-      searchArea.classList.toggle("active")
+      searchArea.classList.toggle("active");
     });
   }
 
@@ -196,11 +207,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // 댓글 달기
+  const newComment = document.querySelector(".comments .new");
+
+  if (newComment) {
+
+    const button = newComment.querySelector(".btn-submit");
+    const modalComment = document.querySelector(".modal-comment");
+
+    button.addEventListener("click", () => {
+      visibleOverlay(modalComment);
+
+    });
+  }
+
   /* =====================================================
        Loader
   ===================================================== */
   const loader = document.querySelector(".loader");
   if (loader) {
-    
   }
 });
