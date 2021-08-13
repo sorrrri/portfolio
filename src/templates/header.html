@@ -1,0 +1,47 @@
+{% macro title(text) %}
+<header>
+  <div class="row">
+    <button class="toggle-menu" type="button">
+      <svg viewBox="0 0 100 100" width="80">
+        <path
+          d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40" />
+        <path d="m 30,50 h 40" />
+        <path
+          d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40" />
+      </svg>
+    </button>
+    <div class="title">{{ text }}</div>
+    <div class="buttons">
+      <button class="btn-request" onclick="location.href='workspace_new.html'" type="button"></button>
+      <button class="btn-warning" onclick="location.href='equipments_new.html'" type="button"></button>
+      <button class="btn-search" type="button"></button>
+    </div>
+  </div>
+  <div class="row search">
+    <div>
+      <input type="search" placeholder="작업명, 작성자를 입력하세요." />
+      <button class="btn-search" type="button">검색</button>
+    </div>
+    <div class="filters">
+      <button type="button" type="button">
+        <input type="radio" id="input-request" name="filter-search" checked="checked" />
+        <label for="input-request">
+          <span>요청</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-undertake" name="filter-search" />
+        <label for="input-undertake">
+          <span>진행</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-done" name="filter-search" />
+        <label for="input-done">
+          <span>완료</span>
+        </label>
+      </button>
+    </div>
+  </div>
+</header>
+{% endmacro %}
