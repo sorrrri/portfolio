@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const main = document.querySelector("main");
+  const header = document.querySelector("header");
 
   /* =====================================================
        Dropdown Menu
@@ -57,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // CCTV 상세검색
-  const header = document.querySelector("header");
   const toggleMenu = document.querySelector(".toggle-menu");
   const globalNavigationMenu = document.querySelector(
     ".global-navigation-menu"
@@ -217,11 +217,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const btnSearch = document.querySelectorAll(".btn-search");
-  const searchArea = document.querySelector(".row.search");
+  const btnHeaderSearch = header.querySelectorAll(".btn-search");
+  const searchArea = header.querySelector(".row.search");
   const modalSearch = document.querySelector(".modal-search");
-  if (btnSearch) {
-    btnSearch.forEach((button) => {
+
+  if (btnHeaderSearch) {
+    btnHeaderSearch.forEach((button) => {
       button.addEventListener("click", () => {
         searchArea.classList.toggle("active");
       });
@@ -233,12 +234,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 마커 상세
-  const markerDetails = document.querySelector(".marker-details");
+  const modalMarker = document.querySelector(".modal-marker");
   const moveDown = document.querySelector(".move-down");
 
   if (moveDown) {
     moveDown.addEventListener("click", () => {
-      markerDetails.classList.remove("active");
+      modalMarker.classList.remove("active");
     });
   }
 
@@ -246,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (marker) {
     marker.addEventListener("click", () => {
-      markerDetails.classList.add("active");
+      modalMarker.classList.add("active");
     });
   }
 
