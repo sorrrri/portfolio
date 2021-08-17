@@ -265,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (main.classList.contains("add")) {
     const button = document.querySelector(".btn-main");
     const modalConfirm = document.querySelector(".modal-confirm");
+    bottomStickyMenu.style.transform = "translateY(4rem)"
 
     console.log(button)
     console.log(modalConfirm)

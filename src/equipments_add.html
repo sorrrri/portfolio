@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "header.html" as forms %}
+{{forms.title("장애 접수")}}
+<main class="content details add workspace">
+  <div class="inputs">
+    <div class="input title">
+      <span>작업명</span>
+      <input type="text" />
+    </div>
+    <div class="input title">
+      <span>장비명</span>
+      <input type="text" />
+    </div>
+    <div class="input">
+      <span>장애유형</span>
+      <div class="filters">
+        <button type="button" type="button">
+          <input type="radio" id="input-hardware" name="filter-type" checked="checked" />
+          <label for="input-hardware">
+            <span>하드웨어</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-network" name="filter-type" />
+          <label for="input-network">
+            <span>네트워크</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-etc" name="filter-type" />
+          <label for="input-etc">
+            <span>기타</span>
+          </label>
+        </button>
+      </div>
+    </div>
+    <div class="input">
+      <span>중요도</span>
+      <div class="filters">
+        <button type="button" type="button">
+          <input type="radio" id="input-emergency" name="filter-importance" checked="checked" />
+          <label for="input-emergency" class="bg-red">
+            <span>긴급</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-high" name="filter-importance" />
+          <label for="input-high" class="bg-orange">
+            <span>높음</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-normal" name="filter-importance" />
+          <label for="input-normal" class="bg-blue">
+            <span>보통</span>
+          </label>
+        </button>
+        <button type="button" type="button">
+          <input type="radio" id="input-low" name="filter-importance" />
+          <label for="input-low" class="bg-green">
+            <span>낮음</span>
+          </label>
+        </button>
+      </div>
+    </div>
+    <div class="input send-to">
+      <span>받는사람</span>
+      <input type="text" />
+    </div>
+    <textarea name="" id="" rows="6"></textarea>
+    <div class="buttons">
+      <div class="attach">
+        <button class="attach-images">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+            <path d="M432,112V96a48.14,48.14,0,0,0-48-48H64A48.14,48.14,0,0,0,16,96V352a48.14,48.14,0,0,0,48,48H80"
+              style="fill:none;stroke-linejoin:round;stroke-width:32px" />
+            <rect x="96" y="128" width="400" height="336" rx="45.99" ry="45.99"
+              style="fill:none;stroke-linejoin:round;stroke-width:32px" />
+            <ellipse cx="372.92" cy="219.64" rx="30.77" ry="30.55"
+              style="fill:none;stroke-miterlimit:10;stroke-width:32px" />
+            <path d="M342.15,372.17,255,285.78a30.93,30.93,0,0,0-42.18-1.21L96,387.64"
+              style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+            <path d="M265.23,464,383.82,346.27a31,31,0,0,1,41.46-1.87L496,402.91"
+              style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+          </svg>
+        </button>
+        <button class="attach-files">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+            <path
+              d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"
+              style="fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+<div class="buttons">
+  <button class="btn-main">업무 요청 등록</button>
+</div>
+<div class="modal modal-confirm">
+  <div class="modal-header">
+    <div class="title">
+      <h3>댓글 등록</h3>
+      <button class="btn-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+          <path
+            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-content">
+    작업 내용을 등록 하시겠습니까?
+  </div>
+  <div class="modal-footer buttons">
+    <button class="btn-cancel" type="button">아니오</button>
+    <button class="btn-submit" type="button">예</button>
+  </div>
+</div>
+<div class="modal modal-done">
+  <div class="modal-content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+      <path d="M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z"
+        style="fill:none;stroke:slategray;stroke-miterlimit:10;stroke-width:32px" />
+      <polyline points="352 176 217.6 336 160 272"
+        style="fill:none;stroke:slategray;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+    </svg>
+    <p>작업 내용이 등록 되었습니다.</p>
+  </div>
+  <div class="modal-footer buttons">
+    <button class="btn-close" type="button">확인</button>
+  </div>
+</div>
+{% endblock %}
