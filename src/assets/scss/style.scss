@@ -1724,6 +1724,10 @@ main {
 
       .new {
         flex: 1 1 auto;
+        
+        .filters {
+          margin-bottom: .5rem;
+        }
 
         textarea {
           width: 100%;
@@ -1935,7 +1939,7 @@ main {
   }
 }
 
-.modal-comment {
+.modal-confirm {
   max-height: 200px;
 
   .modal-content {

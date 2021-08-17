@@ -72,4 +72,38 @@
 <div class="buttons">
   <button class="btn-main">업무 요청 등록</button>
 </div>
+<div class="modal modal-confirm">
+  <div class="modal-header">
+    <div class="title">
+      <h3>댓글 등록</h3>
+      <button class="btn-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+          <path
+            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="modal-content">
+    작업 내용을 등록 하시겠습니까?
+  </div>
+  <div class="modal-footer buttons">
+    <button class="btn-cancel" type="button">아니오</button>
+    <button class="btn-submit" type="button">예</button>
+  </div>
+</div>
+<div class="modal modal-done">
+  <div class="modal-content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+      <path d="M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z"
+        style="fill:none;stroke:slategray;stroke-miterlimit:10;stroke-width:32px" />
+      <polyline points="352 176 217.6 336 160 272"
+        style="fill:none;stroke:slategray;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+    </svg>
+    <p>작업 내용이 등록 되었습니다.</p>
+  </div>
+  <div class="modal-footer buttons">
+    <button class="btn-close" type="button">확인</button>
+  </div>
+</div>
 {% endblock %}

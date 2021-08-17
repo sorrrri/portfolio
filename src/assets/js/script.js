@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
+  const main = document.querySelector("main");
+
   /* =====================================================
        Dropdown Menu
   ===================================================== */
@@ -135,8 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const main = document.querySelector("main");
-
   if (main.classList.contains("details")) {
     const header = document.querySelector("header");
     const toggleButton = header.querySelector(".toggle-menu");
@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttons = header.querySelector(".buttons");
 
     backButton.classList.add("active");
-    toggleButton.style.display = "none"
-    buttons.style.display = "none"
+    toggleButton.style.display = "none";
+    buttons.style.display = "none";
   }
 
   main.addEventListener("scroll", () => {
@@ -255,10 +255,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (newComment) {
     const button = newComment.querySelector(".btn-submit");
-    const modalComment = document.querySelector(".modal-comment");
+    const modalConfirm = document.querySelector(".modal-confirm");
 
     button.addEventListener("click", () => {
-      visibleOverlay(modalComment);
+      visibleOverlay(modalConfirm);
+    });
+  }
+
+  if (main.classList.contains("add")) {
+    const button = document.querySelector(".btn-main");
+    const modalConfirm = document.querySelector(".modal-confirm");
+
+    console.log(button)
+    console.log(modalConfirm)
+    console.log()
+
+    button.addEventListener("click", () => {
+      visibleOverlay(modalConfirm);
     });
   }
 
