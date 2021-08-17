@@ -137,17 +137,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const main = document.querySelector("main");
 
+  if (main.classList.contains("details")) {
+    const header = document.querySelector("header");
+    const toggleButton = header.querySelector(".toggle-menu");
+    const backButton = header.querySelector(".btn-back");
+    const buttons = header.querySelector(".buttons");
+
+    backButton.classList.add("active");
+    toggleButton.style.display = "none"
+    buttons.style.display = "none"
+  }
+
   main.addEventListener("scroll", () => {
     if (main.scrollTop > 60) {
       bottomStickyMenu.classList.add("active");
-      
     } else {
-      if(subButtons.classList.contains("active")) {
-        subButtons.classList.remove("active")
+      if (subButtons.classList.contains("active")) {
+        subButtons.classList.remove("active");
       }
       bottomStickyMenu.classList.remove("active");
     }
-
   });
 
   // Notice
@@ -212,10 +221,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchArea = document.querySelector(".row.search");
   const modalSearch = document.querySelector(".modal-search");
   if (btnSearch) {
-    btnSearch.forEach(button => {
+    btnSearch.forEach((button) => {
       button.addEventListener("click", () => {
-        searchArea.classList.toggle("active")})
-      })
+        searchArea.classList.toggle("active");
+      });
+    });
     // btnSearch.addEventListener("click", () => {
     //   // visibleOverlay(modalSearch);
     //   searchArea.classList.toggle("active");

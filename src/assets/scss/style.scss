@@ -134,7 +134,6 @@ body {
   button {
     position: relative;
     width: 100%;
-    margin-bottom: 0.5rem;
 
     input[type="radio"] + label {
       background-color: rgba(0, 0, 0, 0.075);
@@ -342,6 +341,10 @@ aside {
 header {
   flex: 0 0 auto;
   flex-direction: column;
+
+  .btn-back {
+    display: none;
+  }
 
   .row {
     display: flex;
@@ -572,6 +575,24 @@ footer {
         width: 2rem;
         height: 2rem;
       }
+    }
+  }
+}
+
+main {
+  ~ .buttons {
+    flex: 0 0 60px;
+
+    button {
+      height: 100%;
+      justify-content: center;
+      flex: 1 1 auto;
+      border-radius: 0;
+      font-size: 18px;
+    }
+    .btn-main {
+      background-color: royalblue;
+      color: white;
     }
   }
 }
@@ -1534,38 +1555,35 @@ footer {
         }
       }
     }
-  }
 
-  .row {
-    flex-direction: column;
-    border-radius: 0 0.5rem 0.5rem 0;
-    border-left: 3px solid rgba(65, 105, 225, 0.5);
-    padding: 0.75rem;
-
-    &:not(:last-of-type) {
-      margin-bottom: 0.75rem;
-    }
-
-    &.high {
-      border-color: orangered;
-
-      .tag.bg-red {
-        display: flex;
+    input[type="radio"]:checked + label {
+      &.bg-red {
+        background-color: rgba(255, 69, 0, 0.1);
+        color: rgb(255, 69, 0);
       }
-    }
 
-    &.low {
-      border-color: seagreen;
-    }
-
-    .tag.bg-red {
-      display: none;
+      &.bg-orange {
+        background-color: rgba(255, 140, 0, 0.1);
+        color: rgb(255, 140, 0);
+      }
+      &.bg-blue {
+        background-color: rgba(65, 105, 225, 0.1);
+        color: rgb(65, 105, 225);
+      }
+      &.bg-green {
+        background-color: rgba(46, 139, 87, 0.1);
+        color: rgb(46, 139, 87);
+      }
     }
 
     .attach {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+      button {
+        padding: 0;
+      }
 
       svg {
         width: 24px;
@@ -1585,6 +1603,33 @@ footer {
       svg {
         transform: rotate(45deg);
       }
+    }
+  }
+
+  .row {
+    flex-direction: column;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: 3px solid rgba(65, 105, 225, 0.5);
+    padding: 0.75rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 0.75rem;
+    }
+
+    &.emergency {
+      border-color: orangered;
+
+      .tag.bg-red {
+        display: flex;
+      }
+    }
+
+    &.low {
+      border-color: seagreen;
+    }
+
+    .tag.bg-red {
+      display: none;
     }
 
     .title {
@@ -1762,6 +1807,26 @@ footer {
   }
 }
 
+.add {
+  .inputs {
+    flex: 1 1 auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .input {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .filters {
+  }
+}
+
 .bottom-sticky-menu {
   opacity: 0;
   transform: translateY(4rem);
@@ -1773,7 +1838,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: .2s;
+  transition: 0.2s;
 
   &.active {
     transform: translateY(0);
@@ -1789,7 +1854,7 @@ footer {
 
       button {
         background-color: #333;
-        box-shadow: 0px 3px 4.5px 1px rgba(0, 0, 0, .1);
+        box-shadow: 0px 3px 4.5px 1px rgba(0, 0, 0, 0.1);
 
         &:nth-of-type(1) {
           transform: translateY(calc(-300% - 1.75rem));
@@ -1798,13 +1863,12 @@ footer {
           transform: translateY(calc(-200% - 1.25rem));
         }
         &:nth-of-type(3) {
-          transform: translateY(calc(-100% - .75rem));
+          transform: translateY(calc(-100% - 0.75rem));
         }
       }
     }
 
     button {
-
       svg {
         width: 100%;
         height: 100%;
@@ -1834,13 +1898,13 @@ footer {
 
     &.btn-main {
       background-image: url("../images/icon/add-outline.svg");
-      box-shadow: 0px 5px 10px 1px rgba(65, 105, 225, .3);
+      box-shadow: 0px 5px 10px 1px rgba(65, 105, 225, 0.3);
     }
 
     svg {
       width: 60%;
       height: 60%;
-      stroke: white
+      stroke: white;
     }
   }
 }
