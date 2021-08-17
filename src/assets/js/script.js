@@ -267,13 +267,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalConfirm = document.querySelector(".modal-confirm");
     bottomStickyMenu.style.transform = "translateY(4rem)"
 
-    console.log(button)
-    console.log(modalConfirm)
-    console.log()
-
     button.addEventListener("click", () => {
       visibleOverlay(modalConfirm);
     });
+
+    const inputSearch = document.querySelector(".input-search")
+    if(inputSearch) {
+      inputSearch.addEventListener("click", () => {
+        visibleOverlay(modalSearch)
+      })
+    }
   }
 
   /* =====================================================

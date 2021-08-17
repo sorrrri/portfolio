@@ -150,7 +150,7 @@ body {
 
     input[type="radio"]:hover + label,
     input[type="radio"]:checked + label {
-      background-color: royalblue;
+      background-color: #333;
       color: white;
 
       svg {
@@ -1556,26 +1556,6 @@ main {
       }
     }
 
-    input[type="radio"]:checked + label {
-      &.bg-red {
-        background-color: rgba(255, 69, 0, 0.1);
-        color: rgb(255, 69, 0);
-      }
-
-      &.bg-orange {
-        background-color: rgba(255, 140, 0, 0.1);
-        color: rgb(255, 140, 0);
-      }
-      &.bg-blue {
-        background-color: rgba(65, 105, 225, 0.1);
-        color: rgb(65, 105, 225);
-      }
-      &.bg-green {
-        background-color: rgba(46, 139, 87, 0.1);
-        color: rgb(46, 139, 87);
-      }
-    }
-
     .attach {
       display: flex;
       align-items: center;
@@ -1812,6 +1792,27 @@ main {
 }
 
 .add {
+
+  input[type="radio"]:checked + label {
+    &.bg-red {
+      background-color: rgba(255, 69, 0, 0.1);
+      color: rgb(255, 69, 0);
+    }
+
+    &.bg-orange {
+      background-color: rgba(255, 140, 0, 0.1);
+      color: rgb(255, 140, 0);
+    }
+    &.bg-blue {
+      background-color: rgba(65, 105, 225, 0.1);
+      color: rgb(65, 105, 225);
+    }
+    &.bg-green {
+      background-color: rgba(46, 139, 87, 0.1);
+      color: rgb(46, 139, 87);
+    }
+  }
+
   .inputs {
     flex: 1 1 auto;
     padding: 1rem;
@@ -1824,6 +1825,10 @@ main {
     .input {
       display: flex;
       flex-direction: column;
+
+      input:placeholder-shown {
+        background-color: transparent;
+      }
     }
   }
 
@@ -1981,7 +1986,8 @@ main {
 
 .modal-search {
   height: fit-content;
-  max-height: none;
+  min-height: 60%;
+  max-height: 95%;
   top: auto;
   bottom: -450px;
   transform: translate(-50%, 0);
@@ -1994,7 +2000,6 @@ main {
   }
 
   .keywords {
-    padding-top: 1rem;
     display: flex;
     flex-direction: column;
   }
@@ -2029,6 +2034,43 @@ main {
 
   .modal-content {
     flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .no-result {
+    display: none;
+  }
+
+  .result {
+
+    &:empty {
+      flex: 0 0 auto;
+      padding: 0;
+
+      ~ .no-result {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: center;
+        align-items: center;
+        color: #666;
+      }
+    }
+
+    &:not(:empty) {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding: 1rem;
+
+    }
+
+    .row {
+      flex-direction: column;
+      border: 1px solid #EEE;
+      border-radius: .5rem;
+      padding: .5rem;      
+    }
   }
 
   .modal-footer {
