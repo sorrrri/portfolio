@@ -8,14 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
+  const container = document.querySelector(".container");
   const main = document.querySelector("main");
   const header = document.querySelector("header");
-  const toggleMenu = document.querySelector(".toggle-menu");
-  const globalNavigationMenu = document.querySelector(
-    ".global-navigation-menu"
-  );
-  const localToggleMenu = document.querySelector(".local-toggle-menu");
-  const localNavigationMenu = document.querySelector(".local-navigation-menu");
 
   /* =====================================================
        Dropdown Menu
@@ -66,6 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Toggle Menu
   ===================================================== */
+  const toggleMenu = document.querySelector(".toggle-menu");
+  const globalNavigationMenu = document.querySelector(
+    ".global-navigation-menu"
+  );
+  const localToggleMenu = document.querySelector(".local-toggle-menu");
+  const localNavigationMenu = document.querySelector(".local-navigation-menu");
+
   if (toggleMenu) {
     const openNavigationMenu = (menu) => {
       menu.classList.add("active");
@@ -87,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // dim 영역 눌러도 메뉴창 닫기
     overlay.addEventListener("click", () => {
       closeNavigationMenu(toggleMenu, globalNavigationMenu);
 
@@ -139,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bottomStickyMenu.classList.add("active");
     }
     lastScrollTop = currentScrollTop;
-  })
+  });
 
   /* =====================================================
        Modal
@@ -175,6 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // confirm type의 modal일 때, 2중 모달 띄우기
   modals.forEach((modal) => {
+    const closeButton = document.createElement("button");
+    closeButton.classList.add("btn-close");
+    modal.append(closeButton);
+    console.log(closeButton);
+
     const modalButtonSubmit = modal.querySelector(".btn-submit");
     if (modalButtonSubmit) {
       modalButtonSubmit.addEventListener("click", () => {
@@ -202,13 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
         searchArea.classList.toggle("active");
       });
     });
-    // btnSearch.addEventListener("click", () => {
-    //   // visibleOverlay(modalSearch);
-    //   searchArea.classList.toggle("active");
-    // });
   }
 
-  // 마커 상세
+  /* =====================================================
+       Modal: Marker Details
+  ===================================================== */
   const modalMarker = document.querySelector(".modal-marker");
   const moveDown = document.querySelector(".move-down");
 
@@ -226,7 +232,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 댓글 달기
+  /* =====================================================
+       Modal: New Comments
+  ===================================================== */
   const newComment = document.querySelector(".comments .new");
 
   if (newComment) {
@@ -253,6 +261,32 @@ document.addEventListener("DOMContentLoaded", () => {
         visibleOverlay(modalSearch);
       });
     }
+  }
+
+  /* =====================================================
+       Modal: Zoom In Images
+  ===================================================== */
+  const images = document.querySelectorAll(".images");
+  const modalImage = document.querySelector(".modal-image");
+
+  if (images) {
+    // const modalImage = document.createElement("div")
+    // modalImage.classList.add("modal", "modal-image")
+    // container.append(modalImage)
+
+    images.forEach((image) => {
+      image.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        modalImage.classList.add("active");
+        modalImage.innerHTML = `<img src="${e.target.src}" alt="" />`;
+        visibleOverlay(modalImage);
+        modalImage.addEventListener("click", () => {
+          hiddenOverlay(modalImage);
+          modals.forEach((modal) => modal.classList.remove("active"));
+        });
+      });
+    });
   }
 
   /* =====================================================
