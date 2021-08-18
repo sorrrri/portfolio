@@ -63,16 +63,16 @@
     <div class="title">Workspace #101</div>
     <div class="buttons">
       <button class="btn-request" onclick="location.href='workspace_add.html'" type="button"></button>
-      <button class="btn-warning" onclick="location.href='equipments_add.html'" type="button"></button>
+      <button class="btn-warning" onclick="location.href='equipment_add.html'" type="button"></button>
       <button class="btn-search" type="button"></button>
     </div>
   </div>
   <div class="row search">
-    <div>
+    <div class="input">
       <input type="search" placeholder="작업명, 작성자를 입력하세요." />
       <button class="btn-search" type="button">검색</button>
     </div>
-    <div class="filters">
+    <div class="filters filters-workspace">
       <button type="button" type="button">
         <input type="radio" id="input-request" name="filter-search" checked="checked" />
         <label for="input-request">
@@ -89,6 +89,20 @@
         <input type="radio" id="input-done" name="filter-search" />
         <label for="input-done">
           <span>완료</span>
+        </label>
+      </button>
+    </div>
+    <div class="filters filters-equipments">
+      <button type="button" type="button">
+        <input type="radio" id="input-address" name="filter-search-equipments" checked="checked" />
+        <label for="input-address">
+          <span>주소 검색</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-cctv" name="filter-search-equipments" />
+        <label for="input-cctv">
+          <span>CCTV 검색</span>
         </label>
       </button>
     </div>
@@ -151,20 +165,20 @@
       <div class="title">댓글작성</div>
       <div class="filters">
         <button type="button" type="button">
-          <input type="radio" id="input-request" name="filter-search" checked="checked" />
-          <label for="input-request">
+          <input type="radio" id="input-request-comment" name="filter-type" checked="checked" />
+          <label for="input-request-comment">
             <span>요청</span>
           </label>
         </button>
         <button type="button" type="button">
-          <input type="radio" id="input-undertake" name="filter-search" />
-          <label for="input-undertake">
+          <input type="radio" id="input-undertake-comment" name="filter-type" />
+          <label for="input-undertake-comment">
             <span>진행</span>
           </label>
         </button>
         <button type="button" type="button">
-          <input type="radio" id="input-done" name="filter-search" />
-          <label for="input-done">
+          <input type="radio" id="input-done-comment" name="filter-type" />
+          <label for="input-done-comment">
             <span>완료</span>
           </label>
         </button>
@@ -313,7 +327,7 @@
               style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
           </svg>
         </button>
-        <button class="btn-undertake" onclick="location.href='equipments_add.html'" type="button">
+        <button class="btn-undertake" onclick="location.href='equipment_add.html'" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
             <title>ionicons-v5-h</title>
             <path

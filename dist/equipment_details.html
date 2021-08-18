@@ -63,16 +63,16 @@
     <div class="title">장비 상세정보</div>
     <div class="buttons">
       <button class="btn-request" onclick="location.href='workspace_add.html'" type="button"></button>
-      <button class="btn-warning" onclick="location.href='equipments_add.html'" type="button"></button>
+      <button class="btn-warning" onclick="location.href='equipment_add.html'" type="button"></button>
       <button class="btn-search" type="button"></button>
     </div>
   </div>
   <div class="row search">
-    <div>
+    <div class="input">
       <input type="search" placeholder="작업명, 작성자를 입력하세요." />
       <button class="btn-search" type="button">검색</button>
     </div>
-    <div class="filters">
+    <div class="filters filters-workspace">
       <button type="button" type="button">
         <input type="radio" id="input-request" name="filter-search" checked="checked" />
         <label for="input-request">
@@ -92,18 +92,24 @@
         </label>
       </button>
     </div>
+    <div class="filters filters-equipments">
+      <button type="button" type="button">
+        <input type="radio" id="input-address" name="filter-search-equipments" checked="checked" />
+        <label for="input-address">
+          <span>주소 검색</span>
+        </label>
+      </button>
+      <button type="button" type="button">
+        <input type="radio" id="input-cctv" name="filter-search-equipments" />
+        <label for="input-cctv">
+          <span>CCTV 검색</span>
+        </label>
+      </button>
+    </div>
   </div>
 </header>
 
-<header>
-  <button class="btn-back" onclick="history.back()">
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-      <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
-    </svg>
-  </button>
-  <div class="title">장비 상세정보</div>
-</header>
-<main class="content equipment-details">
+<main class="content equipments details">
   <section>
     <div class="title">
       <strong>W28E012_서북구 불당동 1830</strong>
@@ -221,7 +227,7 @@
               style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
           </svg>
         </button>
-        <button class="btn-undertake" onclick="location.href='equipments_add.html'" type="button">
+        <button class="btn-undertake" onclick="location.href='equipment_add.html'" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
             <title>ionicons-v5-h</title>
             <path

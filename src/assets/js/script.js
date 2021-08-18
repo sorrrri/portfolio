@@ -115,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 상세페이지에서는(main태그에 "details" class가 있는 경우) 헤더의 토글버튼 및 버튼들 삭제
   if (main.classList.contains("details")) {
-    const header = document.querySelector("header");
     const toggleButton = header.querySelector(".toggle-menu");
     const backButton = header.querySelector(".btn-back");
     const buttons = header.querySelector(".buttons");
@@ -181,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = document.createElement("button");
     closeButton.classList.add("btn-close");
     modal.append(closeButton);
-    console.log(closeButton);
 
     const modalButtonSubmit = modal.querySelector(".btn-submit");
     if (modalButtonSubmit) {
@@ -200,16 +198,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* =====================================================
+       Header Search Area
+  ===================================================== */
   const btnHeaderSearch = header.querySelectorAll(".btn-search");
   const searchArea = header.querySelector(".row.search");
   const modalSearch = document.querySelector(".modal-search");
+  const workspacePage = document.querySelector(".workspace");
+  const equipmentsPage = document.querySelector(".equipments");
 
-  if (btnHeaderSearch) {
+  if (workspacePage) {
+    const filters = document.querySelector(".filters-equipments");
+    filters.style.display = "none";
+
+    if (btnHeaderSearch) {
+      btnHeaderSearch.forEach((button) => {
+        button.addEventListener("click", () => {
+          searchArea.classList.toggle("active");
+        });
+      });
+    }
+  }
+
+  if (equipmentsPage) {
     btnHeaderSearch.forEach((button) => {
       button.addEventListener("click", () => {
-        searchArea.classList.toggle("active");
+        location.href="equipments_search.html"
       });
     });
+
+    if(equipmentsPage.classList.contains("list")) {
+      const filters = document.querySelector(".filters-workspace");
+      filters.style.display = "none";
+      searchArea.classList.add("active");
+    }
   }
 
   /* =====================================================

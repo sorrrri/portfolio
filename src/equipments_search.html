@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "header.html" as forms %}
+{{forms.title("장비 현황 검색")}}
+<main class="content list equipments">
+  <section class="result" onclick="location.href='equipment_details.html'"></section>
+  <section class="no-result">검색 내역이 없습니다.</section>
+</main>
+{% endblock %}
