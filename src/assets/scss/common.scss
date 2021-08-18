@@ -805,6 +805,7 @@ input[type="radio"] + label:empty:before {
   li {
     transition: 0.4s;
     cursor: pointer;
+    position: relative;
 
     &:hover,
     &.active {
@@ -813,7 +814,7 @@ input[type="radio"] + label:empty:before {
   }
 }
 
-.tab-content > div {
+.tab-content {
   display: none;
 
   &.active {

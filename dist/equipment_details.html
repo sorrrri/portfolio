@@ -56,15 +56,14 @@
     </button>
     <button class="btn-back" onclick="history.back()">
       <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-        <title>ionicons-v5-a</title>
         <polyline points="328 112 184 256 328 400"
           style="fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:48px" />
       </svg>
     </button>
-    <div class="title">업무 요청</div>
+    <div class="title">장비 상세정보</div>
     <div class="buttons">
       <button class="btn-request" onclick="location.href='workspace_add.html'" type="button"></button>
-      <button class="btn-warning" onclick="location.href='equipments_new.html'" type="button"></button>
+      <button class="btn-warning" onclick="location.href='equipments_add.html'" type="button"></button>
       <button class="btn-search" type="button"></button>
     </div>
   </div>
@@ -96,81 +95,118 @@
   </div>
 </header>
 
-<main class="content details add workspace">
-  <div class="inputs">
-    <div class="input title">
-      <span>작업명</span>
-      <input type="text" />
+<header>
+  <button class="btn-back" onclick="history.back()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+      <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
+    </svg>
+  </button>
+  <div class="title">장비 상세정보</div>
+</header>
+<main class="content equipment-details">
+  <section>
+    <div class="title">
+      <strong>W28E012_서북구 불당동 1830 (불달18로 불당25로)</strong>
     </div>
-    <div class="input">
-      <span>중요도</span>
-      <div class="filters">
-        <button type="button" type="button">
-          <input type="radio" id="input-emergency" name="filter-importance" checked="checked" />
-          <label for="input-emergency" class="bg-red">
-            <span>긴급</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-high" name="filter-importance" />
-          <label for="input-high" class="bg-orange">
-            <span>높음</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-normal" name="filter-importance" />
-          <label for="input-normal" class="bg-blue">
-            <span>보통</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-low" name="filter-importance" />
-          <label for="input-low" class="bg-green">
-            <span>낮음</span>
-          </label>
-        </button>
+    <div class="view">
+
+      <!-- 뷰 영역 -->
+      <img
+        src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+        alt="">
+    </div>
+    <div class="address">
+      <p>충청남도 천안시 서북구 불당동 1830</p>
+      <button class="btn-navigation" type="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path
+            d="M21.71 11.29l-9-9c-.39-.39-1.02-.39-1.41 0l-9 9c-.39.39-.39 1.02 0 1.41l9 9c.39.39 1.02.39 1.41 0l9-9c.39-.38.39-1.01 0-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z" />
+        </svg>
+        <span>내비게이션</span>
+      </button>
+    </div>
+  </section>
+  <section class="information">
+    <ul class="tabs">
+      <li>기본 정보</li>
+      <li>연결 장비 정보</li>
+    </ul>
+    <div class="tab-content">
+      <div class="row">
+        <span>연결 유형</span>
+        <span>TMS (통합플랫폼)</span>
+      </div>
+      <div class="row">
+        <span>장비 유형</span>
+        <span>CCTV > 도로 감시</span>
+      </div>
+      <div class="row">
+        <span>장비 상태</span>
+        <span>정상</span>
+      </div>
+      <div class="row">
+        <span>최근 업데이트</span>
+        <span>10초 전</span>
+      </div>
+      <div class="row">
+        <span>연동 일시</span>
+        <span>2021.07.28 12:54:32</span>
       </div>
     </div>
-    <div class="input send-to">
-      <span>받는사람</span>
-      <input type="text" />
-    </div>
-    <textarea name="" id="" rows="6"></textarea>
-    <div class="buttons">
-      <div class="attach">
-        <button class="attach-images">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
-            <path d="M432,112V96a48.14,48.14,0,0,0-48-48H64A48.14,48.14,0,0,0,16,96V352a48.14,48.14,0,0,0,48,48H80"
-              style="fill:none;stroke-linejoin:round;stroke-width:32px" />
-            <rect x="96" y="128" width="400" height="336" rx="45.99" ry="45.99"
-              style="fill:none;stroke-linejoin:round;stroke-width:32px" />
-            <ellipse cx="372.92" cy="219.64" rx="30.77" ry="30.55"
-              style="fill:none;stroke-miterlimit:10;stroke-width:32px" />
-            <path d="M342.15,372.17,255,285.78a30.93,30.93,0,0,0-42.18-1.21L96,387.64"
-              style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
-            <path d="M265.23,464,383.82,346.27a31,31,0,0,1,41.46-1.87L496,402.91"
-              style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
-          </svg>
-        </button>
-        <button class="attach-files">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
-            <path
-              d="M216.08,192V335.85a40.08,40.08,0,0,0,80.15,0l.13-188.55a67.94,67.94,0,1,0-135.87,0V337.12a95.51,95.51,0,1,0,191,0V159.74"
-              style="fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" />
-          </svg>
-        </button>
+    <div class="tab-content">
+      <div class="row">
+        <span>정상</span>
+        <span>0</span>
+        <span>TNM-3620TDY</span>
+        <span>2021.07.28 11:30:22</span>
       </div>
     </div>
-  </div>
+  </section>
 </main>
-<div class="buttons">
-  <button class="btn-main">업무 요청 등록</button>
-</div>
-<div class="modal modal-confirm">
+<footer>
+  <ul class="footer-menu">
+    <li class="active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path
+          d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+      </svg>
+      <span>CCTV</span>
+    </li>
+    <li>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path
+          d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 15h-2v-2h2v2zm0-4h-2V8h2v6zm-1-9c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
+      </svg>
+      <span>장애관리</span>
+    </li>
+    <li>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path
+          d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+      </svg>
+      <span>자산관리</span>
+    </li>
+    <li>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path
+          d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z" />
+      </svg>
+      <span>업무관리</span>
+    </li>
+    <li onclick="location.href='complaints.html'">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+        <path
+          d="M22 3H2C.9 3 0 3.9 0 5v14c0 1.1.9 2 2 2h20c1.1 0 1.99-.9 1.99-2L24 5c0-1.1-.9-2-2-2zM8 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H2v-1c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1zm3.85-4h1.64L21 16l-1.99 1.99c-1.31-.98-2.28-2.38-2.73-3.99-.18-.64-.28-1.31-.28-2s.1-1.36.28-2c.45-1.62 1.42-3.01 2.73-3.99L21 8l-1.51 2h-1.64c-.22.63-.35 1.3-.35 2s.13 1.37.35 2z" />
+      </svg>
+      <span>민원관리</span>
+    </li>
+  </ul>
+</footer>
+<div class="modal modal-navigation">
   <div class="modal-header">
     <div class="title">
-      <h3>댓글 등록</h3>
-      <button class="btn-close">
+      <h3>내비게이션</h3>
+      <button class="close">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
           <path
             d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
@@ -179,25 +215,20 @@
     </div>
   </div>
   <div class="modal-content">
-    작업 내용을 등록 하시겠습니까?
-  </div>
-  <div class="modal-footer buttons">
-    <button class="btn-cancel" type="button">아니오</button>
-    <button class="btn-submit" type="button">예</button>
-  </div>
-</div>
-<div class="modal modal-done">
-  <div class="modal-content">
-    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-      <path d="M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z"
-        style="fill:none;stroke:slategray;stroke-miterlimit:10;stroke-width:32px" />
-      <polyline points="352 176 217.6 336 160 272"
-        style="fill:none;stroke:slategray;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
-    </svg>
-    <p>작업 내용이 등록 되었습니다.</p>
-  </div>
-  <div class="modal-footer buttons">
-    <button class="btn-close" type="button">확인</button>
+    <ul class="navigations">
+      <li onclick="">
+        <img src="assets/images/logo_kakaomap.png" alt="카카오맵 바로가기">
+        <span>카카오맵</span>
+      </li>
+      <li onclick="">
+        <img src="assets/images/logo_navermap.png" alt="네이버지도 바로가기">
+        <span>네이버지도</span>
+      </li>
+      <li onclick="">
+        <img src="assets/images/logo_tmap.jpg" alt="티맵 바로가기">
+        <span>T map</span>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -216,7 +247,7 @@
               style="fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
           </svg>
         </button>
-        <button class="btn-undertake" onclick="location.href='workspace.html'" type="button">
+        <button class="btn-undertake" onclick="location.href='equipments_add.html'" type="button">
           <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
             <title>ionicons-v5-h</title>
             <path
