@@ -10,6 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const main = document.querySelector("main");
   const header = document.querySelector("header");
+  const toggleMenu = document.querySelector(".toggle-menu");
+  const globalNavigationMenu = document.querySelector(
+    ".global-navigation-menu"
+  );
+  const localToggleMenu = document.querySelector(".local-toggle-menu");
+  const localNavigationMenu = document.querySelector(".local-navigation-menu");
 
   /* =====================================================
        Dropdown Menu
@@ -57,39 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // CCTV 상세검색
-  const toggleMenu = document.querySelector(".toggle-menu");
-  const globalNavigationMenu = document.querySelector(
-    ".global-navigation-menu"
-  );
-  const localToggleMenu = document.querySelector(".local-toggle-menu");
-  const localNavigationMenu = document.querySelector(".local-navigation-menu");
-
-  const inputSearchFull = document.querySelector(".input-search-full");
-  const modalSearchFull = document.querySelector(".modal-search-full");
-
-  if (inputSearchFull) {
-    const handleActiveSearchFull = () => {
-      if (modalSearchFull.classList.contains("active") === false) {
-        const button = document.createElement("button");
-        modalSearchFull.classList.add("active");
-        header.replaceChild(button, toggleMenu);
-
-        const buttonBack = button;
-        buttonBack.classList.add("btn-back");
-        buttonBack.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-        <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
-      </svg>`;
-
-        buttonBack.addEventListener("click", () => {
-          modalSearchFull.classList.remove("active");
-          header.replaceChild(toggleMenu, buttonBack);
-        });
-      }
-    };
-    inputSearchFull.addEventListener("click", handleActiveSearchFull);
-  }
-
   /* =====================================================
        Toggle Menu
   ===================================================== */
@@ -126,10 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Bottom Sticky Menu
   ===================================================== */
-
   const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
   const subButtons = bottomStickyMenu.querySelector(".buttons");
 
+  // 하단 sticky menu를 누르면 sub menu들이 펼쳐지도록
   if (bottomStickyMenu) {
     const mainButton = bottomStickyMenu.querySelector(".btn-main");
     mainButton.addEventListener("click", () => {
@@ -137,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // 상세페이지에서는(main태그에 "details" class가 있는 경우) 헤더의 토글버튼 및 버튼들 삭제
   if (main.classList.contains("details")) {
     const header = document.querySelector("header");
     const toggleButton = header.querySelector(".toggle-menu");
@@ -148,23 +122,24 @@ document.addEventListener("DOMContentLoaded", () => {
     buttons.style.display = "none";
   }
 
+  // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
+  const delta = 5;
+  let lastScrollTop = 0;
+
   main.addEventListener("scroll", () => {
-    if (main.scrollTop > 60) {
-      bottomStickyMenu.classList.add("active");
-    } else {
-      if (subButtons.classList.contains("active")) {
-        subButtons.classList.remove("active");
-      }
-      bottomStickyMenu.classList.remove("active");
+    let currentScrollTop = main.scrollTop;
+    if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
+      return;
     }
-  });
-
-  // Notice
-  const rows = document.querySelectorAll(".notice .row");
-
-  rows.forEach((row) => {
-    row.addEventListener("click", () => row.classList.toggle("active"));
-  });
+    if (currentScrollTop > lastScrollTop) {
+      //Scroll down
+      bottomStickyMenu.classList.remove("active");
+    } else {
+      //Scroll up
+      bottomStickyMenu.classList.add("active");
+    }
+    lastScrollTop = currentScrollTop;
+  })
 
   /* =====================================================
        Modal
@@ -266,17 +241,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (main.classList.contains("add")) {
     const button = document.querySelector(".btn-main");
     const modalConfirm = document.querySelector(".modal-confirm");
-    bottomStickyMenu.style.transform = "translateY(4rem)"
+    bottomStickyMenu.style.transform = "translateY(4rem)";
 
     button.addEventListener("click", () => {
       visibleOverlay(modalConfirm);
     });
 
-    const inputSearch = document.querySelector(".input-search")
-    if(inputSearch) {
+    const inputSearch = document.querySelector(".input-search");
+    if (inputSearch) {
       inputSearch.addEventListener("click", () => {
-        visibleOverlay(modalSearch)
-      })
+        visibleOverlay(modalSearch);
+      });
     }
   }
 
@@ -287,3 +262,29 @@ document.addEventListener("DOMContentLoaded", () => {
   if (loader) {
   }
 });
+
+// // CCTV 상세검색
+// const inputSearchFull = document.querySelector(".input-search-full");
+// const modalSearchFull = document.querySelector(".modal-search-full");
+
+// if (inputSearchFull) {
+//   const handleActiveSearchFull = () => {
+//     if (modalSearchFull.classList.contains("active") === false) {
+//       const button = document.createElement("button");
+//       modalSearchFull.classList.add("active");
+//       header.replaceChild(button, toggleMenu);
+
+//       const buttonBack = button;
+//       buttonBack.classList.add("btn-back");
+//       buttonBack.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+//       <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
+//     </svg>`;
+
+//       buttonBack.addEventListener("click", () => {
+//         modalSearchFull.classList.remove("active");
+//         header.replaceChild(toggleMenu, buttonBack);
+//       });
+//     }
+//   };
+//   inputSearchFull.addEventListener("click", handleActiveSearchFull);
+// }
