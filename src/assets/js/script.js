@@ -110,18 +110,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainButton = bottomStickyMenu.querySelector(".btn-main");
     mainButton.addEventListener("click", () => {
       subButtons.classList.toggle("active");
+
+      const searchButton = subButtons.querySelector(".btn-search")
+      searchButton.addEventListener("click", () => {
+        searchArea.classList.toggle("active");
+      })
     });
-  }
-
-  // 상세페이지에서는(main태그에 "details" class가 있는 경우) 헤더의 토글버튼 및 버튼들 삭제
-  if (main.classList.contains("details")) {
-    const toggleButton = header.querySelector(".toggle-menu");
-    const backButton = header.querySelector(".btn-back");
-    const buttons = header.querySelector(".buttons");
-
-    backButton.classList.add("active");
-    toggleButton.style.display = "none";
-    buttons.style.display = "none";
   }
 
   // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
@@ -204,10 +198,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnHeaderSearch = header.querySelectorAll(".btn-search");
   const searchArea = header.querySelector(".row.search");
   const modalSearch = document.querySelector(".modal-search");
-  const workspacePage = document.querySelector(".workspace");
+  const workspaceList = document.querySelector(".workspace.list");
   const equipmentsPage = document.querySelector(".equipments");
 
-  if (workspacePage) {
+  if (workspaceList) {
     const filters = document.querySelector(".filters-equipments");
     filters.style.display = "none";
 
@@ -223,11 +217,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (equipmentsPage) {
     btnHeaderSearch.forEach((button) => {
       button.addEventListener("click", () => {
-        location.href="equipments_search.html"
+        location.href = "equipments_search.html";
       });
     });
 
-    if(equipmentsPage.classList.contains("list")) {
+    if (equipmentsPage.classList.contains("list")) {
       const filters = document.querySelector(".filters-workspace");
       filters.style.display = "none";
       searchArea.classList.add("active");
@@ -318,29 +312,3 @@ document.addEventListener("DOMContentLoaded", () => {
   if (loader) {
   }
 });
-
-// // CCTV 상세검색
-// const inputSearchFull = document.querySelector(".input-search-full");
-// const modalSearchFull = document.querySelector(".modal-search-full");
-
-// if (inputSearchFull) {
-//   const handleActiveSearchFull = () => {
-//     if (modalSearchFull.classList.contains("active") === false) {
-//       const button = document.createElement("button");
-//       modalSearchFull.classList.add("active");
-//       header.replaceChild(button, toggleMenu);
-
-//       const buttonBack = button;
-//       buttonBack.classList.add("btn-back");
-//       buttonBack.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-//       <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
-//     </svg>`;
-
-//       buttonBack.addEventListener("click", () => {
-//         modalSearchFull.classList.remove("active");
-//         header.replaceChild(toggleMenu, buttonBack);
-//       });
-//     }
-//   };
-//   inputSearchFull.addEventListener("click", handleActiveSearchFull);
-// }
