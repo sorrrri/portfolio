@@ -72,24 +72,27 @@ gulp.task("scss", () => {
     .pipe(sourcemaps.init())
     .pipe(scss(options))
     .pipe(autoprefixer({ cascade: false }))
-    .pipe(sourcemaps.write())
+    .pipe(scss(options).on("error", scss.logError))
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
     .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("script", () => {
-  return gulp
-    .src(PATH.ASSETS.SCRIPT + "/*.js")
-    // .pipe(
-    //   babel({
-    //     presets: ["@babel/preset-env"],
-    //   })
-    // )
-    // .pipe(uglify({
-    //     mangle: false
-    // }))
-    .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
-    .pipe(browserSync.reload({ stream: true }));
+  return (
+    gulp
+      .src(PATH.ASSETS.SCRIPT + "/*.js")
+      // .pipe(
+      //   babel({
+      //     presets: ["@babel/preset-env"],
+      //   })
+      // )
+      // .pipe(uglify({
+      //     mangle: false
+      // }))
+      .pipe(gulp.dest(DEST_PATH.ASSETS.SCRIPT))
+      .pipe(browserSync.reload({ stream: true }))
+  );
 });
 
 gulp.task("html", () => {

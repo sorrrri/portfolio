@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
   const header = document.querySelector("header");
 
-  // main.addEventListener("scroll", () => {
-  //   if (main.scrollTop > 50) {
-  //     main.classList.add("scroll");
-  //   } else {
-  //     main.classList.remove("scoll");
-  //   }
-  // });
+  main.addEventListener("scroll", () => {
+    if (main.scrollTop > 50) {
+      container.classList.add("scroll");
+    } else {
+      container.classList.remove("scroll");
+    }
+  });
 
   /* =====================================================
        Dropdown Menu
@@ -143,8 +143,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const searchButton = subButtons.querySelector(".btn-search");
+
+      // 검색버튼을 누르면 검색창, dim, sub menu 숨김 처리
       searchButton.addEventListener("click", () => {
-        searchArea.classList.toggle("active");
+        searchArea.classList.add("active");
+        container.classList.remove("scroll");
+        subButtons.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+
+      // 검색영역이 열려있을 때
+      if (searchArea.classList.contains("active")) {
+        // 검색버튼을 누르면 검색영역 닫힘
+        searchButton.addEventListener("click", () => {
+          searchArea.classList.remove("active");
+        });
+      }
+      // 스크롤시, 헤더 고정
+      main.addEventListener("scroll", (e) => {
+        if (searchArea.classList.contains("active")) {
+          e.stopPropagation();
+          container.classList.remove("scroll");
+        }
       });
     });
   }
@@ -277,6 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (main.classList.contains("add")) {
     const button = document.querySelector(".btn-main");
     const modalConfirm = document.querySelector(".modal-confirm");
+    //작성화면에서는 하단메뉴 숨김처리
     bottomStickyMenu.style.transform = "translateY(4rem)";
 
     button.addEventListener("click", () => {
