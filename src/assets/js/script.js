@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("main");
   const header = document.querySelector("header");
 
+  // main.addEventListener("scroll", () => {
+  //   if (main.scrollTop > 50) {
+  //     main.classList.add("scroll");
+  //   } else {
+  //     main.classList.remove("scoll");
+  //   }
+  // });
+
   /* =====================================================
        Dropdown Menu
   ===================================================== */
@@ -105,37 +113,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
   const subButtons = bottomStickyMenu.querySelector(".buttons");
 
-  // 하단 sticky menu를 누르면 sub menu들이 펼쳐지도록
   if (bottomStickyMenu) {
+    const delta = 5;
+    let lastScrollTop = 0;
+
+    main.addEventListener("scroll", () => {
+      // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
+      let currentScrollTop = main.scrollTop;
+      if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
+        return;
+      }
+      if (currentScrollTop > lastScrollTop) {
+        //Scroll down
+        bottomStickyMenu.classList.remove("active");
+      } else {
+        //Scroll up
+        bottomStickyMenu.classList.add("active");
+      }
+      lastScrollTop = currentScrollTop;
+    });
+
+    // 하단 sticky menu를 누르면 sub menu들이 펼쳐지도록
     const mainButton = bottomStickyMenu.querySelector(".btn-main");
     mainButton.addEventListener("click", () => {
       subButtons.classList.toggle("active");
+      overlay.classList.toggle("active");
+      overlay.addEventListener("click", () => {
+        subButtons.classList.remove("active");
+      });
 
-      const searchButton = subButtons.querySelector(".btn-search")
+      const searchButton = subButtons.querySelector(".btn-search");
       searchButton.addEventListener("click", () => {
         searchArea.classList.toggle("active");
-      })
+      });
     });
   }
-
-  // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
-  const delta = 5;
-  let lastScrollTop = 0;
-
-  main.addEventListener("scroll", () => {
-    let currentScrollTop = main.scrollTop;
-    if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
-      return;
-    }
-    if (currentScrollTop > lastScrollTop) {
-      //Scroll down
-      bottomStickyMenu.classList.remove("active");
-    } else {
-      //Scroll up
-      bottomStickyMenu.classList.add("active");
-    }
-    lastScrollTop = currentScrollTop;
-  });
 
   /* =====================================================
        Modal
