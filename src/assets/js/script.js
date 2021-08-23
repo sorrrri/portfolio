@@ -150,20 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
         container.classList.remove("scroll");
         subButtons.classList.remove("active");
         overlay.classList.remove("active");
-      });
 
-      // 검색영역이 열려있을 때
-      if (searchArea.classList.contains("active")) {
-        // 검색버튼을 누르면 검색영역 닫힘
-        searchButton.addEventListener("click", () => {
-          searchArea.classList.remove("active");
-        });
-      }
-      // 스크롤시, 헤더 고정
-      main.addEventListener("scroll", (e) => {
         if (searchArea.classList.contains("active")) {
-          e.stopPropagation();
-          container.classList.remove("scroll");
+          searchArea.classList.remove("active");
         }
       });
     });
@@ -178,6 +167,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const visibleOverlay = (modal) => {
     overlay.classList.add("active");
     modal.classList.add("active");
+    if (bottomStickyMenu.classList.contains("active")) {
+      bottomStickyMenu.classList.remove("active");
+    }
   };
 
   const hiddenOverlay = () => {
@@ -233,9 +225,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const workspaceList = document.querySelector(".workspace.list");
   const equipmentsPage = document.querySelector(".equipments");
 
+  // 스크롤시, 헤더 고정
+  if(searchArea) {
+    main.addEventListener("scroll", () => {
+      if (searchArea.classList.contains("active")) {
+        container.classList.remove("scroll");
+      }
+    });
+  }
+
   if (workspaceList) {
     const filters = document.querySelector(".filters-equipments");
     filters.style.display = "none";
+
+    // 검색영역이 열려있을 때
+    if (searchArea.classList.contains("active")) {
+      // 검색버튼을 누르면 검색영역 닫힘
+      searchButton.addEventListener("click", () => {
+        searchArea.classList.remove("active");
+      });
+    }
 
     if (btnHeaderSearch) {
       btnHeaderSearch.forEach((button) => {
@@ -247,16 +256,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (equipmentsPage) {
-    btnHeaderSearch.forEach((button) => {
-      button.addEventListener("click", () => {
-        location.href = "equipments_search.html";
-      });
-    });
-
     if (equipmentsPage.classList.contains("list")) {
       const filters = document.querySelector(".filters-workspace");
       filters.style.display = "none";
       searchArea.classList.add("active");
+
+      btnHeaderSearch.forEach((button) => {
+        button.addEventListener("click", () => {
+          searchArea.classList.toggle("active");
+        });
+      });
     }
   }
 

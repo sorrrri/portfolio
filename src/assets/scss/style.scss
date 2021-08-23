@@ -324,6 +324,7 @@ aside {
   width: 55vw;
   right: -55vw;
   border-radius: 0.5rem 0 0 0.5rem;
+  padding-top: 1rem;
 
   &.active {
     right: 0;
@@ -412,7 +413,7 @@ header {
   flex-direction: column;
   color: white;
   padding: 0 1rem;
-  transition: 0.4s;
+  transition: 0.8s;
 
   .row {
     display: flex;
@@ -1766,7 +1767,7 @@ main {
     transition: 0.2s;
 
     &.btn-main {
-      box-shadow: 0px 5px 10px 1px rgba(65, 105, 225, 0.3);
+      box-shadow: 0px 5px 10px 1px rgba(60, 179, 173, 0.3);
       font-size: 1.5rem;
     }
 
@@ -1802,11 +1803,10 @@ main {
     }
   }
 
-  .btn-close {
-    flex: 1 1 auto;
-    align-items: center;
+  .btn-cancel {
     background-color: royalblue;
     color: white;
+    flex: 1 1 auto !important
   }
 }
 
