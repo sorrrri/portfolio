@@ -153,17 +153,15 @@ body button.btn-navigation span {
 /* line 137, src/assets/scss/style.scss */
 /* line 106, src/assets/scss/style.css */
 body button.btn-back {
-    width: 24px;
-    height: 24px;
-    margin-left: 0.5rem; }
+    font-size: 1.5rem; }
 
-/* line 144, src/assets/scss/style.scss */
-/* line 111, src/assets/scss/style.css */
+/* line 142, src/assets/scss/style.scss */
+/* line 109, src/assets/scss/style.css */
 body .tabs {
     flex: 0 0 40px; }
 
-/* line 147, src/assets/scss/style.scss */
-/* line 114, src/assets/scss/style.css */
+/* line 145, src/assets/scss/style.scss */
+/* line 112, src/assets/scss/style.css */
 body .tabs li {
     flex: 1 1 50%;
     cursor: pointer;
@@ -172,8 +170,8 @@ body .tabs li {
     justify-content: center;
     border-bottom: 1px solid #eee; }
 
-/* line 156, src/assets/scss/style.scss */
-/* line 122, src/assets/scss/style.css */
+/* line 154, src/assets/scss/style.scss */
+/* line 120, src/assets/scss/style.css */
 body .tabs li.active::after {
     content: "";
     position: absolute;
@@ -183,22 +181,22 @@ body .tabs li.active::after {
     height: 3px;
     background-color: #2145b0; }
 
-/* line 170, src/assets/scss/style.scss */
-/* line 132, src/assets/scss/style.css */
+/* line 168, src/assets/scss/style.scss */
+/* line 130, src/assets/scss/style.css */
 .filters {
     display: flex;
     border-radius: 0.25rem;
     gap: 0.5rem; }
 
-/* line 175, src/assets/scss/style.scss */
-/* line 137, src/assets/scss/style.css */
+/* line 173, src/assets/scss/style.scss */
+/* line 135, src/assets/scss/style.css */
 .filters button {
     position: relative;
     width: 100%;
     border-radius: 0.25rem; }
 
-/* line 180, src/assets/scss/style.scss */
-/* line 142, src/assets/scss/style.css */
+/* line 178, src/assets/scss/style.scss */
+/* line 140, src/assets/scss/style.css */
 .filters button label {
     color: #49536b;
     background-color: rgba(0, 0, 0, 0.075);
@@ -208,47 +206,47 @@ body .tabs li.active::after {
     align-items: center;
     margin-right: 0; }
 
-/* line 189, src/assets/scss/style.scss */
-/* line 151, src/assets/scss/style.css */
+/* line 187, src/assets/scss/style.scss */
+/* line 149, src/assets/scss/style.css */
 .filters button label::before {
     content: none; }
 
-/* line 194, src/assets/scss/style.scss */
-/* line 154, src/assets/scss/style.css */
+/* line 192, src/assets/scss/style.scss */
+/* line 152, src/assets/scss/style.css */
 .filters button input[type="radio"]:hover + label,
 .filters button input[type="radio"]:checked + label {
     background-color: #333;
     color: white; }
 
-/* line 199, src/assets/scss/style.scss */
-/* line 159, src/assets/scss/style.css */
+/* line 197, src/assets/scss/style.scss */
+/* line 157, src/assets/scss/style.css */
 .filters button input[type="radio"]:hover + label svg,
 .filters button input[type="radio"]:checked + label svg {
     fill: royalblue; }
 
-/* line 204, src/assets/scss/style.scss */
-/* line 163, src/assets/scss/style.css */
+/* line 202, src/assets/scss/style.scss */
+/* line 161, src/assets/scss/style.css */
 .filters button label {
     min-height: 32px;
     display: flex;
     align-items: center;
     padding: 0.5rem 0; }
 
-/* line 210, src/assets/scss/style.scss */
-/* line 169, src/assets/scss/style.css */
+/* line 208, src/assets/scss/style.scss */
+/* line 167, src/assets/scss/style.css */
 .filters button label::before, .filters button label::after {
     position: absolute;
     right: 0; }
 
-/* line 220, src/assets/scss/style.scss */
-/* line 173, src/assets/scss/style.css */
+/* line 218, src/assets/scss/style.scss */
+/* line 171, src/assets/scss/style.css */
 .filters .checkbox label::before {
     width: 24px;
     height: 24px;
     border-radius: 24px; }
 
-/* line 226, src/assets/scss/style.scss */
-/* line 178, src/assets/scss/style.css */
+/* line 224, src/assets/scss/style.scss */
+/* line 176, src/assets/scss/style.css */
 .filters .checkbox label::after {
     width: 12px !important;
     height: 8px !important;
@@ -256,8 +254,8 @@ body .tabs li.active::after {
     left: auto !important;
     right: 9px; }
 
-/* line 237, src/assets/scss/style.scss */
-/* line 186, src/assets/scss/style.css */
+/* line 235, src/assets/scss/style.scss */
+/* line 184, src/assets/scss/style.css */
 aside {
     max-width: 300px;
     position: fixed;
@@ -267,44 +265,44 @@ aside {
     transition: 0.4s;
     z-index: 10; }
 
-/* line 246, src/assets/scss/style.scss */
-/* line 195, src/assets/scss/style.css */
+/* line 244, src/assets/scss/style.scss */
+/* line 193, src/assets/scss/style.css */
 aside button {
     color: #333; }
 
-/* line 250, src/assets/scss/style.scss */
-/* line 198, src/assets/scss/style.css */
+/* line 248, src/assets/scss/style.scss */
+/* line 196, src/assets/scss/style.css */
 aside small {
     text-transform: uppercase; }
 
-/* line 255, src/assets/scss/style.scss */
-/* line 201, src/assets/scss/style.css */
+/* line 253, src/assets/scss/style.scss */
+/* line 199, src/assets/scss/style.css */
 aside .menu:not(:last-of-type) {
     margin-bottom: 1rem; }
 
-/* line 261, src/assets/scss/style.scss */
-/* line 205, src/assets/scss/style.css */
+/* line 259, src/assets/scss/style.scss */
+/* line 203, src/assets/scss/style.css */
 .global-navigation-menu {
     width: 60vw;
     left: -60vw;
     border-radius: 0 0.5rem 0.5rem 0;
     padding: 0 1.5rem; }
 
-/* line 267, src/assets/scss/style.scss */
-/* line 211, src/assets/scss/style.css */
+/* line 265, src/assets/scss/style.scss */
+/* line 209, src/assets/scss/style.css */
 .global-navigation-menu.active {
     left: 0;
     z-index: 20; }
 
-/* line 272, src/assets/scss/style.scss */
-/* line 215, src/assets/scss/style.css */
+/* line 270, src/assets/scss/style.scss */
+/* line 213, src/assets/scss/style.css */
 .global-navigation-menu .profile {
     padding: 1.5rem 0;
     display: flex;
     align-items: center; }
 
-/* line 277, src/assets/scss/style.scss */
-/* line 220, src/assets/scss/style.css */
+/* line 275, src/assets/scss/style.scss */
+/* line 218, src/assets/scss/style.css */
 .global-navigation-menu .profile .image {
     width: 40px;
     height: 40px;
@@ -312,24 +310,24 @@ aside .menu:not(:last-of-type) {
     margin-right: 0.5rem;
     overflow: hidden; }
 
-/* line 284, src/assets/scss/style.scss */
-/* line 227, src/assets/scss/style.css */
+/* line 282, src/assets/scss/style.scss */
+/* line 225, src/assets/scss/style.css */
 .global-navigation-menu .profile .image img {
     width: 100%; }
 
-/* line 289, src/assets/scss/style.scss */
-/* line 230, src/assets/scss/style.css */
+/* line 287, src/assets/scss/style.scss */
+/* line 228, src/assets/scss/style.css */
 .global-navigation-menu .profile .user-information {
     font-size: 12px; }
 
-/* line 292, src/assets/scss/style.scss */
-/* line 233, src/assets/scss/style.css */
+/* line 290, src/assets/scss/style.scss */
+/* line 231, src/assets/scss/style.css */
 .global-navigation-menu .profile .user-information .user-id {
     font: bold 15px/1 "Poppins-SemiBold";
     margin: 0.25rem 0; }
 
-/* line 299, src/assets/scss/style.scss */
-/* line 237, src/assets/scss/style.css */
+/* line 297, src/assets/scss/style.scss */
+/* line 235, src/assets/scss/style.css */
 .global-navigation-menu .menu {
     font-size: 17px;
     line-height: 3;
@@ -337,44 +335,44 @@ aside .menu:not(:last-of-type) {
     border-top: 1px solid #ddd;
     color: #2145b0; }
 
-/* line 306, src/assets/scss/style.scss */
-/* line 244, src/assets/scss/style.css */
+/* line 304, src/assets/scss/style.scss */
+/* line 242, src/assets/scss/style.css */
 .global-navigation-menu .menu div {
     display: flex;
     align-items: center; }
 
-/* line 311, src/assets/scss/style.scss */
-/* line 248, src/assets/scss/style.css */
+/* line 309, src/assets/scss/style.scss */
+/* line 246, src/assets/scss/style.css */
 .global-navigation-menu .menu span {
     margin-left: 0.5rem;
     color: #333; }
 
-/* line 316, src/assets/scss/style.scss */
-/* line 252, src/assets/scss/style.css */
+/* line 314, src/assets/scss/style.scss */
+/* line 250, src/assets/scss/style.css */
 .global-navigation-menu .menu.menu-settings {
     padding-top: 1rem;
     border-top: 1px solid #ddd; }
 
-/* line 325, src/assets/scss/style.scss */
-/* line 257, src/assets/scss/style.css */
+/* line 323, src/assets/scss/style.scss */
+/* line 255, src/assets/scss/style.css */
 .local-navigation-menu {
     width: 55vw;
     right: -55vw;
     border-radius: 0.5rem 0 0 0.5rem; }
 
-/* line 330, src/assets/scss/style.scss */
-/* line 262, src/assets/scss/style.css */
+/* line 328, src/assets/scss/style.scss */
+/* line 260, src/assets/scss/style.css */
 .local-navigation-menu.active {
     right: 0; }
 
-/* line 334, src/assets/scss/style.scss */
-/* line 265, src/assets/scss/style.css */
+/* line 332, src/assets/scss/style.scss */
+/* line 263, src/assets/scss/style.css */
 .local-navigation-menu .filters {
     padding: .5rem;
     flex-direction: column; }
 
-/* line 338, src/assets/scss/style.scss */
-/* line 269, src/assets/scss/style.css */
+/* line 336, src/assets/scss/style.scss */
+/* line 267, src/assets/scss/style.css */
 .local-navigation-menu .filters h4 {
     flex: 0 0 auto;
     text-align: center;
@@ -384,15 +382,15 @@ aside .menu:not(:last-of-type) {
     justify-content: center;
     font-size: 20px; }
 
-/* line 347, src/assets/scss/style.scss */
-/* line 278, src/assets/scss/style.css */
+/* line 345, src/assets/scss/style.scss */
+/* line 276, src/assets/scss/style.css */
 .local-navigation-menu .filters h4 span {
     font-size: 15px;
     color: #333;
     margin-left: 0.5rem; }
 
-/* line 354, src/assets/scss/style.scss */
-/* line 283, src/assets/scss/style.css */
+/* line 352, src/assets/scss/style.scss */
+/* line 281, src/assets/scss/style.css */
 .local-navigation-menu .filters label {
     background-color: transparent;
     display: flex;
@@ -404,38 +402,38 @@ aside .menu:not(:last-of-type) {
     margin: 0.125rem 0;
     position: relative; }
 
-/* line 365, src/assets/scss/style.scss */
-/* line 294, src/assets/scss/style.css */
+/* line 363, src/assets/scss/style.scss */
+/* line 292, src/assets/scss/style.css */
 .local-navigation-menu .filters label::after {
     position: absolute;
     right: 0.5rem;
     top: 10px !important; }
 
-/* line 371, src/assets/scss/style.scss */
-/* line 299, src/assets/scss/style.css */
+/* line 369, src/assets/scss/style.scss */
+/* line 297, src/assets/scss/style.css */
 .local-navigation-menu .filters label span {
     font-size: 15px;
     color: #333;
     margin-left: 0.5rem; }
 
-/* line 378, src/assets/scss/style.scss */
-/* line 304, src/assets/scss/style.css */
+/* line 376, src/assets/scss/style.scss */
+/* line 302, src/assets/scss/style.css */
 .local-navigation-menu .filters input:checked + label {
     background-color: cornflowerblue;
     color: white; }
 
-/* line 382, src/assets/scss/style.scss */
-/* line 308, src/assets/scss/style.css */
+/* line 380, src/assets/scss/style.scss */
+/* line 306, src/assets/scss/style.css */
 .local-navigation-menu .filters input:checked + label::before, .local-navigation-menu .filters input:checked + label::after {
     content: none !important; }
 
-/* line 387, src/assets/scss/style.scss */
-/* line 311, src/assets/scss/style.css */
+/* line 385, src/assets/scss/style.scss */
+/* line 309, src/assets/scss/style.css */
 .local-navigation-menu .filters input:checked + label span {
     color: white; }
 
-/* line 394, src/assets/scss/style.scss */
-/* line 315, src/assets/scss/style.css */
+/* line 392, src/assets/scss/style.scss */
+/* line 313, src/assets/scss/style.css */
 .local-toggle-menu {
     width: 2.5rem;
     height: 2.5rem;
@@ -453,8 +451,8 @@ aside .menu:not(:last-of-type) {
     box-shadow: 0px 2px 10px 0px #333;
     z-index: 1; }
 
-/* line 412, src/assets/scss/style.scss */
-/* line 333, src/assets/scss/style.css */
+/* line 410, src/assets/scss/style.scss */
+/* line 331, src/assets/scss/style.css */
 header {
     flex: 0 0 auto;
     flex-direction: column;
@@ -462,22 +460,22 @@ header {
     padding: 0 1rem;
     transition: 0.4s; }
 
-/* line 419, src/assets/scss/style.scss */
-/* line 340, src/assets/scss/style.css */
+/* line 417, src/assets/scss/style.scss */
+/* line 338, src/assets/scss/style.css */
 header .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative; }
 
-/* line 425, src/assets/scss/style.scss */
-/* line 346, src/assets/scss/style.css */
+/* line 423, src/assets/scss/style.scss */
+/* line 344, src/assets/scss/style.css */
 header .row:first-of-type {
     flex-basis: 60px;
     font-size: 16px; }
 
-/* line 430, src/assets/scss/style.scss */
-/* line 350, src/assets/scss/style.css */
+/* line 428, src/assets/scss/style.scss */
+/* line 348, src/assets/scss/style.css */
 header .row.search {
     opacity: 0;
     height: 0;
@@ -485,24 +483,24 @@ header .row.search {
     gap: 0.5rem;
     z-index: -1; }
 
-/* line 437, src/assets/scss/style.scss */
-/* line 357, src/assets/scss/style.css */
+/* line 435, src/assets/scss/style.scss */
+/* line 355, src/assets/scss/style.css */
 header .row.search.active {
     opacity: 1;
     height: auto;
     padding: 0 1rem 1rem;
     z-index: 1; }
 
-/* line 444, src/assets/scss/style.scss */
-/* line 363, src/assets/scss/style.css */
+/* line 442, src/assets/scss/style.scss */
+/* line 361, src/assets/scss/style.css */
 header .row.search .input {
     width: 100%;
     display: flex;
     gap: 0.5rem;
     position: relative; }
 
-/* line 450, src/assets/scss/style.scss */
-/* line 369, src/assets/scss/style.css */
+/* line 448, src/assets/scss/style.scss */
+/* line 367, src/assets/scss/style.css */
 header .row.search .input input[type="search"] {
     color: white;
     text-indent: 2rem;
@@ -513,8 +511,8 @@ header .row.search .input input[type="search"] {
     height: 40px;
     border-radius: 0.5rem; }
 
-/* line 461, src/assets/scss/style.scss */
-/* line 379, src/assets/scss/style.css */
+/* line 459, src/assets/scss/style.scss */
+/* line 377, src/assets/scss/style.css */
 header .row.search .input .btn-search {
     flex: 0 0 auto;
     background-color: royalblue;
@@ -522,8 +520,8 @@ header .row.search .input .btn-search {
     height: 100%;
     padding: 0 0.75rem; }
 
-/* line 469, src/assets/scss/style.scss */
-/* line 386, src/assets/scss/style.css */
+/* line 467, src/assets/scss/style.scss */
+/* line 384, src/assets/scss/style.css */
 header .row.search .input svg {
     opacity: 0.5;
     position: absolute;
@@ -531,27 +529,27 @@ header .row.search .input svg {
     top: 50%;
     transform: translateY(-50%); }
 
-/* line 478, src/assets/scss/style.scss */
-/* line 393, src/assets/scss/style.css */
+/* line 476, src/assets/scss/style.scss */
+/* line 391, src/assets/scss/style.css */
 header .row.search .filters {
     width: 100%;
     display: flex; }
 
-/* line 482, src/assets/scss/style.scss */
-/* line 397, src/assets/scss/style.css */
+/* line 480, src/assets/scss/style.scss */
+/* line 395, src/assets/scss/style.css */
 header .row.search .filters label {
     background-color: transparent !important;
     color: rgba(255, 255, 255, 0.6);
     border-radius: 0; }
 
-/* line 487, src/assets/scss/style.scss */
-/* line 402, src/assets/scss/style.css */
+/* line 485, src/assets/scss/style.scss */
+/* line 400, src/assets/scss/style.css */
 header .row.search .filters button {
     border-radius: 0;
     margin-bottom: 0; }
 
-/* line 492, src/assets/scss/style.scss */
-/* line 406, src/assets/scss/style.css */
+/* line 490, src/assets/scss/style.scss */
+/* line 404, src/assets/scss/style.css */
 header .row.search .filters button input[type="radio"]:checked + label::after {
     content: "";
     position: absolute;
@@ -561,19 +559,19 @@ header .row.search .filters button input[type="radio"]:checked + label::after {
     height: 2px;
     background-color: white; }
 
-/* line 507, src/assets/scss/style.scss */
-/* line 415, src/assets/scss/style.css */
+/* line 505, src/assets/scss/style.scss */
+/* line 413, src/assets/scss/style.css */
 header button {
     color: white; }
 
-/* line 511, src/assets/scss/style.scss */
-/* line 418, src/assets/scss/style.css */
+/* line 509, src/assets/scss/style.scss */
+/* line 416, src/assets/scss/style.css */
 header .buttons {
     gap: 0.75rem;
     z-index: 1; }
 
-/* line 515, src/assets/scss/style.scss */
-/* line 422, src/assets/scss/style.css */
+/* line 513, src/assets/scss/style.scss */
+/* line 420, src/assets/scss/style.css */
 header .buttons button {
     width: 20px;
     height: 20px;
@@ -582,15 +580,15 @@ header .buttons button {
     background-size: cover;
     padding: 0 !important; }
 
-/* line 525, src/assets/scss/style.scss */
-/* line 430, src/assets/scss/style.css */
+/* line 523, src/assets/scss/style.scss */
+/* line 428, src/assets/scss/style.css */
 header .toggle-menu {
     display: flex;
     align-items: center;
     font-size: 1.8rem; }
 
-/* line 531, src/assets/scss/style.scss */
-/* line 435, src/assets/scss/style.css */
+/* line 529, src/assets/scss/style.scss */
+/* line 433, src/assets/scss/style.css */
 header .title {
     text-align: center;
     width: 80%;
@@ -601,38 +599,38 @@ header .title {
     left: 50%;
     transform: translate(-50%, -50%); }
 
-/* line 541, src/assets/scss/style.scss */
-/* line 445, src/assets/scss/style.css */
+/* line 539, src/assets/scss/style.scss */
+/* line 443, src/assets/scss/style.css */
 header .title + button {
     padding: 0.75rem; }
 
-/* line 546, src/assets/scss/style.scss */
-/* line 448, src/assets/scss/style.css */
+/* line 544, src/assets/scss/style.scss */
+/* line 446, src/assets/scss/style.css */
 header .search {
     flex: 1 1 auto;
     display: flex;
     align-items: center; }
 
-/* line 551, src/assets/scss/style.scss */
-/* line 453, src/assets/scss/style.css */
+/* line 549, src/assets/scss/style.scss */
+/* line 451, src/assets/scss/style.css */
 header .search svg {
     fill: #ccc;
     width: 24px;
     height: 24px; }
 
-/* line 558, src/assets/scss/style.scss */
-/* line 458, src/assets/scss/style.css */
+/* line 556, src/assets/scss/style.scss */
+/* line 456, src/assets/scss/style.css */
 header .search input:focus {
     box-shadow: 0 0 0 0; }
 
-/* line 565, src/assets/scss/style.scss */
-/* line 461, src/assets/scss/style.css */
+/* line 563, src/assets/scss/style.scss */
+/* line 459, src/assets/scss/style.css */
 header .btn-close svg {
     width: 1.5rem;
     height: 1.5rem; }
 
-/* line 572, src/assets/scss/style.scss */
-/* line 466, src/assets/scss/style.css */
+/* line 570, src/assets/scss/style.scss */
+/* line 464, src/assets/scss/style.css */
 footer {
     display: none !important;
     flex: 0 0 auto;
@@ -641,8 +639,8 @@ footer {
     color: #333;
     z-index: 3; }
 
-/* line 580, src/assets/scss/style.scss */
-/* line 474, src/assets/scss/style.css */
+/* line 578, src/assets/scss/style.scss */
+/* line 472, src/assets/scss/style.css */
 footer .btn-footer {
     font-size: 17px;
     height: 64px;
@@ -651,13 +649,13 @@ footer .btn-footer {
     border-radius: 0;
     justify-content: center; }
 
-/* line 588, src/assets/scss/style.scss */
-/* line 482, src/assets/scss/style.css */
+/* line 586, src/assets/scss/style.scss */
+/* line 480, src/assets/scss/style.css */
 footer .btn-footer + .footer-menu {
     display: none; }
 
-/* line 593, src/assets/scss/style.scss */
-/* line 485, src/assets/scss/style.css */
+/* line 591, src/assets/scss/style.scss */
+/* line 483, src/assets/scss/style.css */
 footer .footer-menu {
     height: 64px;
     background-color: white;
@@ -667,37 +665,37 @@ footer .footer-menu {
     justify-content: space-around;
     width: 100%; }
 
-/* line 602, src/assets/scss/style.scss */
-/* line 494, src/assets/scss/style.css */
+/* line 600, src/assets/scss/style.scss */
+/* line 492, src/assets/scss/style.css */
 footer .footer-menu li {
     flex: 1 1 20%;
     display: flex;
     flex-direction: column;
     align-items: center; }
 
-/* line 608, src/assets/scss/style.scss */
-/* line 500, src/assets/scss/style.css */
+/* line 606, src/assets/scss/style.scss */
+/* line 498, src/assets/scss/style.css */
 footer .footer-menu li svg {
     fill: #a7aabc; }
 
-/* line 612, src/assets/scss/style.scss */
-/* line 503, src/assets/scss/style.css */
+/* line 610, src/assets/scss/style.scss */
+/* line 501, src/assets/scss/style.css */
 footer .footer-menu li.active {
     color: royalblue; }
 
-/* line 615, src/assets/scss/style.scss */
-/* line 506, src/assets/scss/style.css */
+/* line 613, src/assets/scss/style.scss */
+/* line 504, src/assets/scss/style.css */
 footer .footer-menu li.active svg {
     fill: royalblue; }
 
-/* line 620, src/assets/scss/style.scss */
-/* line 509, src/assets/scss/style.css */
+/* line 618, src/assets/scss/style.scss */
+/* line 507, src/assets/scss/style.css */
 footer .footer-menu li span {
     font-size: 13px;
     margin-top: 0.25rem; }
 
-/* line 628, src/assets/scss/style.scss */
-/* line 513, src/assets/scss/style.css */
+/* line 626, src/assets/scss/style.scss */
+/* line 511, src/assets/scss/style.css */
 footer.user .request {
     color: white;
     background-color: royalblue;
@@ -711,22 +709,22 @@ footer.user .request {
     align-items: center;
     box-shadow: 0px 5px 10px #ccc; }
 
-/* line 641, src/assets/scss/style.scss */
-/* line 526, src/assets/scss/style.css */
+/* line 639, src/assets/scss/style.scss */
+/* line 524, src/assets/scss/style.css */
 footer.user .request svg {
     fill: white;
     width: 2rem;
     height: 2rem; }
 
-/* line 650, src/assets/scss/style.scss */
-/* line 532, src/assets/scss/style.css */
+/* line 648, src/assets/scss/style.scss */
+/* line 530, src/assets/scss/style.css */
 main {
     background-color: #eff1f7;
     border-radius: 1rem 1rem 0 0;
     position: relative; }
 
-/* line 655, src/assets/scss/style.scss */
-/* line 537, src/assets/scss/style.css */
+/* line 653, src/assets/scss/style.scss */
+/* line 535, src/assets/scss/style.css */
 main::before {
     opacity: 0;
     content: "";
@@ -738,22 +736,22 @@ main::before {
     border-radius: 1rem 1rem 0 0;
     transition: opacity 0.4s; }
 
-/* line 668, src/assets/scss/style.scss */
-/* line 548, src/assets/scss/style.css */
+/* line 666, src/assets/scss/style.scss */
+/* line 546, src/assets/scss/style.css */
 main.scroll::before {
     opacity: 1;
     background-image: linear-gradient(#eff1f7 50%, rgba(239, 241, 247, 0));
     z-index: 5; }
 
-/* line 675, src/assets/scss/style.scss */
-/* line 553, src/assets/scss/style.css */
+/* line 673, src/assets/scss/style.scss */
+/* line 551, src/assets/scss/style.css */
 main ~ .buttons {
     flex: 0 0 70px;
     padding: 0 1rem 1rem;
     background-color: #eff1f7; }
 
-/* line 680, src/assets/scss/style.scss */
-/* line 558, src/assets/scss/style.css */
+/* line 678, src/assets/scss/style.scss */
+/* line 556, src/assets/scss/style.css */
 main ~ .buttons button {
     height: 100%;
     justify-content: center;
@@ -761,26 +759,26 @@ main ~ .buttons button {
     border-radius: 0.5rem;
     font-size: 18px; }
 
-/* line 687, src/assets/scss/style.scss */
-/* line 565, src/assets/scss/style.css */
+/* line 685, src/assets/scss/style.scss */
+/* line 563, src/assets/scss/style.css */
 main ~ .buttons .btn-main {
     background-color: mediumseagreen;
     color: white; }
 
-/* line 694, src/assets/scss/style.scss */
-/* line 570, src/assets/scss/style.css */
+/* line 692, src/assets/scss/style.scss */
+/* line 568, src/assets/scss/style.css */
 .empty {
     justify-content: center;
     align-items: center; }
 
-/* line 698, src/assets/scss/style.scss */
-/* line 574, src/assets/scss/style.css */
+/* line 696, src/assets/scss/style.scss */
+/* line 572, src/assets/scss/style.css */
 .empty svg {
     fill: #c3c6c9;
     margin-bottom: 1rem; }
 
-/* line 704, src/assets/scss/style.scss */
-/* line 579, src/assets/scss/style.css */
+/* line 702, src/assets/scss/style.scss */
+/* line 577, src/assets/scss/style.css */
 .login {
     background-color: #202532;
     flex-direction: column;
@@ -790,8 +788,8 @@ main ~ .buttons .btn-main {
     overflow: hidden;
     padding-bottom: 3rem; }
 
-/* line 713, src/assets/scss/style.scss */
-/* line 588, src/assets/scss/style.css */
+/* line 711, src/assets/scss/style.scss */
+/* line 586, src/assets/scss/style.css */
 .login::before {
     content: "";
     position: absolute;
@@ -804,31 +802,31 @@ main ~ .buttons .btn-main {
     opacity: 0.2;
     z-index: -10; }
 
-/* line 726, src/assets/scss/style.scss */
-/* line 600, src/assets/scss/style.css */
+/* line 724, src/assets/scss/style.scss */
+/* line 598, src/assets/scss/style.css */
 .login h2 {
     font-family: "NanumSquare-Regular";
     margin-bottom: 2rem; }
 
-/* line 731, src/assets/scss/style.scss */
-/* line 604, src/assets/scss/style.css */
+/* line 729, src/assets/scss/style.scss */
+/* line 602, src/assets/scss/style.css */
 .login button {
     color: white; }
 
-/* line 735, src/assets/scss/style.scss */
-/* line 607, src/assets/scss/style.css */
+/* line 733, src/assets/scss/style.scss */
+/* line 605, src/assets/scss/style.css */
 .login .inputs {
     margin-bottom: 3rem; }
 
-/* line 739, src/assets/scss/style.scss */
-/* line 610, src/assets/scss/style.css */
+/* line 737, src/assets/scss/style.scss */
+/* line 608, src/assets/scss/style.css */
 .login .input {
     align-items: center;
     margin-bottom: 1rem;
     position: relative; }
 
-/* line 745, src/assets/scss/style.scss */
-/* line 615, src/assets/scss/style.css */
+/* line 743, src/assets/scss/style.scss */
+/* line 613, src/assets/scss/style.css */
 .login input,
 .login select {
     background-color: #2e3445;
@@ -839,26 +837,26 @@ main ~ .buttons .btn-main {
     max-width: 360px;
     text-indent: 2rem; }
 
-/* line 755, src/assets/scss/style.scss */
-/* line 625, src/assets/scss/style.css */
+/* line 753, src/assets/scss/style.scss */
+/* line 623, src/assets/scss/style.css */
 .login input:disabled,
 .login select:disabled {
     background-color: #44464a; }
 
-/* line 761, src/assets/scss/style.scss */
-/* line 629, src/assets/scss/style.css */
+/* line 759, src/assets/scss/style.scss */
+/* line 627, src/assets/scss/style.css */
 .login button:disabled {
     background-color: #31343e !important;
     color: #777 !important; }
 
-/* line 767, src/assets/scss/style.scss */
-/* line 633, src/assets/scss/style.css */
+/* line 765, src/assets/scss/style.scss */
+/* line 631, src/assets/scss/style.css */
 .login .selectbox {
     width: 90vw;
     max-width: 360px; }
 
-/* line 772, src/assets/scss/style.scss */
-/* line 637, src/assets/scss/style.css */
+/* line 770, src/assets/scss/style.scss */
+/* line 635, src/assets/scss/style.css */
 .login svg {
     position: absolute;
     top: 0.85rem;
@@ -866,20 +864,20 @@ main ~ .buttons .btn-main {
     fill: rgba(255, 255, 255, 0.1);
     z-index: 1; }
 
-/* line 780, src/assets/scss/style.scss */
-/* line 644, src/assets/scss/style.css */
+/* line 778, src/assets/scss/style.scss */
+/* line 642, src/assets/scss/style.css */
 .login .buttons {
     justify-content: space-between; }
 
-/* line 784, src/assets/scss/style.scss */
-/* line 647, src/assets/scss/style.css */
+/* line 782, src/assets/scss/style.scss */
+/* line 645, src/assets/scss/style.css */
 .login .main-buttons {
     display: flex;
     flex-direction: column;
     align-items: center; }
 
-/* line 789, src/assets/scss/style.scss */
-/* line 652, src/assets/scss/style.css */
+/* line 787, src/assets/scss/style.scss */
+/* line 650, src/assets/scss/style.css */
 .login .main-buttons button {
     border-radius: 0.5rem;
     font: 17px/1 "NanumSquare-Regular";
@@ -891,43 +889,43 @@ main ~ .buttons .btn-main {
     justify-content: center;
     margin-bottom: 1rem; }
 
-/* line 800, src/assets/scss/style.scss */
-/* line 663, src/assets/scss/style.css */
+/* line 798, src/assets/scss/style.scss */
+/* line 661, src/assets/scss/style.css */
 .login .main-buttons button.btn-signin {
     background-image: linear-gradient(to right, darkslateblue, royalblue); }
 
-/* line 805, src/assets/scss/style.scss */
-/* line 666, src/assets/scss/style.css */
+/* line 803, src/assets/scss/style.scss */
+/* line 664, src/assets/scss/style.css */
 .login .main-buttons small {
     width: 90vw;
     max-width: 360px; }
 
-/* line 812, src/assets/scss/style.scss */
-/* line 671, src/assets/scss/style.css */
+/* line 810, src/assets/scss/style.scss */
+/* line 669, src/assets/scss/style.css */
 .find-your-account {
     justify-content: flex-start;
     padding-top: 1rem;
     padding-bottom: 0;
     overflow-y: hidden !important; }
 
-/* line 818, src/assets/scss/style.scss */
-/* line 677, src/assets/scss/style.css */
+/* line 816, src/assets/scss/style.scss */
+/* line 675, src/assets/scss/style.css */
 .find-your-account .tabs {
     flex: 0 0 auto; }
 
-/* line 821, src/assets/scss/style.scss */
-/* line 680, src/assets/scss/style.css */
+/* line 819, src/assets/scss/style.scss */
+/* line 678, src/assets/scss/style.css */
 .find-your-account .tabs li {
     margin: 1rem;
     font-size: 17px; }
 
-/* line 825, src/assets/scss/style.scss */
-/* line 684, src/assets/scss/style.css */
+/* line 823, src/assets/scss/style.scss */
+/* line 682, src/assets/scss/style.css */
 .find-your-account .tabs li.active {
     position: relative; }
 
-/* line 828, src/assets/scss/style.scss */
-/* line 687, src/assets/scss/style.css */
+/* line 826, src/assets/scss/style.scss */
+/* line 685, src/assets/scss/style.css */
 .find-your-account .tabs li.active::before {
     content: "";
     position: absolute;
@@ -936,8 +934,8 @@ main ~ .buttons .btn-main {
     height: 2px;
     background-color: #2145b0; }
 
-/* line 840, src/assets/scss/style.scss */
-/* line 695, src/assets/scss/style.css */
+/* line 838, src/assets/scss/style.scss */
+/* line 693, src/assets/scss/style.css */
 .find-your-account .tab-content {
     display: none;
     flex-direction: column;
@@ -945,8 +943,8 @@ main ~ .buttons .btn-main {
     width: 100%;
     overflow: hidden; }
 
-/* line 848, src/assets/scss/style.scss */
-/* line 702, src/assets/scss/style.css */
+/* line 846, src/assets/scss/style.scss */
+/* line 700, src/assets/scss/style.css */
 .find-your-account .inputs {
     flex: 1 1 auto;
     overflow-y: auto;
@@ -957,42 +955,42 @@ main ~ .buttons .btn-main {
     align-items: center;
     justify-content: center; }
 
-/* line 859, src/assets/scss/style.scss */
-/* line 712, src/assets/scss/style.css */
+/* line 857, src/assets/scss/style.scss */
+/* line 710, src/assets/scss/style.css */
 .find-your-account .input {
     display: flex;
     flex-direction: column; }
 
-/* line 863, src/assets/scss/style.scss */
-/* line 716, src/assets/scss/style.css */
+/* line 861, src/assets/scss/style.scss */
+/* line 714, src/assets/scss/style.css */
 .find-your-account .input span {
     color: lightslategray; }
 
-/* line 869, src/assets/scss/style.scss */
-/* line 719, src/assets/scss/style.css */
+/* line 867, src/assets/scss/style.scss */
+/* line 717, src/assets/scss/style.css */
 .find-your-account .input.required span::before {
     content: "*";
     color: salmon;
     margin-right: 0.25rem;
     padding-top: 0.5rem; }
 
-/* line 878, src/assets/scss/style.scss */
-/* line 725, src/assets/scss/style.css */
+/* line 876, src/assets/scss/style.scss */
+/* line 723, src/assets/scss/style.css */
 .find-your-account .input.phone {
     width: 90vw;
     max-width: 360px;
     flex-direction: row;
     align-items: normal; }
 
-/* line 884, src/assets/scss/style.scss */
-/* line 731, src/assets/scss/style.css */
+/* line 882, src/assets/scss/style.scss */
+/* line 729, src/assets/scss/style.css */
 .find-your-account .input.phone input {
     flex: 1 1 auto;
     width: 100px;
     margin-right: 0.5rem; }
 
-/* line 890, src/assets/scss/style.scss */
-/* line 736, src/assets/scss/style.css */
+/* line 888, src/assets/scss/style.scss */
+/* line 734, src/assets/scss/style.css */
 .find-your-account .input.phone button {
     flex: 0 0 80px;
     font-size: 13px;
@@ -1001,22 +999,22 @@ main ~ .buttons .btn-main {
     background-color: slateblue;
     color: white; }
 
-/* line 899, src/assets/scss/style.scss */
-/* line 744, src/assets/scss/style.css */
+/* line 897, src/assets/scss/style.scss */
+/* line 742, src/assets/scss/style.css */
 .find-your-account .input.phone div {
     display: flex;
     justify-content: center;
     width: 100%; }
 
-/* line 907, src/assets/scss/style.scss */
-/* line 749, src/assets/scss/style.css */
+/* line 905, src/assets/scss/style.scss */
+/* line 747, src/assets/scss/style.css */
 .find-your-account input,
 .find-your-account select {
     text-indent: 0.5rem;
     height: 45px; }
 
-/* line 914, src/assets/scss/style.scss */
-/* line 754, src/assets/scss/style.css */
+/* line 912, src/assets/scss/style.scss */
+/* line 752, src/assets/scss/style.css */
 .find-your-account .selectbox::before {
     border-color: white;
     margin-top: -8px;
@@ -1024,8 +1022,8 @@ main ~ .buttons .btn-main {
     padding: 5px;
     right: 1rem; }
 
-/* line 923, src/assets/scss/style.scss */
-/* line 761, src/assets/scss/style.css */
+/* line 921, src/assets/scss/style.scss */
+/* line 759, src/assets/scss/style.css */
 .find-your-account .main-buttons {
     flex: 0 0 auto;
     flex-direction: row-reverse;
@@ -1034,59 +1032,59 @@ main ~ .buttons .btn-main {
     margin-bottom: 0 !important;
     padding: 2rem 1rem; }
 
-/* line 931, src/assets/scss/style.scss */
-/* line 769, src/assets/scss/style.css */
+/* line 929, src/assets/scss/style.scss */
+/* line 767, src/assets/scss/style.css */
 .find-your-account .main-buttons button {
     width: auto;
     flex: 0 0 30%;
     margin: 0 0.25rem; }
 
-/* line 936, src/assets/scss/style.scss */
-/* line 774, src/assets/scss/style.css */
+/* line 934, src/assets/scss/style.scss */
+/* line 772, src/assets/scss/style.css */
 .find-your-account .main-buttons button.btn-signin {
     flex: 1 1 auto;
     background: royalblue; }
 
-/* line 941, src/assets/scss/style.scss */
-/* line 778, src/assets/scss/style.css */
+/* line 939, src/assets/scss/style.scss */
+/* line 776, src/assets/scss/style.css */
 .find-your-account .main-buttons button.btn-cancel {
     max-width: 165px; }
 
-/* line 949, src/assets/scss/style.scss */
-/* line 782, src/assets/scss/style.css */
+/* line 947, src/assets/scss/style.scss */
+/* line 780, src/assets/scss/style.css */
 .found-your-account input {
     text-indent: 0.5rem; }
 
-/* line 955, src/assets/scss/style.scss */
-/* line 786, src/assets/scss/style.css */
+/* line 953, src/assets/scss/style.scss */
+/* line 784, src/assets/scss/style.css */
 .equipments.maps {
     overflow-y: hidden; }
 
-/* line 958, src/assets/scss/style.scss */
-/* line 789, src/assets/scss/style.css */
+/* line 956, src/assets/scss/style.scss */
+/* line 787, src/assets/scss/style.css */
 .equipments.maps .maps {
     width: 100%;
     height: 100%;
     overflow: hidden; }
 
-/* line 964, src/assets/scss/style.scss */
-/* line 794, src/assets/scss/style.css */
+/* line 962, src/assets/scss/style.scss */
+/* line 792, src/assets/scss/style.css */
 .equipments.maps .map {
     height: 30vh;
     margin-bottom: 0.5rem; }
 
-/* line 968, src/assets/scss/style.scss */
-/* line 798, src/assets/scss/style.css */
+/* line 966, src/assets/scss/style.scss */
+/* line 796, src/assets/scss/style.css */
 .equipments.maps .map iframe {
     height: 100%; }
 
-/* line 975, src/assets/scss/style.scss */
-/* line 802, src/assets/scss/style.css */
+/* line 973, src/assets/scss/style.scss */
+/* line 800, src/assets/scss/style.css */
 .equipments.list .row {
     flex-direction: column; }
 
-/* line 980, src/assets/scss/style.scss */
-/* line 806, src/assets/scss/style.css */
+/* line 978, src/assets/scss/style.scss */
+/* line 804, src/assets/scss/style.css */
 .equipments header {
     color: #333;
     background-color: white;
@@ -1094,8 +1092,8 @@ main ~ .buttons .btn-main {
     box-shadow: 1px 2px 4px #ddd;
     z-index: 1; }
 
-/* line 987, src/assets/scss/style.scss */
-/* line 813, src/assets/scss/style.css */
+/* line 985, src/assets/scss/style.scss */
+/* line 811, src/assets/scss/style.css */
 .equipments header .search {
     flex: 1 1 auto;
     background: #eff1f7;
@@ -1103,16 +1101,16 @@ main ~ .buttons .btn-main {
     padding: 0 0.5rem;
     margin-right: 0.75rem; }
 
-/* line 995, src/assets/scss/style.scss */
-/* line 820, src/assets/scss/style.css */
+/* line 993, src/assets/scss/style.scss */
+/* line 818, src/assets/scss/style.css */
 .equipments header input {
     flex: 1 1 auto;
     border: 0;
     width: 100%;
     background-color: transparent; }
 
-/* line 1003, src/assets/scss/style.scss */
-/* line 827, src/assets/scss/style.css */
+/* line 1001, src/assets/scss/style.scss */
+/* line 825, src/assets/scss/style.css */
 .equipments .zoom-in-out {
     position: absolute;
     bottom: 4rem;
@@ -1120,8 +1118,8 @@ main ~ .buttons .btn-main {
     display: flex;
     transform: rotate(270deg); }
 
-/* line 1010, src/assets/scss/style.scss */
-/* line 834, src/assets/scss/style.css */
+/* line 1008, src/assets/scss/style.scss */
+/* line 832, src/assets/scss/style.css */
 .equipments .zoom-in-out button {
     background-color: white;
     border: 1px solid #ddd;
@@ -1131,23 +1129,23 @@ main ~ .buttons .btn-main {
     justify-content: center;
     align-items: center; }
 
-/* line 1019, src/assets/scss/style.scss */
-/* line 843, src/assets/scss/style.css */
+/* line 1017, src/assets/scss/style.scss */
+/* line 841, src/assets/scss/style.css */
 .equipments .zoom-in-out button svg {
     transform: rotate(-90deg); }
 
-/* line 1023, src/assets/scss/style.scss */
-/* line 846, src/assets/scss/style.css */
+/* line 1021, src/assets/scss/style.scss */
+/* line 844, src/assets/scss/style.css */
 .equipments .zoom-in-out button.zoom-in {
     border-radius: 0 0.25rem 0.25rem 0; }
 
-/* line 1027, src/assets/scss/style.scss */
-/* line 849, src/assets/scss/style.css */
+/* line 1025, src/assets/scss/style.scss */
+/* line 847, src/assets/scss/style.css */
 .equipments .zoom-in-out button.zoom-out {
     border-radius: 0.25rem 0 0 0.25rem; }
 
-/* line 1033, src/assets/scss/style.scss */
-/* line 852, src/assets/scss/style.css */
+/* line 1031, src/assets/scss/style.scss */
+/* line 850, src/assets/scss/style.css */
 .equipments .zoom-in-out .range-slider {
     background-color: white;
     border-top: 1px solid #ddd;
@@ -1158,8 +1156,8 @@ main ~ .buttons .btn-main {
     display: flex;
     align-items: center; }
 
-/* line 1044, src/assets/scss/style.scss */
-/* line 862, src/assets/scss/style.css */
+/* line 1042, src/assets/scss/style.scss */
+/* line 860, src/assets/scss/style.css */
 .equipments .zoom-in-out input[type="range"] {
     -webkit-appearance: none;
     width: 3rem;
@@ -1168,8 +1166,8 @@ main ~ .buttons .btn-main {
     background: #d7dcdf;
     outline: none; }
 
-/* line 1053, src/assets/scss/style.scss */
-/* line 870, src/assets/scss/style.css */
+/* line 1051, src/assets/scss/style.scss */
+/* line 868, src/assets/scss/style.css */
 .equipments .zoom-in-out input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -1181,8 +1179,8 @@ main ~ .buttons .btn-main {
     -webkit-transition: background 0.15s ease-in-out;
     transition: background 0.15s ease-in-out; }
 
-/* line 1063, src/assets/scss/style.scss */
-/* line 881, src/assets/scss/style.css */
+/* line 1061, src/assets/scss/style.scss */
+/* line 879, src/assets/scss/style.css */
 .equipments .zoom-in-out input[type="range"]::-moz-range-thumb {
     width: 0.75rem;
     height: 1.25rem;
@@ -1193,8 +1191,8 @@ main ~ .buttons .btn-main {
     -moz-transition: background 0.15s ease-in-out;
     transition: background 0.15s ease-in-out; }
 
-/* line 1077, src/assets/scss/style.scss */
-/* line 892, src/assets/scss/style.css */
+/* line 1075, src/assets/scss/style.scss */
+/* line 890, src/assets/scss/style.css */
 .equipments.details section {
     display: flex;
     flex-direction: column;
@@ -1203,13 +1201,13 @@ main ~ .buttons .btn-main {
     border-radius: 0.5rem;
     margin-bottom: 0.5rem; }
 
-/* line 1085, src/assets/scss/style.scss */
-/* line 900, src/assets/scss/style.css */
+/* line 1083, src/assets/scss/style.scss */
+/* line 898, src/assets/scss/style.css */
 .equipments.details section:last-of-type {
     margin-bottom: 0; }
 
-/* line 1089, src/assets/scss/style.scss */
-/* line 903, src/assets/scss/style.css */
+/* line 1087, src/assets/scss/style.scss */
+/* line 901, src/assets/scss/style.css */
 .equipments.details section .title {
     margin-bottom: 0.5rem;
     color: royalblue;
@@ -1217,35 +1215,35 @@ main ~ .buttons .btn-main {
     flex-direction: column;
     justify-content: center; }
 
-/* line 1096, src/assets/scss/style.scss */
-/* line 910, src/assets/scss/style.css */
+/* line 1094, src/assets/scss/style.scss */
+/* line 908, src/assets/scss/style.css */
 .equipments.details section .title strong {
     max-width: 70vw;
     margin: 0 auto; }
 
-/* line 1101, src/assets/scss/style.scss */
-/* line 914, src/assets/scss/style.css */
+/* line 1099, src/assets/scss/style.scss */
+/* line 912, src/assets/scss/style.css */
 .equipments.details section .title span {
     font-family: "NanumSquare-Regular";
     font-size: 13px;
     text-align: center;
     color: #44464a; }
 
-/* line 1109, src/assets/scss/style.scss */
-/* line 920, src/assets/scss/style.css */
+/* line 1107, src/assets/scss/style.scss */
+/* line 918, src/assets/scss/style.css */
 .equipments.details section .address {
     display: flex;
     align-items: center;
     flex: 1 1 auto;
     margin-top: 1rem; }
 
-/* line 1115, src/assets/scss/style.scss */
-/* line 926, src/assets/scss/style.css */
+/* line 1113, src/assets/scss/style.scss */
+/* line 924, src/assets/scss/style.css */
 .equipments.details section .address p {
     flex: 1 1 auto; }
 
-/* line 1120, src/assets/scss/style.scss */
-/* line 929, src/assets/scss/style.css */
+/* line 1118, src/assets/scss/style.scss */
+/* line 927, src/assets/scss/style.css */
 .equipments.details section .btn-navigation {
     background-color: #dee7f8;
     color: cornflowerblue;
@@ -1256,13 +1254,13 @@ main ~ .buttons .btn-main {
     font-size: 24px;
     margin-left: 0.5rem; }
 
-/* line 1130, src/assets/scss/style.scss */
-/* line 939, src/assets/scss/style.css */
+/* line 1128, src/assets/scss/style.scss */
+/* line 937, src/assets/scss/style.css */
 .equipments.details section .btn-navigation span {
     display: none; }
 
-/* line 1135, src/assets/scss/style.scss */
-/* line 942, src/assets/scss/style.css */
+/* line 1133, src/assets/scss/style.scss */
+/* line 940, src/assets/scss/style.css */
 .equipments.details section .view {
     flex: 0 0 40vh;
     max-height: 400px;
@@ -1270,14 +1268,14 @@ main ~ .buttons .btn-main {
     position: relative;
     overflow: hidden; }
 
-/* line 1142, src/assets/scss/style.scss */
-/* line 949, src/assets/scss/style.css */
+/* line 1140, src/assets/scss/style.scss */
+/* line 947, src/assets/scss/style.css */
 .equipments.details section .view img {
     width: 100%;
     height: 100%; }
 
-/* line 1147, src/assets/scss/style.scss */
-/* line 953, src/assets/scss/style.css */
+/* line 1145, src/assets/scss/style.scss */
+/* line 951, src/assets/scss/style.css */
 .equipments.details section .view .btn-refresh {
     font-size: 13px;
     background-color: lightseagreen;
@@ -1287,44 +1285,44 @@ main ~ .buttons .btn-main {
     top: 0.5rem;
     right: 0.5rem; }
 
-/* line 1156, src/assets/scss/style.scss */
-/* line 962, src/assets/scss/style.css */
+/* line 1154, src/assets/scss/style.scss */
+/* line 960, src/assets/scss/style.css */
 .equipments.details section .view .btn-refresh svg {
     fill: white; }
 
-/* line 1162, src/assets/scss/style.scss */
-/* line 965, src/assets/scss/style.css */
+/* line 1160, src/assets/scss/style.scss */
+/* line 963, src/assets/scss/style.css */
 .equipments.details section.information {
     padding: 0; }
 
-/* line 1165, src/assets/scss/style.scss */
-/* line 968, src/assets/scss/style.css */
+/* line 1163, src/assets/scss/style.scss */
+/* line 966, src/assets/scss/style.css */
 .equipments.details section.information .tabs {
     flex-basis: 50px; }
 
-/* line 1169, src/assets/scss/style.scss */
-/* line 971, src/assets/scss/style.css */
+/* line 1167, src/assets/scss/style.scss */
+/* line 969, src/assets/scss/style.css */
 .equipments.details section.information .tab-content {
     padding: 1rem;
     font-size: 14px; }
 
-/* line 1174, src/assets/scss/style.scss */
-/* line 975, src/assets/scss/style.css */
+/* line 1172, src/assets/scss/style.scss */
+/* line 973, src/assets/scss/style.css */
 .equipments.details section.information .tab-content.basic .status {
     justify-content: flex-end; }
 
-/* line 1180, src/assets/scss/style.scss */
-/* line 978, src/assets/scss/style.css */
+/* line 1178, src/assets/scss/style.scss */
+/* line 976, src/assets/scss/style.css */
 .equipments.details section.information .row {
     align-items: center; }
 
-/* line 1183, src/assets/scss/style.scss */
-/* line 981, src/assets/scss/style.css */
+/* line 1181, src/assets/scss/style.scss */
+/* line 979, src/assets/scss/style.css */
 .equipments.details section.information .row span {
     flex: 1 1 auto; }
 
-/* line 1186, src/assets/scss/style.scss */
-/* line 984, src/assets/scss/style.css */
+/* line 1184, src/assets/scss/style.scss */
+/* line 982, src/assets/scss/style.css */
 .equipments.details section.information .row span:first-of-type {
     flex: 0 0 auto;
     min-width: 60px;
@@ -1333,77 +1331,77 @@ main ~ .buttons .btn-main {
     font-size: 13px;
     color: lightslategrey; }
 
-/* line 1195, src/assets/scss/style.scss */
-/* line 992, src/assets/scss/style.css */
+/* line 1193, src/assets/scss/style.scss */
+/* line 990, src/assets/scss/style.css */
 .equipments.details section.information .row span:last-of-type {
     text-align: right; }
 
-/* line 1199, src/assets/scss/style.scss */
-/* line 995, src/assets/scss/style.css */
+/* line 1197, src/assets/scss/style.scss */
+/* line 993, src/assets/scss/style.css */
 .equipments.details section.information .row span.status {
     display: flex;
     align-items: center; }
 
-/* line 1203, src/assets/scss/style.scss */
-/* line 999, src/assets/scss/style.css */
+/* line 1201, src/assets/scss/style.scss */
+/* line 997, src/assets/scss/style.css */
 .equipments.details section.information .row span.status::before {
     content: "";
     width: 7px;
     height: 7px;
     border-radius: 50%; }
 
-/* line 1210, src/assets/scss/style.scss */
-/* line 1005, src/assets/scss/style.css */
+/* line 1208, src/assets/scss/style.scss */
+/* line 1003, src/assets/scss/style.css */
 .equipments.details section.information .row span.status::after {
     text-indent: 0.25rem; }
 
-/* line 1216, src/assets/scss/style.scss */
-/* line 1008, src/assets/scss/style.css */
+/* line 1214, src/assets/scss/style.scss */
+/* line 1006, src/assets/scss/style.css */
 .equipments.details section.information .row span.normal::before {
     background-color: #6adf9b;
     box-shadow: 0px 0px 3px 1px rgba(106, 223, 155, 0.3); }
 
-/* line 1221, src/assets/scss/style.scss */
-/* line 1012, src/assets/scss/style.css */
+/* line 1219, src/assets/scss/style.scss */
+/* line 1010, src/assets/scss/style.css */
 .equipments.details section.information .row span.normal::after {
     content: "정상"; }
 
-/* line 1227, src/assets/scss/style.scss */
-/* line 1015, src/assets/scss/style.css */
+/* line 1225, src/assets/scss/style.scss */
+/* line 1013, src/assets/scss/style.css */
 .equipments.details section.information .row span.abnormal::before {
     background-color: #f56d5b;
     box-shadow: 0px 0px 3px 1px rgba(245, 109, 91, 0.3); }
 
-/* line 1232, src/assets/scss/style.scss */
-/* line 1019, src/assets/scss/style.css */
+/* line 1230, src/assets/scss/style.scss */
+/* line 1017, src/assets/scss/style.css */
 .equipments.details section.information .row span.abnormal::after {
     content: "비정상"; }
 
-/* line 1238, src/assets/scss/style.scss */
-/* line 1022, src/assets/scss/style.css */
+/* line 1236, src/assets/scss/style.scss */
+/* line 1020, src/assets/scss/style.css */
 .equipments.details section.information .row:not(:last-of-type) {
     border-bottom: 1px solid #eee;
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem; }
 
-/* line 1248, src/assets/scss/style.scss */
-/* line 1028, src/assets/scss/style.css */
+/* line 1246, src/assets/scss/style.scss */
+/* line 1026, src/assets/scss/style.css */
 .list {
     padding: 1rem; }
 
-/* line 1251, src/assets/scss/style.scss */
-/* line 1031, src/assets/scss/style.css */
+/* line 1249, src/assets/scss/style.scss */
+/* line 1029, src/assets/scss/style.css */
 .list .no-result {
     display: none; }
 
-/* line 1256, src/assets/scss/style.scss */
-/* line 1034, src/assets/scss/style.css */
+/* line 1254, src/assets/scss/style.scss */
+/* line 1032, src/assets/scss/style.css */
 .list .result:empty {
     flex: 0 0 auto;
     padding: 0; }
 
-/* line 1260, src/assets/scss/style.scss */
-/* line 1038, src/assets/scss/style.css */
+/* line 1258, src/assets/scss/style.scss */
+/* line 1036, src/assets/scss/style.css */
 .list .result:empty ~ .no-result {
     display: flex;
     flex: 1 1 auto;
@@ -1411,8 +1409,8 @@ main ~ .buttons .btn-main {
     align-items: center;
     color: #666; }
 
-/* line 1270, src/assets/scss/style.scss */
-/* line 1045, src/assets/scss/style.css */
+/* line 1268, src/assets/scss/style.scss */
+/* line 1043, src/assets/scss/style.css */
 .list .row {
     line-height: 1;
     background-color: white;
@@ -1420,112 +1418,112 @@ main ~ .buttons .btn-main {
     padding: 0.75rem;
     gap: 0.5rem; }
 
-/* line 1277, src/assets/scss/style.scss */
-/* line 1052, src/assets/scss/style.css */
+/* line 1275, src/assets/scss/style.scss */
+/* line 1050, src/assets/scss/style.css */
 .list .row .details {
     font-size: 13px; }
 
-/* line 1287, src/assets/scss/style.scss */
-/* line 1055, src/assets/scss/style.css */
+/* line 1285, src/assets/scss/style.scss */
+/* line 1053, src/assets/scss/style.css */
 .list .row:not(:last-of-type) {
     margin-bottom: 0.5rem; }
 
-/* line 1293, src/assets/scss/style.scss */
-/* line 1059, src/assets/scss/style.css */
+/* line 1291, src/assets/scss/style.scss */
+/* line 1057, src/assets/scss/style.css */
 .settings {
     padding: 0 1rem; }
 
-/* line 1296, src/assets/scss/style.scss */
-/* line 1062, src/assets/scss/style.css */
+/* line 1294, src/assets/scss/style.scss */
+/* line 1060, src/assets/scss/style.css */
 .settings h4 {
     margin-bottom: 0.5rem; }
 
-/* line 1300, src/assets/scss/style.scss */
-/* line 1065, src/assets/scss/style.css */
+/* line 1298, src/assets/scss/style.scss */
+/* line 1063, src/assets/scss/style.css */
 .settings .row {
     background-color: white;
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 2rem; }
 
-/* line 1307, src/assets/scss/style.scss */
-/* line 1071, src/assets/scss/style.css */
+/* line 1305, src/assets/scss/style.scss */
+/* line 1069, src/assets/scss/style.css */
 .settings .filters {
     flex-wrap: wrap; }
 
-/* line 1310, src/assets/scss/style.scss */
-/* line 1074, src/assets/scss/style.css */
+/* line 1308, src/assets/scss/style.scss */
+/* line 1072, src/assets/scss/style.css */
 .settings .filters button {
     flex: 0 0 50%;
     padding: 0.25rem;
     margin-bottom: 0; }
 
-/* line 1317, src/assets/scss/style.scss */
-/* line 1079, src/assets/scss/style.css */
+/* line 1315, src/assets/scss/style.scss */
+/* line 1077, src/assets/scss/style.css */
 .settings .rows {
     background-color: white;
     border-radius: 0.5rem;
     padding: 1rem;
     margin-bottom: 2rem; }
 
-/* line 1323, src/assets/scss/style.scss */
-/* line 1085, src/assets/scss/style.css */
+/* line 1321, src/assets/scss/style.scss */
+/* line 1083, src/assets/scss/style.css */
 .settings .rows > div {
     display: flex;
     justify-content: space-between; }
 
-/* line 1327, src/assets/scss/style.scss */
-/* line 1089, src/assets/scss/style.css */
+/* line 1325, src/assets/scss/style.scss */
+/* line 1087, src/assets/scss/style.css */
 .settings .rows > div:not(:last-of-type) {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid #ddd; }
 
-/* line 1338, src/assets/scss/style.scss */
-/* line 1095, src/assets/scss/style.css */
+/* line 1336, src/assets/scss/style.scss */
+/* line 1093, src/assets/scss/style.css */
 .workspace.list .row {
     padding: 0.75rem 0.75rem 0; }
 
-/* line 1341, src/assets/scss/style.scss */
-/* line 1098, src/assets/scss/style.css */
+/* line 1339, src/assets/scss/style.scss */
+/* line 1096, src/assets/scss/style.css */
 .workspace.list .row .title {
     margin-bottom: 0.5rem; }
 
-/* line 1345, src/assets/scss/style.scss */
-/* line 1101, src/assets/scss/style.css */
+/* line 1343, src/assets/scss/style.scss */
+/* line 1099, src/assets/scss/style.css */
 .workspace.list .row .details {
     font-size: 13px;
     padding: 0; }
 
-/* line 1350, src/assets/scss/style.scss */
-/* line 1105, src/assets/scss/style.css */
+/* line 1348, src/assets/scss/style.scss */
+/* line 1103, src/assets/scss/style.css */
 .workspace.list .row .status {
     flex: 0 0 36px; }
 
-/* line 1353, src/assets/scss/style.scss */
-/* line 1108, src/assets/scss/style.css */
+/* line 1351, src/assets/scss/style.scss */
+/* line 1106, src/assets/scss/style.css */
 .workspace.list .row .status .attach {
     text-indent: 0;
     font-size: 15px; }
 
-/* line 1358, src/assets/scss/style.scss */
-/* line 1112, src/assets/scss/style.css */
+/* line 1356, src/assets/scss/style.scss */
+/* line 1110, src/assets/scss/style.css */
 .workspace.list .row .status li {
     display: flex;
     align-items: center; }
 
-/* line 1367, src/assets/scss/style.scss */
-/* line 1117, src/assets/scss/style.css */
+/* line 1365, src/assets/scss/style.scss */
+/* line 1115, src/assets/scss/style.css */
 .workspace.details .status {
     padding-top: 0.5rem; }
 
-/* line 1371, src/assets/scss/style.scss */
-/* line 1120, src/assets/scss/style.css */
+/* line 1369, src/assets/scss/style.scss */
+/* line 1118, src/assets/scss/style.css */
 .workspace.details .status .attach svg {
     display: none; }
 
-/* line 1378, src/assets/scss/style.scss */
-/* line 1124, src/assets/scss/style.css */
+/* line 1376, src/assets/scss/style.scss */
+/* line 1122, src/assets/scss/style.css */
 .workspace .row {
     flex-direction: column;
     border-radius: 0 0.5rem 0.5rem 0;
@@ -1533,40 +1531,40 @@ main ~ .buttons .btn-main {
     gap: 0.75rem;
     padding: 0.75rem; }
 
-/* line 1385, src/assets/scss/style.scss */
-/* line 1131, src/assets/scss/style.css */
+/* line 1383, src/assets/scss/style.scss */
+/* line 1129, src/assets/scss/style.css */
 .workspace .row:not(:last-of-type) {
     margin-bottom: 0.75rem; }
 
-/* line 1389, src/assets/scss/style.scss */
-/* line 1134, src/assets/scss/style.css */
+/* line 1387, src/assets/scss/style.scss */
+/* line 1132, src/assets/scss/style.css */
 .workspace .row.emergency {
     border-color: orangered; }
 
-/* line 1392, src/assets/scss/style.scss */
-/* line 1137, src/assets/scss/style.css */
+/* line 1390, src/assets/scss/style.scss */
+/* line 1135, src/assets/scss/style.css */
 .workspace .row.emergency .tag.bg-red {
     display: flex; }
 
-/* line 1397, src/assets/scss/style.scss */
-/* line 1140, src/assets/scss/style.css */
+/* line 1395, src/assets/scss/style.scss */
+/* line 1138, src/assets/scss/style.css */
 .workspace .row.low {
     border-color: seagreen; }
 
-/* line 1401, src/assets/scss/style.scss */
-/* line 1143, src/assets/scss/style.css */
+/* line 1399, src/assets/scss/style.scss */
+/* line 1141, src/assets/scss/style.css */
 .workspace .row .tag.bg-red {
     display: none; }
 
-/* line 1405, src/assets/scss/style.scss */
-/* line 1146, src/assets/scss/style.css */
+/* line 1403, src/assets/scss/style.scss */
+/* line 1144, src/assets/scss/style.css */
 .workspace .row .title {
     display: flex;
     justify-content: space-between;
     align-items: center; }
 
-/* line 1410, src/assets/scss/style.scss */
-/* line 1151, src/assets/scss/style.css */
+/* line 1408, src/assets/scss/style.scss */
+/* line 1149, src/assets/scss/style.css */
 .workspace .row .title div:first-of-type {
     flex: 1 1 auto;
     font-weight: bold;
@@ -1575,32 +1573,32 @@ main ~ .buttons .btn-main {
     white-space: nowrap;
     margin-right: 0.5rem; }
 
-/* line 1420, src/assets/scss/style.scss */
-/* line 1159, src/assets/scss/style.css */
+/* line 1418, src/assets/scss/style.scss */
+/* line 1157, src/assets/scss/style.css */
 .workspace .row .created {
     font-size: 10px;
     color: rgba(33, 69, 176, 0.75); }
 
-/* line 1424, src/assets/scss/style.scss */
-/* line 1163, src/assets/scss/style.css */
+/* line 1422, src/assets/scss/style.scss */
+/* line 1161, src/assets/scss/style.css */
 .workspace .row .created .writer {
     font-size: 12px;
     color: #2145b0;
     padding-right: 0.35rem; }
 
-/* line 1430, src/assets/scss/style.scss */
-/* line 1168, src/assets/scss/style.css */
+/* line 1428, src/assets/scss/style.scss */
+/* line 1166, src/assets/scss/style.css */
 .workspace .row .created .date {
     font-size: 12px;
     color: #49536b; }
 
-/* line 1436, src/assets/scss/style.scss */
-/* line 1172, src/assets/scss/style.css */
+/* line 1434, src/assets/scss/style.scss */
+/* line 1170, src/assets/scss/style.css */
 .workspace .row .details {
     padding: 0.75rem 0 0; }
 
-/* line 1439, src/assets/scss/style.scss */
-/* line 1175, src/assets/scss/style.css */
+/* line 1437, src/assets/scss/style.scss */
+/* line 1173, src/assets/scss/style.css */
 .workspace .row .details p {
     max-height: 30px;
     overflow: hidden;
@@ -1611,8 +1609,8 @@ main ~ .buttons .btn-main {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical; }
 
-/* line 1451, src/assets/scss/style.scss */
-/* line 1185, src/assets/scss/style.css */
+/* line 1449, src/assets/scss/style.scss */
+/* line 1183, src/assets/scss/style.css */
 .workspace .row .status {
     border-top: 1px solid #eee;
     display: flex;
@@ -1622,182 +1620,182 @@ main ~ .buttons .btn-main {
     text-indent: 0.25rem;
     color: #a7aabc; }
 
-/* line 1460, src/assets/scss/style.scss */
-/* line 1194, src/assets/scss/style.css */
+/* line 1458, src/assets/scss/style.scss */
+/* line 1192, src/assets/scss/style.css */
 .workspace .row .status span {
     color: #333; }
 
-/* line 1463, src/assets/scss/style.scss */
-/* line 1197, src/assets/scss/style.css */
+/* line 1461, src/assets/scss/style.scss */
+/* line 1195, src/assets/scss/style.css */
 .workspace .row .status ul {
     display: flex; }
 
-/* line 1467, src/assets/scss/style.scss */
-/* line 1200, src/assets/scss/style.css */
+/* line 1465, src/assets/scss/style.scss */
+/* line 1198, src/assets/scss/style.css */
 .workspace .row .status .comment {
     margin-right: 1rem; }
 
-/* line 1470, src/assets/scss/style.scss */
-/* line 1203, src/assets/scss/style.css */
+/* line 1468, src/assets/scss/style.scss */
+/* line 1201, src/assets/scss/style.css */
 .workspace .row .status .comment::before {
     content: "댓글: "; }
 
-/* line 1474, src/assets/scss/style.scss */
-/* line 1206, src/assets/scss/style.css */
+/* line 1472, src/assets/scss/style.scss */
+/* line 1204, src/assets/scss/style.css */
 .workspace .row .status .comment::after {
     content: "개"; }
 
-/* line 1480, src/assets/scss/style.scss */
-/* line 1209, src/assets/scss/style.css */
+/* line 1478, src/assets/scss/style.scss */
+/* line 1207, src/assets/scss/style.css */
 .workspace .row .status .read::before {
     content: "읽음: "; }
 
-/* line 1484, src/assets/scss/style.scss */
-/* line 1212, src/assets/scss/style.css */
+/* line 1482, src/assets/scss/style.scss */
+/* line 1210, src/assets/scss/style.css */
 .workspace .row .status .read::after {
     content: "명"; }
 
-/* line 1492, src/assets/scss/style.scss */
-/* line 1216, src/assets/scss/style.css */
+/* line 1490, src/assets/scss/style.scss */
+/* line 1214, src/assets/scss/style.css */
 .details {
     padding: 1rem; }
 
-/* line 1495, src/assets/scss/style.scss */
-/* line 1219, src/assets/scss/style.css */
+/* line 1493, src/assets/scss/style.scss */
+/* line 1217, src/assets/scss/style.css */
 .details .attach {
     display: flex;
     align-items: center;
     gap: 0.5rem; }
 
-/* line 1500, src/assets/scss/style.scss */
-/* line 1224, src/assets/scss/style.css */
+/* line 1498, src/assets/scss/style.scss */
+/* line 1222, src/assets/scss/style.css */
 .details .attach button {
     padding: 0;
     min-height: 0;
     font-size: 1.25rem;
     color: rgba(33, 69, 176, 0.5); }
 
-/* line 1506, src/assets/scss/style.scss */
-/* line 1230, src/assets/scss/style.css */
+/* line 1504, src/assets/scss/style.scss */
+/* line 1228, src/assets/scss/style.css */
 .details .attach button label {
     display: flex;
     align-items: center; }
 
-/* line 1510, src/assets/scss/style.scss */
-/* line 1234, src/assets/scss/style.css */
+/* line 1508, src/assets/scss/style.scss */
+/* line 1232, src/assets/scss/style.css */
 .details .attach button label::after {
     content: "파일첨부";
     font-size: 14px;
     color: rgba(33, 69, 176, 0.75);
     margin-left: 0.25rem; }
 
-/* line 1519, src/assets/scss/style.scss */
-/* line 1240, src/assets/scss/style.css */
+/* line 1517, src/assets/scss/style.scss */
+/* line 1238, src/assets/scss/style.css */
 .details .attach input {
     display: none; }
 
-/* line 1524, src/assets/scss/style.scss */
-/* line 1243, src/assets/scss/style.css */
+/* line 1522, src/assets/scss/style.scss */
+/* line 1241, src/assets/scss/style.css */
 .details .row {
     background-color: white; }
 
-/* line 1527, src/assets/scss/style.scss */
-/* line 1246, src/assets/scss/style.css */
+/* line 1525, src/assets/scss/style.scss */
+/* line 1244, src/assets/scss/style.css */
 .details .row:not(:last-of-type) {
     margin-bottom: 0.5rem; }
 
-/* line 1531, src/assets/scss/style.scss */
-/* line 1249, src/assets/scss/style.css */
+/* line 1529, src/assets/scss/style.scss */
+/* line 1247, src/assets/scss/style.css */
 .details .row.comments {
     border-left: none;
     border-radius: 0.5rem; }
 
-/* line 1535, src/assets/scss/style.scss */
-/* line 1253, src/assets/scss/style.css */
+/* line 1533, src/assets/scss/style.scss */
+/* line 1251, src/assets/scss/style.css */
 .details .row.comments .status {
     margin-top: 0.5rem; }
 
-/* line 1539, src/assets/scss/style.scss */
-/* line 1256, src/assets/scss/style.css */
+/* line 1537, src/assets/scss/style.scss */
+/* line 1254, src/assets/scss/style.css */
 .details .row.comments .new {
     flex: 1 1 auto;
     padding-bottom: 1rem;
     margin-bottom: 0.25rem;
     border-bottom: 1px solid #eee; }
 
-/* line 1545, src/assets/scss/style.scss */
-/* line 1262, src/assets/scss/style.css */
+/* line 1543, src/assets/scss/style.scss */
+/* line 1260, src/assets/scss/style.css */
 .details .row.comments .new .filters {
     margin-bottom: 0.5rem; }
 
-/* line 1549, src/assets/scss/style.scss */
-/* line 1265, src/assets/scss/style.css */
+/* line 1547, src/assets/scss/style.scss */
+/* line 1263, src/assets/scss/style.css */
 .details .row.comments .new textarea {
     width: 100%; }
 
-/* line 1554, src/assets/scss/style.scss */
-/* line 1268, src/assets/scss/style.css */
+/* line 1552, src/assets/scss/style.scss */
+/* line 1266, src/assets/scss/style.css */
 .details .row.comments .title {
     text-indent: 0.25rem;
     margin-bottom: 0.25rem;
     justify-content: flex-start;
     color: #a7aabc; }
 
-/* line 1560, src/assets/scss/style.scss */
-/* line 1274, src/assets/scss/style.css */
+/* line 1558, src/assets/scss/style.scss */
+/* line 1272, src/assets/scss/style.css */
 .details .row.comments .title span {
     color: #333;
     font-size: 14px; }
 
-/* line 1566, src/assets/scss/style.scss */
-/* line 1278, src/assets/scss/style.css */
+/* line 1564, src/assets/scss/style.scss */
+/* line 1276, src/assets/scss/style.css */
 .details .row.comments .buttons {
     justify-content: flex-end; }
 
-/* line 1570, src/assets/scss/style.scss */
-/* line 1281, src/assets/scss/style.css */
+/* line 1568, src/assets/scss/style.scss */
+/* line 1279, src/assets/scss/style.css */
 .details .row.comments .comment-footer {
     display: flex;
     align-items: center;
     justify-content: space-between; }
 
-/* line 1576, src/assets/scss/style.scss */
-/* line 1286, src/assets/scss/style.css */
+/* line 1574, src/assets/scss/style.scss */
+/* line 1284, src/assets/scss/style.css */
 .details .row.comments .other-comment {
     border: 1px solid #eee;
     padding: 0.75rem;
     border-radius: 0.5rem; }
 
-/* line 1581, src/assets/scss/style.scss */
-/* line 1291, src/assets/scss/style.css */
+/* line 1579, src/assets/scss/style.scss */
+/* line 1289, src/assets/scss/style.css */
 .details .row.comments .other-comment .information {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 0.5rem; }
 
-/* line 1588, src/assets/scss/style.scss */
-/* line 1297, src/assets/scss/style.css */
+/* line 1586, src/assets/scss/style.scss */
+/* line 1295, src/assets/scss/style.css */
 .details .row.comments .other-comment .status {
     align-items: flex-start;
     justify-content: flex-start;
     text-indent: 0; }
 
-/* line 1593, src/assets/scss/style.scss */
-/* line 1302, src/assets/scss/style.css */
+/* line 1591, src/assets/scss/style.scss */
+/* line 1300, src/assets/scss/style.css */
 .details .row.comments .other-comment .status .fa-comment-alt-check {
     margin-top: 0.15rem;
     flex: 0 0 auto;
     margin-right: 0.25rem; }
 
-/* line 1599, src/assets/scss/style.scss */
-/* line 1307, src/assets/scss/style.css */
+/* line 1597, src/assets/scss/style.scss */
+/* line 1305, src/assets/scss/style.css */
 .details .row.comments .other-comment .status span {
     color: slategray;
     font-size: 13px; }
 
-/* line 1607, src/assets/scss/style.scss */
-/* line 1311, src/assets/scss/style.css */
+/* line 1605, src/assets/scss/style.scss */
+/* line 1309, src/assets/scss/style.css */
 .details .row .images {
     margin: 1rem auto 0;
     display: flex;
@@ -1805,8 +1803,8 @@ main ~ .buttons .btn-main {
     flex-wrap: wrap;
     gap: 0.5rem; }
 
-/* line 1614, src/assets/scss/style.scss */
-/* line 1318, src/assets/scss/style.css */
+/* line 1612, src/assets/scss/style.scss */
+/* line 1316, src/assets/scss/style.css */
 .details .row .images .image {
     flex: 0 0 45%;
     display: flex;
@@ -1817,14 +1815,14 @@ main ~ .buttons .btn-main {
     justify-content: center;
     border-radius: 0.25rem; }
 
-/* line 1625, src/assets/scss/style.scss */
-/* line 1328, src/assets/scss/style.css */
+/* line 1623, src/assets/scss/style.scss */
+/* line 1326, src/assets/scss/style.css */
 .details .row .images img {
     min-width: 100%;
     min-height: 100%; }
 
-/* line 1632, src/assets/scss/style.scss */
-/* line 1332, src/assets/scss/style.css */
+/* line 1630, src/assets/scss/style.scss */
+/* line 1330, src/assets/scss/style.css */
 .details .row .title div:first-of-type {
     flex: 1 1 auto;
     text-overflow: unset;
@@ -1832,40 +1830,40 @@ main ~ .buttons .btn-main {
     white-space: normal;
     margin: 0.5rem 0; }
 
-/* line 1642, src/assets/scss/style.scss */
-/* line 1339, src/assets/scss/style.css */
+/* line 1640, src/assets/scss/style.scss */
+/* line 1337, src/assets/scss/style.css */
 .details .row .details p {
     max-height: none;
     overflow: unset;
     text-overflow: unset;
     -webkit-line-clamp: unset; }
 
-/* line 1654, src/assets/scss/style.scss */
-/* line 1346, src/assets/scss/style.css */
+/* line 1652, src/assets/scss/style.scss */
+/* line 1344, src/assets/scss/style.css */
 .add input[type="radio"]:checked + label.bg-red {
     background-color: rgba(255, 69, 0, 0.1);
     color: orangered; }
 
-/* line 1659, src/assets/scss/style.scss */
-/* line 1351, src/assets/scss/style.css */
+/* line 1657, src/assets/scss/style.scss */
+/* line 1349, src/assets/scss/style.css */
 .add input[type="radio"]:checked + label.bg-orange {
     background-color: rgba(255, 140, 0, 0.1);
     color: darkorange; }
 
-/* line 1663, src/assets/scss/style.scss */
-/* line 1356, src/assets/scss/style.css */
+/* line 1661, src/assets/scss/style.scss */
+/* line 1354, src/assets/scss/style.css */
 .add input[type="radio"]:checked + label.bg-blue {
     background-color: rgba(65, 105, 225, 0.1);
     color: royalblue; }
 
-/* line 1667, src/assets/scss/style.scss */
-/* line 1361, src/assets/scss/style.css */
+/* line 1665, src/assets/scss/style.scss */
+/* line 1359, src/assets/scss/style.css */
 .add input[type="radio"]:checked + label.bg-green {
     background-color: rgba(46, 139, 87, 0.1);
     color: seagreen; }
 
-/* line 1673, src/assets/scss/style.scss */
-/* line 1366, src/assets/scss/style.css */
+/* line 1671, src/assets/scss/style.scss */
+/* line 1364, src/assets/scss/style.css */
 .add .inputs {
     flex: 1 1 auto;
     padding: 1rem;
@@ -1875,27 +1873,27 @@ main ~ .buttons .btn-main {
     flex-direction: column;
     gap: 0.5rem; }
 
-/* line 1682, src/assets/scss/style.scss */
-/* line 1375, src/assets/scss/style.css */
+/* line 1680, src/assets/scss/style.scss */
+/* line 1373, src/assets/scss/style.css */
 .add .inputs .input {
     display: flex;
     flex-direction: column; }
 
-/* line 1686, src/assets/scss/style.scss */
-/* line 1379, src/assets/scss/style.css */
+/* line 1684, src/assets/scss/style.scss */
+/* line 1377, src/assets/scss/style.css */
 .add .inputs .input input:-moz-placeholder-shown {
     background-color: transparent; }
 
-/* line 1381, src/assets/scss/style.css */
+/* line 1379, src/assets/scss/style.css */
 .add .inputs .input input:-ms-input-placeholder {
     background-color: transparent; }
 
-/* line 1383, src/assets/scss/style.css */
+/* line 1381, src/assets/scss/style.css */
 .add .inputs .input input:placeholder-shown {
     background-color: transparent; }
 
-/* line 1696, src/assets/scss/style.scss */
-/* line 1387, src/assets/scss/style.css */
+/* line 1694, src/assets/scss/style.scss */
+/* line 1385, src/assets/scss/style.css */
 .bottom-sticky-menu {
     opacity: 0;
     transform: translateY(4rem);
@@ -1909,70 +1907,70 @@ main ~ .buttons .btn-main {
     justify-content: center;
     transition: 0.2s; }
 
-/* line 1709, src/assets/scss/style.scss */
-/* line 1400, src/assets/scss/style.css */
+/* line 1707, src/assets/scss/style.scss */
+/* line 1398, src/assets/scss/style.css */
 .bottom-sticky-menu.active {
     transform: translateY(0);
     z-index: 10; }
 
-/* line 1714, src/assets/scss/style.scss */
-/* line 1404, src/assets/scss/style.css */
+/* line 1712, src/assets/scss/style.scss */
+/* line 1402, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons {
     position: absolute;
     width: 90%;
     height: 90%; }
 
-/* line 1719, src/assets/scss/style.scss */
-/* line 1409, src/assets/scss/style.css */
+/* line 1717, src/assets/scss/style.scss */
+/* line 1407, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active {
     opacity: 1; }
 
-/* line 1722, src/assets/scss/style.scss */
-/* line 1412, src/assets/scss/style.css */
+/* line 1720, src/assets/scss/style.scss */
+/* line 1410, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active button {
     background-color: mediumseagreen;
     color: white;
     box-shadow: 0px 3px 4.5px 1px rgba(0, 0, 0, 0.1); }
 
-/* line 1727, src/assets/scss/style.scss */
-/* line 1417, src/assets/scss/style.css */
+/* line 1725, src/assets/scss/style.scss */
+/* line 1415, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active button:nth-of-type(1) {
     transform: translateY(calc(-300% - 2.5rem)); }
 
-/* line 1730, src/assets/scss/style.scss */
-/* line 1420, src/assets/scss/style.css */
+/* line 1728, src/assets/scss/style.scss */
+/* line 1418, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active button:nth-of-type(2) {
     transform: translateY(calc(-200% - 1.75rem)); }
 
-/* line 1733, src/assets/scss/style.scss */
-/* line 1423, src/assets/scss/style.css */
+/* line 1731, src/assets/scss/style.scss */
+/* line 1421, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active button:nth-of-type(3) {
     transform: translateY(calc(-100% - 1rem)); }
 
-/* line 1738, src/assets/scss/style.scss */
-/* line 1426, src/assets/scss/style.css */
+/* line 1736, src/assets/scss/style.scss */
+/* line 1424, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active .btn-search {
     display: none; }
 
-/* line 1742, src/assets/scss/style.scss */
-/* line 1429, src/assets/scss/style.css */
+/* line 1740, src/assets/scss/style.scss */
+/* line 1427, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons.active + .btn-main {
     background-color: white;
     color: mediumseagreen; }
 
-/* line 1748, src/assets/scss/style.scss */
-/* line 1433, src/assets/scss/style.css */
+/* line 1746, src/assets/scss/style.scss */
+/* line 1431, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons button {
     font-size: 2rem; }
 
-/* line 1751, src/assets/scss/style.scss */
-/* line 1436, src/assets/scss/style.css */
+/* line 1749, src/assets/scss/style.scss */
+/* line 1434, src/assets/scss/style.css */
 .bottom-sticky-menu .buttons button.btn-search {
     background-color: #d7dcdf;
     color: #2145b0; }
 
-/* line 1758, src/assets/scss/style.scss */
-/* line 1440, src/assets/scss/style.css */
+/* line 1756, src/assets/scss/style.scss */
+/* line 1438, src/assets/scss/style.css */
 .bottom-sticky-menu button {
     position: absolute;
     background-color: mediumseagreen;
@@ -1985,31 +1983,31 @@ main ~ .buttons .btn-main {
     justify-content: center;
     transition: 0.2s; }
 
-/* line 1770, src/assets/scss/style.scss */
-/* line 1452, src/assets/scss/style.css */
+/* line 1768, src/assets/scss/style.scss */
+/* line 1450, src/assets/scss/style.css */
 .bottom-sticky-menu button.btn-main {
     box-shadow: 0px 5px 10px 1px rgba(65, 105, 225, 0.3);
     font-size: 1.5rem; }
 
-/* line 1775, src/assets/scss/style.scss */
-/* line 1456, src/assets/scss/style.css */
+/* line 1773, src/assets/scss/style.scss */
+/* line 1454, src/assets/scss/style.css */
 .bottom-sticky-menu button svg {
     width: 60%;
     height: 60%;
     stroke: white; }
 
-/* line 1784, src/assets/scss/style.scss */
-/* line 1462, src/assets/scss/style.css */
+/* line 1782, src/assets/scss/style.scss */
+/* line 1460, src/assets/scss/style.css */
 .list + .bottom-sticky-menu .btn-search {
     display: flex !important; }
 
-/* line 1789, src/assets/scss/style.scss */
-/* line 1466, src/assets/scss/style.css */
+/* line 1787, src/assets/scss/style.scss */
+/* line 1464, src/assets/scss/style.css */
 .modal-done {
     max-height: 200px; }
 
-/* line 1792, src/assets/scss/style.scss */
-/* line 1469, src/assets/scss/style.css */
+/* line 1790, src/assets/scss/style.scss */
+/* line 1467, src/assets/scss/style.css */
 .modal-done .modal-content {
     display: flex;
     flex-wrap: wrap;
@@ -2017,36 +2015,36 @@ main ~ .buttons .btn-main {
     justify-content: center;
     padding: 1rem; }
 
-/* line 1799, src/assets/scss/style.scss */
-/* line 1476, src/assets/scss/style.css */
+/* line 1797, src/assets/scss/style.scss */
+/* line 1474, src/assets/scss/style.css */
 .modal-done .modal-content svg {
     opacity: 0.3;
     width: 4rem;
     height: 4rem;
     flex: 1 1 100%; }
 
-/* line 1807, src/assets/scss/style.scss */
-/* line 1482, src/assets/scss/style.css */
+/* line 1805, src/assets/scss/style.scss */
+/* line 1480, src/assets/scss/style.css */
 .modal-done .btn-close {
     flex: 1 1 auto;
     align-items: center;
     background-color: royalblue;
     color: white; }
 
-/* line 1815, src/assets/scss/style.scss */
-/* line 1489, src/assets/scss/style.css */
+/* line 1813, src/assets/scss/style.scss */
+/* line 1487, src/assets/scss/style.css */
 .modal-confirm {
     max-height: 200px; }
 
-/* line 1818, src/assets/scss/style.scss */
-/* line 1492, src/assets/scss/style.css */
+/* line 1816, src/assets/scss/style.scss */
+/* line 1490, src/assets/scss/style.css */
 .modal-confirm .modal-content {
     display: flex;
     align-items: center;
     justify-content: center; }
 
-/* line 1825, src/assets/scss/style.scss */
-/* line 1498, src/assets/scss/style.css */
+/* line 1823, src/assets/scss/style.scss */
+/* line 1496, src/assets/scss/style.css */
 .modal-marker {
     flex-direction: column;
     height: -webkit-fit-content;
@@ -2061,25 +2059,25 @@ main ~ .buttons .btn-main {
     border-radius: 1rem 1rem 0 0;
     transition: 0.4s; }
 
-/* line 1837, src/assets/scss/style.scss */
-/* line 1512, src/assets/scss/style.css */
+/* line 1835, src/assets/scss/style.scss */
+/* line 1510, src/assets/scss/style.css */
 .modal-marker.active {
     bottom: 0; }
 
-/* line 1841, src/assets/scss/style.scss */
-/* line 1515, src/assets/scss/style.css */
+/* line 1839, src/assets/scss/style.scss */
+/* line 1513, src/assets/scss/style.css */
 .modal-marker .move-down {
     display: flex;
     justify-content: center;
     padding: 0rem; }
 
-/* line 1848, src/assets/scss/style.scss */
-/* line 1520, src/assets/scss/style.css */
+/* line 1846, src/assets/scss/style.scss */
+/* line 1518, src/assets/scss/style.css */
 .modal-marker .arrow svg {
     fill: #a3a6a9; }
 
-/* line 1853, src/assets/scss/style.scss */
-/* line 1523, src/assets/scss/style.css */
+/* line 1851, src/assets/scss/style.scss */
+/* line 1521, src/assets/scss/style.css */
 .modal-marker .navigation {
     flex: 0 0 auto;
     display: flex;
@@ -2087,8 +2085,8 @@ main ~ .buttons .btn-main {
     justify-content: space-between;
     padding: 1.5rem 0.75rem 0.75rem; }
 
-/* line 1861, src/assets/scss/style.scss */
-/* line 1530, src/assets/scss/style.css */
+/* line 1859, src/assets/scss/style.scss */
+/* line 1528, src/assets/scss/style.css */
 .modal-marker .result {
     flex: 1 1 auto;
     overflow-y: auto;
@@ -2096,8 +2094,8 @@ main ~ .buttons .btn-main {
     flex-direction: column;
     gap: 0.5rem; }
 
-/* line 1868, src/assets/scss/style.scss */
-/* line 1537, src/assets/scss/style.css */
+/* line 1866, src/assets/scss/style.scss */
+/* line 1535, src/assets/scss/style.css */
 .modal-marker .result .row {
     padding: 0.5rem;
     display: flex;
@@ -2106,121 +2104,121 @@ main ~ .buttons .btn-main {
     border-radius: 0.5rem;
     gap: 0.25rem; }
 
-/* line 1877, src/assets/scss/style.scss */
-/* line 1545, src/assets/scss/style.css */
+/* line 1875, src/assets/scss/style.scss */
+/* line 1543, src/assets/scss/style.css */
 .modal-marker .result ul {
     flex: 1 1 auto; }
 
-/* line 1881, src/assets/scss/style.scss */
-/* line 1548, src/assets/scss/style.css */
+/* line 1879, src/assets/scss/style.scss */
+/* line 1546, src/assets/scss/style.css */
 .modal-marker .result ul li.address {
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 0.5rem; }
 
-/* line 1890, src/assets/scss/style.scss */
-/* line 1553, src/assets/scss/style.css */
+/* line 1888, src/assets/scss/style.scss */
+/* line 1551, src/assets/scss/style.css */
 .modal-marker .result ul li.information {
     display: flex;
     align-items: center;
     font-size: 13px; }
 
-/* line 1895, src/assets/scss/style.scss */
-/* line 1558, src/assets/scss/style.css */
+/* line 1893, src/assets/scss/style.scss */
+/* line 1556, src/assets/scss/style.css */
 .modal-marker .result ul li.information div {
     display: flex;
     align-items: center; }
 
-/* line 1899, src/assets/scss/style.scss */
-/* line 1562, src/assets/scss/style.css */
+/* line 1897, src/assets/scss/style.scss */
+/* line 1560, src/assets/scss/style.css */
 .modal-marker .result ul li.information div:first-of-type {
     margin-right: 0.5rem; }
 
-/* line 1902, src/assets/scss/style.scss */
-/* line 1565, src/assets/scss/style.css */
+/* line 1900, src/assets/scss/style.scss */
+/* line 1563, src/assets/scss/style.css */
 .modal-marker .result ul li.information div:first-of-type::after {
     padding-left: 0.5rem;
     content: "|";
     color: slategray; }
 
-/* line 1910, src/assets/scss/style.scss */
-/* line 1570, src/assets/scss/style.css */
+/* line 1908, src/assets/scss/style.scss */
+/* line 1568, src/assets/scss/style.css */
 .modal-marker .result ul li.information div span:first-of-type {
     padding-right: 0.25rem; }
 
-/* line 1913, src/assets/scss/style.scss */
-/* line 1573, src/assets/scss/style.css */
+/* line 1911, src/assets/scss/style.scss */
+/* line 1571, src/assets/scss/style.css */
 .modal-marker .result ul li.information div span:first-of-type::after {
     content: ":"; }
 
-/* line 1919, src/assets/scss/style.scss */
-/* line 1576, src/assets/scss/style.css */
+/* line 1917, src/assets/scss/style.scss */
+/* line 1574, src/assets/scss/style.css */
 .modal-marker .result ul li.information div svg {
     border-radius: 50%;
     border: 1px solid #333; }
 
-/* line 1928, src/assets/scss/style.scss */
-/* line 1580, src/assets/scss/style.css */
+/* line 1926, src/assets/scss/style.scss */
+/* line 1578, src/assets/scss/style.css */
 .modal-marker .result .more {
     flex: 0 0 auto; }
 
-/* line 1931, src/assets/scss/style.scss */
-/* line 1583, src/assets/scss/style.css */
+/* line 1929, src/assets/scss/style.scss */
+/* line 1581, src/assets/scss/style.css */
 .modal-marker .result .more svg {
     width: 1.8rem;
     height: 1.8rem;
     fill: rgba(0, 0, 0, 0.15); }
 
-/* line 1940, src/assets/scss/style.scss */
-/* line 1589, src/assets/scss/style.css */
+/* line 1938, src/assets/scss/style.scss */
+/* line 1587, src/assets/scss/style.css */
 .modal-navigation {
     max-width: 360px;
     max-height: 200px; }
 
-/* line 1944, src/assets/scss/style.scss */
-/* line 1593, src/assets/scss/style.css */
+/* line 1942, src/assets/scss/style.scss */
+/* line 1591, src/assets/scss/style.css */
 .modal-navigation .modal-content {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center; }
 
-/* line 1951, src/assets/scss/style.scss */
-/* line 1599, src/assets/scss/style.css */
+/* line 1949, src/assets/scss/style.scss */
+/* line 1597, src/assets/scss/style.css */
 .modal-navigation .navigations {
     display: flex; }
 
-/* line 1954, src/assets/scss/style.scss */
-/* line 1602, src/assets/scss/style.css */
+/* line 1952, src/assets/scss/style.scss */
+/* line 1600, src/assets/scss/style.css */
 .modal-navigation .navigations li {
     padding: 0 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center; }
 
-/* line 1961, src/assets/scss/style.scss */
-/* line 1608, src/assets/scss/style.css */
+/* line 1959, src/assets/scss/style.scss */
+/* line 1606, src/assets/scss/style.css */
 .modal-navigation .navigations img {
     width: 64px;
     border: 1px solid #e3e6e9;
     border-radius: 0.5rem;
     margin-bottom: 0.25rem; }
 
-/* line 1970, src/assets/scss/style.scss */
-/* line 1615, src/assets/scss/style.css */
+/* line 1968, src/assets/scss/style.scss */
+/* line 1613, src/assets/scss/style.css */
 .modal-image {
     height: auto;
     width: 100%;
     max-height: 80%;
     border-radius: 0; }
 
-/* line 1976, src/assets/scss/style.scss */
-/* line 1621, src/assets/scss/style.css */
+/* line 1974, src/assets/scss/style.scss */
+/* line 1619, src/assets/scss/style.css */
 .modal-image img {
     width: 100%; }
 
-/* line 1981, src/assets/scss/style.scss */
-/* line 1625, src/assets/scss/style.css */
+/* line 1979, src/assets/scss/style.scss */
+/* line 1623, src/assets/scss/style.css */
 .modal-search {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -2234,24 +2232,24 @@ main ~ .buttons .btn-main {
     border-radius: 1rem 1rem 0 0;
     transition: 0.4s; }
 
-/* line 1992, src/assets/scss/style.scss */
-/* line 1638, src/assets/scss/style.css */
+/* line 1990, src/assets/scss/style.scss */
+/* line 1636, src/assets/scss/style.css */
 .modal-search.active {
     bottom: 0; }
 
-/* line 1996, src/assets/scss/style.scss */
-/* line 1641, src/assets/scss/style.css */
+/* line 1994, src/assets/scss/style.scss */
+/* line 1639, src/assets/scss/style.css */
 .modal-search .search {
     display: flex;
     gap: 0.5rem; }
 
-/* line 2000, src/assets/scss/style.scss */
-/* line 1645, src/assets/scss/style.css */
+/* line 1998, src/assets/scss/style.scss */
+/* line 1643, src/assets/scss/style.css */
 .modal-search .search input[type="search"] {
     flex: 1 1 auto; }
 
-/* line 2005, src/assets/scss/style.scss */
-/* line 1648, src/assets/scss/style.css */
+/* line 2003, src/assets/scss/style.scss */
+/* line 1646, src/assets/scss/style.css */
 .modal-search .btn-search {
     background-color: royalblue;
     width: 36px;
@@ -2260,63 +2258,63 @@ main ~ .buttons .btn-main {
     align-items: center;
     justify-content: center; }
 
-/* line 2013, src/assets/scss/style.scss */
-/* line 1656, src/assets/scss/style.css */
+/* line 2011, src/assets/scss/style.scss */
+/* line 1654, src/assets/scss/style.css */
 .modal-search .btn-search svg {
     width: 60%;
     stroke: white; }
 
-/* line 2019, src/assets/scss/style.scss */
-/* line 1660, src/assets/scss/style.css */
+/* line 2017, src/assets/scss/style.scss */
+/* line 1658, src/assets/scss/style.css */
 .modal-search .filters {
     display: flex;
     gap: 0.25rem; }
 
-/* line 2023, src/assets/scss/style.scss */
-/* line 1664, src/assets/scss/style.css */
+/* line 2021, src/assets/scss/style.scss */
+/* line 1662, src/assets/scss/style.css */
 .modal-search .filters button {
     background-color: #eee; }
 
-/* line 2028, src/assets/scss/style.scss */
-/* line 1667, src/assets/scss/style.css */
+/* line 2026, src/assets/scss/style.scss */
+/* line 1665, src/assets/scss/style.css */
 .modal-search .filters.calendar .input {
     margin: 0.5rem 0.25rem;
     position: relative; }
 
-/* line 2032, src/assets/scss/style.scss */
-/* line 1671, src/assets/scss/style.css */
+/* line 2030, src/assets/scss/style.scss */
+/* line 1669, src/assets/scss/style.css */
 .modal-search .filters.calendar .input svg {
     position: absolute;
     top: 50%;
     right: 0.5rem;
     transform: translateY(-50%); }
 
-/* line 2040, src/assets/scss/style.scss */
-/* line 1677, src/assets/scss/style.css */
+/* line 2038, src/assets/scss/style.scss */
+/* line 1675, src/assets/scss/style.css */
 .modal-search .filters.calendar input {
     flex: 1 1 auto;
     width: 100%; }
 
-/* line 2047, src/assets/scss/style.scss */
-/* line 1681, src/assets/scss/style.css */
+/* line 2045, src/assets/scss/style.scss */
+/* line 1679, src/assets/scss/style.css */
 .modal-search .modal-content {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column; }
 
-/* line 2053, src/assets/scss/style.scss */
-/* line 1686, src/assets/scss/style.css */
+/* line 2051, src/assets/scss/style.scss */
+/* line 1684, src/assets/scss/style.css */
 .modal-search .no-result {
     display: none; }
 
-/* line 2058, src/assets/scss/style.scss */
-/* line 1689, src/assets/scss/style.css */
+/* line 2056, src/assets/scss/style.scss */
+/* line 1687, src/assets/scss/style.css */
 .modal-search .result:empty {
     flex: 0 0 auto;
     padding: 0; }
 
-/* line 2062, src/assets/scss/style.scss */
-/* line 1693, src/assets/scss/style.css */
+/* line 2060, src/assets/scss/style.scss */
+/* line 1691, src/assets/scss/style.css */
 .modal-search .result:empty ~ .no-result {
     display: flex;
     flex: 1 1 auto;
@@ -2324,16 +2322,16 @@ main ~ .buttons .btn-main {
     align-items: center;
     color: #666; }
 
-/* line 2071, src/assets/scss/style.scss */
-/* line 1700, src/assets/scss/style.css */
+/* line 2069, src/assets/scss/style.scss */
+/* line 1698, src/assets/scss/style.css */
 .modal-search .result:not(:empty) {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding: 1rem; }
 
-/* line 2078, src/assets/scss/style.scss */
-/* line 1706, src/assets/scss/style.css */
+/* line 2076, src/assets/scss/style.scss */
+/* line 1704, src/assets/scss/style.css */
 .modal-search .result .row {
     flex-direction: column;
     background-color: #eff1f7;
@@ -2342,36 +2340,36 @@ main ~ .buttons .btn-main {
     line-height: 1;
     gap: 0.5rem; }
 
-/* line 2088, src/assets/scss/style.scss */
-/* line 1714, src/assets/scss/style.css */
+/* line 2086, src/assets/scss/style.scss */
+/* line 1712, src/assets/scss/style.css */
 .modal-search .modal-footer {
     flex: 0 0 60px;
     display: flex;
     margin: 0 -0.25rem; }
 
-/* line 2093, src/assets/scss/style.scss */
-/* line 1719, src/assets/scss/style.css */
+/* line 2091, src/assets/scss/style.scss */
+/* line 1717, src/assets/scss/style.css */
 .modal-search .modal-footer button {
     border-radius: 0;
     justify-content: center; }
 
-/* line 2097, src/assets/scss/style.scss */
-/* line 1723, src/assets/scss/style.css */
+/* line 2095, src/assets/scss/style.scss */
+/* line 1721, src/assets/scss/style.css */
 .modal-search .modal-footer button.btn-cancel {
     flex: 0 0 30%;
     background-color: transparent;
     color: royalblue;
     border: 1px solid royalblue; }
 
-/* line 2104, src/assets/scss/style.scss */
-/* line 1729, src/assets/scss/style.css */
+/* line 2102, src/assets/scss/style.scss */
+/* line 1727, src/assets/scss/style.css */
 .modal-search .modal-footer .btn-search {
     flex: 1 1 auto;
     background-color: royalblue;
     color: white; }
 
-/* line 2112, src/assets/scss/style.scss */
-/* line 1735, src/assets/scss/style.css */
+/* line 2110, src/assets/scss/style.scss */
+/* line 1733, src/assets/scss/style.css */
 .modal-search-full {
     position: absolute;
     top: 54px !important;
@@ -2386,15 +2384,15 @@ main ~ .buttons .btn-main {
     max-height: none !important;
     transform: none !important; }
 
-/* line 2126, src/assets/scss/style.scss */
-/* line 1749, src/assets/scss/style.css */
+/* line 2124, src/assets/scss/style.scss */
+/* line 1747, src/assets/scss/style.css */
 .modal-search-full header.filters input[type="radio"]:hover + label,
 .modal-search-full header.filters input[type="radio"]:checked + label {
     background-color: royalblue;
     color: white; }
 
-/* line 2132, src/assets/scss/style.scss */
-/* line 1754, src/assets/scss/style.css */
+/* line 2130, src/assets/scss/style.scss */
+/* line 1752, src/assets/scss/style.css */
 .modal-search-full .filters {
     flex: 0 0 auto;
     display: flex;
@@ -2405,99 +2403,99 @@ main ~ .buttons .btn-main {
     background-color: transparent;
     border-bottom: 1px solid #ddd; }
 
-/* line 2142, src/assets/scss/style.scss */
-/* line 1764, src/assets/scss/style.css */
+/* line 2140, src/assets/scss/style.scss */
+/* line 1762, src/assets/scss/style.css */
 .modal-search-full .filters button {
     margin: 0 0.25rem; }
 
-/* line 2150, src/assets/scss/style.scss */
-/* line 1767, src/assets/scss/style.css */
+/* line 2148, src/assets/scss/style.scss */
+/* line 1765, src/assets/scss/style.css */
 .modal-search-full section {
     padding: 0 0 100px 0; }
 
-/* line 2153, src/assets/scss/style.scss */
-/* line 1770, src/assets/scss/style.css */
+/* line 2151, src/assets/scss/style.scss */
+/* line 1768, src/assets/scss/style.css */
 .modal-search-full section .row {
     padding: 1rem;
     align-items: center;
     border-bottom: 1px solid #ddd; }
 
-/* line 2159, src/assets/scss/style.scss */
-/* line 1775, src/assets/scss/style.css */
+/* line 2157, src/assets/scss/style.scss */
+/* line 1773, src/assets/scss/style.css */
 .modal-search-full section.empty {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; }
 
-/* line 2165, src/assets/scss/style.scss */
-/* line 1781, src/assets/scss/style.css */
+/* line 2163, src/assets/scss/style.scss */
+/* line 1779, src/assets/scss/style.css */
 .modal-search-full section.empty div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; }
 
-/* line 2172, src/assets/scss/style.scss */
-/* line 1787, src/assets/scss/style.css */
+/* line 2170, src/assets/scss/style.scss */
+/* line 1785, src/assets/scss/style.css */
 .modal-search-full section.empty svg {
     margin-bottom: 0.5rem; }
 
-/* line 2178, src/assets/scss/style.scss */
-/* line 1790, src/assets/scss/style.css */
+/* line 2176, src/assets/scss/style.scss */
+/* line 1788, src/assets/scss/style.css */
 .modal-search-full ul {
     flex: 1 1 auto; }
 
-/* line 2182, src/assets/scss/style.scss */
-/* line 1793, src/assets/scss/style.css */
+/* line 2180, src/assets/scss/style.scss */
+/* line 1791, src/assets/scss/style.css */
 .modal-search-full ul li.address {
     font-weight: bold;
     font-size: 15px;
     margin-bottom: 0.25rem; }
 
-/* line 2188, src/assets/scss/style.scss */
-/* line 1798, src/assets/scss/style.css */
+/* line 2186, src/assets/scss/style.scss */
+/* line 1796, src/assets/scss/style.css */
 .modal-search-full ul li.title {
     padding: 0;
     font-size: 13px; }
 
-/* line 2193, src/assets/scss/style.scss */
-/* line 1802, src/assets/scss/style.css */
+/* line 2191, src/assets/scss/style.scss */
+/* line 1800, src/assets/scss/style.css */
 .modal-search-full ul li.information {
     display: flex;
     align-items: center;
     font-size: 13px; }
 
-/* line 2198, src/assets/scss/style.scss */
-/* line 1807, src/assets/scss/style.css */
+/* line 2196, src/assets/scss/style.scss */
+/* line 1805, src/assets/scss/style.css */
 .modal-search-full ul li.information div {
     display: flex;
     align-items: center; }
 
-/* line 2202, src/assets/scss/style.scss */
-/* line 1811, src/assets/scss/style.css */
+/* line 2200, src/assets/scss/style.scss */
+/* line 1809, src/assets/scss/style.css */
 .modal-search-full ul li.information div:first-of-type {
     margin-right: 0.5rem; }
 
-/* line 2205, src/assets/scss/style.scss */
-/* line 1814, src/assets/scss/style.css */
+/* line 2203, src/assets/scss/style.scss */
+/* line 1812, src/assets/scss/style.css */
 .modal-search-full ul li.information div:first-of-type::after {
     padding-left: 0.5rem;
     content: "|";
     color: slategray; }
 
-/* line 2213, src/assets/scss/style.scss */
-/* line 1819, src/assets/scss/style.css */
+/* line 2211, src/assets/scss/style.scss */
+/* line 1817, src/assets/scss/style.css */
 .modal-search-full ul li.information div span:first-of-type {
     padding-right: 0.25rem; }
 
-/* line 2216, src/assets/scss/style.scss */
-/* line 1822, src/assets/scss/style.css */
+/* line 2214, src/assets/scss/style.scss */
+/* line 1820, src/assets/scss/style.css */
 .modal-search-full ul li.information div span:first-of-type::after {
     content: ":"; }
 
-/* line 2222, src/assets/scss/style.scss */
-/* line 1825, src/assets/scss/style.css */
+/* line 2220, src/assets/scss/style.scss */
+/* line 1823, src/assets/scss/style.css */
 .modal-search-full ul li.information div svg {
     border-radius: 50%;
     border: 1px solid #333; }
