@@ -331,7 +331,7 @@ aside {
   }
 
   .filters {
-    padding: .5rem;
+    padding: 0.5rem;
     flex-direction: column;
 
     h4 {
@@ -355,7 +355,7 @@ aside {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
       color: rgba(33, 69, 176, 0.5);
       font-size: 16px;
       margin: 0.125rem 0;
@@ -378,9 +378,9 @@ aside {
       background-color: cornflowerblue;
       color: white;
 
-      &::before, 
+      &::before,
       &::after {
-        content: none !important
+        content: none !important;
       }
 
       span {
@@ -413,7 +413,7 @@ header {
   flex-direction: column;
   color: white;
   padding: 0 1rem;
-  transition: 0.8s;
+  transition: 0.65s;
 
   .row {
     display: flex;
@@ -428,15 +428,16 @@ header {
 
     &.search {
       opacity: 0;
-      height: 0;
+      max-height: 0;
       flex-direction: column;
       gap: 0.5rem;
       z-index: -1;
+      transition: 0.4s;
 
       &.active {
         opacity: 1;
-        height: auto;
-        padding: 0 1rem 1rem;
+        max-height: 300px;
+        padding-bottom: 1rem;
         z-index: 1;
       }
 
@@ -486,6 +487,15 @@ header {
         button {
           border-radius: 0;
           margin-bottom: 0;
+          position: relative;
+
+          label {
+
+            &::after {
+              left: auto !important;
+              right: auto !important;
+            }
+          }
 
           input[type="radio"]:checked + label {
             &::after {
@@ -495,6 +505,7 @@ header {
               left: 0;
               right: 0;
               height: 2px;
+              width: 70%;
               background-color: white;
             }
           }
@@ -1806,7 +1817,7 @@ main {
   .btn-cancel {
     background-color: royalblue;
     color: white;
-    flex: 1 1 auto !important
+    flex: 1 1 auto !important;
   }
 }
 
