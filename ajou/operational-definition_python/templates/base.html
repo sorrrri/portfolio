@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo"><a href="/">Operational Definition</a></div>
+            <ul class="navigation">
+                {% if user.is_authenticated %}
+                <li><a href="#">Welcome, <strong>{{user.get_username}}</strong></a></li>
+                <li><a href="{% url 'logout' %}" class="logout">logout</a></li>
+
+                {% else %}
+                <li><a href="{% url 'login' %}">login</a></li>
+                {% endif %}
+            </ul>
+    </header>
+    {% block content %}
+    {% endblock %}
+
+    {% block pagination %}
+    {% endblock %}
+</div>
+</body>
+</html>

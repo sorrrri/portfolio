@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    <div class="title">
+        <div class="wrapper">
+            <h2>조작적 정의 상세페이지</h2>
+        </div>
+    </div>
+    <div class="content">
+        <div class="wrapper">
+            {% csrf_token %}
+            <div class="input-container">
+                <label>Category</label>
+                {{ object.category }}
+            </div>
+            <div class="input-container">
+                <label>Created Date</label>
+                {{ object.created|date:"Y/m/d, P"}}
+            </div>
+            <div class="input-container">
+                <label>username</label>
+                {{ object.user}}
+            </div>
+            <div class="input-container">
+                <label>Extraction Date</label>
+                {{ object.updated|date:"Y/m/d, P"}}
+            </div>
+            <div class="input-container">
+                <label>Description</label>
+                {{ object.description }}
+            </div>
+            <div class="input-container">
+                <label>Query</label>
+                <div class="white-container">
+                    {{ object.query }}
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="button-container">
+    <button onclick="javascript:history.back()">back</button>
+</div>
+{% endblock %}}
