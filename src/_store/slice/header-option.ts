@@ -3,25 +3,23 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export type HeaderOption = {
   visible: boolean;
   title: string;
-  type: 'menu' | 'back' | 'menu&search';
-  menuVisible: boolean;
-  onClickSearch: () => void;
+  leftContextType: 'menu' | 'back' | 'none';
+  rightContext: () => any;
 };
 
 type ShowHeaderOption = {
   title: string;
-  type: 'menu' | 'back' | 'menu&search';
-  onClickSearch?: () => void;
+  leftContextType: 'menu' | 'back' | 'none';
+  rightContext: () => any;
 };
 
 export const headerOption = createSlice({
   name: 'headerOption',
   initialState: {
-    visible: false,
+    visible: true,
     title: '',
-    type: 'menu',
-    menuVisible: false,
-    onClickSearch: () => {},
+    leftContextType: 'menu',
+    rightContext: () => null,
   } as HeaderOption,
   reducers: {
     showHeader(state, action: PayloadAction<ShowHeaderOption>): HeaderOption {
@@ -37,20 +35,14 @@ export const headerOption = createSlice({
         visible: false,
       };
     },
-    showMenu(state): HeaderOption {
+    setRightContext(state, action: PayloadAction<() => any>): HeaderOption {
       return {
         ...state,
-        menuVisible: true,
-      };
-    },
-    hideMenu(state): HeaderOption {
-      return {
-        ...state,
-        menuVisible: false,
+        rightContext: action.payload,
       };
     },
   },
 });
 
-export const { showHeader, hideHeader, showMenu, hideMenu } = headerOption.actions;
+export const { showHeader, hideHeader } = headerOption.actions;
 export default headerOption.reducer;

@@ -66,6 +66,7 @@
     "jsx-a11y/no-static-element-interactions": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "import/prefer-default-export": "off",
+    "react/destructuring-assignment": "off",
     "react/js-no-target-blank": "off",
     "react/forbid-prop-types": "off",
     "no-restricted-syntax": "off",

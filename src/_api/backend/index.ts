@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import 'reflect-metadata';
 import { AxiosRequestConfig } from 'axios';
