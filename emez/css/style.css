@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+body {margin:0; padding:0; font-family: 'Noto Sans KR', sans-serif;}
+li {list-style:none}
+.wrapper {width:1080px; margin:0 auto; position:relative}
+.header {z-index:999; position:absolute; top:0; left:0; width:100%; height:80px; border-bottom:1px solid #CCC}
+.header .logo {position:absolute; left:0;padding-top:30px}
+.header ul {position:absolute; right:0; top:1em}
+.header ul li {list-style:none; margin-left:1em; padding-bottom:22px; float:left; color:white}
+.header ul li.active {border-bottom:3px solid white}
+.footer {background-color:#333; padding:30px 0; text-align:center; color:#999; font-size:.8em}
+
+.section {text-align:center; padding:50px 0; color:#4c5966; overflow:hidden}
+.section h1 {font-size:1.5em; margin-bottom:2em}
+.section p {font-size:1em}
+.section_01 {height:500px; color:white}
+.section_01 .image-slider {margin-top:-50px; width:100%; position:relative}
+.section_01 .image-slider img {width:100%; z-index:1}
+.section_01 .image-slider .slide_01 {background:url('../img/bg_01.jpg') no-repeat; background-size:cover}
+.section_01 .image-slider .slide_02 {background:url('../img/bg_02.jpg') no-repeat; background-size:cover}
+.section_01 .slick-track > div {height:600px}
+.section_01 h1 {z-index:3; position:relative; margin-top:200px; width:100%}
+.section_01 p { z-index:3; position:relative; width:100%}
+
+.section_02 {}
+.section_02 .wrapper {min-height:300px; background: url(../img/2.png) no-repeat; text-align: left; text-indent:610px}
+.section_02 .wrapper h3 {margin-bottom:-1em}
+.section_02 .wrapper p {margin-bottom:4.3em}
+
+.section_03 {background-color:#4c5966; color:white}
+.section_03 .contents_01 {min-height:510px; background: url(../img/3-10.png) no-repeat center; text-align: left;}
+.section_03 .contents_02 {min-height:390px; background: url(../img/3-11.png) no-repeat left; text-align: left;}
+.section_03 .offer_01, .section_03 .offer_02 {float:left; margin-left:150px}
+
+.section_03 ul {list-style:none; padding-left:0}
+.section_03 li {min-height:50px; text-indent:60px; line-height:50px; margin-bottom:1em}
+.section_03 .offer_01 li:NTH-CHILD(1) {background:url(../img/3-1.png) no-repeat}
+.section_03 .offer_01 li:NTH-CHILD(2) {background:url(../img/3-2.png) no-repeat}
+.section_03 .offer_01 li:NTH-CHILD(3) {background:url(../img/3-3.png) no-repeat}
+.section_03 .offer_01 li:NTH-CHILD(4) {background:url(../img/3-4.png) no-repeat}
+.section_03 .offer_02 li:NTH-CHILD(1) {background:url(../img/3-5.png) no-repeat}
+.section_03 .offer_02 li:NTH-CHILD(2) {background:url(../img/3-6.png) no-repeat}
+.section_03 .offer_02 li:NTH-CHILD(3) {background:url(../img/3-7.png) no-repeat}
+.section_03 .offer_02 li:NTH-CHILD(4) {background:url(../img/3-8.png) no-repeat}
+.section_03 .offer_02 li:NTH-CHILD(5) {background:url(../img/3-9.png) no-repeat}
+
+
+
+
+.section_04 {background-color:#e1e1e1}
+
+
+@media (min-width: 768px) and (max-width: 1079px){
+    .wrap {width:640px}  
+    .sec_top {height:540px}
+}
+
+@media (max-width: 767px){
+    .nav {display:none}
+    .wrap {width:90%}  
+    .sec_top {height:480px}
+    .web {display: none}
+    .mobile {display: block}
+    .sec_map .contact {position: relative}
+    .sec_map .title {padding-bottom:24px; margin-bottom:20px; border-bottom:1px solid #ced4d8}
+}
