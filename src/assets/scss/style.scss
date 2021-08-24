@@ -88,7 +88,19 @@ input {
 
   &.modal-books {
     min-width: 800px;
+
+    .search {
+      button {
+        padding: 0.5rem 1rem
+      }
+    }
+
+
     .books-results {
+      .row {
+        flex-wrap: nowrap;
+      }
+
       li {
         padding: 0.5rem 0;
 
