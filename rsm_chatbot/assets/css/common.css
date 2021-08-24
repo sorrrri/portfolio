@@ -1,0 +1,475 @@
+@charset "UTF-8";
+@import "reset.css";
+@import "all.css";
+
+html, body {height:100%}
+body, input, textarea {
+    font-size:14px;
+    letter-spacing: -.05em;
+    line-height:1.5;
+    font-family:'Nanum Gothic','나눔고딕', 'Renault Samsung Motors', 'Nanum Barun Gothic','나눔바른고딕', "맑은고딕","Malgun Gothic", sans-serif;
+    display: flex;
+    flex-direction: column;
+    color:#333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {cursor:pointer}
+div[onclick] {cursor:pointer}
+input {outline:none; text-indent:.5rem}
+input[type="text"], input[type="password"], input[type="search"], select  {height:30px; line-height:30px}
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {outline:1px solid #FFCC33}
+select {border:1px solid #EBEBEB; padding:0 .5rem}
+h1 {font-family: 'Renault Samsung Motors'; font-size:27px}
+h2 {font-family: 'Renault Samsung Motors'; font-size:24px}
+h3 {font-family: 'Renault Samsung Motors'; font-size:18px}
+h4 {font-family: 'Renault Samsung Motors'; font-size:18px; font-weight: normal;}
+h5 {font-size:16px}
+h6 {font-size:14px; font-weight:500}
+
+
+.w100 {width:100%}
+a:hover {text-decoration:none}
+/* * {outline:none !important; -moz-outline: none !important} */
+.logo {background-image:url(../images/logo.png); background-repeat:no-repeat}
+div.admin {width:100%; height:100%; display:flex}
+.wrapper {width:100%; padding:1rem}
+
+.login-iframe {width:100%; height:100vh; border:0}
+.login-iframe html {overflow:hidden}
+ 
+ #map_title {font-weight:bold}
+.map_box {width:900px; height:500px; padding-top:20em}
+
+/* Icon */
+i {display:inline-block; background-position:center; background-repeat:no-repeat; vertical-align:middle;}
+i.bot, i.cs {background-image:url(../images/remo.png); background-position:top 6px left -5px !important; -ms-background-position-y:7px !important; background-size:110%}
+i.cs {background-color:#FFCC33 !importan;}
+i.remo {background:url(../images/remo.png) center no-repeat; background-size:contain}
+i.remo-heart {background-image:url(../images/remo-heart.svg); margin:.5rem auto !important;}
+
+/* Icon - Menu */
+i.car_hand {background-image:url(../images/ico/car_hand.png)}
+i.car_good {background-image:url(../images/ico/car_good.png)}
+i.service {background-image:url(../images/ico/location.png)}
+i.event {background-image:url(../images/ico/bag_star.png)}
+i.doc {background-image:url(../images/ico/doc.png)}
+i.maintain {background-image:url(../images/ico/maintain.png)}
+i.car {background-image:url(../images/ico/car.png)}
+i.exclamation {background-image:url(../images/ico/exclamation.png)}
+i.wheel {background-image:url(../images/ico/wheel.png)}
+i.tools {background-image:url(../images/ico/tools.png)}
+i.message {background-image:url(../images/ico/message.png)}
+i.campaign {background-image:url(../images/ico/campaign.png)}
+i.recall {background-image:url(../images/ico/recall.png)}
+i.star {background-image:url(../images/ico/star.png)}
+i.face {background-image:url(../images/ico/face.png)}
+i.flag {background-image:url(../images/ico/flag.png)}
+i.search {background-image:url(../images/ico/search.png)}
+i.handle {background-image:url(../images/ico/handle.png)}
+i.download {background-image:url(../images/ico/download.png)}
+i.calendar {background-image:url(../images/ico/calendar.png)}
+
+/* Icon - Warning */
+i.abs {background-image:url(../images/warning/abs.png)}
+i.battery {background-image:url(../images/warning/battery.png)}
+i.engine-oil {background-image:url(../images/warning/beam.png)}
+i.beam {background-image:url(../images/warning/brake.png)}
+i.cooling-water {background-image:url(../images/warning/cooling_water.png)}
+i.ebf {background-image:url(../images/warning/ebf.png)}
+i.engine-oil {background-image:url(../images/warning/engine_oil.png)}
+i.esp {background-image:url(../images/warning/esp.png)}
+i.fog-light {background-image:url(../images/warning/fog_light.png)}
+i.glow-plug {background-image:url(../images/warning/glow_plug.png)}
+i.high-beam {background-image:url(../images/warning/high_beam.png)}
+i.oil {background-image:url(../images/warning/oil.png)}
+i.seat-belt {background-image:url(../images/warning/seat_belt.png)}
+i.undefined {background-image:url(../images/warning/undefined.png)}
+
+
+
+/* Aside */
+.aside {background:white; user-select: none; flex:0 0 auto; overflow-y:auto; border-right: 1px solid #EBEBEB; width:240px; height:100%; text-align:center; padding:1.5rem; transition:.2s ease-in-out}
+.aside h2 span {font-weight:normal; display:block}
+.aside h4 {padding-bottom:5px; }
+.aside h6 {line-height:20px}
+.aside p {font-size:12px; line-height:18px; color:#666; margin-top:5px}
+.aside span.logo {background-size:30%; height:60px; margin:10px auto; display:block}
+.aside.hide {margin-left:-240px;}
+.tab-wrapper .select {display:flex}
+.aside .remo {margin-bottom:.7rem}
+.aside .remo + h6 {line-height:24px}
+
+
+/* Header */
+.header {flex: 0 0 auto; background:white; border-bottom:1px solid #EBEBEB; width:100%; height:50px; overflow:hidden; line-height:50px; position: relative;}
+.header h4 {text-align:center}
+.header ul {position:absolute; right:15px}
+.header li {position:relative; float:left; margin-left:15px}
+.header .close {margin-top:12px}
+.logo {position:absolute; top:0; right:15px; background-size:contain; width:50px; height:50px}
+
+
+
+/* Main */
+.msg-view {padding:2rem 1rem; position:relative; flex:1; overflow-y:auto; overflow-x:hidden;}
+.aside.hide + .content {width:100%}
+.content {width:100%; flex:1 1 auto; display:flex; flex-direction:column; height:100%; position:relative;}
+
+
+.msg-view .btn-container {margin:15px 20px 13px; position:fixed; bottom:0px; right:0; z-index:5}
+.msg-view .btn-container div {width:36px; height:36px; border-radius:50%; position:relative; cursor:pointer}
+
+/* Message - input */
+.msg-input {position:relative; display:flex; background:#F7F7F7; border-top:1px solid #EBEBEB; width:100%; height:50px; z-index:7}
+.msg-input textarea {overflow:hidden; outline:none; resize:none; padding:1rem .5rem; padding-right:4rem; background:transparent; width:100%; height:100%; border-radius:5px; position:relative;}
+.msg-input button {z-index:999; position:absolute; top:.5rem; width:80px; height:30px; display:flex; justify-content:center; align-items:center; padding:0; margin:0; background:transparent}
+.msg-input button[type="submit"], .msg-input #btnMessage {right:0;}
+.msg-input button .fa-paper-plane { display:flex; justify-content:center; align-items:center; width:30px; height:30px; color:#999; background:#DDD;  border-radius:50%; }
+.msg-input button .fa-paper-plane:hover, .msg-input button .fa-paper-plane:active {background:#FFCC33; color:#333 !important; transition:.1s ease-in-out}
+
+/* Main - Sent Date */
+.msg-date {margin-bottom:2rem; position:relative; z-index:1; color:#666; text-align:center}
+.msg-date:before {border-top:1px solid #CCC; content:""; margin:0 auto; position:absolute; top:50%; left:0; right:0; bottom:0; width:95%; z-index:-1; }
+.msg-date span {font-size:13px; background:white; padding:0 1rem; display:inline-block}
+
+
+
+/* Message */
+.msg-unit {position:relative; margin-bottom:1rem}
+.msg-name {font-size:12px; color:#666}
+.msg-bubble {white-space:pre-wrap; word-break:break-all; margin-bottom:10px; max-width:400px; position:relative; background:#F3F3F3; padding:.5rem 1rem; border-radius:5px; display:inline-block}
+.msg-bubble:before {content:''; position:absolute; top:0; width:0; border:8px solid transparent; border-radius:3px;}
+.msg-bubble i {color:#FFCC33}
+.msg-bubble a, .details a {font-size:13px; color:#191970; margin-right:1em;}
+.msg-bubble a {display:inline-block; margin-right:2px; background:white; border:1px solid #EBEBEB; padding:.3em .7em}
+.msg-bubble a:hover, .msg-bubble a:active, .details a:hover, .details a:active {text-decoration:underline}
+.bot ~ .msg-bubble {white-space:normal;}
+.msg-bubble.faq-bubble {white-space:pre-wrap !important}
+
+
+/* Message - 챗봇/상담원 */
+.msg-unit.left > i {background-color:#EEE; border-radius:50%; position:absolute; top:0; left:0; width:50px; height:50px; background-position:center 10px}
+.msg-unit.left .msg-bubble:before {border-top-color:#F3F3F3; left:-8px}
+.msg-unit.left > div {margin-left:65px}
+
+/* Message - 고객 */
+.msg-unit.right {text-align:right}
+.msg-unit.right .msg-name {margin-right:8px}
+.msg-unit.right .msg-bubble {background-color:#FFCC33; margin-right:8px; text-align:left}
+.msg-unit.right .msg-bubble:before {border-top-color:#FFCC33; right:-8px;}
+
+/* Message - Answer */
+.msg-help {background:white; width:360px; border-radius:5px; position:relative}
+.msg-help > h6 {background:#e8e8e8; padding:.5rem .7rem; border-radius:5px 5px 0 0;}
+.msg-help ul {display:block; overflow:hidden; width:100%}
+.msg-help > h6 + ul {border-radius:0 0 5px 5px; background:#F3F3F3}
+.msg-help > div {margin-bottom:.5rem}
+.msg-help > div:last-child {margin-bottom:0}
+.msg-help .more {display:block; margin:0 auto}
+
+
+ /* Message - Details */
+.msg-help .details h6 {position:relative; margin:0 auto .5rem; text-align:center; border-radius:3px; border-top:1px solid #E9E9E9; border-bottom:1px solid #E9E9E9; padding:.5rem}
+.msg-help .details .detail-container {background:white; border:1px solid #EBEBEB; border-top:0; padding: .5rem 1rem;}
+.msg-help .details:last-child .detail-container:last-child {margin-bottom:0}
+.msg-help .details .detail-container div:last-child {color:gray}
+.msg-help .details .detail-container ul:last-child {border-bottom:0}
+
+ /* Message - Help Step 1 */
+.msg-help.type-1 {background:#F3F3F3}
+.msg-help.type-1 ul {display:flex; flex-wrap:wrap}
+.msg-help.type-1 ul li {font-size:12px; line-height:16px; width:120px; flex:0 1 auto}
+.msg-help.type-1 ul li a {text-align:center; display:block; padding:.5rem 0; border:3px solid #F3F3F3}
+.msg-help.type-1 ul li a:hover, .msg-help.type-1 ul li a:active
+ {border:3px solid #FFCC33; cursor:pointer; transition:.1s ease-in-out}
+.msg-help.type-1 ul li i {width:30px; height:30px; background-size:auto 30px; margin:0 auto 5px; display:block}
+
+/* Message - Help Type 2 */
+.msg-help.type-2 {width:500px; background:#F3F3F3; padding:1em}
+.msg-help.type-2 ul li {padding:.5rem .7rem}
+.msg-help.type-2 .select {display:flex}
+.msg-help.type-2 .selectbox {background:white; margin-right:10px; width:33.333%; max-width:148px}
+.msg-help.type-2 .selectbox:last-child {margin-right:0}
+.msg-help.type-2 .details {font-size:13px; overflow:hidden; word-break:keep-all}
+.msg-help.type-2 .details > div:last-child {margin-bottom:0} 
+.msg-help.type-2 .details > div > i {width:107px; height:107px; background-size:50%; display:flex; justify-content:center; align-items:center}
+.msg-help.type-2 .details > div > i img {width:50px; height:50px}
+.msg-help.type-2 .details ul li {border-bottom:1px solid #EBEBEB; }
+.msg-help.type-2 .details ul li:first-child {font-weight:bold}
+
+.msg-help.type-2 .details.type-ico {display:block;}
+.msg-help.type-2 .details.type-ico ul {flex:1}
+.msg-help.type-2 .details.type-ico ul li {border-left:1px solid #EBEBEB}
+.msg-help.type-2 .details.type-ico ul li:last-child {border-bottom:0 none}
+.msg-help.type-2 .details.type-ico ul li i {color:#FFCC33}
+.msg-help.type-2 .details.type-txt .links {margin:0 auto 1rem; text-align:center}
+.msg-help.type-2 .details.type-txt .links i {color:#FFCC33}
+.msg-help.type-2 .details.type-txt ul {position:relative}
+.msg-help.type-2 .details.type-txt ul li {float:left; line-height:20px; padding:.8rem; border-bottom:0 none}
+.msg-help.type-2 .details.type-txt ul:last-child {margin-bottom:0}
+.msg-help.type-2 .details.type-txt ul li:first-child {width:25%; border-right:1px solid #EBEBEB; text-align:center}
+.msg-help.type-2 .details.type-txt ul li:last-child {width:75%}
+.msg-help.type-2 .details.type-ico > div, .msg-help.type-2 .details.type-txt ul
+    {background:white; margin-bottom:.5rem; display:flex; border:1px solid #EBEBEB}
+
+/* Message - Help Type 3 */
+.msg-help.type-3 {background:#F3F3F3; padding:1em; width:400px}
+.msg-help.type-3 h5 {font-size:14px; text-indent:1rem; background:white; line-height:36px; border:1px solid #EBEBEB; border-bottom:1px solid #FFCC33}
+.msg-help.type-3 h5 span {font:normal 13px/24px 'Nanum Gothic'}
+.msg-help.type-3 .selectbox {margin-right:.5rem}
+.msg-help.type-3.tab-wrapper .selectbox:nth-child(1) {width:25%}
+.msg-help.type-3.tab-wrapper .selectbox:nth-child(2) {width:25%}
+.msg-help.type-3.tab-wrapper .selectbox:nth-child(3) {width:50%;}
+.msg-help.type-3 .selectbox:last-child {margin-right:0}
+.msg-help.type-3 .details {font-size:13px; margin-bottom: .5rem; overflow:hidden; word-break:keep-all}
+.msg-help.type-3 .details:last-child {margin-bottom:0}
+.msg-help.type-3 .details p {border: 1px solid #EBEBEB; padding:.5rem .7rem; background:white; text-align:center;}
+.msg-help.type-3 .details h5 + div p {border-top:0}
+.msg-help.type-3 .details ul li {float:left}
+.msg-help.type-3 .details ul li:first-child {min-width:90px;}
+.msg-help.type-3 .details a {color:#191970; margin-right:1rem}
+.msg-help.type-3 .details a:hover, .msg-help.type-3 .details a:active {text-decoration:underline}
+.msg-help.type-3 .details h5 i { width:18px; height:18px; background-size:contain; margin-right:2px}
+
+
+
+.msg-help.sub ul {border-radius:5px; background:#F3F3F3}
+.msg-help.sub li {cursor:pointer; position:relative; line-height:3rem; text-indent:.7rem; border-bottom:1px solid #DDD}
+.msg-help.sub li:last-child {border-bottom:0}
+.msg-help.sub li:after {content:''; position:absolute; top:1rem; right:1rem; border-top:1px solid #888; border-left:1px solid #888; height:12px; width:12px;
+  -webkit-transform:rotate(135deg); -moz-transform:rotate(135deg); transform:rotate(135deg);
+}
+.msg-help.sub li i {width:30px; margin-right:5px; height:30px; background-size:auto 80%}
+.msg-help.sub li a {display:block}
+
+
+/* Message - Help Type Showroom */
+.msg-help.type-showroom {background:#F3F3F3; padding:1em}
+.msg-help.type-showroom ul li {padding:.5rem .7rem}
+.msg-help.type-showroom .details {font-size:13px; overflow:hidden; word-break:keep-all}
+.msg-help.type-showroom .details ul {background:white; display:flex; border:1px solid #EBEBEB; position:relative}
+.msg-help.type-showroom .details ul li {float:left; line-height:20px; padding:.8rem; border-bottom:0 none}
+.msg-help.type-showroom .details ul li:first-child {font-weight:bold; width:130px; border-right:1px solid #EBEBEB; text-align:center}
+.msg-help.type-showroom .details ul li:last-child {position:absolute; right:0; top:0; font-weight:bold; color:#FFCC33; margin-bottom:0}
+
+/* Message - Help Type Showroom2 */
+.msg-help.type-showroom2 {background:#F3F3F3; padding:1em}
+.msg-help.type-showroom2 .details {margin-bottom:0; font-size:13px; overflow:hidden; word-break:keep-all}
+.msg-help.type-showroom2 .details ul {background:white; padding:.7rem; border:1px solid #EBEBEB; border-bottom:0; position:relative}
+.msg-help.type-showroom2 .details:last-child ul {border-bottom:1px solid #EBEBEB}
+.msg-help.type-showroom2 .details ul li {overflow:hidden; cursor:pointer; line-height:20px; border-bottom:0 none}
+.msg-help.type-showroom2 .details ul li:nth-child(1) {width:75%; text-overflow:ellipsis; font-weight:bold}
+.msg-help.type-showroom2 .details ul li:nth-child(2) {position:absolute; right:.7rem; top:.7rem; color:#FFCC33}
+.msg-help.type-showroom2 .details ul li:nth-child(3) {margin-top:.5rem}
+
+/* Message - Help Type Thumb */
+.msg-help.type-thumb {background:#F3F3F3; padding:1em}
+.msg-help.type-thumb .thumb {display:none; width:100%; height:190px; background:url(../images/default.gif) center no-repeat; background-size:cover}
+.msg-help.type-thumb h5 {line-height:2; width:45px; font-size:14px; margin:0 0 1rem; border-bottom:2px solid #FFCC33}
+
+.msg-help.type-thumb .details {background:white; padding:1rem; font-size:13px; overflow:hidden; word-break:keep-all}
+.msg-help.type-thumb .details li {display:flex}
+.msg-help.type-thumb .details li span:first-child{display:inline-block; flex:0 0 5rem}
+.msg-help.type-thumb .details button {text-align:center; margin:1rem auto 0; display:block}
+
+
+
+/* Message - Help Type Slider */
+.msg-help.slider {width:70vw;}
+.slick-list:after {content:''; clear:both}
+.slick-prev, .slick-next {position:absolute; top:calc(50% - 1rem); margin:0; padding:0;  background:transparent; text-indent:-9999px; height:2rem; width:2rem}
+.slick-prev:hover, .slick-next:hover {transition:.2s; border-color:#FFCC33}
+.slick-prev {border-bottom:2px solid #888; border-left:2px solid #888; left:-2rem; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); transform:rotate(45deg)}
+.slick-next {border-top:2px solid #888; border-right:2px solid #888; right:-2rem; -webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); transform:rotate(45deg)}
+.slick-slide {width:400px; outline:none; padding:.7rem; background:#F3F3F3; margin:.5rem; border-radius:.5rem; }
+.slick-slide h5 {margin-top:.5rem}
+.slick-slide img {width:100%; height:250px; background:url(../images/default.gif) center no-repeat; background-size:cover}
+
+
+
+.msg-help.slider.type-cars .slick-slide {width:300px}
+
+.msg-help.slider span {width:100% ; height:110px; background-size:contain; background-position:center; background-repeat:no-repeat; display:block}
+.msg-help.slider span:hover {transition:.2s}
+.msg-help.slider span + h3 {text-align:center; text-transform:uppercase;}
+
+/* Message - Help Type Slider - Car Images */
+.msg-help.slider span.sm7 {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm7/main_off.png)}
+.msg-help.slider span.sm7:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm7/main_on.png)}
+
+.msg-help.slider span.sm6 {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm6/main_off.png)}
+.msg-help.slider span.sm6:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm6/main_on.png)}
+
+.msg-help.slider span.sm5 {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm5/main_off.png)}
+.msg-help.slider span.sm5:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm5/main_on.png)}
+
+.msg-help.slider span.sm3 {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm3/main_off.png)}
+.msg-help.slider span.sm3:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm3/main_on.png)}
+
+.msg-help.slider span.qm6 {background-image:url(https://www.renaultsamsungm.com/upload/asset/qm6/main_off.png)}
+.msg-help.slider span.qm6:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/qm6/main_on.png)}
+
+.msg-help.slider span.qm3 {background-image:url(https://www.renaultsamsungm.com/upload/asset/qm3/main_off.png)}
+.msg-help.slider span.qm3:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/qm3/main_on.png)}
+
+.msg-help.slider span.sm3_ze {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm3ze/main_off.png)}
+.msg-help.slider span.sm3_ze:hover {background-image:url(https://www.renaultsamsungm.com/upload/asset/sm3ze/main_on.png)}
+
+.msg-help.slider span.master_bus_van {background-image:url(https://www.renault.co.kr/res/img/model/model_master_bus.png)}
+.msg-help.slider span.master_bus_van:hover {background-image:url(https://www.renault.co.kr/res/img/model/model_master_van.png)}
+
+.msg-help.slider span.clio {background-image:url(https://www.renault.co.kr/res/img/model/model_clio.png)}
+
+.msg-help.slider span.twizy {mix-blend-mode:multiply; background-image:url(https://www.renault.co.kr/res/img/model/model_twizy.png)}
+
+
+
+/* Button */
+button {background:#CCC; border-radius:2px; font:14px/24px 'Nanum Gothic'; letter-spacing:-.05em;margin: 0 .3em; padding:.3em 2em; outline:0}
+button:hover, button:active { transition:.25s; opacity:.9}
+button.main {background:#FFCC33}
+button.sub {background:#696b71; color:white}
+button.cancel {background:#E9E9E9}
+button.small {padding:.2rem 1rem}
+button.small .fa-search {margin-right:3px; line-height:12px}
+.close {position: relative; display:inline-block; width:25px; height:25px; overflow:hidden; cursor:pointer}
+.close::before, .close::after { content:''; position:absolute; height:2px; width:100%; top:50%; left:0; margin-top:-1px; background:#000}
+.close::before {-webkit-transform:rotate(45deg); -moz-transform:rotate(45deg); -ms-transform:rotate(45deg); -o-transform:rotate(45deg); transform:rotate(45deg)}
+.close::after {-webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg); -ms-transform:rotate(-45deg); -o-transform:rotate(-45deg); transform:rotate(-45deg)}
+
+
+
+.scrollbar::-webkit-scrollbar {width:5px}
+::-webkit-scrollbar-button {display:none;}
+::-webkit-scrollbar {width:10px}
+::-webkit-scrollbar-track {background-color:#ebebeb; -webkit-border-radius:10px; border-radius:10px}
+::-webkit-scrollbar-thumb {-webkit-border-radius:10px; border-radius:10px; background:#cbcbcb}
+
+
+
+/* Hamburger Menu */
+.menu {width:20px; height:20px; top:50%; left:10px; transform:translateY(-50%); position:absolute; cursor:pointer; transition:.25s ease-in-out;}  
+.menu span {display:block; position:absolute; height:2px; width:100%; background:#333; top:8px; transform:rotate(0deg); transition:.25s ease-in-out}
+.menu span:nth-child(1) {top:0}
+.menu span:nth-child(4) {top:16px}
+.menu.open span:nth-child(1) {top: 16px; width:0%; left:50%}
+.menu.open span:nth-child(2) {transform: rotate(45deg)}
+.menu.open span:nth-child(3) {transform: rotate(-45deg)}
+.menu.open span:nth-child(4) {top:16px; width:0%; left:50%}
+
+
+
+/* Modal */
+.modal {display:none; text-align:center; padding:2em; position:fixed; top:50%; left:50%; width:28em; transform:translate(-50%, -50%); background: white; border-radius:5px; z-index: 100; transition:0.5s ease-out}
+.modal a:first-of-type {margin-right:1rem}
+.modal a:hover, .modal a:focus {transition:.2s; color:#FFCC33}
+.modal h4 {margin:.5em auto 1.5em}
+.modal h4 span {font:14px/18px "Nanum Gothic"}
+.modal h4 span:before {content:'('}
+.modal h4 span:after {content:')'}
+.modal .close {position:absolute; right:1em; top:1em; margin-top:0}
+.modal .selectbox {text-align:left}
+.modal input {margin-bottom:.5rem; display:block; border:1px solid #EBEBEB; line-height:36px; width:65%}
+.modal button {margin-top:1rem; box-shadow:0 10px 20px -10px rgba(0, 0, 0, 0.1);  line-height: 40px; padding: 0 3em}
+.mask {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.6); z-index:50; visibility:hidden; opacity:0; transition:0.25s}
+.active {visibility:visible; opacity:1}
+.modal-input > div {margin:0 auto 1rem}
+.modal-input > div > div, .modal-input > div input {width:60%; position:relative; }
+.modal-input label{margin-right:.5rem; display:inline-block; text-align:left; min-width:20%; max-width:25%; vertical-align:text-bottom;}
+.modal-input input {display:inline-block}
+.modal-input i.fa-calendar-alt {right:3.5rem; margin-top:8px}
+.modal-big {width:70%; min-width:40rem; max-width:60rem; height:80%; min-height:36rem}
+.modal-big .tab-menu button {box-shadow:none; line-height:normal}
+.modal-big .tab-content {height:95%}
+.modal-big .tab-content:first-child .select {height:80%; max-height:500px}
+.modal-big .scrollable.select {height:300px; max-height:80%; margin-bottom:1rem}
+.modal .summary .scrollable {height:200px}
+.modal .summary > * {margin-bottom:.5rem}
+.modal .msg-view {text-align:left; height:100% !important; max-height:86% !important; border:1px solid #EBEBEB}
+.modal-big .help-01 {margin-bottom:1rem}
+.modal#pwdChange {height:280px}
+
+
+/* Tab Menu */
+.tab-menu {margin-bottom:0 !important; display:flex}
+.tab-menu button {font-size:13px; border-radius:0; min-width:90px; padding:0 .7rem; border:1px solid #ebebeb; background:#ebebeb; margin:0; margin-right:2px; height:36px; transition:0s !important}
+.tab-menu .current {background:white; border:1px solid #ebebeb; border-bottom-color:white}
+.tab-content {border:1px solid #EBEBEB; padding:.5rem .7rem; background:white; margin-bottom:0 !important; display:none}
+.tab-content.current {display:inherit}
+
+
+
+/* Accordion Menu */
+.dropdownlink .fa-chevron-down {color:#FFCC33}
+.accordion-menu li.open .dropdownlink .fa-chevron-down {transition:.4s; -webkit-transform: rotate(180deg); transform:rotate(180deg)}
+.dropdownlink {position:relative}
+.accordion-menu a {display:block; border-bottom:1px solid #EBEBEB; text-align:left; padding-left:1rem}
+.accordion-menu a:hover, .accordion-menu a:focus {background:#EEE}
+.dropdownlink .fa-chevron-down {position:absolute; top:17px; right:12px; left:auto}
+.submenuItems {display:none; background:#F7F7F7}
+
+
+
+/* Checkbox */
+.checkbox {position: absolute; opacity: 0}
+.checkbox + label {position:relative; cursor:pointer; padding:0}
+.checkbox + label:before {border-radius:2px; transition:.2s; border:1px solid #DDD; content:''; display:inline-block; vertical-align:text-top; width:15px; height:15px; background:white;}
+.checkbox:hover + label:before, .checkbox:checked + label:before {background:#FFCC33; border-color:#FFCC33}
+.checkbox:disabled + label {color:#b8b8b8; cursor:auto;}
+.checkbox:disabled + label:before {box-shadow:none; background:#ddd}
+.checkbox:checked + label:after {content:''; position:absolute; left:3px; top:50%; background:white; width:2px; height:2px;
+  box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+  -webkit-transform: rotate(45deg); transform: rotate(45deg)}
+  
+  
+  
+/* Radio Button */
+input[type="radio"] {position: absolute; opacity: 0}
+  input[type="radio"] + label {cursor:pointer; margin-right:.5rem}
+input[type="radio"] + label:before {content:''; background:#f4f4f4; border-radius:100%; border:1px solid #b4b4b4;
+  display: inline-block; width:12px; height:12px; position:relative; margin-right:3px; vertical-align:middle; transition: all .2s ease}
+input[type="radio"]:hover + label:before, input[type="radio"]:checked + label:before {border-color:#FFCC33; background-color:#FFCC33	; box-shadow:inset 0 0 0 2px #f4f4f4}
+input[type="radio"]:focus + label:before {outline:none;}
+input[type="radio"]:disabled + label {cursor:auto}
+input[type="radio"]:disabled:checked + label:before {box-shadow:inset 0 0 0 2px #f4f4f4; border-color:#b4b4b4; background:#b4b4b4}
+input[type="radio"]:disabled + label:before {border-color:#b4b4b4; background:#f4f4f4}
+input[type="radio"] + label:empty:before {margin-right: 0}
+  
+
+/* Scrollbar */
+.scrollable {position:relative}
+.ps {overflow:hidden !important;  overflow-anchor:none;  -ms-overflow-style:none;  touch-action:auto;  -ms-touch-action:auto;}
+
+.ps__rail-y {opacity:0.6; transition:background-color .2s linear, opacity .2s linear;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  width:15px; right:0; position:absolute;
+}
+.ps--active-x > .ps__rail-x {display:none}
+.ps--active-y > .ps__rail-y {display:block; background-color:transparent}
+.ps .ps__rail-y:hover, .ps .ps__rail-y:focus, .ps .ps__rail-y.ps--clicking {
+  background-color:#eee; opacity:0.9;}
+.ps__thumb-y {background-color:#aaa; border-radius:6px;
+  transition: background-color .2s linear, width .2s ease-in-out;
+  -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+  width:6px; right:2px; position:absolute;
+}
+
+.ps__rail-x:hover > .ps__thumb-x, .ps__rail-x:focus > .ps__thumb-x, .ps__rail-x.ps--clicking .ps__thumb-x {background-color:#999; height:11px}
+.ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y {background-color:#999; width:11px}
+
+@supports (-ms-overflow-style: none) {.ps {overflow:auto !important}}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {.ps {overflow:auto !important}}
+
+
+
+/* Selectbox */
+.selectbox{min-width:100px; width:100%; vertical-align:middle; text-indent:.5rem; display:inline-block; position:relative; height:30px; line-height:30px; background:white}
+.selectbox-current .selected, .selectbox-current .arrow, .selectbox-options span{display:block; cursor:pointer}
+.selectbox-current .arrow{background:url(../images/down.svg) no-repeat center; position:absolute; top:50%; right:3px; -webkit-transform:translateY(-50%); transform:translateY(-50%); width:28px; height:100%}
+.selectbox-current {overflow:hidden; border:1px solid #EBEBEB; position:relative;z-index:3}
+.selectbox-options{box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1); width:100%; position:absolute; border:1px solid #EBEBEB; left:0; top:31px; max-height:186px; overflow-y:auto; display:none; z-index:10}
+.selectbox-options span{display:block; background:white; border-bottom:1px solid #EBEBEB}
+.selectbox-options span:last-child {border-bottom:0}
+.selectbox-options span:hover {background:#FFCC33}
