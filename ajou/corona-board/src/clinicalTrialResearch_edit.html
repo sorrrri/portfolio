@@ -1,0 +1,44 @@
+{% extends 'base_edit.html' %}
+{% block content %}
+<aside>
+    <header>
+        <div class="logo" onclick="location.href='patient_list.html'"></div>
+        <button class="btn-login" onclick="location.href='login.html'">login</button>
+    </header>
+    {% import 'macros/nav-macro.nunjucks' as nav %}
+    {{nav.active('clinicalTrialResearch_add')}}
+</aside>
+<main class="clinical-trial-research-add admin">
+    <header>
+        <h3>임상시험 수정</h3>
+        <button>수정</button>
+    </header>
+    <section>
+        <div class="row">
+            <div class="input-title">연구 ID</div>
+            <input type="text" placeholder="K192834">
+        </div>
+        <div class="row">
+            <div class="input-title">연구 제목</div>
+            <input type="text">
+        </div>
+        <div class="row">
+            <div class="input-title">연구 설명</div>
+            <textarea name="" id="" cols="100%" rows="10"></textarea>
+        </div>
+        <div class="row">
+            <div class="input-title">시행유무</div>
+            <div class="input-select">
+                <div>
+                    <input type="radio" name="select-severity" id="yes" checked>
+                    <label for="yes">예</label>
+                </div>
+                <div>
+                    <input type="radio" name="select-severity" id="no">
+                    <label for="no">아니오</label>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

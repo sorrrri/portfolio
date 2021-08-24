@@ -1,0 +1,62 @@
+{% extends "base_dashboard2.html" %}
+{% block content %}
+<aside>
+    <header>
+        <div class="logo" onclick="location.href='patient_list.html'"></div>
+        <button class="btn-login" onclick="location.href='login.html'">login</button>
+    </header>
+    {% import 'macros/nav-macro.nunjucks' as nav %}
+    {{nav.active('clinicalTrialPatient_dashboard')}}
+</aside>
+<main class="clinical-trial-patient-dashboard">
+    <header>
+        <h3>임상시험 참여자 현황</h3>
+        <div class="selectbox">
+            <label for="clinical-trial">임상시험 선택</label>
+            <select id="clinical-trial">
+                <option value="">01</option>
+                <option value="">02</option>
+            </select>
+        </div>
+    </header>
+    <section>
+        <div class="row">
+            <div class="count count-current">
+                <small>현재 시행중인 임상시험 건수</small>
+                <h1>1</h1>
+            </div>
+            <div class="count count-all">
+                <small>누적 임상시험 건수</small>
+                <h1>0</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart-container">
+                <div class="chart" id="chart-age"></div>
+            </div>
+            <div class="chart-container">
+                <div class="chart" id="chart-gender"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart-container">
+                <div class="chart" id="chart-severity"></div>
+            </div>
+            <div class="chart-container">
+                <div class="chart" id="chart-treatment"></div>
+            </div>
+            <div class="chart-container">
+                <div class="chart" id="chart-hospital"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart-container">
+                <div class="chart" id="chart-days"></div>
+            </div>
+            <div class="chart-container">
+                <div class="chart" id="chart-total"></div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
