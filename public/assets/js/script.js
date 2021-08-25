@@ -8,11 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
+  const container = document.querySelector(".container");
+  const main = document.querySelector("main");
+  const header = document.querySelector("header");
+
+  main.addEventListener("scroll", () => {
+    if (main.scrollTop > 50) {
+      container.classList.add("scroll");
+    } else {
+      container.classList.remove("scroll");
+    }
+  });
+
   /* =====================================================
        Dropdown Menu
   ===================================================== */
   const mainMenus = document.querySelectorAll(".main-menu");
-  const overlay = document.querySelector(".overlay");
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay")
+  container.insertBefore(overlay, container.firstChild)
 
   mainMenus.forEach((mainMenu) => {
     mainMenu.addEventListener("click", () => {
@@ -54,8 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // CCTV 상세검색
-  const header = document.querySelector("header");
+  /* =====================================================
+       Toggle Menu
+  ===================================================== */
   const toggleMenu = document.querySelector(".toggle-menu");
   const globalNavigationMenu = document.querySelector(
     ".global-navigation-menu"
@@ -63,34 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const localToggleMenu = document.querySelector(".local-toggle-menu");
   const localNavigationMenu = document.querySelector(".local-navigation-menu");
 
-  const inputSearchFull = document.querySelector(".input-search-full");
-  const modalSearchFull = document.querySelector(".modal-search-full");
-
-  if (inputSearchFull) {
-    const handleActiveSearchFull = () => {
-      if (modalSearchFull.classList.contains("active") === false) {
-        const button = document.createElement("button");
-        modalSearchFull.classList.add("active");
-        header.replaceChild(button, toggleMenu);
-
-        const buttonBack = button;
-        buttonBack.classList.add("btn-back");
-        buttonBack.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-        <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
-      </svg>`;
-
-        buttonBack.addEventListener("click", () => {
-          modalSearchFull.classList.remove("active");
-          header.replaceChild(toggleMenu, buttonBack);
-        });
-      }
-    };
-    inputSearchFull.addEventListener("click", handleActiveSearchFull);
-  }
-
-  /* =====================================================
-       Toggle Menu
-  ===================================================== */
   if (toggleMenu) {
     const openNavigationMenu = (menu) => {
       menu.classList.add("active");
@@ -112,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // dim 영역 눌러도 메뉴창 닫기
     overlay.addEventListener("click", () => {
       closeNavigationMenu(toggleMenu, globalNavigationMenu);
 
@@ -121,22 +109,69 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Notice
-  const rows = document.querySelectorAll(".notice .row");
+  /* =====================================================
+       Bottom Sticky Menu
+  ===================================================== */
+  const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
+  
+  if (bottomStickyMenu) {
+    const subButtons = bottomStickyMenu.querySelector(".buttons");
+    const delta = 5;
+    let lastScrollTop = 0;
 
-  rows.forEach((row) => {
-    row.addEventListener("click", () => row.classList.toggle("active"));
-  });
+    main.addEventListener("scroll", () => {
+      // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
+      let currentScrollTop = main.scrollTop;
+      if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
+        return;
+      }
+      if (currentScrollTop > lastScrollTop) {
+        //Scroll down
+        bottomStickyMenu.classList.remove("active");
+      } else {
+        //Scroll up
+        bottomStickyMenu.classList.add("active");
+      }
+      lastScrollTop = currentScrollTop;
+    });
+
+    // 하단 sticky menu를 누르면 sub menu들이 펼쳐지도록
+    const mainButton = bottomStickyMenu.querySelector(".btn-main");
+    mainButton.addEventListener("click", () => {
+      subButtons.classList.toggle("active");
+      overlay.classList.toggle("active");
+      overlay.addEventListener("click", () => {
+        subButtons.classList.remove("active");
+      });
+
+      const searchButton = subButtons.querySelector(".btn-search");
+
+      // 검색버튼을 누르면 검색창, dim, sub menu 숨김 처리
+      searchButton.addEventListener("click", () => {
+        searchArea.classList.add("active");
+        container.classList.remove("scroll");
+        subButtons.classList.remove("active");
+        overlay.classList.remove("active");
+
+        if (searchArea.classList.contains("active")) {
+          searchArea.classList.remove("active");
+        }
+      });
+    });
+  }
 
   /* =====================================================
        Modal
   ===================================================== */
   const modals = document.querySelectorAll(".modal");
-  const closeButtons = document.querySelectorAll(".close");
+  const closeButtons = document.querySelectorAll(".btn-close, .btn-cancel");
 
   const visibleOverlay = (modal) => {
     overlay.classList.add("active");
     modal.classList.add("active");
+    if (bottomStickyMenu.classList.contains("active")) {
+      bottomStickyMenu.classList.remove("active");
+    }
   };
 
   const hiddenOverlay = () => {
@@ -160,6 +195,21 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  // confirm type의 modal일 때, 2중 모달 띄우기
+  modals.forEach((modal) => {
+    const closeButton = document.createElement("button");
+    closeButton.classList.add("btn-close");
+    modal.append(closeButton);
+
+    const modalButtonSubmit = modal.querySelector(".btn-submit");
+    if (modalButtonSubmit) {
+      modalButtonSubmit.addEventListener("click", () => {
+        const modalDone = document.querySelector(".modal-done");
+        visibleOverlay(modalDone);
+      });
+    }
+  });
+
   const btnNavigation = document.querySelector(".btn-navigation");
   const modalNavigation = document.querySelector(".modal-navigation");
   if (btnNavigation) {
@@ -168,21 +218,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const btnSearch = document.querySelector(".btn-search");
+  /* =====================================================
+       Header Search Area
+  ===================================================== */
+  const btnHeaderSearch = document.querySelectorAll("header .btn-search");
+  const searchArea = document.querySelector("header .row.search");
   const modalSearch = document.querySelector(".modal-search");
-  if (btnSearch) {
-    btnSearch.addEventListener("click", () => {
-      visibleOverlay(modalSearch);
+  const workspaceList = document.querySelector(".workspace.list");
+  const equipmentsPage = document.querySelector(".equipments");
+
+  // 스크롤시, 헤더 고정
+  if(searchArea) {
+    main.addEventListener("scroll", () => {
+      if (searchArea.classList.contains("active")) {
+        container.classList.remove("scroll");
+      }
     });
   }
 
-  // 마커 상세
-  const markerDetails = document.querySelector(".marker-details");
+  if (workspaceList) {
+    const filters = document.querySelector(".filters-equipments");
+    filters.style.display = "none";
+
+    // 검색영역이 열려있을 때
+    if (searchArea.classList.contains("active")) {
+      // 검색버튼을 누르면 검색영역 닫힘
+      searchButton.addEventListener("click", () => {
+        searchArea.classList.remove("active");
+      });
+    }
+
+    if (btnHeaderSearch) {
+      btnHeaderSearch.forEach((button) => {
+        button.addEventListener("click", () => {
+          searchArea.classList.toggle("active");
+        });
+      });
+    }
+  }
+
+  if (equipmentsPage) {
+    if (equipmentsPage.classList.contains("list")) {
+      const filters = document.querySelector(".filters-workspace");
+      filters.style.display = "none";
+      searchArea.classList.add("active");
+
+      btnHeaderSearch.forEach((button) => {
+        button.addEventListener("click", () => {
+          searchArea.classList.toggle("active");
+        });
+      });
+    }
+  }
+
+  /* =====================================================
+       Modal: Marker Details
+  ===================================================== */
+  const modalMarker = document.querySelector(".modal-marker");
   const moveDown = document.querySelector(".move-down");
 
   if (moveDown) {
     moveDown.addEventListener("click", () => {
-      markerDetails.classList.remove("active");
+      modalMarker.classList.remove("active");
     });
   }
 
@@ -190,7 +287,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (marker) {
     marker.addEventListener("click", () => {
-      markerDetails.classList.add("active");
+      modalMarker.classList.add("active");
+    });
+  }
+
+  /* =====================================================
+       Modal: New Comments
+  ===================================================== */
+  const newComment = document.querySelector(".comments .new");
+
+  if (newComment) {
+    const button = newComment.querySelector(".btn-submit");
+    const modalConfirm = document.querySelector(".modal-confirm");
+
+    button.addEventListener("click", () => {
+      visibleOverlay(modalConfirm);
+    });
+  }
+
+  if (main.classList.contains("add")) {
+    const button = document.querySelector(".btn-main");
+    const modalConfirm = document.querySelector(".modal-confirm");
+    //작성화면에서는 하단메뉴 숨김처리
+    bottomStickyMenu.style.transform = "translateY(4rem)";
+
+    button.addEventListener("click", () => {
+      visibleOverlay(modalConfirm);
+    });
+
+    const inputSearch = document.querySelector(".input-search");
+    if (inputSearch) {
+      inputSearch.addEventListener("click", () => {
+        visibleOverlay(modalSearch);
+      });
+    }
+  }
+
+  /* =====================================================
+       Modal: Zoom In Images
+  ===================================================== */
+  const images = document.querySelectorAll(".images");
+  const modalImage = document.querySelector(".modal-image");
+
+  if (images) {
+    // const modalImage = document.createElement("div")
+    // modalImage.classList.add("modal", "modal-image")
+    // container.append(modalImage)
+
+    images.forEach((image) => {
+      image.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        modalImage.classList.add("active");
+        modalImage.innerHTML = `<img src="${e.target.src}" alt="" />`;
+        visibleOverlay(modalImage);
+        modalImage.addEventListener("click", () => {
+          hiddenOverlay(modalImage);
+          modals.forEach((modal) => modal.classList.remove("active"));
+        });
+      });
     });
   }
 
@@ -199,6 +354,5 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const loader = document.querySelector(".loader");
   if (loader) {
-    
   }
 });

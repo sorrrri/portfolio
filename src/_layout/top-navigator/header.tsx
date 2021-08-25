@@ -46,32 +46,57 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
   }
 
   return headerOption.visible ? (
-    <header>
-      <div className="row">
-        {/* Left context area */}
-        <LeftContext />
+    <>
+      <div className={`overlay ${menuDisplay ? 'active' : ''}`} onClick={toggleMenu} />
+      <header>
+        <div className="row">
+          {/* Left context area */}
+          <LeftContext />
 
-        {/* Title */}
-        <div className="title">{headerOption.title}</div>
+          {/* Title */}
+          <div className="title">{headerOption.title}</div>
 
-        {/* Right context area */}
-        <div className="buttons">
-          <RightContext />
+          {/* Right context area */}
+          <div className="buttons">
+            <RightContext />
+          </div>
         </div>
-      </div>
-
-      {/* Menu overlay */}
-      <div className={`overlay ${menuDisplay ? 'active' : ''}`}>
-        <div style={{ width: '50%', height: '100%', backgroundColor: 'white' }}>
-          <h3>this is menu</h3>
-          <ul>
-            <li onClick={() => history.push('/workspace')}>* workspace</li>
-            <li onClick={() => history.push('/device')}>* device</li>
+      </header>
+      <aside className={`global-navigation-menu ${menuDisplay ? 'active' : ''}`}>
+        <div className="profile">
+          <div className="image">
+            <img src="assets/images/profile.jpg" alt="" />
+          </div>
+          <ul className="user-information">
+            <li className="user-id">otter0104</li>
+            <li className="user-type">최고관리자</li>
           </ul>
         </div>
-      </div>
-
-      <hr />
-    </header>
+        <nav className="menu">
+          <div className="menu-workspace" onClick={() => history.push('/workspace')}>
+            <i className="fad fa-mail-bulk" />
+            <span>Workspace</span>
+          </div>
+          <div className="menu-equipments" onClick={() => history.push('/device')}>
+            <i className="fad fa-cctv" />
+            <span>장비현황</span>
+          </div>
+        </nav>
+        <nav className="menu menu-settings">
+          <div className="menu-privacy">
+            <i className="fad fa-file-user" />
+            <span>개인정보처리방침</span>
+          </div>
+          <div className="menu-terms">
+            <i className="fad fa-file-invoice" />
+            <span>약관</span>
+          </div>
+          <div className="menu-logout">
+            <i className="fad fa-sign-out" />
+            <span>로그아웃</span>
+          </div>
+        </nav>
+      </aside>
+    </>
   ) : null;
 }
