@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
        Dropdown Menu
   ===================================================== */
   const mainMenus = document.querySelectorAll(".main-menu");
-  const overlay = document.querySelector(".overlay");
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay")
+  container.insertBefore(overlay, container.firstChild)
 
   mainMenus.forEach((mainMenu) => {
     mainMenu.addEventListener("click", () => {
