@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Tab Menu
-  const main = document.querySelector(".main");
+  const container = document.querySelector(".container");
+  const main = document.querySelector("main");
 
   // if (main) {
   //   const tabMenus = document.querySelectorAll(".tab-menu li");
@@ -60,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (admin) {
     const mainMenus = document.querySelectorAll(".main-menu");
     const subMenus = document.querySelectorAll(".sub-menu");
-    
+
     mainMenus.forEach((mainMenu) => {
       const subMenu = mainMenu.nextElementSibling;
 
@@ -262,8 +263,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Modal
   const modals = document.querySelectorAll(".modal");
-  const overlay = document.querySelector(".overlay");
   const closeButtons = document.querySelectorAll(".close");
+  const overlay = document.createElement("div");
+
+  overlay.classList.add("overlay");
+  container.insertBefore(overlay, modals[modals.length - 1].nextSibling);
 
   const visibleOverlay = () => {
     overlay.classList.add("active");
@@ -299,10 +303,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonChooseBooks = chooseBooks.querySelector("button");
     const modalBooks = document.querySelector(".modal-books");
 
-    buttonChooseBooks.addEventListener("click", () => {
-      modalBooks.classList.add("active");
-      visibleOverlay();
-    });
+    setTimeout(() => {
+      buttonChooseBooks.addEventListener("click", () => {
+        modalBooks.classList.add("active");
+        visibleOverlay();
+      });
+    }, 0);
   }
 
   const getID = document.querySelector(".get-id");
