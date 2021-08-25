@@ -717,8 +717,9 @@ main {
   height: 100vh;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   padding-bottom: 3rem;
+  border-radius: 0;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -831,6 +832,12 @@ main {
     li {
       margin: 1rem;
       font-size: 17px;
+      white-space: nowrap;
+      border-bottom: 0;
+
+      &::after {
+        content: none !important;
+      }
 
       &.active {
         position: relative;

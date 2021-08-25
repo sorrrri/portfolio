@@ -68,14 +68,18 @@ gulp.task("scss", () => {
     sourceComments: true,
   };
   return gulp
-    .src(PATH.ASSETS.STYLE + "/**/*.scss")
-    .pipe(sourcemaps.init())
-    .pipe(scss(options))
-    .pipe(autoprefixer({ cascade: false }))
-    .pipe(scss(options).on("error", scss.logError))
-    .pipe(sourcemaps.write("."))
-    .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
-    .pipe(browserSync.reload({ stream: true }));
+  
+  .src([
+    "src/assets/scss/common.scss",
+    "src/assets/scss/style.scss",
+  ])
+  .pipe(sourcemaps.init())
+  .pipe(scss({ outputStyle: "compressed" }).on("error", scss.logError))
+  .pipe(autoprefixer({ cascade: false }))
+  .pipe(concat("main.css"))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(DEST_PATH.ASSETS.STYLE))
+  .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("script", () => {

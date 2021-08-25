@@ -111,9 +111,9 @@ document.addEventListener("DOMContentLoaded", () => {
        Bottom Sticky Menu
   ===================================================== */
   const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
-  const subButtons = bottomStickyMenu.querySelector(".buttons");
-
+  
   if (bottomStickyMenu) {
+    const subButtons = bottomStickyMenu.querySelector(".buttons");
     const delta = 5;
     let lastScrollTop = 0;
 
@@ -219,8 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Header Search Area
   ===================================================== */
-  const btnHeaderSearch = header.querySelectorAll(".btn-search");
-  const searchArea = header.querySelector(".row.search");
+  const btnHeaderSearch = document.querySelectorAll("header .btn-search");
+  const searchArea = document.querySelector("header .row.search");
   const modalSearch = document.querySelector(".modal-search");
   const workspaceList = document.querySelector(".workspace.list");
   const equipmentsPage = document.querySelector(".equipments");
