@@ -24,8 +24,8 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
     const { leftContextType } = headerOption;
     if (leftContextType === 'menu') {
       return (
-        <button type="button" onClick={toggleMenu}>
-          MENU
+        <button className="toggle-menu" type="button" onClick={toggleMenu}>
+          <i className="fad fa-bars" />
         </button>
       );
     }
@@ -33,7 +33,7 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
     if (leftContextType === 'back') {
       return (
         <button type="button" onClick={() => history.goBack()}>
-          BACK
+          <i className="fad fa-arrow-left" />
         </button>
       );
     }
@@ -46,18 +46,16 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
   }
 
   return headerOption.visible ? (
-    <>
-      <div>
+    <header>
+      <div className="row">
         {/* Left context area */}
-        <div>
-          <LeftContext />
-        </div>
+        <LeftContext />
 
         {/* Title */}
-        <h1>{headerOption.title}</h1>
+        <div className="title">{headerOption.title}</div>
 
         {/* Right context area */}
-        <div>
+        <div className="buttons">
           <RightContext />
         </div>
       </div>
@@ -74,6 +72,6 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
       </div>
 
       <hr />
-    </>
+    </header>
   ) : null;
 }

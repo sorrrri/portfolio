@@ -209,6 +209,7 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.15.4",
     "@types/crypto-js": "^4.0.1",
     "devextreme-themebuilder": "^20.2.4",
     "http-proxy-middleware": "^0.19.1"

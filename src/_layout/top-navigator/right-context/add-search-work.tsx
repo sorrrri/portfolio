@@ -10,13 +10,13 @@ export function AddSearchWork(props: Props) {
   return (
     <>
       <button type="button" onClick={props.onClickAddWork}>
-        ADD WORK
+        <i className="fad fa-briefcase" />
       </button>
       <button type="button" onClick={props.onClickAddFault}>
-        ADD FAULT
+        <i className="fad fa-tools" />
       </button>
       <button type="button" onClick={props.onClickSearch}>
-        SEARCH
+        <i className="fad fa-search" />
       </button>
     </>
   );
