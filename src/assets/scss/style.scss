@@ -436,7 +436,7 @@ nav {
     color: darkslategray;
   }
 
-  li {
+  > li {
     min-height: 54px;
     display: flex;
     align-items: center;
@@ -470,7 +470,7 @@ nav {
       flex: 0 0 200px;
     }
 
-    div {
+    > div {
       display: flex;
       align-items: center;
     }
