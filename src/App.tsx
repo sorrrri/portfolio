@@ -10,6 +10,8 @@ import './App.css';
 import { LayoutTopNavigator } from './_layout';
 import { Workspace } from './pages/workspace';
 import { Device } from './pages/device';
+import { DeviceAdd } from './pages/device/components/device-add';
+import { WorkspaceAdd } from './pages/workspace/components/workspace-add';
 
 function App(routeProps: RouteComponentProps) {
   return (
@@ -17,7 +19,9 @@ function App(routeProps: RouteComponentProps) {
       <LayoutTopNavigator {...routeProps}>
         <Switch>
           <Route path="/workspace" component={Workspace} />
+          <Route path="/workspace-add" component={WorkspaceAdd} />
           <Route path="/device" component={Device} />
+          <Route path="/device-add" component={DeviceAdd} />
           <Redirect push to="/workspace" />
         </Switch>
       </LayoutTopNavigator>

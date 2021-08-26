@@ -16,18 +16,6 @@ export function WorkspaceList(props: any) {
     );
   });
 
-  const onClickAddWork = () => {
-    alert('on click add work');
-  };
-
-  const onClickAddFault = () => {
-    alert('on click add fault');
-  };
-
-  const onClickSearch = () => {
-    alert('on click search');
-  };
-
   const onClickItem = (workId: number) => {
     const { history } = props;
     history.push(`/workspace/${workId}`);
@@ -35,7 +23,7 @@ export function WorkspaceList(props: any) {
 
   return (
     <main className="content list workspace">
-      <div className="row emergency">
+      <div className="row emergency" onClick={() => onClickItem(1)}>
         <div className="row-title">
           <ul>
             <li className="title">
@@ -251,16 +239,6 @@ export function WorkspaceList(props: any) {
             </li>
           </ul>
         </div>
-      </div>
-
-      {/* 기존에 있던 내용 */}
-      <div>
-        <h1>this is workspace list</h1>
-        <ul>
-          <li onClick={() => onClickItem(1)}>item1</li>
-          <li onClick={() => onClickItem(2)}>item2</li>
-          <li onClick={() => onClickItem(3)}>item3</li>
-        </ul>
       </div>
     </main>
   );

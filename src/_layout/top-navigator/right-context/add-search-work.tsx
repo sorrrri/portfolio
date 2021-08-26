@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export function AddSearchWork() {
-  const { push } = useHistory();
+  const history = useHistory();
   const [isToggleOn, setSearchArea] = useState(false);
 
   const toggleSearchArea = () => {
@@ -11,10 +11,10 @@ export function AddSearchWork() {
 
   return (
     <div className="buttons">
-      <button type="button" onClick={() => push('/workspace')}>
+      <button type="button" onClick={() => history.push('/workspace-add')}>
         <i className="fad fa-briefcase" />
       </button>
-      <button type="button" onClick={() => push('/device')}>
+      <button type="button" onClick={() => history.push('/device-add')}>
         <i className="fad fa-tools" />
       </button>
       <button type="button" onClick={toggleSearchArea} className={isToggleOn ? 'active' : ''}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 export const BottomStickyMenu = () => {
-  const { push } = useHistory();
+  const history = useHistory();
 
   return (
     <div className="bottom-sticky-menu">
@@ -10,10 +10,14 @@ export const BottomStickyMenu = () => {
         <button className="btn-search" type="button">
           <i className="fad fa-search" />
         </button>
-        <button onClick={() => push('/workspace')} className="btn-workspace" type="button">
+        <button
+          onClick={() => history.push('/workspace-add')}
+          className="btn-workspace"
+          type="button"
+        >
           <i className="fad fa-briefcase" />
         </button>
-        <button onClick={() => push('/device')} className="btn-undertake" type="button">
+        <button onClick={() => history.push('/device-add')} className="btn-undertake" type="button">
           <i className="fad fa-tools" />
         </button>
       </div>
