@@ -24,9 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
        Dropdown Menu
   ===================================================== */
   const mainMenus = document.querySelectorAll(".main-menu");
-  const overlay = document.createElement("div");
-  overlay.classList.add("overlay")
-  container.insertBefore(overlay, container.firstChild)
+  const overlay = document.querySelector(".overlay");
 
   mainMenus.forEach((mainMenu) => {
     mainMenu.addEventListener("click", () => {
@@ -36,78 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* =====================================================
-       Tab Menu
-  ===================================================== */
-  const tabs = document.querySelectorAll(".tabs li");
-  const tabContents = document.querySelectorAll(".tab-content");
-
-  const activeSection = (e) => {
-    e.stopPropagation();
-
-    let menuIndex = [...tabs].indexOf(e.target);
-
-    tabs.forEach((tab) => {
-      [...tabs].indexOf(tab) === menuIndex
-        ? tab.classList.add("active")
-        : tab.classList.remove("active");
-    });
-
-    tabContents.forEach((content) => {
-      [...tabContents].indexOf(content) === menuIndex
-        ? content.classList.add("active")
-        : content.classList.remove("active");
-    });
-  };
-
-  if (tabs) {
-    tabs.forEach((tab) => {
-      [...tabs][0].classList.add("active");
-      [...tabContents][0].classList.add("active");
-      tab.addEventListener("click", activeSection);
-    });
-  }
-
-  /* =====================================================
-       Toggle Menu
-  ===================================================== */
-  const toggleMenu = document.querySelector(".toggle-menu");
-  const globalNavigationMenu = document.querySelector(
-    ".global-navigation-menu"
-  );
-  const localToggleMenu = document.querySelector(".local-toggle-menu");
-  const localNavigationMenu = document.querySelector(".local-navigation-menu");
-
-  if (toggleMenu) {
-    const openNavigationMenu = (menu) => {
-      menu.classList.add("active");
-      overlay.classList.add("active");
-    };
-
-    const closeNavigationMenu = (toggleButton, menu) => {
-      toggleButton.classList.remove("active");
-      menu.classList.remove("active");
-    };
-
-    toggleMenu.addEventListener("click", () => {
-      openNavigationMenu(globalNavigationMenu);
-    });
-
-    if (localToggleMenu) {
-      localToggleMenu.addEventListener("click", () => {
-        openNavigationMenu(localNavigationMenu);
-      });
-    }
-
-    // dim 영역 눌러도 메뉴창 닫기
-    overlay.addEventListener("click", () => {
-      closeNavigationMenu(toggleMenu, globalNavigationMenu);
-
-      if (localToggleMenu) {
-        closeNavigationMenu(localToggleMenu, localNavigationMenu);
-      }
-    });
-  }
 
   /* =====================================================
        Bottom Sticky Menu
@@ -210,13 +136,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const btnNavigation = document.querySelector(".btn-navigation");
-  const modalNavigation = document.querySelector(".modal-navigation");
-  if (btnNavigation) {
-    btnNavigation.addEventListener("click", () => {
-      visibleOverlay(modalNavigation);
-    });
-  }
+  // const btnNavigation = document.querySelector(".btn-navigation");
+  // const modalNavigation = document.querySelector(".modal-navigation");
+  // if (btnNavigation) {
+  //   btnNavigation.addEventListener("click", () => {
+  //     visibleOverlay(modalNavigation);
+  //   });
+  // }
 
   /* =====================================================
        Header Search Area

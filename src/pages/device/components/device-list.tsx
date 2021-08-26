@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
 
 export function DeviceList(props: any) {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,13 +20,18 @@ export function DeviceList(props: any) {
   });
 
   const onClickItem = (workId: number) => {
-    const { history } = props;
     history.push(`/device/${workId}`);
+  };
+
+  const [isToggleOn, setToggleOn] = useState(false);
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
   };
 
   return (
     <>
-      <aside className="local-navigation-menu">
+      <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={handleClick} />
+      <aside className={`local-navigation-menu ${isToggleOn ? 'active' : ''}`}>
         <div className="filters">
           <h4>
             <span>마커 표시</span>
@@ -132,7 +139,7 @@ export function DeviceList(props: any) {
         </div>
       </aside>
       <main className="content equipments maps">
-        <button className="local-toggle-menu" type="button">
+        <button className="local-toggle-menu" onClick={handleClick} type="button">
           <i className="fad fa-map-marked-alt" />
         </button>
 

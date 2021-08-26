@@ -3,10 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 export function AddSearchWork() {
   const history = useHistory();
-  const [isToggleOn, setSearchArea] = useState(false);
-
-  const toggleSearchArea = () => {
-    setSearchArea(!isToggleOn);
+  const [isToggleOn, setToggleOn] = useState(true);
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
   };
 
   return (
@@ -17,7 +16,7 @@ export function AddSearchWork() {
       <button type="button" onClick={() => history.push('/device-add')}>
         <i className="fad fa-tools" />
       </button>
-      <button type="button" onClick={toggleSearchArea} className={isToggleOn ? 'active' : ''}>
+      <button type="button" onClick={handleClick} className={isToggleOn ? 'active' : ''}>
         <i className="fad fa-search" />
       </button>
     </div>

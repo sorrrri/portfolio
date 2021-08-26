@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 
@@ -16,6 +16,16 @@ export function DeviceDetail(props: any) {
     );
   }, [id]);
 
+  const [currentTab, setCurrentTab] = useState(0);
+  const handleClickTab = (tabIndex: React.SetStateAction<number>) => {
+    setCurrentTab(tabIndex);
+  };
+
+  const [isToggleOn, setToggleOn] = useState(true);
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
+  };
+
   return (
     <>
       <main className="content equipments details">
@@ -32,7 +42,7 @@ export function DeviceDetail(props: any) {
           </div>
           <div className="address">
             <p>충청남도 천안시 서북구 불당동 1830</p>
-            <button className="btn-navigation" type="button">
+            <button className="btn-navigation" onClick={handleClick} type="button">
               <i className="fad fa-directions" />
               <span>내비게이션</span>
             </button>
@@ -40,10 +50,14 @@ export function DeviceDetail(props: any) {
         </section>
         <section className="information">
           <ul className="tabs">
-            <li>기본 정보</li>
-            <li>연결 장비 정보</li>
+            <li onClick={() => handleClickTab(0)} className={currentTab === 0 ? 'active' : ''}>
+              기본 정보
+            </li>
+            <li onClick={() => handleClickTab(1)} className={currentTab === 1 ? 'active' : ''}>
+              연결 장비 정보
+            </li>
           </ul>
-          <div className="tab-content basic">
+          <div className={`tab-content basic ${currentTab === 0 ? 'active' : ''}`}>
             <div className="row">
               <span>연결 유형</span>
               <span>TMS (통합플랫폼)</span>
@@ -65,7 +79,7 @@ export function DeviceDetail(props: any) {
               <span>2021.07.28 12:54:32</span>
             </div>
           </div>
-          <div className="tab-content equipment">
+          <div className={`tab-content equipment ${currentTab === 1 ? 'active' : ''}`}>
             <div className="row">
               <span className="status normal" />
               <span>0</span>
@@ -87,7 +101,7 @@ export function DeviceDetail(props: any) {
           </div>
         </section>
       </main>
-      <div className="modal modal-navigation">
+      <div className={`modal modal-navigation ${isToggleOn ? 'active' : ''}`}>
         <div className="modal-header">
           <div className="title">
             <h3>내비게이션</h3>
