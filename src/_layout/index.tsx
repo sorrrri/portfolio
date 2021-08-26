@@ -9,7 +9,7 @@ export function LayoutTopNavigator(props: RouteAndChildrenProps) {
     <>
       <TopNavigatorHeader {...props} />
       {props.children}
-      <BottomStickyMenu {...props} />
+      <BottomStickyMenu />
     </>
   );
 }

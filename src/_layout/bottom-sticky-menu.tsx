@@ -1,18 +1,19 @@
 import React from 'react';
-import { RouteAndChildrenProps } from '../@jms-react/types/aux-props';
+import { useHistory } from 'react-router-dom';
 
-export function BottomStickyMenu(props: RouteAndChildrenProps) {
-  const { history } = props;
+export const BottomStickyMenu = () => {
+  const { push } = useHistory();
+
   return (
     <div className="bottom-sticky-menu">
       <div className="buttons">
         <button className="btn-search" type="button">
           <i className="fad fa-search" />
         </button>
-        <button className="btn-workspace" onClick={() => history.push('/workspace')} type="button">
+        <button onClick={() => push('/workspace')} className="btn-workspace" type="button">
           <i className="fad fa-briefcase" />
         </button>
-        <button className="btn-undertake" onClick={() => history.push('/device')} type="button">
+        <button onClick={() => push('/device')} className="btn-undertake" type="button">
           <i className="fad fa-tools" />
         </button>
       </div>
@@ -21,4 +22,4 @@ export function BottomStickyMenu(props: RouteAndChildrenProps) {
       </button>
     </div>
   );
-}
+};

@@ -11,13 +11,7 @@ export function WorkspaceList(props: any) {
       showHeader({
         title: 'Workspace',
         leftContextType: 'menu',
-        rightContext: () => (
-          <AddSearchWork
-            onClickAddWork={onClickAddWork}
-            onClickAddFault={onClickAddFault}
-            onClickSearch={onClickSearch}
-          />
-        ),
+        rightContext: () => <AddSearchWork {...props} />,
       })
     );
   });

@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RouteAndChildrenProps } from '../../@jms-react/types/aux-props';
 import { ReducerType } from '../../_store';
 import { HeaderOption } from '../../_store/slice/header-option';
+import { SearchArea } from './search-area';
 
 export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
   const headerOption = useSelector<ReducerType, HeaderOption>((state) => state.headerOption);
@@ -57,10 +59,9 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
           <div className="title">{headerOption.title}</div>
 
           {/* Right context area */}
-          <div className="buttons">
-            <RightContext />
-          </div>
+          <RightContext />
         </div>
+        <SearchArea />
       </header>
       <aside className={`global-navigation-menu ${menuDisplay ? 'active' : ''}`}>
         <div className="profile">

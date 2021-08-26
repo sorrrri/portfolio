@@ -5,6 +5,7 @@ export type HeaderOption = {
   title: string;
   leftContextType: 'menu' | 'back' | 'none';
   rightContext: () => any;
+  searchArea: boolean;
 };
 
 type ShowHeaderOption = {
@@ -20,6 +21,7 @@ export const headerOption = createSlice({
     title: '',
     leftContextType: 'menu',
     rightContext: () => null,
+    searchArea: false,
   } as HeaderOption,
   reducers: {
     showHeader(state, action: PayloadAction<ShowHeaderOption>): HeaderOption {

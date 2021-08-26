@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-type Props = {
-  onClickAddWork: () => void;
-  onClickAddFault: () => void;
-  onClickSearch: () => void;
-};
+export function AddSearchWork() {
+  const { push } = useHistory();
+  const [isToggleOn, setSearchArea] = useState(false);
 
-export function AddSearchWork(props: Props) {
+  const toggleSearchArea = () => {
+    setSearchArea(!isToggleOn);
+  };
+
   return (
-    <>
-      <button type="button" onClick={props.onClickAddWork}>
+    <div className="buttons">
+      <button type="button" onClick={() => push('/workspace')}>
         <i className="fad fa-briefcase" />
       </button>
-      <button type="button" onClick={props.onClickAddFault}>
+      <button type="button" onClick={() => push('/device')}>
         <i className="fad fa-tools" />
       </button>
-      <button type="button" onClick={props.onClickSearch}>
+      <button type="button" onClick={toggleSearchArea} className={isToggleOn ? 'active' : ''}>
         <i className="fad fa-search" />
       </button>
-    </>
+    </div>
   );
 }

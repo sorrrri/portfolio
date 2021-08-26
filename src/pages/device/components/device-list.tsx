@@ -11,13 +11,7 @@ export function DeviceList(props: any) {
       showHeader({
         title: '장비 현황',
         leftContextType: 'menu',
-        rightContext: () => (
-          <AddSearchWork
-            onClickAddWork={onClickAddWork}
-            onClickAddFault={onClickAddFault}
-            onClickSearch={onClickSearch}
-          />
-        ),
+        rightContext: () => <AddSearchWork {...props} />,
       })
     );
   });
