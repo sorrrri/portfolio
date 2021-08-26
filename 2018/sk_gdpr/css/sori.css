@@ -1,0 +1,292 @@
+@CHARSET "UTF-8";
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin:0; padding:0; border:0; outline:0; vertical-align:baseline; background:transparent;
+}
+body {margin:0; padding:0; font-family:Malgun Gothic, "맑은 고딕", arial; color:#333; font-size:13px}
+ul {list-style:none;}
+button {border:0 none}
+a {text-decoration:none; color:#333}
+.wrapper {width:1180px; margin:0 auto; overflow:hidden}
+.white {color:white}
+.red {color:#e60724 !important}
+.fl {float:left !important}
+.fr {float:right !important}
+.ovhd {overflow:hidden !important}
+.w_400 {width:400px !important}
+.w_490 {width:490px !important}
+.w_690 {width:690px !important}
+.w_770 {width:770px !important}
+.section {overflow:hidden; border:1px solid #ccd2de; background:white; padding:2em; margin:1em 0 3em}
+.section h3 {display:inline-block}
+.header {background:white}
+.header .top_01, .header .top_02 {border-bottom:1px solid #ccd2de; overflow:hidden}
+.header .top_01 .logo {float:left; color:#999; height:45px; line-height:45px}
+.header .top_01 .logo strong {font-size:2em; color:#e60724; font-weight:bold}
+.header .top_01 .gnb {float:right; line-height:45px}
+.header .top_01 .gnb li {float:left; margin-left:2em; font-weight:bold}
+.header .top_02 {font-weight:bold; text-align:center; border-bottom:1px solid #ccd2de; overflow:hidden}
+.header .top_02 .lnb {display:block; font-size:15px}
+.header .top_02 .lnb li {float:left; width:16.66%; line-height:40px}
+.header .top_02 .sub_menu {overflow:hidden; position:absolute; top:87px; left:0; width:100%; display:block; height:0; opacity:0; transition: 0.55s all cubic-bezier(0.46, 0.03, 0.52, 0.96);}
+.header .top_02 .sub_menu * {box-sizing:border-box}
+.header .top_02 .sub_menu .wrapper {height:100%}
+.header .top_02 .sub_menu ul {width:16.66%; float:left; border-right:1px solid #ccd2de; height:100%; transition: 0.2s all ease}
+.header .top_02 .sub_menu ul:hover {background:#f5f5f7}
+.header .top_02 .sub_menu ul li {padding:1em 0}
+.header .top_02 .sub_menu ul li:hover {background:#23203d; cursor:pointer; transition: 0.2s all ease-in-out}
+.header .top_02 .sub_menu ul li:hover a {color:white; transition: 0.2s all ease-in-out}
+.header .top_02 .sub_menu ul:first-child {border-left:1px solid #ccd2de}
+.header .top_02:hover .sub_menu {opacity:1; height:140px; border-bottom:3px solid #e60724; background:white; z-index:10}
+.footer {margin-top:5em; width:100%; background:#EBEBEB; height:60px; line-height:60px; }
+.footer .wrapper {background:url(../img/footer_logo.png) left center no-repeat}
+.footer h4 {color:#6c717a; padding-left:5em; float:left}
+.footer button {background:transparent; border-radius:5px; float:right;}
+.footer button a {display:block; margin-top:15px; color:#6c717a; padding:.5em 1em; border:1px solid #ccd2de}
+.admin div[data-title="category"], .admin div[data-title="date"] {text-align:center}
+.admin .graph_01 h4, .admin .content .graph_02 h4 {float:right; margin-bottom:3em}
+.admin .graph_01 #bar-chart .bar-group {width:10%; margin-right:20%}
+.admin .graph_01 #bar-chart .bar-group:last-child {margin-right:0}
+.admin .graph_01 #bar-chart .bar-group .bar {width:100%}
+.admin .graph_02  {margin-bottom:0}
+.admin .graph_02 .legend {float:right}
+.admin .graph_02 .legend li {float:left; margin-left:3em}
+.admin .graph_02 .legend li:before {content:"\2022"; font-size:2em; vertical-align:sub; margin-left:-1em}
+.admin .graph_02 .legend li:nth-child(1):before {color:#0365bc}
+.admin .graph_02 .legend li:nth-child(2):before {color:#0689fb}
+.admin .graph_02 .legend li:nth-child(3):before {color:#20bfdf}
+.admin .graph_02 .legend li:nth-child(4):before {color:#076072}
+.admin_a {background:#F7F7F7}
+.admin_a .section {border-radius:5px}
+.admin_a .dark_bg {z-index:-1; width:100%; height:140px; position:relative; background:url(../img/bg_01.jpg) no-repeat; background-size:cover}
+.admin_a .dark_bg:before {width:100%; height:140px; content:''; position:absolute; top:0; right:0; bottom:0; left:0;background:rgba(0,0,0,.7)}
+.admin_a .dark_bg .gradation {position:absolute; top:0; width:100%; height:3px; background-image:linear-gradient(to right, #e60724, #fd6901)}
+.admin_a .dark {color:white; margin-top:-140px}
+.admin_a .dark h3 {display:inline-block; float:left; margin:2em 2em 0 0; line-height:2em}
+.admin_a .dark .fl li {color:#999}
+.admin_a .dark span {font-size:2em}
+.admin_a .dark ul {display:inline-block; float:left; padding:36px 0}
+.admin_a .dark li {float:left; text-align:center; margin-right:3em; padding-right:3em; border-right:1px solid #666}
+.admin_a .dark li:last-child {border:0 none}
+.admin_a .dark a {color:#e60724; transition:.2s ease-in-out}
+.admin_a .dark a:hover {color:#fd6901}
+.admin_a .dark li span {font-size:3em; display:block; font-weight:bold}
+.admin_a .dark > .fr > h3 {line-height:35px}
+.admin_a .dark .notice {padding:1em; border-radius:5px; background:rgba(0,0,0,.3); overflow:hidden}
+.admin_a .content {padding:2em}
+.admin_a .content .activity {padding:3em}
+.admin_a .content .activity h3 {width:8em; vertical-align:top}
+.admin_a .content .activity ul {margin-bottom:44px; display:inline-block; border-radius:50px; width:43em; height:3em; display:inline-block; background-image:linear-gradient(to right, #0689fb, #fd6901, #e60724)}
+.admin_a .content .activity ul li {line-height:2em; font-weight:bold; text-align:center; float:left; margin:.4em 13em 0 1em; color:#777b83}
+.admin_a .content .activity ul li span b {font-size:2em}
+.admin_a .content .activity ul li:last-child {margin-right:0}
+.admin_a .content .activity .table {border:1px solid #ccd2de; border-radius:5px; text-align:center}
+.admin_a .content .activity .table_wrap{width:43em; display:inline-block}
+.admin_a .content .board {margin-top:1em; border:1px solid #ccd2de; border-radius:5px;}
+.admin_a .content .board div[data-title="category"], .admin_a .content .board div[data-title="date"] {text-align:center}
+.admin_a .content .board .row.header {height:41px}
+
+
+.tab {user-select:none; -ms-user-select:none; -moz-user-select:none; -webkit-user-select: none; display: grid; grid-template:48px 365px / repeat(3, 250px)}
+.tab_menu {display:flex; align-items:center; justify-content:center; cursor:pointer; transition:200ms}
+.tab_content {padding:1em; display:none; grid-column:1 / -1; background:white; color:#333}
+[name="tab__radio"] {display: none}
+[name="tab__radio"]:checked + .tab_menu {background:white; color:#333; border-left:1px solid #cdd2de; border-right:1px solid #cdd2de; }
+#tab_01:checked ~ #tab_content_01, #tab_02:checked ~ #tab_content_02, #tab_03:checked ~ #tab_content_03 {display:block}
+.tabs input[type="radio"] {display:none}
+.tabs label {font-weight:bold; display:block; float:left; cursor:pointer;  transition: all 150ms ease 0s}
+.tabs .content {padding:1em; position:relative; color:#333; min-height:15em; width:100%; margin-top:48px}
+.tabs .content > div {margin-top:2em; width:100%; position:absolute; opacity:0; transition: opacity .5s; transform:translateY(6px)}
+.tabs {position:relative}
+.tabs .tab_01:checked ~ .content .content_01,
+.tabs .tab_02:checked ~ .content .content_02,
+.tabs .tab_03:checked ~ .content .content_03,
+.tabs .tab_04:checked ~ .content .content_04,
+.tabs .tab_05:checked ~ .content .content_05,
+.tabs .tab_06:checked ~ .content .content_06,
+.tabs .tab_07:checked ~ .content .content_07 {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all .3s linear .1s;
+}
+.table {width:100%; display:table; background:white; box-sizing:border-box}
+.row {display:table-row;}
+.row:nth-of-type(odd) {background:#f5f5f5}
+.row.header {border-radius:5px 5px 0 0; font-weight:bold; color:#6c717a; text-align:center; background: #ebebeb;}
+.cell {line-height:40px; padding:0 1em; display:table-cell}
+@-webkit-keyframes animate-width {
+  0% {width:0}
+  100% {visibility: visible}
+}
+@-moz-keyframes animate-width {
+  0% {width:0}
+  100% {visibility: visible}
+}
+@keyframes animate-width {
+  0% {width:0}
+  100% {visibility: visible}
+}
+@-webkit-keyframes animate-height {
+  0% {height:0}
+  100% {visibility: visible}
+}
+@-moz-keyframes animate-height {
+  0% {height:0}
+  100% {visibility: visible}
+}
+@keyframes animate-height {
+  0% {height:0}
+  100% {visibility: visible}
+}
+#bar-chart {height:140px; width:95%; float:right; position:relative}
+#bar-chart * {box-sizing: border-box}
+#bar-chart .graph {height:140px; position:relative}
+#bar-chart .bars {
+  height: 120px;
+  padding: 0 5%;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+#bar-chart .bar-group {
+  display: block;
+  float: left;
+  height: 100%;
+  position: relative;
+  width: 12%;
+  margin-right: 17%;
+}
+#bar-chart .bar-group:last-child {
+  margin-right: 0;
+}
+#bar-chart .bar-group .bar {
+  visibility: hidden;
+  height: 0;
+  -webkit-animation: animate-height;
+  -moz-animation: animate-height;
+  animation: animate-height;
+  animation-timing-function: cubic-bezier(0.35, 0.95, 0.67, 0.99);
+  -webkit-animation-timing-function: cubic-bezier(0.35, 0.95, 0.67, 0.99);
+  -moz-animation-timing-function: cubic-bezier(0.35, 0.95, 0.67, 0.99);
+  animation-duration: 0.4s;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  border-radius: 3px 3px 0 0;
+  bottom: 0;
+  cursor: pointer;
+  height: 0;
+  position: absolute;
+  text-align: center;
+  width: 25%;
+}
+#bar-chart .bar-group .bar:nth-child(2) {left: 30%}
+#bar-chart .bar-group .bar:nth-child(3) {left: 60%}
+#bar-chart .bar-group .bar:nth-child(4) {left: 90%}
+#bar-chart .bar-group .bar span {display:none}
+#bar-chart .bar-group .bar-1 {
+  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+}
+#bar-chart .bar-group .bar-2 {
+  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+}
+#bar-chart .bar-group .bar-3 {
+  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+}
+#bar-chart .bar-group .bar-4 {
+  animation-delay: 0.6s;
+  -webkit-animation-delay: 0.6s;
+}
+#bar-chart .bar-group .bar-5 {
+  animation-delay: 0.7s;
+  -webkit-animation-delay: 0.7s;
+}
+#bar-chart .bar-group .bar-6 {
+  animation-delay: 0.8s;
+  -webkit-animation-delay: 0.8s;
+}
+#bar-chart .bar-group .bar-7 {
+  animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+}
+#bar-chart .bar-group .bar-8 {
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+#bar-chart .bar-group .bar-9 {
+  animation-delay: 1.1s;
+  -webkit-animation-delay: 1.1s;
+}
+#bar-chart .bar-group .bar-10 {
+  animation-delay: 1.2s;
+  -webkit-animation-delay: 1.2s;
+}
+#bar-chart .bar-group .bar-11 {
+  animation-delay: 1.3s;
+  -webkit-animation-delay: 1.3s;
+}
+#bar-chart .bar-group .bar-12 {
+  animation-delay: 1.4s;
+  -webkit-animation-delay: 1.4s;
+}
+#bar-chart .bar-group .bar-13 {
+  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+}
+#bar-chart .bar-group .bar-14 {
+  animation-delay: 1.6s;
+  -webkit-animation-delay: 1.6s;
+}
+#bar-chart .bar-group .bar-15 {
+  animation-delay: 1.7s;
+  -webkit-animation-delay: 1.7s;
+}
+#bar-chart .bar-group .bar-16 {
+  animation-delay: 1.7s;
+  -webkit-animation-delay: 1.8s;
+}
+#bar-chart ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#bar-chart .x-axis {
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+#bar-chart .x-axis li {
+  float: left;
+  margin-right: 1.9em;
+  font-size: 11px;
+  width: 6em;
+}
+#bar-chart .x-axis li:last-child {
+  margin-right: 0;
+}
+#bar-chart .y-axis {
+  position: absolute;
+  text-align: right;
+  width: 100%;
+}
+#bar-chart .y-axis li {
+  border-top: 1px solid #ccd2de;
+  display: block;
+  height: 20px;
+  width: 100%;
+}
+#bar-chart .y-axis li span {
+  display: block;
+  font-size: 11px;
+  margin: -.5em 0 0 -3em;
+  padding: 0 10px;
+  width: 2em;
+}
+#bar-chart .stat-1 {background:#0365bc}
+#bar-chart .stat-2 {background:#0689fb}
+#bar-chart .stat-3 {background:#20bfdf}
+#bar-chart .stat-4 {background:#076072}

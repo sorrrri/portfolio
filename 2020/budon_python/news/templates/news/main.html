@@ -1,0 +1,19 @@
+{% extends 'base_main.html' %}
+
+{% block content %}
+<a class="ico-more" href="{% url 'news_list' %}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+    </svg>
+    <span>more</span>
+</a>
+<div class="list-card">
+    {% for news in object_list %}
+    <a class="list" href="{% url 'news_detail' pk=news.id %}">
+        <h3 class="list-title">{{ news.title }}</h3>
+        <div class="content">{{ news.content }}</div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+
+{% block title %}통합 메인 화면{% endblock %}
+
+{% block content %}
+<div class="content">
+
+    <h1>통합 메인 화면</h1>
+    <nav class="category">
+        <ul class="filter-options">
+            <li class="active">all</li>
+            <li data-group="홈페이지">홈페이지</li>
+            <li data-group="데이터베이스">데이터베이스</li>
+            <li data-group="대시보드">대시보드</li>
+            <li data-group="임상서비스">임상서비스</li>
+        </ul>
+    </nav>
+
+    <section>
+        <ul id="grid" class="projects">
+            {% for data in object_list %}
+            <li class="project" data-groups='["{{data.category}}"]' data-title="{{data.description}}">
+                <a href="{{data.url}}" target="_blank">
+                    <h4 class="project-title">{{data.name}}</h4>
+                    <img src="/media/{{data.photo}}" obj.alt="obj.alt"/>
+                    <div class="project-description">{{data.description}}</div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+
+
+{% endblock %}
+
+{% block pagination %}
+{% if is_paginated %}
+<ul class="pagination">
+    {% if page_obj.has_previous %}
+    <li class="page-item">
+        <a href="{% url 'list' %}?page={{ page_obj.previous_page_number }}" class="page-link" tabindex="-1">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+        <a href="#" class="page-link" tabindex="-1">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+    </li>
+    {% endif %}
+
+    {% for object in page_obj.paginator.page_range %}
+    <li class="page-item {% if page_obj.number == forloop.counter %} disabled{% endif %}">
+        <a href="{{ request.path }}?page={{ forloop.counter }}" class="page-link">{{ forloop.counter }}</a>
+    </li>
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <li class="page-item">
+        <a href="{% url 'list' %}?page={{ page_obj.next_page_number }}" class="page-link">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </a>
+    </li>
+    {% else %}
+    <li class="page-item disabled">
+        <a href="#" class="page-link">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </a>
+    </li>
+    {% endif %}
+</ul>
+{% endif %}
+{% endblock %}

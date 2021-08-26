@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>변경 품의 요청</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- start Aside -->
+    <aside class="aside">
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul class="accordion-menu">
+                <li class="menu-title">메뉴</li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">근태 관리<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="attendance_1.html">근무현황</a></li>
+                        <li><a href="attendance_2.html">근무계획</a></li>
+                        <li><a href="attendance_3.html">근무실적</a></li>
+                    </ul>
+                </li>
+                <li><a href="vacation.html">연간 휴가 조회</a></li>
+                <li>
+                    <div class="dropdownlink">
+                        휴일・야간근무 사전신청<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="overtime_1.html">휴일특근 사전신청</a></li>
+                        <li><a href="overtime_2.html">야간근로 사전신청</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        <a href="#">위생안전점검<i class="fa fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="submenuItems">
+                        <li><a href="check_pm_list_1.html">PM일일점검</a></li>
+                        <li><a href="check_outside_list.html">사외점검</a></li>
+                    </ul>
+                </li>
+                <li><a href="contract_list.html">계약품의관리</a></li>
+                <li><a href="mortgage.html">담보만기조회</a></li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+
+    <!-- start Aside settings -->
+    <aside class="aside-settings">
+        <header>
+            <div class="home" onclick=""></div>
+            <ul>
+                <li class="menu open">
+                    <span></span> <span></span> <span></span> <span></span>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <ul>
+                <li class="menu-title">설정</li>
+                <li>
+                    <span>현재버전</span>
+                    <span>v.1.0.2</span>
+                </li>
+                <li>
+                    <span>로그인 유지</span>
+                    <div class="toggle-btn active">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+                <li>
+                    <span>알림 설정</span>
+                    <div class="toggle-btn">
+                        <input type="checkbox" checked class="cb-value" /> <span class="round-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <ul>
+                <li class="menu-title">이용안내</li>
+                <li onclick="location.href='license.html'">
+                    <span>오픈소스 라이선스</span>
+                    <span><i class="fa fa-chevron-right"></i></span>
+                </li>
+            </ul>
+        </section>
+    </aside><!-- end Aside -->
+    <div class="main-content bg-gray">
+        <header>
+            <div class="back" onclick="location.href='contract_details.html'"></div>
+            <h2>변경 품의 요청</h2>
+            <div class="menu-set" onclick="modal('settings')"><i class="fas fa-cog"></i></div>
+            <div class="menu" onclick="modal('aside')">
+                <span></span> <span></span> <span></span> <span></span>
+            </div>        </header>
+        <section class="content">
+            <h4 class="content-title">[변경] 고메돈까스인천시청점_외식그룹1파트</h4>
+            <sub>품의ID : 201806109S0</sub>
+            <ul class="accordion-menu">
+                <li>
+                    <div class="dropdownlink">
+                        담보 추가<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems guarantee">
+                        <li><button onclick="modal('modal-01')">담보 추가</button></li>
+                        <li>
+                            <span>A000000 주식회사 고메돈까스</span>
+                        </li>
+                        <li>
+                            <span>Special Limit</span>
+                            <span>10,000,000</span>
+                            <span>2019.08.05~2019.09.30</span>
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li>
+                            <span>보증보험 (100000201702001208)</span>
+                            <span>10,000,000 / 8,000,000</span>
+                            <span>2019.08.05~2019.09.30</span>
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li>
+                            <span>A000000 주식회사 고메돈까스</span>
+                        </li>
+                        <li>
+                            <span>Special Limit</span>
+                            <span>10,000,000</span>
+                            <span>2019.08.05~2019.09.30</span>
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li class="bg-lightblue">
+                            <span>Special Limit</span>
+                            <span>10,000,000</span>
+                            <span>2019.08.05~2019.09.30</span>
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li class="bg-lightblue">
+                            <span>Special Limit</span>
+                            <span>10,000,000</span>
+                            <span>2019.08.05~2019.09.30</span>
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                        <li class="bg-lightblue">
+                            <span>Special Limit</span>
+                            <span>10,000,000</span>
+                            <span>2019.08.05~2019.09.30</span>
+                            <i class="fas fa-minus-circle fa-lg"></i>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="dropdownlink">
+                        Sold to 추가<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenuItems information">
+                        <li style="border-bottom:0"><button onclick="modal('modal-02')">Sold to 추가</button></li>
+                        <li class="into">
+                            <div class="dropdownlink">
+                                <span>A000000 주식회사 고메돈까스</span>
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                            <ul class="submenuItems information">
+                                <li>
+                                    <span>Payer 코드</span>
+                                    <span>Payer 코드</span>
+                                </li>
+                                <li>
+                                    <span>Payer 명</span>
+                                    <span>Payer 명</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 코드</span>
+                                    <span>Ship to 코드</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 명</span>
+                                    <span>Ship to 명</span>
+                                </li>
+                                <li>
+                                    <span>우편번호</span>
+                                    <span>우편번호찾기</span>
+                                </li>
+                                <li>
+                                    <span>주소</span>
+                                    <span>주소</span>
+                                </li>
+                                <li>
+                                    <span>전화번호</span>
+                                    <span>전화번호</span>
+                                </li>
+                                <li>
+                                    <span>결산일</span>
+                                    <span>결산일</span>
+                                </li>
+                                <li>
+                                    <span>사업장유형</span>
+                                    <span>사업장유형</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 생성여부</span>
+                                    <span>Pricing 생성여부</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 코드</span>
+                                    <span>Pricing 코드</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 명</span>
+                                    <span>Pricing 명</span>
+                                </li>
+                                <li>
+                                    <span>발주시간</span>
+                                    <span>발주시간</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="into">
+                            <div class="dropdownlink">
+                                <span>A000000 주식회사 고메돈까스</span>
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                            <ul class="submenuItems information">
+                                <li>
+                                    <span>Payer 코드</span>
+                                    <span>Payer 코드</span>
+                                </li>
+                                <li>
+                                    <span>Payer 명</span>
+                                    <span>Payer 명</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 코드</span>
+                                    <span>Ship to 코드</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 명</span>
+                                    <span>Ship to 명</span>
+                                </li>
+                                <li>
+                                    <span>우편번호</span>
+                                    <span>우편번호찾기</span>
+                                </li>
+                                <li>
+                                    <span>주소</span>
+                                    <span>주소</span>
+                                </li>
+                                <li>
+                                    <span>전화번호</span>
+                                    <span>전화번호</span>
+                                </li>
+                                <li>
+                                    <span>결산일</span>
+                                    <span>결산일</span>
+                                </li>
+                                <li>
+                                    <span>사업장유형</span>
+                                    <span>사업장유형</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 생성여부</span>
+                                    <span>Pricing 생성여부</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 코드</span>
+                                    <span>Pricing 코드</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 명</span>
+                                    <span>Pricing 명</span>
+                                </li>
+                                <li>
+                                    <span>발주시간</span>
+                                    <span>발주시간</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="into">
+                            <div class="dropdownlink bg-lightblue">
+                                <span>A000000 주식회사 고메돈까스</span>
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                            <ul class="submenuItems information">
+                                <li>
+                                    <span>Payer 코드</span>
+                                    <span>Payer 코드</span>
+                                </li>
+                                <li>
+                                    <span>Payer 명</span>
+                                    <span>Payer 명</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 코드</span>
+                                    <span>Ship to 코드</span>
+                                </li>
+                                <li>
+                                    <span>Ship to 명</span>
+                                    <span>Ship to 명</span>
+                                </li>
+                                <li>
+                                    <span>우편번호</span>
+                                    <span>우편번호찾기</span>
+                                </li>
+                                <li>
+                                    <span>주소</span>
+                                    <span>주소</span>
+                                </li>
+                                <li>
+                                    <span>전화번호</span>
+                                    <span>전화번호</span>
+                                </li>
+                                <li>
+                                    <span>결산일</span>
+                                    <span>결산일</span>
+                                </li>
+                                <li>
+                                    <span>사업장유형</span>
+                                    <span>사업장유형</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 생성여부</span>
+                                    <span>Pricing 생성여부</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 코드</span>
+                                    <span>Pricing 코드</span>
+                                </li>
+                                <li>
+                                    <span>Pricing 명</span>
+                                    <span>Pricing 명</span>
+                                </li>
+                                <li>
+                                    <span>발주시간</span>
+                                    <span>발주시간</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section><!-- end Content -->
+        <button class="main" onclick="modal('modal-03')">변경품의 상신</button>
+        <button class="scroll-top"><i class="fas fa-arrow-up fa-lg"></i></button>
+    </div><!-- end Main Content -->
+
+    <!-- Modal1 -->
+    <div class="modal modal-full modal-01 contract">
+        <header>
+            <h4>담보 추가</h4>
+        </header>
+        <div class="content">
+            <div class="selectbox input-container">
+                <select>
+                    <option>Special Limit</option>
+                    <option>보증보험</option>
+                    <option>Special +</option>
+                </select>
+            </div>
+            <div class="selectbox input-container">
+                <select>
+                    <option>Payer1</option>
+                    <option>Payer2</option>
+                    <option>Payer3</option>
+                </select>
+            </div>
+            <div class="input-container">
+                <input type="number" placeholder="증권번호" />
+            </div>
+            <div class="input-container">
+                <input type="date" value="시작일" />
+                <span>~</span>
+                <input type="date" value="종료일" />
+            </div>
+            <div class="input-container">
+                <input type="number" placeholder="Hedge Limit" />
+            </div>
+            <div class="input-container">
+                <input type="number" placeholder="Credit Limit" />
+            </div>
+            <sub class="caution">최대 Special Limit : 000,000,00,000</sub>
+            <textarea rows="3" placeholder="사유"></textarea>
+        </div>
+        <div class="btn-container">
+            <button class="cancel" onclick="location.href='#'">취소</button>
+            <button class="main" onclick="confirmSave()">저장</button>
+        </div>
+    </div><!-- end Modal1 -->
+
+    <!-- Modal2 -->
+    <div class="modal modal-full modal-02 contract">
+        <header>
+            <h4>Sold to 추가</h4>
+        </header>
+        <div class="content">
+            <div class="input-container">
+                <div class="selectbox">
+                    <select>
+                        <option>Payer1</option>
+                        <option>Payer2</option>
+                        <option>Payer3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="selectbox">
+                    <select>
+                        <option>Ship to 1</option>
+                        <option>Ship to 2</option>
+                        <option>Ship to 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Sold to 명" />
+            </div>
+            <div class="input-container">
+                <input type="number" placeholder="우편번호" />
+                <button>우편번호검색</button>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="주소" />
+            </div>
+            <div class="input-container">
+                <input type="tel" placeholder="전화번호" />
+            </div>
+            <div class="input-container">
+                <div class="selectbox">
+                    <select>
+                        <option>결산일1</option>
+                        <option>결산일2</option>
+                        <option>결산일3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="selectbox">
+                    <select>
+                        <option>사업장유형1</option>
+                        <option>사업장유형2</option>
+                        <option>사업장유형3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="selectbox">
+                    <select>
+                        <option>Pricing 생성여부1</option>
+                        <option>Pricing 생성여부2</option>
+                        <option>Pricing 생성여부3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Pricing 코드/명" />
+            </div>
+            <div class="input-container">
+                <div class="selectbox">
+                    <select>
+                        <option>고객단가여부1</option>
+                        <option>고객단가여부2</option>
+                        <option>고객단가여부3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="발주자명" />
+            </div>
+            <div class="input-container">
+                <input type="tel" placeholder="발주자 전화번호" />
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="cancel" onclick="location.href='#'">취소</button>
+            <button class="main" onclick="confirmSave()">저장</button>
+        </div>
+    </div><!-- end Modal2 -->
+    <!-- Modal3 -->
+    <div class="modal modal-full modal-03">
+        <header>
+            <h4>변경 품의 상신</h4>
+        </header>
+        <div class="content">
+            <ul class="list">
+                <li>
+                    <span>1</span>
+                    <span>기안</span>
+                    <span>홍길동</span>
+                </li>
+                <li>
+                    <span>2</span>
+                    <span>합의</span>
+                    <span>홍길동</span>
+                </li>
+                <li>
+                    <span>3</span>
+                    <span>합의</span>
+                    <span>홍길동</span>
+                </li>
+                <li><button onclick="modal('modal-inside')">결재자통보 추가</button></li>
+            </ul>
+            <label class="input-file">
+                <i class="fas fa-paperclip"></i>
+                <span class="title"> 파일 첨부</span>
+                <input type="file" />
+            </label>
+        </div>
+        <div class="btn-container">
+            <button class="cancel">취소</button>
+            <button class="main" onclick="confirmSubmit()">상신</button>
+        </div>
+    </div><!-- end Modal3 -->
+    <!-- Modal4 -->
+    <div class="modal modal-inside modal-search">
+        <header>
+            <div class="search">
+                <div class="selectbox">
+                    <select>
+                        <option>통보</option>
+                        <option>통보</option>
+                        <option>통보</option>
+                    </select>
+                </div>
+                <input type="search" maxlength="20" placeholder="결재자 검색" />
+                <i class="fas fa-search" onclick=""></i>
+            </div>
+            <ul class="list">
+                <li class="th">
+                    <span>성명</span>
+                    <span>사번</span>
+                    <span>부서명</span>
+                    <span>직책</span>
+                </li>
+            </ul>
+        </header>
+        <div class="content">
+            <ul class="list">
+                <li class="th">
+                    <span>성명</span>
+                    <span>사번</span>
+                    <span>부서명</span>
+                    <span>직책</span>
+                </li>
+                <li>
+                    <span>홍길동</span>
+                    <span>B000000</span>
+                    <span>안전그룹</span>
+                    <span>프로</span>
+                </li>
+                <li>
+                    <span>홍길동</span>
+                    <span>B000000</span>
+                    <span>안전그룹</span>
+                    <span>프로/그룹장</span>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="cancel-inside">취소</button>
+            <button class="main" onclick="confirmSubmit()">확인</button>
+        </div>
+    </div><!-- end Modal4 -->
+    <div class="modal-backdrop"></div>
+    <div class="modal-backdrop2"></div>
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{% extends 'base_edit.html' %}
+{% block content %}
+<aside>
+    <header>
+        <div class="logo" onclick="location.href='patient_list.html'"></div>
+        <div class="id">id: AA0000</div>
+        <button class="btn-login" onclick="location.href='login.html'">logout</button>
+    </header>
+    {% import 'macros/nav-macro.nunjucks' as nav %}
+    {{nav.active('admin')}}
+</aside>
+<main class="user-add admin">
+    <header>
+        <h3>기저질환명 추가</h3>
+        <div class="buttons">
+            <button class="btn-cancel" onclick="history.back()">취소</button>
+            <button>등록</button>
+        </div>
+    </header>
+    <section>
+        <div class="row">
+            <div class="input-title">기저질환명</div>
+            <input type="text">
+        </div>
+    </section>
+</main>
+<script>
+  $(function () {
+    $("#confirmationDate, #birthDate, #dischargeDate").datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+</script>
+{% endblock %}
