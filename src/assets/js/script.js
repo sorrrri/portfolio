@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
        Header Search Area
   ===================================================== */
   const btnHeaderSearch = document.querySelectorAll("header .btn-search");
-  const searchArea = document.querySelector("header .row.search");
+  const searchArea = document.querySelector(".search-area");
   const modalSearch = document.querySelector(".modal-search");
   const workspaceList = document.querySelector(".workspace.list");
   const equipmentsPage = document.querySelector(".equipments");
