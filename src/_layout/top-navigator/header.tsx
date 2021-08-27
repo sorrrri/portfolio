@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { RouteAndChildrenProps } from '../../@jms-react/types/aux-props';
 import { ReducerType } from '../../_store';
 import { HeaderOption } from '../../_store/slice/header-option';
-import { SearchArea } from './search-area';
 
 export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
   const headerOption = useSelector<ReducerType, HeaderOption>((state) => state.headerOption);
@@ -61,7 +60,6 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
           {/* Right context area */}
           <RightContext />
         </div>
-        <SearchArea />
       </header>
       <aside className={`global-navigation-menu ${menuDisplay ? 'active' : ''}`}>
         <div className="profile">

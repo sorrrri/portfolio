@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+/* eslint-disable react/require-default-props */
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-export function AddSearchWork() {
+export function AddSearchWork(props: { toggle?: any }) {
   const history = useHistory();
-  const [isToggleOn, setToggleOn] = useState(true);
-  const handleClick = () => {
-    setToggleOn(!isToggleOn);
-  };
+  const { toggle } = props;
 
   return (
     <div className="buttons">
@@ -16,7 +14,7 @@ export function AddSearchWork() {
       <button type="button" onClick={() => history.push('/device-add')}>
         <i className="fad fa-tools" />
       </button>
-      <button type="button" onClick={handleClick} className={isToggleOn ? 'active' : ''}>
+      <button type="button" onClick={toggle}>
         <i className="fad fa-search" />
       </button>
     </div>

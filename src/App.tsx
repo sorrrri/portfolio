@@ -12,6 +12,7 @@ import { Workspace } from './pages/workspace';
 import { Device } from './pages/device';
 import { DeviceAdd } from './pages/device/device-add';
 import { WorkspaceAdd } from './pages/workspace/components/workspace-add';
+import { DeviceSearch } from './pages/device/device-search';
 
 function App(routeProps: RouteComponentProps) {
   return (
@@ -22,6 +23,7 @@ function App(routeProps: RouteComponentProps) {
           <Route path="/workspace-add" component={WorkspaceAdd} />
           <Route path="/device" component={Device} />
           <Route path="/device-add" component={DeviceAdd} />
+          <Route path="/device-search" component={DeviceSearch} />
           <Redirect push to="/workspace" />
         </Switch>
       </LayoutTopNavigator>

@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
-export const SearchArea = () => {
+export const SearchArea = (props: { show: any }) => {
+  const { show } = props;
   return (
-    <div className="row search">
+    <div className={`search-area ${show ? 'active' : ''}`}>
       <div className="input">
         <input type="search" placeholder="작업명, 작성자를 입력하세요." />
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">

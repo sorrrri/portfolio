@@ -70,19 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
         subButtons.classList.remove("active");
       });
 
-      const searchButton = subButtons.querySelector(".btn-search");
-
-      // 검색버튼을 누르면 검색창, dim, sub menu 숨김 처리
-      searchButton.addEventListener("click", () => {
-        searchArea.classList.add("active");
-        container.classList.remove("scroll");
-        subButtons.classList.remove("active");
-        overlay.classList.remove("active");
-
-        if (searchArea.classList.contains("active")) {
-          searchArea.classList.remove("active");
-        }
-      });
     });
   }
 
@@ -94,53 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Header Search Area
   ===================================================== */
-  const btnHeaderSearch = document.querySelectorAll("header .btn-search");
-  const searchArea = document.querySelector("header .row.search");
-  const modalSearch = document.querySelector(".modal-search");
   const workspaceList = document.querySelector(".workspace.list");
   const equipmentsPage = document.querySelector(".equipments");
 
-  // 스크롤시, 헤더 고정
-  if(searchArea) {
-    main.addEventListener("scroll", () => {
-      if (searchArea.classList.contains("active")) {
-        container.classList.remove("scroll");
-      }
-    });
-  }
 
   if (workspaceList) {
     const filters = document.querySelector(".filters-equipments");
     filters.style.display = "none";
-
-    // 검색영역이 열려있을 때
-    if (searchArea.classList.contains("active")) {
-      // 검색버튼을 누르면 검색영역 닫힘
-      searchButton.addEventListener("click", () => {
-        searchArea.classList.remove("active");
-      });
-    }
-
-    if (btnHeaderSearch) {
-      btnHeaderSearch.forEach((button) => {
-        button.addEventListener("click", () => {
-          searchArea.classList.toggle("active");
-        });
-      });
-    }
   }
 
   if (equipmentsPage) {
     if (equipmentsPage.classList.contains("list")) {
       const filters = document.querySelector(".filters-workspace");
       filters.style.display = "none";
-      searchArea.classList.add("active");
-
-      btnHeaderSearch.forEach((button) => {
-        button.addEventListener("click", () => {
-          searchArea.classList.toggle("active");
-        });
-      });
     }
   }
 
