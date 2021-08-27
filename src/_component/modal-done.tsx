@@ -1,11 +1,11 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 
-export const ModalDone = (props: { children?: any; open?: any; close?: any }) => {
-  const { open, close } = props;
+export const ModalDone = (props: { children?: any; show?: any; closeModal?: any }) => {
+  const { show, closeModal } = props;
 
   return (
-    <div className={`modal modal-done ${open ? 'active' : ''}`}>
+    <div className={`modal modal-done ${show ? 'active' : ''}`}>
       <div className="modal-content">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
           <path
@@ -31,7 +31,7 @@ export const ModalDone = (props: { children?: any; open?: any; close?: any }) =>
         <p>{props.children}</p>
       </div>
       <div className="modal-footer buttons">
-        <button className="btn-cancel" onClick={close} type="button">
+        <button className="btn-cancel" onClick={closeModal} type="button">
           확인
         </button>
       </div>

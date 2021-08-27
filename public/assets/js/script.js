@@ -89,60 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Modal
   ===================================================== */
-  const modals = document.querySelectorAll(".modal");
-  const closeButtons = document.querySelectorAll(".btn-close, .btn-cancel");
 
-  const visibleOverlay = (modal) => {
-    overlay.classList.add("active");
-    modal.classList.add("active");
-    if (bottomStickyMenu.classList.contains("active")) {
-      bottomStickyMenu.classList.remove("active");
-    }
-  };
-
-  const hiddenOverlay = () => {
-    overlay.classList.remove("active");
-  };
-
-  overlay.addEventListener("click", () => {
-    hiddenOverlay();
-
-    if (modals) {
-      modals.forEach((modal) => modal.classList.remove("active"));
-    }
-  });
-
-  if (closeButtons) {
-    closeButtons.forEach((close) =>
-      close.addEventListener("click", () => {
-        hiddenOverlay();
-        modals.forEach((modal) => modal.classList.remove("active"));
-      })
-    );
-  }
-
-  // confirm type의 modal일 때, 2중 모달 띄우기
-  modals.forEach((modal) => {
-    const closeButton = document.createElement("button");
-    closeButton.classList.add("btn-close");
-    modal.append(closeButton);
-
-    const modalButtonSubmit = modal.querySelector(".btn-submit");
-    if (modalButtonSubmit) {
-      modalButtonSubmit.addEventListener("click", () => {
-        const modalDone = document.querySelector(".modal-done");
-        visibleOverlay(modalDone);
-      });
-    }
-  });
-
-  // const btnNavigation = document.querySelector(".btn-navigation");
-  // const modalNavigation = document.querySelector(".modal-navigation");
-  // if (btnNavigation) {
-  //   btnNavigation.addEventListener("click", () => {
-  //     visibleOverlay(modalNavigation);
-  //   });
-  // }
 
   /* =====================================================
        Header Search Area

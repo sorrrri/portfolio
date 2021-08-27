@@ -18,14 +18,24 @@ export function DeviceAdd() {
     );
   });
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
+  const showModal = () => {
+    setIsOpen(true);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
+  const showSecondModal = () => {
+    setIsOpen2(true);
+  };
+
+  const isClose = () => {
+    setIsOpen(false);
+  };
+
+  const isCloseAll = () => {
+    setIsOpen(false);
+    setIsOpen2(false);
   };
 
   return (
@@ -113,7 +123,7 @@ export function DeviceAdd() {
         </div>
       </main>
       <div className="buttons">
-        <button className="btn-main" onClick={openModal} type="button">
+        <button className="btn-main" onClick={showModal} type="button">
           장애 접수 등록
         </button>
       </div>
@@ -339,10 +349,10 @@ export function DeviceAdd() {
           <section className="no-result">검색 내역이 없습니다.</section>
         </div>
       </div>
-      <Modal open={modalOpen} close={closeModal} header="장애 접수">
+      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} header="장애 접수">
         장애 접수를 등록하시겠습니까?
       </Modal>
-      <ModalDone open={modalOpen} close={closeModal}>
+      <ModalDone show={isOpen2} closeModal={isCloseAll}>
         장애 접수가 등록 되었습니다.
       </ModalDone>
     </>

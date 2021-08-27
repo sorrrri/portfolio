@@ -18,14 +18,24 @@ export function WorkspaceAdd() {
     );
   });
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
+  const showModal = () => {
+    setIsOpen(true);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
+  const showSecondModal = () => {
+    setIsOpen2(true);
+  };
+
+  const isClose = () => {
+    setIsOpen(false);
+  };
+
+  const isCloseAll = () => {
+    setIsOpen(false);
+    setIsOpen2(false);
   };
 
   return (
@@ -81,14 +91,14 @@ export function WorkspaceAdd() {
         </div>
       </main>
       <div className="buttons">
-        <button className="btn-main" onClick={openModal} type="button">
+        <button className="btn-main" onClick={showModal} type="button">
           업무 요청 등록
         </button>
       </div>
-      <Modal open={modalOpen} close={closeModal} header="업무 요청">
+      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} header="업무 요청">
         업무 요청을 등록하시겠습니까?
       </Modal>
-      <ModalDone open={modalOpen} close={closeModal}>
+      <ModalDone show={isOpen2} closeModal={isCloseAll}>
         업무 요청이 등록 되었습니다.
       </ModalDone>
     </>
