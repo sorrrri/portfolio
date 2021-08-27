@@ -10,7 +10,7 @@ import './App.css';
 import { LayoutTopNavigator } from './_layout';
 import { Workspace } from './pages/workspace';
 import { Device } from './pages/device';
-import { DeviceAdd } from './pages/device/components/device-add';
+import { DeviceAdd } from './pages/device/device-add';
 import { WorkspaceAdd } from './pages/workspace/components/workspace-add';
 
 function App(routeProps: RouteComponentProps) {

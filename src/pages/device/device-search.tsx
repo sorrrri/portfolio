@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { showHeader } from '../../../_store/slice/header-option';
+import { showHeader } from '../../_store/slice/header-option';
 
 export function DeviceSearch() {
   const dispatch = useDispatch();

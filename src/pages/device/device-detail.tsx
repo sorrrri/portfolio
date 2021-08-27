@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { showHeader } from '../../../_store/slice/header-option';
+import { showHeader } from '../../_store/slice/header-option';
 
 export function DeviceDetail(props: any) {
   const dispatch = useDispatch();

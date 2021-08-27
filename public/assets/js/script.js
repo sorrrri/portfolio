@@ -147,22 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Modal: Marker Details
   ===================================================== */
-  const modalMarker = document.querySelector(".modal-marker");
-  const moveDown = document.querySelector(".move-down");
 
-  if (moveDown) {
-    moveDown.addEventListener("click", () => {
-      modalMarker.classList.remove("active");
-    });
-  }
-
-  const marker = document.querySelector(".marker");
-
-  if (marker) {
-    marker.addEventListener("click", () => {
-      modalMarker.classList.add("active");
-    });
-  }
 
   /* =====================================================
        Modal: New Comments

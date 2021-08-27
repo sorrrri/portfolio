@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { DeviceList } from './components/device-list';
-import { DeviceDetail } from './components/device-detail';
-import { DeviceAdd } from './components/device-add';
-import { DeviceSearch } from './components/device-search';
+import { DeviceList } from './device-list';
+import { DeviceDetail } from './device-detail';
+import { DeviceAdd } from './device-add';
+import { DeviceSearch } from './device-search';
 
 export function Device() {
   return (
