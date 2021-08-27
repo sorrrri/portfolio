@@ -231,24 +231,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (main.classList.contains("add")) {
-    const button = document.querySelector(".btn-main");
-    const modalConfirm = document.querySelector(".modal-confirm");
-    //작성화면에서는 하단메뉴 숨김처리
-    bottomStickyMenu.style.transform = "translateY(4rem)";
-
-    button.addEventListener("click", () => {
-      visibleOverlay(modalConfirm);
-    });
-
-    const inputSearch = document.querySelector(".input-search");
-    if (inputSearch) {
-      inputSearch.addEventListener("click", () => {
-        visibleOverlay(modalSearch);
-      });
-    }
-  }
-
   /* =====================================================
        Modal: Zoom In Images
   ===================================================== */

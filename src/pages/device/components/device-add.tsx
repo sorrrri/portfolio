@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Modal } from '../../../_component/modal-confirm';
+import { ModalDone } from '../../../_component/modal-done';
 import { showHeader } from '../../../_store/slice/header-option';
 
 export function DeviceAdd() {
@@ -15,6 +17,16 @@ export function DeviceAdd() {
       })
     );
   });
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <>
@@ -101,7 +113,7 @@ export function DeviceAdd() {
         </div>
       </main>
       <div className="buttons">
-        <button className="btn-main" type="button">
+        <button className="btn-main" onClick={openModal} type="button">
           장애 접수 등록
         </button>
       </div>
@@ -327,58 +339,12 @@ export function DeviceAdd() {
           <section className="no-result">검색 내역이 없습니다.</section>
         </div>
       </div>
-      <div className="modal modal-confirm">
-        <div className="modal-header">
-          <div className="title">
-            <h3>장애 접수</h3>
-            <button className="btn-close" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
-                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div className="modal-content">장애 접수를 등록 하시겠습니까?</div>
-        <div className="modal-footer buttons">
-          <button className="btn-cancel" type="button">
-            아니오
-          </button>
-          <button className="btn-submit" type="button">
-            예
-          </button>
-        </div>
-      </div>
-      <div className="modal modal-done">
-        <div className="modal-content">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
-            <path
-              d="M448,256c0-106-86-192-192-192S64,150,64,256s86,192,192,192S448,362,448,256Z"
-              style={{
-                fill: 'none',
-                stroke: 'slategray',
-                strokeMiterlimit: 10,
-                strokeWidth: '32px',
-              }}
-            />
-            <polyline
-              points="352 176 217.6 336 160 272"
-              style={{
-                fill: 'none',
-                stroke: 'slategray',
-                strokeLinecap: 'round',
-                strokeLinejoin: 'round',
-                strokeWidth: '32px',
-              }}
-            />
-          </svg>
-          <p>장애 접수가 등록 되었습니다.</p>
-        </div>
-        <div className="modal-footer buttons">
-          <button className="btn-cancel" type="button">
-            확인
-          </button>
-        </div>
-      </div>
+      <Modal open={modalOpen} close={closeModal} header="장애 접수">
+        장애 접수를 등록하시겠습니까?
+      </Modal>
+      <ModalDone open={modalOpen} close={closeModal}>
+        장애 접수가 등록 되었습니다.
+      </ModalDone>
     </>
   );
 }
