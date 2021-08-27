@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
+import api from '../../../_api/backend';
 
 export function DeviceList(props: any) {
   const dispatch = useDispatch();
+  const [devicesForMap, setDevicesForMap] = useState<any[]>([]);
 
   useEffect(() => {
     dispatch(
@@ -20,7 +22,18 @@ export function DeviceList(props: any) {
         ),
       })
     );
-  });
+
+    fetchDevices();
+  }, []);
+
+  const fetchDevices = () => {
+    api.getDevicesForMap().then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response && Array.isArray(response.results)) {
+        setDevicesForMap(response.results);
+      }
+    });
+  };
 
   const onClickAddWork = () => {
     alert('on click add work');
@@ -43,9 +56,11 @@ export function DeviceList(props: any) {
     <div>
       <h1>this is device list</h1>
       <ul>
-        <li onClick={() => onClickItem(1)}>item1</li>
-        <li onClick={() => onClickItem(2)}>item2</li>
-        <li onClick={() => onClickItem(3)}>item3</li>
+        {devicesForMap.map((device) => (
+          <li key={device.device_uuid} onClick={() => onClickItem(device.device_uuid)}>
+            {device.name}
+          </li>
+        ))}
       </ul>
     </div>
   );
