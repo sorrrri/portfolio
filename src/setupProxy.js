@@ -2,10 +2,10 @@ const proxy = require('http-proxy-middleware');
 
 module.exports = function (app) {
   app.use(
-    '/dms-gis-proxy/http/*',
+    '/platform/*',
     proxy({
-      target: 'https://dev-m-dongnae.vurixcloud.com/dms-gis-proxy/http/',
-      pathRewrite: { '^/dms-gis-proxy/http/*': '' },
+      target: 'https://api-172-30-10-101.vurix.kr/platform',
+      pathRewrite: { '^/platform/*': '' },
       secure: false,
       changeOrigin: true,
     })

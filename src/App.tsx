@@ -16,8 +16,8 @@ import { Device } from './pages/device';
 function App(routeProps: RouteComponentProps) {
   const keycloackConfig = {
     url: 'https://auth-172-30-10-101.vurix.kr/auth/',
-    realm: 'platform',
-    clientId: 'platform',
+    realm: process.env.REACT_APP_REALM!,
+    clientId: process.env.REACT_APP_REALM!,
   };
 
   const cookies = new Cookies();
@@ -27,7 +27,9 @@ function App(routeProps: RouteComponentProps) {
       initOptions={{
         onLoad: 'login-required',
       }}
-      onEvent={(type, error) => console.log(error)}
+      onEvent={(type, message) => {
+        console.log('[Keycloak]', type, message);
+      }}
       keycloakConfig={keycloackConfig}
       persistor={SSRCookies(cookies)}
     >
