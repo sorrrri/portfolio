@@ -65,11 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainButton = bottomStickyMenu.querySelector(".btn-main");
     mainButton.addEventListener("click", () => {
       subButtons.classList.toggle("active");
-      overlay.classList.toggle("active");
-      overlay.addEventListener("click", () => {
-        subButtons.classList.remove("active");
-      });
-
     });
   }
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-export const BottomStickyMenu = () => {
+export const BottomStickyMenu = (props: { toggle: any }) => {
   const history = useHistory();
+  const { toggle } = props;
 
   return (
     <div className="bottom-sticky-menu">
       <div className="buttons">
-        <button className="btn-search" type="button">
+        <button className="btn-search" type="button" onClick={toggle}>
           <i className="fad fa-search" />
         </button>
         <button

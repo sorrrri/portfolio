@@ -3,16 +3,15 @@ import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
 import { SearchArea } from '../../../_layout/top-navigator/search-area';
+import { BottomStickyMenu } from '../../../_layout/bottom-sticky-menu';
 
 export function WorkspaceList(props: any) {
-  const dispatch = useDispatch();
-
   const [isToggleOn, setToggleOn] = useState(false);
-
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
       showHeader({
@@ -58,9 +57,7 @@ export function WorkspaceList(props: any) {
             </p>
           </div>
           <div className="status">
-            <div className="attach">
-              <i className="fal fa-paperclip" />
-            </div>
+            <div className="attach" />
             <ul>
               <li>
                 <i className="fad fa-comment-alt-lines" />
@@ -92,6 +89,20 @@ export function WorkspaceList(props: any) {
           </div>
           <div className="details">
             <p>데이터 시각화 사용을 위한 권한을 요청 드립니다.</p>
+            <ul className="images">
+              <li className="image">
+                <img
+                  src="https://images.unsplash.com/photo-1610819610413-3e42356fc150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                  alt=""
+                />
+              </li>
+              <li className="image">
+                <img
+                  src="https://images.unsplash.com/photo-1596311087104-86dba6be2aad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fHN0cmVldHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                  alt=""
+                />
+              </li>
+            </ul>
           </div>
           <div className="status">
             <div className="attach">
@@ -164,9 +175,7 @@ export function WorkspaceList(props: any) {
             <p>데이터 시각화 사용을 위한 권한을 요청 드립니다.</p>
           </div>
           <div className="status">
-            <div className="attach">
-              <i className="fal fa-paperclip" />
-            </div>
+            <div className="attach" />
             <ul>
               <li>
                 <i className="fad fa-comment-alt-lines" />
@@ -198,6 +207,12 @@ export function WorkspaceList(props: any) {
           </div>
           <div className="details">
             <p>데이터 시각화 사용을 위한 권한을 요청 드립니다.</p>
+            <ul className="documents">
+              <li className="document">
+                <i className="fad fa-file-alt" />
+                <span>권한 변경 요청서.xlsx</span>
+              </li>
+            </ul>
           </div>
           <div className="status">
             <div className="attach">
@@ -250,6 +265,7 @@ export function WorkspaceList(props: any) {
           </div>
         </div>
       </main>
+      <BottomStickyMenu toggle={toggleSearchArea} />
     </>
   );
 }
