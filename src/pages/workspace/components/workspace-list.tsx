@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
+import dummy from '../../../workspace-test/workspace-list-test.json';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
@@ -43,9 +44,13 @@ export function WorkspaceList(props: any) {
     <div>
       <h1>this is workspace list</h1>
       <ul>
-        <li onClick={() => onClickItem(1)}>item1</li>
-        <li onClick={() => onClickItem(2)}>item2</li>
-        <li onClick={() => onClickItem(3)}>item3</li>
+        {dummy.response.results.map((data: any) => (
+          <li key={data.uuid} onClick={() => onClickItem(data.uuid)}>
+            {data.registrant.name}
+            <p>{data.reg_date}</p>
+            <p>{data.title}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );
