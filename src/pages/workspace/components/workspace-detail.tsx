@@ -193,11 +193,11 @@ export function WorkspaceDetail(props: any) {
           </div>
         </div>
       </main>
-      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} header="장애 접수">
-        장애 접수를 등록하시겠습니까?
+      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} header="댓글 등록">
+        작업 내용을 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} closeModal={isCloseAll}>
-        장애 접수가 등록 되었습니다.
+        작업 내용이 등록 되었습니다.
       </ModalDone>
     </>
   );
