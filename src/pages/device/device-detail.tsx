@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../_store/slice/header-option';
+import { ModalNavigation } from './components/modal-navigation';
 
 export function DeviceDetail(props: any) {
   const dispatch = useDispatch();
@@ -21,9 +22,12 @@ export function DeviceDetail(props: any) {
     setCurrentTab(tabIndex);
   };
 
-  const [isToggleOn, setToggleOn] = useState(true);
-  const handleClick = () => {
-    setToggleOn(!isToggleOn);
+  const [isOpen, setIsOpen] = useState(false);
+  const showModalNavigation = () => {
+    setIsOpen(true);
+  };
+  const isClose = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -42,7 +46,7 @@ export function DeviceDetail(props: any) {
           </div>
           <div className="address">
             <p>충청남도 천안시 서북구 불당동 1830</p>
-            <button className="btn-navigation" onClick={handleClick} type="button">
+            <button className="btn-navigation" onClick={showModalNavigation} type="button">
               <i className="fad fa-directions" />
               <span>내비게이션</span>
             </button>
@@ -101,34 +105,7 @@ export function DeviceDetail(props: any) {
           </div>
         </section>
       </main>
-      <div className={`modal modal-navigation ${isToggleOn ? 'active' : ''}`}>
-        <div className="modal-header">
-          <div className="title">
-            <h3>내비게이션</h3>
-            <button className="btn-close" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
-                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div className="modal-content">
-          <ul className="navigations">
-            <li>
-              <img src="assets/images/logo_kakaomap.png" alt="카카오맵 바로가기" />
-              <span>카카오맵</span>
-            </li>
-            <li>
-              <img src="assets/images/logo_navermap.png" alt="네이버지도 바로가기" />
-              <span>네이버지도</span>
-            </li>
-            <li>
-              <img src="assets/images/logo_tmap.jpg" alt="티맵 바로가기" />
-              <span>T map</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <ModalNavigation show={isOpen} closeModal={isClose} />
     </>
   );
 }
