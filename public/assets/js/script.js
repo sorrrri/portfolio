@@ -100,16 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Modal: New Comments
   ===================================================== */
-  const newComment = document.querySelector(".comments .new");
-
-  if (newComment) {
-    const button = newComment.querySelector(".btn-submit");
-    const modalConfirm = document.querySelector(".modal-confirm");
-
-    button.addEventListener("click", () => {
-      visibleOverlay(modalConfirm);
-    });
-  }
 
   /* =====================================================
        Modal: Zoom In Images
