@@ -68,7 +68,7 @@ export function DeviceDetail(props: any) {
             </div>
             <div className="row">
               <span>장비 유형</span>
-              <span>CCTV &alt; 도로 감시</span>
+              <span>CCTV &gt; 도로 감시</span>
             </div>
             <div className="row">
               <span>장비 상태</span>
