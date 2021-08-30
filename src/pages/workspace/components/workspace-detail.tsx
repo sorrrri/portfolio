@@ -102,22 +102,22 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="filters">
               <button type="button">
+                <input type="radio" id="input-request-comment" name="filter-type" defaultChecked />
                 <label className="bg-orange" htmlFor="input-request-comment">
                   <span>요청</span>
                 </label>
-                <input type="radio" id="input-request-comment" name="filter-type" defaultChecked />
               </button>
               <button type="button">
+                <input type="radio" id="input-undertake-comment" name="filter-type" />
                 <label className="bg-blue" htmlFor="input-undertake-comment">
                   <span>진행</span>
                 </label>
-                <input type="radio" id="input-undertake-comment" name="filter-type" />
               </button>
               <button type="button">
+                <input type="radio" id="input-done-comment" name="filter-type" />
                 <label className="bg-green" htmlFor="input-done-comment">
                   <span>완료</span>
                 </label>
-                <input type="radio" id="input-done-comment" name="filter-type" />
               </button>
             </div>
             <textarea name="" id="" />

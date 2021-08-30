@@ -53,7 +53,7 @@ export const SearchArea = (props: { show: any }) => {
           </label>
         </button>
       </div>
-      <div className="filters filters-equipments">
+      {/* <div className="filters filters-equipments">
         <button type="button">
           <input type="radio" id="input-address" name="filter-search-equipments" defaultChecked />
           <label htmlFor="input-address">
@@ -66,7 +66,7 @@ export const SearchArea = (props: { show: any }) => {
             <span>CCTV 검색</span>
           </label>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
