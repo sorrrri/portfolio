@@ -1,8 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 
-export const ModalMarkers = (props: { show?: any; closeModal?: any }) => {
-  const { show, closeModal } = props;
+export const ModalMarkers = (props: { show?: any; closeModal?: any; goDetail?: any }) => {
+  const { show, closeModal, goDetail } = props;
 
   return (
     <>
@@ -16,7 +16,7 @@ export const ModalMarkers = (props: { show?: any; closeModal?: any }) => {
           </div>
         </section>
         <section className="result">
-          <div className="row">
+          <div className="row" onClick={goDetail}>
             <div className="tags">
               <span className="tag">TMS</span>
               <span className="tag">CCTV</span>
