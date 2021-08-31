@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export const BottomStickyMenu = (props: { toggle: any }) => {
   const history = useHistory();
   const { toggle } = props;
 
+  const [isToggleOn, setToggleOn] = useState(false);
+  const toggleMenus = () => {
+    setToggleOn(!isToggleOn);
+  };
+
   return (
     <div className="bottom-sticky-menu">
-      <div className="buttons">
-        <button className="btn-search" type="button" onClick={toggle}>
+      <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
+        <button className="btn-search" onClick={toggle} type="button">
           <i className="fad fa-search" />
         </button>
         <button
@@ -22,7 +27,7 @@ export const BottomStickyMenu = (props: { toggle: any }) => {
           <i className="fad fa-tools" />
         </button>
       </div>
-      <button className="btn-main" type="button">
+      <button className="btn-main" onClick={toggleMenus} type="button">
         <i className="fal fa-plus" />
       </button>
     </div>

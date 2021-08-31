@@ -7,6 +7,7 @@ import { BottomStickyMenu } from '../../../_layout/bottom-sticky-menu';
 
 export function WorkspaceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
+
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };

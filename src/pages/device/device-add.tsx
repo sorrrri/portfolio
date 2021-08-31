@@ -139,7 +139,7 @@ export function DeviceAdd() {
           setIsOpen3(false);
         }}
       />
-      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} header="장애 접수">
+      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} title="장애 접수">
         장애 접수를 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} closeModal={isCloseAll}>

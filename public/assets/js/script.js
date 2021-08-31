@@ -23,16 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Dropdown Menu
   ===================================================== */
-  const mainMenus = document.querySelectorAll(".main-menu");
-  const overlay = document.querySelector(".overlay");
-
-  mainMenus.forEach((mainMenu) => {
-    mainMenu.addEventListener("click", () => {
-      const aside = mainMenu.closest("aside");
-      aside.classList.remove("active");
-      overlay.classList.remove("active");
-    });
-  });
 
 
   /* =====================================================
@@ -61,11 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
       lastScrollTop = currentScrollTop;
     });
 
-    // 하단 sticky menu를 누르면 sub menu들이 펼쳐지도록
-    const mainButton = bottomStickyMenu.querySelector(".btn-main");
-    mainButton.addEventListener("click", () => {
-      subButtons.classList.toggle("active");
-    });
   }
 
   /* =====================================================
@@ -76,21 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Header Search Area
   ===================================================== */
-  const workspaceList = document.querySelector(".workspace.list");
-  const equipmentsPage = document.querySelector(".equipments");
 
-
-  if (workspaceList) {
-    const filters = document.querySelector(".filters-equipments");
-    filters.style.display = "none";
-  }
-
-  if (equipmentsPage) {
-    if (equipmentsPage.classList.contains("list")) {
-      const filters = document.querySelector(".filters-workspace");
-      filters.style.display = "none";
-    }
-  }
 
   /* =====================================================
        Modal: Marker Details
