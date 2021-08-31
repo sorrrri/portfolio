@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { Modal } from '../../../_component/modal-confirm';
 import { ModalDone } from '../../../_component/modal-done';
+import { ModalImage } from '../../../_component/modal-image';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export function WorkspaceDetail(props: any) {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
 
   const showModal = () => {
     setIsOpen(true);
@@ -28,6 +30,10 @@ export function WorkspaceDetail(props: any) {
 
   const showSecondModal = () => {
     setIsOpen2(true);
+  };
+
+  const showImageModal = () => {
+    setIsOpen3(true);
   };
 
   const isClose = () => {
@@ -68,12 +74,14 @@ export function WorkspaceDetail(props: any) {
             <div className="images">
               <div className="image">
                 <img
+                  onClick={showImageModal}
                   src="https://images.unsplash.com/photo-1610819610413-3e42356fc150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                   alt=""
                 />
               </div>
               <div className="image">
                 <img
+                  onClick={showImageModal}
                   src="https://images.unsplash.com/photo-1596311087104-86dba6be2aad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fHN0cmVldHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                   alt=""
                 />
@@ -199,6 +207,7 @@ export function WorkspaceDetail(props: any) {
       <ModalDone show={isOpen2} closeModal={isCloseAll}>
         작업 내용이 등록 되었습니다.
       </ModalDone>
+      <ModalImage show={isOpen3} closeModal={() => setIsOpen3(false)} />
     </>
   );
 }

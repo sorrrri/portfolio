@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
   
   if (bottomStickyMenu) {
-    const subButtons = bottomStickyMenu.querySelector(".buttons");
     const delta = 5;
     let lastScrollTop = 0;
 
@@ -80,21 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImage = document.querySelector(".modal-image");
 
   if (images) {
-    // const modalImage = document.createElement("div")
-    // modalImage.classList.add("modal", "modal-image")
-    // container.append(modalImage)
-
     images.forEach((image) => {
       image.addEventListener("click", (e) => {
         e.preventDefault();
-
-        modalImage.classList.add("active");
         modalImage.innerHTML = `<img src="${e.target.src}" alt="" />`;
-        visibleOverlay(modalImage);
-        modalImage.addEventListener("click", () => {
-          hiddenOverlay(modalImage);
-          modals.forEach((modal) => modal.classList.remove("active"));
-        });
       });
     });
   }
@@ -102,7 +90,4 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Loader
   ===================================================== */
-  const loader = document.querySelector(".loader");
-  if (loader) {
-  }
 });
