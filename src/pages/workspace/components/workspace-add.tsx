@@ -38,9 +38,37 @@ export function WorkspaceAdd() {
     setIsOpen2(false);
   };
 
+  const delta = 5;
+  let lastScrollTop = 0;
+
+  const activeScroll = () => {
+    const container = document.querySelector('.container') as HTMLDivElement;
+    const main = document.querySelector('main') as HTMLDivElement;
+    const bottomStickyMenu = document.querySelector('.bottom-sticky-menu') as HTMLDivElement;
+
+    if (main.scrollTop > 50) {
+      container.classList.add('scroll');
+    } else {
+      container.classList.remove('scroll');
+    }
+
+    // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
+    // eslint-disable-next-line prefer-const
+    let currentScrollTop = main.scrollTop;
+    if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
+      return;
+    }
+    if (currentScrollTop > lastScrollTop) {
+      bottomStickyMenu.classList.remove('active');
+    } else {
+      bottomStickyMenu.classList.add('active');
+    }
+    lastScrollTop = currentScrollTop;
+  };
+
   return (
     <>
-      <main className="content details add workspace">
+      <main className="content details add workspace" onScroll={activeScroll}>
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>

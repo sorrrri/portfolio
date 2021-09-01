@@ -8,6 +8,7 @@
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-decorators": "^7.13.5",
     "@babel/preset-typescript": "^7.13.0",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@reduxjs/toolkit": "^1.6.0",
     "@svgr/webpack": "5.5.0",

@@ -8,17 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   });
 
-  const container = document.querySelector(".container");
-  const main = document.querySelector("main");
-  const header = document.querySelector("header");
-
-  main.addEventListener("scroll", () => {
-    if (main.scrollTop > 50) {
-      container.classList.add("scroll");
-    } else {
-      container.classList.remove("scroll");
-    }
-  });
 
   /* =====================================================
        Dropdown Menu
@@ -28,29 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
        Bottom Sticky Menu
   ===================================================== */
-  const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
-  
-  if (bottomStickyMenu) {
-    const delta = 5;
-    let lastScrollTop = 0;
-
-    main.addEventListener("scroll", () => {
-      // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
-      let currentScrollTop = main.scrollTop;
-      if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
-        return;
-      }
-      if (currentScrollTop > lastScrollTop) {
-        //Scroll down
-        bottomStickyMenu.classList.remove("active");
-      } else {
-        //Scroll up
-        bottomStickyMenu.classList.add("active");
-      }
-      lastScrollTop = currentScrollTop;
-    });
-
-  }
 
   /* =====================================================
        Modal
