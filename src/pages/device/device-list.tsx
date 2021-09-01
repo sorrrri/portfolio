@@ -6,6 +6,7 @@ import { showHeader } from '../../_store/slice/header-option';
 import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-search-work';
 import { FilterMarkers } from './components/filter-markers';
 import { ModalMarkers } from './components/modal-markers';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function DeviceList(props: any) {
   const history = useHistory();
@@ -43,7 +44,7 @@ export function DeviceList(props: any) {
   return (
     <>
       <FilterMarkers showFilter={isOpen} closeModal={isClose} />
-      <main className="content equipments maps">
+      <main className="content equipments maps" onScroll={ActiveScroll}>
         <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
           <i className="fad fa-map-marked-alt" />
         </button>

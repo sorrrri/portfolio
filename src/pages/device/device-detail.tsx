@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { ActiveScroll } from '../../_component/active-scroll';
 import { showHeader } from '../../_store/slice/header-option';
 import { ModalNavigation } from './components/modal-navigation';
 
@@ -30,37 +31,9 @@ export function DeviceDetail(props: any) {
     setIsOpen(false);
   };
 
-  const delta = 5;
-  let lastScrollTop = 0;
-
-  const activeScroll = () => {
-    const container = document.querySelector('.container') as HTMLDivElement;
-    const main = document.querySelector('main') as HTMLDivElement;
-    const bottomStickyMenu = document.querySelector('.bottom-sticky-menu') as HTMLDivElement;
-
-    if (main.scrollTop > 50) {
-      container.classList.add('scroll');
-    } else {
-      container.classList.remove('scroll');
-    }
-
-    // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
-    // eslint-disable-next-line prefer-const
-    let currentScrollTop = main.scrollTop;
-    if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
-      return;
-    }
-    if (currentScrollTop > lastScrollTop) {
-      bottomStickyMenu.classList.remove('active');
-    } else {
-      bottomStickyMenu.classList.add('active');
-    }
-    lastScrollTop = currentScrollTop;
-  };
-
   return (
     <>
-      <main className="content equipments details" onScroll={activeScroll}>
+      <main className="content equipments details" onScroll={ActiveScroll}>
         <section>
           <div className="title">
             <strong>W28E012_서북구 불당동 1830</strong>

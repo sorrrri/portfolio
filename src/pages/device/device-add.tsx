@@ -5,6 +5,7 @@ import { showHeader } from '../../_store/slice/header-option';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { ModalSearch } from './components/modal-search';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function DeviceAdd() {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ export function DeviceAdd() {
 
   return (
     <>
-      <main className="content details add">
+      <main className="content details add" onScroll={ActiveScroll}>
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>

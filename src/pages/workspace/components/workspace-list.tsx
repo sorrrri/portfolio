@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
 import { SearchArea } from '../../../_layout/top-navigator/search-area';
+import { ActiveScroll } from '../../../_component/active-scroll';
 
 const scrollToRef = (ref: any) => window.scrollTo(0, ref.current.offsetTop);
 
@@ -29,38 +30,10 @@ export function WorkspaceList(props: any) {
     history.push(`/workspace/${workId}`);
   };
 
-  const delta = 5;
-  let lastScrollTop = 0;
-
-  const activeScroll = () => {
-    const container = document.querySelector('.container') as HTMLDivElement;
-    const main = document.querySelector('main') as HTMLDivElement;
-    const bottomStickyMenu = document.querySelector('.bottom-sticky-menu') as HTMLDivElement;
-
-    if (main.scrollTop > 50) {
-      container.classList.add('scroll');
-    } else {
-      container.classList.remove('scroll');
-    }
-
-    // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
-    // eslint-disable-next-line prefer-const
-    let currentScrollTop = main.scrollTop;
-    if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
-      return;
-    }
-    if (currentScrollTop > lastScrollTop) {
-      bottomStickyMenu.classList.remove('active');
-    } else {
-      bottomStickyMenu.classList.add('active');
-    }
-    lastScrollTop = currentScrollTop;
-  };
-
   return (
     <>
       <SearchArea show={isToggleOn} />
-      <main className="content list workspace" onScroll={activeScroll}>
+      <main className="content list workspace" onScroll={ActiveScroll}>
         <div className="row emergency" onClick={() => onClickItem(1)}>
           <div className="row-title">
             <ul>
