@@ -1398,7 +1398,7 @@ main {
           display: flex;
           flex-wrap: wrap;
           margin-top: 0.5rem;
-          gap: .5rem;
+          gap: 0.5rem;
 
           .document {
             white-space: nowrap;
@@ -1409,7 +1409,7 @@ main {
           }
 
           span {
-            color: #333
+            color: #333;
           }
         }
       }
@@ -1785,6 +1785,7 @@ main {
       + .btn-main {
         background-color: white;
         color: $secondary-color;
+        transform: rotate(405deg);
       }
     }
 
