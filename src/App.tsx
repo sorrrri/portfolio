@@ -1,3 +1,5 @@
+/* eslint-disable no-shadow */
+/* eslint-disable prefer-const */
 import React from 'react';
 import {
   // BrowserRouter as Router,
@@ -14,6 +16,15 @@ import { DeviceAdd } from './pages/device/device-add';
 import { WorkspaceAdd } from './pages/workspace/components/workspace-add';
 
 function App(routeProps: RouteComponentProps) {
+  // 기기 높이 맞추기
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
   return (
     <Route path="*">
       <LayoutTopNavigator {...routeProps}>
