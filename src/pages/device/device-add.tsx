@@ -47,7 +47,7 @@ export function DeviceAdd() {
 
   return (
     <>
-      <main className="content details add" onScroll={ActiveScroll}>
+      <main className="content details add">
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>

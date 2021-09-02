@@ -7,19 +7,19 @@ import { RouteAndChildrenProps } from '../@jms-react/types/aux-props';
 import { BottomStickyMenu } from './bottom-sticky-menu';
 
 export function LayoutTopNavigator(props: RouteAndChildrenProps) {
+  // 기기 높이 맞추기
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
   const [isToggleOn, setToggleOn] = useState(false);
 
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
-  // 기기 높이 맞추기
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-  window.addEventListener('resize', () => {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  });
 
   return (
     <>

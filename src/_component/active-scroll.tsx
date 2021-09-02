@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 const delta = 5;
 let lastScrollTop = 0;
 
@@ -13,7 +14,6 @@ export const ActiveScroll = () => {
   }
 
   // scroll이 감지될 떄, 하단 sticky menu의 활성화 여부
-  // eslint-disable-next-line prefer-const
   let currentScrollTop = main.scrollTop;
   if (Math.abs(lastScrollTop - currentScrollTop) <= delta) {
     return;

@@ -28,14 +28,20 @@ export const BottomStickyMenu = (props: { toggle: any }) => {
             <i className="fad fa-arrow-up" />
           </button>
           <button
-            onClick={() => history.push('/workspace-add')}
+            onClick={() => {
+              history.push('/workspace-add');
+              setToggleOn(false);
+            }}
             className="btn-workspace"
             type="button"
           >
             <i className="fad fa-briefcase" />
           </button>
           <button
-            onClick={() => history.push('/device-add')}
+            onClick={() => {
+              history.push('/device-add');
+              setToggleOn(false);
+            }}
             className="btn-undertake"
             type="button"
           >
