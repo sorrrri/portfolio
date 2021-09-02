@@ -564,6 +564,21 @@ footer {
   z-index: -1;
   transition: 0.4s;
 
+  &.active {
+    opacity: 1;
+    max-height: 100px;
+    padding-bottom: 1rem;
+    z-index: 1;
+
+    ~ .equipments.maps {
+      display: none;
+    }
+
+    ~ .equipments.list {
+      display: flex;
+    }
+  }
+
   svg {
     fill: #ccc;
     width: 24px;
@@ -574,13 +589,6 @@ footer {
     &:focus {
       box-shadow: 0 0 0 0;
     }
-  }
-
-  &.active {
-    opacity: 1;
-    max-height: 300px;
-    padding-bottom: 1rem;
-    z-index: 1;
   }
 
   .input {
@@ -986,6 +994,7 @@ main {
   }
 
   &.list {
+    display: none;
     .row {
       flex-direction: column;
     }

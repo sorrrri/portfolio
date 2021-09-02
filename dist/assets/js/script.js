@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const mainMenus = document.querySelectorAll(".main-menu");
   const overlay = document.createElement("div");
-  overlay.classList.add("overlay")
-  container.insertBefore(overlay, container.firstChild)
+  overlay.classList.add("overlay");
+  container.insertBefore(overlay, container.firstChild);
 
   mainMenus.forEach((mainMenu) => {
     mainMenu.addEventListener("click", () => {
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
        Bottom Sticky Menu
   ===================================================== */
   const bottomStickyMenu = document.querySelector(".bottom-sticky-menu");
-  
+
   if (bottomStickyMenu) {
     const subButtons = bottomStickyMenu.querySelector(".buttons");
     const delta = 5;
@@ -228,17 +228,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const equipmentsPage = document.querySelector(".equipments");
 
   // 스크롤시, 헤더 고정
-  if(searchArea) {
+  if (searchArea) {
     main.addEventListener("scroll", () => {
       if (searchArea.classList.contains("active")) {
         container.classList.remove("scroll");
       }
     });
+
+    btnHeaderSearch.forEach((button) => {
+      button.addEventListener("click", () => {
+        searchArea.classList.toggle("active");
+      });
+    });
   }
 
   if (workspaceList) {
-    const filters = document.querySelector(".filters-equipments");
-    filters.style.display = "none";
 
     // 검색영역이 열려있을 때
     if (searchArea.classList.contains("active")) {
@@ -247,22 +251,10 @@ document.addEventListener("DOMContentLoaded", () => {
         searchArea.classList.remove("active");
       });
     }
-
-    if (btnHeaderSearch) {
-      btnHeaderSearch.forEach((button) => {
-        button.addEventListener("click", () => {
-          searchArea.classList.toggle("active");
-        });
-      });
-    }
   }
 
   if (equipmentsPage) {
     if (equipmentsPage.classList.contains("list")) {
-      const filters = document.querySelector(".filters-workspace");
-      filters.style.display = "none";
-      searchArea.classList.add("active");
-
       btnHeaderSearch.forEach((button) => {
         button.addEventListener("click", () => {
           searchArea.classList.toggle("active");
