@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
-export const SearchArea = (props: { show: any }) => {
+/* eslint-disable react/require-default-props */
+export const SearchArea = (props: { children?: any; show?: any }) => {
   const { show } = props;
   return (
     <div className={`search-area ${show ? 'active' : ''}`}>
@@ -33,40 +34,7 @@ export const SearchArea = (props: { show: any }) => {
           />
         </svg>
       </div>
-      <div className="filters filters-workspace">
-        <button type="button">
-          <input type="radio" id="input-request" name="filter-search" defaultChecked />
-          <label htmlFor="input-request">
-            <span>요청</span>
-          </label>
-        </button>
-        <button type="button">
-          <input type="radio" id="input-undertake" name="filter-search" />
-          <label htmlFor="input-undertake">
-            <span>진행</span>
-          </label>
-        </button>
-        <button type="button">
-          <input type="radio" id="input-done" name="filter-search" />
-          <label htmlFor="input-done">
-            <span>완료</span>
-          </label>
-        </button>
-      </div>
-      {/* <div className="filters filters-equipments">
-        <button type="button">
-          <input type="radio" id="input-address" name="filter-search-equipments" defaultChecked />
-          <label htmlFor="input-address">
-            <span>주소 검색</span>
-          </label>
-        </button>
-        <button type="button">
-          <input type="radio" id="input-cctv" name="filter-search-equipments" />
-          <label htmlFor="input-cctv">
-            <span>CCTV 검색</span>
-          </label>
-        </button>
-      </div> */}
+      <div className="filters">{props.children}</div>
     </div>
   );
 };

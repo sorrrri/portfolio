@@ -7,7 +7,6 @@ import { ActiveScroll } from '../../../_component/active-scroll';
 
 export function WorkspaceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
-
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };

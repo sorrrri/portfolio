@@ -7,17 +7,22 @@ import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-sea
 import { FilterMarkers } from './components/filter-markers';
 import { ModalMarkers } from './components/modal-markers';
 import { ActiveScroll } from '../../_component/active-scroll';
+import { SearchArea } from '../../_layout/top-navigator/search-area';
 
 export function DeviceList(props: any) {
+  const [isToggleOn, setToggleOn] = useState(false);
+  const toggleSearchArea = () => {
+    setToggleOn(!isToggleOn);
+  };
+
   const history = useHistory();
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(
       showHeader({
         title: '장비 현황',
         leftContextType: 'menu',
-        rightContext: () => <AddSearchWork {...props} />,
+        rightContext: () => <AddSearchWork toggle={toggleSearchArea} {...props} />,
       })
     );
   });
@@ -43,6 +48,20 @@ export function DeviceList(props: any) {
 
   return (
     <>
+      <SearchArea show={isToggleOn}>
+        <button type="button">
+          <input type="radio" id="input-address" name="filter-search-equipments" defaultChecked />
+          <label htmlFor="input-address">
+            <span>주소 검색</span>
+          </label>
+        </button>
+        <button type="button">
+          <input type="radio" id="input-cctv" name="filter-search-equipments" />
+          <label htmlFor="input-cctv">
+            <span>CCTV 검색</span>
+          </label>
+        </button>
+      </SearchArea>
       <FilterMarkers showFilter={isOpen} closeModal={isClose} />
       <main className="content equipments maps" onScroll={ActiveScroll}>
         <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
@@ -76,6 +95,75 @@ export function DeviceList(props: any) {
             }}
           />
         </div>
+      </main>
+      <main className="content list equipments" onScroll={ActiveScroll}>
+        <section className="result">
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+          <div className="row">
+            <div className="tags">
+              <span className="tag">TMS</span>
+              <span className="tag">CCTV</span>
+              <span className="tag">주정차 단속</span>
+            </div>
+            <div>2019_P_신정호_고정15_자기망</div>
+          </div>
+        </section>
+        <section className="no-result">검색 내역이 없습니다.</section>
       </main>
       <ModalMarkers
         show={isOpen2}
