@@ -157,6 +157,13 @@ document.addEventListener("DOMContentLoaded", () => {
           searchArea.classList.remove("active");
         }
       });
+
+      const scrollToTopButton = subButtons.querySelector(".btn-top");
+      scrollToTopButton.addEventListener("click", () => {
+        subButtons.classList.remove("active");
+        overlay.classList.remove("active");
+        main.scrollTop = 0;
+      });
     });
   }
 
@@ -243,7 +250,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (workspaceList) {
-
     // 검색영역이 열려있을 때
     if (searchArea.classList.contains("active")) {
       // 검색버튼을 누르면 검색영역 닫힘

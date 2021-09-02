@@ -1768,12 +1768,15 @@ main {
         box-shadow: 0px 3px 4.5px 1px rgba(0, 0, 0, 0.1);
 
         &:nth-of-type(1) {
-          transform: translateY(calc(-300% - 2.5rem));
+          transform: translateX(calc(-200% - 1.75rem));
         }
         &:nth-of-type(2) {
-          transform: translateY(calc(-200% - 1.75rem));
+          transform: translateX(calc(-100% - 1rem));
         }
         &:nth-of-type(3) {
+          transform: translateY(calc(-200% - 1.75rem));
+        }
+        &:nth-of-type(4) {
           transform: translateY(calc(-100% - 1rem));
         }
       }
@@ -1792,9 +1795,9 @@ main {
     button {
       font-size: 2rem;
 
-      &.btn-search {
-        background-color: #d7dcdf;
-        color: $primary-color;
+      &.btn-search,
+      &.btn-top {
+        background-color: $primary-color;
       }
     }
   }
@@ -1812,7 +1815,7 @@ main {
     transition: 0.2s;
 
     &.btn-main {
-      box-shadow: 0px 5px 10px 1px rgba(60, 179, 173, 0.3);
+      box-shadow: 0px 4px 8px 1px rgba(60, 179, 173, 0.1);
       font-size: 1.5rem;
     }
 
