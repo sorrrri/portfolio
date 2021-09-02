@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
 import { SearchArea } from '../../../_layout/top-navigator/search-area';
 import { ActiveScroll } from '../../../_component/active-scroll';
-
-const scrollToRef = (ref: any) => window.scrollTo(0, ref.current.offsetTop);
 
 export function WorkspaceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
