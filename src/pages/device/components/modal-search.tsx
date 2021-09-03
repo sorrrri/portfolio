@@ -2,7 +2,7 @@
 import React from 'react';
 
 // eslint-disable-next-line react/require-default-props
-export const ModalSearch = (props: { show?: any; closeModal?: any }) => {
+export const ModalSearch = (props: any) => {
   const { show, closeModal } = props;
 
   return (

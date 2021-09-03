@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Modal } from '../../../_component/modal-confirm';
-import { ModalDone } from '../../../_component/modal-done';
-import { showHeader } from '../../../_store/slice/header-option';
+import { Modal } from '../../_component/modal-confirm';
+import { ModalDone } from '../../_component/modal-done';
+import { showHeader } from '../../_store/slice/header-option';
 
 export function WorkspaceAdd() {
   const dispatch = useDispatch();

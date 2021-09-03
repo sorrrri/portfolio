@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { showHeader } from '../../../_store/slice/header-option';
-import { Modal } from '../../../_component/modal-confirm';
-import { ModalDone } from '../../../_component/modal-done';
-import { ModalImage } from '../../../_component/modal-image';
-import { ActiveScroll } from '../../../_component/active-scroll';
+import { showHeader } from '../../_store/slice/header-option';
+import { Modal } from '../../_component/modal-confirm';
+import { ModalDone } from '../../_component/modal-done';
+import { ModalImage } from '../../_component/modal-image';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();

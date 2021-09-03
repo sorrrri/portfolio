@@ -15,7 +15,7 @@ import { LayoutTopNavigator } from './_layout';
 import { Workspace } from './pages/workspace';
 import { Device } from './pages/device';
 import { DeviceAdd } from './pages/device/device-add';
-import { WorkspaceAdd } from './pages/workspace/components/workspace-add';
+import { WorkspaceAdd } from './pages/workspace/workspace-add';
 
 function functionScrollToTop(props: any) {
   const { pathname } = useLocation();
