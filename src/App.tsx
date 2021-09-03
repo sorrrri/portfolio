@@ -21,9 +21,7 @@ function functionScrollToTop(props: any) {
   const { pathname } = useLocation();
   useEffect(() => {
     const container = document.querySelector('.container') as HTMLDivElement;
-    const main = document.querySelector('main') as HTMLDivElement;
     const bottomStickyMenu = document.querySelector('.bottom-sticky-menu') as HTMLDivElement;
-    main.scrollTop = 0;
     container.classList.remove('scroll');
     bottomStickyMenu.classList.remove('active');
   }, [pathname]);
