@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export const BottomStickyMenu = (props: { toggle: any }) => {
+export const BottomStickyMenu = () => {
   const history = useHistory();
-  const { toggle } = props;
 
   const [isToggleOn, setToggleOn] = useState(false);
   const toggleMenus = () => {
     setToggleOn(!isToggleOn);
   };
 
-  const test = () => {
+  const scrollToTop = () => {
     setToggleOn(false);
     const main = document.querySelector('main') as HTMLDivElement;
     main.scrollTop = 0;
+  };
+
+  const showSearchArea = () => {
+    scrollToTop();
+    const searchArea = document.querySelector('.search-area');
+    if (searchArea) {
+      searchArea.classList.add('active');
+    }
   };
 
   return (
@@ -21,10 +28,10 @@ export const BottomStickyMenu = (props: { toggle: any }) => {
       <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={() => setToggleOn(false)} />
       <div className="bottom-sticky-menu">
         <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
-          <button className="btn-search" onClick={toggle} type="button">
+          <button className="btn-search" onClick={showSearchArea} type="button">
             <i className="fad fa-search" />
           </button>
-          <button className="btn-top" type="button" onClick={test}>
+          <button className="btn-top" type="button" onClick={scrollToTop}>
             <i className="fad fa-arrow-up" />
           </button>
           <button

@@ -63,7 +63,7 @@ export function DeviceList(props: any) {
         </button>
       </SearchArea>
       <FilterMarkers showFilter={isOpen} closeModal={isClose} />
-      <main className="content equipments maps" onScroll={ActiveScroll}>
+      <main className="content equipments maps">
         <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
           <i className="fad fa-map-marked-alt" />
         </button>

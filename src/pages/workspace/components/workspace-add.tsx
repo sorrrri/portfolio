@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { ActiveScroll } from '../../../_component/active-scroll';
 import { Modal } from '../../../_component/modal-confirm';
 import { ModalDone } from '../../../_component/modal-done';
 import { showHeader } from '../../../_store/slice/header-option';
@@ -41,7 +40,7 @@ export function WorkspaceAdd() {
 
   return (
     <>
-      <main className="content details add workspace" onScroll={ActiveScroll}>
+      <main className="content details add workspace">
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>

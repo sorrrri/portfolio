@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-shadow */
 /* eslint-disable prefer-const */
-import React, { useState } from 'react';
+import React from 'react';
 import TopNavigatorHeader from './top-navigator/header';
 import { RouteAndChildrenProps } from '../@jms-react/types/aux-props';
 import { BottomStickyMenu } from './bottom-sticky-menu';
@@ -15,17 +15,11 @@ export function LayoutTopNavigator(props: RouteAndChildrenProps) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 
-  const [isToggleOn, setToggleOn] = useState(false);
-
-  const toggleSearchArea = () => {
-    setToggleOn(!isToggleOn);
-  };
-
   return (
     <>
       <TopNavigatorHeader {...props} />
       {props.children}
-      <BottomStickyMenu toggle={toggleSearchArea} />
+      <BottomStickyMenu />
     </>
   );
 }
