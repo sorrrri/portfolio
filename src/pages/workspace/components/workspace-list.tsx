@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../../_store/slice/header-option';
 import { AddSearchWork } from '../../../_layout/top-navigator/right-context/add-search-work';
-import dummy from '../../../workspace-test/workspace-list-test.json';
+import api from '../../../_api/backend';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
+  const [workspaceList, setWorkspaceList] = useState<any[]>([]);
 
   useEffect(() => {
     dispatch(
@@ -21,7 +22,21 @@ export function WorkspaceList(props: any) {
         ),
       })
     );
-  });
+    fetchWorkspace();
+  }, []);
+
+  const fetchWorkspace = () => {
+    api.getWorkspace().then((workspace: any) => {
+      const { responseTime } = workspace;
+      setWorkspaceList(responseTime);
+      // const { code, response } = workspace;
+      // if (code === 200 && response && Array.isArray(response.results)) {
+      //   setWorkspaceList(response.results);
+      // }
+    });
+  };
+
+  console.log(workspaceList);
 
   const onClickAddWork = () => {
     alert('on click add work');
@@ -32,10 +47,10 @@ export function WorkspaceList(props: any) {
   };
 
   const onClickSearch = () => {
-    alert('on click search');
+    alert('on click add search');
   };
 
-  const onClickItem = (workId: number) => {
+  const onClickItem = (workId: any) => {
     const { history } = props;
     history.push(`/workspace/${workId}`);
   };
@@ -44,13 +59,12 @@ export function WorkspaceList(props: any) {
     <div>
       <h1>this is workspace list</h1>
       <ul>
-        {dummy.response.results.map((data: any) => (
-          <li key={data.uuid} onClick={() => onClickItem(data.uuid)}>
-            {data.registrant.name}
-            <p>{data.reg_date}</p>
-            <p>{data.title}</p>
+        <li onClick={() => onClickItem(workspaceList)}>{workspaceList}</li>
+        {/* {workspaceList.map((workspace) => (
+          <li key={workspace.work_uuid} onClick={() => onClickItem(workspace.work_uuid)}>
+            {workspace.title}
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

@@ -117,6 +117,14 @@ class Server {
   }
 
   /*
+   * Workspace
+   */
+  @Get('/platform/api/v2/:realm/workspace/:client_uuid')
+  async getWorkspace(): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  /*
    * Projects
    */
   @Get('/projects')
