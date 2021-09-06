@@ -1,10 +1,10 @@
 import React from 'react';
 
 export const Row = (props: any) => {
-  const { item, typeEmergency, comment, read, title, writer, date, images, documents } = props;
+  const { item, comment, read, title, writer, date, emergency, images, documents } = props;
 
   return (
-    <div className={`row ${typeEmergency ? 'emergency' : ''}`} onClick={item}>
+    <div className={`row ${emergency ? 'emergency' : ''}`} onClick={item}>
       <div className="row-title">
         <ul>
           <li className="title">

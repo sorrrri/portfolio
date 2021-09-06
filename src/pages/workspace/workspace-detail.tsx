@@ -6,6 +6,7 @@ import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { ModalImage } from '../../_component/modal-image';
 import { ActiveScroll } from '../../_component/active-scroll';
+import { Comment } from './components/comment';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -149,57 +150,20 @@ export function WorkspaceDetail(props: any) {
               </div>
             </div>
           </div>
-          <div className="other-comment">
-            <ul className="information">
-              <li className="tags">
-                <span className="tag request" />
-              </li>
-              <li className="created">
-                <i className="fad fa-user" />
-                <span className="writer">홍길동</span>
-                <span className="date">2021-08-03 12:42:32</span>
-              </li>
-            </ul>
-            <div>내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.</div>
-            <div className="status">
-              <i className="fad fa-comment-alt-check" />
-              <span>박보검</span>
-            </div>
-          </div>
-          <div className="other-comment">
-            <ul className="information">
-              <li className="tags">
-                <span className="tag undertake" />
-              </li>
-              <li className="created">
-                <i className="fad fa-user" />
-                <span className="writer">홍길동</span>
-                <span className="date">2021-08-03 12:42:32</span>
-              </li>
-            </ul>
-            <div>내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.</div>
-            <div className="status">
-              <i className="fad fa-comment-alt-check" />
-              <span>박보검, 정우성, 전지현, 이정재, 이영애, 손예진, 현빈, 고길동, 둘리, 또치</span>
-            </div>
-          </div>
-          <div className="other-comment">
-            <ul className="information">
-              <li className="tags">
-                <span className="tag done" />
-              </li>
-              <li className="created">
-                <i className="fad fa-user" />
-                <span className="writer">홍길동</span>
-                <span className="date">2021-08-03 12:42:32</span>
-              </li>
-            </ul>
-            <div>내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.</div>
-            <div className="status">
-              <i className="fad fa-comment-alt-check" />
-              <span>박보검, 정우성, 전지현, 이정재, 이영애, 손예진, 현빈, 고길동, 둘리, 또치</span>
-            </div>
-          </div>
+          <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
+            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+          </Comment>
+          <Comment
+            undertake
+            writer="홍길동"
+            date="2021-08-03 12:42:32"
+            read="박보검, 정우성, 전지현, 이정재, 이영애, 손예진, 현빈, 고길동, 둘리, 또치"
+          >
+            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+          </Comment>
+          <Comment done date="2021-08-03 12:42:32" read="박보검">
+            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+          </Comment>
         </div>
       </main>
       <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} title="댓글 등록">

@@ -1,8 +1,15 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Row } from './list-row';
 
-export const ModalMarkers = (props: { show?: any; closeModal?: any; goDetail?: any }) => {
-  const { show, closeModal, goDetail } = props;
+export const ModalMarkers = (props: any) => {
+  const { show, closeModal } = props;
+  const history = useHistory();
+
+  const onClickItem = (workId: number) => {
+    history.push(`/device/${workId}`);
+  };
 
   return (
     <>
@@ -16,54 +23,16 @@ export const ModalMarkers = (props: { show?: any; closeModal?: any; goDetail?: a
           </div>
         </section>
         <section className="result">
-          <div className="row" onClick={goDetail}>
-            <div className="tags">
-              <span className="tag">TMS</span>
-              <span className="tag">CCTV</span>
-              <span className="tag">주정차 단속</span>
-            </div>
-            <div>2019_P_신정호_고정15_자기망</div>
-          </div>
-          <div className="row">
-            <div className="tags">
-              <span className="tag">TMS</span>
-              <span className="tag">CCTV</span>
-              <span className="tag">주정차 단속</span>
-            </div>
-            <div>2019_P_신정호_고정15_자기망</div>
-          </div>
-          <div className="row">
-            <div className="tags">
-              <span className="tag">TMS</span>
-              <span className="tag">CCTV</span>
-              <span className="tag">주정차 단속</span>
-            </div>
-            <div>2019_P_신정호_고정15_자기망</div>
-          </div>
-          <div className="row">
-            <div className="tags">
-              <span className="tag">TMS</span>
-              <span className="tag">CCTV</span>
-              <span className="tag">주정차 단속</span>
-            </div>
-            <div>2019_P_신정호_고정15_자기망</div>
-          </div>
-          <div className="row">
-            <div className="tags">
-              <span className="tag">TMS</span>
-              <span className="tag">CCTV</span>
-              <span className="tag">주정차 단속</span>
-            </div>
-            <div>2019_P_신정호_고정15_자기망</div>
-          </div>
-          <div className="row">
-            <div className="tags">
-              <span className="tag">TMS</span>
-              <span className="tag">CCTV</span>
-              <span className="tag">주정차 단속</span>
-            </div>
-            <div>2019_P_신정호_고정15_자기망</div>
-          </div>
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
         </section>
       </div>
     </>
