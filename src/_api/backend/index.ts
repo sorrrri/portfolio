@@ -1,7 +1,10 @@
+/* eslint-disable dot-notation */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import 'reflect-metadata';
+import { Cookies } from 'react-cookie';
 import { AxiosRequestConfig } from 'axios';
+import CryptoJS from 'crypto-js';
 import toastr from 'toastr';
 import {
   FeignClient,
@@ -19,12 +22,62 @@ import {
 
 const config = (): AxiosRequestConfig => {
   return {
-    baseURL: process.env.REACT_APP_API_URL,
+    // baseURL: process.env.REACT_APP_API_URL,
     timeout: 1000 * 10,
     headers: {
-      Authorization: window.localStorage.getItem('token'),
+      // Authorization: window.localStorage.getItem('token'),
     },
   };
+};
+
+const transformConfig = (base: AxiosRequestConfig) => {
+  try {
+    const cookies = new Cookies();
+    const storedToken = cookies.get('kcToken');
+    const decodedStoredToken = atob(storedToken);
+    const bodyOfDecodedStoredToken = decodedStoredToken.split('.')[1];
+    const tokenBody = JSON.parse(atob(bodyOfDecodedStoredToken));
+
+    const uuid = process.env.REACT_APP_UUID!;
+    const realm = tokenBody['azp'];
+    const sessionState = tokenBody['session_state'];
+    const username = tokenBody['preferred_username'];
+
+    const reqMethod = base.method;
+    const reqContentType = 'application/json';
+    const reqContentLength =
+      base.data && Object.keys(base.data).length > 0
+        ? unescape(encodeURIComponent(JSON.stringify(base.data))).length
+        : undefined;
+    const reqDate = new Date().toUTCString();
+    const reqPath = base.url?.replace(':realm', realm).replace(':client_uuid', uuid);
+
+    const stringToSign =
+      `${reqMethod}\n` +
+      `${reqContentType}\n` +
+      `${reqContentLength ?? ''}\n` +
+      `${reqDate}\n` +
+      `${realm}\n` +
+      `${username}\n` +
+      `${reqPath}`;
+
+    const reqHash = CryptoJS.HmacSHA256(stringToSign, sessionState);
+    const reqHashString = CryptoJS.enc.Base64.stringify(reqHash);
+    const reqAuth = `${username}:${reqHashString}`;
+
+    return {
+      ...base,
+      url: reqPath,
+      headers: {
+        ...base.headers,
+        'x-auth-token': reqAuth,
+        'x-req-date': reqDate,
+        Authorization: `Bearer ${decodedStoredToken}`,
+      },
+    };
+  } catch (error) {
+    return base;
+  }
 };
 
 const errorHandler = (error: any) => {
@@ -48,13 +101,18 @@ const showErrorMessage = (message: string) => {
   });
 };
 
-@FeignClient(config, errorHandler)
+@FeignClient(config, errorHandler, transformConfig)
 class Server {
   /*
-   * Sign
+   * Devices
    */
-  @Post('/signin')
-  async signin(@Body() data: { email: string; password: string }): Promise<any[]> {
+  @Get('/platform/api/v2/:realm/device/:client_uuid/items/maps')
+  async getDevicesForMap(): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Get('/platform/api/v2/:realm/device/:client_uuid/items/list')
+  async getDevices(): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
