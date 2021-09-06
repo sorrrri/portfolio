@@ -27,11 +27,11 @@ export function DeviceAdd() {
     setIsOpen(true);
   };
 
-  const showSecondModal = () => {
+  const showDoneModal = () => {
     setIsOpen2(true);
   };
 
-  const showThirdModal = () => {
+  const showSearchModal = () => {
     setIsOpen3(true);
   };
 
@@ -52,7 +52,7 @@ export function DeviceAdd() {
             <span>작업명</span>
             <input type="text" placeholder="작업명을 입력하세요." />
           </div>
-          <div className="input title" onClick={showThirdModal}>
+          <div className="input title" onClick={showSearchModal}>
             <span>장비명</span>
             <input
               className="input-search"
@@ -127,18 +127,18 @@ export function DeviceAdd() {
           장애 접수 등록
         </button>
       </div>
+      <Modal show={isOpen} confirmed={showDoneModal} closeModal={isClose} title="장애 접수">
+        장애 접수를 등록하시겠습니까?
+      </Modal>
+      <ModalDone show={isOpen2} closeModal={isCloseAll}>
+        장애 접수가 등록 되었습니다.
+      </ModalDone>
       <ModalSearch
         show={isOpen3}
         closeModal={() => {
           setIsOpen3(false);
         }}
       />
-      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} title="장애 접수">
-        장애 접수를 등록하시겠습니까?
-      </Modal>
-      <ModalDone show={isOpen2} closeModal={isCloseAll}>
-        장애 접수가 등록 되었습니다.
-      </ModalDone>
     </>
   );
 }

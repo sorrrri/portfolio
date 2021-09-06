@@ -25,7 +25,7 @@ export function WorkspaceAdd() {
     setIsOpen(true);
   };
 
-  const showSecondModal = () => {
+  const showDoneModal = () => {
     setIsOpen2(true);
   };
 
@@ -141,7 +141,7 @@ export function WorkspaceAdd() {
           업무 요청 등록
         </button>
       </div>
-      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} title="업무 요청">
+      <Modal show={isOpen} confirmed={showDoneModal} closeModal={isClose} title="업무 요청">
         업무 요청을 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} closeModal={isCloseAll}>

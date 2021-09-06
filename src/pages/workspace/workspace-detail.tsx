@@ -30,7 +30,7 @@ export function WorkspaceDetail(props: any) {
     setIsOpen(true);
   };
 
-  const showSecondModal = () => {
+  const showDoneModal = () => {
     setIsOpen2(true);
   };
 
@@ -187,7 +187,7 @@ export function WorkspaceDetail(props: any) {
           </Comment>
         </div>
       </main>
-      <Modal show={isOpen} confirmed={showSecondModal} closeModal={isClose} title="댓글 등록">
+      <Modal show={isOpen} confirmed={showDoneModal} closeModal={isClose} title="댓글 등록">
         작업 내용을 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} closeModal={isCloseAll}>
