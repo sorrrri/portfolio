@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-lone-blocks */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 export const GlobalNavigationMenu = (props: any) => {
-  const { history, toggle } = props;
+  const { toggle } = props;
+  const history = useHistory();
   const goToGuide = () => {
     {
       window.open('https://portal-172-30-10-101.vurix.kr/terms/personal_guide.pdf', '_blank');
