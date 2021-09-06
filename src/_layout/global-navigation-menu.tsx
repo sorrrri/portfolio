@@ -6,19 +6,19 @@ import { useHistory } from 'react-router-dom';
 export const GlobalNavigationMenu = (props: any) => {
   const { toggle } = props;
   const history = useHistory();
-  const goToGuide = () => {
+  const goGuide = () => {
     {
       window.open('https://portal-172-30-10-101.vurix.kr/terms/personal_guide.pdf', '_blank');
     }
   };
 
-  const goToPrivacy = () => {
+  const goPrivacy = () => {
     {
       window.open('https://portal-172-30-10-101.vurix.kr/terms/privacy_policy.pdf', '_blank');
     }
   };
 
-  const goToTerms = () => {
+  const goTerms = () => {
     {
       window.open('https://portal-172-30-10-101.vurix.kr/terms/terms_service.pdf', '_blank');
     }
@@ -46,15 +46,15 @@ export const GlobalNavigationMenu = (props: any) => {
         </div>
       </nav>
       <nav className="menu menu-settings">
-        <div className="menu-privacy" onClick={goToGuide}>
+        <div className="menu-privacy" onClick={goGuide}>
           <i className="fad fa-book" />
           <span>개인정보 수집 및 이용안내</span>
         </div>
-        <div className="menu-privacy" onClick={goToPrivacy}>
+        <div className="menu-privacy" onClick={goPrivacy}>
           <i className="fad fa-file-user" />
           <span>개인정보처리방침</span>
         </div>
-        <div className="menu-terms" onClick={goToTerms}>
+        <div className="menu-terms" onClick={goTerms}>
           <i className="fad fa-file-invoice" />
           <span>약관</span>
         </div>

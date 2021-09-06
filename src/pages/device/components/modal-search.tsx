@@ -3,16 +3,16 @@ import React from 'react';
 
 // eslint-disable-next-line react/require-default-props
 export const ModalSearch = (props: any) => {
-  const { show, closeModal } = props;
+  const { show, close } = props;
 
   return (
     <>
-      <div className={`overlay ${show ? 'active' : ''}`} onClick={closeModal} />
+      <div className={`overlay ${show ? 'active' : ''}`} onClick={close} />
       <div className={`modal modal-search ${show ? 'active' : ''}`}>
         <div className="modal-header">
           <div className="title">
             <h3>장비 검색</h3>
-            <button className="btn-close" onClick={closeModal} type="button">
+            <button className="btn-close" onClick={close} type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
                 <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
               </svg>

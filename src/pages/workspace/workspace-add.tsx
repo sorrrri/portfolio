@@ -141,10 +141,10 @@ export function WorkspaceAdd() {
           업무 요청 등록
         </button>
       </div>
-      <Modal show={isOpen} confirmed={showDoneModal} closeModal={isClose} title="업무 요청">
+      <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="업무 요청">
         업무 요청을 등록하시겠습니까?
       </Modal>
-      <ModalDone show={isOpen2} closeModal={isCloseAll}>
+      <ModalDone show={isOpen2} close={isCloseAll}>
         업무 요청이 등록 되었습니다.
       </ModalDone>
     </>

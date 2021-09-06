@@ -2,12 +2,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
-export const FilterMarkers = (props: { showFilter?: any; closeModal?: any }) => {
-  const { showFilter, closeModal } = props;
+export const FilterMarkers = (props: any) => {
+  const { show, close } = props;
   return (
     <>
-      <div className={`overlay ${showFilter ? 'active' : ''}`} onClick={closeModal} />
-      <aside className={`local-navigation-menu ${showFilter ? 'active' : ''}`}>
+      <div className={`overlay ${show ? 'active' : ''}`} onClick={close} />
+      <aside className={`local-navigation-menu ${show ? 'active' : ''}`}>
         <div className="filters">
           <h4>
             <span>마커 표시</span>

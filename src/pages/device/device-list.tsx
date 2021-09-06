@@ -63,7 +63,7 @@ export function DeviceList(props: any) {
           </label>
         </button>
       </SearchArea>
-      <FilterMarkers showFilter={isOpen} closeModal={isClose} />
+      <FilterMarkers show={isOpen} close={isClose} />
       <main className="content equipments maps">
         <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
           <i className="fad fa-map-marked-alt" />
@@ -118,7 +118,7 @@ export function DeviceList(props: any) {
         </section>
         <section className="no-result">검색 내역이 없습니다.</section>
       </main>
-      <ModalMarkers show={isOpen2} closeModal={() => setIsOpen2(false)} />
+      <ModalMarkers show={isOpen2} close={() => setIsOpen2(false)} />
     </>
   );
 }

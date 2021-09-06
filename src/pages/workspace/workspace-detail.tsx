@@ -187,13 +187,13 @@ export function WorkspaceDetail(props: any) {
           </Comment>
         </div>
       </main>
-      <Modal show={isOpen} confirmed={showDoneModal} closeModal={isClose} title="댓글 등록">
+      <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">
         작업 내용을 등록하시겠습니까?
       </Modal>
-      <ModalDone show={isOpen2} closeModal={isCloseAll}>
+      <ModalDone show={isOpen2} close={isCloseAll}>
         작업 내용이 등록 되었습니다.
       </ModalDone>
-      <ModalImage show={isOpen3} closeModal={() => setIsOpen3(false)} />
+      <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />
     </>
   );
 }

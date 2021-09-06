@@ -63,6 +63,7 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
           <RightContext />
         </div>
       </header>
+      {/* 좌측메뉴 */}
       <GlobalNavigationMenu toggle={menuDisplay} />
     </>
   ) : null;

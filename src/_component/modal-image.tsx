@@ -2,8 +2,8 @@
 import React from 'react';
 
 // eslint-disable-next-line react/no-unused-prop-types
-export const ModalImage = (props: { show?: any; closeModal?: any }) => {
-  const { show, closeModal } = props;
+export const ModalImage = (props: any) => {
+  const { show, close } = props;
 
   const images = document.querySelectorAll<HTMLElement>('.images img');
   const modalImage = document.querySelector('.modal-image') as HTMLDivElement;
@@ -17,8 +17,8 @@ export const ModalImage = (props: { show?: any; closeModal?: any }) => {
 
   return (
     <>
-      <div className={`overlay ${show ? 'active' : ''}`} onClick={closeModal} />
-      <div className={`modal modal-image ${show ? 'active' : ''}`} onClick={closeModal} />
+      <div className={`overlay ${show ? 'active' : ''}`} onClick={close} />
+      <div className={`modal modal-image ${show ? 'active' : ''}`} onClick={close} />
     </>
   );
 };

@@ -127,15 +127,15 @@ export function DeviceAdd() {
           장애 접수 등록
         </button>
       </div>
-      <Modal show={isOpen} confirmed={showDoneModal} closeModal={isClose} title="장애 접수">
+      <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="장애 접수">
         장애 접수를 등록하시겠습니까?
       </Modal>
-      <ModalDone show={isOpen2} closeModal={isCloseAll}>
+      <ModalDone show={isOpen2} close={isCloseAll}>
         장애 접수가 등록 되었습니다.
       </ModalDone>
       <ModalSearch
         show={isOpen3}
-        closeModal={() => {
+        close={() => {
           setIsOpen3(false);
         }}
       />

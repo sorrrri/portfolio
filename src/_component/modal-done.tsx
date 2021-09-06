@@ -1,8 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 
-export const ModalDone = (props: { children?: any; show?: any; closeModal?: any }) => {
-  const { show, closeModal } = props;
+export const ModalDone = (props: any) => {
+  const { show, close } = props;
 
   return (
     <div className={`modal modal-done ${show ? 'active' : ''}`}>
@@ -31,7 +31,7 @@ export const ModalDone = (props: { children?: any; show?: any; closeModal?: any 
         <p>{props.children}</p>
       </div>
       <div className="modal-footer buttons">
-        <button className="btn-cancel" onClick={closeModal} type="button">
+        <button className="btn-cancel" onClick={close} type="button">
           확인
         </button>
       </div>

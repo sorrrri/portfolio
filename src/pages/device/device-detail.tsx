@@ -106,7 +106,7 @@ export function DeviceDetail(props: any) {
           </div>
         </section>
       </main>
-      <ModalNavigation show={isOpen} closeModal={isClose} />
+      <ModalNavigation show={isOpen} close={isClose} />
     </>
   );
 }
