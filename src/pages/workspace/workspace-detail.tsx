@@ -130,6 +130,27 @@ export function WorkspaceDetail(props: any) {
                 </label>
               </button>
             </div>
+            <div className="input">
+              <span>받는사람</span>
+              <input type="text" />
+            </div>
+            <div className="input">
+              <span>플랫폼관리자 공개여부</span>
+              <div className="filters">
+                <button type="button">
+                  <input type="radio" id="comment-public" name="comment-type" defaultChecked />
+                  <label htmlFor="comment-public">
+                    <span>예</span>
+                  </label>
+                </button>
+                <button type="button">
+                  <input type="radio" id="comment-private" name="comment-type" />
+                  <label htmlFor="comment-private">
+                    <span>아니오</span>
+                  </label>
+                </button>
+              </div>
+            </div>
             <textarea name="" id="" />
             <div className="comment-footer">
               <div className="buttons attach">
@@ -161,7 +182,7 @@ export function WorkspaceDetail(props: any) {
           >
             내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
-          <Comment done date="2021-08-03 12:42:32" read="박보검">
+          <Comment done writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
             내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
         </div>

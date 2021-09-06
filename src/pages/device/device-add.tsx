@@ -62,29 +62,6 @@ export function DeviceAdd() {
             />
           </div>
           <div className="input">
-            <span>장애유형</span>
-            <div className="filters">
-              <button type="button">
-                <input type="radio" id="input-hardware" name="filter-type" defaultChecked />
-                <label htmlFor="input-hardware">
-                  <span>하드웨어</span>
-                </label>
-              </button>
-              <button type="button">
-                <input type="radio" id="input-network" name="filter-type" />
-                <label htmlFor="input-network">
-                  <span>네트워크</span>
-                </label>
-              </button>
-              <button type="button">
-                <input type="radio" id="input-etc" name="filter-type" />
-                <label htmlFor="input-etc">
-                  <span>기타</span>
-                </label>
-              </button>
-            </div>
-          </div>
-          <div className="input">
             <span>중요도</span>
             <div className="filters">
               <button type="button">
@@ -116,6 +93,23 @@ export function DeviceAdd() {
           <div className="input send-to">
             <span>받는사람</span>
             <input type="text" />
+          </div>
+          <div className="input">
+            <span>플랫폼관리자 공개여부</span>
+            <div className="filters">
+              <button type="button">
+                <input type="radio" id="content-public" name="content-type" defaultChecked />
+                <label htmlFor="content-public">
+                  <span>예</span>
+                </label>
+              </button>
+              <button type="button">
+                <input type="radio" id="content-private" name="content-type" />
+                <label htmlFor="content-private">
+                  <span>아니오</span>
+                </label>
+              </button>
+            </div>
           </div>
           <textarea name="" id="" />
           <div className="buttons attach">

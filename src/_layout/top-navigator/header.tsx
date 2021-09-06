@@ -83,6 +83,10 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
         </nav>
         <nav className="menu menu-settings">
           <div className="menu-privacy">
+            <i className="fad fa-book" />
+            <span>개인정보 수집 및 이용안내</span>
+          </div>
+          <div className="menu-privacy">
             <i className="fad fa-file-user" />
             <span>개인정보처리방침</span>
           </div>
