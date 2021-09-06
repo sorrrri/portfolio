@@ -1616,6 +1616,21 @@ main {
         textarea {
           width: 100%;
         }
+
+        .input {
+          margin-bottom: 0.5rem;
+          display: flex;
+          align-items: center;
+
+          span {
+            flex: 0 0 50%;
+          }
+
+          :last-child {
+            flex: 1 1 auto;
+            width: 100%;
+          }
+        }
       }
 
       .title {
@@ -1733,6 +1748,13 @@ main {
   }
 
   .filters {
+    &.work-type {
+      flex-wrap: wrap;
+
+      button {
+        flex: 0 0 calc(50% - 0.25rem);
+      }
+    }
   }
 }
 
@@ -1827,7 +1849,7 @@ main {
   }
 }
 
-.list + .bottom-sticky-menu {
+.list ~ .bottom-sticky-menu {
   .btn-search {
     display: flex !important;
   }

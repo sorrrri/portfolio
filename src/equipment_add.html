@@ -13,29 +13,6 @@
       <input class="input-search" type="text" readonly="readonly" placeholder="장비명을 검색해주세요." />
     </div>
     <div class="input">
-      <span>장애유형</span>
-      <div class="filters">
-        <button type="button" type="button">
-          <input type="radio" id="input-hardware" name="filter-type" checked="checked" />
-          <label for="input-hardware">
-            <span>하드웨어</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-network" name="filter-type" />
-          <label for="input-network">
-            <span>네트워크</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-etc" name="filter-type" />
-          <label for="input-etc">
-            <span>기타</span>
-          </label>
-        </button>
-      </div>
-    </div>
-    <div class="input">
       <span>중요도</span>
       <div class="filters">
         <button type="button" type="button">
@@ -67,6 +44,23 @@
     <div class="input send-to">
       <span>받는사람</span>
       <input type="text" />
+    </div>
+    <div class="input">
+      <span>플랫폼관리자 공개여부</span>
+      <div class="filters">
+        <button type="button">
+          <input type="radio" id="content-public" name="content-type" checked="checked" />
+          <label for="content-public">
+            <span>예</span>
+          </label>
+        </button>
+        <button type="button">
+          <input type="radio" id="content-private" name="content-type" />
+          <label for="content-private">
+            <span>아니오</span>
+          </label>
+        </button>
+      </div>
     </div>
     <textarea name="" id="" rows="6"></textarea>
     <div class="buttons attach">

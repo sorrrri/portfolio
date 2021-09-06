@@ -44,13 +44,17 @@
         </div>
       </nav>
       <nav class="menu menu-settings">
+        <div class="menu-privacy" onclick="location.href='guide.html'">
+          <i class="fad fa-file-user"></i>
+          <span>개인정보 수집 및 이용안내</span>
+        </div>
         <div class="menu-privacy" onclick="location.href='privacy.html'">
           <i class="fad fa-file-user"></i>
           <span>개인정보처리방침</span>
         </div>
         <div class="menu-terms" onclick="location.href='terms.html'">
           <i class="fad fa-file-invoice"></i>
-          <span>약관</span>
+          <span>서비스 약관</span>
         </div>          
         <div class="menu-logout" onclick="">
           <i class="fad fa-sign-out"></i>
@@ -79,29 +83,6 @@
     <div class="input title">
       <span>장비명</span>
       <input class="input-search" type="text" readonly="readonly" placeholder="장비명을 검색해주세요." />
-    </div>
-    <div class="input">
-      <span>장애유형</span>
-      <div class="filters">
-        <button type="button" type="button">
-          <input type="radio" id="input-hardware" name="filter-type" checked="checked" />
-          <label for="input-hardware">
-            <span>하드웨어</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-network" name="filter-type" />
-          <label for="input-network">
-            <span>네트워크</span>
-          </label>
-        </button>
-        <button type="button" type="button">
-          <input type="radio" id="input-etc" name="filter-type" />
-          <label for="input-etc">
-            <span>기타</span>
-          </label>
-        </button>
-      </div>
     </div>
     <div class="input">
       <span>중요도</span>
@@ -135,6 +116,23 @@
     <div class="input send-to">
       <span>받는사람</span>
       <input type="text" />
+    </div>
+    <div class="input">
+      <span>플랫폼관리자 공개여부</span>
+      <div class="filters">
+        <button type="button">
+          <input type="radio" id="content-public" name="content-type" checked="checked" />
+          <label for="content-public">
+            <span>예</span>
+          </label>
+        </button>
+        <button type="button">
+          <input type="radio" id="content-private" name="content-type" />
+          <label for="content-private">
+            <span>아니오</span>
+          </label>
+        </button>
+      </div>
     </div>
     <textarea name="" id="" rows="6"></textarea>
     <div class="buttons attach">

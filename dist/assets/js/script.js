@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //Scroll up
         bottomStickyMenu.classList.add("active");
       }
+      
       lastScrollTop = currentScrollTop;
     });
 

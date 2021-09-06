@@ -44,13 +44,17 @@
         </div>
       </nav>
       <nav class="menu menu-settings">
+        <div class="menu-privacy" onclick="location.href='guide.html'">
+          <i class="fad fa-file-user"></i>
+          <span>개인정보 수집 및 이용안내</span>
+        </div>
         <div class="menu-privacy" onclick="location.href='privacy.html'">
           <i class="fad fa-file-user"></i>
           <span>개인정보처리방침</span>
         </div>
         <div class="menu-terms" onclick="location.href='terms.html'">
           <i class="fad fa-file-invoice"></i>
-          <span>약관</span>
+          <span>서비스 약관</span>
         </div>          
         <div class="menu-logout" onclick="">
           <i class="fad fa-sign-out"></i>
@@ -147,6 +151,27 @@
             <span>완료</span>
           </label>
         </button>
+      </div>
+      <div class="input">
+        <span>받는사람</span>
+         <input type="text" />
+      </div>
+      <div class="input">
+        <span>플랫폼관리자 공개여부</span>
+        <div class="filters">
+          <button type="button">
+            <input type="radio" id="comment-public" name="comment-type" checked="checked" />
+            <label for="comment-public">
+              <span>예</span>
+            </label>
+          </button>
+          <button type="button">
+            <input type="radio" id="comment-private" name="comment-type" />
+            <label for="comment-private">
+              <span>아니오</span>
+            </label>
+          </button>
+        </div>
       </div>
       <textarea name="" id="" rows="6"></textarea>
       <div class="comment-footer">
