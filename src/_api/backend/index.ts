@@ -124,6 +124,16 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
+  @Post('/platform/api/v2/:realm/workspace/:client_uuid/:work_type')
+  async addWorkspace(@Body() data: any): Promise<any> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Post('/platform/api/v2/:realm/workspace/:client_uuid/{work_type}')
+  async addWorkspaceTest(@Param('work_type') workType: string, @Form() data: any): Promise<any> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
   /*
    * Projects
    */

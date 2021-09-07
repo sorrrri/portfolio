@@ -27,16 +27,21 @@ export function WorkspaceList(props: any) {
 
   const fetchWorkspace = () => {
     api.getWorkspace().then((workspace: any) => {
-      const { responseTime } = workspace;
-      setWorkspaceList(responseTime);
-      // const { code, response } = workspace;
-      // if (code === 200 && response && Array.isArray(response.results)) {
-      //   setWorkspaceList(response.results);
-      // }
+      const { code, response } = workspace;
+      if (code === 200 && response && Array.isArray(response.results)) {
+        setWorkspaceList(response.results);
+      }
     });
   };
 
-  console.log(workspaceList);
+  const obj = {
+    priority: 'EMERGENCY',
+    dateil_type: 'MODIFY_INFO',
+    to_list: '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de',
+    platform_sharing: false,
+    title: '업무 요청 합니다.',
+    content: '업무 요청 합니다. 내용 확인 부탁 드립니다.',
+  };
 
   const onClickAddWork = () => {
     alert('on click add work');
@@ -58,13 +63,15 @@ export function WorkspaceList(props: any) {
   return (
     <div>
       <h1>this is workspace list</h1>
+      <button type="button" onClick={() => api.addWorkspaceTest('work', obj)}>
+        생성
+      </button>
       <ul>
-        <li onClick={() => onClickItem(workspaceList)}>{workspaceList}</li>
-        {/* {workspaceList.map((workspace) => (
+        {workspaceList.map((workspace) => (
           <li key={workspace.work_uuid} onClick={() => onClickItem(workspace.work_uuid)}>
             {workspace.title}
           </li>
-        ))} */}
+        ))}
       </ul>
     </div>
   );
