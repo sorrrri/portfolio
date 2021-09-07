@@ -36,8 +36,8 @@ export function WorkspaceList(props: any) {
 
   const obj = {
     priority: 'EMERGENCY',
-    dateil_type: 'MODIFY_INFO',
-    to_list: '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de',
+    detail_type: 'MODIFY_INFO',
+    to_list: 'c329536f-1633-4997-bc01-4c6e3532f70b',
     platform_sharing: false,
     title: '업무 요청 합니다.',
     content: '업무 요청 합니다. 내용 확인 부탁 드립니다.',
