@@ -52,13 +52,17 @@ function App(routeProps: RouteComponentProps) {
       persistor={SSRCookies(cookies)}
     >
       <Route path="*">
-        <LayoutTopNavigator {...routeProps}>
-          <Switch>
-            <Route path="/workspace" component={Workspace} />
-            <Route path="/device" component={Device} />
-            <Redirect push to="/workspace" />
-          </Switch>
-        </LayoutTopNavigator>
+        <ScrollToTop>
+          <LayoutTopNavigator {...routeProps}>
+            <Switch>
+              <Route path="/workspace" component={Workspace} />
+              <Route path="/workspace-add" component={WorkspaceAdd} />
+              <Route path="/device" component={Device} />
+              <Route path="/device-add" component={DeviceAdd} />
+              <Redirect push to="/workspace" />
+            </Switch>
+          </LayoutTopNavigator>
+        </ScrollToTop>
       </Route>
     </SSRKeycloakProvider>
   );
