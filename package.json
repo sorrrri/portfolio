@@ -35,5 +35,8 @@
   ],
   "scripts": {
     "cp": "cp -r ./dist/assets/* ../mobile-frontend/public/assets/"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4"
   }
 }
