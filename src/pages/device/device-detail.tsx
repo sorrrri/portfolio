@@ -11,7 +11,7 @@ export function DeviceDetail(props: any) {
   useEffect(() => {
     dispatch(
       showHeader({
-        title: `장비 상세 정보 #${id}`,
+        title: '장비 상세 정보',
         leftContextType: 'back',
         rightContext: () => null,
       })
