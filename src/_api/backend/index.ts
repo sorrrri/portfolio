@@ -120,18 +120,18 @@ class Server {
   /*
    * Workspace
    */
-  @Get('/platform/api/v2/:realm/workspace/:client_uuid')
+  @Get('/platform/api/v2/:realm/workspace')
   async getWorkspace(): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
-  @Post('/platform/api/v2/:realm/workspace/:client_uuid/:work_type')
-  async addWorkspace(@Body() data: any): Promise<any> {
+  @Post('/platform/api/v2/:realm/workspace/{work_type}')
+  async addWorkspace(@Param('work_type') workType: string, @Form() data: any): Promise<any> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
-  @Post('/platform/api/v2/:realm/workspace/:client_uuid/{work_type}')
-  async addWorkspaceTest(@Param('work_type') workType: string, @Form() data: any): Promise<any> {
+  @Get('/platform/api/v2/:realm/workspace/{work_type}/template')
+  async getTemplate(@Param('work_type') workType: string): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
