@@ -5,9 +5,11 @@ import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-sea
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { ActiveScroll } from '../../_component/active-scroll';
 import { Row } from './components/list-row';
+import api from '../../_api/backend';
 
 export function WorkspaceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
+  const [workspaceList, setWorkspaceList] = useState<any[]>([]);
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
@@ -21,7 +23,17 @@ export function WorkspaceList(props: any) {
         rightContext: () => <AddSearchWork toggle={toggleSearchArea} {...props} />,
       })
     );
-  });
+    fetchWorkspace();
+  }, []);
+
+  const fetchWorkspace = () => {
+    api.getWorkspace().then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response && Array.isArray(response.results)) {
+        setWorkspaceList(response.results);
+      }
+    });
+  };
 
   const onClickItem = (workId: number) => {
     const { history } = props;

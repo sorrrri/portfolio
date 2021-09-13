@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable dot-notation */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -9,6 +10,7 @@ import toastr from 'toastr';
 import {
   FeignClient,
   FeignErrorHandler,
+  Header,
   Get,
   Post,
   Put,
@@ -35,8 +37,11 @@ const transformConfig = (base: AxiosRequestConfig) => {
     const cookies = new Cookies();
     const storedToken = cookies.get('kcToken');
     const decodedStoredToken = atob(storedToken);
+
     const bodyOfDecodedStoredToken = decodedStoredToken.split('.')[1];
     const tokenBody = JSON.parse(atob(bodyOfDecodedStoredToken));
+    const isFormData = base.data instanceof FormData;
+    const isAuth = base.url!.indexOf('/auth/') > 0;
 
     const uuid = process.env.REACT_APP_UUID!;
     const realm = tokenBody['azp'];
@@ -44,22 +49,23 @@ const transformConfig = (base: AxiosRequestConfig) => {
     const username = tokenBody['preferred_username'];
 
     const reqMethod = base.method;
-    const reqContentType = 'application/json';
+    const reqContentType = isFormData ? 'multipart/form-data' : isAuth ? '' : 'application/json';
     const reqContentLength =
-      base.data && Object.keys(base.data).length > 0
+      !isFormData && !isAuth && base.data && Object.keys(base.data).length > 0
         ? unescape(encodeURIComponent(JSON.stringify(base.data))).length
-        : undefined;
+        : '';
     const reqDate = new Date().toUTCString();
     const reqPath = base.url?.replace(':realm', realm).replace(':client_uuid', uuid);
 
     const stringToSign =
       `${reqMethod}\n` +
       `${reqContentType}\n` +
-      `${reqContentLength ?? ''}\n` +
+      `${reqContentLength}\n` +
       `${reqDate}\n` +
       `${realm}\n` +
       `${username}\n` +
       `${reqPath}`;
+    // console.log(stringToSign);
 
     const reqHash = CryptoJS.HmacSHA256(stringToSign, sessionState);
     const reqHashString = CryptoJS.enc.Base64.stringify(reqHash);
@@ -70,10 +76,16 @@ const transformConfig = (base: AxiosRequestConfig) => {
       url: reqPath,
       headers: {
         ...base.headers,
+        'Content-Type': reqContentType,
         'x-auth-token': reqAuth,
         'x-req-date': reqDate,
         Authorization: `Bearer ${decodedStoredToken}`,
+        // 'x-auth-token': 'dingcoding:DmZlhqguLnqpay9Pb4g54qDg6QV0rSe72Ew5r+B6SSg=',
+        // 'x-req-date': 'Mon, 13 Sep 2021 07:34:08 GMT',
+        // Authorization:
+        //   'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMYVdqWk1ySUJyblVKTW5LbEVuSl9lVWx5OFlkV1Vna040UVZKam1PdmxRIn0.eyJleHAiOjE2MzE1MTgwNDAsImlhdCI6MTYzMTUxNjI0MCwianRpIjoiMzAyOWQyZWMtMGFkYS00NWE3LTkyYWEtZDA2MDQwZjU1NTg2IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLTE3Mi0zMC0xMC0xMDEudnVyaXgua3IvYXV0aC9yZWFsbXMvam1zb2Z0IiwiYXVkIjoiYWNjb3VudCIsInN1YiI6ImMzMjk1MzZmLTE2MzMtNDk5Ny1iYzAxLTRjNmUzNTMyZjcwYiIsInR5cCI6IkJlYXJlciIsImF6cCI6Imptc29mdCIsInNlc3Npb25fc3RhdGUiOiI0MTllYjVlMC00ZWQ3LTRlMWUtODlhOS03MGM2YmUwMWM3OWQiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHBzOi8vcG9ydGFsLTE3Mi0zMC0xMC0xMDEudnVyaXgua3IiLCJodHRwczovL2RhdGEtMTcyLTMwLTEwLTEwMS52dXJpeC5rciIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMSIsImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1qbXNvZnQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInByZWZlcnJlZF91c2VybmFtZSI6ImRpbmdjb2RpbmcifQ.bEB8-0_eLWPZVGB7wJYZDAE7NDxjrxbFPF73spyX5lEcdhKBjGy1Zn-6NcILWYOsGwA8z7ee9Y0FOmWmLi3UKYbp4qL25QVs5b30Dc_9qa1TJD_bS0Ercn3CczbkVCsCPRUPOpALUMj18RCJ0aWPwlc1Xi88smC364tGcO91avg1QToM7Z-jBLxljomhYU-8ZWnC3HQNXFc6exbU3onx5E8VH8hVeCCkFl2GGILcpQAuuMgKxspkHlOmw1Ke-ikVsr0qLty5f4BWR6Yzy7sRDuWPB1EtHAzEfxR9qrjF6Hr0HVDboCJpP7SpMv9zSnA7tWOLOG0qA6ODGLcwi0yLuA',
       },
+      data: isAuth ? null : base.data,
     };
   } catch (error) {
     return base;
@@ -104,6 +116,19 @@ const showErrorMessage = (message: string) => {
 @FeignClient(config, errorHandler, transformConfig)
 class Server {
   /*
+   * Authenticate
+   */
+  @Post('/platform/api/v2/auth/login')
+  async login(): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Post('/platform/api/v2/auth/logout')
+  async logout(): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  /*
    * Devices
    */
   @Get('/platform/api/v2/:realm/device/:client_uuid/items/maps')
@@ -113,6 +138,24 @@ class Server {
 
   @Get('/platform/api/v2/:realm/device/:client_uuid/items/list')
   async getDevices(): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  /*
+   * Workspace
+   */
+  @Get('/platform/api/v2/:realm/workspace')
+  async getWorkspace(): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Post('/platform/api/v2/:realm/workspace/{work_type}')
+  async addWorkspace(@Param('work_type') workType: string, @Form() data: any): Promise<any> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Get('/platform/api/v2/:realm/workspace/{work_type}/template')
+  async getTemplate(@Param('work_type') workType: string): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
