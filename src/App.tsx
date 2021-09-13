@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-redeclare */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   // BrowserRouter as Router,
   Redirect,
@@ -18,6 +18,7 @@ import { Workspace } from './pages/workspace';
 import { Device } from './pages/device';
 import { DeviceAdd } from './pages/device/device-add';
 import { WorkspaceAdd } from './pages/workspace/workspace-add';
+import server from './_api/backend';
 
 function functionScrollToTop(props: any) {
   const { pathname } = useLocation();
@@ -40,30 +41,55 @@ function App(routeProps: RouteComponentProps) {
 
   const cookies = new Cookies();
 
+  const [initialized, setInitialized] = useState<boolean>(false);
+
+  async function init() {
+    if (window.localStorage.getItem('initialized') === 'Y') {
+      setInitialized(true);
+      return;
+    }
+
+    await server
+      .login()
+      .then(() => {
+        window.localStorage.setItem('initialized', 'Y');
+        setInitialized(true);
+      })
+      .catch(() => {
+        window.localStorage.removeItem('initialized');
+        setInitialized(false);
+      });
+  }
+
   return (
     <SSRKeycloakProvider
       initOptions={{
         onLoad: 'login-required',
       }}
-      onEvent={(type, message) => {
+      onEvent={async (type, message) => {
         console.log('[Keycloak]', type, message);
+        if (type === 'onReady') {
+          init();
+        }
       }}
       keycloakConfig={keycloackConfig}
       persistor={SSRCookies(cookies)}
     >
-      <Route path="*">
-        <ScrollToTop>
-          <LayoutTopNavigator {...routeProps}>
-            <Switch>
-              <Route path="/workspace" component={Workspace} />
-              <Route path="/workspace-add" component={WorkspaceAdd} />
-              <Route path="/device" component={Device} />
-              <Route path="/device-add" component={DeviceAdd} />
-              <Redirect push to="/workspace" />
-            </Switch>
-          </LayoutTopNavigator>
-        </ScrollToTop>
-      </Route>
+      {initialized && (
+        <Route path="*">
+          <ScrollToTop>
+            <LayoutTopNavigator {...routeProps}>
+              <Switch>
+                <Route path="/workspace" component={Workspace} />
+                <Route path="/workspace-add" component={WorkspaceAdd} />
+                <Route path="/device" component={Device} />
+                <Route path="/device-add" component={DeviceAdd} />
+                <Redirect push to="/workspace" />
+              </Switch>
+            </LayoutTopNavigator>
+          </ScrollToTop>
+        </Route>
+      )}
     </SSRKeycloakProvider>
   );
 }

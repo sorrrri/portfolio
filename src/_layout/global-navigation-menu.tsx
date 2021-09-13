@@ -2,10 +2,12 @@
 /* eslint-disable no-lone-blocks */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import server from '../_api/backend';
 
 export const GlobalNavigationMenu = (props: any) => {
   const { toggle } = props;
   const history = useHistory();
+
   const goGuide = () => {
     {
       window.open('https://portal-172-30-10-101.vurix.kr/terms/personal_guide.pdf', '_blank');
@@ -22,6 +24,11 @@ export const GlobalNavigationMenu = (props: any) => {
     {
       window.open('https://portal-172-30-10-101.vurix.kr/terms/terms_service.pdf', '_blank');
     }
+  };
+
+  const onClickLogout = async () => {
+    await server.logout();
+    window.localStorage.removeItem('initialized');
   };
 
   return (
@@ -58,7 +65,7 @@ export const GlobalNavigationMenu = (props: any) => {
           <i className="fad fa-file-invoice" />
           <span>약관</span>
         </div>
-        <div className="menu-logout">
+        <div className="menu-logout" onClick={onClickLogout}>
           <i className="fad fa-sign-out" />
           <span>로그아웃</span>
         </div>
