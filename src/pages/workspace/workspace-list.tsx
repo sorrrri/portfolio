@@ -44,6 +44,20 @@ export function WorkspaceList(props: any) {
     <>
       <SearchArea show={isToggleOn} />
       <main className="content list workspace" onScroll={ActiveScroll}>
+        {workspaceList.map((list) => (
+          <Row
+            key={list.work_uuid}
+            title={list.title}
+            item={() => onClickItem(list.uuid)}
+            typeEmergency
+            comment={list.comment}
+            read={list.views}
+            writer={list.registrant.name}
+            date={list.reg_date}
+          >
+            {list.summary_content}
+          </Row>
+        ))}
         <Row
           item={() => onClickItem(1)}
           typeEmergency

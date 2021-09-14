@@ -30,33 +30,31 @@ export function WorkspaceAdd() {
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 작업내용
 
-  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보(리스트)
-
-  // 받는사람 정보(리스트) 가져오기
+  const [fetchRecipient, setFetchRecipient] = useState([]); // 받는사람 Backend리스트
   const fetchTemplate = () => {
     api.getTemplate('work').then((payload: any) => {
       const { code, response } = payload;
-      if (code === 200 && response && Array.isArray(response.results.recipient)) {
-        setRecipient(response.results.recipient);
+      if (code === 200 && response.results.recipient) {
+        setFetchRecipient(response.results.recipient);
       }
     });
   };
 
+  // 받는사람 api filter 후 setState
+  const handleInputName = (e: any) => {
+    const filtername = fetchRecipient.filter((item: any) => item.name === e.target.value);
+    const filteruuid = filtername.map((item: any) => item.uuid);
+    const result = filteruuid.join();
+    setToList(result);
+  };
+
   // 작업명 입력 받아 setState
-  const onChangeTitle = (e: any) => {
+  const handleTitle = (e: any) => {
     setTitle(e.target.value);
   };
 
-  // 받는사람 입력 받아 필터 후 setState
-  const onChangeToList = (e: any) => {
-    const toListname = recipient.filter((item) => item.name === e.target.value);
-    const toListuuid = toListname.map((name) => name.uuid);
-    const toListresult = toListuuid.join();
-    setToList(toListresult);
-  };
-
   // 작업내용 입력 받아 setState
-  const onChangeContent = (e: any) => {
+  const handleContent = (e: any) => {
     setContent(e.target.value);
   };
 
@@ -64,16 +62,18 @@ export function WorkspaceAdd() {
     setIsOpen(true);
   };
 
+  const obj = {
+    priority,
+    detail_type: detailType,
+    to_list: toList,
+    platform_sharing: platformSharing,
+    title,
+    content,
+  };
+
   // 업무 요청 등록
   const showDoneModal = () => {
-    api.addWorkspace('work', {
-      priority,
-      detail_type: detailType,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      title,
-      content,
-    });
+    api.addWorkspace('work', { obj });
     setIsOpen2(true);
   };
 
@@ -92,7 +92,7 @@ export function WorkspaceAdd() {
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
-            <input type="text" placeholder="작업명을 입력하세요." onChange={onChangeTitle} />
+            <input type="text" placeholder="작업명을 입력하세요." onChange={handleTitle} />
           </div>
           <div className="input">
             <span>중요도</span>
@@ -196,7 +196,7 @@ export function WorkspaceAdd() {
           </div>
           <div className="input send-to">
             <span>받는사람</span>
-            <input type="text" onChange={onChangeToList} />
+            <input type="text" onChange={handleInputName} />
           </div>
           <div className="input">
             <span>플랫폼관리자 공개여부</span>
@@ -226,7 +226,7 @@ export function WorkspaceAdd() {
               </button>
             </div>
           </div>
-          <textarea name="" id="" onChange={onChangeContent} />
+          <textarea name="" id="" onChange={handleContent} />
           <div className="buttons attach">
             <button type="button">
               <input type="file" id="input-attach" />
