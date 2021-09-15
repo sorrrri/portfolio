@@ -9,9 +9,11 @@ import { ModalMarkers } from './components/modal-markers';
 import { ActiveScroll } from '../../_component/active-scroll';
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
+import { MapModule } from './components/map/mapModule';
 
 export function DeviceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
+  const [selectedDevices, setSelectedDevices] = useState<any[]>([]);
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
@@ -68,7 +70,14 @@ export function DeviceList(props: any) {
         <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
           <i className="fad fa-map-marked-alt" />
         </button>
-        <div className="maps" />
+        {/* <div className="maps" /> */}
+        <MapModule
+          onClicked={(value: any) => {
+            console.log(`value : ${value}`);
+            setSelectedDevices(value);
+            showModalMarkers();
+          }}
+        />
         <div className="zoom-in-out">
           <button className="zoom-out" type="button">
             <i className="fal fa-minus" />
@@ -118,7 +127,7 @@ export function DeviceList(props: any) {
         </section>
         <section className="no-result">검색 내역이 없습니다.</section>
       </main>
-      <ModalMarkers show={isOpen2} close={() => setIsOpen2(false)} />
+      <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
     </>
   );
 }

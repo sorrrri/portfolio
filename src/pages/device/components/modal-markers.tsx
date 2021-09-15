@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Row } from './list-row';
 
 export const ModalMarkers = (props: any) => {
-  const { show, close } = props;
+  const { show, devices, close } = props;
   const history = useHistory();
 
   const onClickItem = (workId: number) => {
@@ -23,16 +23,13 @@ export const ModalMarkers = (props: any) => {
           </div>
         </section>
         <section className="result">
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+          {devices.map((item: any) => (
+            <Row
+              key={item.item_uuid}
+              title={item.name}
+              goDetail={() => onClickItem(item.item_uuid)}
+            />
+          ))}
         </section>
       </div>
     </>
