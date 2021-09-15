@@ -6,8 +6,21 @@ import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
 
-export function WorkspaceAdd() {
+export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+
+  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
+
+  // 일감 등록
+  const [title, setTitle] = useState(''); // 작업명
+  const [priority, setPriority] = useState('EMERGENCY'); // 중요도
+  const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
+  const [toList, setToList] = useState(''); // 받는사람
+  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [content, setContent] = useState(''); // 작업내용
+  // const [uploadFiles, setUploadFiles] = useState(); // 파일 업로드
 
   useEffect(() => {
     dispatch(
@@ -17,21 +30,13 @@ export function WorkspaceAdd() {
         rightContext: () => null,
       })
     );
+  });
+
+  useEffect(() => {
     fetchWorkspaceTemplate();
-  }, []);
+  }, [toList]);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-
-  const [title, setTitle] = useState(''); // 작업명
-  const [priority, setPriority] = useState('EMERGENCY'); // 중요도
-  const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
-  const [toList, setToList] = useState(''); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
-  const [content, setContent] = useState(''); // 작업내용
-  const [uploadFiles, setUploadFiles] = useState(); // 파일 업로드
-
-  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
+  // 받는사람 정보 get
   const fetchWorkspaceTemplate = () => {
     api.getWorkspaceTemplate('work').then((payload: any) => {
       const { code, response } = payload;
@@ -41,7 +46,7 @@ export function WorkspaceAdd() {
     });
   };
 
-  // 받는사람 입력받아 filter 후 setState
+  // 받는사람 filter
   const handleInputName = (e: any) => {
     const filtername = recipient.filter((item) => item.name === e.target.value);
     const filteruuid = filtername.map((item) => item.uuid);
@@ -49,12 +54,10 @@ export function WorkspaceAdd() {
     setToList(result);
   };
 
-  // 작업명 입력받아 setState
   const handleTitle = (e: any) => {
     setTitle(e.target.value);
   };
 
-  // 작업내용 입력받아 setState
   const handleContent = (e: any) => {
     setContent(e.target.value);
   };
@@ -78,12 +81,14 @@ export function WorkspaceAdd() {
     api.addWorkspace('work', {
       priority,
       detail_type: detailType,
-      to_list: toList,
+      to_list: ['c329536f-1633-4997-bc01-4c6e3532f70b', '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de'],
       platform_sharing: platformSharing,
       title,
       content,
-      upload_files: uploadFiles,
+      // upload_files: uploadFiles,
     });
+    const { history } = props;
+    history.push('/workspace');
   };
 
   return (
