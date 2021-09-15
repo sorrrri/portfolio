@@ -7,6 +7,7 @@ import { ModalDone } from '../../_component/modal-done';
 import { ModalImage } from '../../_component/modal-image';
 import { ActiveScroll } from '../../_component/active-scroll';
 import { Comment } from './components/comment';
+import api from '../../_api/backend';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -22,9 +23,67 @@ export function WorkspaceDetail(props: any) {
     );
   }, [id]);
 
+  useEffect(() => {
+    fetchWorkspaceTemplate();
+    fetchWorkspaceDetail();
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
+
+  // 댓글 등록 state
+  const [state, setState] = useState('WORK_REQUEST'); // 처리상태
+  const [toList, setToList] = useState(''); // 받는사람
+  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [content, setContent] = useState(''); // 댓글내용
+  const [uploadFiles, setUploadFiles] = useState(); // 파일첨부
+
+  // 일감 상세 정보 state
+  const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
+  const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
+  const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
+
+  // const commnetfunction = () => {
+  //   if (comments !== null && undefined) {
+  //     setCommentstest()
+  //   }
+  // }
+
+  // 일감 상세 정보 함수
+  const fetchWorkspaceDetail = () => {
+    api.getWorkspaceDetail(id).then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && Object(response.results)) {
+        setWorkspaceDetail(response.results);
+        setNewResigtrant(response.results.registrant);
+        setComments(response.results.comment);
+      }
+    });
+  };
+
+  const [fetchRecipient, setFetchRecipient] = useState([]); // 받는사람 정보
+  const fetchWorkspaceTemplate = () => {
+    api.getWorkspaceTemplate('work').then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response.results.recipient) {
+        setFetchRecipient(response.results.recipient);
+      }
+    });
+  };
+
+  // 받는사람 입력받아 filter 후 setState
+  const handleInputName = (e: any) => {
+    const filtername = fetchRecipient.filter((item: any) => item.name === e.target.value);
+    const filteruuid = filtername.map((item: any) => item.uuid);
+    const result = filteruuid.join();
+    setToList(result);
+  };
+
+  // 댓글내용 입력받아 setState
+  const handleContent = (e: any) => {
+    setContent(e.target.value);
+  };
 
   const showModal = () => {
     setIsOpen(true);
@@ -43,9 +102,28 @@ export function WorkspaceDetail(props: any) {
   };
 
   const isCloseAll = () => {
+    api.addComment(id, {
+      state,
+      to_list: toList,
+      platform_sharing: platformSharing,
+      content,
+      upload_files: uploadFiles,
+    });
     setIsOpen(false);
     setIsOpen2(false);
   };
+
+  // 일감상세 객체 구조 분해
+  const {
+    title,
+    reg_date: regDate,
+    content: Content,
+    comment_cnt: commentCnt,
+    views,
+    priority_name: priorityName,
+  } = workspaceDetail;
+  // 일감상세 회원정보 객체 구조 분해
+  const { name } = newResigtrant;
 
   return (
     <>
@@ -58,21 +136,17 @@ export function WorkspaceDetail(props: any) {
             </div>
             <ul>
               <li className="title">
-                <div>카메라 위치 조정 요청 건카메라 위치 조정 요청 건카메라 위치 조정 요청 건</div>
+                <div>{title}</div>
               </li>
               <li className="created">
                 <i className="fad fa-user" />
-                <span className="writer">홍길동</span>
-                <span className="date">2021-08-03 12:42:32</span>
+                <span className="writer">{name}</span>
+                <span className="date">{regDate}</span>
               </li>
             </ul>
           </div>
           <div className="details">
-            <p>
-              모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 아래
-              관련 자료 첨부 하오니, 확인 후 빠른 조치 부탁드립니다. 주정차 단속 관련 장비 이므로
-              빠른 처리가 필요합니다. 감사합니다.
-            </p>
+            <p>{Content}</p>
             <div className="images">
               <div className="image">
                 <img
@@ -95,11 +169,11 @@ export function WorkspaceDetail(props: any) {
             <ul>
               <li>
                 <i className="fad fa-comment-alt-lines" />
-                <span className="comment">3</span>
+                <span className="comment">{commentCnt}</span>
               </li>
               <li>
                 <i className="fad fa-comment-alt-check" />
-                <span className="read">5</span>
+                <span className="read">{views}</span>
               </li>
             </ul>
           </div>
@@ -112,19 +186,35 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="filters">
               <button type="button">
-                <input type="radio" id="input-request-comment" name="filter-type" defaultChecked />
+                <input
+                  type="radio"
+                  id="input-request-comment"
+                  name="filter-type"
+                  defaultChecked
+                  onClick={() => setState('WORK_REQUEST')}
+                />
                 <label className="bg-orange" htmlFor="input-request-comment">
                   <span>요청</span>
                 </label>
               </button>
               <button type="button">
-                <input type="radio" id="input-undertake-comment" name="filter-type" />
+                <input
+                  type="radio"
+                  id="input-undertake-comment"
+                  name="filter-type"
+                  onClick={() => setState('PROGRESS')}
+                />
                 <label className="bg-blue" htmlFor="input-undertake-comment">
                   <span>진행</span>
                 </label>
               </button>
               <button type="button">
-                <input type="radio" id="input-done-comment" name="filter-type" />
+                <input
+                  type="radio"
+                  id="input-done-comment"
+                  name="filter-type"
+                  onClick={() => setState('COMPLETION')}
+                />
                 <label className="bg-green" htmlFor="input-done-comment">
                   <span>완료</span>
                 </label>
@@ -132,26 +222,37 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="input">
               <span>받는사람</span>
-              <input type="text" />
+              <input type="text" onChange={handleInputName} />
             </div>
             <div className="input">
               <span>플랫폼관리자 공개여부</span>
               <div className="filters">
                 <button type="button">
-                  <input type="radio" id="comment-public" name="comment-type" defaultChecked />
+                  <input
+                    type="radio"
+                    id="comment-public"
+                    name="comment-type"
+                    defaultChecked
+                    onClick={() => setPlatformSharing(true)}
+                  />
                   <label htmlFor="comment-public">
                     <span>예</span>
                   </label>
                 </button>
                 <button type="button">
-                  <input type="radio" id="comment-private" name="comment-type" />
+                  <input
+                    type="radio"
+                    id="comment-private"
+                    name="comment-type"
+                    onClick={() => setPlatformSharing(false)}
+                  />
                   <label htmlFor="comment-private">
                     <span>아니오</span>
                   </label>
                 </button>
               </div>
             </div>
-            <textarea name="" id="" />
+            <textarea name="" id="" onChange={handleContent} />
             <div className="comment-footer">
               <div className="buttons attach">
                 <button type="button">
@@ -171,8 +272,17 @@ export function WorkspaceDetail(props: any) {
               </div>
             </div>
           </div>
+          {/* {comments.map((comment: any) => (
+            <Comment
+              key={comment.comment_uuid}
+              request={priorityName}
+              writer={comment.registrant.name}
+            >
+              {comment.content}
+            </Comment>
+          ))} */}
           <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
-            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
           <Comment
             undertake
@@ -180,10 +290,10 @@ export function WorkspaceDetail(props: any) {
             date="2021-08-03 12:42:32"
             read="박보검, 정우성, 전지현, 이정재, 이영애, 손예진, 현빈, 고길동, 둘리, 또치"
           >
-            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
           <Comment done writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
-            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
         </div>
       </main>
