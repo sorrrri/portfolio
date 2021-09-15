@@ -141,6 +141,11 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
+  @Get('/platform/api/v2/:realm/device/:client_uuid/items/{item_uuid}')
+  async getDeviceDetail(@Param('item_uuid') uuid: string): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
   /*
    * Workspace
    */
