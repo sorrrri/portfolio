@@ -18,6 +18,7 @@ export function FeignClient(
 
         instance.interceptors.request.use(
           (_) => {
+            // console.log('axios request', _);
             return _;
           },
           (_) => {
