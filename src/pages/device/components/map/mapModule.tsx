@@ -4,15 +4,18 @@
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from 'react';
 import api from '../../../../_api/backend';
-// import MarkerClustering = require('./MarkerClustering');
 
 const mapStyle = {
   width: '100%',
   height: '100%',
 };
 
+// 주석처리 작업 이어나가야함.
 export const MapModule = (props: any) => {
   const [devicesForMap, setDevicesForMap] = useState<any[]>([]);
+  const [naverMap, setNaverMap] = useState<naver.maps.Map>();
+  const [showMarkers, setShowMarkers] = useState<naver.maps.Marker[]>([]);
+
   useEffect(() => {
     fetchDevices();
   }, []);
@@ -32,19 +35,61 @@ export const MapModule = (props: any) => {
     });
   };
 
+  const setDefaultMapSetting = () => {
+    const lng = Number(process.env.REACT_APP_MAP_INIT_LNG);
+    const lat = Number(process.env.REACT_APP_MAP_INIT_LAT);
+    const initZoom = Number(process.env.REACT_APP_MAP_INIT_ZOOM);
+
+    const map = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(lat, lng),
+      zoom: initZoom,
+      maxZoom: 15,
+    });
+
+    setNaverMap(map);
+  };
+
   const markerClicked = (event: any) => {
     const arr = event;
     props.onClicked(arr);
   };
 
+  const mapMarkerSetting = () => {
+    const markers: naver.maps.Marker[] = [];
+
+    for (let i = 0; i < devicesForMap.length; i++) {
+      const marker = new naver.maps.Marker({
+        // title: devicesForMap[i].name,
+        title: devicesForMap[i].item_uuid,
+        position: new naver.maps.LatLng(devicesForMap[i].latitude, devicesForMap[i].longitude),
+        zIndex: 100,
+      });
+
+      naver.maps.Event.addListener(marker, 'click', () => {
+        // markerClick(marker);
+        markerClicked(devicesForMap.filter((item) => item.item_uuid === marker.getTitle()));
+      });
+      markers.push(marker);
+    }
+  };
+
   const mapSetting = () => {
     const markers: naver.maps.Marker[] = [];
-    // 지도 생성
+    // 지도 생성, max min zoom 확인
     const map = new naver.maps.Map('map', {
-      center: new naver.maps.LatLng(36.505714, 127.054612),
+      center: new naver.maps.LatLng(36.8169675, 127.1056431),
       zoom: 13,
       maxZoom: 15,
     });
+
+    /*
+    console.log(`lng: ${mapLng}, lat: ${mapLat}`);
+    const map = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(mapLat, mapLng),
+      zoom: mapInitZoom,
+      maxZoom: 15,
+    });
+*/
     // 마커 생성
     for (let i = 0; i < devicesForMap.length; i++) {
       const marker = new naver.maps.Marker({
@@ -61,7 +106,7 @@ export const MapModule = (props: any) => {
       markers.push(marker);
     }
 
-    const markerClustering: any = new MarkerClustering({
+    const markerClustering = new MarkerClustering({
       minClusterSize: 2,
       maxZoom: 15,
       map: map,
@@ -83,21 +128,16 @@ export const MapModule = (props: any) => {
             return false;
           });
 
-          // devicesForMap.reduce((ret, item, index) => {});
-
           console.log('cluster click');
-          // console.log(cluster);
-          // console.log(clusterMarker);
-          // console.log(items);
-
           markerClicked(items);
         });
       },
     });
+
     console.log(markerClustering);
 
     naver.maps.Event.addListener(map, 'bounds_changed', function () {
-      // console.log('bounds_changed');
+      console.log('bounds_changed');
       // console.log(map.getBounds());
       console.log(map.getBounds().getCenter());
     });
