@@ -17,46 +17,45 @@ export function WorkspaceAdd() {
         rightContext: () => null,
       })
     );
-    fetchTemplate();
+    fetchWorkspaceTemplate();
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
   const [title, setTitle] = useState(''); // 작업명
-  const [priority, setPriority] = useState(''); // 중요도
-  const [detailType, setDetailType] = useState(''); // 업무유형
+  const [priority, setPriority] = useState('EMERGENCY'); // 중요도
+  const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
   const [toList, setToList] = useState(''); // 받는사람
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 작업내용
+  const [uploadFiles, setUploadFiles] = useState(); // 파일 업로드
 
-  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보(리스트)
-
-  // 받는사람 정보(리스트) 가져오기
-  const fetchTemplate = () => {
-    api.getTemplate('work').then((payload: any) => {
+  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
+  const fetchWorkspaceTemplate = () => {
+    api.getWorkspaceTemplate('work').then((payload: any) => {
       const { code, response } = payload;
-      if (code === 200 && response && Array.isArray(response.results.recipient)) {
+      if (code === 200 && Array.isArray(response.results.recipient)) {
         setRecipient(response.results.recipient);
       }
     });
   };
 
-  // 작업명 입력 받아 setState
-  const onChangeTitle = (e: any) => {
+  // 받는사람 입력받아 filter 후 setState
+  const handleInputName = (e: any) => {
+    const filtername = recipient.filter((item) => item.name === e.target.value);
+    const filteruuid = filtername.map((item) => item.uuid);
+    const result = filteruuid.join();
+    setToList(result);
+  };
+
+  // 작업명 입력받아 setState
+  const handleTitle = (e: any) => {
     setTitle(e.target.value);
   };
 
-  // 받는사람 입력 받아 필터 후 setState
-  const onChangeToList = (e: any) => {
-    const toListname = recipient.filter((item) => item.name === e.target.value);
-    const toListuuid = toListname.map((name) => name.uuid);
-    const toListresult = toListuuid.join();
-    setToList(toListresult);
-  };
-
-  // 작업내용 입력 받아 setState
-  const onChangeContent = (e: any) => {
+  // 작업내용 입력받아 setState
+  const handleContent = (e: any) => {
     setContent(e.target.value);
   };
 
@@ -64,16 +63,7 @@ export function WorkspaceAdd() {
     setIsOpen(true);
   };
 
-  // 업무 요청 등록
   const showDoneModal = () => {
-    api.addWorkspace('work', {
-      priority,
-      detail_type: detailType,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      title,
-      content,
-    });
     setIsOpen2(true);
   };
 
@@ -81,9 +71,19 @@ export function WorkspaceAdd() {
     setIsOpen(false);
   };
 
+  // 업무 요청 등록
   const isCloseAll = () => {
     setIsOpen(false);
     setIsOpen2(false);
+    api.addWorkspace('work', {
+      priority,
+      detail_type: detailType,
+      to_list: toList,
+      platform_sharing: platformSharing,
+      title,
+      content,
+      upload_files: uploadFiles,
+    });
   };
 
   return (
@@ -92,7 +92,7 @@ export function WorkspaceAdd() {
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
-            <input type="text" placeholder="작업명을 입력하세요." onChange={onChangeTitle} />
+            <input type="text" placeholder="작업명을 입력하세요." onChange={handleTitle} />
           </div>
           <div className="input">
             <span>중요도</span>
@@ -196,7 +196,7 @@ export function WorkspaceAdd() {
           </div>
           <div className="input send-to">
             <span>받는사람</span>
-            <input type="text" onChange={onChangeToList} />
+            <input type="text" onChange={handleInputName} />
           </div>
           <div className="input">
             <span>플랫폼관리자 공개여부</span>
@@ -226,7 +226,7 @@ export function WorkspaceAdd() {
               </button>
             </div>
           </div>
-          <textarea name="" id="" onChange={onChangeContent} />
+          <textarea name="" id="" onChange={handleContent} />
           <div className="buttons attach">
             <button type="button">
               <input type="file" id="input-attach" />
