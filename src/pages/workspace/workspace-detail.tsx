@@ -5,7 +5,6 @@ import { showHeader } from '../../_store/slice/header-option';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { ModalImage } from '../../_component/modal-image';
-import { ActiveScroll } from '../../_component/active-scroll';
 import { Comment } from './components/comment';
 import api from '../../_api/backend';
 
@@ -127,7 +126,7 @@ export function WorkspaceDetail(props: any) {
 
   return (
     <>
-      <main className="content details workspace" onScroll={ActiveScroll}>
+      <main className="content details workspace">
         <div className="row emergency">
           <div className="row-title">
             <div className="tags">
@@ -147,6 +146,16 @@ export function WorkspaceDetail(props: any) {
           </div>
           <div className="details">
             <p>{Content}</p>
+            <ul className="documents">
+              <li className="document">
+                <i className="fad fa-file-alt" />
+                <span>권한 변경 요청서.xlsx</span>
+              </li>
+              <li className="document">
+                <i className="fad fa-file-alt" />
+                <span>권한 변경 요청서.xlsx</span>
+              </li>
+            </ul>
             <div className="images">
               <div className="image">
                 <img
@@ -295,6 +304,9 @@ export function WorkspaceDetail(props: any) {
           <Comment done writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
             [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
+        </div>
+        <div className="buttons">
+          <button type="button">삭제하기</button>
         </div>
       </main>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">

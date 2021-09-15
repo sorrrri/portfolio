@@ -6,7 +6,6 @@ import { showHeader } from '../../_store/slice/header-option';
 import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-search-work';
 import { FilterMarkers } from './components/filter-markers';
 import { ModalMarkers } from './components/modal-markers';
-import { ActiveScroll } from '../../_component/active-scroll';
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import { MapModule } from './components/map/mapModule';
@@ -103,7 +102,7 @@ export function DeviceList(props: any) {
           />
         </div>
       </main>
-      <main className="content list equipments" onScroll={ActiveScroll}>
+      <main className="content list equipments">
         <section className="result">
           <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
           <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
