@@ -11,6 +11,7 @@ export function WorkspaceList(props: any) {
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
+  const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,10 +22,13 @@ export function WorkspaceList(props: any) {
         rightContext: () => <AddSearchWork toggle={toggleSearchArea} {...props} />,
       })
     );
+  });
+
+  useEffect(() => {
     fetchWorkspaceList();
   }, []);
 
-  const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
+  // 일감 목록 정보 get
   const fetchWorkspaceList = () => {
     api.getWorkspaceList().then((payload: any) => {
       const { code, response } = payload;
@@ -57,7 +61,7 @@ export function WorkspaceList(props: any) {
             {workdata.summary_content}
           </Row>
         ))}
-        <Row
+        {/* <Row
           item={() => onClickItem(1)}
           comment={3}
           read={5}
@@ -84,7 +88,7 @@ export function WorkspaceList(props: any) {
           중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링 중 근처
           가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링 중 근처 가로수로
           인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-        </Row>
+        </Row> */}
       </main>
     </>
   );
