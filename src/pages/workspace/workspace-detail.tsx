@@ -12,6 +12,36 @@ import api from '../../_api/backend';
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
   const { id } = props.match.params;
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+
+  const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
+  const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
+  const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
+
+  const [recipient, setRecipient] = useState([]); // 받는사람 정보
+  const [inRecipient, setInRecipient] = useState(''); // input 받는사람
+
+  // 댓글 등록
+  const [state, setState] = useState('WORK_REQUEST'); // 처리상태
+  const [toList, setToList] = useState(''); // 받는사람
+  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [content, setContent] = useState(''); // 댓글내용
+  const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
+
+  // 일감상세 객체 구조 분해
+  const {
+    title,
+    reg_date: regDate,
+    content: Content,
+    comment_cnt: commentCnt,
+    views,
+    priority_name: priorityName,
+  } = workspaceDetail;
+
+  // 일감상세 회원정보 객체 구조 분해
+  const { name } = newResigtrant;
 
   useEffect(() => {
     dispatch(
@@ -24,33 +54,18 @@ export function WorkspaceDetail(props: any) {
   }, [id]);
 
   useEffect(() => {
-    fetchWorkspaceTemplate();
     fetchWorkspaceDetail();
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
+  useEffect(() => {
+    filterRecipient();
+  });
 
-  // 댓글 등록 state
-  const [state, setState] = useState('WORK_REQUEST'); // 처리상태
-  const [toList, setToList] = useState(''); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
-  const [content, setContent] = useState(''); // 댓글내용
-  const [uploadFiles, setUploadFiles] = useState(); // 파일첨부
+  useEffect(() => {
+    fetchWorkspaceTemplate();
+  }, [toList]);
 
-  // 일감 상세 정보 state
-  const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
-  const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
-  const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
-
-  // const commnetfunction = () => {
-  //   if (comments !== null && undefined) {
-  //     setCommentstest()
-  //   }
-  // }
-
-  // 일감 상세 정보 함수
+  // 일감 상세 정보 get
   const fetchWorkspaceDetail = () => {
     api.getWorkspaceDetail(id).then((payload: any) => {
       const { code, response } = payload;
@@ -62,27 +77,22 @@ export function WorkspaceDetail(props: any) {
     });
   };
 
-  const [fetchRecipient, setFetchRecipient] = useState([]); // 받는사람 정보
+  // 받는사람 정보 get
   const fetchWorkspaceTemplate = () => {
     api.getWorkspaceTemplate('work').then((payload: any) => {
       const { code, response } = payload;
       if (code === 200 && response.results.recipient) {
-        setFetchRecipient(response.results.recipient);
+        setRecipient(response.results.recipient);
       }
     });
   };
 
-  // 받는사람 입력받아 filter 후 setState
-  const handleInputName = (e: any) => {
-    const filtername = fetchRecipient.filter((item: any) => item.name === e.target.value);
+  // 받는사람 filter
+  const filterRecipient = () => {
+    const filtername = recipient.filter((item: any) => item.name === inRecipient);
     const filteruuid = filtername.map((item: any) => item.uuid);
     const result = filteruuid.join();
     setToList(result);
-  };
-
-  // 댓글내용 입력받아 setState
-  const handleContent = (e: any) => {
-    setContent(e.target.value);
   };
 
   const showModal = () => {
@@ -90,6 +100,13 @@ export function WorkspaceDetail(props: any) {
   };
 
   const showDoneModal = () => {
+    api.addComment(id, {
+      state,
+      to_list: toList,
+      platform_sharing: platformSharing,
+      content,
+      upload_files: attacheFiles,
+    });
     setIsOpen2(true);
   };
 
@@ -102,28 +119,22 @@ export function WorkspaceDetail(props: any) {
   };
 
   const isCloseAll = () => {
-    api.addComment(id, {
-      state,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      content,
-      upload_files: uploadFiles,
-    });
     setIsOpen(false);
     setIsOpen2(false);
   };
 
-  // 일감상세 객체 구조 분해
-  const {
-    title,
-    reg_date: regDate,
-    content: Content,
-    comment_cnt: commentCnt,
-    views,
-    priority_name: priorityName,
-  } = workspaceDetail;
-  // 일감상세 회원정보 객체 구조 분해
-  const { name } = newResigtrant;
+  const handleSubmitCancle = (e: any) => {
+    e.preventDefault();
+    setContent('');
+    setInRecipient('');
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setContent('');
+    setInRecipient('');
+    isCloseAll();
+  };
 
   return (
     <>
@@ -222,7 +233,11 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="input">
               <span>받는사람</span>
-              <input type="text" onChange={handleInputName} />
+              <input
+                type="text"
+                value={inRecipient}
+                onChange={(e) => setInRecipient(e.target.value)}
+              />
             </div>
             <div className="input">
               <span>플랫폼관리자 공개여부</span>
@@ -252,18 +267,24 @@ export function WorkspaceDetail(props: any) {
                 </button>
               </div>
             </div>
-            <textarea name="" id="" onChange={handleContent} />
+            <textarea name="" id="" value={content} onChange={(e) => setContent(e.target.value)} />
             <div className="comment-footer">
               <div className="buttons attach">
                 <button type="button">
                   <label htmlFor="input-attach">
                     <i className="fad fa-cloud-upload" />
                   </label>
-                  <input type="file" id="input-attach" />
+                  <input
+                    type="file"
+                    id="input-attach"
+                    multiple
+                    onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+                  />
+                  <span> (첨부 된 파일 표시 필요)</span>
                 </button>
               </div>
               <div className="buttons">
-                <button className="btn-cancel" type="button">
+                <button className="btn-cancel" type="submit" onClick={handleSubmitCancle}>
                   취소
                 </button>
                 <button className="btn-submit" onClick={showModal} type="button">
@@ -272,16 +293,18 @@ export function WorkspaceDetail(props: any) {
               </div>
             </div>
           </div>
-          {/* {comments.map((comment: any) => (
-            <Comment
-              key={comment.comment_uuid}
-              request={priorityName}
-              writer={comment.registrant.name}
-            >
-              {comment.content}
-            </Comment>
-          ))} */}
-          <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
+          {comments &&
+            comments.map((comment: any) => (
+              <Comment
+                key={comment.comment_uuid}
+                state={priorityName}
+                writer={comment.registrant.name}
+                date={comment.reg_date}
+              >
+                {comment.content}
+              </Comment>
+            ))}
+          {/* <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
             [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
           <Comment
@@ -294,13 +317,13 @@ export function WorkspaceDetail(props: any) {
           </Comment>
           <Comment done writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
             [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
-          </Comment>
+          </Comment> */}
         </div>
       </main>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">
         작업 내용을 등록하시겠습니까?
       </Modal>
-      <ModalDone show={isOpen2} close={isCloseAll}>
+      <ModalDone show={isOpen2} close={handleSubmit}>
         작업 내용이 등록 되었습니다.
       </ModalDone>
       <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />
