@@ -17,15 +17,17 @@ export const MapModule = (props: any) => {
   const [showMarkers, setShowMarkers] = useState<naver.maps.Marker[]>([]);
 
   useEffect(() => {
-    fetchDevices();
+    fetchDevices(mapCorrd(36.8169675, 127.1056431), '1');
+    setDefaultMapSetting();
   }, []);
 
   useEffect(() => {
-    mapSetting();
+    // mapSetting();
+    mapMarkerSetting();
   }, [devicesForMap]);
 
-  const fetchDevices = () => {
-    api.getDevicesForMap().then((payload: any) => {
+  const fetchDevices = (corrd: string, radius: string) => {
+    api.getDevicesForMap(corrd, radius).then((payload: any) => {
       const { code, response } = payload;
       if (code === 200 && response && Array.isArray(response.results)) {
         const ret = response.results.filter((item: any): boolean => item.type === 'CCTV');
@@ -33,6 +35,14 @@ export const MapModule = (props: any) => {
         console.log(ret);
       }
     });
+  };
+
+  const mapCorrd = (mapLat: number, mapLng: number) => {
+    if (mapLat <= 0 || mapLng <= 0) {
+      return '';
+    }
+
+    return `${mapLat.toString()} ${mapLng.toString()}`;
   };
 
   const setDefaultMapSetting = () => {
@@ -44,6 +54,12 @@ export const MapModule = (props: any) => {
       center: new naver.maps.LatLng(lat, lng),
       zoom: initZoom,
       maxZoom: 15,
+    });
+
+    naver.maps.Event.addListener(map, 'bounds_changed', function () {
+      console.log('bounds_changed');
+      // console.log(map.getBounds());
+      console.log(map.getBounds().getCenter());
     });
 
     setNaverMap(map);
@@ -71,8 +87,36 @@ export const MapModule = (props: any) => {
       });
       markers.push(marker);
     }
+
+    const markerClustering = new MarkerClustering({
+      minClusterSize: 2,
+      maxZoom: 15,
+      map: naverMap,
+      markers: markers,
+      disableClickZoom: true,
+      gridSize: 50,
+      // icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
+      indexGenerator: [10, 100, 200, 500, 1000],
+      stylingFunction: function (cluster: any[], clusterMarker: any, count: number) {
+        $(clusterMarker.getElement()).find('div:first-child').text(count);
+        // console.log(`stylingFunction - ${count}`);
+        naver.maps.Event.addListener(clusterMarker, 'click', () => {
+          const items = devicesForMap.filter((item) => {
+            for (let i = 0; i < cluster.length; i++) {
+              if (item.item_uuid === cluster[i].title) {
+                return true;
+              }
+            }
+            return false;
+          });
+          console.log('cluster click');
+          markerClicked(items);
+        });
+      },
+    });
   };
 
+  // 분리해야하는데 분리 되었을 때 Marker, Cluster 동작 가능한지 확인해야함.
   const mapSetting = () => {
     const markers: naver.maps.Marker[] = [];
     // 지도 생성, max min zoom 확인
@@ -127,7 +171,6 @@ export const MapModule = (props: any) => {
             }
             return false;
           });
-
           console.log('cluster click');
           markerClicked(items);
         });

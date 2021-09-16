@@ -65,7 +65,7 @@ const transformConfig = (base: AxiosRequestConfig) => {
       `${realm}\n` +
       `${username}\n` +
       `${reqPath}`;
-    // console.log(stringToSign);
+    console.log(stringToSign);
 
     const reqHash = CryptoJS.HmacSHA256(stringToSign, sessionState);
     const reqHashString = CryptoJS.enc.Base64.stringify(reqHash);
@@ -132,7 +132,10 @@ class Server {
    * Devices
    */
   @Get('/platform/api/v2/:realm/device/:client_uuid/items/maps')
-  async getDevicesForMap(): Promise<any[]> {
+  async getDevicesForMap(
+    @Query('corrd') corrd: string,
+    @Query('radius') radius: string
+  ): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 

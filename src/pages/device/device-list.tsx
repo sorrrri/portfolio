@@ -67,7 +67,12 @@ export function DeviceList(props: any) {
       </SearchArea>
       <FilterMarkers show={isOpen} close={isClose} />
       <main className="content equipments maps">
-        <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
+        <button
+          className="local-toggle-menu"
+          onClick={showFilterMarkers}
+          type="button"
+          style={{ display: 'none' }}
+        >
           <i className="fad fa-map-marked-alt" />
         </button>
         {/* <div className="maps" /> */}
