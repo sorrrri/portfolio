@@ -21,6 +21,8 @@ export function WorkspaceAdd(props: any) {
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 작업내용
   // const [uploadFiles, setUploadFiles] = useState(); // 파일 업로드
+  const [fileBase64, setFileBase64] = useState<any[]>([]); // 파일 base64
+  const [fileupload, setFileupload] = useState(null);
 
   useEffect(() => {
     dispatch(
@@ -54,6 +56,26 @@ export function WorkspaceAdd(props: any) {
     setToList(result);
   };
 
+  const handleInputFile = (e: any) => {
+    console.log(e.target.files);
+    setFileupload(e.target.files);
+    setFileBase64([]);
+    for (let i = 0; i < e.target.files.length; i++) {
+      if (e.target.files[i]) {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[i]);
+        reader.onloadend = () => {
+          const base64 = reader.result;
+          console.log(base64);
+          if (base64) {
+            const base64Sub = base64.toString();
+            setFileBase64([...fileBase64, base64Sub]);
+          }
+        };
+      }
+    }
+  };
+
   const handleTitle = (e: any) => {
     setTitle(e.target.value);
   };
@@ -81,11 +103,12 @@ export function WorkspaceAdd(props: any) {
     api.addWorkspace('work', {
       priority,
       detail_type: detailType,
-      to_list: ['c329536f-1633-4997-bc01-4c6e3532f70b', '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de'],
+      // to_list: ['c329536f-1633-4997-bc01-4c6e3532f70b', '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de'],
+      to_list: toList,
       platform_sharing: platformSharing,
       title,
       content,
-      // upload_files: uploadFiles,
+      upload_files: fileBase64,
     });
     const { history } = props;
     history.push('/workspace');
@@ -94,6 +117,14 @@ export function WorkspaceAdd(props: any) {
   return (
     <>
       <main className="content details add workspace">
+        {/* {fileBase64.map((item: any) => (
+          <img
+            className=""
+            src={item}
+            alt="First slide"
+            style={{ width: '100%', height: '550px' }}
+          />
+        ))} */}
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
@@ -234,7 +265,7 @@ export function WorkspaceAdd(props: any) {
           <textarea name="" id="" onChange={handleContent} />
           <div className="buttons attach">
             <button type="button">
-              <input type="file" id="input-attach" />
+              <input type="file" id="input-attach" onChange={handleInputFile} />
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
               </label>
