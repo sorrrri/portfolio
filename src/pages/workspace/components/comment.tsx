@@ -1,18 +1,25 @@
 import React from 'react';
 
 export const Comment = (props: any) => {
-  const { writer, date, read, request, undertake, done } = props;
+  const { writer, date, read, state } = props;
+
+  const filterstate = (value: any) => {
+    switch (value) {
+      case '요청':
+        return <span className="tag request" />;
+      case '진행':
+        return <span className="tag undertake" />;
+      case '완료':
+        return <span className="tag done" />;
+      default:
+        return <span className="" />;
+    }
+  };
 
   return (
     <div className="other-comment">
       <ul className="information">
-        <li className="tags">
-          <span
-            className={`tag ${request ? 'request' : ''} ${undertake ? 'undertake' : ''} ${
-              done ? 'done' : ''
-            }`}
-          />
-        </li>
+        <li className="tags">{filterstate(state)}</li>
         <li className="created">
           <i className="fad fa-user" />
           <span className="writer">{writer}</span>
