@@ -21,8 +21,9 @@ export function WorkspaceAdd(props: any) {
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 작업내용
   // const [uploadFiles, setUploadFiles] = useState(); // 파일 업로드
-  const [fileBase64, setFileBase64] = useState<any[]>([]); // 파일 base64
-  const [fileupload, setFileupload] = useState(null);
+  // const [fileBase64, setFileBase64] = useState<any[]>([]); // 파일 base64
+  // const [fileupload, setFileupload] = useState(null);
+  const [attacheFiles, setAttacheFiles] = useState<File[]>([]);
 
   useEffect(() => {
     dispatch(
@@ -54,26 +55,6 @@ export function WorkspaceAdd(props: any) {
     const filteruuid = filtername.map((item) => item.uuid);
     const result = filteruuid.join();
     setToList(result);
-  };
-
-  const handleInputFile = (e: any) => {
-    console.log(e.target.files);
-    setFileupload(e.target.files);
-    setFileBase64([]);
-    for (let i = 0; i < e.target.files.length; i++) {
-      if (e.target.files[i]) {
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[i]);
-        reader.onloadend = () => {
-          const base64 = reader.result;
-          console.log(base64);
-          if (base64) {
-            const base64Sub = base64.toString();
-            setFileBase64([...fileBase64, base64Sub]);
-          }
-        };
-      }
-    }
   };
 
   const handleTitle = (e: any) => {
@@ -108,7 +89,7 @@ export function WorkspaceAdd(props: any) {
       platform_sharing: platformSharing,
       title,
       content,
-      upload_files: fileBase64,
+      upload_files: attacheFiles,
     });
     const { history } = props;
     history.push('/workspace');
@@ -265,7 +246,12 @@ export function WorkspaceAdd(props: any) {
           <textarea name="" id="" onChange={handleContent} />
           <div className="buttons attach">
             <button type="button">
-              <input type="file" id="input-attach" onChange={handleInputFile} />
+              <input
+                type="file"
+                id="input-attach"
+                multiple
+                onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+              />
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
               </label>
