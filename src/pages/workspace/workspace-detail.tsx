@@ -28,7 +28,7 @@ export function WorkspaceDetail(props: any) {
   const [toList, setToList] = useState(''); // 받는사람
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 댓글내용
-  // const [uploadFiles, setUploadFiles] = useState(); // 파일첨부
+  const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
 
   // 일감상세 객체 구조 분해
   const {
@@ -100,6 +100,13 @@ export function WorkspaceDetail(props: any) {
   };
 
   const showDoneModal = () => {
+    api.addComment(id, {
+      state,
+      to_list: toList,
+      platform_sharing: platformSharing,
+      content,
+      upload_files: attacheFiles,
+    });
     setIsOpen2(true);
   };
 
@@ -112,14 +119,6 @@ export function WorkspaceDetail(props: any) {
   };
 
   const isCloseAll = () => {
-    // api.addComment(id, {
-    console.log(id, {
-      state,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      content,
-      // upload_files: uploadFiles,
-    });
     setIsOpen(false);
     setIsOpen2(false);
   };
@@ -275,7 +274,13 @@ export function WorkspaceDetail(props: any) {
                   <label htmlFor="input-attach">
                     <i className="fad fa-cloud-upload" />
                   </label>
-                  <input type="file" id="input-attach" />
+                  <input
+                    type="file"
+                    id="input-attach"
+                    multiple
+                    onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+                  />
+                  <span> (첨부 된 파일 표시 필요)</span>
                 </button>
               </div>
               <div className="buttons">

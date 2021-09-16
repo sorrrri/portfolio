@@ -17,13 +17,10 @@ export function WorkspaceAdd(props: any) {
   const [title, setTitle] = useState(''); // 작업명
   const [priority, setPriority] = useState('EMERGENCY'); // 중요도
   const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
-  const [toList, setToList] = useState(''); // 받는사람
+  const [toList, setToList] = useState<any[]>([]); // 받는사람
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 작업내용
-  // const [uploadFiles, setUploadFiles] = useState(); // 파일 업로드
-  // const [fileBase64, setFileBase64] = useState<any[]>([]); // 파일 base64
-  // const [fileupload, setFileupload] = useState(null);
-  const [attacheFiles, setAttacheFiles] = useState<File[]>([]);
+  const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
 
   useEffect(() => {
     dispatch(
@@ -33,28 +30,32 @@ export function WorkspaceAdd(props: any) {
         rightContext: () => null,
       })
     );
-  });
-
-  useEffect(() => {
     fetchWorkspaceTemplate();
-  }, [toList]);
+  }, []);
 
   // 받는사람 정보 get
   const fetchWorkspaceTemplate = () => {
-    api.getWorkspaceTemplate('work').then((payload: any) => {
-      const { code, response } = payload;
-      if (code === 200 && Array.isArray(response.results.recipient)) {
-        setRecipient(response.results.recipient);
-      }
+    setTimeout(() => {
+      api.getWorkspaceTemplate('work').then((payload: any) => {
+        const { code, response } = payload;
+        if (code === 200 && Array.isArray(response.results.recipient)) {
+          setRecipient(response.results.recipient);
+        }
+      });
     });
   };
 
-  // 받는사람 filter
+  // 받는사람 filter / select2로 html변경 후 재작업 필요
   const handleInputName = (e: any) => {
-    const filtername = recipient.filter((item) => item.name === e.target.value);
-    const filteruuid = filtername.map((item) => item.uuid);
-    const result = filteruuid.join();
-    setToList(result);
+    const arrayName = e.target.value.split(';');
+    const tolistresult = [];
+    for (let i = 0; i < arrayName.length; i++) {
+      const filtername = recipient.filter((item) => item.name === arrayName[i]);
+      const filteruuid = filtername.map((item) => item.uuid);
+      tolistresult.push(filteruuid);
+    }
+    setToList(tolistresult);
+    fetchWorkspaceTemplate();
   };
 
   const handleTitle = (e: any) => {
@@ -71,6 +72,15 @@ export function WorkspaceAdd(props: any) {
 
   const showDoneModal = () => {
     setIsOpen2(true);
+    api.addWorkspace('work', {
+      priority,
+      detail_type: detailType,
+      to_list: toList,
+      platform_sharing: platformSharing,
+      title,
+      content,
+      upload_files: attacheFiles,
+    });
   };
 
   const isClose = () => {
@@ -81,16 +91,6 @@ export function WorkspaceAdd(props: any) {
   const isCloseAll = () => {
     setIsOpen(false);
     setIsOpen2(false);
-    api.addWorkspace('work', {
-      priority,
-      detail_type: detailType,
-      // to_list: ['c329536f-1633-4997-bc01-4c6e3532f70b', '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de'],
-      to_list: toList,
-      platform_sharing: platformSharing,
-      title,
-      content,
-      upload_files: attacheFiles,
-    });
     const { history } = props;
     history.push('/workspace');
   };
@@ -98,14 +98,6 @@ export function WorkspaceAdd(props: any) {
   return (
     <>
       <main className="content details add workspace">
-        {/* {fileBase64.map((item: any) => (
-          <img
-            className=""
-            src={item}
-            alt="First slide"
-            style={{ width: '100%', height: '550px' }}
-          />
-        ))} */}
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
@@ -212,7 +204,7 @@ export function WorkspaceAdd(props: any) {
             </div>
           </div>
           <div className="input send-to">
-            <span>받는사람</span>
+            <span>받는사람 (임시)다중입력은 ; 구분 </span>
             <input type="text" onChange={handleInputName} />
           </div>
           <div className="input">
@@ -255,6 +247,7 @@ export function WorkspaceAdd(props: any) {
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
               </label>
+              <span> (첨부 된 파일 표시 필요)</span>
             </button>
           </div>
         </div>
