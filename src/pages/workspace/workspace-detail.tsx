@@ -289,7 +289,6 @@ export function WorkspaceDetail(props: any) {
                     multiple
                     onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
                   />
-                  <span> (첨부 된 파일 표시 필요)</span>
                 </button>
               </div>
               <div className="buttons">
@@ -300,6 +299,10 @@ export function WorkspaceDetail(props: any) {
                   등록
                 </button>
               </div>
+              <ul className="files-name">
+                <li>(첨부 된 파일 표시 필요)</li>
+                <li>(첨부 된 파일 표시 필요)</li>
+              </ul>
             </div>
           </div>
           {comments &&
