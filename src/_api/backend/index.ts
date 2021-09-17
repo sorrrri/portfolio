@@ -65,7 +65,7 @@ const transformConfig = (base: AxiosRequestConfig) => {
       `${realm}\n` +
       `${username}\n` +
       `${reqPath}`;
-    console.log(stringToSign);
+    // console.log(stringToSign);
 
     const reqHash = CryptoJS.HmacSHA256(stringToSign, sessionState);
     const reqHashString = CryptoJS.enc.Base64.stringify(reqHash);
