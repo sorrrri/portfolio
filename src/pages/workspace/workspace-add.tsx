@@ -6,8 +6,21 @@ import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
 
-export function WorkspaceAdd() {
+export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+
+  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
+
+  // 일감 등록
+  const [title, setTitle] = useState(''); // 작업명
+  const [priority, setPriority] = useState('EMERGENCY'); // 중요도
+  const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
+  const [toList, setToList] = useState<any[]>([]); // 받는사람
+  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [content, setContent] = useState(''); // 작업내용
+  const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
 
   useEffect(() => {
     dispatch(
@@ -17,46 +30,39 @@ export function WorkspaceAdd() {
         rightContext: () => null,
       })
     );
-    fetchTemplate();
+    fetchWorkspaceTemplate();
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-
-  const [title, setTitle] = useState(''); // 작업명
-  const [priority, setPriority] = useState(''); // 중요도
-  const [detailType, setDetailType] = useState(''); // 업무유형
-  const [toList, setToList] = useState(''); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
-  const [content, setContent] = useState(''); // 작업내용
-
-  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보(리스트)
-
-  // 받는사람 정보(리스트) 가져오기
-  const fetchTemplate = () => {
-    api.getTemplate('work').then((payload: any) => {
-      const { code, response } = payload;
-      if (code === 200 && response && Array.isArray(response.results.recipient)) {
-        setRecipient(response.results.recipient);
-      }
+  // 받는사람 정보 get
+  const fetchWorkspaceTemplate = () => {
+    setTimeout(() => {
+      api.getWorkspaceTemplate('work').then((payload: any) => {
+        const { code, response } = payload;
+        if (code === 200 && Array.isArray(response.results.recipient)) {
+          setRecipient(response.results.recipient);
+        }
+      });
     });
   };
 
-  // 작업명 입력 받아 setState
-  const onChangeTitle = (e: any) => {
+  // 받는사람 filter / select2로 html변경 후 재작업 필요
+  const handleInputName = (e: any) => {
+    const arrayName = e.target.value.split(';');
+    const tolistresult = [];
+    for (let i = 0; i < arrayName.length; i++) {
+      const filtername = recipient.filter((item) => item.name === arrayName[i]);
+      const filteruuid = filtername.map((item) => item.uuid);
+      tolistresult.push(filteruuid);
+    }
+    setToList(tolistresult);
+    fetchWorkspaceTemplate();
+  };
+
+  const handleTitle = (e: any) => {
     setTitle(e.target.value);
   };
 
-  // 받는사람 입력 받아 필터 후 setState
-  const onChangeToList = (e: any) => {
-    const toListname = recipient.filter((item) => item.name === e.target.value);
-    const toListuuid = toListname.map((name) => name.uuid);
-    const toListresult = toListuuid.join();
-    setToList(toListresult);
-  };
-
-  // 작업내용 입력 받아 setState
-  const onChangeContent = (e: any) => {
+  const handleContent = (e: any) => {
     setContent(e.target.value);
   };
 
@@ -64,8 +70,8 @@ export function WorkspaceAdd() {
     setIsOpen(true);
   };
 
-  // 업무 요청 등록
   const showDoneModal = () => {
+    setIsOpen2(true);
     api.addWorkspace('work', {
       priority,
       detail_type: detailType,
@@ -73,17 +79,20 @@ export function WorkspaceAdd() {
       platform_sharing: platformSharing,
       title,
       content,
+      upload_files: attacheFiles,
     });
-    setIsOpen2(true);
   };
 
   const isClose = () => {
     setIsOpen(false);
   };
 
+  // 업무 요청 등록
   const isCloseAll = () => {
     setIsOpen(false);
     setIsOpen2(false);
+    const { history } = props;
+    history.push('/workspace');
   };
 
   return (
@@ -92,7 +101,7 @@ export function WorkspaceAdd() {
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
-            <input type="text" placeholder="작업명을 입력하세요." onChange={onChangeTitle} />
+            <input type="text" placeholder="작업명을 입력하세요." onChange={handleTitle} />
           </div>
           <div className="input">
             <span>중요도</span>
@@ -195,8 +204,8 @@ export function WorkspaceAdd() {
             </div>
           </div>
           <div className="input send-to">
-            <span>받는사람</span>
-            <input type="text" onChange={onChangeToList} />
+            <span>받는사람 (임시)다중입력은 ; 구분 </span>
+            <input type="text" onChange={handleInputName} />
           </div>
           <div className="input">
             <span>플랫폼관리자 공개여부</span>
@@ -226,13 +235,19 @@ export function WorkspaceAdd() {
               </button>
             </div>
           </div>
-          <textarea name="" id="" onChange={onChangeContent} />
+          <textarea name="" id="" onChange={handleContent} />
           <div className="buttons attach">
             <button type="button">
-              <input type="file" id="input-attach" />
+              <input
+                type="file"
+                id="input-attach"
+                multiple
+                onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+              />
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
               </label>
+              <span> (첨부 된 파일 표시 필요)</span>
             </button>
           </div>
         </div>

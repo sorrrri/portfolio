@@ -7,10 +7,41 @@ import { ModalDone } from '../../_component/modal-done';
 import { ModalImage } from '../../_component/modal-image';
 import { ActiveScroll } from '../../_component/active-scroll';
 import { Comment } from './components/comment';
+import api from '../../_api/backend';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
   const { id } = props.match.params;
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+
+  const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
+  const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
+  const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
+
+  const [recipient, setRecipient] = useState([]); // 받는사람 정보
+  const [inRecipient, setInRecipient] = useState(''); // input 받는사람
+
+  // 댓글 등록
+  const [state, setState] = useState('WORK_REQUEST'); // 처리상태
+  const [toList, setToList] = useState(''); // 받는사람
+  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [content, setContent] = useState(''); // 댓글내용
+  const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
+
+  // 일감상세 객체 구조 분해
+  const {
+    title,
+    reg_date: regDate,
+    content: Content,
+    comment_cnt: commentCnt,
+    views,
+    priority_name: priorityName,
+  } = workspaceDetail;
+
+  // 일감상세 회원정보 객체 구조 분해
+  const { name } = newResigtrant;
 
   useEffect(() => {
     dispatch(
@@ -22,15 +53,60 @@ export function WorkspaceDetail(props: any) {
     );
   }, [id]);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
+  useEffect(() => {
+    fetchWorkspaceDetail();
+  }, []);
+
+  useEffect(() => {
+    filterRecipient();
+  });
+
+  useEffect(() => {
+    fetchWorkspaceTemplate();
+  }, [toList]);
+
+  // 일감 상세 정보 get
+  const fetchWorkspaceDetail = () => {
+    api.getWorkspaceDetail(id).then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && Object(response.results)) {
+        setWorkspaceDetail(response.results);
+        setNewResigtrant(response.results.registrant);
+        setComments(response.results.comment);
+      }
+    });
+  };
+
+  // 받는사람 정보 get
+  const fetchWorkspaceTemplate = () => {
+    api.getWorkspaceTemplate('work').then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response.results.recipient) {
+        setRecipient(response.results.recipient);
+      }
+    });
+  };
+
+  // 받는사람 filter
+  const filterRecipient = () => {
+    const filtername = recipient.filter((item: any) => item.name === inRecipient);
+    const filteruuid = filtername.map((item: any) => item.uuid);
+    const result = filteruuid.join();
+    setToList(result);
+  };
 
   const showModal = () => {
     setIsOpen(true);
   };
 
   const showDoneModal = () => {
+    api.addComment(id, {
+      state,
+      to_list: toList,
+      platform_sharing: platformSharing,
+      content,
+      upload_files: attacheFiles,
+    });
     setIsOpen2(true);
   };
 
@@ -47,6 +123,19 @@ export function WorkspaceDetail(props: any) {
     setIsOpen2(false);
   };
 
+  const handleSubmitCancle = (e: any) => {
+    e.preventDefault();
+    setContent('');
+    setInRecipient('');
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setContent('');
+    setInRecipient('');
+    isCloseAll();
+  };
+
   return (
     <>
       <main className="content details workspace" onScroll={ActiveScroll}>
@@ -58,21 +147,17 @@ export function WorkspaceDetail(props: any) {
             </div>
             <ul>
               <li className="title">
-                <div>카메라 위치 조정 요청 건카메라 위치 조정 요청 건카메라 위치 조정 요청 건</div>
+                <div>{title}</div>
               </li>
               <li className="created">
                 <i className="fad fa-user" />
-                <span className="writer">홍길동</span>
-                <span className="date">2021-08-03 12:42:32</span>
+                <span className="writer">{name}</span>
+                <span className="date">{regDate}</span>
               </li>
             </ul>
           </div>
           <div className="details">
-            <p>
-              모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 아래
-              관련 자료 첨부 하오니, 확인 후 빠른 조치 부탁드립니다. 주정차 단속 관련 장비 이므로
-              빠른 처리가 필요합니다. 감사합니다.
-            </p>
+            <p>{Content}</p>
             <div className="images">
               <div className="image">
                 <img
@@ -95,11 +180,11 @@ export function WorkspaceDetail(props: any) {
             <ul>
               <li>
                 <i className="fad fa-comment-alt-lines" />
-                <span className="comment">3</span>
+                <span className="comment">{commentCnt}</span>
               </li>
               <li>
                 <i className="fad fa-comment-alt-check" />
-                <span className="read">5</span>
+                <span className="read">{views}</span>
               </li>
             </ul>
           </div>
@@ -112,19 +197,35 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="filters">
               <button type="button">
-                <input type="radio" id="input-request-comment" name="filter-type" defaultChecked />
+                <input
+                  type="radio"
+                  id="input-request-comment"
+                  name="filter-type"
+                  defaultChecked
+                  onClick={() => setState('WORK_REQUEST')}
+                />
                 <label className="bg-orange" htmlFor="input-request-comment">
                   <span>요청</span>
                 </label>
               </button>
               <button type="button">
-                <input type="radio" id="input-undertake-comment" name="filter-type" />
+                <input
+                  type="radio"
+                  id="input-undertake-comment"
+                  name="filter-type"
+                  onClick={() => setState('PROGRESS')}
+                />
                 <label className="bg-blue" htmlFor="input-undertake-comment">
                   <span>진행</span>
                 </label>
               </button>
               <button type="button">
-                <input type="radio" id="input-done-comment" name="filter-type" />
+                <input
+                  type="radio"
+                  id="input-done-comment"
+                  name="filter-type"
+                  onClick={() => setState('COMPLETION')}
+                />
                 <label className="bg-green" htmlFor="input-done-comment">
                   <span>완료</span>
                 </label>
@@ -132,37 +233,58 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="input">
               <span>받는사람</span>
-              <input type="text" />
+              <input
+                type="text"
+                value={inRecipient}
+                onChange={(e) => setInRecipient(e.target.value)}
+              />
             </div>
             <div className="input">
               <span>플랫폼관리자 공개여부</span>
               <div className="filters">
                 <button type="button">
-                  <input type="radio" id="comment-public" name="comment-type" defaultChecked />
+                  <input
+                    type="radio"
+                    id="comment-public"
+                    name="comment-type"
+                    defaultChecked
+                    onClick={() => setPlatformSharing(true)}
+                  />
                   <label htmlFor="comment-public">
                     <span>예</span>
                   </label>
                 </button>
                 <button type="button">
-                  <input type="radio" id="comment-private" name="comment-type" />
+                  <input
+                    type="radio"
+                    id="comment-private"
+                    name="comment-type"
+                    onClick={() => setPlatformSharing(false)}
+                  />
                   <label htmlFor="comment-private">
                     <span>아니오</span>
                   </label>
                 </button>
               </div>
             </div>
-            <textarea name="" id="" />
+            <textarea name="" id="" value={content} onChange={(e) => setContent(e.target.value)} />
             <div className="comment-footer">
               <div className="buttons attach">
                 <button type="button">
                   <label htmlFor="input-attach">
                     <i className="fad fa-cloud-upload" />
                   </label>
-                  <input type="file" id="input-attach" />
+                  <input
+                    type="file"
+                    id="input-attach"
+                    multiple
+                    onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+                  />
+                  <span> (첨부 된 파일 표시 필요)</span>
                 </button>
               </div>
               <div className="buttons">
-                <button className="btn-cancel" type="button">
+                <button className="btn-cancel" type="submit" onClick={handleSubmitCancle}>
                   취소
                 </button>
                 <button className="btn-submit" onClick={showModal} type="button">
@@ -171,8 +293,19 @@ export function WorkspaceDetail(props: any) {
               </div>
             </div>
           </div>
-          <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
-            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+          {comments &&
+            comments.map((comment: any) => (
+              <Comment
+                key={comment.comment_uuid}
+                state={priorityName}
+                writer={comment.registrant.name}
+                date={comment.reg_date}
+              >
+                {comment.content}
+              </Comment>
+            ))}
+          {/* <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
+            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
           <Comment
             undertake
@@ -180,17 +313,17 @@ export function WorkspaceDetail(props: any) {
             date="2021-08-03 12:42:32"
             read="박보검, 정우성, 전지현, 이정재, 이영애, 손예진, 현빈, 고길동, 둘리, 또치"
           >
-            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
           </Comment>
           <Comment done writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
-            내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
-          </Comment>
+            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
+          </Comment> */}
         </div>
       </main>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">
         작업 내용을 등록하시겠습니까?
       </Modal>
-      <ModalDone show={isOpen2} close={isCloseAll}>
+      <ModalDone show={isOpen2} close={handleSubmit}>
         작업 내용이 등록 되었습니다.
       </ModalDone>
       <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />

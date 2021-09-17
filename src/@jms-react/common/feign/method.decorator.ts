@@ -89,7 +89,21 @@ async function invokeRequest(
 
     payload = new FormData();
     Object.keys(form).forEach((key) => {
-      payload.append(key, form[key]);
+      const value = form[key];
+
+      if (Array.isArray(value)) {
+        for (let i = 0; i < value.length; i++) {
+          if (value[i].name) {
+            payload.append(key, value[i], value[i].name);
+          } else {
+            payload.append(key, value[i]);
+          }
+        }
+      } else if (value.name) {
+        payload.append(key, value, value.name);
+      } else {
+        payload.append(key, value);
+      }
     });
   }
 
