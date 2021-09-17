@@ -93,7 +93,7 @@ export function DeviceList(props: any) {
             className="fas fa-map-marker-alt"
             style={{
               fontSize: '24px',
-              color: 'orange',
+              color: 'coral',
               position: 'absolute',
               top: '50%',
               left: '50%',

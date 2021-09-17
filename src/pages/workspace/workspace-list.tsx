@@ -52,7 +52,7 @@ export function WorkspaceList(props: any) {
             key={workdata.work_uuid}
             title={workdata.title}
             item={() => onClickItem(workdata.work_uuid)}
-            typeEmergency
+            importance
             comment={workdata.comment}
             read={workdata.views}
             writer={workdata.registrant.name}
