@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //Scroll up
         bottomStickyMenu.classList.add("active");
       }
-      
+
       lastScrollTop = currentScrollTop;
     });
 
@@ -258,6 +258,32 @@ document.addEventListener("DOMContentLoaded", () => {
         searchArea.classList.remove("active");
       });
     }
+
+    const rows = document.querySelectorAll(".row");
+
+    rows.forEach((row) => {
+      const tag = row.querySelector(".tag.importance");
+      if (row.classList.contains("emergency")) {
+        tag.classList.add("emergency");
+        tag.classList.add("bg-red");
+        tag.textContent = "긴급";
+      }
+      if (row.classList.contains("high")) {
+        tag.classList.add("high");
+        tag.classList.add("bg-orange");
+        tag.textContent = "높음";
+      }
+      if (row.classList.contains("normal")) {
+        tag.classList.add("normal");
+        tag.classList.add("bg-blue");
+        tag.textContent = "보통";
+      }
+      if (row.classList.contains("low")) {
+        tag.classList.add("low");
+        tag.classList.add("bg-green");
+        tag.textContent = "낮음";
+      }
+    });
   }
 
   if (equipmentsPage) {
