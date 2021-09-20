@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { showHeader } from '../../_store/slice/header-option';
 import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-search-work';
 import { SearchArea } from '../../_layout/top-navigator/search-area';
-import { ActiveScroll } from '../../_component/active-scroll';
 import { Row } from './components/list-row';
 import api from '../../_api/backend';
 
@@ -47,13 +46,13 @@ export function WorkspaceList(props: any) {
   return (
     <>
       <SearchArea show={isToggleOn} />
-      <main className="content list workspace" onScroll={ActiveScroll}>
+      <main className="content list workspace">
         {workspaceList.map((workdata) => (
           <Row
             key={workdata.work_uuid}
             title={workdata.title}
             item={() => onClickItem(workdata.work_uuid)}
-            typeEmergency
+            importance
             comment={workdata.comment}
             read={workdata.views}
             writer={workdata.registrant.name}

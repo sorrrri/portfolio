@@ -16,11 +16,7 @@ export const ModalMarkers = (props: any) => {
       <div className={`overlay ${show ? 'active' : ''}`} onClick={close} />
       <div className={`modal modal-marker ${show ? 'active' : ''}`}>
         <section className="move-down" onClick={close}>
-          <div className="arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-            </svg>
-          </div>
+          <i className="fad fa-chevron-down" />
         </section>
         <section className="result">
           {devices.map((item: any) => (
@@ -30,6 +26,10 @@ export const ModalMarkers = (props: any) => {
               goDetail={() => onClickItem(item.item_uuid)}
             />
           ))}
+        </section>
+        <section className="no-result">
+          <i className="fal fa-exclamation-circle" />
+          <span>해당 좌표주변에서 장비를 찾을 수 없습니다.</span>
         </section>
       </div>
     </>

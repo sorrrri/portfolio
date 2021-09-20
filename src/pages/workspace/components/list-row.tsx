@@ -1,16 +1,16 @@
 import React from 'react';
 
 export const Row = (props: any) => {
-  const { item, comment, read, title, writer, date, emergency, images, documents } = props;
+  const { item, comment, read, title, writer, date, importance, images, documents } = props;
 
   return (
-    <div className={`row ${emergency ? 'emergency' : ''}`} onClick={item}>
+    <div className="row" onClick={item}>
       <div className="row-title">
         <ul>
           <li className="title">
             <div>{title}</div>
             <div className="tags">
-              <span className="tag bg-red">긴급</span>
+              <span className="tag imortance" />
               <span className="tag bg-blue">요청</span>
             </div>
           </li>

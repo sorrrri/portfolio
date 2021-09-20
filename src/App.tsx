@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-redeclare */
 import React, { useEffect, useState } from 'react';
@@ -90,6 +91,7 @@ function App(routeProps: RouteComponentProps) {
           </ScrollToTop>
         </Route>
       )}
+      {!initialized && <span className="loader" />}
     </SSRKeycloakProvider>
   );
 }
