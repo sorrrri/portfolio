@@ -76,9 +76,16 @@ export function WorkspaceDetail(props: any) {
     });
   };
 
+  // 일감 삭제
+  const deleteworkspace = () => {
+    api.removeWorkspace(id);
+    // const { history } = props;
+    // history.push('/workspace');
+  };
+
   // 받는사람 정보 get
   const fetchWorkspaceTemplate = () => {
-    api.getWorkspaceTemplate('work').then((payload: any) => {
+    api.getWorkspaceTemplate().then((payload: any) => {
       const { code, response } = payload;
       if (code === 200 && response.results.recipient) {
         setRecipient(response.results.recipient);
@@ -299,10 +306,12 @@ export function WorkspaceDetail(props: any) {
                   등록
                 </button>
               </div>
-              <ul className="files-name">
-                <li>(첨부 된 파일 표시 필요)</li>
-                <li>(첨부 된 파일 표시 필요)</li>
-              </ul>
+              {attacheFiles.map((item, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <ul key={index} className="files-name">
+                  <li>{item.name}</li>
+                </ul>
+              ))}
             </div>
           </div>
           {comments &&
@@ -332,7 +341,9 @@ export function WorkspaceDetail(props: any) {
           </Comment> */}
         </div>
         <div className="buttons">
-          <button type="button">삭제하기</button>
+          <button type="button" onClick={deleteworkspace}>
+            삭제하기
+          </button>
         </div>
       </main>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">

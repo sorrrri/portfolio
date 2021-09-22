@@ -154,8 +154,8 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
-  @Get('/platform/api/v2/:realm/workspace/{work_type}/template')
-  async getWorkspaceTemplate(@Param('work_type') workType: string): Promise<any[]> {
+  @Get('/platform/api/v2/:realm/workspace/comment/template')
+  async getWorkspaceTemplate(): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
@@ -171,6 +171,11 @@ class Server {
 
   @Post('/platform/api/v2/:realm/workspace/comment/{work_type}')
   async addComment(@Param('work_type') workType: string, @Form() data: any): Promise<any> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Delete('/platform/api/v2/:realm/workspace/detail/{work_uuid}')
+  async removeWorkspace(@Param('work_uuid') uuid: number): Promise<any> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
