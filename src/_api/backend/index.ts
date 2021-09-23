@@ -49,7 +49,7 @@ const transformConfig = (base: AxiosRequestConfig) => {
     const username = tokenBody['preferred_username'];
 
     const reqMethod = base.method;
-    const reqContentType = isFormData ? 'multipart/form-data' : isAuth ? '' : 'application/json';
+    const reqContentType = isFormData || isAuth ? '' : 'application/json';
     const reqContentLength =
       !isFormData && !isAuth && base.data && Object.keys(base.data).length > 0
         ? unescape(encodeURIComponent(JSON.stringify(base.data))).length
