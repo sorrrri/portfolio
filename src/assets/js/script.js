@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  $(".js-example-basic-multiple").select2({
+    theme: "classic"
+  });
+
   /* =====================================================
        Dropdown Menu
   ===================================================== */
