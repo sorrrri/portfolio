@@ -14,6 +14,7 @@ export function WorkspaceAdd(props: any) {
   const [showTitle, setShowTitle] = useState(false);
   const [showToList, setShowToList] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const [showCatch, setShowCatch] = useState(false);
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
 
@@ -76,16 +77,20 @@ export function WorkspaceAdd(props: any) {
 
   // 업무 요청 등록
   const showDoneModal = () => {
-    setIsOpen2(true);
-    api.addWorkspace('work', {
-      title,
-      priority,
-      detail_type: detailType,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      content,
-      upload_files: attacheFiles,
-    });
+    api
+      .addWorkspace('work', {
+        title,
+        priority,
+        detail_type: detailType,
+        to_list: toList,
+        platform_sharing: platformSharing,
+        content,
+        upload_files: attacheFiles,
+      })
+      .catch(() => {
+        setIsOpen(false);
+        setShowCatch(true);
+      });
   };
 
   const isClose = () => {
@@ -270,6 +275,7 @@ export function WorkspaceAdd(props: any) {
           업무 요청 등록
         </button>
       </div>
+
       <ModalDone show={showTitle} close={() => setShowTitle(false)}>
         작업명을 입력해 주세요.
       </ModalDone>
@@ -278,6 +284,9 @@ export function WorkspaceAdd(props: any) {
       </ModalDone>
       <ModalDone show={showContent} close={() => setShowContent(false)}>
         댓글을 입력해 주세요.
+      </ModalDone>
+      <ModalDone show={showCatch} close={() => setShowCatch(false)}>
+        업무 요청 등록 실패, 관리자에게 문의해주시기 바랍니다.
       </ModalDone>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="업무 요청">
         업무 요청을 등록하시겠습니까?
