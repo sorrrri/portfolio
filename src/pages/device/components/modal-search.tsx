@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useState } from 'react';
 
 // eslint-disable-next-line react/require-default-props
 export const ModalSearch = (props: any) => {
   const { show, close } = props;
+
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <>
@@ -19,7 +21,11 @@ export const ModalSearch = (props: any) => {
             </button>
           </div>
           <section className="search">
-            <input type="search" placeholder="예) 삼성동 25, 독립기념관, 반포대로 58" />
+            <input
+              type="search"
+              placeholder="예) 삼성동 25, 독립기념관, 반포대로 58"
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
             <button className="btn-search" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
                 <path

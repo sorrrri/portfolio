@@ -11,13 +11,21 @@ import api from '../../_api/backend';
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
   const { id } = props.match.params;
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
+  const [showToList, setShowToList] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+  const [showDelete2, setShowDelete2] = useState(false);
 
   const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
   const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
+  const [uploadFiles, setUploadFiles] = useState<any[]>(); // 파일 정보
+
+  console.log(uploadFiles);
 
   const [recipient, setRecipient] = useState([]); // 받는사람 정보
   const [inRecipient, setInRecipient] = useState(''); // input 받는사람
@@ -31,6 +39,7 @@ export function WorkspaceDetail(props: any) {
 
   // 일감상세 객체 구조 분해
   const {
+    req_type_name: reqTypeName,
     title,
     reg_date: regDate,
     content: Content,
@@ -72,15 +81,9 @@ export function WorkspaceDetail(props: any) {
         setWorkspaceDetail(response.results);
         setNewResigtrant(response.results.registrant);
         setComments(response.results.comment);
+        setUploadFiles(response.results.upload_files);
       }
     });
-  };
-
-  // 일감 삭제
-  const deleteworkspace = () => {
-    api.removeWorkspace(id);
-    // const { history } = props;
-    // history.push('/workspace');
   };
 
   // 받는사람 정보 get
@@ -101,10 +104,35 @@ export function WorkspaceDetail(props: any) {
     setToList(result);
   };
 
-  const showModal = () => {
-    setIsOpen(true);
+  const switchimportance = (value: any) => {
+    switch (value) {
+      case '긴급':
+        return <span className="tag bg-red">긴급</span>;
+      case '높음':
+        return <span className="tag bg-orange">높음</span>;
+      case '보통':
+        return <span className="tag bg-blue">보통</span>;
+      case '낮음':
+        return <span className="tag bg-green">낮음</span>;
+      default:
+        return <span className="">...</span>;
+    }
   };
 
+  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
+  const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
+
+  const showModal = () => {
+    if (toList.length === 0) {
+      setShowToList(true);
+    } else if (content === '') {
+      setShowContent(true);
+    } else {
+      setIsOpen(true);
+    }
+  };
+
+  // 댓글 등록
   const showDoneModal = () => {
     api.addComment(id, {
       state,
@@ -142,15 +170,20 @@ export function WorkspaceDetail(props: any) {
     isCloseAll();
   };
 
+  // 일감 삭제
+  const deleteWorkspace = () => {
+    setShowDelete2(false);
+    api.removeWorkspace(id);
+    const { history } = props;
+    history.push('/workspace');
+  };
+
   return (
     <>
       <main className="content details workspace">
         <div className="row emergency">
           <div className="row-title">
-            <div className="tags">
-              <span className="tag bg-red">긴급</span>
-              <span className="tag bg-blue">요청</span>
-            </div>
+            <div className="tags">{switchimportance(reqTypeName)}</div>
             <ul>
               <li className="title">
                 <div>{title}</div>
@@ -166,28 +199,19 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               <li className="document">
-                <i className="fad fa-file-alt" />
-                <span>권한 변경 요청서.xlsx</span>
-              </li>
-              <li className="document">
-                <i className="fad fa-file-alt" />
-                <span>권한 변경 요청서.xlsx</span>
+                {docFiles?.map((file) => (
+                  <>
+                    <i className="fad fa-file-alt" />
+                    <span>{file.file_name}</span>
+                  </>
+                ))}
               </li>
             </ul>
             <div className="images">
               <div className="image">
-                <img
-                  onClick={showImageModal}
-                  src="https://images.unsplash.com/photo-1610819610413-3e42356fc150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                  alt=""
-                />
-              </div>
-              <div className="image">
-                <img
-                  onClick={showImageModal}
-                  src="https://images.unsplash.com/photo-1596311087104-86dba6be2aad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fHN0cmVldHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                  alt=""
-                />
+                {imgFiles?.map((img) => (
+                  <img onClick={showImageModal} src={img.file_preview} alt="" />
+                ))}
               </div>
             </div>
           </div>
@@ -341,16 +365,33 @@ export function WorkspaceDetail(props: any) {
           </Comment> */}
         </div>
         <div className="buttons">
-          <button type="button" onClick={deleteworkspace}>
+          <button type="button" onClick={() => setShowDelete(true)}>
             삭제하기
           </button>
         </div>
       </main>
+      <ModalDone show={showToList} close={() => setShowToList(false)}>
+        받는사람을 입력해 주세요.
+      </ModalDone>
+      <ModalDone show={showContent} close={() => setShowContent(false)}>
+        댓글을 입력해 주세요.
+      </ModalDone>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">
         작업 내용을 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} close={handleSubmit}>
         작업 내용이 등록 되었습니다.
+      </ModalDone>
+      <Modal
+        show={showDelete}
+        confirmed={() => setShowDelete2(true)}
+        close={() => setShowDelete(false)}
+        title="일감 삭제"
+      >
+        삭제 하시겠습니까?
+      </Modal>
+      <ModalDone show={showDelete2} close={deleteWorkspace}>
+        삭제 되었습니다.
       </ModalDone>
       <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />
     </>

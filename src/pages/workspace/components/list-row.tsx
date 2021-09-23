@@ -1,17 +1,56 @@
 import React from 'react';
 
 export const Row = (props: any) => {
-  const { item, comment, read, title, writer, date, importance, images, documents } = props;
+  const {
+    item,
+    comment,
+    read,
+    title,
+    writer,
+    date,
+    importance,
+    worktype,
+    rowtype,
+    images,
+    documents,
+  } = props;
+
+  const switchimportance = (value: any) => {
+    switch (value) {
+      case '긴급':
+        return <span className="tag bg-red">긴급</span>;
+      case '높음':
+        return <span className="tag bg-orange">높음</span>;
+      case '보통':
+        return <span className="tag bg-blue">보통</span>;
+      case '낮음':
+        return <span className="tag bg-green">낮음</span>;
+      default:
+        return <span className="">...</span>;
+    }
+  };
+
+  const switchworktype = (value: any) => {
+    switch (value) {
+      case '요청':
+        return <span className="tag bg-blue">요청</span>;
+      case '장애':
+        return <span className="tag bg-green">장애</span>;
+      default:
+        return <span className="">...</span>;
+    }
+  };
 
   return (
-    <div className="row" onClick={item}>
+    <div className={`row ${rowtype}`} onClick={item}>
       <div className="row-title">
         <ul>
           <li className="title">
             <div>{title}</div>
             <div className="tags">
-              <span className="tag imortance" />
-              <span className="tag bg-blue">요청</span>
+              {/* <span className="tag imortance" /> */}
+              {switchworktype(worktype)}
+              {switchimportance(importance)}
             </div>
           </li>
           <li className="created">
