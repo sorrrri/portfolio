@@ -12,8 +12,10 @@ export function WorkspaceList(props: any) {
     setToggleOn(!isToggleOn);
   };
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
+  const [search, setSearch] = useState('');
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(
       showHeader({
@@ -38,6 +40,13 @@ export function WorkspaceList(props: any) {
     });
   };
 
+  // 일감 목록 검색
+  const searchWorkspaceList = workspaceList.filter(
+    (item: any) =>
+      item.title.toLowerCase().includes(search) ||
+      item.registrant.name.toLowerCase().includes(search)
+  );
+
   const onClickItem = (workId: number) => {
     const { history } = props;
     history.push(`/workspace/${workId}`);
@@ -45,18 +54,20 @@ export function WorkspaceList(props: any) {
 
   return (
     <>
-      <SearchArea show={isToggleOn} />
+      <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
       <main className="content list workspace">
-        {workspaceList.map((workdata) => (
+        {searchWorkspaceList.map((workdata) => (
           <Row
             key={workdata.work_uuid}
-            title={workdata.title}
+            rowtype={workdata.priority === 'EMERGENCY' ? 'emergency' : ''}
             item={() => onClickItem(workdata.work_uuid)}
-            importance
-            comment={workdata.comment}
-            read={workdata.views}
+            title={workdata.title}
             writer={workdata.registrant.name}
             date={workdata.reg_date}
+            worktype={workdata.priority_name}
+            importance={workdata.req_type_name}
+            comment={workdata.comment}
+            read={workdata.views}
           >
             {workdata.summary_content}
           </Row>

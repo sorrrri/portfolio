@@ -8,8 +8,12 @@ import api from '../../_api/backend';
 
 export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
+  const [showTitle, setShowTitle] = useState(false);
+  const [showToList, setShowToList] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
 
@@ -36,7 +40,7 @@ export function WorkspaceAdd(props: any) {
   // 받는사람 정보 get
   const fetchWorkspaceTemplate = () => {
     setTimeout(() => {
-      api.getWorkspaceTemplate('work').then((payload: any) => {
+      api.getWorkspaceTemplate().then((payload: any) => {
         const { code, response } = payload;
         if (code === 200 && Array.isArray(response.results.recipient)) {
           setRecipient(response.results.recipient);
@@ -58,26 +62,27 @@ export function WorkspaceAdd(props: any) {
     fetchWorkspaceTemplate();
   };
 
-  const handleTitle = (e: any) => {
-    setTitle(e.target.value);
-  };
-
-  const handleContent = (e: any) => {
-    setContent(e.target.value);
-  };
-
   const showModal = () => {
-    setIsOpen(true);
+    if (title === '') {
+      setShowTitle(true);
+    } else if (toList.length === 0) {
+      setShowToList(true);
+    } else if (content === '') {
+      setShowContent(true);
+    } else {
+      setIsOpen(true);
+    }
   };
 
+  // 업무 요청 등록
   const showDoneModal = () => {
     setIsOpen2(true);
     api.addWorkspace('work', {
+      title,
       priority,
       detail_type: detailType,
       to_list: toList,
       platform_sharing: platformSharing,
-      title,
       content,
       upload_files: attacheFiles,
     });
@@ -87,7 +92,6 @@ export function WorkspaceAdd(props: any) {
     setIsOpen(false);
   };
 
-  // 업무 요청 등록
   const isCloseAll = () => {
     setIsOpen(false);
     setIsOpen2(false);
@@ -101,7 +105,11 @@ export function WorkspaceAdd(props: any) {
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
-            <input type="text" placeholder="작업명을 입력하세요." onChange={handleTitle} />
+            <input
+              type="text"
+              placeholder="작업명을 입력하세요."
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </div>
           <div className="input">
             <span>중요도</span>
@@ -235,7 +243,7 @@ export function WorkspaceAdd(props: any) {
               </button>
             </div>
           </div>
-          <textarea name="" id="" onChange={handleContent} />
+          <textarea name="" id="" onChange={(e) => setContent(e.target.value)} />
           <div className="buttons attach">
             <button type="button">
               <input
@@ -247,9 +255,14 @@ export function WorkspaceAdd(props: any) {
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
               </label>
-              <span> (첨부 된 파일 표시 필요)</span>
             </button>
           </div>
+          {attacheFiles.map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <ul key={index} className="files-name">
+              <li>{item.name}</li>
+            </ul>
+          ))}
         </div>
       </main>
       <div className="buttons">
@@ -257,6 +270,15 @@ export function WorkspaceAdd(props: any) {
           업무 요청 등록
         </button>
       </div>
+      <ModalDone show={showTitle} close={() => setShowTitle(false)}>
+        작업명을 입력해 주세요.
+      </ModalDone>
+      <ModalDone show={showToList} close={() => setShowToList(false)}>
+        받는사람을 입력해 주세요.
+      </ModalDone>
+      <ModalDone show={showContent} close={() => setShowContent(false)}>
+        댓글을 입력해 주세요.
+      </ModalDone>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="업무 요청">
         업무 요청을 등록하시겠습니까?
       </Modal>
