@@ -23,10 +23,16 @@ export const BottomStickyMenu = () => {
     }
   };
 
+  const showAlways = {
+    opacity: '1',
+    transform: 'translateY(0)',
+    zIndex: 10,
+  };
+
   return (
     <>
       <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={() => setToggleOn(false)} />
-      <div className="bottom-sticky-menu">
+      <div className="bottom-sticky-menu" style={showAlways}>
         <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
           <button className="btn-search" onClick={showSearchArea} type="button">
             <i className="fad fa-search" />

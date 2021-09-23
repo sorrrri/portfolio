@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
+import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
@@ -103,6 +104,13 @@ export function WorkspaceAdd(props: any) {
     const { history } = props;
     history.push('/workspace');
   };
+
+  const options = [
+    { value: '박보검', label: '박보검' },
+    { value: '전지현', label: '전지현' },
+    { value: '정우성', label: '정우성' },
+  ];
+  const [selectedOption, setSelectedOption] = useState(null);
 
   return (
     <>
@@ -218,7 +226,8 @@ export function WorkspaceAdd(props: any) {
           </div>
           <div className="input send-to">
             <span>받는사람 (임시)다중입력은 ; 구분 </span>
-            <input type="text" onChange={handleInputName} />
+            <Select defaultValue={selectedOption} options={options} isMulti />
+            {/* <input type="text" onChange={handleInputName} /> */}
           </div>
           <div className="input">
             <span>플랫폼관리자 공개여부</span>

@@ -89,17 +89,7 @@ export function DeviceList(props: any) {
           </button>
         </div>
         <div className="marker" onClick={showModalMarkers}>
-          <i
-            className="fas fa-map-marker-alt"
-            style={{
-              fontSize: '24px',
-              color: 'coral',
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              cursor: 'pointer',
-            }}
-          />
+          <i className="fas fa-map-marker-alt" />
         </div>
       </main>
       <main className="content list equipments">

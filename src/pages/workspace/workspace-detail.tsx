@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
+import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../_store/slice/header-option';
 import { Modal } from '../../_component/modal-confirm';
@@ -176,6 +177,13 @@ export function WorkspaceDetail(props: any) {
     history.push('/workspace');
   };
 
+  const options = [
+    { value: '박보검', label: '박보검' },
+    { value: '전지현', label: '전지현' },
+    { value: '정우성', label: '정우성' },
+  ];
+  const [selectedOption, setSelectedOption] = useState(null);
+
   return (
     <>
       <main className="content details workspace">
@@ -275,11 +283,12 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="input">
               <span>받는사람</span>
-              <input
+              <Select defaultValue={selectedOption} options={options} isMulti />
+              {/* <input
                 type="text"
                 value={inRecipient}
                 onChange={(e) => setInRecipient(e.target.value)}
-              />
+              /> */}
             </div>
             <div className="input">
               <span>플랫폼관리자 공개여부</span>

@@ -56,10 +56,20 @@ export function WorkspaceList(props: any) {
     <>
       <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
       <main className="content list workspace">
+        <Row
+          rowtype="obstruction"
+          title="test"
+          writer="길동이"
+          date="2021.09.23"
+          worktype="장애"
+          importance="높음"
+          comment="0"
+          read="0"
+        />
         {searchWorkspaceList.map((workdata) => (
           <Row
             key={workdata.work_uuid}
-            rowtype={workdata.priority === 'EMERGENCY' ? 'emergency' : ''}
+            // rowtype={workdata.priority === 'EMERGENCY' ? 'emergency' : ''}
             item={() => onClickItem(workdata.work_uuid)}
             title={workdata.title}
             writer={workdata.registrant.name}
