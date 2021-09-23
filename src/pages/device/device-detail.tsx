@@ -114,7 +114,7 @@ export function DeviceDetail(props: any) {
             <div className="row">
               <span>장비 상태</span>
               <span
-                className={`status ${deviceDetail?.state === 'error' ? 'abnormal' : 'nomal'}`}
+                className={`status ${deviceDetail?.state === 'error' ? 'abnormal' : 'normal'}`}
               />
             </div>
             <div className="row">

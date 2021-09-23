@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable global-require */
 /* eslint-disable object-shorthand */
@@ -15,6 +16,7 @@ export const MapModule = (props: any) => {
   const [devicesForMap, setDevicesForMap] = useState<any[]>([]);
   const [naverMap, setNaverMap] = useState<naver.maps.Map>();
   const [showMarkers, setShowMarkers] = useState<naver.maps.Marker[]>([]);
+  const [markerCluster, setMarkerCluster] = useState<any>();
 
   useEffect(() => {
     fetchDevices(mapCorrd(36.8169675, 127.1056431), '1');
@@ -26,8 +28,16 @@ export const MapModule = (props: any) => {
     mapMarkerSetting();
   }, [devicesForMap]);
 
+  useEffect(() => {
+    if (markerCluster) {
+      console.log(111, (markerCluster as any).getMarkers());
+    }
+  }, [markerCluster]);
+
   const fetchDevices = (corrd: string, radius: string) => {
+    console.log(`fetchDevices : coord: ${corrd}, radius: ${radius}`);
     api.getDevicesForMap(corrd, radius).then((payload: any) => {
+      console.log(payload);
       const { code, response } = payload;
       if (code === 200 && response && Array.isArray(response.results)) {
         const ret = response.results.filter((item: any): boolean => item.type === 'CCTV');
@@ -56,9 +66,52 @@ export const MapModule = (props: any) => {
       maxZoom: 15,
     });
 
+    const markerClustering = new MarkerClustering({
+      minClusterSize: 2,
+      maxZoom: 15,
+      map: map,
+      markers: showMarkers,
+      disableClickZoom: true,
+      gridSize: 50,
+      // icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
+      indexGenerator: [10, 100, 200, 500, 1000],
+      stylingFunction: function (cluster: any[], clusterMarker: any, count: number) {
+        $(clusterMarker.getElement()).find('div:first-child').text(count);
+        // console.log(`stylingFunction - ${count}`);
+        naver.maps.Event.addListener(clusterMarker, 'click', () => {
+          const items = devicesForMap.filter((item) => {
+            for (let i = 0; i < cluster.length; i++) {
+              if (item.item_uuid === cluster[i].title) {
+                return true;
+              }
+            }
+            return false;
+          });
+          console.log('cluster click');
+          markerClicked(items);
+        });
+      },
+    });
+    // console.log(111, (markerClustering as any).getMarkers());
+    // markerClustering.setMarkers(showMarkers);
+    setMarkerCluster(markerClustering);
+    console.log(window);
+    const util = (window['naver'] as any).maps?.Util;
+    const util2 = window['MarkerClustering'] as any;
+    console.log(123, util2);
+    // console.log(util.getMinClusterSize('minClusterSize'));
+    // console.log(util2.getMinClusterSize('minClusterSize'));
     naver.maps.Event.addListener(map, 'bounds_changed', function () {
-      console.log('bounds_changed');
+      console.log('bounds_changed2');
       // console.log(map.getBounds());
+
+      fetchDevices(
+        mapCorrd(
+          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
+          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lng()
+        ),
+        '2'
+      );
       console.log(map.getBounds().getCenter());
     });
 
@@ -73,6 +126,8 @@ export const MapModule = (props: any) => {
   const mapMarkerSetting = () => {
     const markers: naver.maps.Marker[] = [];
 
+    console.log(naverMap?.layers);
+    console.log(naverMap?.controls);
     for (let i = 0; i < devicesForMap.length; i++) {
       const marker = new naver.maps.Marker({
         // title: devicesForMap[i].name,
@@ -81,13 +136,24 @@ export const MapModule = (props: any) => {
         zIndex: 100,
       });
 
+      marker.setMap(null);
+
       naver.maps.Event.addListener(marker, 'click', () => {
         // markerClick(marker);
         markerClicked(devicesForMap.filter((item) => item.item_uuid === marker.getTitle()));
       });
       markers.push(marker);
     }
+    setShowMarkers(markers);
+    // (markerCluster as any).setMarkers(markers);
 
+    if (markerCluster) {
+      (markerCluster as any).setMarkers(markers);
+      console.log(123, (markerCluster as any).getMarkers());
+    }
+    console.log(naverMap);
+    console.log(markerCluster);
+    /*
     const markerClustering = new MarkerClustering({
       minClusterSize: 2,
       maxZoom: 15,
@@ -114,6 +180,7 @@ export const MapModule = (props: any) => {
         });
       },
     });
+    */
   };
 
   // 분리해야하는데 분리 되었을 때 Marker, Cluster 동작 가능한지 확인해야함.
@@ -180,9 +247,8 @@ export const MapModule = (props: any) => {
     console.log(markerClustering);
 
     naver.maps.Event.addListener(map, 'bounds_changed', function () {
-      console.log('bounds_changed');
-      // console.log(map.getBounds());
-      console.log(map.getBounds().getCenter());
+      // console.log('bounds_changed');
+      // console.log(map.getBounds().getCenter());
     });
   };
 
