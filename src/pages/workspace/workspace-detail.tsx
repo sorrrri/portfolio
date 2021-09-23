@@ -25,8 +25,6 @@ export function WorkspaceDetail(props: any) {
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
   const [uploadFiles, setUploadFiles] = useState<any[]>(); // 파일 정보
 
-  console.log(uploadFiles);
-
   const [recipient, setRecipient] = useState([]); // 받는사람 정보
   const [inRecipient, setInRecipient] = useState(''); // input 받는사람
 
@@ -199,19 +197,23 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               <li className="document">
-                {docFiles?.map((file) => (
-                  <>
-                    <i className="fad fa-file-alt" />
-                    <span>{file.file_name}</span>
-                  </>
-                ))}
+                {docFiles &&
+                  docFiles?.map((file, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <div key={index}>
+                      <i className="fad fa-file-alt" />
+                      <span>{file.file_name}</span>
+                    </div>
+                  ))}
               </li>
             </ul>
             <div className="images">
               <div className="image">
-                {imgFiles?.map((img) => (
-                  <img onClick={showImageModal} src={img.file_preview} alt="" />
-                ))}
+                {imgFiles &&
+                  imgFiles?.map((img, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <img key={index} onClick={showImageModal} src={img.file_preview} alt="" />
+                  ))}
               </div>
             </div>
           </div>
