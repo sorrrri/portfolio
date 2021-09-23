@@ -33,9 +33,9 @@ export const Row = (props: any) => {
   const switchworktype = (value: any) => {
     switch (value) {
       case '요청':
-        return <span className="tag bg-blue">요청</span>;
+        return <span className="tag border-blue">요청</span>;
       case '장애':
-        return <span className="tag bg-green">장애</span>;
+        return <span className="tag border-indianred">장애</span>;
       default:
         return <span className="">...</span>;
     }
