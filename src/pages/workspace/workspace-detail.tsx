@@ -13,6 +13,7 @@ export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
   const { id } = props.match.params;
 
+  // 모달 state
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -20,35 +21,22 @@ export function WorkspaceDetail(props: any) {
   const [showContent, setShowContent] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
   const [showDelete2, setShowDelete2] = useState(false);
+  const [showCatch, setShowCatch] = useState(false);
 
   const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
   const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
   const [uploadFiles, setUploadFiles] = useState<any[]>(); // 파일 정보
 
-  const [recipient, setRecipient] = useState([]); // 받는사람 정보
-  const [inRecipient, setInRecipient] = useState(''); // input 받는사람
+  const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
+  const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
 
   // 댓글 등록
   const [state, setState] = useState('WORK_REQUEST'); // 처리상태
-  const [toList, setToList] = useState(''); // 받는사람
+  const [toList, setToList] = useState<any[]>([]); // 받는사람
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
-
-  // 일감상세 객체 구조 분해
-  const {
-    req_type_name: reqTypeName,
-    title,
-    reg_date: regDate,
-    content: Content,
-    comment_cnt: commentCnt,
-    views,
-    priority_name: priorityName,
-  } = workspaceDetail;
-
-  // 일감상세 회원정보 객체 구조 분해
-  const { name } = newResigtrant;
 
   useEffect(() => {
     dispatch(
@@ -58,21 +46,15 @@ export function WorkspaceDetail(props: any) {
         rightContext: () => null,
       })
     );
+    fetchWorkspaceDetail();
   }, [id]);
 
   useEffect(() => {
-    fetchWorkspaceDetail();
-  }, []);
-
-  useEffect(() => {
-    filterRecipient();
-  });
-
-  useEffect(() => {
     fetchWorkspaceTemplate();
-  }, [toList]);
+    filterRecipient();
+  }, [inputRecipient]);
 
-  // 일감 상세 정보 get
+  // 일감상세 정보 api 호출
   const fetchWorkspaceDetail = () => {
     api.getWorkspaceDetail(id).then((payload: any) => {
       const { code, response } = payload;
@@ -85,42 +67,46 @@ export function WorkspaceDetail(props: any) {
     });
   };
 
-  // 받는사람 정보 get
+  // 일감상세 정보 state 객체 구조 분해
+  const {
+    title,
+    reg_date: regDate,
+    content: Content,
+    comment_cnt: commentCnt,
+    views,
+    priority_name: priorityName,
+    priority,
+  } = workspaceDetail;
+
+  // 일감상세 회원정보 state 객체 구조 분해
+  const { name } = newResigtrant;
+
+  // 받는사람 정보 api 호출
   const fetchWorkspaceTemplate = () => {
     api.getWorkspaceTemplate().then((payload: any) => {
       const { code, response } = payload;
-      if (code === 200 && response.results.recipient) {
-        setRecipient(response.results.recipient);
+      const emptyArr: Array<object> = [];
+      if (code === 200 && Array.isArray(response.results.recipient)) {
+        response.results.recipient.forEach((data: any) => {
+          const obj = { value: data.uuid, label: data.name };
+          emptyArr.push(obj);
+        });
       }
+      setRecipient(emptyArr);
     });
   };
 
-  // 받는사람 filter
+  // tag로 입력받은 받는사람 uuid 추출
   const filterRecipient = () => {
-    const filtername = recipient.filter((item: any) => item.name === inRecipient);
-    const filteruuid = filtername.map((item: any) => item.uuid);
-    const result = filteruuid.join();
-    setToList(result);
+    const emptyArr: Array<any> = [];
+    inputRecipient.filter((item: any) => {
+      const str = item.value;
+      return emptyArr.push(str);
+    });
+    setToList(emptyArr);
   };
 
-  const switchimportance = (value: any) => {
-    switch (value) {
-      case '긴급':
-        return <span className="tag bg-red">긴급</span>;
-      case '높음':
-        return <span className="tag bg-orange">높음</span>;
-      case '보통':
-        return <span className="tag bg-blue">보통</span>;
-      case '낮음':
-        return <span className="tag bg-green">낮음</span>;
-      default:
-        return <span className="">...</span>;
-    }
-  };
-
-  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
-  const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
-
+  // 댓글 등록 빈 값 체크
   const showModal = () => {
     if (toList.length === 0) {
       setShowToList(true);
@@ -133,14 +119,23 @@ export function WorkspaceDetail(props: any) {
 
   // 댓글 등록
   const showDoneModal = () => {
-    api.addComment(id, {
-      state,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      content,
-      upload_files: attacheFiles,
-    });
-    setIsOpen2(true);
+    const post = api
+      .addComment(id, {
+        state,
+        to_list: toList,
+        platform_sharing: platformSharing,
+        content,
+        upload_files: attacheFiles,
+      })
+      .then(() => {
+        if (post !== undefined) {
+          setIsOpen2(true);
+        }
+      })
+      .catch(() => {
+        setIsOpen(false);
+        setShowCatch(true);
+      });
   };
 
   const showImageModal = () => {
@@ -158,16 +153,34 @@ export function WorkspaceDetail(props: any) {
 
   const handleSubmitCancle = (e: any) => {
     e.preventDefault();
+    setInputRecipient([]);
     setContent('');
-    setInRecipient('');
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setContent('');
-    setInRecipient('');
+    setInputRecipient([]);
     isCloseAll();
   };
+
+  const switchimportance = (value: any) => {
+    switch (value) {
+      case 'EMERGENCY':
+        return <span className="tag bg-red">긴급</span>;
+      case 'HIGH':
+        return <span className="tag bg-orange">높음</span>;
+      case 'USUALLY':
+        return <span className="tag bg-blue">보통</span>;
+      case 'LOW':
+        return <span className="tag bg-green">낮음</span>;
+      default:
+        return <span className="">...</span>;
+    }
+  };
+
+  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
+  const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
 
   // 일감 삭제
   const deleteWorkspace = () => {
@@ -177,19 +190,12 @@ export function WorkspaceDetail(props: any) {
     history.push('/workspace');
   };
 
-  const options = [
-    { value: '박보검', label: '박보검' },
-    { value: '전지현', label: '전지현' },
-    { value: '정우성', label: '정우성' },
-  ];
-  const [selectedOption, setSelectedOption] = useState(null);
-
   return (
     <>
       <main className="content details workspace">
-        <div className="row emergency">
+        <div className="row obstruction">
           <div className="row-title">
-            <div className="tags">{switchimportance(reqTypeName)}</div>
+            <div className="tags">{switchimportance(priority)}</div>
             <ul>
               <li className="title">
                 <div>{title}</div>
@@ -205,23 +211,21 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               <li className="document">
-                {docFiles &&
-                  docFiles?.map((file, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <div key={index}>
-                      <i className="fad fa-file-alt" />
-                      <span>{file.file_name}</span>
-                    </div>
-                  ))}
+                {docFiles?.map((file, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <div key={index}>
+                    <i className="fad fa-file-alt" />
+                    <span>{file.file_name}</span>
+                  </div>
+                ))}
               </li>
             </ul>
             <div className="images">
               <div className="image">
-                {imgFiles &&
-                  imgFiles?.map((img, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <img key={index} onClick={showImageModal} src={img.file_preview} alt="" />
-                  ))}
+                {imgFiles?.map((img, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <img key={index} onClick={showImageModal} src={img.file_preview} alt="" />
+                ))}
               </div>
             </div>
           </div>
@@ -283,12 +287,14 @@ export function WorkspaceDetail(props: any) {
             </div>
             <div className="input">
               <span>받는사람</span>
-              <Select defaultValue={selectedOption} options={options} isMulti />
-              {/* <input
-                type="text"
-                value={inRecipient}
-                onChange={(e) => setInRecipient(e.target.value)}
-              /> */}
+              <Select
+                // defaultValue={recipient}
+                options={recipient}
+                onChange={(e: any) => setInputRecipient(e)}
+                value={inputRecipient}
+                isMulti
+                placeholder="받는사람 이름을 입력하세요."
+              />
             </div>
             <div className="input">
               <span>플랫폼관리자 공개여부</span>
@@ -387,11 +393,14 @@ export function WorkspaceDetail(props: any) {
       <ModalDone show={showContent} close={() => setShowContent(false)}>
         댓글을 입력해 주세요.
       </ModalDone>
+      <ModalDone show={showCatch} close={() => setShowCatch(false)}>
+        댓글 등록 실패, 관리자에게 문의해주시기 바랍니다.
+      </ModalDone>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">
-        작업 내용을 등록하시겠습니까?
+        댓글 내용을 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} close={handleSubmit}>
-        작업 내용이 등록 되었습니다.
+        댓글 내용이 등록 되었습니다.
       </ModalDone>
       <Modal
         show={showDelete}

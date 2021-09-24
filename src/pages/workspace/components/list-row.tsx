@@ -15,25 +15,6 @@ export const Row = (props: any) => {
     documents,
   } = props;
 
-  function filterRowtype(value: string) {
-    let resultRowtype = '';
-    if (value === 'disability') {
-      resultRowtype = 'obstruction';
-    }
-    return resultRowtype;
-  }
-
-  const switchworktype = (value: string) => {
-    switch (value) {
-      case 'work':
-        return <span className="tag border-blue">요청</span>;
-      case 'disability':
-        return <span className="tag border-indianred">장애</span>;
-      default:
-        return <span className="">...</span>;
-    }
-  };
-
   const switchimportance = (value: string) => {
     switch (value) {
       case 'EMERGENCY':
@@ -50,13 +31,17 @@ export const Row = (props: any) => {
   };
 
   return (
-    <div className={`row ${filterRowtype(rowtype)}`} onClick={item}>
+    <div className={`row ${rowtype === 'disability' ? 'obstruction' : ''}`} onClick={item}>
       <div className="row-title">
         <ul>
           <li className="title">
             <div>{title}</div>
             <div className="tags">
-              {switchworktype(worktype)}
+              {worktype === 'work' ? (
+                <span className="tag border-blue">요청</span>
+              ) : (
+                <span className="tag border-indianred">장애</span>
+              )}
               {switchimportance(importance)}
             </div>
           </li>
@@ -72,16 +57,10 @@ export const Row = (props: any) => {
         {images ? (
           <ul className="images">
             <li className="image">
-              <img
-                src="https://images.unsplash.com/photo-1610819610413-3e42356fc150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                alt=""
-              />
+              <img src="" alt="" />
             </li>
             <li className="image">
-              <img
-                src="https://images.unsplash.com/photo-1596311087104-86dba6be2aad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fHN0cmVldHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src="" alt="" />
             </li>
           </ul>
         ) : (

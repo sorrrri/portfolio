@@ -7,6 +7,7 @@ import { Row } from './components/list-row';
 import api from '../../_api/backend';
 
 export function WorkspaceList(props: any) {
+  const dispatch = useDispatch();
   const [isToggleOn, setToggleOn] = useState(false);
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
@@ -14,7 +15,7 @@ export function WorkspaceList(props: any) {
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
   const [search, setSearch] = useState('');
 
-  const dispatch = useDispatch();
+  console.log(workspaceList);
 
   useEffect(() => {
     dispatch(
