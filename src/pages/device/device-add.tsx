@@ -160,7 +160,7 @@ export function DeviceAdd(props: any) {
                   defaultChecked
                   onClick={() => setPriority('EMERGENCY')}
                 />
-                <label htmlFor="input-emergency" className="bg-red">
+                <label htmlFor="input-emergency">
                   <span>긴급</span>
                 </label>
               </button>
@@ -171,7 +171,7 @@ export function DeviceAdd(props: any) {
                   name="filter-importance"
                   onClick={() => setPriority('HIGH')}
                 />
-                <label htmlFor="input-high" className="bg-orange">
+                <label htmlFor="input-high">
                   <span>높음</span>
                 </label>
               </button>
@@ -182,7 +182,7 @@ export function DeviceAdd(props: any) {
                   name="filter-importance"
                   onClick={() => setPriority('USUALLY')}
                 />
-                <label htmlFor="input-normal" className="bg-blue">
+                <label htmlFor="input-normal">
                   <span>보통</span>
                 </label>
               </button>
@@ -193,7 +193,7 @@ export function DeviceAdd(props: any) {
                   name="filter-importance"
                   onClick={() => setPriority('LOW')}
                 />
-                <label htmlFor="input-low" className="bg-green">
+                <label htmlFor="input-low">
                   <span>낮음</span>
                 </label>
               </button>

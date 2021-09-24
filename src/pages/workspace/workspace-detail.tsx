@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
@@ -146,8 +147,7 @@ export function WorkspaceDetail(props: any) {
     setIsOpen(false);
   };
 
-  const isCloseAll = () => {
-    setIsOpen(false);
+  const isClose2 = () => {
     setIsOpen2(false);
   };
 
@@ -210,23 +210,23 @@ export function WorkspaceDetail(props: any) {
           <div className="details">
             <p>{Content}</p>
             <ul className="documents">
-              <li className="document">
-                {docFiles?.map((file, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <div key={index}>
-                    <i className="fad fa-file-alt" />
-                    <span>{file.file_name}</span>
-                  </div>
+              {docFiles &&
+                docFiles?.map((file, index) => (
+                  <li className="document">
+                    <div key={index}>
+                      <i className="fad fa-file-alt" />
+                      <span>{file.file_name}</span>
+                    </div>
+                  </li>
                 ))}
-              </li>
             </ul>
             <div className="images">
-              <div className="image">
-                {imgFiles?.map((img, index) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <img key={index} onClick={showImageModal} src={img.file_preview} alt="" />
+              {imgFiles &&
+                imgFiles?.map((img, index) => (
+                  <div className="image">
+                    <img key={index} onClick={showImageModal} src={img.file_preview} alt="" />
+                  </div>
                 ))}
-              </div>
             </div>
           </div>
           <div className="status">
@@ -258,7 +258,7 @@ export function WorkspaceDetail(props: any) {
                   defaultChecked
                   onClick={() => setState('WORK_REQUEST')}
                 />
-                <label className="bg-orange" htmlFor="input-request-comment">
+                <label htmlFor="input-request-comment">
                   <span>요청</span>
                 </label>
               </button>
@@ -269,7 +269,7 @@ export function WorkspaceDetail(props: any) {
                   name="filter-type"
                   onClick={() => setState('PROGRESS')}
                 />
-                <label className="bg-blue" htmlFor="input-undertake-comment">
+                <label htmlFor="input-undertake-comment">
                   <span>진행</span>
                 </label>
               </button>
@@ -280,7 +280,7 @@ export function WorkspaceDetail(props: any) {
                   name="filter-type"
                   onClick={() => setState('COMPLETION')}
                 />
-                <label className="bg-green" htmlFor="input-done-comment">
+                <label htmlFor="input-done-comment">
                   <span>완료</span>
                 </label>
               </button>
