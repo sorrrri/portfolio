@@ -40,6 +40,8 @@ export function WorkspaceList(props: any) {
     });
   };
 
+  console.log(workspaceList);
+
   // 일감 목록 검색
   const searchWorkspaceList = workspaceList.filter(
     (item: any) =>
@@ -56,26 +58,16 @@ export function WorkspaceList(props: any) {
     <>
       <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
       <main className="content list workspace">
-        <Row
-          rowtype="obstruction"
-          title="test"
-          writer="길동이"
-          date="2021.09.23"
-          worktype="장애"
-          importance="높음"
-          comment="0"
-          read="0"
-        />
         {searchWorkspaceList.map((workdata) => (
           <Row
             key={workdata.work_uuid}
-            // rowtype={workdata.priority === 'EMERGENCY' ? 'emergency' : ''}
             item={() => onClickItem(workdata.work_uuid)}
+            rowtype={workdata.type}
             title={workdata.title}
             writer={workdata.registrant.name}
             date={workdata.reg_date}
-            worktype={workdata.priority_name}
-            importance={workdata.req_type_name}
+            worktype={workdata.type}
+            importance={workdata.priority}
             comment={workdata.comment}
             read={workdata.views}
           >

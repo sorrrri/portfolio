@@ -64,26 +64,26 @@ export function DeviceAdd(props: any) {
   };
 
   const showModal = () => {
-    if (title === '') {
-      setShowTitle(true);
-    } else if (toList.length === 0) {
-      setShowToList(true);
-    } else if (content === '') {
-      setShowContent(true);
-    } else {
-      setIsOpen(true);
-    }
+    // if (title === '') {
+    //   setShowTitle(true);
+    // } else if (toList.length === 0) {
+    //   setShowToList(true);
+    // } else if (content === '') {
+    //   setShowContent(true);
+    // } else {
+    setIsOpen(true);
+    // }
   };
 
   const showDoneModal = () => {
     setIsOpen2(true);
     api.addWorkspace('disability', {
-      title,
-      priority,
-      // detail_type: 'MODIFY_INFO', (업무유형)
-      to_list: toList,
-      platform_sharing: platformSharing,
-      content,
+      title: '장애 접수 등록',
+      priority: 'HIGH',
+      detail_type: 'DISABILITY_ETC',
+      to_list: '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de',
+      platform_sharing: false,
+      content: '내용 = 장애 접수 등록',
       upload_files: attacheFiles,
     });
   };
