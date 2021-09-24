@@ -65,63 +65,68 @@ export function DeviceList(props: any) {
         </button>
       </SearchArea>
       <FilterMarkers show={isOpen} close={isClose} />
-      <main className="content equipments maps">
-        <button
-          className="local-toggle-menu"
-          onClick={showFilterMarkers}
-          type="button"
-          style={{ display: 'none' }}
-        >
-          <i className="fad fa-map-marked-alt" />
-        </button>
-        {/* <div className="maps" /> */}
-        <MapModule
-          onClicked={(value: any) => {
-            console.log(`value : ${value}`);
-            setSelectedDevices(value);
-            showModalMarkers();
-          }}
-        />
-        {/* 
-        <div className="zoom-in-out">
-          <button className="zoom-out" type="button">
-            <i className="fal fa-minus" />
-          </button>
-          <div className="range-slider">
-            <input type="range" step="1" min="10" max="20" />
+      <main className={`content equipments ${isToggleOn ? 'list' : ''}`}>
+        {!isToggleOn ? (
+          <>
+            <button
+              className="local-toggle-menu"
+              onClick={showFilterMarkers}
+              type="button"
+              style={{ display: 'none' }}
+            >
+              <i className="fad fa-map-marked-alt" />
+            </button>
+            {/* <div className="maps" /> */}
+            <MapModule
+              onClicked={(value: any) => {
+                console.log(`value : ${value}`);
+                setSelectedDevices(value);
+                showModalMarkers();
+              }}
+            />
+            {/* 
+          <div className="zoom-in-out">
+            <button className="zoom-out" type="button">
+              <i className="fal fa-minus" />
+            </button>
+            <div className="range-slider">
+              <input type="range" step="1" min="10" max="20" />
+            </div>
+            <button className="zoom-in" type="button">
+              <i className="fal fa-plus" />
+            </button>
           </div>
-          <button className="zoom-in" type="button">
-            <i className="fal fa-plus" />
-          </button>
-        </div>
-        */}
-        <div className="marker" onClick={showModalMarkers}>
-          <i className="fas fa-map-marker-alt" />
-        </div>
-      </main>
-      <main className="content list equipments">
-        <section className="result">
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-          <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-        </section>
-        <section className="no-result">검색 내역이 없습니다.</section>
+          */}
+            <div className="marker" onClick={showModalMarkers}>
+              <i className="fas fa-map-marker-alt" />
+            </div>
+          </>
+        ) : (
+          <>
+            <section className="result">
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+            </section>
+            <section className="no-result">검색 내역이 없습니다.</section>
+          </>
+        )}
       </main>
       <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
     </>

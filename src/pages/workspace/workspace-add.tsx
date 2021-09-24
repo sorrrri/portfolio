@@ -90,7 +90,7 @@ export function WorkspaceAdd(props: any) {
       })
       .catch(() => {
         setIsOpen(false);
-        setShowCatch(true);
+        // setShowCatch(true);
       });
     setIsOpen2(true);
   };
@@ -99,8 +99,7 @@ export function WorkspaceAdd(props: any) {
     setIsOpen(false);
   };
 
-  const isCloseAll = () => {
-    setIsOpen(false);
+  const isClose2 = () => {
     setIsOpen2(false);
     const { history } = props;
     history.push('/workspace');
@@ -138,7 +137,7 @@ export function WorkspaceAdd(props: any) {
                   defaultChecked
                   onClick={() => setPriority('EMERGENCY')}
                 />
-                <label htmlFor="input-emergency" className="bg-red">
+                <label htmlFor="input-emergency">
                   <span>긴급</span>
                 </label>
               </button>
@@ -149,7 +148,7 @@ export function WorkspaceAdd(props: any) {
                   name="filter-importance"
                   onClick={() => setPriority('HIGH')}
                 />
-                <label htmlFor="input-high" className="bg-orange">
+                <label htmlFor="input-high">
                   <span>높음</span>
                 </label>
               </button>
@@ -160,7 +159,7 @@ export function WorkspaceAdd(props: any) {
                   name="filter-importance"
                   onClick={() => setPriority('USUALLY')}
                 />
-                <label htmlFor="input-normal" className="bg-blue">
+                <label htmlFor="input-normal">
                   <span>보통</span>
                 </label>
               </button>
@@ -171,7 +170,7 @@ export function WorkspaceAdd(props: any) {
                   name="filter-importance"
                   onClick={() => setPriority('LOW')}
                 />
-                <label htmlFor="input-low" className="bg-green">
+                <label htmlFor="input-low">
                   <span>낮음</span>
                 </label>
               </button>
@@ -309,7 +308,7 @@ export function WorkspaceAdd(props: any) {
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="업무 요청">
         업무 요청을 등록하시겠습니까?
       </Modal>
-      <ModalDone show={isOpen2} close={isCloseAll}>
+      <ModalDone show={isOpen2} close={isClose2}>
         업무 요청이 등록 되었습니다.
       </ModalDone>
     </>
