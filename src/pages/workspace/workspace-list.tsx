@@ -15,8 +15,6 @@ export function WorkspaceList(props: any) {
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
   const [search, setSearch] = useState('');
 
-  console.log(workspaceList);
-
   useEffect(() => {
     dispatch(
       showHeader({
@@ -40,8 +38,6 @@ export function WorkspaceList(props: any) {
       }
     });
   };
-
-  console.log(workspaceList);
 
   // 일감 목록 검색
   const searchWorkspaceList = workspaceList.filter(

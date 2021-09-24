@@ -70,13 +70,13 @@ export function WorkspaceDetail(props: any) {
 
   // 일감상세 정보 state 객체 구조 분해
   const {
+    priority,
     title,
     reg_date: regDate,
     content: Content,
     comment_cnt: commentCnt,
     views,
     priority_name: priorityName,
-    priority,
   } = workspaceDetail;
 
   // 일감상세 회원정보 state 객체 구조 분해
@@ -143,11 +143,8 @@ export function WorkspaceDetail(props: any) {
     setIsOpen3(true);
   };
 
-  const isClose = () => {
+  const isCloseAll = () => {
     setIsOpen(false);
-  };
-
-  const isClose2 = () => {
     setIsOpen2(false);
   };
 
@@ -396,7 +393,7 @@ export function WorkspaceDetail(props: any) {
       <ModalDone show={showCatch} close={() => setShowCatch(false)}>
         댓글 등록 실패, 관리자에게 문의해주시기 바랍니다.
       </ModalDone>
-      <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="댓글 등록">
+      <Modal show={isOpen} confirmed={showDoneModal} close={isCloseAll} title="댓글 등록">
         댓글 내용을 등록하시겠습니까?
       </Modal>
       <ModalDone show={isOpen2} close={handleSubmit}>
