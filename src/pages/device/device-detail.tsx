@@ -76,7 +76,7 @@ export function DeviceDetail(props: any) {
         <section>
           <div className="title">
             <strong>{deviceDetail?.name}</strong>
-            <span>(불달18로 불당25로 - 변경해야함)</span>
+            <span>{deviceDetail?.attribute?.address}</span>
           </div>
           <div className="view">
             <img
@@ -85,7 +85,7 @@ export function DeviceDetail(props: any) {
             />
           </div>
           <div className="address">
-            <p>충청남도 천안시 서북구 불당동 1830 - 변경해야함</p>
+            <p>{deviceDetail?.attribute?.address}</p>
             <button className="btn-navigation" onClick={showModalNavigation} type="button">
               <i className="fad fa-directions" />
               <span>내비게이션</span>
@@ -113,7 +113,7 @@ export function DeviceDetail(props: any) {
             <div className="row">
               <span>장비 상태</span>
               <span
-                className={`status ${deviceDetail?.state === 'error' ? 'abnormal' : 'nomal'}`}
+                className={`status ${deviceDetail?.state === 'error' ? 'abnormal' : 'normal'}`}
               />
             </div>
             <div className="row">

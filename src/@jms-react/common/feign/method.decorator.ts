@@ -77,7 +77,16 @@ async function invokeRequest(
     params[key] = encodeURIComponent(params[key]);
   }
 
-  const fmtUrl = formatUnicorn(url, params);
+  let fmtUrl = formatUnicorn(url, params);
+  if (Object.keys(queries).length > 0) {
+    const query = Object.keys(queries)
+      .map((key: string) => `${key}=${encodeURIComponent(queries[key])}`)
+      .join('&');
+    fmtUrl = `${fmtUrl}?${query}`;
+    // for (const key in queries) {
+    //   queries[key] = encodeURIComponent(queries[key]);
+    // }
+  }
 
   let customHeaders = { ...headers };
   let payload = data;
@@ -110,7 +119,7 @@ async function invokeRequest(
   const response = await thiz.request({
     method,
     url: fmtUrl,
-    params: queries,
+    // params: queries,
     data: payload,
     headers: customHeaders,
   });

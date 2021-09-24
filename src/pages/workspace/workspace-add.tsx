@@ -15,6 +15,7 @@ export function WorkspaceAdd(props: any) {
   const [showTitle, setShowTitle] = useState(false);
   const [showToList, setShowToList] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const [showCatch, setShowCatch] = useState(false);
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
 
@@ -40,53 +41,58 @@ export function WorkspaceAdd(props: any) {
 
   // 받는사람 정보 get
   const fetchWorkspaceTemplate = () => {
-    setTimeout(() => {
-      api.getWorkspaceTemplate().then((payload: any) => {
-        const { code, response } = payload;
-        if (code === 200 && Array.isArray(response.results.recipient)) {
-          setRecipient(response.results.recipient);
-        }
-      });
+    api.getWorkspaceTemplate().then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && Array.isArray(response.results.recipient)) {
+        setRecipient(response.results.recipient);
+      }
     });
   };
 
+  console.log(recipient);
+
   // 받는사람 filter / select2로 html변경 후 재작업 필요
-  const handleInputName = (e: any) => {
-    const arrayName = e.target.value.split(';');
-    const tolistresult = [];
-    for (let i = 0; i < arrayName.length; i++) {
-      const filtername = recipient.filter((item) => item.name === arrayName[i]);
-      const filteruuid = filtername.map((item) => item.uuid);
-      tolistresult.push(filteruuid);
-    }
-    setToList(tolistresult);
-    fetchWorkspaceTemplate();
-  };
+  // const handleInputName = (e: any) => {
+  //   const arrayName = e.target.value.split(';');
+  //   const tolistresult = [];
+  //   for (let i = 0; i < arrayName.length; i++) {
+  //     const filtername = recipient.filter((item) => item.name === arrayName[i]);
+  //     const filteruuid = filtername.map((item) => item.uuid);
+  //     tolistresult.push(filteruuid);
+  //   }
+  //   setToList(tolistresult);
+  //   fetchWorkspaceTemplate();
+  // };
 
   const showModal = () => {
-    if (title === '') {
-      setShowTitle(true);
-    } else if (toList.length === 0) {
-      setShowToList(true);
-    } else if (content === '') {
-      setShowContent(true);
-    } else {
-      setIsOpen(true);
-    }
+    // if (title === '') {
+    //   setShowTitle(true);
+    // } else if (toList.length === 0) {
+    //   setShowToList(true);
+    // } else if (content === '') {
+    //   setShowContent(true);
+    // } else {
+    setIsOpen(true);
+    // }
   };
 
   // 업무 요청 등록
   const showDoneModal = () => {
+    api
+      .addWorkspace('work', {
+        title: '업무 요청 등록',
+        priority: 'HIGH',
+        detail_type: 'WORK_ETC',
+        to_list: '6bf44769-1af3-4d0b-b9df-a8a5ba8ae8de',
+        platform_sharing: false,
+        content: '내용 = 업무 요청 등록',
+        upload_files: attacheFiles,
+      })
+      .catch(() => {
+        setIsOpen(false);
+        setShowCatch(true);
+      });
     setIsOpen2(true);
-    api.addWorkspace('work', {
-      title,
-      priority,
-      detail_type: detailType,
-      to_list: toList,
-      platform_sharing: platformSharing,
-      content,
-      upload_files: attacheFiles,
-    });
   };
 
   const isClose = () => {
@@ -101,11 +107,13 @@ export function WorkspaceAdd(props: any) {
   };
 
   const options = [
-    { value: '박보검', label: '박보검' },
-    { value: '전지현', label: '전지현' },
-    { value: '정우성', label: '정우성' },
+    { value: 'qkrqhrja', label: '박보검1' },
+    { value: 'wjswlgus', label: '전지현2' },
+    { value: 'wjddntjd', label: '정우성3' },
   ];
-  const [selectedOption, setSelectedOption] = useState(null);
+
+  const [test, setdrtest] = useState();
+  console.log(test);
 
   return (
     <>
@@ -220,8 +228,14 @@ export function WorkspaceAdd(props: any) {
             </div>
           </div>
           <div className="input send-to">
-            <span>받는사람 (임시)다중입력은 ; 구분 </span>
-            <Select defaultValue={selectedOption} options={options} isMulti />
+            <span>받는사람</span>
+            <Select
+              placeholder="이름을 입력하세요."
+              // defaultValue={selectedOption}
+              options={options}
+              onChange={(option: any) => setdrtest(option)}
+              isMulti
+            />
             {/* <input type="text" onChange={handleInputName} /> */}
           </div>
           <div className="input">
@@ -279,6 +293,7 @@ export function WorkspaceAdd(props: any) {
           업무 요청 등록
         </button>
       </div>
+
       <ModalDone show={showTitle} close={() => setShowTitle(false)}>
         작업명을 입력해 주세요.
       </ModalDone>
@@ -287,6 +302,9 @@ export function WorkspaceAdd(props: any) {
       </ModalDone>
       <ModalDone show={showContent} close={() => setShowContent(false)}>
         댓글을 입력해 주세요.
+      </ModalDone>
+      <ModalDone show={showCatch} close={() => setShowCatch(false)}>
+        업무 요청 등록 실패, 관리자에게 문의해주시기 바랍니다.
       </ModalDone>
       <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="업무 요청">
         업무 요청을 등록하시겠습니까?

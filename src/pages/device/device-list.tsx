@@ -66,7 +66,12 @@ export function DeviceList(props: any) {
       </SearchArea>
       <FilterMarkers show={isOpen} close={isClose} />
       <main className="content equipments maps">
-        <button className="local-toggle-menu" onClick={showFilterMarkers} type="button">
+        <button
+          className="local-toggle-menu"
+          onClick={showFilterMarkers}
+          type="button"
+          style={{ display: 'none' }}
+        >
           <i className="fad fa-map-marked-alt" />
         </button>
         {/* <div className="maps" /> */}
@@ -77,6 +82,7 @@ export function DeviceList(props: any) {
             showModalMarkers();
           }}
         />
+        {/* 
         <div className="zoom-in-out">
           <button className="zoom-out" type="button">
             <i className="fal fa-minus" />
@@ -88,6 +94,7 @@ export function DeviceList(props: any) {
             <i className="fal fa-plus" />
           </button>
         </div>
+        */}
         <div className="marker" onClick={showModalMarkers}>
           <i className="fas fa-map-marker-alt" />
         </div>

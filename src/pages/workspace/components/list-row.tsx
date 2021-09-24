@@ -15,40 +15,47 @@ export const Row = (props: any) => {
     documents,
   } = props;
 
-  const switchimportance = (value: any) => {
-    switch (value) {
-      case '긴급':
-        return <span className="tag bg-red">긴급</span>;
-      case '높음':
-        return <span className="tag bg-orange">높음</span>;
-      case '보통':
-        return <span className="tag bg-blue">보통</span>;
-      case '낮음':
-        return <span className="tag bg-green">낮음</span>;
-      default:
-        return <span className="">...</span>;
+  function filterRowtype(value: string) {
+    let resultRowtype = '';
+    if (value === 'disability') {
+      resultRowtype = 'obstruction';
     }
-  };
+    return resultRowtype;
+  }
 
-  const switchworktype = (value: any) => {
+  const switchworktype = (value: string) => {
     switch (value) {
-      case '요청':
+      case 'work':
         return <span className="tag border-blue">요청</span>;
-      case '장애':
+      case 'disability':
         return <span className="tag border-indianred">장애</span>;
       default:
         return <span className="">...</span>;
     }
   };
 
+  const switchimportance = (value: string) => {
+    switch (value) {
+      case 'EMERGENCY':
+        return <span className="tag bg-red">긴급</span>;
+      case 'HIGH':
+        return <span className="tag bg-orange">높음</span>;
+      case 'USUALLY':
+        return <span className="tag bg-blue">보통</span>;
+      case 'LOW':
+        return <span className="tag bg-green">낮음</span>;
+      default:
+        return <span className="">...</span>;
+    }
+  };
+
   return (
-    <div className={`row ${rowtype}`} onClick={item}>
+    <div className={`row ${filterRowtype(rowtype)}`} onClick={item}>
       <div className="row-title">
         <ul>
           <li className="title">
             <div>{title}</div>
             <div className="tags">
-              {/* <span className="tag imortance" /> */}
               {switchworktype(worktype)}
               {switchimportance(importance)}
             </div>
