@@ -7,14 +7,13 @@ import { Row } from './components/list-row';
 import api from '../../_api/backend';
 
 export function WorkspaceList(props: any) {
+  const dispatch = useDispatch();
   const [isToggleOn, setToggleOn] = useState(false);
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
   const [search, setSearch] = useState('');
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(
@@ -39,8 +38,6 @@ export function WorkspaceList(props: any) {
       }
     });
   };
-
-  console.log(workspaceList);
 
   // 일감 목록 검색
   const searchWorkspaceList = workspaceList.filter(
