@@ -83,6 +83,7 @@ export function DeviceList(props: any) {
             showModalMarkers();
           }}
         />
+        {/* 
         <div className="zoom-in-out">
           <button className="zoom-out" type="button">
             <i className="fal fa-minus" />
@@ -94,6 +95,7 @@ export function DeviceList(props: any) {
             <i className="fal fa-plus" />
           </button>
         </div>
+        */}
         <div className="marker" onClick={showModalMarkers}>
           <i
             className="fas fa-map-marker-alt"
