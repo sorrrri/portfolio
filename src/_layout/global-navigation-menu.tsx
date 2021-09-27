@@ -3,12 +3,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useKeycloak } from '@react-keycloak/ssr';
-import server from '../_api/backend';
 
 export const GlobalNavigationMenu = (props: any) => {
   const { toggle } = props;
   const history = useHistory();
-  const { keycloak, initialized } = useKeycloak();
+  const { keycloak } = useKeycloak();
 
   const goGuide = () => {
     {
@@ -29,14 +28,7 @@ export const GlobalNavigationMenu = (props: any) => {
   };
 
   const onClickLogout = async () => {
-    await server.logout();
-
-    if (keycloak?.onAuthLogout) {
-      console.log('can logout');
-      keycloak.onAuthLogout();
-    }
-
-    window.localStorage.removeItem('initialized');
+    keycloak?.onAuthLogout!();
   };
 
   return (
