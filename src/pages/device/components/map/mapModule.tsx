@@ -90,7 +90,11 @@ export const MapModule = (props: any) => {
   };
 
   function changeMarkerClusterEvent(cluster: any[], clusterMarker: any, count: number) {
-    $(clusterMarker.getElement()).find('div:first-child').text(count);
+    $(clusterMarker.getElement())
+      .find('div:first-child')
+      .html(
+        `<div style="position: relative;top: -33px;width: 100%;text-align: center;"><span style="background-color:gray; color:white; padding:3px; width:70px;">${count}</span></div>`
+      );
 
     if (clusterListener) {
       naver.maps.Event.removeListener(clusterListener);
