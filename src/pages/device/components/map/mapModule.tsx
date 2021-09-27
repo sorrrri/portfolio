@@ -29,18 +29,23 @@ const marker2 = {
   strokeStyle: 'solid',
   strokeWeight: 3,
 };
+
+const marker3 = {
+  content:
+    '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:black;text-align:center;font-weight:bold;background:url(assets/images/marker.png);background-size:contain;"></div>',
+  size: new naver.maps.Size(40, 40),
+  anchor: new naver.maps.Point(20, 20),
+};
+
 /*
-marker3 = {
-  content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-4.png);background-size:contain;"></div>',
-  size: N.Size(40, 40),
-  anchor: N.Point(20, 20)
-},
-marker4 = {
-  url: 'http://static.naver.net/maps/img/icons/sp_pins_default_v3_over.png',
+const marker3 = {
+  url: 'assets/images/cluster-marker-1.png',
   size: new naver.maps.Size(24, 37),
   origin: new naver.maps.Point(90, 0),
-  anchor: new naver.maps.Point(12, 37)
-},
+  anchor: new naver.maps.Point(12, 37),
+};
+*/
+/*
 marker5 = {
   content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-5.png);background-size:contain;"></div>',
   size: N.Size(40, 40),
@@ -122,9 +127,9 @@ export const MapModule = (props: any) => {
       map: map,
       disableClickZoom: true,
       averageCenter: true,
-      gridSize: 50,
-      icons: [marker1, marker2],
-      indexGenerator: [10, 100, 200, 500, 1000],
+      gridSize: 80,
+      icons: [marker3],
+      // indexGenerator: [10, 100, 200, 500, 1000],
     });
 
     setMarkerCluster(markerClustering);
