@@ -145,7 +145,9 @@ export function WorkspaceDetail(props: any) {
     setIsOpen2(true);
   };
 
-  const showImageModal = () => {
+  const showImageModal = (event: any) => {
+    const modalImage = document.querySelector('.modal-image') as HTMLDivElement;
+    modalImage.innerHTML = `<img src="${event.target.src}" alt="" />`;
     setIsOpen3(true);
   };
 
