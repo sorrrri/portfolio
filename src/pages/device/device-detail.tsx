@@ -155,6 +155,7 @@ export function DeviceDetail(props: any) {
             </div>
           </div>
           <div className={`tab-content equipment ${currentTab === 1 ? 'active' : ''}`}>
+            {/* 
             <div className="row">
               <span className="status normal" />
               <span>0</span>
@@ -173,6 +174,7 @@ export function DeviceDetail(props: any) {
               <span>TNM-3620TDY</span>
               <span>2021.07.28 11:30:22</span>
             </div>
+            */}
           </div>
         </section>
       </main>
