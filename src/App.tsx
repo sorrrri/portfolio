@@ -45,11 +45,6 @@ function App(routeProps: RouteComponentProps) {
   const [initialized, setInitialized] = useState<boolean>(false);
 
   async function init() {
-    if (window.localStorage.getItem('initialized') === 'Y') {
-      setInitialized(true);
-      return;
-    }
-
     await server
       .login()
       .then(() => {
