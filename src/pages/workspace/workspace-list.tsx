@@ -13,11 +13,6 @@ export function WorkspaceList(props: any) {
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
   const [search, setSearch] = useState(''); // 일감목록 검색
 
-  const toggleSearchArea = () => {
-    setToggleOn(!isToggleOn);
-    setSearch('');
-  };
-
   useEffect(() => {
     dispatch(
       showHeader({
@@ -40,6 +35,12 @@ export function WorkspaceList(props: any) {
         setWorkspaceList(response.results);
       }
     });
+  };
+
+  // 검색창 토글
+  const toggleSearchArea = () => {
+    setToggleOn(!isToggleOn);
+    setSearch('');
   };
 
   // 일감목록 검색

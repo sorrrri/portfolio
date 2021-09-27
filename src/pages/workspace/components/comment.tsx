@@ -19,7 +19,7 @@ export const Comment = (props: any) => {
   return (
     <div className="other-comment">
       <ul className="information">
-        <li className="tags">{filterstate(state)}</li>
+        <li className="tags">[api확인필요]{filterstate(state)}</li>
         <li className="created">
           <i className="fad fa-user" />
           <span className="writer">{writer}</span>

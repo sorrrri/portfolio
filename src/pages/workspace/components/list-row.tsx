@@ -12,7 +12,7 @@ export const Row = (props: any) => {
     worktype,
     rowtype,
     images,
-    imgsrc,
+    imagsrc,
     documents,
     documentssrc,
   } = props;
@@ -28,7 +28,7 @@ export const Row = (props: any) => {
       case 'LOW':
         return <span className="tag bg-green">낮음</span>;
       default:
-        return <span className="">...</span>;
+        return <span className="" />;
     }
   };
 
@@ -56,16 +56,16 @@ export const Row = (props: any) => {
       </div>
       <div className="details">
         <p>{props.children}</p>
-        {images ? (
+        {images && images === 'true' ? (
           <ul className="images">
             <li className="image">
-              <img src={imgsrc} alt="" />
+              <img src={imagsrc} alt="" />
             </li>
           </ul>
         ) : (
           ''
         )}
-        {documents ? (
+        {documents && documents === 'true' ? (
           <ul className="documents">
             <li className="document">
               <i className="fad fa-file-alt" />
