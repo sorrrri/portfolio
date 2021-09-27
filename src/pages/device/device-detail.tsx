@@ -178,7 +178,12 @@ export function DeviceDetail(props: any) {
           </div>
         </section>
       </main>
-      <ModalNavigation show={isOpen} close={isClose} />
+      <ModalNavigation
+        show={isOpen}
+        close={isClose}
+        lat={deviceDetail?.latitude}
+        lon={deviceDetail?.longitude}
+      />
     </>
   );
 }
