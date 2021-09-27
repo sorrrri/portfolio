@@ -38,6 +38,7 @@ export function WorkspaceDetail(props: any) {
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
+  const [contentRender, setContentRender] = useState(false); // 댓글 등록 랜더링
 
   useEffect(() => {
     dispatch(
@@ -48,7 +49,7 @@ export function WorkspaceDetail(props: any) {
       })
     );
     fetchWorkspaceDetail();
-  }, [id]);
+  }, [id, contentRender]);
 
   useEffect(() => {
     fetchWorkspaceTemplate();
@@ -131,6 +132,7 @@ export function WorkspaceDetail(props: any) {
       .then(() => {
         if (post !== undefined) {
           setIsOpen2(true);
+          setContentRender(true);
         }
       })
       .catch(() => {
@@ -139,6 +141,7 @@ export function WorkspaceDetail(props: any) {
       });
   };
 
+  // 이미지 미리보기
   const showImageModal = (event: any) => {
     const modalImage = document.querySelector('.modal-image') as HTMLDivElement;
     modalImage.innerHTML = `<img src="${event.target.src}" alt="" />`;
@@ -154,12 +157,14 @@ export function WorkspaceDetail(props: any) {
     e.preventDefault();
     setInputRecipient([]);
     setContent('');
+    setAttacheFiles([]);
   };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setContent('');
     setInputRecipient([]);
+    setAttacheFiles([]);
     isCloseAll();
   };
 
@@ -222,8 +227,8 @@ export function WorkspaceDetail(props: any) {
             <div className="images">
               {imgFiles &&
                 imgFiles?.map((img, index) => (
-                  <div className="image">
-                    <img key={index} onClick={showImageModal} src={img.file_preview} alt="" />
+                  <div className="image" key={index}>
+                    <img onClick={showImageModal} src={img.file_preview} alt="" />
                   </div>
                 ))}
             </div>
@@ -287,7 +292,6 @@ export function WorkspaceDetail(props: any) {
             <div className="input">
               <span>받는사람</span>
               <Select
-                // defaultValue={recipient}
                 options={recipient}
                 onChange={(e: any) => setInputRecipient(e)}
                 value={inputRecipient}
@@ -365,20 +369,6 @@ export function WorkspaceDetail(props: any) {
                 {comment.content}
               </Comment>
             ))}
-          {/* <Comment request writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
-            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
-          </Comment>
-          <Comment
-            undertake
-            writer="홍길동"
-            date="2021-08-03 12:42:32"
-            read="박보검, 정우성, 전지현, 이정재, 이영애, 손예진, 현빈, 고길동, 둘리, 또치"
-          >
-            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
-          </Comment>
-          <Comment done writer="홍길동" date="2021-08-03 12:42:32" read="박보검">
-            [템플릿] 내용 확인 했습니다. 최대한 빨리 조치 가능 하도록 하겠습니다.
-          </Comment> */}
         </div>
         <div className="buttons">
           <button type="button" onClick={() => setShowDelete(true)}>
