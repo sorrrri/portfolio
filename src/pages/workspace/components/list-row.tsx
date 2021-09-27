@@ -1,17 +1,50 @@
 import React from 'react';
 
 export const Row = (props: any) => {
-  const { item, comment, read, title, writer, date, emergency, images, documents } = props;
+  const {
+    item,
+    comment,
+    read,
+    title,
+    writer,
+    date,
+    importance,
+    worktype,
+    rowtype,
+    images,
+    imgsrc,
+    documents,
+    documentssrc,
+  } = props;
+
+  const switchimportance = (value: string) => {
+    switch (value) {
+      case 'EMERGENCY':
+        return <span className="tag bg-red">긴급</span>;
+      case 'HIGH':
+        return <span className="tag bg-orange">높음</span>;
+      case 'USUALLY':
+        return <span className="tag bg-blue">보통</span>;
+      case 'LOW':
+        return <span className="tag bg-green">낮음</span>;
+      default:
+        return <span className="">...</span>;
+    }
+  };
 
   return (
-    <div className={`row ${emergency ? 'emergency' : ''}`} onClick={item}>
+    <div className={`row ${rowtype === 'disability' ? 'obstruction' : ''}`} onClick={item}>
       <div className="row-title">
         <ul>
           <li className="title">
             <div>{title}</div>
             <div className="tags">
-              <span className="tag bg-red">긴급</span>
-              <span className="tag bg-blue">요청</span>
+              {worktype === 'work' ? (
+                <span className="tag border-blue">요청</span>
+              ) : (
+                <span className="tag border-indianred">장애</span>
+              )}
+              {switchimportance(importance)}
             </div>
           </li>
           <li className="created">
@@ -26,16 +59,7 @@ export const Row = (props: any) => {
         {images ? (
           <ul className="images">
             <li className="image">
-              <img
-                src="https://images.unsplash.com/photo-1610819610413-3e42356fc150?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-                alt=""
-              />
-            </li>
-            <li className="image">
-              <img
-                src="https://images.unsplash.com/photo-1596311087104-86dba6be2aad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzJ8fHN0cmVldHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt=""
-              />
+              <img src={imgsrc} alt="" />
             </li>
           </ul>
         ) : (
@@ -45,7 +69,7 @@ export const Row = (props: any) => {
           <ul className="documents">
             <li className="document">
               <i className="fad fa-file-alt" />
-              <span>권한 변경 요청서.xlsx</span>
+              <span>{documentssrc}</span>
             </li>
           </ul>
         ) : (

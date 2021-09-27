@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -12,23 +13,36 @@ export const BottomStickyMenu = () => {
   const scrollToTop = () => {
     setToggleOn(false);
     const main = document.querySelector('main') as HTMLDivElement;
+    const equipmentsList = document.querySelector('.equipments.list') as HTMLDivElement;
     main.scrollTop = 0;
+    if (equipmentsList) {
+      const result = equipmentsList.querySelector('.result') as HTMLDivElement;
+      result.scrollTop = 0;
+    }
   };
 
-  const showSearchArea = () => {
+  const toggleSearchArea = () => {
     scrollToTop();
     const searchArea = document.querySelector('.search-area');
     if (searchArea) {
-      searchArea.classList.add('active');
+      searchArea.classList.contains('active')
+        ? searchArea.classList.remove('active')
+        : searchArea.classList.add('active');
     }
+  };
+
+  const showAlways = {
+    opacity: '1',
+    transform: 'translateY(0)',
+    zIndex: 3,
   };
 
   return (
     <>
       <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={() => setToggleOn(false)} />
-      <div className="bottom-sticky-menu">
+      <div className="bottom-sticky-menu" style={showAlways}>
         <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
-          <button className="btn-search" onClick={showSearchArea} type="button">
+          <button className="btn-search" onClick={toggleSearchArea} type="button">
             <i className="fad fa-search" />
           </button>
           <button className="btn-top" type="button" onClick={scrollToTop}>

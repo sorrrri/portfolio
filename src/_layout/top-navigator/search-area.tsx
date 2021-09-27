@@ -1,13 +1,30 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 /* eslint-disable react/require-default-props */
-export const SearchArea = (props: { children?: any; show?: any }) => {
+export const SearchArea = (props: {
+  children?: any;
+  show?: any;
+  onChange?: (keyword: string) => void;
+}) => {
   const { show } = props;
+
+  const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    if (props.onChange) {
+      props.onChange(searchValue);
+    }
+  }, [searchValue]);
+
   return (
     <div className={`search-area ${show ? 'active' : ''}`}>
       <div className="input">
-        <input type="search" placeholder="작업명, 작성자를 입력하세요." />
+        <input
+          type="search"
+          placeholder="작업명, 작성자를 입력하세요."
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
           <title>ionicons-v5-f</title>
           <path

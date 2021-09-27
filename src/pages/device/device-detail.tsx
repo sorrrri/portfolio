@@ -2,7 +2,6 @@
 /* eslint-disable object-shorthand */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { ActiveScroll } from '../../_component/active-scroll';
 import { showHeader } from '../../_store/slice/header-option';
 import { ModalNavigation } from './components/modal-navigation';
 import api from '../../_api/backend';
@@ -97,7 +96,7 @@ export function DeviceDetail(props: any) {
 
   return (
     <>
-      <main className="content equipments details" onScroll={ActiveScroll}>
+      <main className="content equipments details">
         <section>
           <div className="title">
             <strong>{deviceDetail?.name}</strong>

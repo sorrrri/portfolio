@@ -1,3 +1,4 @@
+/* eslint-disable react/style-prop-object */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-redeclare */
 import React, { useEffect, useState } from 'react';
@@ -44,11 +45,6 @@ function App(routeProps: RouteComponentProps) {
   const [initialized, setInitialized] = useState<boolean>(false);
 
   async function init() {
-    if (window.localStorage.getItem('initialized') === 'Y') {
-      setInitialized(true);
-      return;
-    }
-
     await server
       .login()
       .then(() => {
@@ -90,6 +86,7 @@ function App(routeProps: RouteComponentProps) {
           </ScrollToTop>
         </Route>
       )}
+      {!initialized && <span className="loader" />}
     </SSRKeycloakProvider>
   );
 }
