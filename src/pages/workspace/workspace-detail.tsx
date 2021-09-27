@@ -386,33 +386,47 @@ export function WorkspaceDetail(props: any) {
           </button>
         </div>
       </main>
-      <ModalDone show={showToList} close={() => setShowToList(false)}>
-        받는사람을 입력해 주세요.
-      </ModalDone>
-      <ModalDone show={showContent} close={() => setShowContent(false)}>
-        댓글을 입력해 주세요.
-      </ModalDone>
-      <ModalDone show={showCatch} close={() => setShowCatch(false)}>
-        댓글 등록 실패, 관리자에게 문의해주시기 바랍니다.
-      </ModalDone>
-      <Modal show={isOpen} confirmed={showDoneModal} close={isCloseAll} title="댓글 등록">
-        댓글 내용을 등록하시겠습니까?
-      </Modal>
-      <ModalDone show={isOpen2} close={handleSubmit}>
-        댓글 내용이 등록 되었습니다.
-      </ModalDone>
-      <Modal
-        show={showDelete}
-        confirmed={() => setShowDelete2(true)}
-        close={() => setShowDelete(false)}
-        title="일감 삭제"
-      >
-        삭제 하시겠습니까?
-      </Modal>
-      <ModalDone show={showDelete2} close={deleteWorkspace}>
-        삭제 되었습니다.
-      </ModalDone>
-      <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />
+      {showToList && (
+        <ModalDone show={showToList} close={() => setShowToList(false)}>
+          받는사람을 입력해 주세요.
+        </ModalDone>
+      )}
+      {showContent && (
+        <ModalDone show={showContent} close={() => setShowContent(false)}>
+          댓글을 입력해 주세요.
+        </ModalDone>
+      )}
+      {showCatch && (
+        <ModalDone show={showContent} close={() => setShowCatch(false)}>
+          댓글 등록 실패, 관리자에게 문의해주시기 바랍니다.
+        </ModalDone>
+      )}
+      {showDoneModal && (
+        <>
+          <Modal show={isOpen} confirmed={showDoneModal} close={isCloseAll} title="댓글 등록">
+            댓글 내용을 등록하시겠습니까?
+          </Modal>
+          <ModalDone show={isOpen2} close={handleSubmit}>
+            댓글 내용이 등록 되었습니다.
+          </ModalDone>
+        </>
+      )}
+      {showDelete && (
+        <>
+          <Modal
+            show={showDelete}
+            confirmed={() => setShowDelete2(true)}
+            close={() => setShowDelete(false)}
+            title="일감 삭제"
+          >
+            삭제 하시겠습니까?
+          </Modal>
+          <ModalDone show={showDelete2} close={deleteWorkspace}>
+            삭제 되었습니다.
+          </ModalDone>
+        </>
+      )}
+      {imgFiles && <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />}
     </>
   );
 }

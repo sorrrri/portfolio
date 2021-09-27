@@ -303,33 +303,49 @@ export function DeviceAdd(props: any) {
           장애 접수 등록
         </button>
       </div>
-      <ModalDone show={showTitle} close={() => setShowTitle(false)}>
-        작업명을 입력해 주세요.
-      </ModalDone>
-      <ModalDone show={showEquipment} close={() => setShowEquipment(false)}>
-        장비명을 입력해 주세요.
-      </ModalDone>
-      <ModalDone show={showToList} close={() => setShowToList(false)}>
-        받는사람을 입력해 주세요.
-      </ModalDone>
-      <ModalDone show={showContent} close={() => setShowContent(false)}>
-        댓글을 입력해 주세요.
-      </ModalDone>
-      <ModalDone show={showCatch} close={() => setShowCatch(false)}>
-        업무 요청 등록 실패, 관리자에게 문의해주시기 바랍니다.
-      </ModalDone>
-      <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="장애 접수">
-        장애 접수를 등록하시겠습니까?
-      </Modal>
-      <ModalDone show={isOpen2} close={isCloseAll}>
-        장애 접수가 등록 되었습니다.
-      </ModalDone>
-      <ModalSearch
-        show={isOpen3}
-        close={() => {
-          setIsOpen3(false);
-        }}
-      />
+      {showTitle && (
+        <ModalDone show={showTitle} close={() => setShowTitle(false)}>
+          작업명을 입력해 주세요.
+        </ModalDone>
+      )}
+      {showEquipment && (
+        <ModalDone show={showEquipment} close={() => setShowEquipment(false)}>
+          장비명을 입력해 주세요.
+        </ModalDone>
+      )}
+      {showToList && (
+        <ModalDone show={showToList} close={() => setShowToList(false)}>
+          받는사람을 입력해 주세요.
+        </ModalDone>
+      )}
+      {showContent && (
+        <ModalDone show={showContent} close={() => setShowContent(false)}>
+          댓글을 입력해 주세요.
+        </ModalDone>
+      )}
+      {showCatch && (
+        <ModalDone show={showCatch} close={() => setShowCatch(false)}>
+          업무 요청 등록 실패, 관리자에게 문의해주시기 바랍니다.
+        </ModalDone>
+      )}
+      {showDoneModal && (
+        <>
+          <Modal show={isOpen} confirmed={showDoneModal} close={isClose} title="장애 접수">
+            장애 접수를 등록하시겠습니까?
+          </Modal>
+          <ModalDone show={isOpen2} close={isCloseAll}>
+            장애 접수가 등록 되었습니다.
+          </ModalDone>
+        </>
+      )}
+      {isOpen3 && (
+        <ModalSearch
+          show={isOpen3}
+          close={() => {
+            setIsOpen3(false);
+          }}
+        />
+      )}
     </>
   );
 }
