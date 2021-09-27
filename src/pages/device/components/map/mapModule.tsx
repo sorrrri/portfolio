@@ -11,6 +11,43 @@ const mapStyle = {
   height: '100%',
 };
 
+const marker1 = {
+  style: 'circle',
+  radius: 5,
+  fillColor: 'red',
+  fillOpacity: 1,
+  strokeColor: 'black',
+  strokeStyle: 'solid',
+  strokeWeight: 3,
+};
+const marker2 = {
+  style: 'circle',
+  radius: 15,
+  fillColor: 'blue',
+  fillOpacity: 1,
+  strokeColor: 'black',
+  strokeStyle: 'solid',
+  strokeWeight: 3,
+};
+/*
+marker3 = {
+  content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-4.png);background-size:contain;"></div>',
+  size: N.Size(40, 40),
+  anchor: N.Point(20, 20)
+},
+marker4 = {
+  url: 'http://static.naver.net/maps/img/icons/sp_pins_default_v3_over.png',
+  size: new naver.maps.Size(24, 37),
+  origin: new naver.maps.Point(90, 0),
+  anchor: new naver.maps.Point(12, 37)
+},
+marker5 = {
+  content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-5.png);background-size:contain;"></div>',
+  size: N.Size(40, 40),
+  anchor: N.Point(20, 20)
+},
+*/
+
 // 주석처리 작업 이어나가야함.
 export const MapModule = (props: any) => {
   const [devicesForMap, setDevicesForMap] = useState<any[]>([]);
@@ -86,7 +123,7 @@ export const MapModule = (props: any) => {
       disableClickZoom: true,
       averageCenter: true,
       gridSize: 50,
-      // icons: [htmlMarker1, htmlMarker2, htmlMarker3, htmlMarker4, htmlMarker5],
+      icons: [marker1, marker2],
       indexGenerator: [10, 100, 200, 500, 1000],
     });
 
