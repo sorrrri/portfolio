@@ -15,6 +15,7 @@ export const Row = (props: any) => {
     imagsrc,
     documents,
     documentssrc,
+    attachments,
   } = props;
 
   const switchimportance = (value: string) => {
@@ -78,7 +79,7 @@ export const Row = (props: any) => {
       </div>
       <div className="status">
         <div className="attach">
-          {images || documents ? <i className="fal fa-paperclip" /> : ''}
+          <i className={`${attachments === 'true' ? 'fal fa-paperclip' : ''}`} />
         </div>
         <ul>
           <li>
