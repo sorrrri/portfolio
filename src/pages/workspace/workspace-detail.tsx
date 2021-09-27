@@ -365,7 +365,7 @@ export function WorkspaceDetail(props: any) {
                 state={priorityName} // 댓글 state가 없음
                 writer={comment.registrant.name}
                 date={comment.reg_date}
-                // images={comment.upload_files}
+                attachment={imgFiles || docFiles}
               >
                 {comment.content}
               </Comment>
