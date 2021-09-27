@@ -163,6 +163,7 @@ export const MapModule = (props: any) => {
       const marker = new naver.maps.Marker({
         title: devicesForMap[i].item_uuid,
         position: new naver.maps.LatLng(devicesForMap[i].latitude, devicesForMap[i].longitude),
+        icon: marker3,
         zIndex: 100,
       });
 

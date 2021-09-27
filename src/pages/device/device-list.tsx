@@ -96,10 +96,11 @@ export function DeviceList(props: any) {
               <i className="fal fa-plus" />
             </button>
           </div>
-          */}
+          
             <div className="marker" onClick={showModalMarkers}>
               <i className="fas fa-map-marker-alt" />
             </div>
+            */}
           </>
         ) : (
           <>
