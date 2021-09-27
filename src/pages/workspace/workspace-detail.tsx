@@ -179,7 +179,7 @@ export function WorkspaceDetail(props: any) {
       case 'LOW':
         return <span className="tag bg-green">낮음</span>;
       default:
-        return <span className="">...</span>;
+        return <span className="" />;
     }
   };
 
@@ -362,9 +362,10 @@ export function WorkspaceDetail(props: any) {
             comments.map((comment: any) => (
               <Comment
                 key={comment.comment_uuid}
-                state={priorityName}
+                state={priorityName} // 댓글 state가 없음
                 writer={comment.registrant.name}
                 date={comment.reg_date}
+                // images={comment.upload_files}
               >
                 {comment.content}
               </Comment>
