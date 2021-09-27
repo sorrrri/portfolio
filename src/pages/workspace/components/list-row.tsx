@@ -12,7 +12,9 @@ export const Row = (props: any) => {
     worktype,
     rowtype,
     images,
+    imgsrc,
     documents,
+    documentssrc,
   } = props;
 
   const switchimportance = (value: string) => {
@@ -57,10 +59,7 @@ export const Row = (props: any) => {
         {images ? (
           <ul className="images">
             <li className="image">
-              <img src="" alt="" />
-            </li>
-            <li className="image">
-              <img src="" alt="" />
+              <img src={imgsrc} alt="" />
             </li>
           </ul>
         ) : (
@@ -70,7 +69,7 @@ export const Row = (props: any) => {
           <ul className="documents">
             <li className="document">
               <i className="fad fa-file-alt" />
-              <span>권한 변경 요청서.xlsx</span>
+              <span>{documentssrc}</span>
             </li>
           </ul>
         ) : (

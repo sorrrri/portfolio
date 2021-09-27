@@ -1,9 +1,16 @@
+/* eslint-disable no-undef */
+/* eslint-disable object-shorthand */
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { showHeader } from '../../_store/slice/header-option';
 import { ModalNavigation } from './components/modal-navigation';
 import api from '../../_api/backend';
 import { dateFormat3, dateDiffNow } from '../../_util/date-format';
+
+const mapStyle = {
+  width: '100%',
+  height: '100%',
+};
 
 export function DeviceDetail(props: any) {
   const { id } = props.match.params;
@@ -21,6 +28,10 @@ export function DeviceDetail(props: any) {
     fecthDeviceDetail();
   }, [id]);
 
+  useEffect(() => {
+    initMap();
+  }, [deviceDetail]);
+
   const fecthDeviceDetail = () => {
     api.getDeviceDetail(id).then((payload: any) => {
       console.log(`id : ${id}`);
@@ -34,6 +45,19 @@ export function DeviceDetail(props: any) {
       } else {
         console.log('no');
       }
+    });
+  };
+
+  const initMap = () => {
+    const map = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(deviceDetail.latitude, deviceDetail.longitude),
+      zoom: 14,
+      maxZoom: 15,
+    });
+
+    const marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(deviceDetail.latitude, deviceDetail.longitude),
+      map: map,
     });
   };
 
@@ -79,10 +103,7 @@ export function DeviceDetail(props: any) {
             <span>{deviceDetail?.attribute?.address}</span>
           </div>
           <div className="view">
-            <img
-              src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-              alt=""
-            />
+            <div id="map" style={mapStyle} />
           </div>
           <div className="address">
             <p>{deviceDetail?.attribute?.address}</p>

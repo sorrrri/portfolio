@@ -9,11 +9,14 @@ import api from '../../_api/backend';
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
   const [isToggleOn, setToggleOn] = useState(false);
+
+  const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
+  const [search, setSearch] = useState(''); // 일감목록 검색
+
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
+    setSearch('');
   };
-  const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
-  const [search, setSearch] = useState('');
 
   useEffect(() => {
     dispatch(
@@ -29,7 +32,7 @@ export function WorkspaceList(props: any) {
     fetchWorkspaceList();
   }, []);
 
-  // 일감 목록 정보 get
+  // 일감목록 정보 api 호출
   const fetchWorkspaceList = () => {
     api.getWorkspaceList().then((payload: any) => {
       const { code, response } = payload;
@@ -39,7 +42,7 @@ export function WorkspaceList(props: any) {
     });
   };
 
-  // 일감 목록 검색
+  // 일감목록 검색
   const searchWorkspaceList = workspaceList.filter(
     (item: any) =>
       item.title.toLowerCase().includes(search) ||
@@ -71,34 +74,6 @@ export function WorkspaceList(props: any) {
             {workdata.summary_content}
           </Row>
         ))}
-        {/* <Row
-          item={() => onClickItem(1)}
-          comment={3}
-          read={5}
-          title="[템플릿] 카메라 위치 조정 요청 건카메라 위치 조정 요청 건카메라 위치 조정 요청 건"
-          writer="홍길동"
-          date="2021-08-03 12:42:32"
-          documents
-        >
-          모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링
-          중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링 중 근처
-          가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링 중 근처 가로수로
-          인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-        </Row>
-        <Row
-          item={() => onClickItem(1)}
-          comment={3}
-          read={5}
-          title="[템플릿] 카메라 위치 조정 요청 건카메라 위치 조정 요청 건카메라 위치 조정 요청 건"
-          writer="홍길동"
-          date="2021-08-03 12:42:32"
-          images
-        >
-          모니터링 중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링
-          중 근처 가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링 중 근처
-          가로수로 인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다. 모니터링 중 근처 가로수로
-          인하여 정확한 모니터링이 불가하오니 조치 부탁드립니다.
-        </Row> */}
       </main>
     </>
   );

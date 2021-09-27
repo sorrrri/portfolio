@@ -75,6 +75,10 @@ naver.maps.Util.ClassExtend(MarkerClustering, naver.maps.OverlayView, {
 		this._mapRelation = null;
 	},
 
+  onUpdate: function(){
+    this._redraw();
+  },
+
 	/**
 	 * 마커 클러스터링 옵션을 설정합니다. 설정한 옵션만 반영됩니다.
 	 * @param {Object | string} newOptions 옵션

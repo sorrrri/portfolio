@@ -2,11 +2,12 @@
 /* eslint-disable no-lone-blocks */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import server from '../_api/backend';
+import { useKeycloak } from '@react-keycloak/ssr';
 
 export const GlobalNavigationMenu = (props: any) => {
   const { toggle } = props;
   const history = useHistory();
+  const { keycloak } = useKeycloak();
 
   const goGuide = () => {
     {
@@ -27,8 +28,7 @@ export const GlobalNavigationMenu = (props: any) => {
   };
 
   const onClickLogout = async () => {
-    await server.logout();
-    window.localStorage.removeItem('initialized');
+    keycloak?.onAuthLogout!();
   };
 
   return (
