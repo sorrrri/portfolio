@@ -361,6 +361,7 @@ export function WorkspaceDetail(props: any) {
                 state={priorityName}
                 writer={comment.registrant.name}
                 date={comment.reg_date}
+                attachment={imgFiles || docFiles}
               >
                 {comment.content}
               </Comment>
