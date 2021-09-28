@@ -5,6 +5,7 @@ import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-sea
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import api from '../../_api/backend';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
@@ -42,6 +43,12 @@ export function WorkspaceList(props: any) {
     setToggleOn(!isToggleOn);
     setSearch('');
   };
+  const overlays = document.querySelectorAll('.overlay') as any;
+  overlays.forEach((overlay: any) => {
+    if (overlay.classList.contains('active')) {
+      overlay.classList.remove('active');
+    }
+  });
 
   // 일감목록 검색
   const searchWorkspaceList = workspaceList.filter(
@@ -78,6 +85,7 @@ export function WorkspaceList(props: any) {
           </Row>
         ))}
       </main>
+      <BottomStickyMenu toggle={toggleSearchArea} />
     </>
   );
 }

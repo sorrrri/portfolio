@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export const BottomStickyMenu = () => {
+export const BottomStickyMenu = (props: any) => {
   const history = useHistory();
+  const { toggle } = props;
 
   const [isToggleOn, setToggleOn] = useState(false);
   const toggleMenus = () => {
@@ -42,7 +43,7 @@ export const BottomStickyMenu = () => {
       <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={() => setToggleOn(false)} />
       <div className="bottom-sticky-menu" style={showAlways}>
         <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
-          <button className="btn-search" onClick={toggleSearchArea} type="button">
+          <button className="btn-search" onClick={toggle} type="button">
             <i className="fad fa-search" />
           </button>
           <button className="btn-top" type="button" onClick={scrollToTop}>

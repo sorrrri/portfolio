@@ -9,6 +9,7 @@ import { ModalMarkers } from './components/modal-markers';
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import { MapModule } from './components/map/mapModule';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function DeviceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
@@ -16,6 +17,12 @@ export function DeviceList(props: any) {
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
+  const overlays = document.querySelectorAll('.overlay') as any;
+  overlays.forEach((overlay: any) => {
+    if (overlay.classList.contains('active')) {
+      overlay.classList.remove('active');
+    }
+  });
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -111,6 +118,7 @@ export function DeviceList(props: any) {
           </>
         )}
       </main>
+      <BottomStickyMenu toggle={toggleSearchArea} />
       <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
     </>
   );
