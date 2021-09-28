@@ -76,7 +76,6 @@ export function DeviceList(props: any) {
             >
               <i className="fad fa-map-marked-alt" />
             </button>
-            {/* <div className="maps" /> */}
             <MapModule
               onClicked={(value: any) => {
                 console.log(`value : ${value}`);
@@ -84,23 +83,6 @@ export function DeviceList(props: any) {
                 showModalMarkers();
               }}
             />
-            {/* 
-          <div className="zoom-in-out">
-            <button className="zoom-out" type="button">
-              <i className="fal fa-minus" />
-            </button>
-            <div className="range-slider">
-              <input type="range" step="1" min="10" max="20" />
-            </div>
-            <button className="zoom-in" type="button">
-              <i className="fal fa-plus" />
-            </button>
-          </div>
-          
-            <div className="marker" onClick={showModalMarkers}>
-              <i className="fas fa-map-marker-alt" />
-            </div>
-            */}
           </>
         ) : (
           <>
