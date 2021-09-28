@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable dot-notation */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable global-require */
@@ -61,7 +62,7 @@ export const MapModule = (props: any) => {
   const [clusterListener, setClusterListener] = useState<any>();
 
   useEffect(() => {
-    fetchDevices(mapCorrd(36.8169675, 127.1056431), '1');
+    fetchDevices(mapCorrd(36.8169675, 127.1056431), '2');
     setDefaultMapSetting();
   }, []);
 
@@ -123,6 +124,7 @@ export const MapModule = (props: any) => {
       center: new naver.maps.LatLng(lat, lng),
       zoom: initZoom,
       maxZoom: 15,
+      minZoom: 10,
     });
 
     const markerClustering = new MarkerClustering({
@@ -138,15 +140,37 @@ export const MapModule = (props: any) => {
 
     setMarkerCluster(markerClustering);
 
+    const zoomScale = (zoomLevel: number) => {
+      if (zoomLevel >= 15) {
+        return '2';
+      } else if (zoomLevel === 14) {
+        return '2';
+      } else if (zoomLevel === 13) {
+        return '3.5';
+      } else if (zoomLevel === 12) {
+        return '4.5';
+      } else if (zoomLevel === 11) {
+        return '5.5';
+      } else if (zoomLevel === 10) {
+        return '6.5';
+      } else {
+        return '10';
+      }
+    };
+
     naver.maps.Event.addListener(map, 'bounds_changed', function () {
       fetchDevices(
         mapCorrd(
           (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
           (map.getBounds() as naver.maps.LatLngBounds).getCenter().lng()
         ),
-        '1.5'
+        zoomScale(map.getZoom())
       );
       console.log(`bound : `, map.getBounds().getCenter());
+    });
+
+    naver.maps.Event.addListener(map, 'zoom_changed', function () {
+      console.log(map.getZoom());
     });
 
     setNaverMap(map);
