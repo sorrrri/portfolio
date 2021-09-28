@@ -1,4 +1,4 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
@@ -27,7 +27,8 @@ export function WorkspaceDetail(props: any) {
   const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
   const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
-  const [uploadFiles, setUploadFiles] = useState<any[]>(); // 파일 정보
+  const [docFiles, setDocFiles] = useState<any[]>([]); // 일감상세 priview가 없는 문서
+  const [imgFiles, setImgFiles] = useState<any[]>([]); // 일감상세 priview가 있는 이미지
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
   const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
@@ -49,6 +50,7 @@ export function WorkspaceDetail(props: any) {
       })
     );
     fetchWorkspaceDetail();
+    setContentRender(false);
   }, [id, contentRender]);
 
   useEffect(() => {
@@ -60,11 +62,20 @@ export function WorkspaceDetail(props: any) {
   const fetchWorkspaceDetail = () => {
     api.getWorkspaceDetail(id).then((payload: any) => {
       const { code, response } = payload;
+      const docArr: Array<any> = [];
+      const imgArr: Array<any> = [];
       if (code === 200 && Object(response.results)) {
         setWorkspaceDetail(response.results);
         setNewResigtrant(response.results.registrant);
         setComments(response.results.comment);
-        setUploadFiles(response.results.upload_files);
+      }
+      if (response.results.upload_files !== null) {
+        response.results.upload_files.forEach((file: any) => {
+          if (file.file_preview === '') docArr.push(file);
+          else imgArr.push(file);
+        });
+        setDocFiles(docArr);
+        setImgFiles(imgArr);
       }
     });
   };
@@ -78,6 +89,7 @@ export function WorkspaceDetail(props: any) {
     comment_cnt: commentCnt,
     views,
     priority_name: priorityName,
+    type,
   } = workspaceDetail;
 
   // 일감상세 회원정보 state 객체 구조 분해
@@ -153,6 +165,7 @@ export function WorkspaceDetail(props: any) {
     setIsOpen2(false);
   };
 
+  // 댓글 취소
   const handleSubmitCancle = (e: any) => {
     e.preventDefault();
     setInputRecipient([]);
@@ -160,6 +173,7 @@ export function WorkspaceDetail(props: any) {
     setAttacheFiles([]);
   };
 
+  // 댓글 등록
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setContent('');
@@ -183,21 +197,48 @@ export function WorkspaceDetail(props: any) {
     }
   };
 
-  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
-  const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
-
   // 일감 삭제
   const deleteWorkspace = () => {
-    setShowDelete2(false);
+    setShowDelete2(true);
     api.removeWorkspace(id);
+  };
+
+  const deleteWorkspace2 = () => {
+    setShowDelete2(false);
     const { history } = props;
     history.push('/workspace');
+  };
+
+  // 파일 다운로드
+  const onClickAttachFile = async (file: any) => {
+    const { file_name, file_type, file_uuid } = file;
+
+    if (!file_name || !file_type || !file_uuid) {
+      return;
+    }
+
+    const fileBinary = await api.getFileDownload(id, file_uuid).then((response) => {
+      return encodeURIComponent(`${response}`);
+    });
+
+    if (!fileBinary) {
+      return;
+    }
+
+    const element = document.createElement('a');
+    // element.setAttribute('href', `data:${file_type};charset=utf-8,${fileBinary}`);
+    element.setAttribute('href', `data:application/octet-stream;charset=utf-16le,${fileBinary}`);
+    element.setAttribute('download', file_name);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
   };
 
   return (
     <>
       <main className="content details workspace">
-        <div className="row obstruction">
+        <div className={`row ${type === 'disability' ? 'obstruction' : ''}`}>
           <div className="row-title">
             <div className="tags">{switchimportance(priority)}</div>
             <ul>
@@ -215,20 +256,24 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               {docFiles &&
-                docFiles?.map((file, index) => (
-                  <li className="document">
-                    <div key={index}>
+                docFiles.map((doc) => (
+                  <li
+                    key={doc.file_uuid}
+                    className="document"
+                    onClick={() => onClickAttachFile(doc)}
+                  >
+                    <div>
                       <i className="fad fa-file-alt" />
-                      <span>{file.file_name}</span>
+                      <span>{doc.file_name}</span>
                     </div>
                   </li>
                 ))}
             </ul>
             <div className="images">
               {imgFiles &&
-                imgFiles?.map((img, index) => (
-                  <div className="image" key={index}>
-                    <img onClick={showImageModal} src={img.file_preview} alt="" />
+                imgFiles.map((img) => (
+                  <div key={img.file_uuid} className="image">
+                    <img onClick={showImageModal} src={img.file_preview} alt={img.file_name} />
                   </div>
                 ))}
             </div>
@@ -350,9 +395,8 @@ export function WorkspaceDetail(props: any) {
                   등록
                 </button>
               </div>
-              {attacheFiles.map((item, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <ul key={index} className="files-name">
+              {attacheFiles.map((item) => (
+                <ul key={item.name.toString()} className="files-name">
                   <li>{item.name}</li>
                 </ul>
               ))}
@@ -366,6 +410,7 @@ export function WorkspaceDetail(props: any) {
                 writer={comment.registrant.name}
                 date={comment.reg_date}
                 attachment={comment.upload_files}
+                // download={}
               >
                 {comment.content}
               </Comment>
@@ -406,13 +451,13 @@ export function WorkspaceDetail(props: any) {
         <>
           <Modal
             show={showDelete}
-            confirmed={() => setShowDelete2(true)}
+            confirmed={deleteWorkspace}
             close={() => setShowDelete(false)}
             title="일감 삭제"
           >
             삭제 하시겠습니까?
           </Modal>
-          <ModalDone show={showDelete2} close={deleteWorkspace}>
+          <ModalDone show={showDelete2} close={deleteWorkspace2}>
             삭제 되었습니다.
           </ModalDone>
         </>

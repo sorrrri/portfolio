@@ -12,9 +12,7 @@ export const Row = (props: any) => {
     worktype,
     rowtype,
     images,
-    imagsrc,
     documents,
-    documentssrc,
     attachments,
   } = props;
 
@@ -57,20 +55,20 @@ export const Row = (props: any) => {
       </div>
       <div className="details">
         <p>{props.children}</p>
-        {images && images === 'true' ? (
+        {images === true ? (
           <ul className="images">
             <li className="image">
-              <img src={imagsrc} alt="" />
+              <img src="" alt="" />
             </li>
           </ul>
         ) : (
           ''
         )}
-        {documents && documents === 'true' ? (
+        {documents === true ? (
           <ul className="documents">
             <li className="document">
               <i className="fad fa-file-alt" />
-              <span>{documentssrc}</span>
+              <span>파일</span>
             </li>
           </ul>
         ) : (
@@ -78,12 +76,10 @@ export const Row = (props: any) => {
         )}
       </div>
       <div className="status">
-        <div className="attach">
-          <i className={`${attachments === 'true' ? 'fal fa-paperclip' : ''}`} />
-        </div>
+        <i className={`${attachments === true ? 'fal fa-paperclip' : ''}`} />
+        <div className="attach" />
         <ul>
           <li>
-            <i className="fad fa-comment-alt-lines" />
             <span className="comment">{comment}</span>
           </li>
           <li>

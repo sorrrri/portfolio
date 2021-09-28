@@ -93,12 +93,15 @@ const transformConfig = (base: AxiosRequestConfig) => {
 };
 
 const errorHandler = (error: any) => {
+  if (error?.status === 403) {
+    console.log('중복 로그인 또는 로그인세션 만료됨');
+  }
+
   let message = error?.data?.message || error?.message;
   if (message) {
     if (Array.isArray(message)) {
       message = message.join('\n');
     }
-
     showErrorMessage(message);
   }
 };
@@ -164,6 +167,14 @@ class Server {
 
   @Get('/platform/api/v2/:realm/workspace/detail/{work_uuid}')
   async getWorkspaceDetail(@Param('work_uuid') workUuid: string): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
+  @Get('/platform/api/v2/:realm/workspace/download/{work_uuid}/{file_uuid}')
+  async getFileDownload(
+    @Param('work_uuid') workUuid: string,
+    @Param('file_uuid') fileUuid: string
+  ): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
