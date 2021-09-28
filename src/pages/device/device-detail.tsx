@@ -12,6 +12,13 @@ const mapStyle = {
   height: '100%',
 };
 
+const markerIcon = {
+  content:
+    '<div style="cursor:pointer;width:40px;height:40px;font-size:10px;color:black;text-align:center;background:url(assets/images/marker.png);background-size:contain;"></div>',
+  size: new naver.maps.Size(40, 40),
+  anchor: new naver.maps.Point(20, 20),
+};
+
 export function DeviceDetail(props: any) {
   const { id } = props.match.params;
   const dispatch = useDispatch();
@@ -58,6 +65,7 @@ export function DeviceDetail(props: any) {
     const marker = new naver.maps.Marker({
       position: new naver.maps.LatLng(deviceDetail.latitude, deviceDetail.longitude),
       map: map,
+      icon: markerIcon,
     });
   };
 
