@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
@@ -200,6 +201,28 @@ export function WorkspaceDetail(props: any) {
     history.push('/workspace');
   };
 
+  const onClickAttachFile = async (file: any) => {
+    const { file_name, file_type, file_uuid } = file;
+
+    if (!file_name || !file_type || !file_uuid) {
+      return;
+    }
+
+    const fileBinary = await api.getFileDownload(id, file_uuid);
+
+    if (!fileBinary) {
+      return;
+    }
+
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:${file_type};charset=utf-8,${fileBinary}`);
+    element.setAttribute('download', file_name);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
   return (
     <>
       <main className="content details workspace">
@@ -222,15 +245,10 @@ export function WorkspaceDetail(props: any) {
             <ul className="documents">
               {docFiles &&
                 docFiles?.map((file: any) => (
-                  <li className="document">
+                  <li className="document" onClick={() => onClickAttachFile(file)}>
                     <div>
                       <i key={file.file_uuid} className="fad fa-file-alt" />
-                      <a
-                        href="https://api-172-30-10-101.vurix.kr/platform/api/v2/jmsoft/workspace/download/7e207e9b-1408-4b56-9b01-5568dec7f565/a61ac5f5-fa47-4431-8683-4b88710c70ba"
-                        download="test.xlsx"
-                      >
-                        <span>{file.file_name}</span>{' '}
-                      </a>
+                      <span>{file.file_name}</span>
                     </div>
                   </li>
                 ))}
