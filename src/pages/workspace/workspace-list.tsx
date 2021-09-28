@@ -11,9 +11,8 @@ export function WorkspaceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
 
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
+  const [attachmentsWorkuuid, setAttachmentsWorkuuid] = useState<any>([]); // 일감목록 중 첨부파일 있는 work_uuid
   const [search, setSearch] = useState(''); // 일감목록 검색
-
-  // console.log(workspaceList.map((item) => item.attachments));
 
   useEffect(() => {
     dispatch(
@@ -33,9 +32,15 @@ export function WorkspaceList(props: any) {
   const fetchWorkspaceList = () => {
     api.getWorkspaceList().then((payload: any) => {
       const { code, response } = payload;
+      const emptyArr: Array<object> = [];
       if (code === 200 && Array.isArray(response.results)) {
         setWorkspaceList(response.results);
+        // 일감목록 중 첨부파일 있는 work_uuid 파싱
+        response.results.forEach((data: any) =>
+          data.attachments === true ? emptyArr.push(data.work_uuid) : emptyArr.push([])
+        );
       }
+      setAttachmentsWorkuuid(emptyArr);
     });
   };
 
@@ -71,9 +76,10 @@ export function WorkspaceList(props: any) {
             date={workdata.reg_date}
             worktype={workdata.type}
             importance={workdata.priority}
+            attachments={workdata.attachments}
             comment={workdata.comment}
             read={workdata.views}
-            attachments={workdata.attachments}
+            // images={workdata.attachments}
           >
             {workdata.summary_content}
           </Row>

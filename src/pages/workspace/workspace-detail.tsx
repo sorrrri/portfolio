@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
@@ -49,6 +48,7 @@ export function WorkspaceDetail(props: any) {
       })
     );
     fetchWorkspaceDetail();
+    setContentRender(false);
   }, [id, contentRender]);
 
   useEffect(() => {
@@ -78,6 +78,7 @@ export function WorkspaceDetail(props: any) {
     comment_cnt: commentCnt,
     views,
     priority_name: priorityName,
+    type,
   } = workspaceDetail;
 
   // 일감상세 회원정보 state 객체 구조 분해
@@ -188,8 +189,12 @@ export function WorkspaceDetail(props: any) {
 
   // 일감 삭제
   const deleteWorkspace = () => {
-    setShowDelete2(false);
+    setShowDelete2(true);
     api.removeWorkspace(id);
+  };
+
+  const deleteWorkspace2 = () => {
+    setShowDelete2(false);
     const { history } = props;
     history.push('/workspace');
   };
@@ -197,7 +202,7 @@ export function WorkspaceDetail(props: any) {
   return (
     <>
       <main className="content details workspace">
-        <div className="row obstruction">
+        <div className={`row ${type === 'disability' ? 'obstruction' : ''}`}>
           <div className="row-title">
             <div className="tags">{switchimportance(priority)}</div>
             <ul>
@@ -215,20 +220,30 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               {docFiles &&
-                docFiles?.map((file, index) => (
+                docFiles?.map((file: any) => (
                   <li className="document">
-                    <div key={index}>
-                      <i className="fad fa-file-alt" />
-                      <span>{file.file_name}</span>
+                    <div>
+                      <i key={file.file_uuid} className="fad fa-file-alt" />
+                      <a
+                        href="https://api-172-30-10-101.vurix.kr/platform/api/v2/jmsoft/workspace/download/7e207e9b-1408-4b56-9b01-5568dec7f565/a61ac5f5-fa47-4431-8683-4b88710c70ba"
+                        download="test.xlsx"
+                      >
+                        <span>{file.file_name}</span>{' '}
+                      </a>
                     </div>
                   </li>
                 ))}
             </ul>
             <div className="images">
               {imgFiles &&
-                imgFiles?.map((img, index) => (
-                  <div className="image" key={index}>
-                    <img onClick={showImageModal} src={img.file_preview} alt="" />
+                imgFiles?.map((img: any) => (
+                  <div className="image">
+                    <img
+                      key={img.file_uuid}
+                      onClick={showImageModal}
+                      src={img.file_preview}
+                      alt=""
+                    />
                   </div>
                 ))}
             </div>
@@ -366,6 +381,7 @@ export function WorkspaceDetail(props: any) {
                 writer={comment.registrant.name}
                 date={comment.reg_date}
                 attachment={comment.upload_files}
+                // download={}
               >
                 {comment.content}
               </Comment>
@@ -406,13 +422,13 @@ export function WorkspaceDetail(props: any) {
         <>
           <Modal
             show={showDelete}
-            confirmed={() => setShowDelete2(true)}
+            confirmed={deleteWorkspace}
             close={() => setShowDelete(false)}
             title="일감 삭제"
           >
             삭제 하시겠습니까?
           </Modal>
-          <ModalDone show={showDelete2} close={deleteWorkspace}>
+          <ModalDone show={showDelete2} close={deleteWorkspace2}>
             삭제 되었습니다.
           </ModalDone>
         </>

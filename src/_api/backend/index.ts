@@ -167,6 +167,14 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
+  @Get('/platform/api/v2/:realm/workspace/download/{work_uuid}/{file_uuid}')
+  async getFileDownload(
+    @Param('work_uuid') workUuid: string,
+    @Param('file_uuid') fileUuid: string
+  ): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
   @Post('/platform/api/v2/:realm/workspace/{work_type}')
   async addWorkspace(@Param('work_type') workType: string, @Form() data: any): Promise<any> {
     return Promise.reject(new Error('Not implemented.'));
