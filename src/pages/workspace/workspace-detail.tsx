@@ -27,7 +27,8 @@ export function WorkspaceDetail(props: any) {
   const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
   const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
-  const [uploadFiles, setUploadFiles] = useState<any[]>(); // 파일 정보
+  const [docFiles, setDocFiles] = useState<any[]>([]); // 일감상세 priview가 없는 문서
+  const [imgFiles, setImgFiles] = useState<any[]>([]); // 일감상세 priview가 있는 이미지
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
   const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
@@ -61,11 +62,20 @@ export function WorkspaceDetail(props: any) {
   const fetchWorkspaceDetail = () => {
     api.getWorkspaceDetail(id).then((payload: any) => {
       const { code, response } = payload;
+      const docArr: Array<any> = [];
+      const imgArr: Array<any> = [];
       if (code === 200 && Object(response.results)) {
         setWorkspaceDetail(response.results);
         setNewResigtrant(response.results.registrant);
         setComments(response.results.comment);
-        setUploadFiles(response.results.upload_files);
+      }
+      if (response.results.upload_files !== null) {
+        response.results.upload_files.forEach((file: any) => {
+          if (file.file_preview === '') docArr.push(file);
+          else imgArr.push(file);
+        });
+        setDocFiles(docArr);
+        setImgFiles(imgArr);
       }
     });
   };
@@ -155,6 +165,7 @@ export function WorkspaceDetail(props: any) {
     setIsOpen2(false);
   };
 
+  // 댓글 취소
   const handleSubmitCancle = (e: any) => {
     e.preventDefault();
     setInputRecipient([]);
@@ -162,6 +173,7 @@ export function WorkspaceDetail(props: any) {
     setAttacheFiles([]);
   };
 
+  // 댓글 등록
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setContent('');
@@ -185,10 +197,6 @@ export function WorkspaceDetail(props: any) {
     }
   };
 
-  const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
-  const docFilesName = uploadFiles?.map((file) => (file.file_preview === '' ? file.file_name : ''));
-  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
-
   // 일감 삭제
   const deleteWorkspace = () => {
     setShowDelete2(true);
@@ -201,6 +209,7 @@ export function WorkspaceDetail(props: any) {
     history.push('/workspace');
   };
 
+  // 파일 다운로드
   const onClickAttachFile = async (file: any) => {
     const { file_name, file_type, file_uuid } = file;
 
@@ -208,14 +217,17 @@ export function WorkspaceDetail(props: any) {
       return;
     }
 
-    const fileBinary = await api.getFileDownload(id, file_uuid);
+    const fileBinary = await api.getFileDownload(id, file_uuid).then((response) => {
+      return encodeURIComponent(`${response}`);
+    });
 
     if (!fileBinary) {
       return;
     }
 
     const element = document.createElement('a');
-    element.setAttribute('href', `data:${file_type};charset=utf-8,${fileBinary}`);
+    // element.setAttribute('href', `data:${file_type};charset=utf-8,${fileBinary}`);
+    element.setAttribute('href', `data:application/octet-stream;charset=utf-16le,${fileBinary}`);
     element.setAttribute('download', file_name);
     element.style.display = 'none';
     document.body.appendChild(element);
@@ -244,25 +256,24 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               {docFiles &&
-                docFiles?.map((file: any) => (
-                  <li className="document" onClick={() => onClickAttachFile(file)}>
+                docFiles.map((doc) => (
+                  <li
+                    key={doc.file_uuid}
+                    className="document"
+                    onClick={() => onClickAttachFile(doc)}
+                  >
                     <div>
-                      <i key={file.file_uuid} className="fad fa-file-alt" />
-                      <span>{file.file_name}</span>
+                      <i className="fad fa-file-alt" />
+                      <span>{doc.file_name}</span>
                     </div>
                   </li>
                 ))}
             </ul>
             <div className="images">
               {imgFiles &&
-                imgFiles?.map((img: any) => (
-                  <div className="image">
-                    <img
-                      key={img.file_uuid}
-                      onClick={showImageModal}
-                      src={img.file_preview}
-                      alt=""
-                    />
+                imgFiles.map((img) => (
+                  <div key={img.file_uuid} className="image">
+                    <img onClick={showImageModal} src={img.file_preview} alt={img.file_name} />
                   </div>
                 ))}
             </div>
@@ -384,9 +395,8 @@ export function WorkspaceDetail(props: any) {
                   등록
                 </button>
               </div>
-              {attacheFiles.map((item, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <ul key={index} className="files-name">
+              {attacheFiles.map((item) => (
+                <ul key={item.name.toString()} className="files-name">
                   <li>{item.name}</li>
                 </ul>
               ))}
