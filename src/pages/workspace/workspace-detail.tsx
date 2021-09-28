@@ -184,8 +184,9 @@ export function WorkspaceDetail(props: any) {
     }
   };
 
-  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
   const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
+  const docFilesName = uploadFiles?.map((file) => (file.file_preview === '' ? file.file_name : ''));
+  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
 
   // 일감 삭제
   const deleteWorkspace = () => {
