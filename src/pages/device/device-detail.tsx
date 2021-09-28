@@ -179,7 +179,12 @@ export function DeviceDetail(props: any) {
           <div className="no-result">연결 장비 정보가 없습니다.</div>
         </section>
       </main>
-      <ModalNavigation show={isOpen} close={isClose} />
+      <ModalNavigation
+        show={isOpen}
+        close={isClose}
+        lat={deviceDetail?.latitude}
+        lon={deviceDetail?.longitude}
+      />
     </>
   );
 }
