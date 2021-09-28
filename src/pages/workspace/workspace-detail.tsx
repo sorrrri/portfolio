@@ -1,4 +1,4 @@
-/* eslint-disable react/no-array-index-key */
+/* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
@@ -49,6 +49,7 @@ export function WorkspaceDetail(props: any) {
       })
     );
     fetchWorkspaceDetail();
+    setContentRender(false);
   }, [id, contentRender]);
 
   useEffect(() => {
@@ -78,6 +79,7 @@ export function WorkspaceDetail(props: any) {
     comment_cnt: commentCnt,
     views,
     priority_name: priorityName,
+    type,
   } = workspaceDetail;
 
   // 일감상세 회원정보 state 객체 구조 분해
@@ -183,21 +185,48 @@ export function WorkspaceDetail(props: any) {
     }
   };
 
-  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
   const docFiles = uploadFiles?.filter((file) => file.file_preview === '');
+  const docFilesName = uploadFiles?.map((file) => (file.file_preview === '' ? file.file_name : ''));
+  const imgFiles = uploadFiles?.filter((file) => file.file_preview !== '');
 
   // 일감 삭제
   const deleteWorkspace = () => {
-    setShowDelete2(false);
+    setShowDelete2(true);
     api.removeWorkspace(id);
+  };
+
+  const deleteWorkspace2 = () => {
+    setShowDelete2(false);
     const { history } = props;
     history.push('/workspace');
+  };
+
+  const onClickAttachFile = async (file: any) => {
+    const { file_name, file_type, file_uuid } = file;
+
+    if (!file_name || !file_type || !file_uuid) {
+      return;
+    }
+
+    const fileBinary = await api.getFileDownload(id, file_uuid);
+
+    if (!fileBinary) {
+      return;
+    }
+
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:${file_type};charset=utf-8,${fileBinary}`);
+    element.setAttribute('download', file_name);
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
   };
 
   return (
     <>
       <main className="content details workspace">
-        <div className="row obstruction">
+        <div className={`row ${type === 'disability' ? 'obstruction' : ''}`}>
           <div className="row-title">
             <div className="tags">{switchimportance(priority)}</div>
             <ul>
@@ -215,10 +244,10 @@ export function WorkspaceDetail(props: any) {
             <p>{Content}</p>
             <ul className="documents">
               {docFiles &&
-                docFiles?.map((file, index) => (
-                  <li className="document">
-                    <div key={index}>
-                      <i className="fad fa-file-alt" />
+                docFiles?.map((file: any) => (
+                  <li className="document" onClick={() => onClickAttachFile(file)}>
+                    <div>
+                      <i key={file.file_uuid} className="fad fa-file-alt" />
                       <span>{file.file_name}</span>
                     </div>
                   </li>
@@ -226,9 +255,14 @@ export function WorkspaceDetail(props: any) {
             </ul>
             <div className="images">
               {imgFiles &&
-                imgFiles?.map((img, index) => (
-                  <div className="image" key={index}>
-                    <img onClick={showImageModal} src={img.file_preview} alt="" />
+                imgFiles?.map((img: any) => (
+                  <div className="image">
+                    <img
+                      key={img.file_uuid}
+                      onClick={showImageModal}
+                      src={img.file_preview}
+                      alt=""
+                    />
                   </div>
                 ))}
             </div>
@@ -366,6 +400,7 @@ export function WorkspaceDetail(props: any) {
                 writer={comment.registrant.name}
                 date={comment.reg_date}
                 attachment={comment.upload_files}
+                // download={}
               >
                 {comment.content}
               </Comment>
@@ -406,13 +441,13 @@ export function WorkspaceDetail(props: any) {
         <>
           <Modal
             show={showDelete}
-            confirmed={() => setShowDelete2(true)}
+            confirmed={deleteWorkspace}
             close={() => setShowDelete(false)}
             title="일감 삭제"
           >
             삭제 하시겠습니까?
           </Modal>
-          <ModalDone show={showDelete2} close={deleteWorkspace}>
+          <ModalDone show={showDelete2} close={deleteWorkspace2}>
             삭제 되었습니다.
           </ModalDone>
         </>
