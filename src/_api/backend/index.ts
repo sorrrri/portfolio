@@ -93,12 +93,15 @@ const transformConfig = (base: AxiosRequestConfig) => {
 };
 
 const errorHandler = (error: any) => {
+  if (error?.status === 403) {
+    console.log('중복 로그인 또는 로그인세션 만료됨');
+  }
+
   let message = error?.data?.message || error?.message;
   if (message) {
     if (Array.isArray(message)) {
       message = message.join('\n');
     }
-
     showErrorMessage(message);
   }
 };
