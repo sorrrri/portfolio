@@ -13,6 +13,8 @@ export function WorkspaceList(props: any) {
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
   const [search, setSearch] = useState(''); // 일감목록 검색
 
+  // console.log(workspaceList.map((item) => item.attachments));
+
   useEffect(() => {
     dispatch(
       showHeader({
@@ -71,6 +73,7 @@ export function WorkspaceList(props: any) {
             importance={workdata.priority}
             comment={workdata.comment}
             read={workdata.views}
+            attachments={workdata.attachments}
           >
             {workdata.summary_content}
           </Row>
