@@ -15,17 +15,7 @@ export function LayoutTopNavigator(props: RouteAndChildrenProps) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 
-  useEffect(() => {
-    const container = document.querySelector('.container') as HTMLDivElement;
-    const main = document.querySelector('main') as any;
-    main.addEventListener('scroll', () => {
-      if (main.scrollTop > 50) {
-        container.classList.add('scroll');
-      } else {
-        container.classList.remove('scroll');
-      }
-    });
-  });
+  useEffect(() => {});
 
   return (
     <>
