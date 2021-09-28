@@ -174,6 +174,7 @@ export function DeviceDetail(props: any) {
               <span>2021.07.28 11:30:22</span>
             </div>
           </div>
+          <div className="no-result">연결 장비 정보가 없습니다.</div>
         </section>
       </main>
       <ModalNavigation show={isOpen} close={isClose} />
