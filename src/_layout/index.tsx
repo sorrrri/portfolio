@@ -15,7 +15,23 @@ export function LayoutTopNavigator(props: RouteAndChildrenProps) {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
 
-  useEffect(() => {});
+  useEffect(() => {
+    const container = document.querySelector('.container') as HTMLDivElement;
+    const main = document.querySelector('main') as HTMLDivElement;
+    const mapPage = document.querySelector('.equipments') as HTMLDivElement;
+
+    if (main) {
+      if (!mapPage) {
+        main.addEventListener('scroll', () => {
+          if (main.scrollTop > 50) {
+            container.classList.add('scroll');
+          } else {
+            container.classList.remove('scroll');
+          }
+        });
+      }
+    }
+  });
 
   return (
     <>
