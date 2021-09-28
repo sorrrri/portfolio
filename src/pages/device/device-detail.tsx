@@ -176,6 +176,7 @@ export function DeviceDetail(props: any) {
             </div>
             */}
           </div>
+          <div className="no-result">연결 장비 정보가 없습니다.</div>
         </section>
       </main>
       <ModalNavigation
