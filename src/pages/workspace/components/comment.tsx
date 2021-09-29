@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Comment = (props: any) => {
-  const { writer, date, read, state } = props;
+  const { writer, date, read, state, attachment, download } = props;
 
   const filterstate = (value: any) => {
     switch (value) {
@@ -28,8 +28,11 @@ export const Comment = (props: any) => {
       </ul>
       <div>{props.children}</div>
       <div className="status">
-        <i className="fad fa-comment-alt-check" />
-        <span>{read}</span>
+        <div>
+          <i className="fad fa-comment-alt-check" />
+          <span>{read}</span>
+        </div>
+        {attachment && <i className="fal fa-paperclip" onClick={download} />}
       </div>
     </div>
   );

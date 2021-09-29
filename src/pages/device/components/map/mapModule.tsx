@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable dot-notation */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable global-require */
@@ -29,18 +30,23 @@ const marker2 = {
   strokeStyle: 'solid',
   strokeWeight: 3,
 };
+
+const marker3 = {
+  content:
+    '<div style="cursor:pointer;width:40px;height:40px;font-size:10px;color:black;text-align:center;background:url(assets/images/marker.png);background-size:contain;"></div>',
+  size: new naver.maps.Size(40, 40),
+  anchor: new naver.maps.Point(20, 20),
+};
+
 /*
-marker3 = {
-  content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-4.png);background-size:contain;"></div>',
-  size: N.Size(40, 40),
-  anchor: N.Point(20, 20)
-},
-marker4 = {
-  url: 'http://static.naver.net/maps/img/icons/sp_pins_default_v3_over.png',
+const marker3 = {
+  url: 'assets/images/cluster-marker-1.png',
   size: new naver.maps.Size(24, 37),
   origin: new naver.maps.Point(90, 0),
-  anchor: new naver.maps.Point(12, 37)
-},
+  anchor: new naver.maps.Point(12, 37),
+};
+*/
+/*
 marker5 = {
   content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-5.png);background-size:contain;"></div>',
   size: N.Size(40, 40),
@@ -56,7 +62,7 @@ export const MapModule = (props: any) => {
   const [clusterListener, setClusterListener] = useState<any>();
 
   useEffect(() => {
-    fetchDevices(mapCorrd(36.8169675, 127.1056431), '1');
+    fetchDevices(mapCorrd(36.8169675, 127.1056431), '2');
     setDefaultMapSetting();
   }, []);
 
@@ -85,7 +91,11 @@ export const MapModule = (props: any) => {
   };
 
   function changeMarkerClusterEvent(cluster: any[], clusterMarker: any, count: number) {
-    $(clusterMarker.getElement()).find('div:first-child').text(count);
+    $(clusterMarker.getElement())
+      .find('div:first-child')
+      .html(
+        `<div style="z-index:999; font-size: 11px; position: relative; top: -1.35rem; left: .65rem; width: 100%; text-align: center"><span style="font-family:'Poppins'; background-color:slategray; color:white; width:1.25rem; height: 1.25rem; display:flex; align-items: center; justify-content: center; border-radius: .25rem">${count}</span></div>`
+      );
 
     if (clusterListener) {
       naver.maps.Event.removeListener(clusterListener);
@@ -114,6 +124,7 @@ export const MapModule = (props: any) => {
       center: new naver.maps.LatLng(lat, lng),
       zoom: initZoom,
       maxZoom: 15,
+      minZoom: 10,
     });
 
     const markerClustering = new MarkerClustering({
@@ -122,12 +133,30 @@ export const MapModule = (props: any) => {
       map: map,
       disableClickZoom: true,
       averageCenter: true,
-      gridSize: 50,
-      icons: [marker1, marker2],
-      indexGenerator: [10, 100, 200, 500, 1000],
+      gridSize: 80,
+      icons: [marker3],
+      // indexGenerator: [10, 100, 200, 500, 1000],
     });
 
     setMarkerCluster(markerClustering);
+
+    const zoomScale = (zoomLevel: number) => {
+      if (zoomLevel >= 15) {
+        return '2';
+      } else if (zoomLevel === 14) {
+        return '2';
+      } else if (zoomLevel === 13) {
+        return '3.5';
+      } else if (zoomLevel === 12) {
+        return '4.5';
+      } else if (zoomLevel === 11) {
+        return '5.5';
+      } else if (zoomLevel === 10) {
+        return '6.5';
+      } else {
+        return '10';
+      }
+    };
 
     naver.maps.Event.addListener(map, 'bounds_changed', function () {
       fetchDevices(
@@ -135,9 +164,13 @@ export const MapModule = (props: any) => {
           (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
           (map.getBounds() as naver.maps.LatLngBounds).getCenter().lng()
         ),
-        '1.5'
+        zoomScale(map.getZoom())
       );
       console.log(`bound : `, map.getBounds().getCenter());
+    });
+
+    naver.maps.Event.addListener(map, 'zoom_changed', function () {
+      console.log(map.getZoom());
     });
 
     setNaverMap(map);
@@ -154,6 +187,7 @@ export const MapModule = (props: any) => {
       const marker = new naver.maps.Marker({
         title: devicesForMap[i].item_uuid,
         position: new naver.maps.LatLng(devicesForMap[i].latitude, devicesForMap[i].longitude),
+        icon: marker3,
         zIndex: 100,
       });
 

@@ -12,9 +12,8 @@ export const Row = (props: any) => {
     worktype,
     rowtype,
     images,
-    imgsrc,
     documents,
-    documentssrc,
+    attachments,
   } = props;
 
   const switchimportance = (value: string) => {
@@ -28,7 +27,7 @@ export const Row = (props: any) => {
       case 'LOW':
         return <span className="tag bg-green">낮음</span>;
       default:
-        return <span className="">...</span>;
+        return <span className="" />;
     }
   };
 
@@ -56,20 +55,20 @@ export const Row = (props: any) => {
       </div>
       <div className="details">
         <p>{props.children}</p>
-        {images ? (
+        {images === true ? (
           <ul className="images">
             <li className="image">
-              <img src={imgsrc} alt="" />
+              <img src="" alt="" />
             </li>
           </ul>
         ) : (
           ''
         )}
-        {documents ? (
+        {documents === true ? (
           <ul className="documents">
             <li className="document">
               <i className="fad fa-file-alt" />
-              <span>{documentssrc}</span>
+              <span>파일</span>
             </li>
           </ul>
         ) : (
@@ -77,12 +76,10 @@ export const Row = (props: any) => {
         )}
       </div>
       <div className="status">
-        <div className="attach">
-          {images || documents ? <i className="fal fa-paperclip" /> : ''}
-        </div>
+        <i className={`${attachments === true ? 'fal fa-paperclip' : ''}`} />
+        <div className="attach" />
         <ul>
           <li>
-            <i className="fad fa-comment-alt-lines" />
             <span className="comment">{comment}</span>
           </li>
           <li>

@@ -5,6 +5,7 @@ import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-sea
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import api from '../../_api/backend';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
@@ -12,11 +13,6 @@ export function WorkspaceList(props: any) {
 
   const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
   const [search, setSearch] = useState(''); // 일감목록 검색
-
-  const toggleSearchArea = () => {
-    setToggleOn(!isToggleOn);
-    setSearch('');
-  };
 
   useEffect(() => {
     dispatch(
@@ -41,6 +37,18 @@ export function WorkspaceList(props: any) {
       }
     });
   };
+
+  // 검색창 토글
+  const toggleSearchArea = () => {
+    setToggleOn(!isToggleOn);
+    setSearch('');
+  };
+  const overlays = document.querySelectorAll('.overlay') as any;
+  overlays.forEach((overlay: any) => {
+    if (overlay.classList.contains('active')) {
+      overlay.classList.remove('active');
+    }
+  });
 
   // 일감목록 검색
   const searchWorkspaceList = workspaceList.filter(
@@ -68,13 +76,16 @@ export function WorkspaceList(props: any) {
             date={workdata.reg_date}
             worktype={workdata.type}
             importance={workdata.priority}
+            attachments={workdata.attachments}
             comment={workdata.comment}
             read={workdata.views}
+            // images={workdata.attachments}
           >
             {workdata.summary_content}
           </Row>
         ))}
       </main>
+      <BottomStickyMenu toggle={toggleSearchArea} />
     </>
   );
 }
