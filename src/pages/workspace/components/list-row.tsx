@@ -16,6 +16,11 @@ export const Row = (props: any) => {
     attachments,
   } = props;
 
+  let newImages = null;
+  if (images !== null) {
+    newImages = images.slice(0, 2);
+  }
+
   const dateFormat = date.substr(0, 19).replace('T', ' ');
 
   const switchimportance = (value: string) => {
@@ -57,11 +62,13 @@ export const Row = (props: any) => {
       </div>
       <div className="details">
         <p>{props.children}</p>
-        {images === true ? (
+        {images !== null ? (
           <ul className="images">
-            <li className="image">
-              <img src="" alt="" />
-            </li>
+            {newImages.map((img: any) => (
+              <li key={img.preview} className="image">
+                <img src={img.preview} alt="" />
+              </li>
+            ))}
           </ul>
         ) : (
           ''
