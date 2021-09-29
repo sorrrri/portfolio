@@ -9,6 +9,7 @@ import { ModalDone } from '../../_component/modal-done';
 import { ModalImage } from '../../_component/modal-image';
 import { Comment } from './components/comment';
 import api from '../../_api/backend';
+import { downloadFile } from '../../_util/file';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -217,22 +218,8 @@ export function WorkspaceDetail(props: any) {
       return;
     }
 
-    const fileBinary = await api.getFileDownload(id, file_uuid).then((response) => {
-      return encodeURIComponent(`${response}`);
-    });
-
-    if (!fileBinary) {
-      return;
-    }
-
-    const element = document.createElement('a');
-    // element.setAttribute('href', `data:${file_type};charset=utf-8,${fileBinary}`);
-    element.setAttribute('href', `data:application/octet-stream;charset=utf-16le,${fileBinary}`);
-    element.setAttribute('download', file_name);
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    const fileBinary = await api.getFileDownload(id, file_uuid);
+    downloadFile(fileBinary, file_type, file_name);
   };
 
   return (

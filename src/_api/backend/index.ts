@@ -170,11 +170,11 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
-  @Get('/platform/api/v2/:realm/workspace/download/{work_uuid}/{file_uuid}')
+  @Get('/platform/api/v2/:realm/workspace/download/{work_uuid}/{file_uuid}', 'arraybuffer')
   async getFileDownload(
     @Param('work_uuid') workUuid: string,
     @Param('file_uuid') fileUuid: string
-  ): Promise<any[]> {
+  ): Promise<ArrayBuffer> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
