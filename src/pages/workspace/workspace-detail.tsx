@@ -157,10 +157,11 @@ export function WorkspaceDetail(props: any) {
   };
 
   // 이미지 미리보기
+  const [image, setImage] = useState('');
   const showImageModal = (event: any) => {
-    const modalImage = document.querySelector('.modal-image') as HTMLDivElement;
-    modalImage.innerHTML = `<img src="${event.target.src}" alt="" />`;
+    const imagePath = event.target.src;
     setIsOpen3(true);
+    setImage(imagePath);
   };
 
   const isCloseAll = () => {
@@ -451,7 +452,7 @@ export function WorkspaceDetail(props: any) {
           </ModalDone>
         </>
       )}
-      {imgFiles && <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />}
+      {imgFiles && <ModalImage show={isOpen3} imagePath={image} close={() => setIsOpen3(false)} />}
       <BottomStickyMenu />
     </>
   );
