@@ -16,6 +16,8 @@ export const Row = (props: any) => {
     attachments,
   } = props;
 
+  const dateFormat = date.substr(0, 19).replace('T', ' ');
+
   const switchimportance = (value: string) => {
     switch (value) {
       case 'EMERGENCY':
@@ -49,7 +51,7 @@ export const Row = (props: any) => {
           <li className="created">
             <i className="fad fa-user" />
             <span className="writer">{writer}</span>
-            <span className="date">{date}</span>
+            <span className="date">{dateFormat}</span>
           </li>
         </ul>
       </div>

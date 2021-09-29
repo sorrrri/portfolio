@@ -102,7 +102,7 @@ export function WorkspaceAdd(props: any) {
       })
       .catch(() => {
         setIsOpen(false);
-        // setShowCatch(true);
+        setShowCatch(true);
       });
   };
 
