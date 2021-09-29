@@ -219,7 +219,9 @@ body {
 .filters {
   display: flex;
   border-radius: 0.25rem;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  padding: 0.35rem;
+  background-color: #eff1f7;
 
   button {
     position: relative;
@@ -228,7 +230,7 @@ body {
 
     label {
       color: #49536b;
-      background-color: rgba(0, 0, 0, 0.075);
+      background-color: transparent;
       border-radius: 0.25rem;
       width: 100%;
       justify-content: center;
@@ -242,7 +244,7 @@ body {
 
     input[type="radio"]:hover + label,
     input[type="radio"]:checked + label {
-      background-color: #333;
+      background-color: #08429d;
       color: white;
 
       svg {
@@ -680,6 +682,11 @@ footer {
   .filters {
     width: 100%;
     display: flex;
+    background-color: transparent;
+
+    &:empty {
+      display: none;
+    }
 
     label {
       background-color: transparent !important;
@@ -743,7 +750,7 @@ main {
     flex: 0 0 70px;
     padding: 0 1rem 1rem;
     background-color: #eff1f7;
-    z-index: 15;
+    z-index: 4;
 
     button {
       height: 100%;
@@ -757,6 +764,10 @@ main {
       color: white;
     }
   }
+}
+
+.no-result {
+  display: none;
 }
 
 .empty {
@@ -1047,7 +1058,6 @@ main {
   }
 
   &.list {
-    display: none;
     .row {
       flex-direction: column;
     }
@@ -1180,7 +1190,9 @@ main {
 
       strong {
         max-width: 70vw;
+        text-align: center;
         margin: 0 auto;
+        line-height: 1.25;
       }
 
       span {
@@ -1254,6 +1266,20 @@ main {
       .tab-content {
         padding: 1rem;
         font-size: 14px;
+
+        &:empty {
+          flex: 0 0 auto;
+          padding: 0;
+
+          ~ .no-result {
+            min-height: 5rem;
+            display: flex;
+            flex: 1 1 auto;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+          }
+        }
 
         &.basic {
           .status {
@@ -1332,10 +1358,6 @@ main {
 
 .list {
   padding: 1rem;
-
-  .no-result {
-    display: none;
-  }
 
   .result {
     &:empty {
@@ -1444,7 +1466,6 @@ main {
   .images {
     margin: 1rem auto 0;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 0.5rem;
 
@@ -1500,7 +1521,6 @@ main {
 
       .attach {
         svg {
-          display: none;
         }
       }
     }
@@ -1736,9 +1756,17 @@ main {
         }
 
         .status {
-          align-items: flex-start;
-          justify-content: flex-start;
+          justify-content: space-between;
           text-indent: 0;
+
+          div {
+            display: flex;
+            align-items: center;
+          }
+
+          .fa-paperclip {
+            flex: 0 0 1.5rem;
+          }
 
           .fa-comment-alt-check {
             margin-top: 0.15rem;
@@ -1889,10 +1917,6 @@ main {
         }
       }
 
-      .btn-search {
-        display: none;
-      }
-
       + .btn-main {
         background-color: white;
         color: $secondary-color;
@@ -1949,6 +1973,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: 1rem;
 
     svg {
@@ -1979,7 +2004,7 @@ main {
 .modal-marker {
   flex-direction: column;
   height: fit-content;
-  min-height: 30%;
+  min-height: 165px;
   max-height: 60%;
   top: auto;
   bottom: -450px;
@@ -2052,20 +2077,15 @@ main {
 
     .row {
       flex-direction: column;
-      background-color: #eff1f7;
+      border: 1px solid #e3e6e9;
       border-radius: 0.5rem;
-      padding: 0.5rem;
+      padding: 0.75rem;
       line-height: 1;
       gap: 0.5rem;
-    }
 
-    .row {
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      background-color: #eff1f7;
-      border-radius: 0.5rem;
-      gap: 0.25rem;
+      .tags {
+        margin-bottom: 0.25rem;
+      }
     }
 
     ul {
