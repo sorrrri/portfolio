@@ -7,6 +7,7 @@ import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { ModalSearch } from './components/modal-search';
 import api from '../../_api/backend';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function DeviceAdd(props: any) {
   const dispatch = useDispatch();
@@ -130,7 +131,7 @@ export function DeviceAdd(props: any) {
 
   return (
     <>
-      <main className="content details add">
+      <main className="content details add" onScroll={ActiveScroll}>
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>

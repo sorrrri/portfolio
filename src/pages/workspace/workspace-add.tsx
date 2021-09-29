@@ -6,6 +6,7 @@ import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
@@ -118,7 +119,7 @@ export function WorkspaceAdd(props: any) {
 
   return (
     <>
-      <main className="content details add workspace">
+      <main className="content details add workspace" onScroll={ActiveScroll}>
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>

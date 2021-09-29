@@ -118,8 +118,8 @@ export function DeviceList(props: any) {
           </>
         )}
       </main>
-      <BottomStickyMenu toggle={toggleSearchArea} />
       <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
+      <BottomStickyMenu toggle={toggleSearchArea} />
     </>
   );
 }

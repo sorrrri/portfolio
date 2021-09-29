@@ -10,6 +10,8 @@ import { ModalImage } from '../../_component/modal-image';
 import { Comment } from './components/comment';
 import api from '../../_api/backend';
 import { downloadFile } from '../../_util/file';
+import { ActiveScroll } from '../../_component/active-scroll';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -224,7 +226,7 @@ export function WorkspaceDetail(props: any) {
 
   return (
     <>
-      <main className="content details workspace">
+      <main className="content details workspace" onScroll={ActiveScroll}>
         <div className={`row ${type === 'disability' ? 'obstruction' : ''}`}>
           <div className="row-title">
             <div className="tags">{switchimportance(priority)}</div>
@@ -450,6 +452,7 @@ export function WorkspaceDetail(props: any) {
         </>
       )}
       {imgFiles && <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />}
+      <BottomStickyMenu />
     </>
   );
 }
