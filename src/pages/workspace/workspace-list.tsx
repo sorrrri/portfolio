@@ -58,6 +58,7 @@ export function WorkspaceList(props: any) {
       item.registrant.name.toLowerCase().includes(search)
   );
 
+  // 일감상세 props
   const onClickItem = (workId: number) => {
     const { history } = props;
     history.push(`/workspace/${workId}`);
@@ -80,7 +81,7 @@ export function WorkspaceList(props: any) {
             attachments={workdata.attachments}
             comment={workdata.comment}
             read={workdata.views}
-            // images={workdata.attachments}
+            images={workdata.attachments_preview}
           >
             {workdata.summary_content}
           </Row>
