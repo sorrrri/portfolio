@@ -32,8 +32,7 @@ const marker2 = {
 };
 
 const marker3 = {
-  content:
-    '<div style="cursor:pointer;width:40px;height:40px;font-size:10px;color:black;text-align:center;background:url(assets/images/marker.png);background-size:contain;"></div>',
+  content: '<div class="marker-01"></div>',
   size: new naver.maps.Size(40, 40),
   anchor: new naver.maps.Point(20, 20),
 };
@@ -93,9 +92,7 @@ export const MapModule = (props: any) => {
   function changeMarkerClusterEvent(cluster: any[], clusterMarker: any, count: number) {
     $(clusterMarker.getElement())
       .find('div:first-child')
-      .html(
-        `<div style="z-index:999; font-size: 11px; position: relative; top: -1.35rem; left: .65rem; width: 100%; text-align: center"><span style="font-family:'Poppins'; background-color:slategray; color:white; width:1.25rem; height: 1.25rem; display:flex; align-items: center; justify-content: center; border-radius: .25rem">${count}</span></div>`
-      );
+      .html(`<span class="marker-counter">${count}</span>`);
 
     if (clusterListener) {
       naver.maps.Event.removeListener(clusterListener);

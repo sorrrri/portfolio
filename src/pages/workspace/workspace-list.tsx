@@ -6,6 +6,7 @@ import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import api from '../../_api/backend';
 import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ export function WorkspaceList(props: any) {
   return (
     <>
       <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
-      <main className="content list workspace">
+      <main className="content list workspace" onScroll={ActiveScroll}>
         {searchWorkspaceList.map((workdata) => (
           <Row
             key={workdata.work_uuid}

@@ -10,6 +10,8 @@ import { ModalImage } from '../../_component/modal-image';
 import { Comment } from './components/comment';
 import api from '../../_api/backend';
 import { downloadFile } from '../../_util/file';
+import { ActiveScroll } from '../../_component/active-scroll';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -166,10 +168,11 @@ export function WorkspaceDetail(props: any) {
   };
 
   // 이미지 미리보기
+  const [image, setImage] = useState('');
   const showImageModal = (event: any) => {
-    const modalImage = document.querySelector('.modal-image') as HTMLDivElement;
-    modalImage.innerHTML = `<img src="${event.target.src}" alt="" />`;
+    const imagePath = event.target.src;
     setIsOpen3(true);
+    setImage(imagePath);
   };
 
   const isCloseAll = () => {
@@ -235,7 +238,7 @@ export function WorkspaceDetail(props: any) {
 
   return (
     <>
-      <main className="content details workspace">
+      <main className="content details workspace" onScroll={ActiveScroll}>
         <div className={`row ${type === 'disability' ? 'obstruction' : ''}`}>
           <div className="row-title">
             <div className="tags">{switchimportance(priority)}</div>
@@ -460,7 +463,8 @@ export function WorkspaceDetail(props: any) {
           </ModalDone>
         </>
       )}
-      {imgFiles && <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />}
+      {imgFiles && <ModalImage show={isOpen3} imagePath={image} close={() => setIsOpen3(false)} />}
+      <BottomStickyMenu />
     </>
   );
 }

@@ -6,6 +6,8 @@ import { showHeader } from '../../_store/slice/header-option';
 import { ModalNavigation } from './components/modal-navigation';
 import api from '../../_api/backend';
 import { dateFormat3, dateDiffNow } from '../../_util/date-format';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 const mapStyle = {
   width: '100%',
@@ -104,7 +106,7 @@ export function DeviceDetail(props: any) {
 
   return (
     <>
-      <main className="content equipments details">
+      <main className="content equipments details" onScroll={ActiveScroll}>
         <section>
           <div className="title">
             <strong>{deviceDetail?.name}</strong>
@@ -193,6 +195,7 @@ export function DeviceDetail(props: any) {
         lat={deviceDetail?.latitude}
         lon={deviceDetail?.longitude}
       />
+      <BottomStickyMenu />
     </>
   );
 }
