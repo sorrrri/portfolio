@@ -45,7 +45,7 @@ export function WorkspaceDetail(props: any) {
   useEffect(() => {
     dispatch(
       showHeader({
-        title: `Workspace #${id}`,
+        title: `Workspace`,
         leftContextType: 'back',
         rightContext: () => null,
       })
