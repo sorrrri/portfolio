@@ -10,6 +10,8 @@ import { ModalImage } from '../../_component/modal-image';
 import { Comment } from './components/comment';
 import api from '../../_api/backend';
 import { downloadFile } from '../../_util/file';
+import { ActiveScroll } from '../../_component/active-scroll';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -40,19 +42,22 @@ export function WorkspaceDetail(props: any) {
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
-  const [contentRender, setContentRender] = useState(false); // 댓글 등록 랜더링
+  const [contentRender, setContentRender] = useState(Boolean); // 댓글 등록 랜더링
 
   useEffect(() => {
     dispatch(
       showHeader({
-        title: `Workspace #${id}`,
+        title: `Workspace`,
         leftContextType: 'back',
         rightContext: () => null,
       })
     );
-    fetchWorkspaceDetail();
     setContentRender(false);
   }, [id, contentRender]);
+
+  useEffect(() => {
+    fetchWorkspaceDetail();
+  }, []);
 
   useEffect(() => {
     fetchWorkspaceTemplate();
@@ -95,6 +100,14 @@ export function WorkspaceDetail(props: any) {
 
   // 일감상세 회원정보 state 객체 구조 분해
   const { name } = newResigtrant;
+
+  const dateFormat = (date: any) => {
+    let changeDate = '';
+    if (date !== undefined) {
+      changeDate = date.substr(0, 19).replace('T', ' ');
+    }
+    return changeDate;
+  };
 
   // 받는사람 정보 api 호출
   const fetchWorkspaceTemplate = () => {
@@ -155,10 +168,11 @@ export function WorkspaceDetail(props: any) {
   };
 
   // 이미지 미리보기
+  const [image, setImage] = useState('');
   const showImageModal = (event: any) => {
-    const modalImage = document.querySelector('.modal-image') as HTMLDivElement;
-    modalImage.innerHTML = `<img src="${event.target.src}" alt="" />`;
+    const imagePath = event.target.src;
     setIsOpen3(true);
+    setImage(imagePath);
   };
 
   const isCloseAll = () => {
@@ -224,7 +238,7 @@ export function WorkspaceDetail(props: any) {
 
   return (
     <>
-      <main className="content details workspace">
+      <main className="content details workspace" onScroll={ActiveScroll}>
         <div className={`row ${type === 'disability' ? 'obstruction' : ''}`}>
           <div className="row-title">
             <div className="tags">{switchimportance(priority)}</div>
@@ -235,7 +249,7 @@ export function WorkspaceDetail(props: any) {
               <li className="created">
                 <i className="fad fa-user" />
                 <span className="writer">{name}</span>
-                <span className="date">{regDate}</span>
+                <span className="date">{dateFormat(regDate)}</span>
               </li>
             </ul>
           </div>
@@ -395,7 +409,7 @@ export function WorkspaceDetail(props: any) {
                 key={comment.comment_uuid}
                 state={priorityName} // 댓글 state가 없음
                 writer={comment.registrant.name}
-                date={comment.reg_date}
+                date={dateFormat(comment.reg_date)}
                 attachment={comment.upload_files}
                 // download={}
               >
@@ -449,7 +463,8 @@ export function WorkspaceDetail(props: any) {
           </ModalDone>
         </>
       )}
-      {imgFiles && <ModalImage show={isOpen3} close={() => setIsOpen3(false)} />}
+      {imgFiles && <ModalImage show={isOpen3} imagePath={image} close={() => setIsOpen3(false)} />}
+      <BottomStickyMenu />
     </>
   );
 }

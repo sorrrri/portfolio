@@ -6,6 +6,7 @@ import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
@@ -102,7 +103,7 @@ export function WorkspaceAdd(props: any) {
       })
       .catch(() => {
         setIsOpen(false);
-        // setShowCatch(true);
+        setShowCatch(true);
       });
   };
 
@@ -118,7 +119,7 @@ export function WorkspaceAdd(props: any) {
 
   return (
     <>
-      <main className="content details add workspace">
+      <main className="content details add workspace" onScroll={ActiveScroll}>
         <div className="inputs">
           <div className="input title">
             <span>작업명</span>
@@ -159,10 +160,10 @@ export function WorkspaceAdd(props: any) {
                   type="radio"
                   id="input-normal"
                   name="filter-importance"
-                  onClick={() => setPriority('USUALLY')}
+                  onClick={() => setPriority('LOW')}
                 />
                 <label htmlFor="input-normal">
-                  <span>보통</span>
+                  <span>낮음</span>
                 </label>
               </button>
               <button type="button">
@@ -170,10 +171,10 @@ export function WorkspaceAdd(props: any) {
                   type="radio"
                   id="input-low"
                   name="filter-importance"
-                  onClick={() => setPriority('LOW')}
+                  onClick={() => setPriority('USUALLY')}
                 />
                 <label htmlFor="input-low">
-                  <span>낮음</span>
+                  <span>보통</span>
                 </label>
               </button>
             </div>
@@ -184,46 +185,24 @@ export function WorkspaceAdd(props: any) {
               <button type="button">
                 <input
                   type="radio"
-                  id="request-permission"
-                  name="work-type"
-                  defaultChecked
-                  onClick={() => setDetailType('WORK_PERMISSION')}
-                />
-                <label htmlFor="request-permission">
-                  <span>권한요청</span>
-                </label>
-              </button>
-              <button type="button">
-                <input
-                  type="radio"
-                  id="personal-information"
-                  name="work-type"
-                  onClick={() => setDetailType('MODIFY_INFO')}
-                />
-                <label htmlFor="personal-information">
-                  <span>개인정보변경</span>
-                </label>
-              </button>
-              <button type="button">
-                <input
-                  type="radio"
-                  id="reset-password"
-                  name="work-type"
-                  onClick={() => setDetailType('RESET_PASSWORD')}
-                />
-                <label htmlFor="reset-password">
-                  <span>비밀번호 초기화</span>
-                </label>
-              </button>
-              <button type="button">
-                <input
-                  type="radio"
                   id="etc"
                   name="work-type"
+                  defaultChecked
                   onClick={() => setDetailType('WORK_ETC')}
                 />
                 <label htmlFor="etc">
                   <span>기타</span>
+                </label>
+              </button>
+              <button type="button">
+                <input
+                  type="radio"
+                  id="request-permission"
+                  name="work-type"
+                  onClick={() => setDetailType('WORK_PERMISSION')}
+                />
+                <label htmlFor="request-permission">
+                  <span>권한</span>
                 </label>
               </button>
             </div>
@@ -280,9 +259,8 @@ export function WorkspaceAdd(props: any) {
               </label>
             </button>
           </div>
-          {attacheFiles.map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <ul key={index} className="files-name">
+          {attacheFiles.map((item) => (
+            <ul key={item.name.toString()} className="files-name">
               <li>{item.name}</li>
             </ul>
           ))}

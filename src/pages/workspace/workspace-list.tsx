@@ -6,6 +6,7 @@ import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import api from '../../_api/backend';
 import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
+import { ActiveScroll } from '../../_component/active-scroll';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
@@ -57,6 +58,7 @@ export function WorkspaceList(props: any) {
       item.registrant.name.toLowerCase().includes(search)
   );
 
+  // 일감상세 props
   const onClickItem = (workId: number) => {
     const { history } = props;
     history.push(`/workspace/${workId}`);
@@ -65,7 +67,7 @@ export function WorkspaceList(props: any) {
   return (
     <>
       <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
-      <main className="content list workspace">
+      <main className="content list workspace" onScroll={ActiveScroll}>
         {searchWorkspaceList.map((workdata) => (
           <Row
             key={workdata.work_uuid}
@@ -79,7 +81,7 @@ export function WorkspaceList(props: any) {
             attachments={workdata.attachments}
             comment={workdata.comment}
             read={workdata.views}
-            // images={workdata.attachments}
+            images={workdata.attachments_preview}
           >
             {workdata.summary_content}
           </Row>

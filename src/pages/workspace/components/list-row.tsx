@@ -16,6 +16,13 @@ export const Row = (props: any) => {
     attachments,
   } = props;
 
+  let newImages = null;
+  if (images !== null) {
+    newImages = images.slice(0, 2);
+  }
+
+  const dateFormat = date.substr(0, 19).replace('T', ' ');
+
   const switchimportance = (value: string) => {
     switch (value) {
       case 'EMERGENCY':
@@ -49,17 +56,19 @@ export const Row = (props: any) => {
           <li className="created">
             <i className="fad fa-user" />
             <span className="writer">{writer}</span>
-            <span className="date">{date}</span>
+            <span className="date">{dateFormat}</span>
           </li>
         </ul>
       </div>
       <div className="details">
         <p>{props.children}</p>
-        {images === true ? (
+        {images !== null ? (
           <ul className="images">
-            <li className="image">
-              <img src="" alt="" />
-            </li>
+            {newImages.map((img: any) => (
+              <li key={img.preview} className="image">
+                <img src={img.preview} alt="" />
+              </li>
+            ))}
           </ul>
         ) : (
           ''
