@@ -60,7 +60,7 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
           <div className="title">{headerOption.title}</div>
 
           {/* Right context area */}
-          <RightContext />
+          {/* <RightContext /> */}
         </div>
       </header>
       {/* 좌측메뉴 */}

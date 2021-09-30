@@ -12,7 +12,7 @@ import {
   withRouter,
 } from 'react-router-dom';
 import './App.css';
-import { SSRKeycloakProvider, SSRCookies } from '@react-keycloak/ssr';
+import { SSRKeycloakProvider, SSRCookies, useKeycloak } from '@react-keycloak/ssr';
 import { Cookies } from 'react-cookie';
 import { LayoutTopNavigator } from './_layout';
 import { Workspace } from './pages/workspace';
@@ -26,8 +26,10 @@ function functionScrollToTop(props: any) {
   useEffect(() => {
     const container = document.querySelector('.container') as HTMLDivElement;
     const bottomStickyMenu = document.querySelector('.bottom-sticky-menu') as HTMLDivElement;
-    container.classList.remove('scroll');
-    bottomStickyMenu.classList.remove('active');
+    if (bottomStickyMenu) {
+      container.classList.remove('scroll');
+      bottomStickyMenu.classList.remove('active');
+    }
   }, [pathname]);
   return props.children;
 }
@@ -43,6 +45,7 @@ function App(routeProps: RouteComponentProps) {
   const cookies = new Cookies();
 
   const [initialized, setInitialized] = useState<boolean>(false);
+  const [keycloakClient, setKeycloakClient] = useState<any>();
 
   async function init() {
     await server
@@ -66,7 +69,19 @@ function App(routeProps: RouteComponentProps) {
         console.log('[Keycloak]', type, message);
         if (type === 'onReady') {
           init();
+        } else if (type === 'onTokenExpired' || type === 'onAuthLogout') {
+          window.localStorage.removeItem('initialized');
+          setInitialized(false);
+
+          await server.logout();
+          if (keycloakClient?.logout) {
+            keycloakClient.logout();
+          }
         }
+      }}
+      isLoadingCheck={(client) => {
+        setKeycloakClient(client);
+        return true;
       }}
       keycloakConfig={keycloackConfig}
       persistor={SSRCookies(cookies)}

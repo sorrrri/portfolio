@@ -5,6 +5,8 @@ type NameOfArgIndices = {
   [name: string]: number;
 };
 
+type ResponseType = 'arraybuffer' | 'blob' | 'document' | 'json' | 'text' | 'stream';
+
 const HeaderMetadataKey = Symbol('Header');
 const ParamMetadataKey = Symbol('Param');
 const QueryMetadataKey = Symbol('Query');
@@ -69,9 +71,10 @@ async function invokeRequest(
     queries?: any;
     data?: any;
     form?: any;
+    responseType?: ResponseType;
   }
 ): Promise<any> {
-  const { headers, params, queries, data, form } = options;
+  const { headers, params, queries, data, form, responseType } = options;
 
   for (const key in params) {
     params[key] = encodeURIComponent(params[key]);
@@ -122,6 +125,7 @@ async function invokeRequest(
     // params: queries,
     data: payload,
     headers: customHeaders,
+    responseType,
   });
 
   return response;
@@ -168,7 +172,7 @@ export function Form() {
   };
 }
 
-export function Get(url: string) {
+export function Get(url: string, responseType: ResponseType = 'json') {
   return function (
     target: any,
     propertyName: string,
@@ -186,6 +190,7 @@ export function Get(url: string) {
         queries,
         data,
         form,
+        responseType,
       });
       return response;
     };

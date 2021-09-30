@@ -12,6 +12,13 @@ const mapStyle = {
   height: '100%',
 };
 
+const markerIcon = {
+  content:
+    '<div style="cursor:pointer;width:40px;height:40px;font-size:10px;color:black;text-align:center;background:url(assets/images/marker.png);background-size:contain;"></div>',
+  size: new naver.maps.Size(40, 40),
+  anchor: new naver.maps.Point(20, 20),
+};
+
 export function DeviceDetail(props: any) {
   const { id } = props.match.params;
   const dispatch = useDispatch();
@@ -58,6 +65,7 @@ export function DeviceDetail(props: any) {
     const marker = new naver.maps.Marker({
       position: new naver.maps.LatLng(deviceDetail.latitude, deviceDetail.longitude),
       map: map,
+      icon: markerIcon,
     });
   };
 
@@ -155,6 +163,7 @@ export function DeviceDetail(props: any) {
             </div>
           </div>
           <div className={`tab-content equipment ${currentTab === 1 ? 'active' : ''}`}>
+            {/* 
             <div className="row">
               <span className="status normal" />
               <span>0</span>
@@ -173,10 +182,17 @@ export function DeviceDetail(props: any) {
               <span>TNM-3620TDY</span>
               <span>2021.07.28 11:30:22</span>
             </div>
+            */}
           </div>
+          <div className="no-result">연결 장비 정보가 없습니다.</div>
         </section>
       </main>
-      <ModalNavigation show={isOpen} close={isClose} />
+      <ModalNavigation
+        show={isOpen}
+        close={isClose}
+        lat={deviceDetail?.latitude}
+        lon={deviceDetail?.longitude}
+      />
     </>
   );
 }

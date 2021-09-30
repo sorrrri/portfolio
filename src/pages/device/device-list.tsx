@@ -9,6 +9,7 @@ import { ModalMarkers } from './components/modal-markers';
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import { MapModule } from './components/map/mapModule';
+import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 
 export function DeviceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
@@ -16,6 +17,12 @@ export function DeviceList(props: any) {
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
+  const overlays = document.querySelectorAll('.overlay') as any;
+  overlays.forEach((overlay: any) => {
+    if (overlay.classList.contains('active')) {
+      overlay.classList.remove('active');
+    }
+  });
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -76,7 +83,6 @@ export function DeviceList(props: any) {
             >
               <i className="fad fa-map-marked-alt" />
             </button>
-            {/* <div className="maps" /> */}
             <MapModule
               onClicked={(value: any) => {
                 console.log(`value : ${value}`);
@@ -84,22 +90,6 @@ export function DeviceList(props: any) {
                 showModalMarkers();
               }}
             />
-            {/* 
-          <div className="zoom-in-out">
-            <button className="zoom-out" type="button">
-              <i className="fal fa-minus" />
-            </button>
-            <div className="range-slider">
-              <input type="range" step="1" min="10" max="20" />
-            </div>
-            <button className="zoom-in" type="button">
-              <i className="fal fa-plus" />
-            </button>
-          </div>
-          */}
-            <div className="marker" onClick={showModalMarkers}>
-              <i className="fas fa-map-marker-alt" />
-            </div>
           </>
         ) : (
           <>
@@ -128,6 +118,7 @@ export function DeviceList(props: any) {
           </>
         )}
       </main>
+      <BottomStickyMenu toggle={toggleSearchArea} />
       <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
     </>
   );
