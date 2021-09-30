@@ -1,8 +1,6 @@
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React from 'react';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState, ContentState, convertToRaw, convertFromHTML } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 export const TextEditor = (props: any) => {
@@ -18,11 +16,7 @@ export const TextEditor = (props: any) => {
   // };
 
   // 참고링크 https://jpuri.github.io/react-draft-wysiwyg/#/docs
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
-
-  const onEditorStateChange = (editorState: any) => {
-    setEditorState(editorState);
-  };
+  const { editorState, onEditorStateChange } = props;
   return (
     <>
       <Editor

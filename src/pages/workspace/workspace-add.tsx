@@ -1,7 +1,9 @@
+/* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
+import { EditorState } from 'draft-js';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
@@ -116,6 +118,13 @@ export function WorkspaceAdd(props: any) {
     setIsOpen2(false);
     const { history } = props;
     history.push('/workspace');
+  };
+
+  // editor
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+
+  const onEditorStateChange = (editorState: any) => {
+    setEditorState(editorState);
   };
 
   return (
@@ -246,7 +255,7 @@ export function WorkspaceAdd(props: any) {
               </button>
             </div>
           </div>
-          <TextEditor />
+          <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
           <div className="buttons attach">
             <button type="button">
               <input
