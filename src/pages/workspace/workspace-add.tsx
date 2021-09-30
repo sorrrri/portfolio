@@ -246,7 +246,7 @@ export function WorkspaceAdd(props: any) {
               </button>
             </div>
           </div>
-          <EditTextarea content={(event: any) => setContent(event.target.value)} />
+          <EditTextarea />
           <div className="buttons attach">
             <button type="button">
               <input
