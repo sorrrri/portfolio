@@ -62,6 +62,7 @@ export const MapModule = (props: any) => {
 
   useEffect(() => {
     fetchDevices(mapCorrd(36.8169675, 127.1056431), '2');
+    fetchDevicesList();
     setDefaultMapSetting();
   }, []);
 
@@ -80,6 +81,17 @@ export const MapModule = (props: any) => {
       }
     });
   };
+
+  const fetchDevicesList = () => {
+    api.getDevicesForList('addr', '모시리 29').then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response && Array.isArray(response.results)) {
+        console.log(`fetchList >> `, payload);
+      }
+    });
+  };
+
+  // getDevicesForList
 
   const mapCorrd = (mapLat: number, mapLng: number) => {
     if (mapLat <= 0 || mapLng <= 0) {
