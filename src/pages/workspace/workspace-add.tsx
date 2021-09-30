@@ -7,6 +7,7 @@ import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
 import { ActiveScroll } from '../../_component/active-scroll';
+import { EditTextarea } from '../../_component/edit-textarea';
 
 export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
@@ -245,7 +246,7 @@ export function WorkspaceAdd(props: any) {
               </button>
             </div>
           </div>
-          <textarea name="" id="" onChange={(e) => setContent(e.target.value)} />
+          <EditTextarea content={(event: any) => setContent(event.target.value)} />
           <div className="buttons attach">
             <button type="button">
               <input
