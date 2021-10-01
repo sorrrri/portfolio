@@ -52,12 +52,9 @@ export function WorkspaceDetail(props: any) {
         rightContext: () => null,
       })
     );
+    fetchWorkspaceDetail();
     setContentRender(false);
   }, [id, contentRender]);
-
-  useEffect(() => {
-    fetchWorkspaceDetail();
-  }, []);
 
   useEffect(() => {
     fetchWorkspaceTemplate();
