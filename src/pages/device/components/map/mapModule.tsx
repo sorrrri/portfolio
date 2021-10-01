@@ -32,7 +32,18 @@ const marker2 = {
 };
 
 const marker3 = {
-  content: '<div class="marker-01"></div>',
+  // cctv: <i class="fas fa-cctv"></i>
+  // 공영주차장: <i className="fad fa-parking-circle" />
+  // 공중화장실: <i className="fad fa-restroom" />
+  // 교통관제센터: <i className="fad fa-traffic-light" />
+  // 교통단속: <i className="fad fa-traffic-light-go" />
+  // 도시공원: <i className="fad fa-trees" />
+  // 비상벨: <i className="fad fa-bell-on" />
+  // 산불감시: <i className="fad fa-fire-alt" />
+  // 스쿨존: <i className="fad fa-school" />
+  // 시설물관리: <i className="fad fa-building" />
+  // 배경색상: bg-blue, bg-red, bg-orange, bg-green
+  content: '<div class="marker-circle bg-blue"><i class="fas fa-cctv"></i></div>',
   size: new naver.maps.Size(40, 40),
   anchor: new naver.maps.Point(20, 20),
 };
@@ -62,6 +73,7 @@ export const MapModule = (props: any) => {
 
   useEffect(() => {
     fetchDevices(mapCorrd(36.8169675, 127.1056431), '2');
+    fetchDevicesList();
     setDefaultMapSetting();
   }, []);
 
@@ -81,6 +93,17 @@ export const MapModule = (props: any) => {
     });
   };
 
+  const fetchDevicesList = () => {
+    api.getDevicesForList('addr', '모시리 29').then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response && Array.isArray(response.results)) {
+        console.log(`fetchList >> `, payload);
+      }
+    });
+  };
+
+  // getDevicesForList
+
   const mapCorrd = (mapLat: number, mapLng: number) => {
     if (mapLat <= 0 || mapLng <= 0) {
       return '';
@@ -92,7 +115,7 @@ export const MapModule = (props: any) => {
   function changeMarkerClusterEvent(cluster: any[], clusterMarker: any, count: number) {
     $(clusterMarker.getElement())
       .find('div:first-child')
-      .html(`<span class="marker-counter">${count}</span>`);
+      .html(`<span class="marker-counter">${count}</span><i class="fas fa-cctv"></i>`);
 
     if (clusterListener) {
       naver.maps.Event.removeListener(clusterListener);

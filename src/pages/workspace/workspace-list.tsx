@@ -87,6 +87,12 @@ export function WorkspaceList(props: any) {
           </Row>
         ))}
       </main>
+      <main className="no-result">
+        <div>
+          <i className="fad fa-exclamation-triangle" />
+          <span>등록된 일감이 없습니다.</span>
+        </div>
+      </main>
       <BottomStickyMenu toggle={toggleSearchArea} />
     </>
   );

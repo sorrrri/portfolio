@@ -9,13 +9,13 @@ export const ModalImage = (props: any) => {
     <>
       <div className={`overlay ${show ? 'active' : ''}`} onClick={close} />
       <div className={`modal modal-image ${show ? 'active' : ''}`}>
+        <img src={imagePath} alt="" />
         <button className="btn-close" type="button" onClick={close}>
           <i className="fal fa-times" />
         </button>
-        <button className="download" type="button">
+        <a href={imagePath} className="download" download>
           <i className="fad fa-arrow-to-bottom" />
-        </button>
-        <img src={imagePath} alt="" />
+        </a>
       </div>
     </>
   );

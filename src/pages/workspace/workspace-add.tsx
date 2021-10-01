@@ -1,12 +1,15 @@
+/* eslint-disable no-shadow */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
+import { EditorState } from 'draft-js';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
 import { ActiveScroll } from '../../_component/active-scroll';
+import { TextEditor } from '../../_component/text-editor';
 
 export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
@@ -115,6 +118,13 @@ export function WorkspaceAdd(props: any) {
     setIsOpen2(false);
     const { history } = props;
     history.push('/workspace');
+  };
+
+  // editor
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+
+  const onEditorStateChange = (editorState: any) => {
+    setEditorState(editorState);
   };
 
   return (
@@ -245,7 +255,7 @@ export function WorkspaceAdd(props: any) {
               </button>
             </div>
           </div>
-          <textarea name="" id="" onChange={(e) => setContent(e.target.value)} />
+          <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
           <div className="buttons attach">
             <button type="button">
               <input
