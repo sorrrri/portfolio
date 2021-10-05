@@ -10,10 +10,13 @@ import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
 import { MapModule } from './components/map/mapModule';
 import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
+import api from '../../_api/backend';
 
 export function DeviceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
   const [selectedDevices, setSelectedDevices] = useState<any[]>([]);
+  const [searchDevices, setSearchDevices] = useState<any[]>([]);
+  const [searchType, setSerachType] = useState<string>('addr');
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
@@ -36,6 +39,18 @@ export function DeviceList(props: any) {
     );
   });
 
+  const fetchDevicesList = (type: string, keyword: string) => {
+    api.getDevicesForList(type, keyword).then((payload: any) => {
+      const { code, response } = payload;
+      if (code === 200 && response && Array.isArray(response.results)) {
+        console.log(`fetchList >> `, payload);
+        setSearchDevices(response.results);
+      } else {
+        setSearchDevices([]);
+      }
+    });
+  };
+
   const onClickItem = (workId: number) => {
     history.push(`/device/${workId}`);
   };
@@ -55,17 +70,46 @@ export function DeviceList(props: any) {
     setIsOpen(false);
   };
 
+  const searchDevice = (keyword: string) => {
+    if (keyword && keyword.trim().length > 0) {
+      fetchDevicesList(searchType, keyword);
+    } else {
+      setSearchDevices([]);
+    }
+  };
+
   return (
     <>
-      <SearchArea show={isToggleOn}>
+      <SearchArea show={isToggleOn} onChange={searchDevice}>
         <button type="button">
-          <input type="radio" id="input-address" name="filter-search-equipments" defaultChecked />
+          <input
+            type="radio"
+            id="input-address"
+            name="filter-search-equipments"
+            defaultChecked
+            onChange={(e: any) => {
+              if (e.target) {
+                setSerachType('addr');
+                setSearchDevices([]);
+              }
+            }}
+          />
           <label htmlFor="input-address">
             <span>주소 검색</span>
           </label>
         </button>
         <button type="button">
-          <input type="radio" id="input-cctv" name="filter-search-equipments" />
+          <input
+            type="radio"
+            id="input-cctv"
+            name="filter-search-equipments"
+            onChange={(e: any) => {
+              if (e.target) {
+                setSerachType('name');
+                setSearchDevices([]);
+              }
+            }}
+          />
           <label htmlFor="input-cctv">
             <span>CCTV 검색</span>
           </label>
@@ -94,6 +138,14 @@ export function DeviceList(props: any) {
         ) : (
           <>
             <section className="result">
+              {searchDevices.map((device) => (
+                <Row
+                  key={device.item_uuid}
+                  title={device.name}
+                  goDetail={() => onClickItem(device.item_uuid)}
+                />
+              ))}
+              {/* 
               <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
               <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
               <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
@@ -113,6 +165,7 @@ export function DeviceList(props: any) {
               <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
               <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
               <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
+              */}
             </section>
             <section className="no-result">검색 내역이 없습니다.</section>
           </>
