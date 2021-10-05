@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 
 export const Row = (props: any) => {
@@ -61,7 +62,7 @@ export const Row = (props: any) => {
         </ul>
       </div>
       <div className="details">
-        <p>{props.children}</p>
+        <div dangerouslySetInnerHTML={{ __html: props.children }} />
         {images !== null ? (
           <ul className="images">
             {newImages.map((img: any) => (

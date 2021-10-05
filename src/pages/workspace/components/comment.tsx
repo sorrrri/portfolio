@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 
 export const Comment = (props: any) => {
@@ -26,7 +27,7 @@ export const Comment = (props: any) => {
           <span className="date">{date}</span>
         </li>
       </ul>
-      <div>{props.children}</div>
+      <div dangerouslySetInnerHTML={{ __html: props.children }} />
       <div className="status">
         <div>
           <i className="fad fa-comment-alt-check" />

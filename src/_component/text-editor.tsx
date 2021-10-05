@@ -17,6 +17,7 @@ export const TextEditor = (props: any) => {
 
   // 참고링크 https://jpuri.github.io/react-draft-wysiwyg/#/docs
   const { editorState, onEditorStateChange } = props;
+
   return (
     <>
       <Editor
