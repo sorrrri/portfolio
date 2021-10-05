@@ -42,6 +42,7 @@ const transformConfig = (base: AxiosRequestConfig) => {
     const tokenBody = JSON.parse(atob(bodyOfDecodedStoredToken));
     const isFormData = base.data instanceof FormData;
     const isAuth = base.url!.indexOf('/auth/') > 0;
+    const isDelete = base.method === 'DELETE';
 
     const uuid = process.env.REACT_APP_UUID!;
     const realm = tokenBody['azp'];
@@ -49,7 +50,7 @@ const transformConfig = (base: AxiosRequestConfig) => {
     const username = tokenBody['preferred_username'];
 
     const reqMethod = base.method;
-    const reqContentType = isFormData || isAuth ? '' : 'application/json';
+    const reqContentType = isFormData || isAuth || isDelete ? '' : 'application/json';
     const reqContentLength =
       !isFormData && !isAuth && base.data && Object.keys(base.data).length > 0
         ? unescape(encodeURIComponent(JSON.stringify(base.data))).length
