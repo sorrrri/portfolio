@@ -12,26 +12,7 @@ const mapStyle = {
   height: '100%',
 };
 
-const marker1 = {
-  style: 'circle',
-  radius: 5,
-  fillColor: 'red',
-  fillOpacity: 1,
-  strokeColor: 'black',
-  strokeStyle: 'solid',
-  strokeWeight: 3,
-};
-const marker2 = {
-  style: 'circle',
-  radius: 15,
-  fillColor: 'blue',
-  fillOpacity: 1,
-  strokeColor: 'black',
-  strokeStyle: 'solid',
-  strokeWeight: 3,
-};
-
-const marker3 = {
+const markerIcon = {
   // cctv: <i class="fas fa-cctv"></i>
   // 공영주차장: <i className="fad fa-parking-circle" />
   // 공중화장실: <i className="fad fa-restroom" />
@@ -73,7 +54,6 @@ export const MapModule = (props: any) => {
 
   useEffect(() => {
     fetchDevices(mapCorrd(36.8169675, 127.1056431), '2');
-    fetchDevicesList();
     setDefaultMapSetting();
   }, []);
 
@@ -89,15 +69,6 @@ export const MapModule = (props: any) => {
         const ret = response.results.filter((item: any): boolean => item.type === 'CCTV');
         setDevicesForMap(ret);
         console.log(ret);
-      }
-    });
-  };
-
-  const fetchDevicesList = () => {
-    api.getDevicesForList('addr', '모시리 29').then((payload: any) => {
-      const { code, response } = payload;
-      if (code === 200 && response && Array.isArray(response.results)) {
-        console.log(`fetchList >> `, payload);
       }
     });
   };
@@ -154,7 +125,7 @@ export const MapModule = (props: any) => {
       disableClickZoom: true,
       averageCenter: true,
       gridSize: 80,
-      icons: [marker3],
+      icons: [markerIcon],
       // indexGenerator: [10, 100, 200, 500, 1000],
     });
 
@@ -177,8 +148,19 @@ export const MapModule = (props: any) => {
         return '10';
       }
     };
-
+    /*
     naver.maps.Event.addListener(map, 'bounds_changed', function () {
+      fetchDevices(
+        mapCorrd(
+          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
+          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lng()
+        ),
+        zoomScale(map.getZoom())
+      );
+      console.log(`bound : `, map.getBounds().getCenter());
+    });
+*/
+    naver.maps.Event.addListener(map, 'dragend', function () {
       fetchDevices(
         mapCorrd(
           (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
@@ -190,6 +172,13 @@ export const MapModule = (props: any) => {
     });
 
     naver.maps.Event.addListener(map, 'zoom_changed', function () {
+      fetchDevices(
+        mapCorrd(
+          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
+          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lng()
+        ),
+        zoomScale(map.getZoom())
+      );
       console.log(map.getZoom());
     });
 
@@ -207,7 +196,7 @@ export const MapModule = (props: any) => {
       const marker = new naver.maps.Marker({
         title: devicesForMap[i].item_uuid,
         position: new naver.maps.LatLng(devicesForMap[i].latitude, devicesForMap[i].longitude),
-        icon: marker3,
+        icon: markerIcon,
         zIndex: 100,
       });
 
