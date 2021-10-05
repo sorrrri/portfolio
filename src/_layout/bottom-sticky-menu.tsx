@@ -22,16 +22,6 @@ export const BottomStickyMenu = (props: any) => {
     }
   };
 
-  const toggleSearchArea = () => {
-    scrollToTop();
-    const searchArea = document.querySelector('.search-area');
-    if (searchArea) {
-      searchArea.classList.contains('active')
-        ? searchArea.classList.remove('active')
-        : searchArea.classList.add('active');
-    }
-  };
-
   const showAlways = {
     opacity: '1',
     transform: 'translateY(0)',
