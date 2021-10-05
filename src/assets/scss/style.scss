@@ -3,6 +3,10 @@
   --swiper-pagination-color: slateblue;
 }
 
+pre {
+  font-family: "Nanumsquare-Regular";
+}
+
 .scroll {
   flex: 1 1 auto;
   display: flex;
@@ -21,15 +25,49 @@ button {
   }
 
   &.btn-sub {
-    background: transparent;
+    background: gainsboro;
     color: #333;
     border: 1px solid #ddd;
+  }
+}
+
+.files {
+  li {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+
+  .btn-attach-file {
+    background: no-repeat;
+    color: #333;
+    text-decoration: underline;
+    font-family: "Poppins";
+    padding: 0.25rem;
+  }
+
+  .btn-delete-attach-file {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(205, 92, 92, 0.25);
+    padding: 2px;
+    border-radius: 0.25rem;
+
+    svg {
+      fill: indianred;
+    }
   }
 }
 
 input {
   &[type="search"] {
     padding: 0.5rem 2rem 0.25rem 0.5rem;
+  }
+
+  &[type="password"] {
+    font-family: 'Arial';
   }
 }
 
@@ -51,8 +89,17 @@ input {
 .modal {
   padding: 1rem;
 
+  section {
+    margin: 0 !important;
+  }
+
+  .content {
+    padding: 0 !important;
+  }
+
   .search {
     display: flex;
+    flex-direction: row;
 
     input {
       flex: 1 1 auto;
@@ -91,10 +138,9 @@ input {
 
     .search {
       button {
-        padding: 0.5rem 1rem
+        padding: 0.5rem 1rem;
       }
     }
-
 
     .books-results {
       .row {
@@ -733,16 +779,20 @@ nav {
           flex: 1 1 auto;
           display: flex;
           div {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0.75rem 0;
             background-color: #eee;
-            padding: 0.75rem 2rem;
             border-right: 1px solid #ddd;
             font-weight: bold;
+            white-space: nowrap;
             transition: background-color 0.4s;
-  
+
             &:first-of-type {
               border-radius: 0.5rem 0 0 0;
             }
-  
+
             &:hover,
             &.active {
               background-color: white;
@@ -887,7 +937,7 @@ nav {
       border-radius: 0.5rem;
     }
 
-    .swiper-slide {
+    a {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1004,6 +1054,7 @@ nav {
     }
 
     .table-footer {
+      margin-top: 3rem;
       min-height: 40px;
     }
   }
@@ -1024,13 +1075,14 @@ nav {
 
     a {
       flex: 0 0 20%;
-      padding: 2rem;
+      padding: 3rem 0 0;
       display: flex;
       flex-direction: column;
       align-items: center;
 
       img {
-        width: 100%;
+        max-width: 100%;
+        height: 180px;
       }
 
       ul {
@@ -1042,19 +1094,19 @@ nav {
           &:nth-of-type(1) {
             font-weight: bold;
             text-align: center;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            width: 100px;
-            overflow: hidden;
+            font-size: 14px;
+            margin-top: 0.5rem;
           }
 
           &:nth-of-type(2) {
-            font-size: 14px;
+            font-size: 13px;
             color: #a3a6a9;
           }
 
           &:nth-of-type(3) {
-            font-size: 14px;
+            font-size: 12px;
+            font-weight: bold;
+            color: indianred;
           }
         }
       }
@@ -1651,6 +1703,8 @@ nav {
     border: 1px solid #ddd;
     margin-top: 1rem;
     padding: 1rem;
+    background: white;
+    border-radius: 0.5rem;
 
     .view-header {
       padding-bottom: 1rem;
@@ -1812,12 +1866,11 @@ nav {
         }
 
         &[class*="reply"] {
-          text-indent: 1rem;
-
           &::before {
             font-family: "Nanumsqaure-Regular";
             font-size: 13px;
             content: "re: ";
+            text-indent: 1rem;
           }
 
           &[class*="02"] {
@@ -2130,12 +2183,22 @@ nav {
     }
   }
 
+  .table-footer {
+    .buttons {
+      button {
+        padding: 0.5rem 1.25rem;
+        background: #d3d6d9;
+        color: #666;
+      }
+    }
+  }
+
   aside {
     font-size: 13px;
     font-family: "Nanumsquare-Regular";
     flex: 0 0 180px;
     background: #26254c;
-    color: white;
+    color: rgba(255, 255, 255, 0.75);
     overflow-y: auto;
     position: relative;
     user-select: none;
@@ -2190,7 +2253,14 @@ nav {
         font-size: 13px;
         font-family: "Nanumsquare-Regular";
         display: flex;
-        color: white;
+        color: rgba(255, 255, 255, 0.5);
+        transition: 0.4s;
+
+        &:hover,
+        &.active {
+          color: white;
+          background-color: darkslateblue;
+        }
       }
 
       div {
@@ -2210,6 +2280,10 @@ nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        &.active {
+          color: white;
+        }
 
         .arrow {
           transition: 0.4s;
@@ -2266,7 +2340,7 @@ nav {
 
       button {
         padding: 0.75rem 2rem;
-        background-color: #333;
+        background-color: dodgerblue;
       }
     }
 
@@ -2764,6 +2838,8 @@ nav {
           text-align: left;
           flex-grow: 1 !important;
           flex-shrink: 1 !important;
+          width: 100%;
+          justify-content: flex-start;
           margin: 0.5rem 1rem 0;
           background: #ebf1f8;
           padding: 0.5rem 1rem;

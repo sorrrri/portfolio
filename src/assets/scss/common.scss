@@ -496,9 +496,9 @@ aside {
 
 .buttons {
   display: flex;
+  gap: 0.5rem;
 
   button {
-    margin-left: 0.5rem;
   }
 }
 
@@ -734,6 +734,7 @@ input[type="radio"] + label:empty:before {
   box-sizing: border-box;
   align-items: center;
   display: flex;
+  min-width: 8rem;
 
   &::-ms-expand {
     display: none;

@@ -25,6 +25,10 @@
       display: none;
     }
 
+    .selectbox {
+      min-width: auto;
+    }
+
     h1 {
       font-size: 1.2rem;
     }
@@ -335,6 +339,7 @@
   }
 
   footer {
+    display: none;
     font-size: 13px;
     white-space: nowrap;
     padding-bottom: 1rem;
@@ -435,6 +440,13 @@
         }
       }
     }
+
+    section.bookstore {
+      margin-bottom: 0;
+      border: 0;
+      border-top: 10px solid #eee;
+      border-radius: 0;
+    }
   }
 
   .sub {
@@ -493,6 +505,7 @@
       justify-content: space-around;
 
       a {
+        flex: 0 0 50%;
         padding: 1rem;
       }
     }
@@ -589,14 +602,6 @@
 
             &:nth-of-type(4) {
               font-weight: bold;
-            }
-
-            &:nth-of-type(5) {
-              position: absolute;
-              right: 0;
-              top: 50%;
-              justify-content: flex-end;
-              transform: translateY(-50%);
             }
           }
         }
