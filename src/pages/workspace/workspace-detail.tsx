@@ -1,8 +1,11 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable camelcase */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
+import { convertToRaw, EditorState } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 import { showHeader } from '../../_store/slice/header-option';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
@@ -12,6 +15,7 @@ import api from '../../_api/backend';
 import { downloadFile } from '../../_util/file';
 import { ActiveScroll } from '../../_component/active-scroll';
 import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
+import { TextEditor } from '../../_component/text-editor';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -40,6 +44,7 @@ export function WorkspaceDetail(props: any) {
   const [state, setState] = useState('WORK_REQUEST'); // 처리상태
   const [toList, setToList] = useState<any[]>([]); // 받는사람
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [editorState, setEditorState] = useState(EditorState.createEmpty()); // 작업내용에디터
   const [content, setContent] = useState(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
   const [contentRender, setContentRender] = useState(Boolean); // 댓글 등록 랜더링
@@ -52,12 +57,9 @@ export function WorkspaceDetail(props: any) {
         rightContext: () => null,
       })
     );
+    fetchWorkspaceDetail();
     setContentRender(false);
   }, [id, contentRender]);
-
-  useEffect(() => {
-    fetchWorkspaceDetail();
-  }, []);
 
   useEffect(() => {
     fetchWorkspaceTemplate();
@@ -184,6 +186,7 @@ export function WorkspaceDetail(props: any) {
   const handleSubmitCancle = (e: any) => {
     e.preventDefault();
     setInputRecipient([]);
+    setEditorState(EditorState.createEmpty());
     setContent('');
     setAttacheFiles([]);
   };
@@ -191,6 +194,7 @@ export function WorkspaceDetail(props: any) {
   // 댓글 등록
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setEditorState(EditorState.createEmpty());
     setContent('');
     setInputRecipient([]);
     setAttacheFiles([]);
@@ -236,6 +240,12 @@ export function WorkspaceDetail(props: any) {
     downloadFile(fileBinary, file_type, file_name);
   };
 
+  // editor
+  const onEditorStateChange = (editor: any) => {
+    setEditorState(editor);
+    setContent(draftToHtml(convertToRaw(editor.getCurrentContent())));
+  };
+
   return (
     <>
       <main className="content details workspace" onScroll={ActiveScroll}>
@@ -254,7 +264,7 @@ export function WorkspaceDetail(props: any) {
             </ul>
           </div>
           <div className="details">
-            <p>{Content}</p>
+            <div dangerouslySetInnerHTML={{ __html: Content }} />
             <ul className="documents">
               {docFiles &&
                 docFiles.map((doc) => (
@@ -373,7 +383,7 @@ export function WorkspaceDetail(props: any) {
                 </button>
               </div>
             </div>
-            <textarea name="" id="" value={content} onChange={(e) => setContent(e.target.value)} />
+            <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
             <div className="comment-footer">
               <div className="buttons attach">
                 <button type="button">
