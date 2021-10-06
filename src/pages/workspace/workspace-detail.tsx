@@ -430,7 +430,7 @@ export function WorkspaceDetail(props: any) {
                 state={comment.state_name}
                 writer={comment.registrant.name}
                 date={dateFormat(comment.reg_date)}
-                attachment={comment.upload_files.length >= 1}
+                attachment={comment.upload_files}
                 download={() =>
                   onClickCommentAttachFile(comment.upload_files, comment.comment_uuid)
                 }
