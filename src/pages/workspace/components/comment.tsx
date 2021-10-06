@@ -33,7 +33,7 @@ export const Comment = (props: any) => {
           <i className="fad fa-comment-alt-check" />
           <span>{read}</span>
         </div>
-        {attachment === true ? (
+        {attachment ? (
           <button type="submit" onClick={() => download}>
             <i className="fal fa-paperclip" />
           </button>

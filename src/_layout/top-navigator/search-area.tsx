@@ -17,12 +17,17 @@ export const SearchArea = (props: {
     }
   }, [searchValue]);
 
+  useEffect(() => {
+    setSearchValue('');
+  }, [show]);
+
   return (
     <div className={`search-area ${show ? 'active' : ''}`}>
       <div className="input">
         <input
           type="search"
           placeholder="작업명, 작성자를 입력하세요."
+          value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
