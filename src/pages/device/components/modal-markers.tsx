@@ -23,6 +23,7 @@ export const ModalMarkers = (props: any) => {
             <Row
               key={item.item_uuid}
               title={item.name}
+              type={item.type_property}
               goDetail={() => onClickItem(item.item_uuid)}
             />
           ))}
