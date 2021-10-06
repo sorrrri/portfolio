@@ -67,7 +67,11 @@ input {
   }
 
   &[type="password"] {
-    font-family: 'Arial';
+    font-family: "Arial";
+  }
+
+  &[type="url"] {
+    flex: 1 1 auto
   }
 }
 
@@ -616,9 +620,12 @@ nav {
     .selectbox {
       margin-right: 0.5rem;
       flex: 0 0 auto;
+      height: 32px;
     }
 
     input {
+      height: 32px;
+
       + svg {
         position: absolute;
         right: 0.5rem;
@@ -741,14 +748,31 @@ nav {
 .main {
   flex-direction: column;
 
+  .flex-container {
+    border: 1px solid gainsboro;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: .5rem;
+
+    li {
+      flex: 0 0 15%;
+      display: flex;
+      justify-content: center;
+      border: 1px solid gainsboro;
+      padding: 1rem;
+    }
+  }
+
   section {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 
     &:last-of-type {
       margin-bottom: 3rem;
     }
 
-    h1 {
+    h1, h3 {
       margin-bottom: 0.5rem;
     }
 
@@ -919,6 +943,7 @@ nav {
     height: 326px;
     width: 100%;
     user-select: none;
+    overflow: hidden;
 
     img {
       width: 1200px;
@@ -976,9 +1001,7 @@ nav {
   }
 
   section.bookstore {
-    border: 5px solid #ddd;
     border-radius: 0.5rem;
-    padding: 1rem;
 
     .swiper-slide {
       display: flex;
@@ -1147,6 +1170,7 @@ nav {
           position: relative;
 
           h2 {
+            padding-right: 5rem;
             margin-bottom: 0.5rem;
           }
 
@@ -1784,6 +1808,75 @@ nav {
   }
 }
 
+
+
+.ship-to {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: calc(100% - 120px);
+  display: flex;
+  align-items: center;
+  background-color: #ebf1f8;
+  margin: 0.25rem 0.75rem 0;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+
+  &::before {
+    content: "수취인 정보";
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: -5rem;
+    margin-right: 1rem;
+  }
+
+  li {
+    flex: 0 0 auto !important;
+    align-items: center;
+
+    &:not(.status) {
+      margin-right: 1rem;
+      &::before {
+        margin: 0 0.5rem;
+        font-weight: bold;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .user-name {
+    &::before {
+      content: "이름";
+    }
+  }
+
+  .phone {
+    &::before {
+      content: "연락처";
+    }
+  }
+
+  .address {
+    flex: 1 1 30% !important;
+    max-width: none !important;
+
+    &::before {
+      content: "주소";
+    }
+  }
+
+  .status {
+    justify-content: flex-end;
+    flex: 0 0 auto !important;
+    padding: 0;
+
+    select {
+      border: 0;
+      background-color: rgba(150, 150, 150, 0.1);
+    }
+  }
+}
+
 [class*="list"] {
   .btn-downloads {
     padding: 0.5rem 1rem;
@@ -1813,11 +1906,16 @@ nav {
       &.quantity,
       &.percentage {
         flex: 1 1 5%;
-        max-width: 80px;
+
+        &:first-of-type,
+        &:last-of-type {
+          max-width: 80px;
+        }
       }
 
       &.code,
       &.flex-10,
+      &.buttons,
       &.date,
       &.payment,
       &.status,
@@ -1827,7 +1925,7 @@ nav {
       &.published,
       &.thumbnail {
         flex: 1 1 10%;
-        max-width: 110px;
+        // max-width: 110px;
       }
 
       &.day,
@@ -1940,6 +2038,7 @@ nav {
   .table {
     .row {
       justify-content: flex-end;
+      cursor: default !important;
 
       li:first-of-type,
       li:last-of-type {
@@ -1979,73 +2078,6 @@ nav {
     width: 100%;
     font-size: 13px;
     font-family: "Poppins-SemiBold";
-  }
-
-  .ship-to {
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: 860px;
-    display: flex;
-    align-items: center;
-    background-color: #ebf1f8;
-    margin: 0.25rem 0.75rem 0;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-
-    &::before {
-      content: "수취인 정보";
-      font-size: 13px;
-      font-weight: bold;
-      color: rgba(0, 0, 0, 0.5);
-      margin-left: -5rem;
-      margin-right: 1rem;
-    }
-
-    li {
-      flex: 0 0 auto !important;
-      align-items: center;
-
-      &:not(.status) {
-        margin-right: 1rem;
-        &::before {
-          margin: 0 0.5rem;
-          font-weight: bold;
-          font-size: 13px;
-        }
-      }
-    }
-
-    .user-name {
-      &::before {
-        content: "이름";
-      }
-    }
-
-    .phone {
-      &::before {
-        content: "연락처";
-      }
-    }
-
-    .address {
-      flex: 1 1 30% !important;
-      max-width: none !important;
-
-      &::before {
-        content: "주소";
-      }
-    }
-
-    .status {
-      justify-content: flex-end;
-      flex: 0 0 auto !important;
-      padding: 0;
-
-      select {
-        border: 0;
-        background-color: rgba(150, 150, 150, 0.1);
-      }
-    }
   }
 }
 
@@ -2121,6 +2153,13 @@ nav {
   background: #26254c;
   overflow: hidden;
 
+  .file-return {
+    margin: 0.5rem;
+    img {
+      max-height: 200px;
+    }
+  }
+
   .search {
     button {
       background-color: #333;
@@ -2152,34 +2191,23 @@ nav {
   }
 
   .table {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
     .title {
       border-bottom: 0;
-
-      + .row {
-        border-radius: 0.5rem 0.5rem 0 0;
-        border-top: 1px solid #e5e7ef;
-      }
     }
 
     .row {
       flex-wrap: wrap;
-      transition: background-color 0.25s;
-
-      &:last-of-type {
-        border-radius: 0 0 0.5rem 0.5rem;
-        border-bottom: 1px solid #e5e7ef;
-      }
+      border-radius: .5rem;
+      cursor: pointer;
 
       &:not(.title) {
         background-color: white;
-        border-bottom: 1px solid #e5e7ef;
-        border-left: 1px solid #e5e7ef;
-        border-right: 1px solid #e5e7ef;
+        border: 1px solid gainsboro;
       }
 
-      &:hover {
-        background-color: #e7e9f1;
-      }
     }
   }
 
@@ -2434,13 +2462,9 @@ nav {
 
       > div {
         flex: 1 1 33.333%;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-radius: 0.5rem;
 
         h3 {
           padding: 0.75rem 1rem;
-          border-bottom: 1px solid #ddd;
 
           small {
             margin-left: 0.5rem;
@@ -2449,19 +2473,39 @@ nav {
         }
 
         ul {
-          padding: 1rem;
-
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+          
           li {
+            padding: 1rem;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            line-height: 2;
+            background-color: white;
+            border: 1px solid gainsboro;
+            border-radius: .5rem;
+
+            span {
+
+              &:last-of-type {
+                font-weight: bold;
+                font-size: 18px;
+
+                &::after {
+                  font-weight: normal;
+                  font-size: 15px;
+                  content: "건";
+                }
+              }
+            }
           }
         }
       }
     }
 
     .charts {
-      display: flex;
+      display: none;
       flex: 1 1 auto;
       flex-direction: row;
       gap: 1rem;
@@ -2677,6 +2721,14 @@ nav {
   }
 
   .sample-book {
+    .ship-to {
+      max-width: none;
+      margin: .5rem 0 0;
+
+      &::before{
+        content: none;
+      }
+    }
     button {
       font-size: 12px;
       background-color: #414a5a;
@@ -2685,6 +2737,8 @@ nav {
     .table {
       .row {
         flex-wrap: wrap;
+        justify-content: flex-end;
+        padding: .75rem;
 
         li {
           max-width: none !important;
@@ -2696,6 +2750,7 @@ nav {
           }
 
           &.address {
+            justify-content: flex-end;
             flex-basis: auto;
           }
         }

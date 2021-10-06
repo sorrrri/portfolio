@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Tab Menu
   const container = document.querySelector(".container");
-  const main = document.querySelector("main");
+  const main = document.querySelector(".main");
 
   if (main) {
     const tabMenus = document.querySelectorAll(".tab-menu li");
@@ -264,10 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Modal
   const modals = document.querySelectorAll(".modal");
   const closeButtons = document.querySelectorAll(".close");
-  const overlay = document.createElement("div");
+  const overlay = document.querySelector(".overlay");
 
-  overlay.classList.add("overlay");
-  container.insertBefore(overlay, modals[modals.length - 1].nextSibling);
 
   const visibleOverlay = () => {
     overlay.classList.add("active");

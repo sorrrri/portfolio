@@ -57,6 +57,7 @@
 
     .checkboxes {
       flex-wrap: wrap;
+      gap: .5rem;
 
       .checkbox {
         flex: 0 0 33.333%;
@@ -968,11 +969,55 @@
       }
     }
 
+    
+
+    .ship-to {
+      margin: 0;
+      max-width: none;
+      flex-wrap: wrap;
+
+      &::before {
+        margin: 0 0 0.5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .user-name {
+        &::before {
+          content: "이름";
+        }
+      }
+
+      .address,
+      .user-name,
+      .phone {
+        flex: 0 0 40%;
+        width: auto !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+        margin-bottom: 0.5rem;
+
+        &::before {
+          margin-left: 0;
+        }
+      }
+
+      .payment {
+        flex-direction: row;
+        max-width: none;
+      }
+
+      .status {
+        justify-content: flex-end;
+      }
+    }
+
     .dashboard {
       padding: 1rem;
       overflow-y: auto;
 
       .streaming {
+        display: none;
         ul {
           flex-wrap: wrap;
 
@@ -992,6 +1037,7 @@
 
       .boards {
         flex-direction: column;
+        padding: 0;
 
         > div {
           margin: 0.25rem;
@@ -1079,10 +1125,9 @@
 
       li {
         &::before {
+          align-self: flex-start;
           font-weight: bold;
           font-size: 13px;
-          margin-right: 1rem;
-          width: 100%;
         }
       }
 
@@ -1120,47 +1165,6 @@
 
       .date {
         justify-content: flex-start !important;
-      }
-
-      .ship-to {
-        margin: 0;
-        max-width: none;
-        flex-wrap: wrap;
-
-        &::before {
-          margin: 0 0 0.5rem;
-          width: 100%;
-          text-align: center;
-        }
-
-        .user-name {
-          &::before {
-            content: "이름";
-          }
-        }
-
-        .address,
-        .user-name,
-        .phone {
-          flex: 0 0 40%;
-          width: auto !important;
-          flex-direction: column;
-          align-items: flex-start;
-          margin-bottom: 0.5rem;
-
-          &::before {
-            margin-left: 0;
-          }
-        }
-
-        .payment {
-          flex-direction: row;
-          max-width: none;
-        }
-
-        .status {
-          justify-content: flex-end;
-        }
       }
     }
 
