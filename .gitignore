@@ -229,8 +229,6 @@ build
 #.npmrc
 package-lock.json
 .vscode/
-
 yarn.lock
-
 .idea
 
