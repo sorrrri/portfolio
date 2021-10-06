@@ -67,35 +67,32 @@ export function WorkspaceList(props: any) {
   return (
     <>
       <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
-      {searchWorkspaceList !== [] ? (
-        <main className="content list workspace" onScroll={ActiveScroll}>
-          {searchWorkspaceList.map((workdata) => (
-            <Row
-              key={workdata.work_uuid}
-              item={() => onClickItem(workdata.work_uuid)}
-              rowtype={workdata.type}
-              title={workdata.title}
-              writer={workdata.registrant.name}
-              date={workdata.reg_date}
-              worktype={workdata.type}
-              importance={workdata.priority}
-              attachments={workdata.attachments}
-              comment={workdata.comment}
-              read={workdata.views}
-              images={workdata.attachments_preview}
-            >
-              {workdata.summary_content}
-            </Row>
-          ))}
-        </main>
-      ) : (
-        <main className="no-result">
-          <div>
-            <i className="fad fa-exclamation-triangle" />
-            <span>등록된 일감이 없습니다.</span>
-          </div>
-        </main>
-      )}
+      <main className="content list workspace" onScroll={ActiveScroll}>
+        {searchWorkspaceList.map((workdata) => (
+          <Row
+            key={workdata.work_uuid}
+            item={() => onClickItem(workdata.work_uuid)}
+            rowtype={workdata.type}
+            title={workdata.title}
+            writer={workdata.registrant.name}
+            date={workdata.reg_date}
+            worktype={workdata.type}
+            importance={workdata.priority}
+            attachments={workdata.attachments}
+            comment={workdata.comment}
+            read={workdata.views}
+            images={workdata.attachments_preview}
+          >
+            {workdata.summary_content}
+          </Row>
+        ))}
+      </main>
+      <main className="no-result">
+        <div>
+          <i className="fad fa-exclamation-triangle" />
+          <span>등록된 일감이 없습니다.</span>
+        </div>
+      </main>
 
       <BottomStickyMenu toggle={toggleSearchArea} />
     </>
