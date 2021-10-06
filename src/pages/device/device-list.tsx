@@ -142,30 +142,10 @@ export function DeviceList(props: any) {
                 <Row
                   key={device.item_uuid}
                   title={device.name}
+                  type={device.type_property}
                   goDetail={() => onClickItem(device.item_uuid)}
                 />
               ))}
-              {/* 
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              <Row title="2019_P_신정호_고정15_자기망" goDetail={() => onClickItem(1)} />
-              */}
             </section>
             <section className="no-result">검색 내역이 없습니다.</section>
           </>
