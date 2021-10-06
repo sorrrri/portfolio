@@ -207,7 +207,7 @@ input {
   &[type="email"] {
     -webkit-appearance: none;
     height: auto;
-    border: 1px solid #ddd;
+    border: 1px solid gainsboro;
     padding: 0.5rem 0.25rem;
     font: 15px/1 "NanumSquare-Regular";
     background-color: white;
@@ -317,7 +317,7 @@ textarea {
   max-width: 100%;
   min-height: 5rem;
   background-color: white;
-  border: 1px solid #ddd;
+  border: 1px solid gainsboro;
   border-radius: 0.25rem;
   padding: 0.5rem;
   resize: none;

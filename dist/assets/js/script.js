@@ -20,10 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  $(".js-example-basic-multiple").select2({
-    theme: "classic"
-  });
-
   /* =====================================================
        Dropdown Menu
   ===================================================== */
@@ -199,20 +195,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (closeButtons) {
-    closeButtons.forEach((close) =>
+    closeButtons.forEach((close) => {
       close.addEventListener("click", () => {
         hiddenOverlay();
         modals.forEach((modal) => modal.classList.remove("active"));
-      })
-    );
+      });
+    });
   }
 
   // confirm type의 modal일 때, 2중 모달 띄우기
   modals.forEach((modal) => {
-    const closeButton = document.createElement("button");
-    closeButton.classList.add("btn-close");
-    modal.append(closeButton);
-
     const modalButtonSubmit = modal.querySelector(".btn-submit");
     if (modalButtonSubmit) {
       modalButtonSubmit.addEventListener("click", () => {
@@ -301,6 +293,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =====================================================
+       Add: textarea
+  ===================================================== */
+  const addPage = document.querySelector(".add");
+  if (addPage) {
+    const textareas = document.querySelectorAll("textarea");
+    const editTextarea = document.querySelector(".edit-textarea");
+    textareas.forEach((textarea) => {
+      textarea.addEventListener("input", () => {
+        if (textarea.value !== "") {
+          console.log(textarea.value);
+          textarea.focus();
+          editTextarea.classList.add("active");
+        } else {
+          editTextarea.classList.remove("active");
+        }
+      });
+    });
+
+    var selectionText = "";
+    if (document.getSelection) {
+      selectionText = document.getSelection();
+    } else if (document.selection) {
+      selectionText = document.selection.createRange().text;
+    }
+    console.log(selectionText);
+  }
+
+  /* =====================================================
        Modal: Marker Details
   ===================================================== */
   const modalMarker = document.querySelector(".modal-marker");
@@ -357,23 +377,23 @@ document.addEventListener("DOMContentLoaded", () => {
   ===================================================== */
   const images = document.querySelectorAll(".images");
   const modalImage = document.querySelector(".modal-image");
-
   if (images) {
+  
     // const modalImage = document.createElement("div")
     // modalImage.classList.add("modal", "modal-image")
     // container.append(modalImage)
 
     images.forEach((image) => {
+      const downloadImage = modalImage.querySelector(".download");
+      const closeImage = modalImage.querySelector(".btn-close");
       image.addEventListener("click", (e) => {
         e.preventDefault();
+        const imagePath = e.target.src;
 
         modalImage.classList.add("active");
-        modalImage.innerHTML = `<img src="${e.target.src}" alt="" />`;
+        modalImage.innerHTML += `
+        <img src="${imagePath}" alt="" />`;
         visibleOverlay(modalImage);
-        modalImage.addEventListener("click", () => {
-          hiddenOverlay(modalImage);
-          modals.forEach((modal) => modal.classList.remove("active"));
-        });
       });
     });
   }

@@ -6,8 +6,8 @@
   <div class="row emergency">
     <div class="row-title">
       <div class="tags">
+        <span class="tag border-blue">요청</span>
         <span class="tag bg-red">긴급</span>
-        <span class="tag bg-blue">요청</span>
       </div>
       <ul>
         <li class="title">
@@ -92,10 +92,7 @@
       </div>
       <div class="input">
         <span>받는사람</span>
-        <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-          <option value="AL">Alabama</option>
-          <option value="WY">Wyoming</option>
-        </select>
+        <input type="text" />
       </div>
 
       <div class="input">
@@ -146,10 +143,10 @@
           <span class="date">2021-08-03 12:42:32</span>
         </li>
       </ul>
-      <div>
+      <p>
         내용 확인 했습니다.
         최대한 빨리 조치 가능 하도록 하겠습니다.
-      </div>
+      </p>
       <div class="status">
         <div>
           <i class="fad fa-comment-alt-check"></i>
@@ -169,10 +166,10 @@
           <span class="date">2021-08-03 12:42:32</span>
         </li>
       </ul>
-      <div>
+      <p>
         내용 확인 했습니다.
         최대한 빨리 조치 가능 하도록 하겠습니다.
-      </div>
+      </p>
       <div class="status">
         <div>
           <i class="fad fa-comment-alt-check"></i>
@@ -191,10 +188,10 @@
           <span class="date">2021-08-03 12:42:32</span>
         </li>
       </ul>
-      <div>
+      <p>
         내용 확인 했습니다.
         최대한 빨리 조치 가능 하도록 하겠습니다.
-      </div>
+      </p>
       <div class="status">
         <div>
           <i class="fad fa-comment-alt-check"></i>
@@ -241,5 +238,12 @@
     <button class="btn-cancel" type="button">확인</button>
   </div>
 </div>
-<div class="modal modal-image"></div>
+<div class="modal modal-image">
+  <button class="btn-close">
+    <i class="fal fa-times"></i>
+  </button>
+  <button class="download">
+    <i class="fad fa-arrow-to-bottom"></i>
+  </button>
+</div>
 {% endblock %}
