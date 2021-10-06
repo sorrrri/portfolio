@@ -36,6 +36,8 @@ export function WorkspaceDetail(props: any) {
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
   const [docFiles, setDocFiles] = useState<any[]>([]); // 일감상세 priview가 없는 문서
   const [imgFiles, setImgFiles] = useState<any[]>([]); // 일감상세 priview가 있는 이미지
+  const [image, setImage] = useState(''); // 이미지 미리보기
+  const [imageName, setImageName] = useState(''); // 이미지 다운로드 이름
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
   const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
@@ -96,7 +98,6 @@ export function WorkspaceDetail(props: any) {
     content: Content,
     comment_cnt: commentCnt,
     views,
-    priority_name: priorityName,
     type,
   } = workspaceDetail;
 
@@ -169,12 +170,13 @@ export function WorkspaceDetail(props: any) {
       });
   };
 
-  // 이미지 미리보기
-  const [image, setImage] = useState('');
+  // 이미지 미리보기 / 다운로드
   const showImageModal = (event: any) => {
     const imagePath = event.target.src;
+    const imageDownloadName = event.target.alt;
     setIsOpen3(true);
     setImage(imagePath);
+    setImageName(imageDownloadName);
   };
 
   const isCloseAll = () => {
@@ -231,12 +233,20 @@ export function WorkspaceDetail(props: any) {
   // 파일 다운로드
   const onClickAttachFile = async (file: any) => {
     const { file_name, file_type, file_uuid } = file;
-
     if (!file_name || !file_type || !file_uuid) {
       return;
     }
-
     const fileBinary = await api.getFileDownload(id, file_uuid);
+    downloadFile(fileBinary, file_type, file_name);
+  };
+
+  // 댓글 파일 다운로드
+  const onClickCommentAttachFile = async (file: any, commentId: any) => {
+    const { file_name, file_type, file_uuid } = file;
+    if (!file_name || !file_type || !file_uuid) {
+      return;
+    }
+    const fileBinary = await api.getFileDownload(commentId, file_uuid);
     downloadFile(fileBinary, file_type, file_name);
   };
 
@@ -417,11 +427,13 @@ export function WorkspaceDetail(props: any) {
             comments.map((comment: any) => (
               <Comment
                 key={comment.comment_uuid}
-                state={priorityName} // 댓글 state가 없음
+                state={comment.state_name}
                 writer={comment.registrant.name}
                 date={dateFormat(comment.reg_date)}
-                attachment={comment.upload_files}
-                // download={}
+                attachment={comment.upload_files.length >= 1}
+                download={() =>
+                  onClickCommentAttachFile(comment.upload_files, comment.comment_uuid)
+                }
               >
                 {comment.content}
               </Comment>
@@ -473,7 +485,14 @@ export function WorkspaceDetail(props: any) {
           </ModalDone>
         </>
       )}
-      {imgFiles && <ModalImage show={isOpen3} imagePath={image} close={() => setIsOpen3(false)} />}
+      {imgFiles && (
+        <ModalImage
+          show={isOpen3}
+          imagePath={image}
+          imageName={imageName}
+          close={() => setIsOpen3(false)}
+        />
+      )}
       <BottomStickyMenu />
     </>
   );
