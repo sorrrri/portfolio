@@ -169,6 +169,11 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
+  @Get('/platform/api/v2/:realm/workspace')
+  async getWorkspaceListPaging(@Query('page') page: number): Promise<any[]> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
   @Get('/platform/api/v2/:realm/workspace/comment/template')
   async getWorkspaceTemplate(): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));

@@ -13,10 +13,9 @@ export const ActiveScroll = () => {
     } else {
       container.classList.remove('scroll');
     }
-
     if (workspaceList) {
-      if (main.scrollHeight - (main.scrollTop + main.offsetHeight) < 50) {
-        console.log('test');
+      if (main.scrollHeight - (main.scrollTop + main.offsetHeight) < 1) {
+        console.log('tt');
       }
     }
   }

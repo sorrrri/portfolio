@@ -34,7 +34,7 @@ export const Comment = (props: any) => {
           <span>{read}</span>
         </div>
         {attachment ? (
-          <button type="submit" onClick={() => download}>
+          <button type="submit" onClick={download}>
             <i className="fal fa-paperclip" />
           </button>
         ) : (
