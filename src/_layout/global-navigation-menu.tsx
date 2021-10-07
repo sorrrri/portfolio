@@ -35,7 +35,7 @@ export const GlobalNavigationMenu = (props: any) => {
     <aside className={`global-navigation-menu ${toggle ? 'active' : ''}`}>
       <div className="profile">
         <div className="image">
-          <img src="assets/images/profile.jpg" alt="" />
+          <i className="fad fa-user-circle" />
         </div>
         <ul className="user-information">
           <li className="user-id">otter0104</li>
