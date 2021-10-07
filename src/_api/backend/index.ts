@@ -132,6 +132,11 @@ class Server {
     return Promise.reject(new Error('Not implemented.'));
   }
 
+  @Get('/platform/api/v2/auth/authority')
+  async getAuthority(): Promise<any> {
+    return Promise.reject(new Error('Not implemented.'));
+  }
+
   /*
    * Devices
    */
