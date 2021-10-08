@@ -111,13 +111,13 @@ export const MapModule = (props: any) => {
     const map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(lat, lng),
       zoom: initZoom,
-      maxZoom: 15,
+      maxZoom: 16,
       minZoom: 10,
     });
 
     const markerClustering = new MarkerClustering({
       minClusterSize: 2,
-      maxZoom: 15,
+      maxZoom: 16,
       map: map,
       disableClickZoom: true,
       averageCenter: true,
@@ -129,7 +129,9 @@ export const MapModule = (props: any) => {
     setMarkerCluster(markerClustering);
 
     const zoomScale = (zoomLevel: number) => {
-      if (zoomLevel >= 15) {
+      if (zoomLevel >= 16) {
+        return '0.7';
+      } else if (zoomLevel >= 15) {
         return '1.5';
       } else if (zoomLevel === 14) {
         return '2';
@@ -145,18 +147,7 @@ export const MapModule = (props: any) => {
         return '10';
       }
     };
-    /*
-    naver.maps.Event.addListener(map, 'bounds_changed', function () {
-      fetchDevices(
-        mapCorrd(
-          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lat(),
-          (map.getBounds() as naver.maps.LatLngBounds).getCenter().lng()
-        ),
-        zoomScale(map.getZoom())
-      );
-      console.log(`bound : `, map.getBounds().getCenter());
-    });
-*/
+
     naver.maps.Event.addListener(map, 'dragend', function () {
       fetchDevices(
         mapCorrd(
