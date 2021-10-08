@@ -104,6 +104,7 @@ export function WorkspaceDetail(props: any) {
   // 일감상세 회원정보 state 객체 구조 분해
   const { name } = newResigtrant;
 
+  // 시간 포맷
   const dateFormat = (date: any) => {
     let changeDate = '';
     if (date !== undefined) {
@@ -170,7 +171,7 @@ export function WorkspaceDetail(props: any) {
       });
   };
 
-  // 이미지 미리보기 / 다운로드
+  // 이미지 미리보기 | 다운로드
   const showImageModal = (event: any) => {
     const imagePath = event.target.src;
     const imageDownloadName = event.target.alt;
@@ -242,7 +243,7 @@ export function WorkspaceDetail(props: any) {
 
   // 댓글 파일 다운로드
   const onClickCommentAttachFile = async (file: any, commentId: any) => {
-    const { file_name, file_type, file_uuid } = file;
+    const { file_name, file_type, file_uuid } = file[0];
     if (!file_name || !file_type || !file_uuid) {
       return;
     }
