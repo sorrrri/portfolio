@@ -28,7 +28,7 @@ export function DeviceAdd(props: any) {
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
   const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
 
-  // 장애 접수
+  // 장애 접수 state
   const [title, setTitle] = useState(''); // 작업명
   // const [equipment, setEquipment] = useState('') // 장비명
   const [priority, setPriority] = useState('EMERGENCY'); // 중요도
@@ -133,7 +133,7 @@ export function DeviceAdd(props: any) {
     history.push('/workspace');
   };
 
-  // editor
+  // Text Editor
   const onEditorStateChange = (editor: any) => {
     setEditorState(editor);
     setContent(draftToHtml(convertToRaw(editor.getCurrentContent())));

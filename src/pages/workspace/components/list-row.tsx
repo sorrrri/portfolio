@@ -90,6 +90,7 @@ export const Row = (props: any) => {
         <div className="attach" />
         <ul>
           <li>
+            <i className="fad fa-comment-alt-lines" />
             <span className="comment">{comment}</span>
           </li>
           <li>

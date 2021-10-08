@@ -26,7 +26,7 @@ export function WorkspaceAdd(props: any) {
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
   const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
 
-  // 업무 요청
+  // 업무 요청 state
   const [title, setTitle] = useState(''); // 작업명
   const [priority, setPriority] = useState('EMERGENCY'); // 중요도
   const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
@@ -122,7 +122,7 @@ export function WorkspaceAdd(props: any) {
     history.push('/workspace');
   };
 
-  // editor
+  // Text Editor
   const onEditorStateChange = (editorState: any) => {
     setEditorState(editorState);
     setContent(draftToHtml(convertToRaw(editorState.getCurrentContent())));

@@ -5,9 +5,10 @@ import React, { useEffect, useState } from 'react';
 export const SearchArea = (props: {
   children?: any;
   show?: any;
+  placeHolder?: any;
   onChange?: (keyword: string) => void;
 }) => {
-  const { show } = props;
+  const { show, placeHolder } = props;
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -26,7 +27,7 @@ export const SearchArea = (props: {
       <div className="input">
         <input
           type="search"
-          placeholder="작업명, 작성자를 입력하세요."
+          placeholder={placeHolder}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
