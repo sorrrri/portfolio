@@ -1,20 +1,28 @@
 import { useState, useEffect } from 'react';
 import api from '../../../_api/backend/index';
 
-export default function InfiniteScroll(page: any) {
+export default function WorkspaceListAPI(keyword: string, page: any, errorClear: any) {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [pagingError, setPagingError] = useState(false);
   const [workspaceList, setWorkpaceList] = useState<any>([]);
 
   useEffect(() => {
-    setLoading(true);
-    setError(false);
-    fetchWorkspaceListPaging();
-  }, [page]);
+    setWorkpaceList([]);
+  }, [keyword]);
 
-  const fetchWorkspaceListPaging = () => {
+  useEffect(() => {
+    setLoading(true);
+    setPagingError(false);
+    fetchWorkspaceListAPI();
+  }, [keyword, page]);
+
+  useEffect(() => {
+    setPagingError(false);
+  }, [errorClear]);
+
+  const fetchWorkspaceListAPI = () => {
     api
-      .getWorkspaceListPaging(page)
+      .getWorkspaceListAPI(keyword, page)
       .then((payload: any) => {
         if (payload.response.results !== null) {
           const { code, response } = payload;
@@ -27,10 +35,10 @@ export default function InfiniteScroll(page: any) {
         }
       })
       .catch(() => {
-        console.log('paging error');
-        setError(true);
+        console.log('PAGING ERROR');
+        setPagingError(true);
       });
   };
 
-  return { loading, error, workspaceList };
+  return { loading, workspaceList, pagingError };
 }

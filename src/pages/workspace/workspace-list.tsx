@@ -4,17 +4,18 @@ import { showHeader } from '../../_store/slice/header-option';
 import { AddSearchWork } from '../../_layout/top-navigator/right-context/add-search-work';
 import { SearchArea } from '../../_layout/top-navigator/search-area';
 import { Row } from './components/list-row';
-import api from '../../_api/backend';
 import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 import { ActiveScroll } from '../../_component/active-scroll';
-import InfiniteScroll from './components/infinite-scroll';
+import WorkspaceListAPI from './components/workpace-list-api';
+import { ModalDone } from '../../_component/modal-done';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
   const [isToggleOn, setToggleOn] = useState(false);
 
-  // const [workspaceList, setWorkspaceList] = useState<any[]>([]); // 일감목록 정보
-  const [search, setSearch] = useState(''); // 일감목록 검색
+  const [page, setPage] = useState<number>(1); // 일감 목록 페이지
+  const [searchKeyword, setSearchKeyword] = useState<string>(''); // 일감 검색 state
+  const [errorClear, setErrorClear] = useState<Boolean>(false); // 모달, errorClear prop
 
   useEffect(() => {
     dispatch(
@@ -26,29 +27,23 @@ export function WorkspaceList(props: any) {
     );
   });
 
-  // useEffect(() => {
-  //   fetchWorkspaceList();
-  // }, []);
+  // 일감 목록 검색 / 페이징 함수
+  const { loading, workspaceList, pagingError } = WorkspaceListAPI(searchKeyword, page, errorClear);
 
-  // // 일감목록 정보 api 호출
-  // const fetchWorkspaceList = () => {
-  //   api.getWorkspaceList().then((payload: any) => {
-  //     const { code, response } = payload;
-  //     if (code === 200 && Array.isArray(response.results)) {
-  //       setWorkspaceList(response.results);
-  //     }
-  //   });
-  // };
+  // Search 핸들
+  function handleSearch(keyword: any) {
+    setSearchKeyword(keyword);
+    setPage(1);
+  }
 
-  const [page, setPage] = useState(1);
-  const { loading, workspaceList, error } = InfiniteScroll(page);
-
+  // 인피니티 스크롤 옵션
   const options = {
     root: null,
-    rottMargin: '0px',
+    rootMargin: '0px',
     threshold: 0.5,
   };
 
+  // 인피니티 스크롤(페이징)
   const observer = useRef<any>();
   const lastElementRef = useCallback(
     (node) => {
@@ -56,7 +51,7 @@ export function WorkspaceList(props: any) {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          setPage(page + 1);
+          setPage((prevPageNumber) => prevPageNumber + 1);
         }
       }, options);
       if (node) observer.current.observe(node);
@@ -68,19 +63,13 @@ export function WorkspaceList(props: any) {
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
   };
+
   const overlays = document.querySelectorAll('.overlay') as any;
   overlays.forEach((overlay: any) => {
     if (overlay.classList.contains('active')) {
       overlay.classList.remove('active');
     }
   });
-
-  // 일감목록 검색
-  // const searchWorkspaceList = workspaceList.filter(
-  //   (item: any) =>
-  //     item.title.toLowerCase().includes(search) ||
-  //     item.registrant.name.toLowerCase().includes(search)
-  // );
 
   // 일감상세 props
   const onClickItem = (workId: number) => {
@@ -90,7 +79,11 @@ export function WorkspaceList(props: any) {
 
   return (
     <>
-      <SearchArea show={isToggleOn} onChange={(keyword) => setSearch(keyword)} />
+      <SearchArea
+        placeHolder="작업명을 입력하세요."
+        show={isToggleOn}
+        onChange={(keyword) => handleSearch(keyword)}
+      />
       <main className="content list workspace" onScroll={ActiveScroll}>
         {workspaceList &&
           workspaceList.map((item: any) =>
@@ -127,6 +120,9 @@ export function WorkspaceList(props: any) {
         </div>
       </main> */}
       <BottomStickyMenu toggle={toggleSearchArea} />
+      <ModalDone show={pagingError} close={() => setErrorClear(true)}>
+        일감 목록 확인 실패, 관리자에게 문의해주시기 바랍니다.
+      </ModalDone>
     </>
   );
 }

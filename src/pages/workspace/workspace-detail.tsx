@@ -42,11 +42,11 @@ export function WorkspaceDetail(props: any) {
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
   const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
 
-  // 댓글 등록
+  // 댓글 등록 state
   const [state, setState] = useState('WORK_REQUEST'); // 처리상태
   const [toList, setToList] = useState<any[]>([]); // 받는사람
   const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
-  const [editorState, setEditorState] = useState(EditorState.createEmpty()); // 작업내용에디터
+  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty()); // 작업내용에디터
   const [content, setContent] = useState(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
   const [contentRender, setContentRender] = useState(Boolean); // 댓글 등록 랜더링
@@ -204,21 +204,6 @@ export function WorkspaceDetail(props: any) {
     isCloseAll();
   };
 
-  const switchimportance = (value: any) => {
-    switch (value) {
-      case 'EMERGENCY':
-        return <span className="tag bg-red">긴급</span>;
-      case 'HIGH':
-        return <span className="tag bg-orange">높음</span>;
-      case 'USUALLY':
-        return <span className="tag bg-blue">보통</span>;
-      case 'LOW':
-        return <span className="tag bg-green">낮음</span>;
-      default:
-        return <span className="" />;
-    }
-  };
-
   // 일감 삭제
   const deleteWorkspace = () => {
     setShowDelete2(true);
@@ -251,10 +236,25 @@ export function WorkspaceDetail(props: any) {
     downloadFile(fileBinary, file_type, file_name);
   };
 
-  // editor
+  // Text Editor
   const onEditorStateChange = (editor: any) => {
     setEditorState(editor);
     setContent(draftToHtml(convertToRaw(editor.getCurrentContent())));
+  };
+
+  const switchimportance = (value: any) => {
+    switch (value) {
+      case 'EMERGENCY':
+        return <span className="tag bg-red">긴급</span>;
+      case 'HIGH':
+        return <span className="tag bg-orange">높음</span>;
+      case 'USUALLY':
+        return <span className="tag bg-blue">보통</span>;
+      case 'LOW':
+        return <span className="tag bg-green">낮음</span>;
+      default:
+        return <span className="" />;
+    }
   };
 
   return (
