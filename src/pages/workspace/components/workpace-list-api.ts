@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import api from '../../../_api/backend/index';
 
@@ -22,9 +21,6 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
   }, [errorClear]);
 
   const fetchWorkspaceListAPI = () => {
-    const cancel = new axios.CancelToken((c) => {
-      return c;
-    });
     api
       .getWorkspaceListAPI(keyword, page)
       .then((payload: any) => {
@@ -42,7 +38,6 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
         console.log('PAGING ERROR');
         setPagingError(true);
       });
-    console.log(cancel);
   };
 
   return { loading, workspaceList, pagingError };
