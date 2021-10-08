@@ -1,13 +1,31 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-lone-blocks */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useKeycloak } from '@react-keycloak/ssr';
+import api from '../_api/backend';
 
 export const GlobalNavigationMenu = (props: any) => {
   const { toggle } = props;
   const history = useHistory();
   const { keycloak } = useKeycloak();
+  const [userName, setUserName] = useState<string>('');
+  const [userDept, setUserDept] = useState<string>('');
+
+  useEffect(() => {
+    api.getAuthority().then((payload) => {
+      const { id } = payload?.response?.results;
+      const { name, auth } = payload?.response?.results?.client;
+
+      if (id) {
+        setUserName(id);
+      }
+
+      if (name) {
+        setUserDept(name);
+      }
+    });
+  }, []);
 
   const goGuide = () => {
     {
@@ -35,11 +53,11 @@ export const GlobalNavigationMenu = (props: any) => {
     <aside className={`global-navigation-menu ${toggle ? 'active' : ''}`}>
       <div className="profile">
         <div className="image">
-          <img src="assets/images/profile.jpg" alt="" />
+          <i className="fad fa-user-circle" />
         </div>
         <ul className="user-information">
-          <li className="user-id">otter0104</li>
-          <li className="user-type">최고관리자</li>
+          <li className="user-id">{userName}</li>
+          <li className="user-type">{userDept}</li>
         </ul>
       </div>
       <nav className="menu">

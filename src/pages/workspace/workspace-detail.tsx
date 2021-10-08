@@ -284,10 +284,8 @@ export function WorkspaceDetail(props: any) {
                     className="document"
                     onClick={() => onClickAttachFile(doc)}
                   >
-                    <div>
-                      <i className="fad fa-file-alt" />
-                      <span>{doc.file_name}</span>
-                    </div>
+                    <i className="fad fa-file-alt" />
+                    <span>{doc.file_name}</span>
                   </li>
                 ))}
             </ul>

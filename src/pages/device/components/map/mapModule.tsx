@@ -29,23 +29,6 @@ const markerIcon = {
   anchor: new naver.maps.Point(20, 20),
 };
 
-/*
-const marker3 = {
-  url: 'assets/images/cluster-marker-1.png',
-  size: new naver.maps.Size(24, 37),
-  origin: new naver.maps.Point(90, 0),
-  anchor: new naver.maps.Point(12, 37),
-};
-*/
-/*
-marker5 = {
-  content: '<div style="cursor:pointer;width:40px;height:40px;line-height:42px;font-size:10px;color:white;text-align:center;font-weight:bold;background:url(../images/cluster-marker-5.png);background-size:contain;"></div>',
-  size: N.Size(40, 40),
-  anchor: N.Point(20, 20)
-},
-*/
-
-// 주석처리 작업 이어나가야함.
 export const MapModule = (props: any) => {
   const [devicesForMap, setDevicesForMap] = useState<any[]>([]);
   const [naverMap, setNaverMap] = useState<naver.maps.Map>();
@@ -73,7 +56,21 @@ export const MapModule = (props: any) => {
     });
   };
 
-  // getDevicesForList
+  // type_property_icon으로 아이콘 결정
+  const getMarkerIcon = (type: string) => {
+    let className: string;
+    if (type && type.length > 0) {
+      className = type;
+    } else {
+      className = 'fas fa-cctv';
+    }
+
+    return {
+      content: `<div class="marker-circle bg-blue"><i class="${className}"></i></div>`,
+      size: new naver.maps.Size(30, 30),
+      anchor: new naver.maps.Point(15, 15),
+    };
+  };
 
   const mapCorrd = (mapLat: number, mapLng: number) => {
     if (mapLat <= 0 || mapLng <= 0) {
@@ -133,7 +130,7 @@ export const MapModule = (props: any) => {
 
     const zoomScale = (zoomLevel: number) => {
       if (zoomLevel >= 15) {
-        return '2';
+        return '1.5';
       } else if (zoomLevel === 14) {
         return '2';
       } else if (zoomLevel === 13) {
@@ -196,7 +193,7 @@ export const MapModule = (props: any) => {
       const marker = new naver.maps.Marker({
         title: devicesForMap[i].item_uuid,
         position: new naver.maps.LatLng(devicesForMap[i].latitude, devicesForMap[i].longitude),
-        icon: markerIcon,
+        icon: getMarkerIcon(devicesForMap[i]?.type_property_icon),
         zIndex: 100,
       });
 
