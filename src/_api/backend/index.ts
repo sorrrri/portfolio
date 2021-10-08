@@ -172,12 +172,18 @@ class Server {
    * Workspace
    */
   @Get('/platform/api/v2/:realm/workspace')
-  async getWorkspaceList(): Promise<any[]> {
+  async getWorkspaceListSearch(
+    @Query('keyword') keyword: string,
+    @Query('page') page: number
+  ): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
   @Get('/platform/api/v2/:realm/workspace')
-  async getWorkspaceListPaging(@Query('page') page: number): Promise<any[]> {
+  async getWorkspaceListAPI(
+    @Query('keyword') keyword: any,
+    @Query('page') page: number
+  ): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }
 
