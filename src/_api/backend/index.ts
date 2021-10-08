@@ -156,7 +156,9 @@ class Server {
   @Get('/platform/api/v2/:realm/device/:client_uuid/items/list')
   async getDevicesForList(
     @Query('search_type') corrd: string,
-    @Query('keyword') radius: string
+    @Query('keyword') radius: string,
+    @Query('page') page: number,
+    @Query('count') count: number
   ): Promise<any[]> {
     return Promise.reject(new Error('Not implemented.'));
   }

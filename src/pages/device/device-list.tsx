@@ -40,7 +40,7 @@ export function DeviceList(props: any) {
   });
 
   const fetchDevicesList = (type: string, keyword: string) => {
-    api.getDevicesForList(type, keyword).then((payload: any) => {
+    api.getDevicesForList(type, keyword, 1, 10).then((payload: any) => {
       const { code, response } = payload;
       if (code === 200 && response && Array.isArray(response.results)) {
         console.log(`fetchList >> `, payload);
