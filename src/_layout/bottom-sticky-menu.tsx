@@ -33,10 +33,15 @@ export const BottomStickyMenu = (props: any) => {
       <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={() => setToggleOn(false)} />
       <div className="bottom-sticky-menu" style={showAlways}>
         <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
-          <button className="btn-search" onClick={toggle} type="button">
+          <button className="btn-search tooltip" data-tooltip="검색" onClick={toggle} type="button">
             <i className="fad fa-search" />
           </button>
-          <button className="btn-top" type="button" onClick={scrollToTop}>
+          <button
+            className="btn-top tooltip"
+            data-tooltip="위로"
+            type="button"
+            onClick={scrollToTop}
+          >
             <i className="fad fa-arrow-up" />
           </button>
           <button
@@ -44,17 +49,19 @@ export const BottomStickyMenu = (props: any) => {
               history.push('/workspace-add');
               setToggleOn(false);
             }}
-            className="btn-workspace"
+            className="btn-workspace tooltip"
+            data-tooltip="업무요청"
             type="button"
           >
-            <i className="fad fa-briefcase" />
+            <i className="fad fa-briefcase tooltip" />
           </button>
           <button
             onClick={() => {
               history.push('/device-add');
               setToggleOn(false);
             }}
-            className="btn-undertake"
+            className="btn-undertake tooltip"
+            data-tooltip="장애접수"
             type="button"
           >
             <i className="fad fa-tools" />
