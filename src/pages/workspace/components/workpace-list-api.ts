@@ -33,12 +33,12 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
             });
             setLoading(false);
           }
-        } else {
-          setWorkspaceListCheck(false);
+          if (response.results.length < 1) {
+            setWorkspaceListCheck(false);
+          }
         }
       })
       .catch(() => {
-        console.log('PAGING ERROR');
         setPagingError(true);
       });
   };
