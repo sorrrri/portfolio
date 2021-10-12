@@ -28,7 +28,11 @@ export function WorkspaceList(props: any) {
   });
 
   // 일감 목록 검색 / 페이징 함수
-  const { loading, workspaceList, pagingError } = WorkspaceListAPI(searchKeyword, page, errorClear);
+  const { loading, workspaceList, pagingError, workspaceListCheck } = WorkspaceListAPI(
+    searchKeyword,
+    page,
+    errorClear
+  );
 
   // Search 핸들
   function handleSearch(keyword: any) {
@@ -86,7 +90,8 @@ export function WorkspaceList(props: any) {
         onChange={(keyword) => handleSearch(keyword)}
       />
       <main className="content list workspace" onScroll={ActiveScroll}>
-        {workspaceList &&
+        {workspaceListCheck === true ? (
+          workspaceList &&
           workspaceList.map((item: any) =>
             item.results.map((workdata: any) => {
               return (
@@ -111,15 +116,16 @@ export function WorkspaceList(props: any) {
                 </div>
               );
             })
-          )}
+          )
+        ) : (
+          <main className="content list workspace">
+            <div>
+              <i className="fad fa-exclamation-triangle" />
+              <span>등록된 일감이 없습니다.</span>
+            </div>
+          </main>
+        )}
       </main>
-      {/* <main className="content list workspace">
-        <main className="no-result">
-        <div>
-          <i className="fad fa-exclamation-triangle" />
-          <span>등록된 일감이 없습니다.</span>
-        </div>
-      </main> */}
       <BottomStickyMenu toggle={toggleSearchArea} />
       <ModalDone show={pagingError} close={() => setErrorClear(true)}>
         일감 목록 확인 실패, 관리자에게 문의해주시기 바랍니다.
