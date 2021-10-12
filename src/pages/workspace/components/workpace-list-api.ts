@@ -5,6 +5,7 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
   const [loading, setLoading] = useState(true);
   const [pagingError, setPagingError] = useState(false);
   const [workspaceList, setWorkpaceList] = useState<any>([]);
+  const [workspaceListCheck, setWorkspaceListCheck] = useState(true);
 
   useEffect(() => {
     setWorkpaceList([]);
@@ -32,13 +33,15 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
             });
             setLoading(false);
           }
+          if (response.results.length < 1) {
+            setWorkspaceListCheck(false);
+          }
         }
       })
       .catch(() => {
-        console.log('PAGING ERROR');
         setPagingError(true);
       });
   };
 
-  return { loading, workspaceList, pagingError };
+  return { loading, workspaceList, pagingError, workspaceListCheck };
 }
