@@ -259,7 +259,7 @@ export function DeviceAdd(props: any) {
               placeholder="받는사람 이름을 입력하세요."
             />
           </div>
-          <div className="input">
+          {/* <div className="input">
             <span>플랫폼관리자 공개여부</span>
             <div className="filters">
               <button type="button">
@@ -286,7 +286,7 @@ export function DeviceAdd(props: any) {
                 </label>
               </button>
             </div>
-          </div>
+          </div> */}
           <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
           <div className="buttons attach">
             <button type="button">

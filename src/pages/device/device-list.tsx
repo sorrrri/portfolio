@@ -80,7 +80,7 @@ export function DeviceList(props: any) {
 
   return (
     <>
-      <SearchArea show={isToggleOn} onChange={searchDevice}>
+      <SearchArea show={isToggleOn} onChange={searchDevice} close={() => setToggleOn(false)}>
         <button type="button">
           <input
             type="radio"

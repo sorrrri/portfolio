@@ -5,10 +5,11 @@ import React, { useEffect, useState } from 'react';
 export const SearchArea = (props: {
   children?: any;
   show?: any;
+  close?: any;
   placeHolder?: any;
   onChange?: (keyword: string) => void;
 }) => {
-  const { show, placeHolder } = props;
+  const { show, close, placeHolder } = props;
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -31,31 +32,10 @@ export const SearchArea = (props: {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
-          <title>ionicons-v5-f</title>
-          <path
-            d="M221.09,64A157.09,157.09,0,1,0,378.18,221.09,157.1,157.1,0,0,0,221.09,64Z"
-            style={{
-              fill: 'none',
-              stroke: 'white',
-              strokeMiterlimit: 10,
-              strokeWidth: '32px',
-            }}
-          />
-          <line
-            x1="338.29"
-            y1="338.29"
-            x2="448"
-            y2="448"
-            style={{
-              fill: 'none',
-              stroke: 'white',
-              strokeLinecap: 'round',
-              strokeMiterlimit: 10,
-              strokeWidth: '32px',
-            }}
-          />
-        </svg>
+        <i className="fad fa-search" />
+        <button className="btn-close" type="button" onClick={close}>
+          <i className="fad fa-times" />
+        </button>
       </div>
       <div className="filters">{props.children}</div>
     </div>

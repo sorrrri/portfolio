@@ -82,6 +82,7 @@ export function WorkspaceList(props: any) {
       <SearchArea
         placeHolder="작업명을 입력하세요."
         show={isToggleOn}
+        close={() => setToggleOn(false)}
         onChange={(keyword) => handleSearch(keyword)}
       />
       <main className="content list workspace" onScroll={ActiveScroll}>
