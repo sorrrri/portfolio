@@ -4,12 +4,14 @@ import React, { useEffect, useState } from 'react';
 /* eslint-disable react/require-default-props */
 export const SearchArea = (props: {
   children?: any;
+  keywordReset?: any;
   show?: any;
   close?: any;
   placeHolder?: any;
+  onKeyUp?: any;
   onChange?: (keyword: string) => void;
 }) => {
-  const { show, close, placeHolder } = props;
+  const { keywordReset, show, close, placeHolder, onKeyUp } = props;
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -21,7 +23,7 @@ export const SearchArea = (props: {
 
   useEffect(() => {
     setSearchValue('');
-  }, [show]);
+  }, [show, keywordReset]);
 
   return (
     <div className={`search-area ${show ? 'active' : ''}`}>
@@ -31,6 +33,7 @@ export const SearchArea = (props: {
           placeholder={placeHolder}
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
+          onKeyUp={onKeyUp}
         />
         <i className="fad fa-search" />
         <button className="btn-close" type="button" onClick={close}>

@@ -14,8 +14,11 @@ export function WorkspaceList(props: any) {
   const [isToggleOn, setToggleOn] = useState(false);
 
   const [page, setPage] = useState<number>(1); // 일감 목록 페이지
-  const [searchKeyword, setSearchKeyword] = useState<string>(''); // 일감 검색 state
+  const [searchKeyword, setSearchKeyword] = useState<string>(''); // 일감 검색 keyword
+  const [searKeyPress, setSearKeyPress] = useState<string>(''); // 일감 검색 state
   const [errorClear, setErrorClear] = useState<Boolean>(false); // 모달, errorClear prop
+  const [keyUpReset, setKeyUpReset] = useState(false); // workspace-list-api Keypress Reset
+  const [keywordReset, setKeywordReset] = useState(false); // search-area Keyword Reset
 
   useEffect(() => {
     dispatch(
@@ -29,16 +32,11 @@ export function WorkspaceList(props: any) {
 
   // 일감 목록 검색 / 페이징 함수
   const { loading, workspaceList, pagingError, workspaceListCheck } = WorkspaceListAPI(
-    searchKeyword,
+    searKeyPress,
     page,
-    errorClear
+    errorClear,
+    keyUpReset
   );
-
-  // Search 핸들
-  function handleSearch(keyword: any) {
-    setSearchKeyword(keyword);
-    setPage(1);
-  }
 
   // 인피니티 스크롤 옵션
   const options = {
@@ -81,16 +79,35 @@ export function WorkspaceList(props: any) {
     history.push(`/workspace/${workId}`);
   };
 
+  // Search 핸들
+  const handleKeyUp = (e: any) => {
+    if (e.key === 'Enter') {
+      setSearKeyPress(searchKeyword);
+      setPage(1);
+    }
+  };
+
+  // Search Close 핸들
+  const handleSearchAreaClose = () => {
+    setKeywordReset(true);
+    setKeyUpReset(true);
+    setSearKeyPress('');
+    setPage(1);
+    setToggleOn(false);
+  };
+
   return (
     <>
       <SearchArea
+        keywordReset={keywordReset}
         placeHolder="작업명을 입력하세요."
         show={isToggleOn}
-        close={() => setToggleOn(false)}
-        onChange={(keyword) => handleSearch(keyword)}
+        close={handleSearchAreaClose}
+        onChange={(keyword) => setSearchKeyword(keyword)}
+        onKeyUp={handleKeyUp}
       />
       <main className="content list workspace" onScroll={ActiveScroll}>
-        {workspaceListCheck === true ? (
+        {workspaceListCheck ? (
           workspaceList &&
           workspaceList.map((item: any) =>
             item.results.map((workdata: any) => {
