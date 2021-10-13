@@ -106,41 +106,42 @@ export function WorkspaceList(props: any) {
         onChange={(keyword) => setSearchKeyword(keyword)}
         onKeyUp={handleKeyUp}
       />
-      <main className="content list workspace" onScroll={ActiveScroll}>
+      <main
+        className={`content list workspace ${!workspaceListCheck && 'no-result'}`}
+        onScroll={ActiveScroll}
+      >
         {workspaceListCheck ? (
-          workspaceList &&
-          workspaceList.map((item: any) =>
-            item.results.map((workdata: any) => {
-              return (
-                <div ref={lastElementRef} key={workdata.work_uuid}>
-                  <Row
-                    key={workdata.work_uuid}
-                    item={() => onClickItem(workdata.work_uuid)}
-                    rowtype={workdata.type}
-                    title={workdata.title}
-                    writer={workdata.registrant.name}
-                    date={workdata.reg_date}
-                    worktype={workdata.type}
-                    importance={workdata.priority}
-                    attachments={workdata.attachments}
-                    comment={workdata.comment}
-                    read={workdata.views}
-                    images={workdata.attachments_preview}
-                  >
-                    {workdata.summary_content}
-                  </Row>
-                  <div />
-                </div>
-              );
-            })
-          )
+          <>
+            {workspaceList &&
+              workspaceList.map((item: any) =>
+                item.results.map((workdata: any) => {
+                  return (
+                    <Row
+                      key={workdata.work_uuid}
+                      item={() => onClickItem(workdata.work_uuid)}
+                      rowtype={workdata.type}
+                      title={workdata.title}
+                      writer={workdata.registrant.name}
+                      date={workdata.reg_date}
+                      worktype={workdata.type}
+                      importance={workdata.priority}
+                      attachments={workdata.attachments}
+                      comment={workdata.comment}
+                      read={workdata.views}
+                      images={workdata.attachments_preview}
+                    >
+                      {workdata.summary_content}
+                    </Row>
+                  );
+                })
+              )}
+            <div ref={lastElementRef} />
+          </>
         ) : (
-          <main className="content list workspace">
-            <div>
-              <i className="fad fa-exclamation-triangle" />
-              <span>등록된 일감이 없습니다.</span>
-            </div>
-          </main>
+          <div className="empty">
+            <i className="fad fa-exclamation-triangle" />
+            <span>등록된 일감이 없습니다.</span>
+          </div>
         )}
       </main>
       <BottomStickyMenu toggle={toggleSearchArea} />

@@ -38,9 +38,9 @@ export default function WorkspaceListAPI(
             });
             setLoading(false);
           }
-          if (response.results.length < 1) {
-            setWorkspaceListCheck(false);
-          }
+        }
+        if (payload.response.count < 1) {
+          setWorkspaceListCheck(false);
         }
       })
       .catch(() => {
