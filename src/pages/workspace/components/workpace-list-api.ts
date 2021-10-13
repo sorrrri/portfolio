@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import api from '../../../_api/backend/index';
 
-export default function WorkspaceListAPI(keyword: string, page: any, errorClear: any) {
+export default function WorkspaceListAPI(
+  searKeyPress: string,
+  page: any,
+  errorClear: any,
+  keyUpReset: any
+) {
   const [loading, setLoading] = useState(true);
   const [pagingError, setPagingError] = useState(false);
   const [workspaceList, setWorkpaceList] = useState<any>([]);
@@ -9,13 +14,13 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
 
   useEffect(() => {
     setWorkpaceList([]);
-  }, [keyword]);
+  }, [searKeyPress, keyUpReset]);
 
   useEffect(() => {
     setLoading(true);
     setPagingError(false);
     fetchWorkspaceListAPI();
-  }, [keyword, page]);
+  }, [searKeyPress, page, keyUpReset]);
 
   useEffect(() => {
     setPagingError(false);
@@ -23,7 +28,7 @@ export default function WorkspaceListAPI(keyword: string, page: any, errorClear:
 
   const fetchWorkspaceListAPI = () => {
     api
-      .getWorkspaceListAPI(keyword, page)
+      .getWorkspaceListAPI(searKeyPress, page)
       .then((payload: any) => {
         if (payload.response.results !== null) {
           const { code, response } = payload;
