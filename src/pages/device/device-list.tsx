@@ -174,9 +174,9 @@ export function DeviceList(props: any) {
             />
           </>
         ) : (
-          <>
+          <section className={`${deviceListCheck ? 'result' : 'no-result'}`}>
             {deviceListCheck ? (
-              <section className="result">
+              <>
                 {searchDevices &&
                   searchDevices.map((deviceList) =>
                     deviceList.results.map((device: any) => {
@@ -191,11 +191,14 @@ export function DeviceList(props: any) {
                     })
                   )}
                 <div ref={lastElementRef} />
-              </section>
+              </>
             ) : (
-              <section className="result">검색 내역이 없습니다.</section>
+              <div className="empty">
+                <i className="fad fa-exclamation-triangle" />
+                <span>등록된 일감이 없습니다.</span>
+              </div>
             )}
-          </>
+          </section>
         )}
       </main>
       <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
