@@ -195,7 +195,7 @@ export function DeviceList(props: any) {
             ) : (
               <div className="empty">
                 <i className="fad fa-exclamation-triangle" />
-                <span>등록된 일감이 없습니다.</span>
+                <span>검색내역이 없습니다.</span>
               </div>
             )}
           </section>
