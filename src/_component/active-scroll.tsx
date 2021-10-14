@@ -6,9 +6,12 @@ export const ActiveScroll = () => {
   const mapPage = document.querySelector('.modal-marker') as HTMLDivElement;
 
   if (main && !mapPage) {
-    if (main.scrollTop > 50) {
+    console.log(main.scrollTop);
+    if (main.scrollTop > 20) {
+      console.log('add');
       container.classList.add('scroll');
     } else {
+      console.log('remove');
       container.classList.remove('scroll');
     }
   }
