@@ -11,14 +11,14 @@ import { ModalDone } from '../../_component/modal-done';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
-  const [isToggleOn, setToggleOn] = useState(false);
+  const [isToggleOn, setToggleOn] = useState<Boolean>(false);
 
   const [page, setPage] = useState<number>(1); // 일감 목록 페이지
   const [searchKeyword, setSearchKeyword] = useState<string>(''); // 일감 검색 keyword
   const [searKeyPress, setSearKeyPress] = useState<string>(''); // 일감 검색 state
   const [errorClear, setErrorClear] = useState<Boolean>(false); // 모달, errorClear prop
-  const [keyUpReset, setKeyUpReset] = useState(false); // workspace-list-api Keypress Reset
-  const [keywordReset, setKeywordReset] = useState(false); // search-area Keyword Reset
+  const [keyUpReset, setKeyUpReset] = useState<Boolean>(false); // workspace-list-api Keypress Reset
+  const [keywordReset, setKeywordReset] = useState<Boolean>(false); // search-area Keyword Reset
 
   useEffect(() => {
     dispatch(

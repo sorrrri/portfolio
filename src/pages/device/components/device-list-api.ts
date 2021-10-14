@@ -7,9 +7,9 @@ export default function DeviceListAPI(
   page: any,
   keyUpReset: any
 ) {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<Boolean>(true);
   const [searchDevices, setSearchDevices] = useState<any[]>([]);
-  const [deviceListCheck, setDeviceListCheck] = useState(true);
+  const [deviceListCheck, setDeviceListCheck] = useState<Boolean>(true);
 
   useEffect(() => {
     setSearchDevices([]);
@@ -20,7 +20,7 @@ export default function DeviceListAPI(
     fetchDevicesList();
   }, [searKeyPress, page, keyUpReset]);
 
-  // 디바이스 리스트 api 호출
+  // 장비 리스트 api 호출
   const fetchDevicesList = () => {
     api
       .getDevicesForList(type, searKeyPress, page, 10)
@@ -32,6 +32,7 @@ export default function DeviceListAPI(
             setSearchDevices((prevList: any) => {
               return [...prevList, response];
             });
+            setLoading(false);
           } else {
             setSearchDevices([]);
           }
