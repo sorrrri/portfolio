@@ -16,27 +16,27 @@ export function DeviceAdd(props: any) {
   const dispatch = useDispatch();
 
   // 모달 state
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
-  const [showTitle, setShowTitle] = useState(false);
-  const [showEquipment, setShowEquipment] = useState(false);
-  const [showToList, setShowToList] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const [showCatch, setShowCatch] = useState(false);
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [isOpen2, setIsOpen2] = useState<Boolean>(false);
+  const [isOpen3, setIsOpen3] = useState<Boolean>(false);
+  const [showTitle, setShowTitle] = useState<Boolean>(false);
+  const [showEquipment, setShowEquipment] = useState<Boolean>(false);
+  const [showToList, setShowToList] = useState<Boolean>(false);
+  const [showContent, setShowContent] = useState<Boolean>(false);
+  const [showCatch, setShowCatch] = useState<Boolean>(false);
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
-  const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
+  const [inputRecipient, setInputRecipient] = useState<any>([]); // tag로 입력받은 값
 
   // 장애 접수 state
-  const [title, setTitle] = useState(''); // 작업명
+  const [title, setTitle] = useState<string>(''); // 작업명
   // const [equipment, setEquipment] = useState('') // 장비명
-  const [priority, setPriority] = useState('EMERGENCY'); // 중요도
-  const [detailType, setDetailType] = useState('HARDWARE'); // 업무유형
+  const [priority, setPriority] = useState<string>('EMERGENCY'); // 중요도
+  const [detailType, setDetailType] = useState<string>('HARDWARE'); // 업무유형
   const [toList, setToList] = useState<any[]>([]); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  // const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [editorState, setEditorState] = useState(EditorState.createEmpty()); // 작업내용에디터
-  const [content, setContent] = useState(''); // 장애내용
+  const [content, setContent] = useState<string>(''); // 장애내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
 
   useEffect(() => {
@@ -103,7 +103,7 @@ export function DeviceAdd(props: any) {
         priority,
         detail_type: detailType,
         to_list: toList,
-        platform_sharing: platformSharing,
+        platform_sharing: false,
         content,
         upload_files: attacheFiles,
       })
@@ -118,9 +118,9 @@ export function DeviceAdd(props: any) {
       });
   };
 
-  const showSearchModal = () => {
-    setIsOpen3(true);
-  };
+  // const showSearchModal = () => {
+  //   setIsOpen3(true);
+  // };
 
   const isClose = () => {
     setIsOpen(false);
@@ -151,7 +151,7 @@ export function DeviceAdd(props: any) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="input title" onClick={showSearchModal}>
+          {/* <div className="input title" onClick={showSearchModal}>
             <span>장비명</span>
             <input
               className="input-search"
@@ -159,7 +159,7 @@ export function DeviceAdd(props: any) {
               readOnly
               placeholder="장비명을 검색해주세요."
             />
-          </div>
+          </div> */}
           <div className="input">
             <span>중요도</span>
             <div className="filters">

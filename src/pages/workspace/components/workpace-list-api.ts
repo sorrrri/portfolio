@@ -7,10 +7,10 @@ export default function WorkspaceListAPI(
   errorClear: any,
   keyUpReset: any
 ) {
-  const [loading, setLoading] = useState(true);
-  const [pagingError, setPagingError] = useState(false);
+  const [loading, setLoading] = useState<Boolean>(true);
+  const [pagingError, setPagingError] = useState<Boolean>(false);
   const [workspaceList, setWorkpaceList] = useState<any>([]);
-  const [workspaceListCheck, setWorkspaceListCheck] = useState(true);
+  const [workspaceListCheck, setWorkspaceListCheck] = useState<Boolean>(true);
 
   useEffect(() => {
     setWorkpaceList([]);

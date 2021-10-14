@@ -22,32 +22,32 @@ export function WorkspaceDetail(props: any) {
   const { id } = props.match.params;
 
   // 모달 state
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
-  const [showToList, setShowToList] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
-  const [showDelete2, setShowDelete2] = useState(false);
-  const [showCatch, setShowCatch] = useState(false);
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [isOpen2, setIsOpen2] = useState<Boolean>(false);
+  const [isOpen3, setIsOpen3] = useState<Boolean>(false);
+  const [showToList, setShowToList] = useState<Boolean>(false);
+  const [showContent, setShowContent] = useState<Boolean>(false);
+  const [showDelete, setShowDelete] = useState<Boolean>(false);
+  const [showDelete2, setShowDelete2] = useState<Boolean>(false);
+  const [showCatch, setShowCatch] = useState<Boolean>(false);
 
   const [workspaceDetail, setWorkspaceDetail] = useState<any>({}); // 일감상세 정보
   const [newResigtrant, setNewResigtrant] = useState<any>({}); // 일감상세 회원정보
   const [comments, setComments] = useState<any[]>([]); // 일감상세 댓글정보
   const [docFiles, setDocFiles] = useState<any[]>([]); // 일감상세 priview가 없는 문서
   const [imgFiles, setImgFiles] = useState<any[]>([]); // 일감상세 priview가 있는 이미지
-  const [image, setImage] = useState(''); // 이미지 미리보기
-  const [imageName, setImageName] = useState(''); // 이미지 다운로드 이름
+  const [image, setImage] = useState<any>(''); // 이미지 미리보기
+  const [imageName, setImageName] = useState<any>(''); // 이미지 다운로드 이름
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
-  const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
+  const [inputRecipient, setInputRecipient] = useState<any>([]); // tag로 입력받은 값
 
   // 댓글 등록 state
-  const [state, setState] = useState('WORK_REQUEST'); // 처리상태
+  const [state, setState] = useState<string>('WORK_REQUEST'); // 처리상태
   const [toList, setToList] = useState<any[]>([]); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  const [platformSharing, setPlatformSharing] = useState<Boolean>(true); // 플랫폼관리자 공개여부
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty()); // 작업내용에디터
-  const [content, setContent] = useState(''); // 댓글내용
+  const [content, setContent] = useState<string>(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
   const [contentRender, setContentRender] = useState(Boolean); // 댓글 등록 랜더링
 
