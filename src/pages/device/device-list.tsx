@@ -109,7 +109,6 @@ export function DeviceList(props: any) {
     setSearKeyPress('');
     setPage(1);
     setToggleOn(false);
-    setSerachType('');
   };
 
   return (
@@ -176,23 +175,26 @@ export function DeviceList(props: any) {
           </>
         ) : (
           <>
-            <section className="result">
-              {searchDevices &&
-                searchDevices.map((deviceList) =>
-                  deviceList.results.map((device: any) => {
-                    return (
-                      <Row
-                        key={device.item_uuid}
-                        title={device.name}
-                        type={device.type_property}
-                        goDetail={() => onClickItem(device.item_uuid)}
-                      />
-                    );
-                  })
-                )}
-            </section>
-            <div ref={lastElementRef} />
-            {deviceListCheck ? <section className="no-result">검색 내역이 없습니다.</section> : ''}
+            {deviceListCheck ? (
+              <section className="result">
+                {searchDevices &&
+                  searchDevices.map((deviceList) =>
+                    deviceList.results.map((device: any) => {
+                      return (
+                        <Row
+                          key={device.item_uuid}
+                          title={device.name}
+                          type={device.type_property}
+                          goDetail={() => onClickItem(device.item_uuid)}
+                        />
+                      );
+                    })
+                  )}
+                <div ref={lastElementRef} />
+              </section>
+            ) : (
+              <section className="result">검색 내역이 없습니다.</section>
+            )}
           </>
         )}
       </main>

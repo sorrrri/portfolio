@@ -13,6 +13,7 @@ export default function DeviceListAPI(
 
   useEffect(() => {
     setSearchDevices([]);
+    setDeviceListCheck(true);
   }, [searchKeyPress, keyUpReset]);
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function DeviceListAPI(
           }
         }
         if (payload.response.count < 1) {
-          setDeviceListCheck(true);
+          setDeviceListCheck(false);
         }
       })
       .catch(() => {

@@ -14,6 +14,7 @@ export default function WorkspaceListAPI(
 
   useEffect(() => {
     setWorkpaceList([]);
+    setWorkspaceListCheck(true);
   }, [searKeyPress, keyUpReset]);
 
   useEffect(() => {
