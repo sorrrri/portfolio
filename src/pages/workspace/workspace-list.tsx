@@ -11,8 +11,7 @@ import { ModalDone } from '../../_component/modal-done';
 
 export function WorkspaceList(props: any) {
   const dispatch = useDispatch();
-  const [isToggleOn, setToggleOn] = useState<Boolean>(false);
-
+  const [isToggleOn, setToggleOn] = useState<Boolean>(false); // 검색창 토글
   const [page, setPage] = useState<number>(1); // 일감 목록 페이지
   const [searchKeyword, setSearchKeyword] = useState<string>(''); // 일감 검색 keyword
   const [searKeyPress, setSearKeyPress] = useState<string>(''); // 일감 검색 state

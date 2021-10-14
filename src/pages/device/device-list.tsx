@@ -13,14 +13,14 @@ import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
 import DeviceListAPI from './components/device-list-api';
 
 export function DeviceList(props: any) {
-  const [isToggleOn, setToggleOn] = useState(false);
+  const [isToggleOn, setToggleOn] = useState<Boolean>(false);
   const [selectedDevices, setSelectedDevices] = useState<any[]>([]);
-  const [searchType, setSerachType] = useState<string>(''); // 장비 검색 Type
+  const [searchType, setSerachType] = useState<string>('addr'); // 장비 검색 Type
   const [searchKeyword, setSearchKeyword] = useState<string>(''); // 장비 검색 keyword
   const [searKeyPress, setSearKeyPress] = useState<string>(''); // 장비 검색 state
   const [keywordReset, setKeywordReset] = useState<Boolean>(false); // search-area Keyword Reset
   const [page, setPage] = useState<number>(1); // 장비 목록 페이지
-  const [keyUpReset, setKeyUpReset] = useState(false); // device-list-api Keypress Reset
+  const [keyUpReset, setKeyUpReset] = useState<Boolean>(false); // device-list-api Keypress Reset
 
   const toggleSearchArea = () => {
     setToggleOn(!isToggleOn);
@@ -99,11 +99,6 @@ export function DeviceList(props: any) {
     if (e.key === 'Enter') {
       setSearKeyPress(searchKeyword);
       setPage(1);
-      if (searchType === 'addr') {
-        setSerachType('addr');
-      } else if (searchType === 'name') {
-        setSerachType('name');
-      } else setSerachType('addr');
     }
   };
 

@@ -16,24 +16,24 @@ export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
 
   // 모달 state
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [showTitle, setShowTitle] = useState(false);
-  const [showToList, setShowToList] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const [showCatch, setShowCatch] = useState(false);
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
+  const [isOpen2, setIsOpen2] = useState<Boolean>(false);
+  const [showTitle, setShowTitle] = useState<Boolean>(false);
+  const [showToList, setShowToList] = useState<Boolean>(false);
+  const [showContent, setShowContent] = useState<Boolean>(false);
+  const [showCatch, setShowCatch] = useState<Boolean>(false);
 
   const [recipient, setRecipient] = useState<any[]>([]); // 받는사람 정보
-  const [inputRecipient, setInputRecipient] = useState([]); // tag로 입력받은 값
+  const [inputRecipient, setInputRecipient] = useState<any>([]); // tag로 입력받은 값
 
   // 업무 요청 state
-  const [title, setTitle] = useState(''); // 작업명
-  const [priority, setPriority] = useState('EMERGENCY'); // 중요도
-  const [detailType, setDetailType] = useState('WORK_PERMISSION'); // 업무유형
+  const [title, setTitle] = useState<string>(''); // 작업명
+  const [priority, setPriority] = useState<string>('EMERGENCY'); // 중요도
+  const [detailType, setDetailType] = useState<string>('WORK_PERMISSION'); // 업무유형
   const [toList, setToList] = useState<any[]>([]); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
+  // const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [editorState, setEditorState] = useState(EditorState.createEmpty()); // 작업내용에디터
-  const [content, setContent] = useState(''); // 작업내용
+  const [content, setContent] = useState<string>(''); // 작업내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
 
   useEffect(() => {
@@ -97,7 +97,7 @@ export function WorkspaceAdd(props: any) {
         priority,
         detail_type: detailType,
         to_list: toList,
-        platform_sharing: platformSharing,
+        platform_sharing: false,
         content,
         upload_files: attacheFiles,
       })

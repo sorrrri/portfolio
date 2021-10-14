@@ -3,7 +3,7 @@ import api from '../../../_api/backend/index';
 
 export default function DeviceListAPI(
   type: string,
-  searKeyPress: string,
+  searchKeyPress: string,
   page: any,
   keyUpReset: any
 ) {
@@ -13,17 +13,18 @@ export default function DeviceListAPI(
 
   useEffect(() => {
     setSearchDevices([]);
-  }, [searKeyPress, keyUpReset]);
+  }, [searchKeyPress, keyUpReset]);
 
   useEffect(() => {
     setLoading(true);
     fetchDevicesList();
-  }, [searKeyPress, page, keyUpReset]);
+  }, [searchKeyPress, page, keyUpReset]);
 
   // 장비 리스트 api 호출
   const fetchDevicesList = () => {
+    const requestType = searchKeyPress === '' ? '' : type;
     api
-      .getDevicesForList(type, searKeyPress, page, 10)
+      .getDevicesForList(requestType, searchKeyPress, page, 10)
       .then((payload: any) => {
         if (payload.response.results !== null) {
           const { code, response } = payload;
