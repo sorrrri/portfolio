@@ -99,6 +99,11 @@ export function DeviceList(props: any) {
     if (e.key === 'Enter') {
       setSearKeyPress(searchKeyword);
       setPage(1);
+      if (searchType === 'addr') {
+        setSerachType('addr');
+      } else if (searchType === 'name') {
+        setSerachType('name');
+      } else setSerachType('addr');
     }
   };
 
@@ -181,19 +186,17 @@ export function DeviceList(props: any) {
                 searchDevices.map((deviceList) =>
                   deviceList.results.map((device: any) => {
                     return (
-                      <div ref={lastElementRef} key={device.item_uuid}>
-                        <Row
-                          key={device.item_uuid}
-                          title={device.name}
-                          type={device.type_property}
-                          goDetail={() => onClickItem(device.item_uuid)}
-                        />
-                        <div />
-                      </div>
+                      <Row
+                        key={device.item_uuid}
+                        title={device.name}
+                        type={device.type_property}
+                        goDetail={() => onClickItem(device.item_uuid)}
+                      />
                     );
                   })
                 )}
             </section>
+            <div ref={lastElementRef} />
             {deviceListCheck ? <section className="no-result">검색 내역이 없습니다.</section> : ''}
           </>
         )}
