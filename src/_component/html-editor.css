@@ -1,7 +1,0 @@
-.dx-icon-bold::before {
-    content: "00" !important;
-}
-
-.dx-icon-italic::before {
-    content: "99" !important;
-}
