@@ -10,7 +10,8 @@ import { ModalDone } from '../../_component/modal-done';
 import { showHeader } from '../../_store/slice/header-option';
 import api from '../../_api/backend';
 import { ActiveScroll } from '../../_component/active-scroll';
-import { TextEditor } from '../../_component/text-editor';
+// import { TextEditor } from '../../_component/text-editor';
+import { TextEditor } from '../../_component/html-editor';
 
 export function WorkspaceAdd(props: any) {
   const dispatch = useDispatch();
@@ -122,11 +123,11 @@ export function WorkspaceAdd(props: any) {
     history.push('/workspace');
   };
 
-  // Text Editor
-  const onEditorStateChange = (editorState: any) => {
-    setEditorState(editorState);
-    setContent(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-  };
+  // // Text Editor
+  // const onEditorStateChange = (editorState: any) => {
+  //   setEditorState(editorState);
+  //   setContent(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+  // };
 
   return (
     <>
@@ -256,7 +257,8 @@ export function WorkspaceAdd(props: any) {
               </button>
             </div>
           </div> */}
-          <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
+          <TextEditor />
+          {/* <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} /> */}
           <div className="buttons attach">
             <button type="button">
               <input
