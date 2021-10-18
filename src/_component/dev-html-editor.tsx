@@ -11,7 +11,7 @@ export const DevHtmlEditor = (props: any) => {
         value={value}
         valueType="html"
         onValueChange={onValueChange}
-        placeholder="내용을 작성해주세요"
+        // placeholder="내용을 작성해주세요"
       >
         <Toolbar>
           <Item formatName="undo" />
