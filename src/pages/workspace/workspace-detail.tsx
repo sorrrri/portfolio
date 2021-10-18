@@ -4,8 +4,6 @@
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
-import { convertToRaw, EditorState } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
 import { showHeader } from '../../_store/slice/header-option';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
@@ -15,7 +13,7 @@ import api from '../../_api/backend';
 import { downloadFile } from '../../_util/file';
 import { ActiveScroll } from '../../_component/active-scroll';
 import { BottomStickyMenu } from '../../_layout/bottom-sticky-menu';
-import { TextEditor } from '../../_component/text-editor';
+import { DevHtmlEditor } from '../../_component/dev-html-editor';
 
 export function WorkspaceDetail(props: any) {
   const dispatch = useDispatch();
@@ -46,7 +44,6 @@ export function WorkspaceDetail(props: any) {
   const [state, setState] = useState<string>('WORK_REQUEST'); // 처리상태
   const [toList, setToList] = useState<any[]>([]); // 받는사람
   const [platformSharing, setPlatformSharing] = useState<Boolean>(true); // 플랫폼관리자 공개여부
-  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty()); // 작업내용에디터
   const [content, setContent] = useState<string>(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
   const [contentRender, setContentRender] = useState(Boolean); // 댓글 등록 랜더링
@@ -189,7 +186,6 @@ export function WorkspaceDetail(props: any) {
   const handleSubmitCancle = (e: any) => {
     e.preventDefault();
     setInputRecipient([]);
-    setEditorState(EditorState.createEmpty());
     setContent('');
     setAttacheFiles([]);
   };
@@ -197,7 +193,6 @@ export function WorkspaceDetail(props: any) {
   // 댓글 등록
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setEditorState(EditorState.createEmpty());
     setContent('');
     setInputRecipient([]);
     setAttacheFiles([]);
@@ -234,12 +229,6 @@ export function WorkspaceDetail(props: any) {
     }
     const fileBinary = await api.getFileDownload(commentId, file_uuid);
     downloadFile(fileBinary, file_type, file_name);
-  };
-
-  // Text Editor
-  const onEditorStateChange = (editor: any) => {
-    setEditorState(editor);
-    setContent(draftToHtml(convertToRaw(editor.getCurrentContent())));
   };
 
   const switchimportance = (value: any) => {
@@ -392,7 +381,7 @@ export function WorkspaceDetail(props: any) {
                 </button>
               </div>
             </div>
-            <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
+            <DevHtmlEditor value={content} onValueChange={(editor: any) => setContent(editor)} />
             <div className="comment-footer">
               <div className="buttons attach">
                 <button type="button">
