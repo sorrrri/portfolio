@@ -9,10 +9,10 @@ export const ActiveScroll = () => {
     console.log(main.scrollTop);
     if (main.scrollTop > 20) {
       console.log('add');
-      container.classList.add('scroll');
+      // container.classList.add('scroll');
     } else {
       console.log('remove');
-      container.classList.remove('scroll');
+      // container.classList.remove('scroll');
     }
   }
 };
