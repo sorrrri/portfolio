@@ -2,15 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
-import { convertToRaw, EditorState } from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
 import { showHeader } from '../../_store/slice/header-option';
 import { Modal } from '../../_component/modal-confirm';
 import { ModalDone } from '../../_component/modal-done';
 import { ModalSearch } from './components/modal-search';
 import api from '../../_api/backend';
 import { ActiveScroll } from '../../_component/active-scroll';
-import { TextEditor } from '../../_component/text-editor';
+import { DevHtmlEditor } from '../../_component/dev-html-editor';
 
 export function DeviceAdd(props: any) {
   const dispatch = useDispatch();
@@ -35,7 +33,6 @@ export function DeviceAdd(props: any) {
   const [detailType, setDetailType] = useState<string>('HARDWARE'); // 업무유형
   const [toList, setToList] = useState<any[]>([]); // 받는사람
   // const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
-  const [editorState, setEditorState] = useState(EditorState.createEmpty()); // 작업내용에디터
   const [content, setContent] = useState<string>(''); // 장애내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
 
@@ -131,12 +128,6 @@ export function DeviceAdd(props: any) {
     setIsOpen2(false);
     const { history } = props;
     history.push('/workspace');
-  };
-
-  // Text Editor
-  const onEditorStateChange = (editor: any) => {
-    setEditorState(editor);
-    setContent(draftToHtml(convertToRaw(editor.getCurrentContent())));
   };
 
   return (
@@ -287,7 +278,7 @@ export function DeviceAdd(props: any) {
               </button>
             </div>
           </div> */}
-          <TextEditor editorState={editorState} onEditorStateChange={onEditorStateChange} />
+          <DevHtmlEditor value={content} onValueChange={(editor: any) => setContent(editor)} />
           <div className="buttons attach">
             <button type="button">
               <input
