@@ -43,7 +43,7 @@ export function WorkspaceDetail(props: any) {
   // 댓글 등록 state
   const [state, setState] = useState<string>('WORK_REQUEST'); // 처리상태
   const [toList, setToList] = useState<any[]>([]); // 받는사람
-  const [platformSharing, setPlatformSharing] = useState<Boolean>(true); // 플랫폼관리자 공개여부
+  // const [platformSharing, setPlatformSharing] = useState<Boolean>(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState<string>(''); // 댓글내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
   const [contentRender, setContentRender] = useState(Boolean); // 댓글 등록 랜더링
@@ -137,9 +137,10 @@ export function WorkspaceDetail(props: any) {
 
   // 댓글 등록 빈 값 체크
   const showModal = () => {
-    if (toList.length === 0) {
-      setShowToList(true);
-    } else if (content === '') {
+    // if (toList.length === 0) {
+    //   setShowToList(true);
+    // } else
+    if (content === '') {
       setShowContent(true);
     } else {
       setIsOpen(true);
@@ -152,7 +153,7 @@ export function WorkspaceDetail(props: any) {
       .addComment(id, {
         state,
         to_list: toList,
-        platform_sharing: platformSharing,
+        platform_sharing: false,
         content,
         upload_files: attacheFiles,
       })
@@ -353,7 +354,7 @@ export function WorkspaceDetail(props: any) {
                 placeholder="받는사람 이름을 입력하세요."
               />
             </div>
-            <div className="input">
+            {/* <div className="input">
               <span>플랫폼관리자 공개여부</span>
               <div className="filters">
                 <button type="button">
@@ -380,7 +381,7 @@ export function WorkspaceDetail(props: any) {
                   </label>
                 </button>
               </div>
-            </div>
+            </div> */}
             <DevHtmlEditor value={content} onValueChange={(editor: any) => setContent(editor)} />
             <div className="comment-footer">
               <div className="buttons attach">
