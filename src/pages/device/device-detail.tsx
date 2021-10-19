@@ -15,8 +15,7 @@ const mapStyle = {
 };
 
 const markerIcon = {
-  content:
-    '<div style="cursor:pointer;width:40px;height:40px;font-size:10px;color:black;text-align:center;background:url(assets/images/marker.png);background-size:contain;"></div>',
+  content: '<div class="marker-circle bg-blue"><i class="fas fa-cctv"></i></div>',
   size: new naver.maps.Size(40, 40),
   anchor: new naver.maps.Point(20, 20),
 };
@@ -57,6 +56,21 @@ export function DeviceDetail(props: any) {
     });
   };
 
+  const getMarkerIcon = (type: string) => {
+    let className: string;
+    if (type && type.length > 0) {
+      className = type;
+    } else {
+      className = 'fas fa-cctv';
+    }
+
+    return {
+      content: `<div class="marker-circle bg-blue"><i class="${className}"></i></div>`,
+      size: new naver.maps.Size(30, 30),
+      anchor: new naver.maps.Point(15, 15),
+    };
+  };
+
   const initMap = () => {
     const map = new naver.maps.Map('map', {
       center: new naver.maps.LatLng(deviceDetail.latitude, deviceDetail.longitude),
@@ -64,10 +78,12 @@ export function DeviceDetail(props: any) {
       maxZoom: 15,
     });
 
+    console.log(deviceDetail.type_property_icon);
+
     const marker = new naver.maps.Marker({
       position: new naver.maps.LatLng(deviceDetail.latitude, deviceDetail.longitude),
       map: map,
-      icon: markerIcon,
+      // icon: getMarkerIcon(deviceDetail.type_property_icon),
     });
   };
 
