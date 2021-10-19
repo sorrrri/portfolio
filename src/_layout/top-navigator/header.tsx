@@ -33,6 +33,22 @@ export default function TopNavigatorHeader(props: RouteAndChildrenProps) {
       );
     }
 
+    if (leftContextType === 'workspace') {
+      return (
+        <button type="button" onClick={() => history.push('/workspace')}>
+          <i className="fad fa-arrow-left" />
+        </button>
+      );
+    }
+
+    if (leftContextType === 'device') {
+      return (
+        <button type="button" onClick={() => history.push('/device')}>
+          <i className="fad fa-arrow-left" />
+        </button>
+      );
+    }
+
     if (leftContextType === 'back') {
       return (
         <button type="button" onClick={() => history.goBack()}>

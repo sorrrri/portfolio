@@ -3,14 +3,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export type HeaderOption = {
   visible: boolean;
   title: string;
-  leftContextType: 'menu' | 'back' | 'none';
+  leftContextType: 'menu' | 'workspace' | 'device' | 'back' | 'none';
   rightContext: () => any;
   searchArea: boolean;
 };
 
 type ShowHeaderOption = {
   title: string;
-  leftContextType: 'menu' | 'back' | 'none';
+  leftContextType: 'menu' | 'workspace' | 'device' | 'back' | 'none';
   rightContext: () => any;
 };
 

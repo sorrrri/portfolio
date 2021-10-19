@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 export const BottomStickyMenu = (props: any) => {
   const history = useHistory();
-  const { toggle } = props;
+  const { toggle, btnSearch } = props;
 
   const [isToggleOn, setToggleOn] = useState(false);
   const toggleMenus = () => {
@@ -33,9 +33,25 @@ export const BottomStickyMenu = (props: any) => {
       <div className={`overlay ${isToggleOn ? 'active' : ''}`} onClick={() => setToggleOn(false)} />
       <div className="bottom-sticky-menu" style={showAlways}>
         <div className={`buttons ${isToggleOn ? 'active' : ''}`}>
-          <button className="btn-search tooltip" data-tooltip="검색" onClick={toggle} type="button">
-            <i className="fad fa-search" />
-          </button>
+          {btnSearch ? (
+            <button
+              className="btn-search tooltip"
+              data-tooltip="검색"
+              onClick={toggle}
+              type="button"
+            >
+              <i className="fad fa-search" />
+            </button>
+          ) : (
+            <button
+              style={{ display: 'none' }}
+              className="btn-search tooltip"
+              type="button"
+              data-tooltip="삭제"
+            >
+              {}
+            </button>
+          )}
           <button
             className="btn-top tooltip"
             data-tooltip="위로"

@@ -52,7 +52,7 @@ export function WorkspaceDetail(props: any) {
     dispatch(
       showHeader({
         title: `Workspace`,
-        leftContextType: 'back',
+        leftContextType: 'workspace',
         rightContext: () => null,
       })
     );
