@@ -17,7 +17,7 @@ export function WorkspaceList(props: any) {
   const [searKeyPress, setSearKeyPress] = useState<string>(''); // 일감 검색 state
   const [errorClear, setErrorClear] = useState<Boolean>(false); // 모달, errorClear prop
   const [keyUpReset, setKeyUpReset] = useState<Boolean>(false); // workspace-list-api Keypress Reset
-  const [keywordReset, setKeywordReset] = useState<Boolean>(false); // search-area Keyword Reset
+  const [keywordReset, setKeywordReset] = useState<Boolean>(false); // search-area Keyword Resetconst
 
   useEffect(() => {
     dispatch(
@@ -143,7 +143,7 @@ export function WorkspaceList(props: any) {
           </div>
         )}
       </main>
-      <BottomStickyMenu toggle={toggleSearchArea} />
+      <BottomStickyMenu toggle={toggleSearchArea} btnSearch={() => true} />
       <ModalDone show={pagingError} close={() => setErrorClear(true)}>
         일감 목록 확인 실패, 관리자에게 문의해주시기 바랍니다.
       </ModalDone>

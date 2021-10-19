@@ -37,7 +37,7 @@ export function WorkspaceAdd(props: any) {
     dispatch(
       showHeader({
         title: '업무 요청',
-        leftContextType: 'back',
+        leftContextType: 'workspace',
         rightContext: () => null,
       })
     );

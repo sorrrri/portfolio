@@ -30,7 +30,7 @@ export function DeviceDetail(props: any) {
     dispatch(
       showHeader({
         title: '장비 상세 정보',
-        leftContextType: 'back',
+        leftContextType: 'device',
         rightContext: () => null,
       })
     );

@@ -202,7 +202,7 @@ export function DeviceList(props: any) {
         )}
       </main>
       <ModalMarkers show={isOpen2} devices={selectedDevices} close={() => setIsOpen2(false)} />
-      <BottomStickyMenu toggle={toggleSearchArea} />
+      <BottomStickyMenu toggle={toggleSearchArea} btnSearch={() => true} />
     </>
   );
 }

@@ -40,7 +40,7 @@ export function DeviceAdd(props: any) {
     dispatch(
       showHeader({
         title: '장애 접수',
-        leftContextType: 'back',
+        leftContextType: 'workspace',
         rightContext: () => null,
       })
     );
