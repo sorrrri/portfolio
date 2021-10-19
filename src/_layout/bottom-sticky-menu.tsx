@@ -43,7 +43,12 @@ export const BottomStickyMenu = (props: any) => {
               <i className="fad fa-search" />
             </button>
           ) : (
-            <button className="btn-search tooltip" type="button" data-tooltip="삭제">
+            <button
+              style={{ display: 'none' }}
+              className="btn-search tooltip"
+              type="button"
+              data-tooltip="삭제"
+            >
               {}
             </button>
           )}
