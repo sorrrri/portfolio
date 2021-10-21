@@ -88,13 +88,10 @@
 <div class="search-area">
   <div class="input">
     <input type="search" placeholder="작업명, 작성자를 입력하세요." />
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
-      <title>ionicons-v5-f</title>
-      <path d="M221.09,64A157.09,157.09,0,1,0,378.18,221.09,157.1,157.1,0,0,0,221.09,64Z"
-        style="fill:none;stroke:white;stroke-miterlimit:10;stroke-width:32px" />
-      <line x1="338.29" y1="338.29" x2="448" y2="448"
-        style="fill:none;stroke:white;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px" />
-    </svg>
+    <i class="fad fa-search"></i>
+    <button class="btn-close">
+      <i class="fad fa-times"></i>
+    </button>
   </div>
   <div class="filters filters-workspace">
     <button type="button" type="button">
@@ -373,16 +370,16 @@
 
     <div class="bottom-sticky-menu">
       <div class="buttons">
-        <button class="btn-search" type="button">
+        <button class="btn-search tooltip" data-tooltip="검색" type="button">
           <i class="fad fa-search"></i>
         </button>
-        <button class="btn-top" type="button">
+        <button class="btn-top tooltip" data-tooltip="위로" type="button">
           <i class="fad fa-arrow-up"></i>
         </button>
-        <button class="btn-workspace" onclick="location.href='workspace_add.html'" type="button">
+        <button class="btn-workspace tooltip" data-tooltip="업무요청" onclick="location.href='workspace_add.html'" type="button">
           <i class="fad fa-briefcase"></i>
         </button>
-        <button class="btn-undertake" onclick="location.href='equipment_add.html'" type="button">
+        <button class="btn-undertake tooltip" data-tooltip="장애접수" onclick="location.href='equipment_add.html'" type="button">
           <i class="fad fa-tools"></i>
         </button>
       </div>

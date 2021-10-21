@@ -244,6 +244,11 @@ document.addEventListener("DOMContentLoaded", () => {
         searchArea.classList.toggle("active");
       });
     });
+
+    const close = searchArea.querySelector(".btn-close");
+    close.addEventListener("click", () => {
+      searchArea.classList.remove("active");
+    });
   }
 
   if (workspaceList) {
@@ -378,14 +383,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = document.querySelectorAll(".images");
   const modalImage = document.querySelector(".modal-image");
   if (images) {
-  
     // const modalImage = document.createElement("div")
     // modalImage.classList.add("modal", "modal-image")
     // container.append(modalImage)
 
     images.forEach((image) => {
-      const downloadImage = modalImage.querySelector(".download");
-      const closeImage = modalImage.querySelector(".btn-close");
       image.addEventListener("click", (e) => {
         e.preventDefault();
         const imagePath = e.target.src;
