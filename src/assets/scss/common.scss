@@ -1028,7 +1028,7 @@ input[type="radio"] + label:empty:before {
   }
 
   .row {
-    padding: 0;
+    padding: 0 !important;
   }
 
   .modal-content {

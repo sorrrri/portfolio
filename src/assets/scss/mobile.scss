@@ -135,6 +135,14 @@
         }
       }
     }
+
+    &.modal-order-list {
+      .table {
+        .row {
+          padding: .75rem !important
+        }
+      }
+    }
   }
 
   .table {

@@ -295,6 +295,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const modalOrderlist = document.querySelector(".modal-order-list");
+
+  if (modalOrderlist) {
+    const row = document.querySelector(".list-user-statistics .table");
+
+    row.addEventListener("click", () => {
+      modalOrderlist.classList.add("active");
+      visibleOverlay();
+    });
+  }
+
   const chooseBooks = document.querySelector(".choose-books");
 
   if (chooseBooks) {
