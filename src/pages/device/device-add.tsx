@@ -295,7 +295,10 @@ export function DeviceAdd(props: any) {
           {attacheFiles.map((item, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <ul key={index} className="files-name">
-              <li>{item.name}</li>
+              <li>
+                <span>{item.name}</span>
+                <i className="fad fa-times-square" />
+              </li>
             </ul>
           ))}
         </div>
