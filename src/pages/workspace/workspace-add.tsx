@@ -275,10 +275,12 @@ export function WorkspaceAdd(props: any) {
             </button>
           </div>
           {attacheFiles.map((item) => (
-            <ul key={item.name.toString()} className="files-name">
+            <ul key={item.name} className="files-name">
               <li>
                 <span>{item.name}</span>
-                <i className="fad fa-times-square" />
+                <button type="button" onClick={() => handleFileDelete(item.name)}>
+                  <i className="fad fa-times-square" />
+                </button>
               </li>
             </ul>
           ))}

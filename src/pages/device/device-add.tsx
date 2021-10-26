@@ -130,6 +130,19 @@ export function DeviceAdd(props: any) {
     history.push('/workspace');
   };
 
+  // 다중 파일첨부
+  const handleFileUpload = (e: any) => {
+    setAttacheFiles((prev: any) => {
+      return [...prev, ...Array.from(e.target.files)];
+    });
+  };
+
+  // 파일첨부 삭제
+  const handleFileDelete = (deleteName: any) => {
+    const filterFileName = attacheFiles.filter((file: any) => file.name !== deleteName);
+    setAttacheFiles(filterFileName);
+  };
+
   return (
     <>
       <main className="content details add" onScroll={ActiveScroll}>
@@ -284,20 +297,21 @@ export function DeviceAdd(props: any) {
               <input
                 type="file"
                 id="input-attach"
-                multiple
-                onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+                // multiple
+                onChange={handleFileUpload}
               />
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
               </label>
             </button>
           </div>
-          {attacheFiles.map((item, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <ul key={index} className="files-name">
+          {attacheFiles.map((item) => (
+            <ul key={item.name} className="files-name">
               <li>
                 <span>{item.name}</span>
-                <i className="fad fa-times-square" />
+                <button type="button" onClick={() => handleFileDelete(item.name)}>
+                  <i className="fad fa-times-square" />
+                </button>
               </li>
             </ul>
           ))}
