@@ -377,13 +377,14 @@ document.addEventListener("DOMContentLoaded", function () {
        ===================================================== */
   const main = document.querySelector(".main");
   const sections = document.querySelectorAll("section");
-  const customers = document.querySelector("#customers")
   const footer = document.querySelector("footer");
 
   if (main) {
     document.addEventListener("scroll", () => {
+
+      let currentScrollTop = document.documentElement.scrollTop; // 현재 스크롤바 위치
       sections.forEach((section) => {
-        if (document.documentElement.scrollTop >= section.offsetTop - 800) {
+        if (currentScrollTop >= section.offsetTop - 800) {
           section.style.opacity = "1";
           section.classList.add("active");
         }
@@ -394,16 +395,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       
-      let scrollLocation = document.documentElement.scrollTop; // 현재 스크롤바 위치
       let windowHeight = window.innerHeight; // 스크린 창
       let fullHeight = document.body.scrollHeight; //  margin 값은 포함 x
 
       if (matchMedia("(min-width: 768px)").matches) {
-        if (scrollLocation + windowHeight >= fullHeight - 100) {
+        if (currentScrollTop + windowHeight >= fullHeight - 100) {
           let footer = document.querySelector("footer");
           footer.style.opacity = "1";
         }
       }
+
     });
 
     sections.forEach((section) => {
