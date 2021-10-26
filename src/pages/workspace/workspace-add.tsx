@@ -119,6 +119,19 @@ export function WorkspaceAdd(props: any) {
     history.push('/workspace');
   };
 
+  // 다중 파일첨부
+  const handleFileUpload = (e: any) => {
+    setAttacheFiles((prev: any) => {
+      return [...prev, ...Array.from(e.target.files)];
+    });
+  };
+
+  // 파일첨부 삭제
+  const handleFileDelete = (deleteName: any) => {
+    const filterFileName = attacheFiles.filter((file: any) => file.name !== deleteName);
+    setAttacheFiles(filterFileName);
+  };
+
   return (
     <>
       <main className="content details add workspace" onScroll={ActiveScroll}>
@@ -253,8 +266,8 @@ export function WorkspaceAdd(props: any) {
               <input
                 type="file"
                 id="input-attach"
-                multiple
-                onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
+                // multiple
+                onChange={handleFileUpload}
               />
               <label htmlFor="input-attach">
                 <i className="fad fa-cloud-upload" />
