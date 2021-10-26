@@ -276,7 +276,10 @@ export function WorkspaceAdd(props: any) {
           </div>
           {attacheFiles.map((item) => (
             <ul key={item.name.toString()} className="files-name">
-              <li>{item.name}</li>
+              <li>
+                <span>{item.name}</span>
+                <i className="fad fa-times-square" />
+              </li>
             </ul>
           ))}
         </div>
