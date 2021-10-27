@@ -2057,6 +2057,12 @@ main {
     width: 100%;
     font-size: 12px;
     color: slategray;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
   }
 
   input[type="radio"]:checked + label {
