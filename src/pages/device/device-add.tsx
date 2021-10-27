@@ -298,6 +298,7 @@ export function DeviceAdd(props: any) {
                 type="file"
                 id="input-attach"
                 // multiple
+                accept=".png, .jpg, .git, .jpeg, .pdf, .xlsx, .doc, .hwp"
                 onChange={handleFileUpload}
               />
               <label htmlFor="input-attach">
@@ -306,7 +307,7 @@ export function DeviceAdd(props: any) {
             </button>
           </div>
           {attacheFiles.map((item) => (
-            <ul key={item.name} className="files-name">
+            <ul key={item.lastModified} className="files-name">
               <li>
                 <span>{item.name}</span>
                 <button type="button" onClick={() => handleFileDelete(item.name)}>

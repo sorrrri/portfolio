@@ -32,6 +32,7 @@ export function WorkspaceAdd(props: any) {
   // const [platformSharing, setPlatformSharing] = useState(true); // 플랫폼관리자 공개여부
   const [content, setContent] = useState<string>(''); // 작업내용
   const [attacheFiles, setAttacheFiles] = useState<File[]>([]); // 파일첨부
+  const [fileSizeSum, setFileSizeSum] = useState<number>(0); // 파일첨부 최대 용량
 
   useEffect(() => {
     dispatch(
@@ -119,17 +120,57 @@ export function WorkspaceAdd(props: any) {
     history.push('/workspace');
   };
 
-  // 다중 파일첨부
+  // 파일첨부 초기 선언
+  const maxSize = 1024 * 1024 * 34;
+  const fileExcessSume = (fileSizeSum / (1024 * 1024)).toFixed(2);
+  const maxLimit = maxSize / (1024 * 1024);
+
+  const [showFileSizeCheck, setShowFileSizeCheck] = useState<Boolean>(false);
+  const [fileSizeCheckMemo, setFileSizeCheckMemo] = useState<String>('');
+  const [showFileSizeSumCheck, setShowFileSizeSumCheck] = useState<Boolean>(false);
+  const [fileSizeSumCheckMemo, setFileSizeSumCheckMemo] = useState<String>('');
+
+  // 파일첨부 여러개
   const handleFileUpload = (e: any) => {
-    setAttacheFiles((prev: any) => {
-      return [...prev, ...Array.from(e.target.files)];
-    });
+    if (e.target.files.length !== 0) {
+      const fileSize = e.target.files[0].size;
+      const fileExcess = (fileSize / (1024 * 1024)).toFixed(2);
+      if (fileSize > maxSize) {
+        setShowFileSizeCheck(true);
+        setFileSizeCheckMemo(
+          `"${e.target.files[0].name}" 용량이 34MB를 초과했습니다. ${fileExcess}MB / ${maxLimit}MB`
+        );
+        // alert(
+        //   `[ ${e.target.files[0].name} ] 용량이 34MB를 초과했습니다. \n${fileExcess}MB / ${maxLimit}MB`
+        // );
+      } else {
+        setFileSizeSum(fileSizeSum + e.target.files[0].size);
+        setAttacheFiles((prev: any) => {
+          return [...prev, ...Array.from(e.target.files)];
+        });
+      }
+    }
   };
 
+  // 파일첨부 최대 용량 초과 체크
+  useEffect(() => {
+    if (fileSizeSum > maxSize) {
+      setShowFileSizeSumCheck(true);
+      setFileSizeSumCheckMemo(
+        `최대 용량 34MB를 초과 했습니다. \n ${fileExcessSume}MB / ${maxLimit}MB`
+      );
+      // alert(`최대 용량 34MB를 초과 했습니다. \n ${fileExcessSume}MB / ${maxLimit}MB`);
+      const count = attacheFiles.length - 1;
+      handleFileDelete(attacheFiles[count].lastModified);
+    }
+  }, [fileSizeSum]);
+
   // 파일첨부 삭제
-  const handleFileDelete = (deleteName: any) => {
-    const filterFileName = attacheFiles.filter((file: any) => file.name !== deleteName);
-    setAttacheFiles(filterFileName);
+  const handleFileDelete = (deleteID: any) => {
+    const filterFile = attacheFiles.filter((file: any) => file.lastModified !== deleteID);
+    setAttacheFiles(filterFile);
+    const size = filterFile.map((file: any) => file.size);
+    setFileSizeSum(size[0] !== undefined ? size[0] : 0);
   };
 
   return (
@@ -267,6 +308,7 @@ export function WorkspaceAdd(props: any) {
                 type="file"
                 id="input-attach"
                 // multiple
+                // accept=".png, .jpg, .git, .jpeg, .pdf, .xlsx, .doc, .hwp"
                 onChange={handleFileUpload}
               />
               <label htmlFor="input-attach">
@@ -275,10 +317,10 @@ export function WorkspaceAdd(props: any) {
             </button>
           </div>
           {attacheFiles.map((item) => (
-            <ul key={item.name} className="files-name">
+            <ul key={item.lastModified} className="files-name">
               <li>
                 <span>{item.name}</span>
-                <button type="button" onClick={() => handleFileDelete(item.name)}>
+                <button type="button" onClick={() => handleFileDelete(item.lastModified)}>
                   <i className="fad fa-times-square" />
                 </button>
               </li>
@@ -309,6 +351,16 @@ export function WorkspaceAdd(props: any) {
       {showCatch && (
         <ModalDone show={showCatch} close={() => setShowCatch(false)}>
           업무 요청 등록 실패, 관리자에게 문의해주시기 바랍니다.
+        </ModalDone>
+      )}
+      {showFileSizeCheck && (
+        <ModalDone show={showFileSizeCheck} close={() => setShowFileSizeCheck(false)}>
+          {fileSizeCheckMemo}
+        </ModalDone>
+      )}
+      {showFileSizeSumCheck && (
+        <ModalDone show={showFileSizeSumCheck} close={() => setShowFileSizeSumCheck(false)}>
+          {fileSizeSumCheckMemo}
         </ModalDone>
       )}
       {isOpen && (

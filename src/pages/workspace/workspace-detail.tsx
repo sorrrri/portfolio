@@ -392,6 +392,7 @@ export function WorkspaceDetail(props: any) {
                   <input
                     type="file"
                     id="input-attach"
+                    accept=".png, .jpg, .git, .jpeg, .pdf, .xlsx, .doc, .hwp"
                     multiple
                     onChange={(e: any) => setAttacheFiles(Array.from(e.target.files))}
                   />
