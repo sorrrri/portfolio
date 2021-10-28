@@ -1020,6 +1020,18 @@
       }
     }
 
+    .memo {
+      margin: 0;
+      max-width: none;
+      flex-wrap: wrap;
+
+      &::before {
+        margin: 0 0 0.5rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
     .dashboard {
       padding: 1rem;
       overflow-y: auto;
