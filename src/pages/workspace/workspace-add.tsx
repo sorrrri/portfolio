@@ -138,7 +138,8 @@ export function WorkspaceAdd(props: any) {
       if (fileSize > maxSize) {
         setShowFileSizeCheck(true);
         setFileSizeCheckMemo(
-          `"${e.target.files[0].name}" 용량이 34MB를 초과했습니다. ${fileExcess}MB / ${maxLimit}MB`
+          `"${e.target.files[0].name}" 용량이 34MB를 초과했습니다.
+${fileExcess}MB / ${maxLimit}MB`
         );
         // alert(
         //   `[ ${e.target.files[0].name} ] 용량이 34MB를 초과했습니다. \n${fileExcess}MB / ${maxLimit}MB`
@@ -157,7 +158,8 @@ export function WorkspaceAdd(props: any) {
     if (fileSizeSum > maxSize) {
       setShowFileSizeSumCheck(true);
       setFileSizeSumCheckMemo(
-        `최대 용량 34MB를 초과 했습니다. \n ${fileExcessSume}MB / ${maxLimit}MB`
+        `최대 용량 34MB를 초과 했습니다.
+${fileExcessSume}MB / ${maxLimit}MB`
       );
       // alert(`최대 용량 34MB를 초과 했습니다. \n ${fileExcessSume}MB / ${maxLimit}MB`);
       const count = attacheFiles.length - 1;
