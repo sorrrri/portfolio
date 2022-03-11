@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block content %}
+<main class="sub wrapper board-add">
+  <aside>
+    <h3>고객센터</h3>
+    <a href="notice.html">공지사항</a>
+    <a href="errata.html">정오표</a>
+    <a href="downloads.html">자료실</a>
+    <a href="books_all.html">도서목록 전체보기</a>
+    <div>
+      <h4>정보안내</h4>
+      <a href="bookstore.html">서점안내</a>
+      <a href="academy.html">교육기관 안내</a>
+      <a href="returns.html">반품/교환안내</a>
+    </div>
+    <div>
+      <h4>요청하기</h4>
+      <a href="qna.html">질의응답</a>
+      <a class="link-to-publish" href="publish.html">출판문의</a>
+      <a class="link-to-group-buying" href="publish.html">공동구매</a>
+    </div>
+  </aside>
+  <div class="content">
+    <div class="breadscrumb">
+      <a href="#">Home</a>
+      <a href="#">고객센터</a>
+      <a href="#">질의응답</a>
+    </div>
+    <div class="title">
+      <h2>질의응답</h2>
+      <p>
+        도서출판 구민사에 궁금하신 점이나 제안사항을 적어주세요. 빠른 답변으로
+        보답하겠습니다.
+      </p>
+    </div>
+    <ul class="inputs">
+      <li>
+        <span>제목</span>
+        <input class="full" type="text" />
+      </li>
+      <li>
+        <span>작성자</span>
+        <input type="text" value="username" readonly="readonly" />
+      </li>
+      <li>
+        <span>첨부파일</span>
+        <div class="input-file-container">
+          <input class="input-file" id="file01" type="file" />
+          <label tabindex="0" for="file01" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+      </li>
+      <li>
+        <textarea name="" id="" rows="20"></textarea>
+      </li>
+    </ul>
+    <div class="buttons">
+      <button class="btn-sub" type="button">취소</button>
+      <button class="btn-main" type="button">등록하기</button>
+    </div>
+  </div>
+</main>
+{% endblock %}

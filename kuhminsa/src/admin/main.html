@@ -1,0 +1,245 @@
+{% extends "base_admin.html" %} {% block content %}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', { packages: ['corechart', 'annotationchart', 'table'] });
+  google.charts.setOnLoadCallback(drawPieChart);
+  google.charts.setOnLoadCallback(drawColumnChart);
+
+  function drawPieChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['도서명', '판매율'],
+      ['2021 산업안전산업기사 실기+무료동영상+핸드북', 30],
+      ['2021 드론 교관 과정', 10],
+      ['2021 대기환경기사 산업기사 실기', 10],
+      ['2021 산업안전기사 실기+무료동영상+핸드북', 10],
+      ['2021 공조냉동기계기능사 산업기사 실전실기 + 전과목 무료동영상', 10],
+    ]);
+
+    var options = {
+      backgroundColor: "transparent",
+      colors: ['#40419c', '#F46F66', '#15988f', '#a6b0ef', '#edb374', '#1DD993', '#9690ab', '#ccbab7'],
+      title: '최근 2주간 도서별 판매통계',
+      legend: "none",
+      pieHole: .5,
+      animation: {
+        duration: 1000,
+        easing: 'out',
+        startup: true
+      },
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+
+
+
+    var table = new google.visualization.Table(document.getElementById('table_div'));
+
+    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
+  }
+
+
+  function drawColumnChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('date', '최근 일주일');
+    data.addColumn('number', '판매금액');
+
+    data.addRows([
+      [new Date(2021, 5, 1), 28500],
+      [new Date(2021, 5, 2), 0],
+      [new Date(2021, 5, 3), 0],
+      [new Date(2021, 5, 4), 30500],
+      [new Date(2021, 5, 5), 0],
+      [new Date(2021, 5, 6), 34500],
+      [new Date(2021, 5, 7), 0],
+    ]);
+
+    var options = {
+      backgroundColor: "transparent",
+      colors: ["#40419c"],
+      title: '최근 1주일 판매금액',
+      legend: "none",
+      hAxis: {
+        gridlines: {
+          units: {
+            days: { format: ['MM/dd'] },
+          },
+        },
+      },
+      bar: {
+        groupWidth: "50%"
+      },
+      chartArea: {
+        width: "85%"
+      },
+      animation: {
+        duration: 1000,
+        easing: 'out',
+        startup: true
+      },
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+    chart.draw(data, options);
+  }
+</script>
+<main class="dashboard wrapper">
+  <section class="streaming">
+    <ul>
+      <li>
+        <span>일반가입자</span>
+        <span>1</span>
+      </li>
+      <li>
+        <span>교수가입자</span>
+        <span></span>
+      </li>
+      <li>
+        <span>교수 승인 대기</span>
+        <span></span>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <span>견본요청</span>
+        <span></span>
+      </li>
+      <li>
+        <span>출판문의</span>
+        <span></span>
+      </li>
+      <li>
+        <span>질의응답</span>
+        <span>1</span>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <span>주문현황</span>
+        <span></span>
+      </li>
+      <li>
+        <span>입금대기</span>
+        <span></span>
+      </li>
+      <li>
+        <span>출고완료</span>
+        <span></span>
+      </li>
+    </ul>
+  </section>
+  <section class="boards">
+    <div>
+      <h3>주문처리</h3>
+      <ul>
+        <li>
+          <span>입금대기</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>입금확인중</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>입금완료</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>결제완료</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>출고준비</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>출고완료</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>환불</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>주문취소</span>
+          <span>0</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>게시글 현황<small>(최근 100일)</small></h3>
+      <ul>
+        <li>
+          <span>공지사항</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>정오표</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>강의자료실</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>일반자료실</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>견본도서요청</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>출판문의</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>질의응답</span>
+          <span>0</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>상품 현황</h3>
+      <ul>
+        <li>
+          <span>메인도서</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>BEST도서</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>신간도서</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>서브추천도서</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>상품 디스플레이</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>출판문의</span>
+          <span>0</span>
+        </li>
+        <li>
+          <span>질의응답</span>
+          <span>0</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="charts">
+    <div id="piechart"></div>
+    <div id="table_div"></div>
+    <div id="chart_div"></div>
+  </section>
+</main>
+{% endblock %}

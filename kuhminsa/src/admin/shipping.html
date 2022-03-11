@@ -1,0 +1,26 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="shipping wrapper">
+  <div class="title">
+    <h1>배송정보 관리</h1>
+    <div class="buttons">
+      <button>저장</button>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="inputs">
+      <li class="price">
+        <span>기본 배송료</span>
+        <input type="number" value="2500" />
+      </li>
+      <li class="price">
+        <span>기준 금액</span>
+        <input type="number" value="50000" />
+      </li>
+      <li class="price">
+        <span>기준 금액 초과시 배송금액</span>
+        <input type="number" value="0" />
+      </li>
+    </ul>
+  </div>
+</main>
+{% endblock %}

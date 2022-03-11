@@ -1,0 +1,98 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="list images-bookstore wrapper">
+  <div class="title">
+    <h1>서점 로고 관리</h1>
+    <div class="buttons">
+      <button onclick="location.href='images_add.html'">등록하기</button>
+    </div>
+  </div>
+  <div class="content">
+    <section>
+      <div class="table">
+        <ul class="row title">
+          <li class="check">
+            <div class="checkbox">
+              <input id="checkAll" type="checkbox" />
+              <label for="checkAll"></label>
+            </div>
+          </li>
+          <li class="counter">순서</li>
+          <li class="flex-10">이미지</li>
+          <li class="flex-20">URL</li>
+        </ul>
+        <ul class="row">
+          <li class="check">
+            <div class="checkbox">
+              <input id="check01" type="checkbox" name="books" />
+              <label for="check01"></label>
+            </div>
+          </li>
+          <li class="counter">0</li>
+          <li class="flex-10"><img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지"></li>
+          <li class="flex-20">http://www.kyobobook.co.kr</li>
+        </ul>
+        <ul class="row">
+          <li class="check">
+            <div class="checkbox">
+              <input id="check01" type="checkbox" name="books" />
+              <label for="check01"></label>
+            </div>
+          </li>
+          <li class="counter">0</li>
+          <li class="flex-10"><img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지"></li>
+          <li class="flex-20">http://www.kyobobook.co.kr</li>
+        </ul>
+        <ul class="row">
+          <li class="check">
+            <div class="checkbox">
+              <input id="check01" type="checkbox" name="books" />
+              <label for="check01"></label>
+            </div>
+          </li>
+          <li class="counter">0</li>
+          <li class="flex-10"><img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지"></li>
+          <li class="flex-20">http://www.kyobobook.co.kr</li>
+        </ul>
+        <ul class="row">
+          <li class="check">
+            <div class="checkbox">
+              <input id="check01" type="checkbox" name="books" />
+              <label for="check01"></label>
+            </div>
+          </li>
+          <li class="counter">0</li>
+          <li class="flex-10"><img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지"></li>
+          <li class="flex-20">http://www.kyobobook.co.kr</li>
+        </ul>
+        <ul class="row">
+          <li class="check">
+            <div class="checkbox">
+              <input id="check01" type="checkbox" name="books" />
+              <label for="check01"></label>
+            </div>
+          </li>
+          <li class="counter">0</li>
+          <li class="flex-10"><img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지"></li>
+          <li class="flex-20">http://www.kyobobook.co.kr</li>
+        </ul>
+        <ul class="row">
+          <li class="check">
+            <div class="checkbox">
+              <input id="check01" type="checkbox" name="books" />
+              <label for="check01"></label>
+            </div>
+          </li>
+          <li class="counter">0</li>
+          <li class="flex-10"><img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지"></li>
+          <li class="flex-20">http://www.kyobobook.co.kr</li>
+        </ul>
+      </div>
+      <div class="table-footer">
+        <div class="buttons">
+          <button>삭제</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}

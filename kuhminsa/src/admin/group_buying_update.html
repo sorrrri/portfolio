@@ -1,0 +1,72 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="group-buying-update wrapper">
+  <div class="title">
+    <h1>공동구매 상세수정</h1>
+    <div class="buttons">
+      <button class="btn-sub">삭제</button>
+      <button>수정</button>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="inputs">
+      <li class="order-code input">
+        <span>주문번호</span>
+        <input type="number" value="H20160822093653" readonly="readonly" />
+      </li>
+      <li class="isbn input">
+        <span>ISBN</span>
+        <input type="text" value="979-11-5813-782-3" readonly="readonly" />
+      </li>
+      <li class="book-title">
+        <span>도서명</span>
+        <input type="text" class="full" value="2021 수질환경기사 산업기사 실기" readonly="readonly" />
+      </li>
+      <li class="input">
+        <span>상태</span>
+        <div class="selectbox">
+          <select name="" id="">
+            <option value="">견적요청</option>
+            <option value="">결제완료</option>
+            <option value="">출고준비</option>
+            <option value="">출고완료</option>
+          </select>
+        </div>
+      </li>
+      <li class="day">
+        <span>견적유효일</span>
+        <input type="number" value="3" />
+      </li>
+      <li class="input">
+        <span>승인완료일</span>
+        <input value="2016-08-22 09:37:40" readonly="readonly" />
+      </li>
+      <li class="price">
+        <span>정가</span>
+        <input type="number" value="30000" readonly="readonly" />
+      </li>
+      <li class="price">
+        <span>권당 할인율</span>
+        <input type="number" />
+        <button>계산</button>
+      </li>
+      <li class="price">
+        <span>권당 예상금액</span>
+        <input type="number" value="29700" />
+      </li>
+      <li class="price">
+        <span>권당 최종금액</span>
+        <input type="number" value="29700" />
+        <button>계산</button>
+      </li>
+      <li class="quantity">
+        <span>주문수량</span>
+        <input type="number" value="35" readonly="readonly" />
+      </li>
+      <li class="price">
+        <span>최종금액</span>
+        <input type="number" value="1085000" />
+      </li>
+    </ul>
+  </div>
+</main>
+{% endblock %}

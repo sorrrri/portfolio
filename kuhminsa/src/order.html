@@ -1,0 +1,313 @@
+{% extends "base.html" %} {% block content %}
+<main class="sub order wrapper">
+  <div class="content">
+    <div class="breadscrumb">
+      <a href="#">Home</a>
+      <a href="#">구매정보</a>
+      <a href="#">주문하기</a>
+    </div>
+    <div class="title">
+      <h2>주문하기</h2>
+      <p>주문하신 분의 정보와 배송받으실 곳의 정보를 입력해주시기 바랍니다.</p>
+    </div>
+    <div class="flex-container">
+      <div class="order-information">
+        <section class="list">
+          <div class="table">
+            <!-- <ul class="row title">
+              <li>사진</li>
+              <li>도서명</li>
+              <li>단가</li>
+              <li>수량</li>
+              <li>결제금액</li>
+            </ul> -->
+            <ul class="row">
+              <li class="thumbnail"><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+              <li class="book-title">뷰티 트렌드</li>
+              <li class="quantity">1</li>
+              <li class="price">16,000</li>
+            </ul>
+            <ul class="row">
+              <li class="thumbnail"><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+              <li class="book-title">뷰티 트렌드</li>
+              <li class="quantity">1</li>
+              <li class="price">16,000</li>
+            </ul>
+            <ul class="row">
+              <li class="thumbnail"><img src="assets/images/thumbnails/01.jpg" alt="" /></li>
+              <li class="book-title">뷰티 트렌드</li>
+              <li class="quantity">1</li>
+              <li class="price">16,000</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3>주문하신 분 정보확인</h3>
+          <ul class="inputs">
+            <li>
+              <span class="required">구매자명</span>
+              <input type="text" value="홍길동" />
+            </li>
+            <li>
+              <span class="required">이메일</span>
+              <input type="email" value="hong@naver.com" />
+            </li>
+            <li class="phone">
+              <span class="required">전화번호</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li class="phone">
+              <span class="required">휴대폰</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li>
+              <span class="required">주소</span>
+              <input type="text" />
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>받으시는 분 정보확인</h3>
+          <div class="checkbox">
+            <input id="ch" type="checkbox" />
+            <label for="ch">구매자 정보와 일치하면 체크하세요.</label>
+          </div>
+          <ul class="inputs">
+            <li>
+              <span class="required">받으시는 분</span>
+              <input type="text" value="홍길동" />
+            </li>
+            <li>
+              <span class="required">이메일</span>
+              <input type="email" value="hong@naver.com" />
+            </li>
+            <li class="phone">
+              <span class="required">전화번호</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li class="phone">
+              <span class="required">휴대폰</span>
+              <div>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+                <span>-</span>
+                <input type="number" />
+              </div>
+            </li>
+            <li class="address">
+              <span class="required">주소</span>
+              <input type="text" />
+            </li>
+            <li>
+              <span class="required">요청사항</span>
+              <input type="text" />
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="order-container">
+        <h3>전체상품: 3개</h3>
+        <ul class="total">
+          <li>
+            <span>주문금액</span>
+            <span class="price">48,000</span>
+          </li>
+          <li>
+            <span>배송비</span>
+            <span class="price">+ 2500</span>
+          </li>
+          <li>
+            <span>결제예정금액</span>
+            <span class="price">50,500</span>
+          </li>
+        </ul>
+        <ul class="bank">
+          <li>
+            <span class="required">결제방법</span>
+            <input id="a" type="radio" checked="checked" />
+            <label for="a">무통장 결제</label>
+          </li>
+          <li>
+            <span>입금예정일</span>
+            <div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="2021">2021</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="06">06</option>
+                </select>
+              </div>
+              <div class="selectbox">
+                <select name="" id="">
+                  <option value="01">01</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span>입금자명</span>
+            <input type="text" value="홍길동" />
+          </li>
+          <li>
+            <strong>계좌번호: 국민은행 054901-04-133407 (조규백)</strong>
+          </li>
+        </ul>
+        <div class="buttons">
+          <button class="btn-main" onclick="location.href='order.html'">
+            주문완료
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal modal-address">
+  <header>
+    <div class="title">
+      <h3>주소 찾기</h3>
+      <svg class="close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 18 18">
+        <path
+          d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+      </svg>
+    </div>
+    <section>
+      <p>검색어(도로명,건물명,지번)를 입력해주세요(지번+도로명 통합 검색)</p>
+    </section>
+    <section class="search">
+      <input type="text" placeholder='예) "서소문로 26" 또는 "중림동 157-2' />
+      <button>검색</button>
+    </section>
+  </header>
+  <div class="modal-content">
+    <section class="address-results">
+      <div class="table">
+        <ul class="row title">
+          <li>우편번호</li>
+          <li>주소</li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+        <ul class="row">
+          <li>04504</li>
+          <li>
+            <div>서울특별시 중구 서소문로 26 (중림동)</div>
+            <div>서울특별시 중구 중림동 157-2</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

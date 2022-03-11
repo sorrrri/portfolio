@@ -1,0 +1,43 @@
+{% extends "base_admin.html" %} {% block content %}
+<main class="images wrapper">
+  <div class="title">
+    <h1>배너 수정하기</h1>
+    <div class="buttons">
+      <button>수정</button>
+    </div>
+  </div>
+  <div class="content">
+    <ul class="inputs">
+      <li class="input">
+        <span class="required">정렬 순서</span>
+        <input type="number" value="0" />
+      </li>
+      <li class="input">
+        <span class="required">현재 배너 이미지</span>
+        <span>
+          <img src="../assets/images/logo/kyobo.gif" alt="교보문고 로고 이미지">
+        </span>
+      </li>
+      <li>
+        <span class="required">수정할 배너 이미지</span>        
+        <div class="input-file-container">
+          <input class="input-file" id="file02" type="file" />
+          <label tabindex="0" for="file02" class="input-file-trigger">파일 선택</label>
+        </div>
+        <small class="file-return"></small>
+        <small>※ 사이즈: 125x40 (픽셀)</small>
+      </li>
+      <li>
+        <span>연결 URL</span>
+        <input class="full" type="url" value="http://www.kyobobook.co.kr" />
+        <small>※ 대학교재 배너일 경우에는 입력하지 않으셔도 됩니다.</small>
+      </li>
+      <li>
+        <span>대학명</span>
+        <input type="text" />
+        <small>※ 해당 대학교재 판매시</small>
+      </li>
+    </ul>
+  </div>
+</main>
+{% endblock %}
