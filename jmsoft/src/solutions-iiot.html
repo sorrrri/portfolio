@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% import 'header.html' as menu %}
+{{menu.active('solutions')}}
+<div class="content solutions iiot sub">
+  <div class="title">
+    <h1 class="wrapper js-splitted-text">solutions</h1>
+  </div>
+  <div class="wrapper">
+    <ul class="sub-menu">
+      <li class="active"><a href="solutions-iiot.html">Smart IIoT</a></li>
+      <li><a href="solutions-rcs.html">Remote Control System</a></li>
+      <li><a href="solutions-fa.html">Smart Factory Automation</a></li>
+      <li><a href="solutions-dt.html">Digital Transformation</a></li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <div class="smart-iiot">
+      <div class="sub-title">
+        <h2>Smart IIoT <small>Smart Industrial Internet of Things</small></h2>
+        <p>현재 수집되고 있지 않은 PLC, CIM, File 데이터 수집을 위한 설비 개조, 변경 없이 데이터를 수집하여 분석에 필요한 Big-Data 구축과 Rule을 통한
+          설비
+          제어가 가능한 제조공정에 특화된 IoT System</p>
+      </div>
+      <section>
+        <img src="assets/images/solutions/smart-iiot.png" alt="">
+      </section>
+      <section>
+        <img src="assets/images/solutions/smart-iiot_02.jpg" alt="">
+      </section>
+    </div>
+  </div>
+</div>
+<script>
+  $('.rcs-function').slick({
+    infinite: true,
+    speed: 500,
+    fade: true,
+    autoplay: true,
+    arrows: true,
+    dots: true,
+    cssEase: 'linear'
+  });
+</script>
+{% endblock %}
