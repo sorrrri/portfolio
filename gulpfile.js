@@ -1,12 +1,15 @@
 const gulp = require("gulp");
 const nodemon = require("gulp-nodemon");
 const browserSync = require("browser-sync");
-const nunjucks = require("gulp-nunjucks-render");
-const del = require("del");
+const babel = require("gulp-babel");
 const scss = require("gulp-sass");
-const sourcemaps = require("gulp-sourcemaps");
 const autoprefixer = require("gulp-autoprefixer");
+const sourcemaps = require("gulp-sourcemaps");
+const del = require("del");
 const ghPages = require("gulp-gh-pages");
+const nunjucks = require("gulp-nunjucks-render");
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
 
 const PATH = {
   HTML: "./src",
@@ -21,13 +24,34 @@ const PATH = {
 const DEST_PATH = {
   HTML: "./dist",
   ASSETS: {
-    STYLE: "./dist/assets/css",
     FONTS: "./dist/assets/fonts",
+    STYLE: "./dist/assets/css",
     IMAGES: "./dist/assets/images",
     SCRIPT: "./dist/assets/js",
     LIB: "./dist/assets/lib",
   },
 };
+
+gulp.task("library", () => {
+  return gulp
+    .src(PATH.ASSETS.LIB + "/*.*")
+    .pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
+});
+
+gulp.task("fonts", () => {
+  return gulp.src("./src/**/*.ttf").pipe(gulp.dest("./dist"));
+});
+
+gulp.task("images", () => {
+  return gulp.src("./src/**/*.{jpg,png,gif,svg}").pipe(gulp.dest("./dist"));
+});
+
+gulp.task("favicon", () => {
+  return gulp
+    .src("src/assets/favicon" + "/**/*.*")
+    .pipe(gulp.dest("dist/assets/favicon"))
+    .pipe(browserSync.reload({ stream: true }));
+});
 
 gulp.task("clean", () => {
   return new Promise((resolve) => {
@@ -45,7 +69,7 @@ gulp.task("html", () => {
     .src(PATH.HTML + "/**/*.html")
     .pipe(
       nunjucks({
-        path: ["./src/templates"],
+        path: ["./src/innodep_cloud/templates"],
       })
     )
     .pipe(gulp.dest(DEST_PATH.HTML))
@@ -70,14 +94,6 @@ gulp.task("scss", () => {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("fonts", () => {
-  return gulp.src("./src/**/*.ttf").pipe(gulp.dest("./dist"));
-});
-
-gulp.task("images", () => {
-  return gulp.src("./src/**/*.{jpg,png,gif,svg}").pipe(gulp.dest("./dist"));
-});
-
 gulp.task("script", () => {
   return gulp
     .src("./src/**/*.js")
@@ -85,39 +101,32 @@ gulp.task("script", () => {
     .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("library", () => {
-  return gulp
-    .src(PATH.ASSETS.LIB + "/*.*")
-    .pipe(gulp.dest(DEST_PATH.ASSETS.LIB));
-});
-
-gulp.task("nodemon:start", () => {
-  return new Promise((resolve) => {
-    nodemon({
-      script: "app.js",
-      watch: "app",
-    });
-    resolve();
+gulp.task("nodemon", (cb) => {
+  let started = false;
+  return nodemon({
+    script: "server.js",
+  }).on("start", () => {
+    if (!started) {
+      cb();
+      started = true;
+    }
   });
 });
 
-gulp.task("browserSync", () => {
-  return new Promise((resolve) => {
+gulp.task(
+  "browser-sync",
+  gulp.series("nodemon", () => {
     browserSync.init(null, {
       proxy: "http://localhost:8005",
       port: 8006,
     });
-    resolve();
-  });
-});
+  })
+);
 
 gulp.task("watch", () => {
-  return new Promise((resolve) => {
-    gulp.watch("./src/assets/scss" + "/**/*.scss", gulp.series(["scss"]));
-    gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(["script"]));
-    gulp.watch(PATH.HTML + "/**/*.html", gulp.series(["html"]));
-    resolve();
-  });
+  gulp.watch(PATH.HTML + "/**/*.html", gulp.series(["html"]));
+  gulp.watch("./src/assets/scss" + "/**/*.scss", gulp.series(["scss"]));
+  gulp.watch(PATH.ASSETS.SCRIPT + "/**/*.js", gulp.series(["script"]));
 });
 
 gulp.task("deploy", () => {
@@ -126,15 +135,15 @@ gulp.task("deploy", () => {
 
 const series = gulp.series([
   "clean",
+  "favicon",
+  "library",
+  "images",
   "data",
-  "html",
   "scss",
   "fonts",
-  "images",
   "script",
-  "library",
-  "nodemon:start",
-  "browserSync",
-  "watch",
+  "html",
+  gulp.parallel("browser-sync", "watch"),
 ]);
+
 gulp.task("default", series);
